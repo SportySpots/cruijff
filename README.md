@@ -3,7 +3,7 @@
 
 
 ## Pre-requisites
-* Node: v7.10.3
+* Node: v7.10.1
 * NVM: v0.33.2
 * Yarn: v1.0.2
 * Cocoapods (for IOS):
