@@ -116,5 +116,9 @@
     "assets": [
       "fonts"
     ]
+  },
+  "engines": {
+    "node": "7.10.1",
+    "npm": "4.2.0"
   }
 }
