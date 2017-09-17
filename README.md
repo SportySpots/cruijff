@@ -1,5 +1,5 @@
 #  cruijff
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/) [![Build status](https://build.mobile.azure.com/v0.1/apps/2b00396c-deef-4523-8dad-d63201f4aa8b/branches/master/badge)](https://mobile.azure.com)
 
 * Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
 
@@ -59,4 +59,3 @@ Secrets.GOOGLE_MAPS_API_KEY  // 'abcdefgh'
 ```
 
 The `.env` file is ignored by git keeping those secrets out of your repo.
-
