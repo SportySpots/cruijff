@@ -22,7 +22,9 @@
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
     "fixcode": "standard --fix",
     "git-hook": "npm run lint -s && npm run test -s",
-    "ios:run": "react-native run-ios"
+    "ios:run": "react-native run-ios",
+    "precommit": "npm test",
+    "prepush": "npm test"
   },
   "dependencies": {
     "apisauce": "^0.14.0",
