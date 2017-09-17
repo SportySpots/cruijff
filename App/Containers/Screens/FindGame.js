@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
-import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { ActionButton, Toolbar } from 'react-native-material-ui';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { View } from 'react-native'
+import { Toolbar } from 'react-native-material-ui'
+import { connect } from 'react-redux'
 
-import NavigationBar from '../../Components/Navigation/NavigationBar';
-
-import styles from './Styles/FindGame';
+import NavigationBar from '../../Components/Navigation/NavigationBar'
 
 class FindGameScreen extends Component {
-  render() {
+  render () {
     return (
       <View style={{
         flex: 1
@@ -18,7 +14,7 @@ class FindGameScreen extends Component {
         <Toolbar leftElement='menu' centerElement='Searchable' searchable={{
           autoFocus: true,
           placeholder: 'Search'
-        }}/>
+        }} />
 
         <NavigationBar />
       </View>
@@ -28,10 +24,10 @@ class FindGameScreen extends Component {
 
 const dispatchToProps = (dispatch) => ({
 
-});
+})
 
 const mapStateToProps = (state) => ({
 
-});
+})
 
-export default connect(mapStateToProps, dispatchToProps)(FindGameScreen);
+export default connect(mapStateToProps, dispatchToProps)(FindGameScreen)

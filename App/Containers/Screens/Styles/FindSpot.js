@@ -1,7 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native'
-import { Metrics, ApplicationStyles } from '../../../Themes/'
-
-const height = Dimensions.get('window').height;
+import { ApplicationStyles } from '../../../Themes/'
+const height = Dimensions.get('window').height
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -15,7 +14,7 @@ export default StyleSheet.create({
   addButtonContainer: {
     flex: 1,
     position: 'absolute',
-    right: "5%",
-    bottom: "2%"
+    right: '5%',
+    bottom: '2%'
   }
-});
+})

@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { Image, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { Image, Text, View } from 'react-native'
 import PropTypes from 'prop-types'
-
-import { distance } from '../../Transforms/Distance';
 
 import styles from './Styles/CardStyles'
 
@@ -15,7 +13,7 @@ export default class Card extends Component {
     spot: PropTypes.object
   }
 
-  componentWillMount() {
+  componentWillMount () {
     // this.distance = distance(
     //   this.props.location.coords.latitude,
     //   this.props.location.coords.longitude,
@@ -24,7 +22,7 @@ export default class Card extends Component {
     // ).toFixed(1);
   }
 
-  render() {
+  render () {
     return (
       <View style={[this.props.style, styles.container]}>
         <View style={{
@@ -34,7 +32,7 @@ export default class Card extends Component {
             flex: 1
           }} source={{
             uri: (this.props.spot.images && this.props.spot.images[0]) || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A'
-          }}/>
+          }} />
         </View>
         <View style={{
           flex: 3
@@ -53,9 +51,9 @@ export default class Card extends Component {
         <View>
           <Image source={{
             uri: 'https://pbs.twimg.com/profile_images/3165824968/721ae4b725f6f5638b50527438f6901e.jpeg'
-          }}/>
+          }} />
         </View>
       </View>
-    );
+    )
   }
 }

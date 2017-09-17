@@ -1,10 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { Metrics, ApplicationStyles } from '../../../Themes/'
 
 export default StyleSheet.create({
   container: {
     // flex: .5, //for now
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
     // height: 500
   },
   bottom: {
@@ -27,4 +26,4 @@ export default StyleSheet.create({
     color: '#c1c1c1',
     paddingLeft: 10
   }
-});
+})

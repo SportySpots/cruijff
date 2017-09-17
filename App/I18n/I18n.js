@@ -11,7 +11,7 @@ I18n.translations = {
 }
 
 // If the translation is not found, return the original string
-I18n.missingTranslation = (str) => str;
+I18n.missingTranslation = (str) => str
 
 let languageCode = I18n.locale.substr(0, 2)
 

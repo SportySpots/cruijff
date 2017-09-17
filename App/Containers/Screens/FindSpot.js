@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
-import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
-import { ActionButton, Toolbar } from 'react-native-material-ui';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { FlatList, View } from 'react-native'
+import { ActionButton, Toolbar } from 'react-native-material-ui'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-import Card from "../../Components/Cards/Card";
-import NavigationBar from "../../Components/Navigation/NavigationBar";
+import Card from '../../Components/Cards/Card'
+import NavigationBar from '../../Components/Navigation/NavigationBar'
 
-import SpotsActions from '../../Redux/StartupRedux'
-
-import styles from './Styles/FindSpot';
+import styles from './Styles/FindSpot'
 
 class FindSpotScreen extends Component {
   static defaultProps = {
@@ -37,29 +34,29 @@ class FindSpotScreen extends Component {
   }
 
   onAddButtonPress = () => {
-    console.tron.log(styles);
-    this.props.navigation.navigate('LoginScreen');
+    console.tron.log(styles)
+    this.props.navigation.navigate('LoginScreen')
   };
 
-  componentWillMount() {
-    this.props.getSpots();
+  componentWillMount () {
+    this.props.getSpots()
   }
 
-  renderCard = ({item: spot}) => <Card key={spot._id['$oid']} style={styles.card} spot={spot}/>;
+  renderCard = ({item: spot}) => <Card key={spot._id['$oid']} style={styles.card} spot={spot} />;
 
   getKey = (spot) => spot._id['$oid'];
 
-  render() {
+  render () {
     return (
       <View style={{
         flex: 1
       }}>
-        <Toolbar leftElement="menu" centerElement="Searchable" searchable={{
+        <Toolbar leftElement='menu' centerElement='Searchable' searchable={{
           autoFocus: true,
           placeholder: 'Search'
-        }}/>
+        }} />
 
-        <FlatList data={this.props.spots.slice(0, 20)} keyExtractor={this.getKey} renderItem={this.renderCard}/>
+        <FlatList data={this.props.spots.slice(0, 20)} keyExtractor={this.getKey} renderItem={this.renderCard} />
 
         <ActionButton onPress={this.onAddButtonPress} />
 
@@ -71,8 +68,8 @@ class FindSpotScreen extends Component {
 
 const dispatchToProps = (dispatch) => ({
   // getSpots: () => dispatch(SpotsActions.getSpots()),
-});
+})
 
-const mapStateToProps = (state) => ({spots: state.spots});
+const mapStateToProps = (state) => ({spots: state.spots})
 
-export default connect(mapStateToProps, dispatchToProps)(FindSpotScreen);
+export default connect(mapStateToProps, dispatchToProps)(FindSpotScreen)
