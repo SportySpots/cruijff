@@ -1,6 +1,6 @@
 import React from "react";
 import {FlatList, ScrollView, StyleSheet, TouchableOpacity, View} from "react-native";
-import {Toolbar} from 'react-native-material-ui';
+import {ActionButton, Toolbar} from 'react-native-material-ui';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -38,7 +38,7 @@ class SearchComponent extends React.Component {
   }
 
   onAddButtonPress = () => {
-    this.props.navigator.navigate('newspot');
+    this.props.navigation.navigate('LoginScreen');
   };
 
   componentWillMount() {
@@ -61,11 +61,7 @@ class SearchComponent extends React.Component {
 
         <FlatList data={this.props.spots.slice(0, 20)} keyExtractor={this.getKey} renderItem={this.renderCard}/>
 
-        <View style={styles.addButtonContainer}>
-          <TouchableOpacity onPress={this.onAddButtonPress}>
-            <Icon name="add" scale={3} color="red"/>
-          </TouchableOpacity>
-        </View>
+        <ActionButton onPress={this.onAddButtonPress} />
       </View>
     )
   }
