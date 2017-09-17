@@ -1,23 +1,28 @@
-import { StackNavigator } from 'react-navigation'
-import LoginScreen from '../Containers/LoginScreen'
-import SearchScreen from '../Containers/SearchScreen'
+import { StackNavigator } from 'react-navigation';
 
-import styles from './Styles/NavigationStyles'
+import FindGameScreen from '../Containers/Screens/FindGame';
+import FindSpotScreen from '../Containers/Screens/FindSpot';
+import LoginScreen from '../Containers/Screens/Login';
+import ProfileScreen from '../Containers/Screens/Profile';
+
+import styles from './Styles/NavigationStyles';
 
 // Use this to either show the LoginScreen, or go straight to the SearchScreen
-const userIsLoggedIn = true;
+const userIsLoggedIn = false;
 
 // Manifest of possible screens
 const AppNavigation = StackNavigator({
+  FindGameScreen: { screen: FindGameScreen },
+  FindSpotScreen: { screen: FindSpotScreen },
   LoginScreen: { screen: LoginScreen },
-  SearchScreen: { screen: SearchScreen },
+  ProfileScreen: { screen: ProfileScreen },
 }, {
   // Default config for all screens
   headerMode: 'none',
-  initialRouteName: userIsLoggedIn ? 'SearchScreen' : 'LoginScreen',
+  initialRouteName: userIsLoggedIn ? 'FindSpotScreen' : 'LoginScreen',
   navigationOptions: {
     headerStyle: styles.header
   }
-})
+});
 
-export default AppNavigation
+export default AppNavigation;

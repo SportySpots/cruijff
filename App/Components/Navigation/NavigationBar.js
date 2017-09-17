@@ -6,24 +6,24 @@ import { withNavigation } from 'react-navigation';
 const NavigationBar = ({ navigation }) => (
   <BottomNavigation active={navigation.state.routeName}>
    <BottomNavigation.Action
-       key="findspot"
+       key="FindSpotScreen"
        icon="find-in-page"
        label={I18n.t('Find spot')}
-       onPress={() => navigation.navigate('findspot')}
+       onPress={() => navigation.navigate('FindSpotScreen')}
    />
 
    <BottomNavigation.Action
-       key="findgame"
+       key="FindGameScreen"
        icon="people"
        label={I18n.t('Find game')}
-       onPress={() => navigation.navigate('findgame')}
+       onPress={() => navigation.navigate('FindGameScreen')}
    />
 
    <BottomNavigation.Action
-       key="profile"
+       key="ProfileScreen"
        icon="account-circle"
        label={I18n.t('Profile')}
-       onPress={() => navigation.navigate('profile')}
+       onPress={() => navigation.navigate('ProfileScreen')}
    />
   </BottomNavigation>
 );

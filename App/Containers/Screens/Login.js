@@ -3,10 +3,10 @@ import { Button, Text, View } from 'react-native';
 import I18n from 'react-native-i18n';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Logo from '../Components//Logo';
+import Logo from '../../Components/Logo';
 
 // Styles
-import styles from './Styles/LoginScreenStyles'
+import styles from './Styles/Login'
 
 export default class LoginScreen extends Component {
   loginWithFacebook = async() => {
@@ -14,7 +14,7 @@ export default class LoginScreen extends Component {
     // Facebook.logInWithReadPermissionsAsync('402530240145015', {
     //   permissions: ['public_profile']
     // })
-    this.props.navigation.navigate('SearchScreen');
+    this.props.navigation.navigate('FindSpotScreen');
   };
 
   render() {

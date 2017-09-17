@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import {FlatList, ScrollView, StyleSheet, TouchableOpacity, View} from "react-native";
-import {ActionButton, Toolbar} from 'react-native-material-ui';
+import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
+import { ActionButton, Toolbar } from 'react-native-material-ui';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Card from "../Components/Cards/Card";
-import NavigationBar from "../Components/Navigation/NavigationBar";
+import Card from "../../Components/Cards/Card";
+import NavigationBar from "../../Components/Navigation/NavigationBar";
 
-import SpotsActions from '../Redux/StartupRedux'
+import SpotsActions from '../../Redux/StartupRedux'
 
-// import {Toolbar} from 'react-native-material-ui';
+import styles from './Styles/FindSpot';
 
-import styles from './Styles/SearchScreenStyles';
-
-class SearchComponent extends Component {
+class FindSpotScreen extends Component {
   static defaultProps = {
     getSpots: () => {},
     spots: [
@@ -77,4 +75,4 @@ const dispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({spots: state.spots});
 
-export default connect(mapStateToProps, dispatchToProps)(SearchComponent);
+export default connect(mapStateToProps, dispatchToProps)(FindSpotScreen);
