@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import {BottomNavigation} from 'react-native-material-ui';
+import { withNavigation } from 'react-navigation';
 
-export default class NavigationBar extends Component {
-  constructor() {
-    super();
+const NavigationBar = ({ navigation }) => (
+  <BottomNavigation active={navigation.state.routeName}>
+   <BottomNavigation.Action
+       key="findspot"
+       icon="find-in-page"
+       label="Find spot"
+       onPress={() => navigation.navigate('findspot')}
+   />
 
-    this.state = {
-      active: 'today',
-    };
-  }
+   <BottomNavigation.Action
+       key="findgame"
+       icon="people"
+       label="Find game"
+       onPress={() => navigation.navigate('findgame')}
+   />
 
-  render() {
-    return (
-      <BottomNavigation active={this.state.active} hidden={false}>
-        <BottomNavigation.Action key="today" icon="today" label="Today" onPress={() => this.setState({active: 'today'})}/>
-        <BottomNavigation.Action key="people" icon="people" label="People" onPress={() => this.setState({active: 'people'})}/>
-        <BottomNavigation.Action key="bookmark-border" icon="bookmark-border" label="Bookmark" onPress={() => this.setState({active: 'bookmark-border'})}/>
-        <BottomNavigation.Action key="settings" icon="settings" label="Settings" onPress={() => this.setState({active: 'settings'})}/>
-      </BottomNavigation>
-    )
-  }
-}
+   <BottomNavigation.Action
+       key="profile"
+       icon="account-circle"
+       label="Profile"
+       onPress={() => navigation.navigate('profile')}
+   />
+  </BottomNavigation>
+);
+export default withNavigation(NavigationBar);

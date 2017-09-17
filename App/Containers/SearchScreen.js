@@ -39,6 +39,7 @@ class SearchComponent extends Component {
   }
 
   onAddButtonPress = () => {
+    console.tron.log(styles);
     this.props.navigation.navigate('LoginScreen');
   };
 
