@@ -1,28 +1,38 @@
 #  cruijff
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/) [![Build status](https://build.mobile.azure.com/v0.1/apps/2b00396c-deef-4523-8dad-d63201f4aa8b/branches/master/badge)](https://mobile.azure.com)
 
-* Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
 
-## :arrow_up: How to Setup
+## Pre-requisites
+* Node: v7.10.3
+* NVM: v0.33.2
+* Yarn: v1.0.2
+* Cocoapods (for IOS):
+** `brew install cocoapods`
+* [Reactron](https://github.com/infinitered/reactotron)
+
+
+## How to Setup
 
 **Step 1:** git clone this repo:
 
 **Step 2:** cd to the cloned repo:
 
-**Step 3:** Install the Application with `yarn` or `npm i`
+**Step 3:** `nvm use`:
+
+**Step 4:** Install the Application with `yarn`
 
 
-## :arrow_forward: How to Run App
+## How to Run App
 
 1. cd to the repo
 2. Run Build for either OS
   * for iOS
-    * run `react-native run-ios`
+    * run `npm run ios:run`
   * for Android
     * Run Genymotion
-    * run `react-native run-android`
+    * run `npm run android:run`
 
-## :no_entry_sign: Standard Compliant
+## Standard Compliant
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 This project adheres to Standard.  Our CI enforces this, so we suggest you enable linting to keep your project compliant during development.
