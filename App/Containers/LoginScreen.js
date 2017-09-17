@@ -8,9 +8,11 @@ import styles from './Styles/LoginScreenStyles'
 
 export default class LoginScreen extends Component {
   onFacebookLogin = async() => {
-    Facebook.logInWithReadPermissionsAsync('402530240145015', {
-      permissions: ['public_profile']
-    })
+    // TODO: add FB integration
+    // Facebook.logInWithReadPermissionsAsync('402530240145015', {
+    //   permissions: ['public_profile']
+    // })
+    this.props.navigation.navigate('SearchScreen');
   };
 
   render() {

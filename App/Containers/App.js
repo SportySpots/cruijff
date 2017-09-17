@@ -1,9 +1,24 @@
 import '../Config'
 import DebugConfig from '../Config/DebugConfig'
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
+
+import React, {Component} from 'react'
+import {Provider} from 'react-redux'
+import {ThemeProvider} from 'react-native-material-ui';
+
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
+
+// TODO move this to ../Themes
+const uiTheme = {
+  palette: {
+    primaryColor: '#f5a623', //009f36
+  },
+  toolbar: {
+    container: {
+      height: 50
+    }
+  }
+};
 
 // create our store
 const store = createStore()
@@ -18,10 +33,12 @@ const store = createStore()
  * We separate like this to play nice with React Native's hot reloading.
  */
 class App extends Component {
-  render () {
+  render() {
     return (
       <Provider store={store}>
-        <RootContainer />
+        <ThemeProvider uiTheme={uiTheme}>
+          <RootContainer/>
+        </ThemeProvider>
       </Provider>
     )
   }
