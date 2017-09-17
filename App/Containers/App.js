@@ -13,11 +13,6 @@ const uiTheme = {
   palette: {
     primaryColor: '#f5a623', //009f36
   },
-  toolbar: {
-    container: {
-      height: 50
-    }
-  }
 };
 
 // create our store

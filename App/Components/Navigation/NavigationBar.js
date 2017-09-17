@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import I18n from 'react-native-i18n';
 import {BottomNavigation} from 'react-native-material-ui';
 import { withNavigation } from 'react-navigation';
 
@@ -7,21 +8,21 @@ const NavigationBar = ({ navigation }) => (
    <BottomNavigation.Action
        key="findspot"
        icon="find-in-page"
-       label="Find spot"
+       label={I18n.t('Find spot')}
        onPress={() => navigation.navigate('findspot')}
    />
 
    <BottomNavigation.Action
        key="findgame"
        icon="people"
-       label="Find game"
+       label={I18n.t('Find game')}
        onPress={() => navigation.navigate('findgame')}
    />
 
    <BottomNavigation.Action
        key="profile"
        icon="account-circle"
-       label="Profile"
+       label={I18n.t('Profile')}
        onPress={() => navigation.navigate('profile')}
    />
   </BottomNavigation>

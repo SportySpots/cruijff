@@ -10,6 +10,9 @@ I18n.translations = {
   en: require('./languages/english.json')
 }
 
+// If the translation is not found, return the original string
+I18n.missingTranslation = (str) => str;
+
 let languageCode = I18n.locale.substr(0, 2)
 
 // All other translations for the app goes to the respective language file:

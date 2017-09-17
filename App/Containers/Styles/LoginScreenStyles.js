@@ -12,10 +12,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  formContainer: {
-    flex: 1,
-    alignItems: 'stretch'
-  },
   logo: {
     width: 100,
     height: 100
@@ -24,6 +20,7 @@ export default StyleSheet.create({
     fontFamily: 'Rajdhani-Bold',
     color: 'white',
     fontSize: 28,
-    marginTop: 30
+    marginTop: 30,
+    marginBottom: 30,
   }
 });

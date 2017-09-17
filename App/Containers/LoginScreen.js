@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Text, View } from 'react-native';
+import I18n from 'react-native-i18n';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Logo from '../Components//Logo';
 
@@ -7,7 +9,7 @@ import Logo from '../Components//Logo';
 import styles from './Styles/LoginScreenStyles'
 
 export default class LoginScreen extends Component {
-  onFacebookLogin = async() => {
+  loginWithFacebook = async() => {
     // TODO: add FB integration
     // Facebook.logInWithReadPermissionsAsync('402530240145015', {
     //   permissions: ['public_profile']
@@ -21,9 +23,10 @@ export default class LoginScreen extends Component {
         <View style={styles.logoContainer}>
           <Logo style={styles.logo}/>
           <Text style={styles.title}>SOCCERSPOTS</Text>
-        </View>
-        <View style={styles.formContainer}>
-          <Button onPress={this.onFacebookLogin} title="Facebook login">Facebook login</Button>
+
+          <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={this.loginWithFacebook}>
+            {I18n.t('Login with Facebook')}
+          </Icon.Button>
         </View>
       </View>
     );
