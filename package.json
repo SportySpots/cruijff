@@ -25,7 +25,7 @@
     "ios:run": "react-native run-ios",
     "android:run": "react-native run-android",
     "precommit": "npm test",
-    "prepush": "npm test"
+    "prepush": "npm run lint -s && npm run test -s"
   },
   "dependencies": {
     "apisauce": "^0.14.0",
