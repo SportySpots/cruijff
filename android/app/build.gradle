@@ -133,6 +133,9 @@ android {
 }
 
 dependencies {
+    compile project(':mobile-center-crashes')
+    compile project(':mobile-center-analytics')
+    compile project(':mobile-center')
     compile project(':react-native-config')
     compile project(':react-native-svg')
     compile project(':react-native-i18n')
