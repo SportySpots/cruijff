@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Component } from 'react';
 import {FlatList, ScrollView, StyleSheet, TouchableOpacity, View} from "react-native";
-import {Toolbar} from 'react-native-material-ui';
+import {ActionButton, Toolbar} from 'react-native-material-ui';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Card from "../Components/Cards/Card";
+import NavigationBar from "../Components/Navigation/NavigationBar";
 
 import SpotsActions from '../Redux/StartupRedux'
 
@@ -13,7 +14,7 @@ import SpotsActions from '../Redux/StartupRedux'
 
 import styles from './Styles/SearchScreenStyles';
 
-class SearchComponent extends React.Component {
+class SearchComponent extends Component {
   static defaultProps = {
     getSpots: () => {},
     spots: [
@@ -38,7 +39,8 @@ class SearchComponent extends React.Component {
   }
 
   onAddButtonPress = () => {
-    this.props.navigator.navigate('newspot');
+    console.tron.log(styles);
+    this.props.navigation.navigate('LoginScreen');
   };
 
   componentWillMount() {
@@ -61,11 +63,9 @@ class SearchComponent extends React.Component {
 
         <FlatList data={this.props.spots.slice(0, 20)} keyExtractor={this.getKey} renderItem={this.renderCard}/>
 
-        <View style={styles.addButtonContainer}>
-          <TouchableOpacity onPress={this.onAddButtonPress}>
-            <Icon name="add" scale={3} color="red"/>
-          </TouchableOpacity>
-        </View>
+        <ActionButton onPress={this.onAddButtonPress} />
+
+        <NavigationBar />
       </View>
     )
   }
