@@ -120,5 +120,8 @@
   "engines": {
     "node": "7.10.1",
     "npm": "4.2.0"
+  },
+  "optionalDependencies": {
+    "npm-check": "^5.4.5"
   }
 }
