@@ -22,8 +22,8 @@
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
     "fixcode": "standard --fix",
     "git-hook": "npm run lint -s && npm run test -s",
-    "ios:run": "react-native run-ios",
-    "android:run": "react-native run-android",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
     "precommit": "npm test",
     "prepush": "npm run lint -s && npm run test -s"
   },
