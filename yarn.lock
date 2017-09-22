@@ -7419,7 +7419,7 @@ react-native-drawer@2.5.0:
     prop-types "^15.5.8"
     tween-functions "^1.0.1"
 
-react-native-i18n@2.0.6:
+react-native-i18n@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/react-native-i18n/-/react-native-i18n-2.0.6.tgz#474a3ad79aac34965b2eb7148cf2703398efb406"
   dependencies:
