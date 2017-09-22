@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import I18n from 'react-native-i18n'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import React, { Component } from 'react'
 
 import Logo from '../../Components/Logo'
-
-// Styles
 import styles from './Styles/Login'
 
 export default class LoginScreen extends Component {
