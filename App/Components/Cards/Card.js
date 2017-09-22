@@ -9,7 +9,7 @@ export default class Card extends Component {
 
   static propTypes = {
     location: PropTypes.object,
-    style: PropTypes.number,
+    style: PropTypes.object,
     spot: PropTypes.object
   }
 
