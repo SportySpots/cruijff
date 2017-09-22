@@ -3,9 +3,10 @@ node_js:
   - node
 
 env:
-  - CI=false
+  - CI = false
   global:
     - NODE_VERSION=stable
+
 
 before_install:
   - set -e
@@ -17,6 +18,7 @@ install:
 
 script:
   - yarn run test
+  - yarn run updateProjects
 
 after_script:
   - echo "BUILD FINISHED"
