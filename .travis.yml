@@ -2,12 +2,6 @@ language: node_js
 node_js:
   - node
 
-env:
-  - CI = false
-  global:
-    - NODE_VERSION=stable
-
-
 before_install:
   - set -e
   - curl -o- -L https://yarnpkg.com/install.sh | bash
