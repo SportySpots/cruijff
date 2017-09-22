@@ -30,7 +30,6 @@
     "lint": "standard --verbose | snazzy",
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
     "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && npm cache clean --force && npm i",
-    "precommit": "npm test",
     "prepush": "npm run lint -s && npm run test -s",
     "push:history": "echo 'IOS Production History' && code-push deployment history ChainReactConf Production && echo 'Android Production History' && code-push deployment history ChainReactConf-Android Production",
     "push:status": "echo 'IOS' && code-push deployment ls ChainReactConf && echo 'Android' && code-push deployment ls ChainReactConf-Android",
