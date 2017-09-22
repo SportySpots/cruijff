@@ -1,4 +1,4 @@
-#  cruijff
+#  SportySpots React Native App
 **JS Standard Style**: [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 **Travis**: [![Travis Build Status](https://travis-ci.org/SportySpots/cruijff.svg?branch=master)](https://travis-ci.org/SportySpots/cruijff)
