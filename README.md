@@ -1,7 +1,10 @@
 #  cruijff
 **JS Standard Style**: [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+
 **Travis**: [![Travis Build Status](https://travis-ci.org/SportySpots/cruijff.svg?branch=master)](https://travis-ci.org/SportySpots/cruijff)
+
 **Mobile Center IOS**: [![Build status IOS](https://build.mobile.azure.com/v0.1/apps/2b00396c-deef-4523-8dad-d63201f4aa8b/branches/master/badge)](https://mobile.azure.com)
+
 **Mobile Center Android**: [![Build status Android](https://build.mobile.azure.com/v0.1/apps/faccffcd-1960-4ceb-82c9-e822fbb78a7f/branches/master/badge)](https://mobile.azure.com)
 
 
