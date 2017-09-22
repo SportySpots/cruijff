@@ -12,7 +12,6 @@ install:
 
 script:
   - yarn run test
-  - yarn run updateProjects
 
 after_script:
   - echo "BUILD FINISHED"
