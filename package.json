@@ -78,7 +78,7 @@
     "babel-preset-react-native": "4.0.0",
     "code-push-cli": "2.1.0-beta",
     "enzyme": "2.9.1",
-    "eslint-plugin-flowtype": "2.35.1",
+    "eslint-plugin-flowtype": "2.36.0",
     "flow-bin": "0.55.0",
     "husky": "0.14.3",
     "ignite-animatable": "1.0.0",
