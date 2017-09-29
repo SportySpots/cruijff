@@ -17,7 +17,7 @@ export default StyleSheet.create({
     height: 100
   },
   title: {
-    fontFamily: 'Rajdhani-Bold',
+    fontFamily: 'Roboto-Bold',
     color: 'white',
     fontSize: 28,
     marginTop: 30,

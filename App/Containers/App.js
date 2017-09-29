@@ -6,13 +6,8 @@ import '../Config'
 import DebugConfig from '../Config/DebugConfig'
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
+import uiTheme from '../Themes/UiThemes'
 
-// TODO move this to ../Themes
-const uiTheme = {
-  palette: {
-    primaryColor: '#f5a623' // 009f36
-  }
-}
 
 // create our store
 const store = createStore()
