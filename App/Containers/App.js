@@ -8,7 +8,6 @@ import RootContainer from './RootContainer'
 import createStore from '../Redux'
 import uiTheme from '../Themes/UiThemes'
 
-
 // create our store
 const store = createStore()
 
