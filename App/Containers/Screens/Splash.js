@@ -4,9 +4,9 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import React, { Component } from 'react'
 
 import Logo from '../../Components/Logo'
-import styles from './Styles/Login'
+import styles from './Styles/Splash'
 
-export default class LoginScreen extends Component {
+export default class SplashScreen extends Component {
   loginWithFacebook = async() => {
     // TODO: add FB integration
     // Facebook.logInWithReadPermissionsAsync('402530240145015', {

@@ -6,7 +6,7 @@ import '../Config'
 import DebugConfig from '../Config/DebugConfig'
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
-import uiTheme from '../Themes/UiThemes'
+import defaultUiTheme from '../Themes/UiThemes'
 
 // create our store
 const store = createStore()
@@ -24,7 +24,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <ThemeProvider uiTheme={uiTheme}>
+        <ThemeProvider uiTheme={defaultUiTheme}>
           <RootContainer />
         </ThemeProvider>
       </Provider>
