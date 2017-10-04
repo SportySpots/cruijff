@@ -61,7 +61,7 @@ exports[`Storyshots Card Custom Style 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontFamily": "Rajdhani-Bold",
+            "fontFamily": "Roboto-Bold",
             "fontSize": 30,
           }
         }
@@ -83,7 +83,7 @@ exports[`Storyshots Card Custom Style 1`] = `
           style={
             Object {
               "color": "#c1c1c1",
-              "fontFamily": "Rajdhani-Bold",
+              "fontFamily": "Roboto-Bold",
               "fontSize": 16,
               "paddingLeft": 10,
             }
@@ -165,7 +165,7 @@ exports[`Storyshots Card Default 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontFamily": "Rajdhani-Bold",
+            "fontFamily": "Roboto-Bold",
             "fontSize": 30,
           }
         }
@@ -187,7 +187,7 @@ exports[`Storyshots Card Default 1`] = `
           style={
             Object {
               "color": "#c1c1c1",
-              "fontFamily": "Rajdhani-Bold",
+              "fontFamily": "Roboto-Bold",
               "fontSize": 16,
               "paddingLeft": 10,
             }
