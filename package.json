@@ -59,7 +59,7 @@
     "react-native-i18n": "^2.0.6",
     "react-native-material-ui": "1.13.0",
     "react-native-offline": "3.1.1",
-    "react-native-svg": "6.0.0-rc1",
+    "react-native-svg": "5.4.1",
     "react-native-vector-icons": "4.4.0",
     "react-navigation": "1.0.0-beta.13",
     "react-redux": "5.0.6",
@@ -116,10 +116,10 @@
   },
   "config": {},
   "standard": {
+    "parser": "babel-eslint",
     "plugins": [
       "flowtype"
     ],
-    "parser": "babel-eslint",
     "globals": [
       "describe",
       "test",

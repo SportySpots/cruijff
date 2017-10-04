@@ -133,12 +133,12 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-svg')
     compile project(':react-native-i18n')
     compile project(':mobile-center-crashes')
     compile project(':mobile-center-analytics')
     compile project(':mobile-center')
     compile project(':react-native-config')
-    compile project(':react-native-svg')
     compile project(':react-native-vector-icons')
     compile project(':react-native-device-info')
     compile fileTree(dir: "libs", include: ["*.jar"])
