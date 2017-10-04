@@ -80,7 +80,7 @@
     "enzyme": "3.0.0",
     "eslint-plugin-flowtype": "2.36.0",
     "flow-bin": "0.56.0",
-    "husky": "0.14.3",
+    "husky": "0.15.0-beta.2",
     "ignite-animatable": "1.0.0",
     "ignite-dev-screens": "2.1.0",
     "ignite-i18n": "1.1.1",
