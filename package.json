@@ -46,7 +46,7 @@
     "mobile-center": "0.9.0",
     "mobile-center-analytics": "0.9.0",
     "mobile-center-crashes": "0.9.0",
-    "prop-types": "15.5.10",
+    "prop-types": "15.6.0",
     "querystringify": "1.0.0",
     "ramda": "0.24.1",
     "react": "16.0.0-alpha.12",
