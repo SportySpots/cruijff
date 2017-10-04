@@ -117,7 +117,7 @@
   "config": {},
   "standard": {
     "plugins": [
-      "flowtype "
+      "flowtype"
     ],
     "parser": "babel-eslint",
     "globals": [
