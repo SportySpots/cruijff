@@ -34,7 +34,7 @@
     "prepush": "npm run lint -s && npm run test -s",
     "push:history": "echo 'IOS Production History' && code-push deployment history ChainReactConf Production && echo 'Android Production History' && code-push deployment history ChainReactConf-Android Production",
     "push:status": "echo 'IOS' && code-push deployment ls ChainReactConf && echo 'Android' && code-push deployment ls ChainReactConf-Android",
-    "push": "yarn run ios:push && yarn run android:push",
+    "push": "yarn ios:push && yarn android:push",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "storybook": "storybook start -p 7007",
     "test:watch": "jest --watch",
