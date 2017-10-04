@@ -543,9 +543,9 @@ babel-core@^6.0.0, babel-core@^6.24.1, babel-core@^6.25.0, babel-core@^6.26.0, b
     slash "^1.0.0"
     source-map "^0.5.6"
 
-babel-eslint@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.0.0.tgz#ce06f385bdfb5b6d7e603f06222f891abd14c240"
+babel-eslint@8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.0.1.tgz#5d718be7a328625d006022eb293ed3008cbd6346"
   dependencies:
     babel-code-frame "7.0.0-beta.0"
     babel-traverse "7.0.0-beta.0"
@@ -3388,9 +3388,9 @@ eslint-module-utils@^2.0.0:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-flowtype@2.35.1:
-  version "2.35.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.35.1.tgz#9ad98181b467a3645fbd2a8d430393cc17a4ea63"
+eslint-plugin-flowtype@^2.37.0:
+  version "2.37.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.37.0.tgz#2b09694deea6efdd8354eccd328db134b2d8b6d5"
   dependencies:
     lodash "^4.15.0"
 
@@ -3873,9 +3873,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-bin@0.55.0:
-  version "0.55.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.55.0.tgz#9083da9327bd8cab6b4076d63d85f2247a7eae1b"
+flow-bin@0.56.0:
+  version "0.56.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.56.0.tgz#ce43092203a344ba9bf63c0cabe95d95145f6cad"
 
 follow-redirects@^1.2.3:
   version "1.2.4"
