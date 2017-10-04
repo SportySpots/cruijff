@@ -18,10 +18,10 @@ export default StyleSheet.create({
   },
   name: {
     fontSize: 30,
-    fontFamily: 'Rajdhani-Bold'
+    fontFamily: 'Roboto-Bold'
   },
   distanceText: {
-    fontFamily: 'Rajdhani-Bold',
+    fontFamily: 'Roboto-Bold',
     fontSize: 16,
     color: '#c1c1c1',
     paddingLeft: 10
