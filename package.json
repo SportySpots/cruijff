@@ -7,6 +7,7 @@
     "android:build": "cd android && ./gradlew assembleRelease",
     "android:clean": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
     "android:devices": "$ANDROID_HOME/platform-tools/adb devices",
+    "android:emulator": "$ANDROID_HOME/tools/emulator -avd Nexus_5X_API_25",
     "android:hockeyapp": "cd android && ./gradlew assembleRelease && puck -submit=auto app/build/outputs/apk/app-release.apk",
     "android:install": "cd android && ./gradlew assembleRelease && ./gradlew installRelease",
     "android:logcat": "$ANDROID_HOME/platform-tools/adb logcat *:S ReactNative:V ReactNativeJS:V",
