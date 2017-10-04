@@ -9,7 +9,6 @@ import com.microsoft.azure.mobile.react.analytics.RNAnalyticsPackage;
 import com.microsoft.azure.mobile.react.mobilecenter.RNMobileCenterPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.horcrux.svg.SvgPackage;
-import com.i18n.reactnativei18n.ReactNativeI18n;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.facebook.react.ReactNativeHost;
@@ -31,14 +30,13 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new RNI18nPackage(),
+            new MainReactPackage(),
             new RNCrashesPackage(MainApplication.this, getResources().getString(R.string.mobileCenterCrashes_whenToSendCrashes)),
             new RNAnalyticsPackage(MainApplication.this, getResources().getString(R.string.mobileCenterAnalytics_whenToEnableAnalytics)),
             new RNMobileCenterPackage(MainApplication.this),
             new ReactNativeConfigPackage(),
             new SvgPackage(),
-            new ReactNativeI18n(),
+            new RNI18nPackage(),
             new VectorIconsPackage(),
             new RNDeviceInfo()
       );
