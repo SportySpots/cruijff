@@ -1,17 +1,14 @@
 import { Text, View } from 'react-native'
 import I18n from 'react-native-i18n'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import React, { Component } from 'react'
+import React from 'react'
 
 import Logo from '../../Components/Logo'
 import styles from './Styles/Splash'
 
-export default class SplashScreen extends Component {
+export default class SplashScreen extends React.Component {
   loginWithFacebook = async() => {
     // TODO: add FB integration
-    // Facebook.logInWithReadPermissionsAsync('402530240145015', {
-    //   permissions: ['public_profile']
-    // })
     this.props.navigation.navigate('FindSpotScreen')
   };
 
@@ -19,8 +16,8 @@ export default class SplashScreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
-          <Logo style={styles.logo} />
-          <Text style={styles.title}>SOCCERSPOTS</Text>
+          <Logo />
+          <Text style={styles.title}>{I18n.t('Sporty Spots')}</Text>
 
           <Icon.Button name='facebook' backgroundColor='#3b5998' onPress={this.loginWithFacebook}>
             {I18n.t('Login with Facebook')}

@@ -12,10 +12,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  logo: {
-    width: 100,
-    height: 100
-  },
   title: {
     fontFamily: 'Roboto-Bold',
     color: 'white',

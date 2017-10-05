@@ -19,7 +19,7 @@
     "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean --force",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
     "fixcode": "standard --fix",
-    "git-hook": "npm run lint -s && npm run test -s",
+    "git-hook": "yarn lint -s && yarn test -s",
     "ios:beta": "cd ./ios && fastlane beta",
     "ios:bundle": "react-native bundle --entry-file index.ios.js --platform ios --dev false --reset-cache --bundle-output ./ios/main.jsbundle --assets-dest ./ios/release/main.jsbundle",
     "ios:promote": "code-push promote ChainReactConf Staging Production -t '*'",
@@ -31,7 +31,7 @@
     "lint": "standard --verbose | snazzy",
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
     "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && npm cache clean --force && npm i",
-    "prepush": "npm run lint -s && npm run test -s",
+    "prepush": "yarn lint -s && yarn test -s",
     "push:history": "echo 'IOS Production History' && code-push deployment history ChainReactConf Production && echo 'Android Production History' && code-push deployment history ChainReactConf-Android Production",
     "push:status": "echo 'IOS' && code-push deployment ls ChainReactConf && echo 'Android' && code-push deployment ls ChainReactConf-Android",
     "push": "yarn ios:push && yarn android:push",
@@ -118,7 +118,7 @@
   "standard": {
     "parser": "babel-eslint",
     "plugins": [
-      "flowtype"
+      "flowtype "
     ],
     "globals": [
       "describe",

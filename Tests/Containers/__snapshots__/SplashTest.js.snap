@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Splash Screen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#005A40",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Svg
+      height={74}
+      viewBox="0 0 63 74"
+      width={64}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <G
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <Rect
+          fill="#07D654"
+          height="74"
+          rx="5"
+          width="63"
+        />
+        <Path
+          d="M10.023 10.57h42.954v52.86H10.023"
+          fill="#FFF"
+        />
+        <Path
+          d="M0 42.286h42v10.57H0zM21 21.143h42v10.57H21z"
+          fill="#248232"
+        />
+        <Path
+          d="M0 10.57h10.5v52.86H0M52.5 10.57H63v52.86H52.5"
+          fill="#2BA84A"
+        />
+        <Path
+          d="M0 63.43h63V74H0z"
+        />
+        <Path
+          d="M10.5 0h42v10.57h-42zM10.5 63.43h42V74h-42z"
+          fill="#248232"
+        />
+      </G>
+    </Svg>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontFamily": "Roboto-Bold",
+          "fontSize": 28,
+          "marginBottom": 30,
+          "marginTop": 30,
+        }
+      }
+    >
+      Sporty Spots
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            Object {
+              "backgroundColor": "#3b5998",
+              "borderRadius": 5,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 8,
+            },
+            Object {
+              "backgroundColor": "#3b5998",
+              "borderRadius": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          disabled={false}
+          ellipsizeMode="tail"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 20,
+              },
+              Object {
+                "marginRight": 10,
+              },
+              Object {
+                "fontFamily": "FontAwesome",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "fontWeight": "600",
+              },
+              Object {
+                "color": "white",
+              },
+            ]
+          }
+        >
+          Login with Facebook
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
