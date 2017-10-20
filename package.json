@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "@storybook/addon-storyshots": "3.2.10",
-    "@storybook/react-native": "3.2.10",
+    "@storybook/react-native": "3.2.13",
     "babel-eslint": "8.0.1",
     "babel-jest": "21.2.0",
     "babel-plugin-ignite-ignore-reactotron": "0.3.0",
