@@ -143,6 +143,6 @@
     "npm": ">=4.2"
   },
   "optionalDependencies": {
-    "npm-check": "5.4.5"
+    "npm-check": "5.5.0"
   }
 }
