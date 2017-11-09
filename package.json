@@ -92,7 +92,7 @@
     "mockery": "2.1.0",
     "react-addons-test-utils": "15.6.2",
     "react-dom": "16.0.0",
-    "react-test-renderer": "16.0.0",
+    "react-test-renderer": "16.1.0",
     "prettier": "1.7.4",
     "reactotron-react-native": "1.12.3",
     "reactotron-redux": "1.12.2",
