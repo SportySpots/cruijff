@@ -95,7 +95,7 @@
     "react-test-renderer": "16.0.0",
     "prettier": "1.7.4",
     "reactotron-react-native": "1.12.3",
-    "reactotron-redux": "1.12.2",
+    "reactotron-redux": "1.13.0",
     "reactotron-redux-saga": "1.12.2",
     "snazzy": "7.0.0",
     "standard": "10.0.3"
