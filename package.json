@@ -38,7 +38,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "storybook": "storybook start -p 7007",
     "test:watch": "jest --watch",
-    "test": "jest"
+    "test": "jest",
+    "ignite": "ignite"
   },
   "dependencies": {
     "apisauce": "0.14.1",
@@ -57,7 +58,7 @@
     "react-native-device-info": "0.11.0",
     "react-native-drawer": "2.5.0",
     "react-native-i18n": "^2.0.6",
-    "react-native-material-ui": "1.13.0",
+    "react-native-material-ui": "^1.18.0",
     "react-native-offline": "3.1.1",
     "react-native-svg": "5.4.1",
     "react-native-vector-icons": "4.4.0",
@@ -90,10 +91,10 @@
     "ignite-vector-icons": "1.1.0",
     "jest": "21.2.0",
     "mockery": "2.1.0",
+    "prettier": "1.7.4",
     "react-addons-test-utils": "15.6.2",
     "react-dom": "16.0.0",
     "react-test-renderer": "16.0.0",
-    "prettier": "1.7.4",
     "reactotron-react-native": "1.12.3",
     "reactotron-redux": "1.12.2",
     "reactotron-redux-saga": "1.12.2",
