@@ -119,7 +119,7 @@
   "standard": {
     "parser": "babel-eslint",
     "plugins": [
-      "flowtype "
+      "flowtype"
     ],
     "globals": [
       "describe",
