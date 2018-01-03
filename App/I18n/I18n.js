@@ -13,7 +13,7 @@ I18n.translations = {
 // If the translation is not found, return the original string
 I18n.missingTranslation = (str) => str
 
-let languageCode = I18n.locale.substr(0, 2)
+let languageCode = I18n.locale ? I18n.locale.substr(0, 2) : 'en'
 
 // All other translations for the app goes to the respective language file:
 switch (languageCode) {

@@ -7,7 +7,7 @@ import Logo from '../../Components/Logo'
 import styles from './Styles/Splash'
 
 export default class SplashScreen extends React.Component {
-  loginWithFacebook = async() => {
+  loginWithFacebook () {
     // TODO: add FB integration
     this.props.navigation.navigate('FindSpotScreen')
   };

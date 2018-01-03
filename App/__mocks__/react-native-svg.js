@@ -16,14 +16,14 @@ function generateSvgMocks (names) {
 }
 
 function generateSvgMock (name) {
-  return class SvgMock extends Component {
-    static displayName = name;
-    static propTypes = ReactNativeSvg[name].propType;
-
+  class SvgMock extends Component {
     render () {
-      return React.createElement(name, this.props, this.props.children);
+      return React.createElement(name, this.props, this.props.children)
     }
   }
+  SvgMock.displayName = name
+  SvgMock.propTypes = ReactNativeSvg[name].propType
+  return SvgMock
 }
 
 module.exports = mocks

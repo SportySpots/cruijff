@@ -10,18 +10,18 @@ import NavigationBar from '../../Components/Navigation/NavigationBar'
 import styles from './Styles/FindSpot'
 
 class FindSpotScreen extends Component {
-  onAddButtonPress = () => {
+  onAddButtonPress () {
     console.tron.log(styles)
     this.props.navigation.navigate('LoginScreen')
-  };
+  }
 
   componentWillMount () {
     this.props.getSpots()
   }
 
-  renderCard = ({item: spot}) => <Card key={spot._id['$oid']} style={styles.card} spot={spot} />;
+  static renderCard ({item: spot}) { return <Card key={spot._id['$oid']} style={styles.card} spot={spot} /> }
 
-  getKey = (spot) => spot._id['$oid'];
+  static getKey (spot) { return spot._id['$oid'] }
 
   render () {
     return (

@@ -18,6 +18,6 @@ storiesOf('Card')
       spot={{
         name: 'Cool!'
       }}
-      style={{ backgroundColor: 'red' }}
+      style={styles.card}
     />
   ))

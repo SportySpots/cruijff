@@ -31,7 +31,7 @@
     "lint": "standard --verbose | snazzy",
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
     "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && npm cache clean --force && npm i",
-    "prepush": "yarn lint -s && yarn test -s",
+    "prepush": "yarn lint -s && yarn test",
     "push:history": "echo 'IOS Production History' && code-push deployment history ChainReactConf Production && echo 'Android Production History' && code-push deployment history ChainReactConf-Android Production",
     "push:status": "echo 'IOS' && code-push deployment ls ChainReactConf && echo 'Android' && code-push deployment ls ChainReactConf-Android",
     "push": "yarn ios:push && yarn android:push",
@@ -71,14 +71,14 @@
   },
   "devDependencies": {
     "@storybook/addon-storyshots": "3.3.3",
+    "@storybook/react-native": "3.3.3",
     "babel-eslint": "8.1.2",
     "babel-jest": "22.0.4",
-    "@storybook/react-native": "3.3.3",
     "babel-plugin-ignite-ignore-reactotron": "0.3.0",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-react-native": "4.0.0",
-    "enzyme": "3.3.0",
     "code-push-cli": "2.1.6",
+    "enzyme": "3.3.0",
     "eslint-plugin-flowtype": "2.40.1",
     "flow-bin": "0.62.0",
     "husky": "0.15.0-beta.2",
@@ -89,14 +89,15 @@
     "ignite-standard": "1.0.0",
     "ignite-vector-icons": "1.1.0",
     "jest": "22.0.4",
+    "jest-static-stubs": "0.0.1",
     "mockery": "2.1.0",
     "prettier": "1.9.2",
     "react-addons-test-utils": "15.6.2",
     "react-dom": "16.2.0",
-    "reactotron-redux-saga": "1.13.0",
     "react-test-renderer": "16.2.0",
     "reactotron-react-native": "1.14.0",
     "reactotron-redux": "1.13.0",
+    "reactotron-redux-saga": "1.13.0",
     "snazzy": "7.0.0",
     "standard": "10.0.3"
   },
@@ -112,7 +113,10 @@
     "setupFiles": [
       "./Tests/Setup"
     ],
-    "preset": "react-native"
+    "preset": "react-native",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/App/__mocks__/fileMock.js"
+    }
   },
   "config": {},
   "standard": {
