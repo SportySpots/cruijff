@@ -4,15 +4,7 @@ import PropTypes from 'prop-types'
 
 import styles from './Styles/CardStyles'
 
-export default class Card extends Component {
-  static defaultProps = { style: {} }
-
-  static propTypes = {
-    location: PropTypes.object,
-    style: PropTypes.number,
-    spot: PropTypes.object
-  }
-
+class Card extends Component {
   componentWillMount () {
     // this.distance = distance(
     //   this.props.location.coords.latitude,
@@ -57,3 +49,13 @@ export default class Card extends Component {
     )
   }
 }
+
+Card.defaultProps = { style: {} }
+
+Card.propTypes = {
+  location: PropTypes.object,
+  style: PropTypes.number,
+  spot: PropTypes.object
+}
+
+export default Card

@@ -1,6 +1,6 @@
 import React from 'react'
-import Fonts from '../Themes/Fonts'
-import PropTypes from 'prop-types'
+// import Fonts from '../Themes/Fonts'
+// import PropTypes from 'prop-types'
 import { View, StyleSheet, Text, Image } from 'react-native'
 import { Dialog, DialogDefaultActions } from 'react-native-material-ui'
 import I18n from 'react-native-i18n'

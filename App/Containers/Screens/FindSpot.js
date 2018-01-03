@@ -10,29 +10,6 @@ import NavigationBar from '../../Components/Navigation/NavigationBar'
 import styles from './Styles/FindSpot'
 
 class FindSpotScreen extends Component {
-  static defaultProps = {
-    getSpots: () => {},
-    spots: [
-      {
-        _id: {
-          $oid: 1
-        },
-        name: 'Coole spot!'
-      }, {
-        _id: {
-          $oid: 2
-        },
-        name: 'Nog een coole spot!'
-      }
-    ]
-  }
-
-  static propTypes = {
-    getSpots: PropTypes.func,
-    navigation: PropTypes.object,
-    spots: PropTypes.array
-  }
-
   onAddButtonPress = () => {
     console.tron.log(styles)
     this.props.navigation.navigate('LoginScreen')
@@ -71,5 +48,28 @@ const dispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({spots: state.spots})
+
+FindSpotScreen.defaultProps = {
+  getSpots: () => {},
+  spots: [
+    {
+      _id: {
+        $oid: 1
+      },
+      name: 'Coole spot!'
+    }, {
+      _id: {
+        $oid: 2
+      },
+      name: 'Nog een coole spot!'
+    }
+  ]
+}
+
+FindSpotScreen.propTypes = {
+  getSpots: PropTypes.func,
+  navigation: PropTypes.object,
+  spots: PropTypes.array
+}
 
 export default connect(mapStateToProps, dispatchToProps)(FindSpotScreen)

@@ -2,7 +2,6 @@ import React from 'react'
 import Svg, { G, Path, Rect } from 'react-native-svg'
 
 export default class Logo extends React.Component {
-
   render () {
     return (
       <Svg width={64 * this.props.scale} height={74 * this.props.scale} viewBox='0 0 63 74' xmlns='http://www.w3.org/2000/svg'>
