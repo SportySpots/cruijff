@@ -1,0 +1,1112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots AskLocation Default 1`] = `
+<View
+  style={
+    Object {
+      "height": 1334,
+      "width": 750,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "green",
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <Svg
+      height={1334}
+      width={750}
+    >
+      <Path
+        d="M150 0 h 37.5 L 112.5 1334 h -60 Z"
+        fill="white"
+      />
+      <Path
+        d="M0 0 h 750 v 667 L 0 889.3333333333333 Z"
+        fill="black"
+        opacity=".6"
+      />
+    </Svg>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 1334,
+        "width": 750,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "paddingTop": 24,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 1,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 12,
+              "width": 280,
+              "zIndex": 1,
+            },
+            undefined,
+          ]
+        }
+        testID={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingBottom": 24,
+                "paddingHorizontal": 24,
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Map_pin_icon_green.svg/2000px-Map_pin_icon_green.svg.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 30,
+                  "margin": 20,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              We're asking to make use of your location so we can give you an overview of all the Sportyspots near you.
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 52,
+                  "justifyContent": "flex-end",
+                  "marginHorizontal": 8,
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              nativeID={undefined}
+              onLayout={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              pointerEvents="box-only"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 2,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "center",
+                    "paddingHorizontal": 16,
+                  },
+                  undefined,
+                  false,
+                  false,
+                  false,
+                  Object {},
+                  Object {
+                    "marginLeft": 8,
+                    "paddingHorizontal": 8,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                    false,
+                    false,
+                    false,
+                    Object {
+                      "color": "#ff9800",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                CANCEL
+              </Text>
+              <View
+                pointerEvents="none"
+                style={
+                  Array [
+                    Object {
+                      "bottom": 0,
+                      "left": 0,
+                      "overflow": "hidden",
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  collapsable={undefined}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                      "bottom": 0,
+                      "left": 0,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "zIndex": 1,
+                    }
+                  }
+                />
+                <View
+                  collapsable={undefined}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                      "borderRadius": 100,
+                      "height": 200,
+                      "left": -100,
+                      "opacity": 0.12,
+                      "position": "absolute",
+                      "top": -100,
+                      "transform": Array [
+                        Object {
+                          "scale": 0,
+                        },
+                      ],
+                      "width": 200,
+                      "zIndex": 1,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              nativeID={undefined}
+              onLayout={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              pointerEvents="box-only"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 2,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "center",
+                    "paddingHorizontal": 16,
+                  },
+                  undefined,
+                  false,
+                  false,
+                  false,
+                  Object {},
+                  Object {
+                    "marginLeft": 8,
+                    "paddingHorizontal": 8,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                    false,
+                    false,
+                    false,
+                    Object {
+                      "color": "#ff9800",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                ALLOW
+              </Text>
+              <View
+                pointerEvents="none"
+                style={
+                  Array [
+                    Object {
+                      "bottom": 0,
+                      "left": 0,
+                      "overflow": "hidden",
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  collapsable={undefined}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                      "bottom": 0,
+                      "left": 0,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "zIndex": 1,
+                    }
+                  }
+                />
+                <View
+                  collapsable={undefined}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                      "borderRadius": 100,
+                      "height": 200,
+                      "left": -100,
+                      "opacity": 0.12,
+                      "position": "absolute",
+                      "top": -100,
+                      "transform": Array [
+                        Object {
+                          "scale": 0,
+                        },
+                      ],
+                      "width": 200,
+                      "zIndex": 1,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          pointerEvents="none"
+          style={
+            Array [
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "overflow": "hidden",
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            collapsable={undefined}
+            pointerEvents="none"
+            style={
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                "bottom": 0,
+                "left": 0,
+                "opacity": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "zIndex": 1,
+              }
+            }
+          />
+          <View
+            collapsable={undefined}
+            pointerEvents="none"
+            style={
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                "borderRadius": 100,
+                "height": 200,
+                "left": -100,
+                "opacity": 0.12,
+                "position": "absolute",
+                "top": -100,
+                "transform": Array [
+                  Object {
+                    "scale": 0,
+                  },
+                ],
+                "width": 200,
+                "zIndex": 1,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Storyshots Card Custom Style 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "height": 533.6,
+        "paddingBottom": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
+        "paddingTop": 5,
+      },
+      Object {
+        "backgroundColor": "#fff",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 5,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+        }
+      }
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "borderBottomWidth": 1,
+          "borderColor": "#ccc",
+          "borderLeftWidth": 1,
+          "borderRightWidth": 1,
+          "flex": 1,
+          "paddingLeft": "5%",
+          "paddingRight": "10%",
+          "paddingTop": "5%",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontFamily": "Roboto-Bold",
+            "fontSize": 30,
+          }
+        }
+      >
+        Cool!
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#c1c1c1",
+              "fontFamily": "Roboto-Bold",
+              "fontSize": 16,
+              "paddingLeft": 10,
+            }
+          }
+        >
+          km
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View>
+    <Image
+      source={
+        Object {
+          "uri": "https://pbs.twimg.com/profile_images/3165824968/721ae4b725f6f5638b50527438f6901e.jpeg",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Storyshots Card Default 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "height": 533.6,
+        "paddingBottom": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
+        "paddingTop": 5,
+      },
+      Object {
+        "backgroundColor": "#fff",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 5,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+        }
+      }
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "borderBottomWidth": 1,
+          "borderColor": "#ccc",
+          "borderLeftWidth": 1,
+          "borderRightWidth": 1,
+          "flex": 1,
+          "paddingLeft": "5%",
+          "paddingRight": "10%",
+          "paddingTop": "5%",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontFamily": "Roboto-Bold",
+            "fontSize": 30,
+          }
+        }
+      >
+        Cool!
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#c1c1c1",
+              "fontFamily": "Roboto-Bold",
+              "fontSize": 16,
+              "paddingLeft": 10,
+            }
+          }
+        >
+          km
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View>
+    <Image
+      source={
+        Object {
+          "uri": "https://pbs.twimg.com/profile_images/3165824968/721ae4b725f6f5638b50527438f6901e.jpeg",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Storyshots FieldBackground Default 1`] = `
+<View
+  style={
+    Object {
+      "height": 1334,
+      "width": 750,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "green",
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <Svg
+      height={1334}
+      width={750}
+    >
+      <Path
+        d="M150 0 h 37.5 L 112.5 1334 h -60 Z"
+        fill="white"
+      />
+      <Path
+        d="M0 0 h 750 v 667 L 0 889.3333333333333 Z"
+        fill="black"
+        opacity=".6"
+      />
+    </Svg>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 1334,
+        "width": 750,
+      }
+    }
+  >
+    <View />
+  </View>
+</View>
+`;
+
+exports[`Storyshots Logo Default 1`] = `
+<Svg
+  height={74}
+  viewBox="0 0 63 74"
+  width={64}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <G
+    fill="none"
+    fill-rule="evenodd"
+  >
+    <Rect
+      fill="#07D654"
+      height="74"
+      rx="5"
+      width="63"
+    />
+    <Path
+      d="M10.023 10.57h42.954v52.86H10.023"
+      fill="#FFF"
+    />
+    <Path
+      d="M0 42.286h42v10.57H0zM21 21.143h42v10.57H21z"
+      fill="#248232"
+    />
+    <Path
+      d="M0 10.57h10.5v52.86H0M52.5 10.57H63v52.86H52.5"
+      fill="#2BA84A"
+    />
+    <Path
+      d="M0 63.43h63V74H0z"
+    />
+    <Path
+      d="M10.5 0h42v10.57h-42zM10.5 63.43h42V74h-42z"
+      fill="#248232"
+    />
+  </G>
+</Svg>
+`;
+
+exports[`Storyshots OnBoarding Default 1`] = `
+<View
+  style={
+    Object {
+      "height": 1334,
+      "width": 750,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "green",
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <Svg
+      height={1334}
+      width={750}
+    >
+      <Path
+        d="M150 0 h 37.5 L 112.5 1334 h -60 Z"
+        fill="white"
+      />
+      <Path
+        d="M0 0 h 750 v 667 L 0 889.3333333333333 Z"
+        fill="black"
+        opacity=".6"
+      />
+    </Svg>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 1334,
+        "width": 750,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "paddingTop": 24,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 1,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 12,
+              "width": 280,
+              "zIndex": 1,
+            },
+            Object {
+              "paddingTop": 0,
+              "width": 480,
+            },
+          ]
+        }
+        testID={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingBottom": 24,
+                "paddingHorizontal": 24,
+              },
+              Object {
+                "paddingHorizontal": 0,
+              },
+            ]
+          }
+        >
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "green",
+                  "height": 100,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://cdn.pixabay.com/photo/2013/09/16/22/23/football-183054_640.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 95,
+                    "width": 100,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                  "paddingHorizontal": 35,
+                  "paddingTop": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "fontFamily": "Rajdhani-Bold",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                  }
+                }
+              >
+                Hi sport,
+Thanks for joining the yet to become largest free sport club in the world. Enjoy finding or organizing a nice game of sports to play! Happy sporting!
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 52,
+                  "justifyContent": "flex-end",
+                  "marginHorizontal": 8,
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              nativeID={undefined}
+              onLayout={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              pointerEvents="box-only"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 2,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "center",
+                    "paddingHorizontal": 16,
+                  },
+                  undefined,
+                  false,
+                  false,
+                  false,
+                  Object {},
+                  Object {
+                    "marginLeft": 8,
+                    "paddingHorizontal": 8,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                    false,
+                    false,
+                    false,
+                    Object {
+                      "color": "#ff9800",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                CONTINUE
+              </Text>
+              <View
+                pointerEvents="none"
+                style={
+                  Array [
+                    Object {
+                      "bottom": 0,
+                      "left": 0,
+                      "overflow": "hidden",
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  collapsable={undefined}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                      "bottom": 0,
+                      "left": 0,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "zIndex": 1,
+                    }
+                  }
+                />
+                <View
+                  collapsable={undefined}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                      "borderRadius": 100,
+                      "height": 200,
+                      "left": -100,
+                      "opacity": 0.12,
+                      "position": "absolute",
+                      "top": -100,
+                      "transform": Array [
+                        Object {
+                          "scale": 0,
+                        },
+                      ],
+                      "width": 200,
+                      "zIndex": 1,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          pointerEvents="none"
+          style={
+            Array [
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "overflow": "hidden",
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            collapsable={undefined}
+            pointerEvents="none"
+            style={
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                "bottom": 0,
+                "left": 0,
+                "opacity": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "zIndex": 1,
+              }
+            }
+          />
+          <View
+            collapsable={undefined}
+            pointerEvents="none"
+            style={
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                "borderRadius": 100,
+                "height": 200,
+                "left": -100,
+                "opacity": 0.12,
+                "position": "absolute",
+                "top": -100,
+                "transform": Array [
+                  Object {
+                    "scale": 0,
+                  },
+                ],
+                "width": 200,
+                "zIndex": 1,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
