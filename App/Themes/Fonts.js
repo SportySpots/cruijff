@@ -1,6 +1,6 @@
 const type = {
-  base: 'Avenir-Book',
-  bold: 'Avenir-Black',
+  base: 'Rajhdani-Regular',
+  bold: 'Rajdhani-Bold',
   emphasis: 'HelveticaNeue-Italic'
 }
 
