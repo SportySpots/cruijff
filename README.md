@@ -40,6 +40,8 @@
   * for Android
     * Run Genymotion
     * run `npm run android:run`
+3. Start the React native packager server:
+  * `npm start`
 
 ## Standard Compliant
 
