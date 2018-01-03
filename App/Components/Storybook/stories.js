@@ -1,2 +1,5 @@
 import './Card.story'
-import './Storybook/Logo.story'
+import './Logo.story'
+import './FieldBackground.story'
+import './AskLocation.story'
+import './OnBoarding.story'
