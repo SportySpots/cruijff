@@ -22,5 +22,8 @@
    "themeSettings": "Theme Settings",
    "deviceDetails": "Device Details",
    "noItems": "No Items",
-   "search": "Search"
+   "search": "Search",
+
+   "askLocation": "We're asking to make use of your location so we can give you an overview of all the Sportyspots near you.",
+   "onboarding1": "Hi sport,\nThanks for joining the yet to become largest free sport club in the world. Enjoy finding or organizing a nice game of sports to play! Happy sporting!"
 }
