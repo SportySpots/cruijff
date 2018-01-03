@@ -94,7 +94,7 @@
     "react-addons-test-utils": "15.6.2",
     "react-dom": "16.0.0",
     "react-test-renderer": "16.0.0",
-    "reactotron-react-native": "1.12.3",
+    "reactotron-react-native": "1.14.0",
     "reactotron-redux": "1.12.2",
     "reactotron-redux-saga": "1.12.2",
     "snazzy": "7.0.0",
