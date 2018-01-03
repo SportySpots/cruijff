@@ -57,7 +57,7 @@
     "react-native-device-info": "0.13.0",
     "react-native-drawer": "2.5.0",
     "react-native-i18n": "^2.0.6",
-    "react-native-material-ui": "1.19.0",
+    "react-native-material-ui": "git://github.com/tommos0/react-native-material-ui.git#707026d4c6afbc00f1d19c2715ae17f102e28345",
     "react-native-offline": "3.5.0",
     "react-native-svg": "6.0.1-rc.1",
     "react-native-vector-icons": "4.4.3",
