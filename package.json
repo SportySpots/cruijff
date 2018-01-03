@@ -88,7 +88,7 @@
     "ignite-ir-boilerplate": "2.1.1",
     "ignite-standard": "1.0.0",
     "ignite-vector-icons": "1.1.0",
-    "jest": "21.2.0",
+    "jest": "22.0.0",
     "mockery": "2.1.0",
     "react-addons-test-utils": "15.6.2",
     "react-dom": "16.0.0",
