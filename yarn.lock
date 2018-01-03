@@ -2308,9 +2308,15 @@ code-push@2.0.2-beta:
     superagent-proxy "^1.0.0"
     yazl "^2.4.1"
 
-color-convert@^1.3.0, color-convert@^1.8.2, color-convert@^1.9.0:
+color-convert@^1.3.0, color-convert@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.0.tgz#1accf97dd739b983bf994d56fec8f95853641b7a"
+  dependencies:
+    color-name "^1.1.1"
+
+color-convert@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.1.tgz#c1261107aeb2f294ebffec9ed9ecad529a6097ed"
   dependencies:
     color-name "^1.1.1"
 
@@ -2324,12 +2330,19 @@ color-string@^0.3.0:
   dependencies:
     color-name "^1.0.0"
 
-color-string@^1.4.0:
+color-string@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.5.2.tgz#26e45814bc3c9a7cbd6751648a41434514a773a9"
   dependencies:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
+
+color@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/color/-/color-2.0.1.tgz#e4ed78a3c4603d0891eba5430b04b86314f4c839"
+  dependencies:
+    color-convert "^1.9.1"
+    color-string "^1.5.2"
 
 color@^0.11.0, color@^0.11.1:
   version "0.11.4"
@@ -2338,13 +2351,6 @@ color@^0.11.0, color@^0.11.1:
     clone "^1.0.2"
     color-convert "^1.3.0"
     color-string "^0.3.0"
-
-color@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/color/-/color-1.0.3.tgz#e48e832d85f14ef694fb468811c2d5cfe729b55d"
-  dependencies:
-    color-convert "^1.8.2"
-    color-string "^1.4.0"
 
 colormin@^1.0.5:
   version "1.1.2"
@@ -7464,11 +7470,11 @@ react-native-material-design-styles@^0.2.6:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/react-native-material-design-styles/-/react-native-material-design-styles-0.2.7.tgz#428560ef4d0659db1163c9f9b5476d886ed22d57"
 
-react-native-material-ui@1.13.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/react-native-material-ui/-/react-native-material-ui-1.13.0.tgz#b6c890bfe41647ebc46a35425799d2cff85dd9d0"
+react-native-material-ui@^1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/react-native-material-ui/-/react-native-material-ui-1.18.0.tgz#beb9024cff49c7a639eb2fff489da1d2356304ba"
   dependencies:
-    color "^1.0.3"
+    color "2.0.1"
     lodash.merge "^4.0.0"
     prop-types "^15.5.10"
     react-native-material-design-styles "^0.2.6"
