@@ -7,21 +7,14 @@ import Logo from '../../Components/Logo'
 import styles from './Styles/Splash'
 
 import propTypes from 'prop-types'
-import Permissions from 'react-native-permissions'
+import { connect } from 'react-redux'
+
+import locationAction from '../../Redux/LocationRedux'
 
 class SplashScreen extends React.Component {
-  constructor () {
-    super()
-    this.state = { locationAccess: 'pending' }
-  }
-
   // eslint-disable-next-line no-undef
   loginWithFacebook = () => {
-    console.log(this)
-    Permissions.check('location').then(this.setState({locationAccess: 'granted'})).catch(this.setState({locationAccess: 'denied'}))
-    console.log(Permissions.request('location').then(console.log).catch(console.log))
-    // console.log(navigator.geolocation.getCurrentPosition(console.log, console.log,
-    //   { enableHighAccuracy: true, timeout: 20000, maximumAge: 10000 }))
+    this.props.getLocation();
     // TODO: add FB integration
     // this.props.navigation.navigate('FindSpotScreen')
   }
@@ -36,7 +29,6 @@ class SplashScreen extends React.Component {
           <Icon.Button name='facebook' backgroundColor='#3b5998' onPress={this.loginWithFacebook}>
             {I18n.t('Login with Facebook')}
           </Icon.Button>
-          <Text>{this.state.locationAccess}</Text>
         </View>
       </View>
     )
@@ -44,9 +36,16 @@ class SplashScreen extends React.Component {
 }
 
 SplashScreen.propTypes = {
-  navigation: propTypes.object.isRequired
+  navigation: propTypes.object.isRequired,
+  getLocation: propTypes.func
 }
 
-export default SplashScreen
+const dispatchToProps = (dispatch) => ({
+  getLocation: () => dispatch(locationAction.getLocation())
+})
 
-// login -> ok/fail ->
+const mapStateToProps = (state) => ({
+
+})
+
+export default connect(mapStateToProps, dispatchToProps)(SplashScreen)

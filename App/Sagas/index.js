@@ -1,4 +1,4 @@
-import { takeLatest, all } from 'redux-saga/effects'
+import { takeLatest, all, fork } from 'redux-saga/effects'
 import API from '../Services/Api'
 import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
@@ -12,6 +12,7 @@ import { GithubTypes } from '../Redux/GithubRedux'
 
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
+import { locationSaga } from './LocationSagas'
 
 /* ------------- API ------------- */
 
@@ -27,6 +28,7 @@ export default function * root () {
     takeLatest(StartupTypes.STARTUP, startup),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
+    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
+    fork(locationSaga)
   ])
 }
