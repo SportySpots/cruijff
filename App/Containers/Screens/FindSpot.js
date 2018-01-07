@@ -19,9 +19,9 @@ class FindSpotScreen extends Component {
     this.props.getSpots()
   }
 
-  static renderCard ({item: spot}) { return <Card key={spot._id['$oid']} style={styles.card} spot={spot} /> }
+  renderCard ({item: spot}) { return <Card key={spot._id['$oid']} style={styles.card} spot={spot} /> }
 
-  static getKey (spot) { return spot._id['$oid'] }
+  getKey (spot) { return spot._id['$oid'] }
 
   render () {
     return (
