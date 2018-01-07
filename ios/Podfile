@@ -12,6 +12,8 @@ target 'cruijff' do
 
   
 
+  pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
+
   target 'cruijffTests' do
     inherit! :search_paths
     # Pods for testing

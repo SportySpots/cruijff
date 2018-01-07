@@ -1,5 +1,8 @@
 {
   "presets": ["react-native"],
+  "plugins": [
+    ["transform-class-properties"]
+  ],
   "env": {
     "production": {
       "plugins": ["ignite-ignore-reactotron"]
