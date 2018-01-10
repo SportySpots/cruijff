@@ -7,12 +7,13 @@ import DebugConfig from '../Config/DebugConfig'
 
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
+import { FacebookTypes } from '../Redux/FacebookRedux'
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
-import { locationSaga } from './LocationSagas'
+import { checkLocationPermission, locationSaga } from './LocationSagas'
 import { facebookSaga } from './FacebookSagas'
 
 /* ------------- API ------------- */
@@ -30,6 +31,8 @@ export default function * root () {
 
     // some sagas receive extra parameters in addition to an action
     takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
+
+    takeLatest(FacebookTypes.FACEBOOK_GET_ACCESS_TOKEN_SUCCESS, checkLocationPermission),
     fork(locationSaga),
     fork(facebookSaga)
   ])

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { View, StyleSheet, Text, Image } from 'react-native'
 import { Dialog, DialogDefaultActions } from 'react-native-material-ui'
@@ -6,12 +7,12 @@ import I18n from 'react-native-i18n'
 
 const actions = ['cancel', 'allow']
 
-const onAction = action => {
-  if (action === I18n.t(actions[0])) { }// cancel
-  if (action === I18n.t(actions[1])) { }// allow
+const onAction = props => action => {
+  if (action === I18n.t(actions[0])) { props.onCancel() }
+  if (action === I18n.t(actions[1])) { props.onAllow() }
 }
 
-export default props =>
+const AskLocation = props =>
   <View style={styles.outerContainer}>
     <Dialog>
       <Dialog.Content>
@@ -28,11 +29,18 @@ export default props =>
       <Dialog.Actions>
         <DialogDefaultActions
           actions={actions.map(action => I18n.t(action))}
-          onActionPress={onAction}
+          onActionPress={onAction(props)}
         />
       </Dialog.Actions>
     </Dialog>
   </View>
+
+AskLocation.propTypes = {
+  onAllow: PropTypes.func,
+  onCancel: PropTypes.func
+}
+
+export default AskLocation
 
 const styles = StyleSheet.create({
   outerContainer: {

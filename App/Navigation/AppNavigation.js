@@ -6,6 +6,7 @@ import SplashScreen from '../Containers/Screens/Splash'
 import ProfileScreen from '../Containers/Screens/Profile'
 
 import styles from './Styles/NavigationStyles'
+import AskLocation from '../Containers/Screens/AskLocation'
 
 // Use this to either show the LoginScreen, or go straight to the SearchScreen
 const userIsLoggedIn = false
@@ -15,7 +16,8 @@ const AppNavigation = StackNavigator({
   FindGameScreen: { screen: FindGameScreen },
   FindSpotScreen: { screen: FindSpotScreen },
   SplashScreen: { screen: SplashScreen },
-  ProfileScreen: { screen: ProfileScreen }
+  ProfileScreen: { screen: ProfileScreen },
+  AskLocation: { screen: AskLocation }
 }, {
   // Default config for all screens
   headerMode: 'none',

@@ -16,7 +16,7 @@ export class _SplashScreen extends React.Component {
   // eslint-disable-next-line no-undef
   loginWithFacebook = () => {
     // LoginManager.logInWithReadPermissions(['public_profile']).then(console.log)
-    // this.props.getLocation()
+    // this.props.checkLocationPermission()
     this.props.facebookLogin()
     // TODO: add FB integration
     // this.props.navigation.navigate('FindSpotScreen')
@@ -39,12 +39,12 @@ export class _SplashScreen extends React.Component {
 
 _SplashScreen.propTypes = {
   navigation: propTypes.object.isRequired,
-  getLocationPermission: propTypes.func,
+  checkLocationPermission: propTypes.func,
   facebookLogin: propTypes.func
 }
 
 const dispatchToProps = (dispatch) => ({
-  getLocation: () => dispatch(locationAction.getLocationPermission()),
+  checkLocationPermission: () => dispatch(locationAction.checkLocationPermission()),
   facebookLogin: () => dispatch(facebookAction.facebookLogin())
 })
 

@@ -4,6 +4,7 @@ import Immutable from 'seamless-immutable'
 /* ------------- LocationTypes and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
+  checkLocationPermission: null,
   getLocationPermission: null,
   getLocation: null,
   locationGranted: null,

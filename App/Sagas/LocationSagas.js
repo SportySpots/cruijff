@@ -12,8 +12,8 @@ const REFRESH_DELAY_MS = 60000 // refresh every minute
 
 const LOCATION_OPTIONS = {
   enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 10000
+  timeout: 20000,
+  maximumAge: 30000
 }
 
 function getLocationPromise () {
@@ -30,7 +30,6 @@ function * getLocation (action) {
       log(LEVEL.ERROR, 'Trying to get location without permission')
     } else {
       const location = yield getLocationPromise()
-      log(LEVEL.INFO, 'Got location', location)
       yield put(Creators.updateLocation(location))
       yield delay(REFRESH_DELAY_MS)
       yield fork(getLocation)
@@ -41,18 +40,35 @@ function * getLocation (action) {
 }
 
 function * getLocationPermission (action) {
-  const result = yield Permissions.check('location')
+  log(LEVEL.INFO, 'permission get started')
+  const result = yield Permissions.request('location')
   if (result === AUTHORIZED) {
-    log(LEVEL.INFO, 'location permission: ' + result)
     yield put(Creators.locationGranted())
     yield fork(getLocation)
+    yield put(NavigationActions.navigate({routeName: 'FindSpotScreen'}))
   } else {
     yield put(Creators.locationDenied())
-    log(LEVEL.WARNING, 'location permission: ' + result)
   }
-  yield put(NavigationActions.navigate({routeName: 'FindSpotScreen'}))
+}
+
+const rejectAfter = (time) =>
+  new Promise((resolve, reject) => setTimeout(reject, time))
+
+export function * checkLocationPermission (action) {
+  /* Due to some bug in `Permissions`, the .check('location') doesn't resolve (or reject) if permission is not allowed
+     This is a workaround.
+   */
+  const result = yield Promise.race([Permissions.check('location'), rejectAfter(200)]).catch(console.log)
+  if (result === AUTHORIZED) {
+    yield put(Creators.locationGranted())
+    yield fork(getLocation)
+    yield put(NavigationActions.navigate({routeName: 'FindSpotScreen'}))
+  } else {
+    yield put(NavigationActions.navigate({routeName: 'AskLocation'}))
+  }
 }
 
 export function * locationSaga (action) {
+  yield takeEvery(LocationTypes.CHECK_LOCATION_PERMISSION, checkLocationPermission)
   yield takeEvery(LocationTypes.GET_LOCATION_PERMISSION, getLocationPermission)
 }
