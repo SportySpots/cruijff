@@ -72,7 +72,7 @@
     "seamless-immutable": "7.1.2"
   },
   "devDependencies": {
-    "@storybook/addon-storyshots": "3.3.6",
+    "@storybook/addon-storyshots": "3.4.0-alpha.1",
     "@storybook/react-native": "3.3.6",
     "babel-eslint": "8.2.1",
     "babel-jest": "22.0.4",
