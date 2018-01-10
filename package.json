@@ -51,7 +51,7 @@
     "querystringify": "1.0.0",
     "ramda": "0.25.0",
     "react": "16.2.0",
-    "react-native": "0.51.0",
+    "react-native": "0.52.0",
     "react-native-animatable": "1.2.4",
     "react-native-config": "0.11.4",
     "react-native-device-info": "0.13.0",
@@ -62,7 +62,7 @@
     "react-native-offline": "3.5.0",
     "react-native-permissions": "^1.0.6",
     "react-native-svg": "6.0.1-rc.1",
-    "react-native-vector-icons": "4.4.3",
+    "react-native-vector-icons": "4.5.0",
     "react-navigation": "1.0.0-beta.23",
     "react-redux": "5.0.6",
     "redux": "3.7.2",
@@ -72,8 +72,8 @@
     "seamless-immutable": "7.1.2"
   },
   "devDependencies": {
-    "@storybook/addon-storyshots": "3.3.4",
-    "@storybook/react-native": "3.3.3",
+    "@storybook/addon-storyshots": "3.3.6",
+    "@storybook/react-native": "3.3.6",
     "babel-eslint": "8.2.0",
     "babel-jest": "22.0.4",
     "babel-plugin-ignite-ignore-reactotron": "0.3.0",
