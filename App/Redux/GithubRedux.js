@@ -1,7 +1,7 @@
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 
-/* ------------- Types and Action Creators ------------- */
+/* ------------- LocationTypes and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
   userRequest: ['username'],
@@ -37,7 +37,7 @@ export const success = (state, action) => {
 export const failure = (state) =>
   state.merge({ fetching: false, error: true, avatar: null })
 
-/* ------------- Hookup Reducers To Types ------------- */
+/* ------------- Hookup Reducers To LocationTypes ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.USER_REQUEST]: request,
