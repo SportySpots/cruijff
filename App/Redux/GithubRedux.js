@@ -1,7 +1,7 @@
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 
-/* ------------- LocationTypes and Action Creators ------------- */
+/* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
   userRequest: ['username'],

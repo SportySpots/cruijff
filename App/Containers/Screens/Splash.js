@@ -10,11 +10,14 @@ import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import locationAction from '../../Redux/LocationRedux'
+import facebookAction from '../../Redux/FacebookRedux'
 
 export class _SplashScreen extends React.Component {
   // eslint-disable-next-line no-undef
   loginWithFacebook = () => {
-    this.props.getLocation()
+    // LoginManager.logInWithReadPermissions(['public_profile']).then(console.log)
+    // this.props.getLocation()
+    this.props.facebookLogin()
     // TODO: add FB integration
     // this.props.navigation.navigate('FindSpotScreen')
   }
@@ -25,7 +28,6 @@ export class _SplashScreen extends React.Component {
         <View style={styles.logoContainer}>
           <Logo />
           <Text style={styles.title}>{I18n.t('Sporty Spots')}</Text>
-
           <Icon.Button name='facebook' backgroundColor='#3b5998' onPress={this.loginWithFacebook}>
             {I18n.t('Login with Facebook')}
           </Icon.Button>
@@ -37,11 +39,13 @@ export class _SplashScreen extends React.Component {
 
 _SplashScreen.propTypes = {
   navigation: propTypes.object.isRequired,
-  getLocationPermission: propTypes.func
+  getLocationPermission: propTypes.func,
+  facebookLogin: propTypes.func
 }
 
 const dispatchToProps = (dispatch) => ({
-  getLocation: () => dispatch(locationAction.getLocationPermission())
+  getLocation: () => dispatch(locationAction.getLocationPermission()),
+  facebookLogin: () => dispatch(facebookAction.facebookLogin())
 })
 
 const mapStateToProps = (state) => ({

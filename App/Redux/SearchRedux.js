@@ -15,7 +15,7 @@ const LIST_DATA = ['sausage', 'blubber', 'pencil', 'cloud', 'moon', 'water', 'co
   'silently', 'tawesomated', 'joshing', 'pong', 'RANDOM', 'WORD'
 ]
 
-/* ------------- LocationTypes and Action Creators ------------- */
+/* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
   search: ['searchTerm'],
