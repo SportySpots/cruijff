@@ -1,6 +1,6 @@
 import 'react-native'
 import React from 'react'
-import SplashScreen from '../../App/Containers/Screens/Splash'
+import { _SplashScreen as SplashScreen } from '../../App/Containers/Screens/Splash'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'

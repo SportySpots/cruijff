@@ -1,20 +1,58 @@
-import { NavigationActions } from 'react-navigation';
-
-import { call, put, takeEvery } from 'redux-saga/effects'
-import { path } from 'ramda'
+import { NavigationActions } from 'react-navigation'
+import { delay } from 'redux-saga'
+import { put, fork, takeEvery } from 'redux-saga/effects'
 import Permissions from 'react-native-permissions'
-import { LocationTypes } from '../Redux/LocationRedux'
+import Creators, { LocationTypes } from '../Redux/LocationRedux'
+import { log, LEVEL } from '../Services/Log'
+
+const AUTHORIZED = 'authorized'
+// const REJECTED = 'rejected'
+
+const REFRESH_DELAY_MS = 60000 // refresh every minute
+
+const LOCATION_OPTIONS = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 10000
+}
+
+function getLocationPromise () {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject, LOCATION_OPTIONS)
+  })
+}
 
 function * getLocation (action) {
-  yield put(NavigationActions.navigate({ routeName: 'FindSpotScreen' }))
+  try {
+    const result = yield Permissions.check('location')
+    if (result !== AUTHORIZED) {
+      yield put(Creators.locationDenied())
+      log(LEVEL.ERROR, 'Trying to get location without permission')
+    } else {
+      const location = yield getLocationPromise()
+      log(LEVEL.INFO, 'Got location', location)
+      yield put(Creators.updateLocation(location))
+      yield delay(REFRESH_DELAY_MS)
+      yield fork(getLocation)
+    }
+  } catch (e) {
+    log(LEVEL.ERROR, 'Error in getLocation', e)
+  }
+}
 
-  // Permissions.check('location').then(console.log).catch(console.log)
-  // console.log(Permissions.request('location').then(console.log).catch(console.log))
-  // console.log(navigator.geolocation.getCurrentPosition(console.log, console.log,
-  //   { enableHighAccuracy: true, timeout: 20000, maximumAge: 10000 }))
+function * getLocationPermission (action) {
+  const result = yield Permissions.check('location')
+  if (result === AUTHORIZED) {
+    log(LEVEL.INFO, 'location permission: ' + result)
+    yield put(Creators.locationGranted())
+    yield fork(getLocation)
+  } else {
+    yield put(Creators.locationDenied())
+    log(LEVEL.WARNING, 'location permission: ' + result)
+  }
+  yield put(NavigationActions.navigate({routeName: 'FindSpotScreen'}))
 }
 
 export function * locationSaga (action) {
-  console.log(LocationTypes)
-  yield takeEvery(LocationTypes.GET_LOCATION, getLocation)
+  yield takeEvery(LocationTypes.GET_LOCATION_PERMISSION, getLocationPermission)
 }

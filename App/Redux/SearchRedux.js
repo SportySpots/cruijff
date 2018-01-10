@@ -15,7 +15,7 @@ const LIST_DATA = ['sausage', 'blubber', 'pencil', 'cloud', 'moon', 'water', 'co
   'silently', 'tawesomated', 'joshing', 'pong', 'RANDOM', 'WORD'
 ]
 
-/* ------------- Types and Action Creators ------------- */
+/* ------------- LocationTypes and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
   search: ['searchTerm'],
@@ -42,7 +42,7 @@ export const performSearch = (state, { searchTerm }) => {
 
 export const cancelSearch = (state) => INITIAL_STATE
 
-/* ------------- Hookup Reducers To Types ------------- */
+/* ------------- Hookup Reducers To LocationTypes ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SEARCH]: performSearch,

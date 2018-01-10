@@ -3,7 +3,7 @@ import API from '../Services/Api'
 import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
 
-/* ------------- Types ------------- */
+/* ------------- LocationTypes ------------- */
 
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
@@ -20,7 +20,7 @@ import { locationSaga } from './LocationSagas'
 // to the sagas which need it.
 const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 
-/* ------------- Connect Types To Sagas ------------- */
+/* ------------- Connect LocationTypes To Sagas ------------- */
 
 export default function * root () {
   yield all([

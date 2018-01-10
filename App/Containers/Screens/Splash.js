@@ -11,10 +11,10 @@ import { connect } from 'react-redux'
 
 import locationAction from '../../Redux/LocationRedux'
 
-class SplashScreen extends React.Component {
+export class _SplashScreen extends React.Component {
   // eslint-disable-next-line no-undef
   loginWithFacebook = () => {
-    this.props.getLocation();
+    this.props.getLocation()
     // TODO: add FB integration
     // this.props.navigation.navigate('FindSpotScreen')
   }
@@ -35,17 +35,17 @@ class SplashScreen extends React.Component {
   }
 }
 
-SplashScreen.propTypes = {
+_SplashScreen.propTypes = {
   navigation: propTypes.object.isRequired,
-  getLocation: propTypes.func
+  getLocationPermission: propTypes.func
 }
 
 const dispatchToProps = (dispatch) => ({
-  getLocation: () => dispatch(locationAction.getLocation())
+  getLocation: () => dispatch(locationAction.getLocationPermission())
 })
 
 const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps, dispatchToProps)(SplashScreen)
+export default connect(mapStateToProps, dispatchToProps)(_SplashScreen)
