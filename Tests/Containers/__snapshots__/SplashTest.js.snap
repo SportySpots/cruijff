@@ -90,17 +90,12 @@ exports[`Splash Screen renders correctly 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "transparent",
+            "overflow": "hidden",
           },
-          Array [
-            Object {
-              "overflow": "hidden",
-            },
-            Object {
-              "backgroundColor": "#3b5998",
-              "borderRadius": 5,
-            },
-          ],
+          Object {
+            "backgroundColor": "#3b5998",
+            "borderRadius": 5,
+          },
         ]
       }
       testID={undefined}
