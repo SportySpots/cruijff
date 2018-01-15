@@ -90,7 +90,7 @@
     "ignite-ir-boilerplate": "2.3.1",
     "ignite-standard": "1.0.0",
     "ignite-vector-icons": "1.1.0",
-    "jest": "22.0.6",
+    "jest": "22.1.0",
     "jest-static-stubs": "0.0.1",
     "mockery": "2.1.0",
     "prettier": "1.10.2",
