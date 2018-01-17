@@ -61,7 +61,7 @@
     "react-native-material-ui": "git://github.com/tommos0/react-native-material-ui.git#707026d4c6afbc00f1d19c2715ae17f102e28345",
     "react-native-offline": "3.6.0",
     "react-native-permissions": "^1.0.6",
-    "react-native-svg": "6.0.1-rc.1",
+    "react-native-svg": "6.0.1-rc.2",
     "react-native-vector-icons": "4.5.0",
     "react-navigation": "1.0.0-beta.27",
     "react-redux": "5.0.6",
