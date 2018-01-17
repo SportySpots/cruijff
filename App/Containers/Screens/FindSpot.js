@@ -3,6 +3,7 @@ import { FlatList, View } from 'react-native'
 import { ActionButton, Toolbar } from 'react-native-material-ui'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import api from '../../Redux/APIRedux'
 
 import Card from '../../Components/Cards/Card'
 import NavigationBar from '../../Components/Navigation/NavigationBar'
@@ -19,9 +20,9 @@ class FindSpotScreen extends Component {
     this.props.getSpots()
   }
 
-  renderCard ({item: spot}) { return <Card key={spot._id['$oid']} style={styles.card} spot={spot} /> }
+  renderCard ({item: spot}) { return <Card key={spot.id} style={styles.card} spot={spot} /> }
 
-  getKey (spot) { return spot._id['$oid'] }
+  getKey (spot) { return spot.id }
 
   render () {
     return (
@@ -44,10 +45,10 @@ class FindSpotScreen extends Component {
 }
 
 const dispatchToProps = (dispatch) => ({
-  // getSpots: () => dispatch(SpotsActions.getSpots()),
+  getSpots: () => dispatch(api.getSpots(1, 2, 3, 4, 5))
 })
 
-const mapStateToProps = (state) => ({spots: state.spots})
+const mapStateToProps = (state) => ({spots: state.api.spots.data.result ? state.api.spots.data.result.data : []})
 
 FindSpotScreen.defaultProps = {
   getSpots: () => {},

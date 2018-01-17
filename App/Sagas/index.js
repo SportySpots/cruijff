@@ -15,6 +15,7 @@ import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
 import { checkLocationPermission, locationSaga } from './LocationSagas'
 import { facebookSaga } from './FacebookSagas'
+import { APISaga } from './APISagas'
 
 /* ------------- API ------------- */
 
@@ -34,6 +35,7 @@ export default function * root () {
 
     takeLatest(FacebookTypes.FACEBOOK_GET_ACCESS_TOKEN_SUCCESS, checkLocationPermission),
     fork(locationSaga),
-    fork(facebookSaga)
+    fork(facebookSaga),
+    fork(APISaga(api))
   ])
 }

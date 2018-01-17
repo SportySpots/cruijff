@@ -1,7 +1,7 @@
 import React from 'react'
 
 import AskLocation from '../../Components/AskLocation'
-import FieldBackground from '../../Components/FieldBackground'
+import FieldBackground from '../FieldBackground'
 import locationAction from '../../Redux/LocationRedux'
 import { connect } from 'react-redux'
 

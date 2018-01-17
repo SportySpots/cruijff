@@ -20,5 +20,11 @@ export default {
       ok: true,
       data: username.toLowerCase() === 'gantman' ? gantmanData : skellockData
     }
+  },
+  getSpots: (latitude, longitude, limit, skip, sort) => {
+    return {
+      ok: true,
+      data: require('../Fixtures/spots.json')
+    }
   }
 }

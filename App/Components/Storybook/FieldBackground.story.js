@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react-native'
 
-import FieldBackground from '../FieldBackground'
+import FieldBackground from '../../Containers/FieldBackground'
 import { View } from 'react-native'
 
 storiesOf('FieldBackground')
