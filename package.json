@@ -1,0 +1,9 @@
+{
+  "name": "sportyspots",
+  "version": "0.1.0",
+  "description": "SportySpots React Native App",
+  "repository": "git@github.com:SportySpots/cruijff.git",
+  "author": "Ashutosh Bandiwdekar <ashutoshb@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
