@@ -9,3 +9,9 @@
 ```
 Caution: Please do not use npm to install or update packages
 ```
+
+### NOTES
+While installing packages with yarn make sure to specify the right dependency type (normal dependencies, dev dependencies, optional dependencies) and the exact version flag
+```
+$ yarn add ignite-cli --dev --exact
+```

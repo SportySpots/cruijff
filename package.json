@@ -5,5 +5,9 @@
   "repository": "git@github.com:SportySpots/cruijff.git",
   "author": "Ashutosh Bandiwdekar <ashutoshb@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "ignite-cli": "2.0.0"
+  }
 }
