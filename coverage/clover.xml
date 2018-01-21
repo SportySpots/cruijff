@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1516544881138" clover="3.2.0">
+  <project timestamp="1516544881138" name="All files">
+    <metrics statements="86" coveredstatements="76" conditionals="32" coveredconditionals="21" methods="38" coveredmethods="23" elements="156" coveredelements="120" complexity="0" loc="86" ncloc="86" packages="8" files="28" classes="28">
+      <package name="App.Components">
+        <metrics statements="22" coveredstatements="22" conditionals="9" coveredconditionals="8" methods="14" coveredmethods="13"/>
+        <file name="AlertMessage.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/AlertMessage.js">
+          <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="17" count="6" type="stmt"/>
+          <line num="18" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="19" count="4" type="stmt"/>
+          <line num="20" count="4" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
+        </file>
+        <file name="AlertMessage.story.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/AlertMessage.story.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+        </file>
+        <file name="DrawerButton.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/DrawerButton.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="27" count="3" type="stmt"/>
+        </file>
+        <file name="DrawerButton.story.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/DrawerButton.story.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+        </file>
+        <file name="FullButton.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/FullButton.js">
+          <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="28" count="4" type="stmt"/>
+        </file>
+        <file name="FullButton.story.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/FullButton.story.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+        </file>
+        <file name="RoundedButton.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/RoundedButton.js">
+          <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="29" count="5" type="cond" truecount="2" falsecount="1"/>
+          <line num="30" count="5" type="stmt"/>
+          <line num="34" count="5" type="stmt"/>
+        </file>
+        <file name="RoundedButton.story.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/RoundedButton.story.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+        </file>
+        <file name="Stories.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/Stories.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="App.Components.Styles">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="AlertMessageStyles.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/Styles/AlertMessageStyles.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="DrawerButtonStyles.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/Styles/DrawerButtonStyles.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="FullButtonStyles.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/Styles/FullButtonStyles.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="RoundedButtonStyles.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Components/Styles/RoundedButtonStyles.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="App.Config">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="DebugConfig.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Config/DebugConfig.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="App.Redux">
+        <metrics statements="13" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <file name="GithubRedux.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Redux/GithubRedux.js">
+          <metrics statements="13" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="12" count="3" type="stmt"/>
+          <line num="17" count="3" type="stmt"/>
+          <line num="26" count="3" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="33" count="3" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="37" count="3" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="39" count="1" type="stmt"/>
+          <line num="43" count="3" type="stmt"/>
+          <line num="44" count="1" type="stmt"/>
+          <line num="48" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="App.Sagas">
+        <metrics statements="18" coveredstatements="12" conditionals="8" coveredconditionals="6" methods="3" coveredmethods="2"/>
+        <file name="GithubSagas.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Sagas/GithubSagas.js">
+          <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+        </file>
+        <file name="StartupSagas.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Sagas/StartupSagas.js">
+          <metrics statements="11" coveredstatements="5" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="1"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="10" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="38" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="App.Services">
+        <metrics statements="21" coveredstatements="18" conditionals="9" coveredconditionals="4" methods="15" coveredmethods="4"/>
+        <file name="Api.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/Api.js">
+          <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="1"/>
+          <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="39" count="1" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
+        </file>
+        <file name="ExamplesRegistry.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/ExamplesRegistry.js">
+          <metrics statements="10" coveredstatements="8" conditionals="6" coveredconditionals="1" methods="8" coveredmethods="1"/>
+          <line num="6" count="4" type="stmt"/>
+          <line num="7" count="4" type="stmt"/>
+          <line num="9" count="6" type="cond" truecount="1" falsecount="2"/>
+          <line num="11" count="4" type="cond" truecount="0" falsecount="3"/>
+          <line num="13" count="4" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="24" count="4" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="35" count="4" type="stmt"/>
+          <line num="37" count="4" type="stmt"/>
+        </file>
+        <file name="FixtureApi.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/FixtureApi.js">
+          <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="17" count="3" type="stmt"/>
+          <line num="18" count="3" type="stmt"/>
+          <line num="19" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="App.Themes">
+        <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="0" coveredmethods="0"/>
+        <file name="ApplicationStyles.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/ApplicationStyles.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="8" count="5" type="stmt"/>
+        </file>
+        <file name="Colors.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/Colors.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="5" type="stmt"/>
+        </file>
+        <file name="Fonts.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/Fonts.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="5" type="stmt"/>
+          <line num="7" count="5" type="stmt"/>
+          <line num="21" count="5" type="stmt"/>
+        </file>
+        <file name="Images.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/Images.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="2" count="5" type="stmt"/>
+        </file>
+        <file name="Metrics.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/Metrics.js">
+          <metrics statements="2" coveredstatements="2" conditionals="6" coveredconditionals="3" methods="0" coveredmethods="0"/>
+          <line num="3" count="5" type="stmt"/>
+          <line num="6" count="5" type="stmt"/>
+        </file>
+        <file name="index.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/index.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="storybook">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <file name="index.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/storybook/index.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="storybook.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/storybook/storybook.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
