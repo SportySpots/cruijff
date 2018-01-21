@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "ignite-cli": "2.0.0"
+    "ignite-cli": "2.0.0",
+    "react-native-cli": "2.0.1"
   }
 }
