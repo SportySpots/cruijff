@@ -7,14 +7,13 @@
 
 ## Get started
 
-**Step 1:** git clone this repo:
+### Prerequisites
+* Node (Version: v8.9.4)
+* Yarn (Version: 1.3.2)
+* NPM (Version: 5.6.0)
+* NVM (Version: 0.33.8)
 
-**Step 2:** cd to the cloned repo:
-
-**Step 3:** Install the Application with `yarn` or `npm i`
-
-
-## :arrow_forward: How to Run App
+### How to Run App
 
 1. cd to the repo
 2. Run Build for either OS
@@ -24,7 +23,7 @@
     * Run Genymotion
     * run `react-native run-android`
 
-## :no_entry_sign: Standard Compliant
+### Standard Compliant
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 This project adheres to Standard.  Our CI enforces this, so we suggest you enable linting to keep your project compliant during development.
@@ -41,7 +40,7 @@ If you have to bypass lint for a special commit that you will come back and clea
 
 The linting rules are from JS Standard and React-Standard.  [Regular JS errors can be found with descriptions here](http://eslint.org/docs/rules/), while [React errors and descriptions can be found here](https://github.com/yannickcr/eslint-plugin-react).
 
-## :closed_lock_with_key: Secrets
+### Secrets
 
 This project uses [react-native-config](https://github.com/luggit/react-native-config) to expose config variables to your javascript code in React Native. You can store API keys
 and other sensitive information in a `.env` file:
@@ -62,7 +61,7 @@ Secrets.GOOGLE_MAPS_API_KEY  // 'abcdefgh'
 
 The `.env` file is ignored by git keeping those secrets out of your repo.
 
-### Get started:
+### Get started
 1. Copy .env.example to .env
 2. Add your config variables
 3. Follow instructions at [https://github.com/luggit/react-native-config#setup](https://github.com/luggit/react-native-config#setup)
