@@ -59,6 +59,23 @@ Secrets.API_URL  // 'https://myapi.com'
 Secrets.GOOGLE_MAPS_API_KEY  // 'abcdefgh'
 ```
 
+Generate release key
+[React Native Official Release Documentation](http://facebook.github.io/react-native/docs/signed-apk-android.html#content)
+```
+keytool -genkey -v -keystore sportyspots-release-key.keystore -alias sportyspots-release-key-alias -keyalg RSA -keysize 2048 -validity 20000
+```
+Place sportyspots-release-key.keystore in android/app directory
+
+Create a gradle.properties file in ~/.gradle/
+
+Add the following to gradle.properties file
+```
+SPORTYSPOTS_RELEASE_STORE_FILE=sportyspots-release-key.keystore
+SPORTYSPOTS_RELEASE_KEY_ALIAS=sportyspots-release-key-alias
+SPORTYSPOTS_RELEASE_STORE_PASSWORD=******
+SPORTYSPOTS_RELEASE_KEY_PASSWORD=******
+```
+
 The `.env` file is ignored by git keeping those secrets out of your repo.
 
 ### Get started
