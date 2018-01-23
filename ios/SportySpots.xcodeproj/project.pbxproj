@@ -942,7 +942,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = FD94WWSEG4;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1780,7 +1780,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = FD94WWSEG4;
@@ -1802,7 +1802,8 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = SportySpots;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "13bb8af7-4ea6-4312-8fdf-271a93a7fec5";
+				PROVISIONING_PROFILE_SPECIFIER = SportySpots;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1813,7 +1814,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FD94WWSEG4;
 				HEADER_SEARCH_PATHS = (
@@ -1834,7 +1835,8 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = SportySpots;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "13bb8af7-4ea6-4312-8fdf-271a93a7fec5";
+				PROVISIONING_PROFILE_SPECIFIER = SportySpots;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
