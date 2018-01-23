@@ -9,6 +9,8 @@
   "scripts": {
     "android:build": "cd android && ./gradlew assembleRelease",
     "android:clean": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
+    "android:run:local": "react-native run-android",
+    "android:run:release": "react-native run-android --variant=release",
     "android:devices": "$ANDROID_HOME/platform-tools/adb devices",
     "android:hockeyapp": "cd android && ./gradlew assembleRelease && puck -submit=auto app/build/outputs/apk/app-release.apk",
     "android:install": "cd android && ./gradlew assembleRelease && ./gradlew installRelease",
