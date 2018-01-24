@@ -46,6 +46,7 @@
     "react-native-config": "^0.10.0",
     "react-native-device-info": "0.11.0",
     "react-native-i18n": "1.0.0",
+    "react-native-svg": "^6.0.1-rc.3",
     "react-native-vector-icons": "4.3.0",
     "react-navigation": "1.0.0-beta.11",
     "react-redux": "^5.0.6",
