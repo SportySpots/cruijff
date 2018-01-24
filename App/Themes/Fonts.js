@@ -1,3 +1,5 @@
+import Colors from './Colors'
+
 const type = {
   base: 'Avenir-Book',
   bold: 'Avenir-Black',
@@ -50,6 +52,17 @@ const style = {
   description: {
     fontFamily: type.base,
     fontSize: size.medium
+  },
+  L: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 24,
+    color: Colors.black,
+    lineHeight: 42
+  },
+  M: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 18,
+    lineHeight: 32
   }
 }
 
