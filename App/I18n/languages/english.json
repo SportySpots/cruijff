@@ -22,5 +22,15 @@
    "themeSettings": "Theme Settings",
    "deviceDetails": "Device Details",
    "noItems": "No Items",
-   "search": "Search"
+   "search": "Search",
+
+   "continue": "continue",
+   "hi-sport": "Hi Sport!",
+   "join-a-game": "Join a game",
+   "plan-a-game": "Plan a game",
+   "onboarding-1": "Thanks for joining the yet to become biggest free sportclub in the world. \n Happy sporting!",
+   "onboarding-2": "Browse the list all Sportyspots near you. Tap the 'Join a game' icon to find organized games near you",
+   "onboarding-3": "Tap the 'plan a game' icon to organize a game of your favorite sport with your friends or other players"
+
+
 }

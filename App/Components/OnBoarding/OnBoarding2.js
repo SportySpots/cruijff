@@ -7,12 +7,12 @@ import I18n from '../../I18n'
 export default props =>
   <View style={styles.container}>
     <View style={styles.imageContainer}>
-      <Image style={styles.image} resizeMode='contain' source={Images.illustrationWizard1} />
+      <Image style={styles.image} resizeMode='contain' source={Images.illustrationWizard2} />
     </View>
     <View style={styles.textContainer}>
       <Text style={styles.title}>{I18n.t('hi-sport')}</Text>
       <Text style={styles.paragraph}>
-        {I18n.t('onboarding-1')}
+        {I18n.t('onboarding-2')}
       </Text>
     </View>
   </View>

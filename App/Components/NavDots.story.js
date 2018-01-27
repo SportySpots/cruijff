@@ -7,6 +7,5 @@ storiesOf('NavDots')
     <NavDots
       count={5}
       active={3}
-      theme='light'
     />
   ))
