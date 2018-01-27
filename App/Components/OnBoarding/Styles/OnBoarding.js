@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     paddingRight: 50,
     paddingLeft: 50,
     flexDirection: 'row',
-    alignItems: 'stretch'
+    alignItems: 'center'
   },
   image: {
     flex: 1
@@ -23,11 +23,12 @@ export const styles = StyleSheet.create({
     ...Fonts.style.L,
     color: Colors.white,
     textAlign: 'center',
-    marginHorizontal: 50,
-    marginBottom: 50
+    marginHorizontal: 48,
+    marginBottom: 24
   },
   paragraph: {
     ...Fonts.style.M,
+    lineHeight: Fonts.style.M.fontSize * 1.5,
     color: Colors.white,
     textAlign: 'center',
     marginHorizontal: 50

@@ -55,14 +55,14 @@ const style = {
   },
   L: {
     fontFamily: 'Rajdhani-SemiBold',
-    fontSize: 24,
-    color: Colors.black,
-    lineHeight: 42
+    fontSize: 32,
+    color: Colors.black
+    // lineHeight: 50
   },
   M: {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 18,
-    lineHeight: 32
+    lineHeight: 18
   },
   S: {
     fontFamily: 'Radjdhani-Regular',
