@@ -8,7 +8,7 @@ export default props =>
   <View style={styles.container}>
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} resizeMode='contain' source={Images.illustrationWizard1} />
+        <Image style={styles.image} resizeMode='contain' source={Images.illustrationShareLocation} />
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.title}>{I18n.t('share-your-location')}</Text>
