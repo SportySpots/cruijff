@@ -40,14 +40,20 @@ export const askLocation = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: Colors.black,
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingHorizontal: 8
   },
   text: {
-    ...Fonts.style.M,
+    ...Fonts.style.S,
+    fontSize: 16,
     color: Colors.white
   },
-  continueButton: {
-    position: 'absolute',
-    right: 5
+  buttonsContainer: {
+    flexDirection: 'row'
+  },
+  button: {
+    ...Fonts.style.M,
+    color: Colors.actionYellow,
+    marginHorizontal: 10
   }
 })

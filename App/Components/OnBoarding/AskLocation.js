@@ -21,10 +21,13 @@ export default props =>
       <View>
         <Text style={askLocationStyle.text}>{I18n.t('share-your-location')}</Text>
       </View>
-      <View>
-        <TouchableHighlight><Text>{I18n.t('cancel').toUpperCase()}</Text></TouchableHighlight>
-        <TouchableHighlight><Text>{I18n.t('cancel').toUpperCase()}</Text></TouchableHighlight>
-        <Text style={askLocationStyle.text}>123</Text>
+      <View style={askLocationStyle.buttonsContainer}>
+        <TouchableHighlight onPress={() => console.log('test')}>
+          <Text style={askLocationStyle.button}>{I18n.t('cancel').toUpperCase()}</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => console.log('test')}>
+          <Text style={askLocationStyle.button}>{I18n.t('allow').toUpperCase()}</Text>
+        </TouchableHighlight>
       </View>
     </View>
   </View>

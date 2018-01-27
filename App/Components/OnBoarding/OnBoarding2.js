@@ -10,7 +10,7 @@ export default props =>
       <Image style={styles.image} resizeMode='contain' source={Images.illustrationWizard2} />
     </View>
     <View style={styles.textContainer}>
-      <Text style={styles.title}>{I18n.t('hi-sport')}</Text>
+      <Text style={styles.title}>{I18n.t('join-a-game')}</Text>
       <Text style={styles.paragraph}>
         {I18n.t('onboarding-2')}
       </Text>

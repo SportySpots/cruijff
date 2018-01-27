@@ -63,6 +63,10 @@ const style = {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 18,
     lineHeight: 32
+  },
+  S: {
+    fontFamily: 'Radjdhani-Regular',
+    fontSize: 12
   }
 }
 
