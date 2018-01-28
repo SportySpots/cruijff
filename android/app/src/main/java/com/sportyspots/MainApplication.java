@@ -2,6 +2,7 @@ package com.sportyspots;
 
 import java.util.Arrays;
 import java.util.List;
+import android.app.Application;
 
 import com.facebook.CallbackManager;
 import com.facebook.react.ReactApplication;
