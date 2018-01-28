@@ -123,5 +123,8 @@
       "FormData",
       "React$Element"
     ]
+  },
+  "rnpm": {
+    "assets": ["./assets/fonts"]
   }
 }
