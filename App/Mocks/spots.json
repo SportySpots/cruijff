@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "Jan Evertsenstraat",
+    "sport": "soccer",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+    "rating": 4,
+    "numGames": 0
+  },
+  {
+    "id": 2,
+    "name": "Jan Evertsenstraat",
+    "sport": "soccer",
+    "rating": 3.3,
+    "numGames": 3
+  },
+  {
+    "id": 3,
+    "name": "Jan Evertsenstraat",
+    "sport": "soccer",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+    "rating": 5,
+    "numGames": 5
+  }
+]

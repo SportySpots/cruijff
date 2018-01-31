@@ -1,8 +1,10 @@
-import './AlertMessage.story'
-import './DrawerButton.story'
-import './FullButton.story'
-import './RoundedButton.story'
-import './FieldBackground.story'
-import './NavDots.story'
-import './SlideNavigation/Footer.story'
-require('./OnBoarding/Stories')
+// import './AlertMessage.story'
+// import './DrawerButton.story'
+// import './FullButton.story'
+// import './RoundedButton.story'
+// import './FieldBackground.story'
+// import './NavDots.story'
+// import './SlideNavigation/Footer.story'
+import './Cards/Cards.story'
+// import './Rating.story'
+// require('./OnBoarding/Stories')
