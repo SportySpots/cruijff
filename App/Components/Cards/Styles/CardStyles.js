@@ -17,7 +17,10 @@ export const card = StyleSheet.create({
     padding: 8,
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8
-  },
+  }
+})
+
+export const header = StyleSheet.create({
   belowName: {
     flexDirection: 'row',
     marginTop: 4
@@ -47,5 +50,17 @@ export const cardList = StyleSheet.create({
     elevation: 1,
     shadowColor: 'black',
     shadowOpacity: 1.0
+  }
+})
+
+export const cardDetails = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  slider: {
+    height: 200
+  },
+  bottom: {
+    padding: 8
   }
 })

@@ -2,14 +2,10 @@
 
 import React, { Component } from 'react'
 import {Image, View} from 'react-native'
-import Text from '../Text'
 import PropTypes from 'prop-types'
 
-import { card } from './Styles/CardStyles'
-import Rating from '../Rating'
-import Int18n from '../../I18n'
-
-const Spacer = () => <Text style={card.spacer}>·</Text>
+import {card} from './Styles/CardStyles'
+import Header from './Header'
 
 export default class extends Component {
   static propTypes = {
@@ -32,26 +28,9 @@ export default class extends Component {
     return (
       <View style={[card.container, this.props.style]}>
         <Image style={card.image} source={{
-          uri: (spot.image && spot.image) || 'http://via.placeholder.com/350x150'
+          uri: (spot.images && spot.images[0]) || 'http://via.placeholder.com/350x150'
         }} />
-        <View style={card.bottom}>
-          <Text.M>
-            {spot.name}
-          </Text.M>
-          <View style={card.belowName}>
-            <Rating rating={spot.rating} />
-            <Spacer />
-            <Text.S>{Int18n.t(spot.sport)}</Text.S>
-            <Spacer />
-            <Text.S>{this.distance.toFixed(1)} km</Text.S>
-            {spot.numGames > 0 && ([
-              <Spacer key={1} />,
-              <Text.S key={2} style={card.plannedGamesCount}>
-                {spot.numGames} {Int18n.t('games')}
-              </Text.S>
-            ])}
-          </View>
-        </View>
+        <Header spot={spot} style={card.bottom} />
       </View>
     )
   }

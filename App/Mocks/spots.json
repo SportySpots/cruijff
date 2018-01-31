@@ -3,22 +3,34 @@
     "id": 1,
     "name": "Jan Evertsenstraat",
     "sport": "soccer",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+      "http://via.placeholder.com/350x150"
+    ],
     "rating": 4,
-    "numGames": 0
+    "numGames": 0,
+    "properties": {
+      "ground": "artifical grass",
+      "lighting": "none",
+      "fence": "on the sides",
+      "size": "100m2"
+    }
   },
   {
     "id": 2,
     "name": "Jan Evertsenstraat",
     "sport": "soccer",
     "rating": 3.3,
-    "numGames": 3
+    "numGames": 3,
+    "images": []
   },
   {
     "id": 3,
     "name": "Jan Evertsenstraat",
     "sport": "soccer",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A"
+    ],
     "rating": 5,
     "numGames": 5
   }

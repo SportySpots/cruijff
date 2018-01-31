@@ -2,9 +2,10 @@
 // import './DrawerButton.story'
 // import './FullButton.story'
 // import './RoundedButton.story'
-// import './FieldBackground.story'
-// import './NavDots.story'
-// import './SlideNavigation/Footer.story'
+import './FieldBackground.story'
+import './NavDots.story'
+import './SlideNavigation/Footer.story'
 import './Cards/Cards.story'
-// import './Rating.story'
-// require('./OnBoarding/Stories')
+import './ImageSlider/ImageSlider.story'
+import './Rating.story'
+require('./OnBoarding/Stories')
