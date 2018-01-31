@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native'
-import Fonts from '../../../Themes/Fonts'
 import Colors from '../../../Themes/Colors'
 
 export const card = StyleSheet.create({
@@ -27,20 +26,7 @@ export const card = StyleSheet.create({
     marginLeft: 8,
     marginRight: 8
   },
-  name: {
-    ...Fonts.style.M,
-    color: Colors.black
-  },
-  distanceText: {
-    ...Fonts.style.S,
-    color: Colors.black
-  },
-  sportText: {
-    ...Fonts.style.S,
-    color: Colors.black
-  },
   plannedGamesCount: {
-    ...Fonts.style.S,
     color: Colors.actionYellow
   }
 })

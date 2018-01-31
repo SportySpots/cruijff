@@ -1,7 +1,8 @@
 import * as React from 'react'
-import {Text, View} from 'react-native'
+import {View} from 'react-native'
 import PropTypes from 'prop-types'
 import { style } from './Styles/Rating'
+import Text from './Text'
 
 export default class Rating extends React.Component {
   static propTypes = {
@@ -13,9 +14,9 @@ export default class Rating extends React.Component {
         { [1, 2, 3, 4, 5].map(i =>
           <View key={i} style={[style.circle, i <= this.props.rating && style.full]} />)
         }
-        <Text style={style.text}>
+        <Text.S>
           {this.props.rating.toFixed(1)}/5.0
-        </Text>
+        </Text.S>
       </View>
     )
   }

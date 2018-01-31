@@ -1,7 +1,8 @@
 /* Card component, this is the Card that is used in a list of many Cards */
 
 import React, { Component } from 'react'
-import {Image, Text, View} from 'react-native'
+import {Image, View} from 'react-native'
+import Text from '../Text'
 import PropTypes from 'prop-types'
 
 import { card } from './Styles/CardStyles'
@@ -34,20 +35,20 @@ export default class extends Component {
           uri: (spot.image && spot.image) || 'http://via.placeholder.com/350x150'
         }} />
         <View style={card.bottom}>
-          <Text style={card.name}>
+          <Text.M>
             {spot.name}
-          </Text>
+          </Text.M>
           <View style={card.belowName}>
             <Rating rating={spot.rating} />
             <Spacer />
-            <Text style={card.sportText}>{Int18n.t(spot.sport)}</Text>
+            <Text.S>{Int18n.t(spot.sport)}</Text.S>
             <Spacer />
-            <Text style={card.distanceText}>{this.distance.toFixed(1)} km</Text>
+            <Text.S>{this.distance.toFixed(1)} km</Text.S>
             {spot.numGames > 0 && ([
               <Spacer key={1} />,
-              <Text key={2} style={card.plannedGamesCount}>
+              <Text.S key={2} style={card.plannedGamesCount}>
                 {spot.numGames} {Int18n.t('games')}
-              </Text>
+              </Text.S>
             ])}
           </View>
         </View>
