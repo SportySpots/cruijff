@@ -108,20 +108,21 @@ android {
         }
     }
     signingConfigs {
-        release {
-            if (project.hasProperty('SPORTYSPOTS_RELEASE_STORE_FILE')) {
-                storeFile file(SPORTYSPOTS_RELEASE_STORE_FILE)
-                storePassword SPORTYSPOTS_RELEASE_STORE_PASSWORD
-                keyAlias SPORTYSPOTS_RELEASE_KEY_ALIAS
-                keyPassword SPORTYSPOTS_RELEASE_KEY_PASSWORD
-            }
-            if (System.getenv('APPCENTER')) {
-                storeFile rootProject.file("app/sportyspots-release-key.keystore")
-                storePassword System.getProperty("APPCENTER_KEYSTORE_PASSWORD")
-                keyAlias System.getProperty("APPCENTER_KEY_ALIAS")
-                keyPassword System.getProperty("APPCENTER_KEY_PASSWORD")
-            }
-        }
+        // NOTE: Remove signing configs to enable App Center to build release builds
+        // release {
+        //     if (project.hasProperty('SPORTYSPOTS_RELEASE_STORE_FILE')) {
+        //         storeFile file(SPORTYSPOTS_RELEASE_STORE_FILE)
+        //         storePassword SPORTYSPOTS_RELEASE_STORE_PASSWORD
+        //         keyAlias SPORTYSPOTS_RELEASE_KEY_ALIAS
+        //         keyPassword SPORTYSPOTS_RELEASE_KEY_PASSWORD
+        //     }
+        //     if (System.getenv('APPCENTER')) {
+        //         storeFile rootProject.file("app/sportyspots-release-key.keystore")
+        //         storePassword System.getProperty("APPCENTER_KEYSTORE_PASSWORD")
+        //         keyAlias System.getProperty("APPCENTER_KEY_ALIAS")
+        //         keyPassword System.getProperty("APPCENTER_KEY_PASSWORD")
+        //     }
+        // }
     }
     splits {
         abi {
@@ -135,7 +136,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
+            // signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
