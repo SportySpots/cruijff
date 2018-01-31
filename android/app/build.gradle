@@ -115,6 +115,12 @@ android {
                 keyAlias SPORTYSPOTS_RELEASE_KEY_ALIAS
                 keyPassword SPORTYSPOTS_RELEASE_KEY_PASSWORD
             }
+            if (System.getenv('APPCENTER')) {
+                storeFile rootProject.file("app/sportyspots-release-key.keystore")
+                storePassword System.getProperty("APPCENTER_KEYSTORE_PASSWORD")
+                keyAlias System.getProperty("APPCENTER_KEY_ALIAS")
+                keyPassword System.getProperty("APPCENTER_KEY_PASSWORD")
+            }
         }
     }
     splits {
