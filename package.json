@@ -27,7 +27,10 @@
     "test:coverage": "jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
     "test:updateSnapshot": "jest --updateSnapshot",
     "test:watch": "jest --watch",
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier-standard 'App/**/*.{js,json,css,md}'",
+    "precommit": "lint-staged"
+
   },
   "dependencies": {
     "apisauce": "^0.14.2",
@@ -81,7 +84,9 @@
     "ignite-standard": "^1.0.0",
     "ignite-vector-icons": "^1.1.0",
     "jest": "22.1.4",
+    "lint-staged": "^6.1.0",
     "mockery": "^2.1.0",
+    "prettier-standard": "^8.0.0",
     "react-dom": "16.0.0",
     "react-native-cli": "2.0.1",
     "react-test-renderer": "16.0.0",
@@ -124,7 +129,12 @@
       "React$Element"
     ]
   },
+  "lint-staged": {
+    "App/**/*.{js,json,css,md}": ["prettier-standard", "git add"]
+  },
   "rnpm": {
-    "assets": ["./assets/fonts"]
+    "assets": [
+      "./assets/fonts"
+    ]
   }
 }
