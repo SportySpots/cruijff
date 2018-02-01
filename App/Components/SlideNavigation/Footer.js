@@ -1,9 +1,9 @@
 import React from 'react'
 import I18n from '../../I18n'
-import {View} from 'react-native'
+import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import NavDots from '../NavDots'
-import {style, navDotsTheme} from './Styles/Footer'
+import { style, navDotsTheme } from './Styles/Footer'
 import ContinueButton from './ContinueButton'
 
 export default class Footer extends React.Component {
@@ -29,7 +29,11 @@ export default class Footer extends React.Component {
           theme={navDotsTheme}
           style={style.navDots}
         />
-        <ContinueButton text={I18n.t('continue')} style={style.continueButton} onPress={this.onNext} />
+        <ContinueButton
+          text={I18n.t('continue')}
+          style={style.continueButton}
+          onPress={this.onNext}
+        />
       </View>
     )
   }

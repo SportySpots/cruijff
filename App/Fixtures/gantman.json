@@ -10,14 +10,17 @@
       "url": "https://api.github.com/users/GantMan",
       "html_url": "https://github.com/GantMan",
       "followers_url": "https://api.github.com/users/GantMan/followers",
-      "following_url": "https://api.github.com/users/GantMan/following{/other_user}",
+      "following_url":
+        "https://api.github.com/users/GantMan/following{/other_user}",
       "gists_url": "https://api.github.com/users/GantMan/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/GantMan/starred{/owner}{/repo}",
+      "starred_url":
+        "https://api.github.com/users/GantMan/starred{/owner}{/repo}",
       "subscriptions_url": "https://api.github.com/users/GantMan/subscriptions",
       "organizations_url": "https://api.github.com/users/GantMan/orgs",
       "repos_url": "https://api.github.com/users/GantMan/repos",
       "events_url": "https://api.github.com/users/GantMan/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/GantMan/received_events",
+      "received_events_url":
+        "https://api.github.com/users/GantMan/received_events",
       "type": "User",
       "site_admin": false,
       "score": 122.12115
@@ -30,14 +33,17 @@
       "url": "https://api.github.com/users/vlad-G",
       "html_url": "https://github.com/vlad-G",
       "followers_url": "https://api.github.com/users/vlad-G/followers",
-      "following_url": "https://api.github.com/users/vlad-G/following{/other_user}",
+      "following_url":
+        "https://api.github.com/users/vlad-G/following{/other_user}",
       "gists_url": "https://api.github.com/users/vlad-G/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/vlad-G/starred{/owner}{/repo}",
+      "starred_url":
+        "https://api.github.com/users/vlad-G/starred{/owner}{/repo}",
       "subscriptions_url": "https://api.github.com/users/vlad-G/subscriptions",
       "organizations_url": "https://api.github.com/users/vlad-G/orgs",
       "repos_url": "https://api.github.com/users/vlad-G/repos",
       "events_url": "https://api.github.com/users/vlad-G/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/vlad-G/received_events",
+      "received_events_url":
+        "https://api.github.com/users/vlad-G/received_events",
       "type": "User",
       "site_admin": false,
       "score": 12.69848
@@ -50,14 +56,18 @@
       "url": "https://api.github.com/users/gantmani",
       "html_url": "https://github.com/gantmani",
       "followers_url": "https://api.github.com/users/gantmani/followers",
-      "following_url": "https://api.github.com/users/gantmani/following{/other_user}",
+      "following_url":
+        "https://api.github.com/users/gantmani/following{/other_user}",
       "gists_url": "https://api.github.com/users/gantmani/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/gantmani/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/gantmani/subscriptions",
+      "starred_url":
+        "https://api.github.com/users/gantmani/starred{/owner}{/repo}",
+      "subscriptions_url":
+        "https://api.github.com/users/gantmani/subscriptions",
       "organizations_url": "https://api.github.com/users/gantmani/orgs",
       "repos_url": "https://api.github.com/users/gantmani/repos",
       "events_url": "https://api.github.com/users/gantmani/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/gantmani/received_events",
+      "received_events_url":
+        "https://api.github.com/users/gantmani/received_events",
       "type": "User",
       "site_admin": false,
       "score": 11.641713
@@ -70,14 +80,18 @@
       "url": "https://api.github.com/users/sgantman",
       "html_url": "https://github.com/sgantman",
       "followers_url": "https://api.github.com/users/sgantman/followers",
-      "following_url": "https://api.github.com/users/sgantman/following{/other_user}",
+      "following_url":
+        "https://api.github.com/users/sgantman/following{/other_user}",
       "gists_url": "https://api.github.com/users/sgantman/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/sgantman/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/sgantman/subscriptions",
+      "starred_url":
+        "https://api.github.com/users/sgantman/starred{/owner}{/repo}",
+      "subscriptions_url":
+        "https://api.github.com/users/sgantman/subscriptions",
       "organizations_url": "https://api.github.com/users/sgantman/orgs",
       "repos_url": "https://api.github.com/users/sgantman/repos",
       "events_url": "https://api.github.com/users/sgantman/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/sgantman/received_events",
+      "received_events_url":
+        "https://api.github.com/users/sgantman/received_events",
       "type": "User",
       "site_admin": false,
       "score": 7.926345
@@ -90,14 +104,20 @@
       "url": "https://api.github.com/users/michaelgantman",
       "html_url": "https://github.com/michaelgantman",
       "followers_url": "https://api.github.com/users/michaelgantman/followers",
-      "following_url": "https://api.github.com/users/michaelgantman/following{/other_user}",
-      "gists_url": "https://api.github.com/users/michaelgantman/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/michaelgantman/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/michaelgantman/subscriptions",
+      "following_url":
+        "https://api.github.com/users/michaelgantman/following{/other_user}",
+      "gists_url":
+        "https://api.github.com/users/michaelgantman/gists{/gist_id}",
+      "starred_url":
+        "https://api.github.com/users/michaelgantman/starred{/owner}{/repo}",
+      "subscriptions_url":
+        "https://api.github.com/users/michaelgantman/subscriptions",
       "organizations_url": "https://api.github.com/users/michaelgantman/orgs",
       "repos_url": "https://api.github.com/users/michaelgantman/repos",
-      "events_url": "https://api.github.com/users/michaelgantman/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/michaelgantman/received_events",
+      "events_url":
+        "https://api.github.com/users/michaelgantman/events{/privacy}",
+      "received_events_url":
+        "https://api.github.com/users/michaelgantman/received_events",
       "type": "User",
       "site_admin": false,
       "score": 7.926345
@@ -110,14 +130,18 @@
       "url": "https://api.github.com/users/gantmanis",
       "html_url": "https://github.com/gantmanis",
       "followers_url": "https://api.github.com/users/gantmanis/followers",
-      "following_url": "https://api.github.com/users/gantmanis/following{/other_user}",
+      "following_url":
+        "https://api.github.com/users/gantmanis/following{/other_user}",
       "gists_url": "https://api.github.com/users/gantmanis/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/gantmanis/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/gantmanis/subscriptions",
+      "starred_url":
+        "https://api.github.com/users/gantmanis/starred{/owner}{/repo}",
+      "subscriptions_url":
+        "https://api.github.com/users/gantmanis/subscriptions",
       "organizations_url": "https://api.github.com/users/gantmanis/orgs",
       "repos_url": "https://api.github.com/users/gantmanis/repos",
       "events_url": "https://api.github.com/users/gantmanis/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/gantmanis/received_events",
+      "received_events_url":
+        "https://api.github.com/users/gantmanis/received_events",
       "type": "User",
       "site_admin": false,
       "score": 7.8813524
@@ -130,14 +154,18 @@
       "url": "https://api.github.com/users/Gantman2014",
       "html_url": "https://github.com/Gantman2014",
       "followers_url": "https://api.github.com/users/Gantman2014/followers",
-      "following_url": "https://api.github.com/users/Gantman2014/following{/other_user}",
+      "following_url":
+        "https://api.github.com/users/Gantman2014/following{/other_user}",
       "gists_url": "https://api.github.com/users/Gantman2014/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Gantman2014/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Gantman2014/subscriptions",
+      "starred_url":
+        "https://api.github.com/users/Gantman2014/starred{/owner}{/repo}",
+      "subscriptions_url":
+        "https://api.github.com/users/Gantman2014/subscriptions",
       "organizations_url": "https://api.github.com/users/Gantman2014/orgs",
       "repos_url": "https://api.github.com/users/Gantman2014/repos",
       "events_url": "https://api.github.com/users/Gantman2014/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Gantman2014/received_events",
+      "received_events_url":
+        "https://api.github.com/users/Gantman2014/received_events",
       "type": "User",
       "site_admin": false,
       "score": 7.8813524

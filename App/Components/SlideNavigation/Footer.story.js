@@ -9,7 +9,6 @@ const navigationMock = {
   }
 }
 
-storiesOf('SlideNavigation')
-  .add('Footer', () => (
-    <Footer navigation={navigationMock} />
-  ))
+storiesOf('SlideNavigation').add('Footer', () => (
+  <Footer navigation={navigationMock} />
+))
