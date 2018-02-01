@@ -1,8 +1,8 @@
 import React from 'react'
 
-import {View, StyleSheet} from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import Footer from './Footer'
-import {TabNavigator} from 'react-navigation'
+import { TabNavigator } from 'react-navigation'
 import PropTypes from 'prop-types'
 
 /* Convert screen array to object, navigator wants it like this:
@@ -18,7 +18,7 @@ import PropTypes from 'prop-types'
  *   tabBarPosition: 'bottom'
  * })
  */
-const arrayToObject = (array) =>
+const arrayToObject = array =>
   array.reduce((obj, item, idx) => {
     obj[idx] = { screen: item }
     return obj
@@ -31,13 +31,12 @@ export default class extends React.Component {
   }
 
   componentWillMount () {
-    this.navigator = TabNavigator(
-      arrayToObject(this.props.components),
-      {
-        tabBarComponent: (props) => (<Footer {...props} onDone={this.props.onDone} />),
-        tabBarPosition: 'bottom'
-      }
-    )
+    this.navigator = TabNavigator(arrayToObject(this.props.components), {
+      tabBarComponent: props => (
+        <Footer {...props} onDone={this.props.onDone} />
+      ),
+      tabBarPosition: 'bottom'
+    })
   }
 
   render () {

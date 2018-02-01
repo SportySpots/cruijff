@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, StyleSheet, TouchableHighlight, View} from 'react-native'
+import { Text, StyleSheet, TouchableHighlight, View } from 'react-native'
 import PropTypes from 'prop-types'
 import Fonts from '../../Themes/Fonts'
 import Colors from '../../Themes/Colors'
@@ -16,7 +16,9 @@ export default class extends React.Component {
     return (
       <TouchableHighlight {...props}>
         <View style={style.button}>
-          <View style={style.textContainer}><Text style={style.text}>{text.toUpperCase()}</Text></View>
+          <View style={style.textContainer}>
+            <Text style={style.text}>{text.toUpperCase()}</Text>
+          </View>
           <Icon name='chevron-right' size={24} color='white' />
         </View>
       </TouchableHighlight>
@@ -40,6 +42,6 @@ const style = StyleSheet.create({
   button: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   }
 })

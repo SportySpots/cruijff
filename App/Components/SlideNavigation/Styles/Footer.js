@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native'
+import { StyleSheet } from 'react-native'
 import Colors from '../../../Themes/Colors'
 import Fonts from '../../../Themes/Fonts'
 
@@ -13,8 +13,7 @@ export const style = StyleSheet.create({
   title: {
     ...Fonts.style.L
   },
-  navDots: {
-  },
+  navDots: {},
   continueButton: {
     position: 'absolute',
     right: 5

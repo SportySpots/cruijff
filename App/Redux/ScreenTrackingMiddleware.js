@@ -1,7 +1,7 @@
 import { NavigationActions } from 'react-navigation'
 
 // gets the current screen from navigation state
-const getCurrentRouteName = (navigationState) => {
+const getCurrentRouteName = navigationState => {
   if (!navigationState) {
     return null
   }
@@ -13,7 +13,7 @@ const getCurrentRouteName = (navigationState) => {
   return route.routeName
 }
 
-const screenTracking = ({ getState }) => next => (action) => {
+const screenTracking = ({ getState }) => next => action => {
   if (
     action.type !== NavigationActions.NAVIGATE &&
     action.type !== NavigationActions.BACK
