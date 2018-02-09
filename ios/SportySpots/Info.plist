@@ -67,12 +67,12 @@
 	<false/>
 	<key>CFBundleURLTypes</key>
 	<array>
-	<dict>
-	<key>CFBundleURLSchemes</key>
-	<array>
-		<string>fb238532660014958</string>
-	</array>
-	</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb238532660014958</string>
+			</array>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>238532660014958</string>
@@ -80,11 +80,11 @@
 	<string>SportySpots</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-	<string>fbapi</string>
-	<string>fb-messenger-api</string>
-	<string>fb-messenger-share-api</string>
-	<string>fbauth2</string>
-	<string>fbshareextension</string>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 </dict>
 </plist>
