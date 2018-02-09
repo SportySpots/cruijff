@@ -1,5 +1,5 @@
 const colors = {
-  background: '#1F0808',
+  background: '#FFFFFF',
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
   transparent: 'rgba(0,0,0,0)',
@@ -27,14 +27,13 @@ const colors = {
 
   primaryGreen: '#009f36',
   secondaryGreen: '#005537',
-  secondaryDarkGreen84: 'rgba(0, 53, 58, 0.84)',
-  secondaryDarkGreen40: 'rgba(0, 53, 58, 0.4)',
+  secondaryDarkBlueGreen: 'rgba(0, 53, 58, 0.84)',
+  secondaryLightBlueGreen: 'rgba(0, 53, 58, 0.4)',
   actionYellow: '#f5a623',
   actionBlue: '#019ae8',
   black54: 'rgba(0,0,0,0.54)',
   white20: 'rgba(255,255,255,.2)',
   bgGrey: '#f6f6f9',
-
   darkGreen: '#2F553C'
 }
 

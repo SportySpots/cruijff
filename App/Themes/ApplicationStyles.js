@@ -9,7 +9,13 @@ const ApplicationStyles = {
   screen: {
     mainContainer: {
       flex: 1,
-      backgroundColor: Colors.transparent
+      flexDirection: 'column',
+      backgroundColor: Colors.actionBlue
+    },
+    container: {
+      flex: 1,
+      backgroundColor: Colors.transparent,
+      paddingTop: Metrics.baseMargin
     },
     backgroundImage: {
       position: 'absolute',
@@ -18,21 +24,16 @@ const ApplicationStyles = {
       bottom: 0,
       right: 0
     },
-    container: {
-      flex: 1,
-      paddingTop: Metrics.baseMargin,
-      backgroundColor: Colors.transparent
-    },
     section: {
       margin: Metrics.section,
       padding: Metrics.baseMargin
     },
     sectionText: {
       ...Fonts.style.normal,
-      paddingVertical: Metrics.doubleBaseMargin,
       color: Colors.snow,
+      textAlign: 'center',
       marginVertical: Metrics.smallMargin,
-      textAlign: 'center'
+      paddingVertical: Metrics.doubleBaseMargin
     },
     subtitle: {
       color: Colors.snow,
@@ -47,10 +48,10 @@ const ApplicationStyles = {
     }
   },
   darkLabelContainer: {
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
     padding: Metrics.smallMargin,
     paddingBottom: Metrics.doubleBaseMargin,
-    borderBottomColor: Colors.border,
-    borderBottomWidth: 1,
     marginBottom: Metrics.baseMargin
   },
   darkLabel: {
@@ -62,18 +63,6 @@ const ApplicationStyles = {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'
-  },
-  sectionTitle: {
-    ...Fonts.style.h4,
-    color: Colors.coal,
-    backgroundColor: Colors.ricePaper,
-    padding: Metrics.smallMargin,
-    marginTop: Metrics.smallMargin,
-    marginHorizontal: Metrics.baseMargin,
-    borderWidth: 1,
-    borderColor: Colors.ember,
-    alignItems: 'center',
-    textAlign: 'center'
   }
 }
 
