@@ -27,8 +27,8 @@ export const styles = StyleSheet.create({
     marginBottom: 24
   },
   paragraph: {
-    ...Fonts.style.M,
-    lineHeight: Fonts.style.M.fontSize * 1.5,
+    ...Fonts.style.normal,
+    lineHeight: Fonts.style.normal * 1.5,
     color: Colors.white,
     textAlign: 'center',
     marginHorizontal: 50
@@ -45,7 +45,7 @@ export const askLocation = StyleSheet.create({
     paddingHorizontal: 8
   },
   text: {
-    ...Fonts.style.S,
+    ...Fonts.style.normal,
     fontSize: 16,
     color: Colors.white
   },
@@ -53,7 +53,7 @@ export const askLocation = StyleSheet.create({
     flexDirection: 'row'
   },
   button: {
-    ...Fonts.style.M,
+    ...Fonts.style.normal,
     color: Colors.actionYellow,
     marginHorizontal: 10
   }
