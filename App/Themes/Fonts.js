@@ -1,5 +1,3 @@
-import Colors from './Colors'
-
 const type = {
   base: 'Rajdhani-Regular',
   bold: 'Rajdhani-Bold',
