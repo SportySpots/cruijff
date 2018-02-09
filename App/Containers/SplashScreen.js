@@ -1,22 +1,20 @@
 import React, { Component } from 'react'
-import { Image, View } from 'react-native'
+import { View } from 'react-native'
 
-import { Images } from '../Themes'
+import FieldBackground from '../Components/FieldBackground'
+import Logo from '../Components/Logo'
 
 // Styles
 import styles from './Styles/SplashScreenStyles'
 
-export default class LaunchScreen extends Component {
+export default class SplashScreen extends Component {
   render () {
     return (
-      <View style={styles.container}>
-        <Image
-          source={Images.background}
-          style={styles.backgroundImage}
-          resizeMode='stretch'
-        />
-        <Image source={Images.logo} style={styles.logo} />
-      </View>
+      <FieldBackground>
+        <View style={styles.container}>
+          <Logo />
+        </View>
+      </FieldBackground>
     )
   }
 }
