@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { View } from 'react-native'
 import PropTypes from 'prop-types'
-import { style, themes } from './Styles/NavDots'
+import { style, themes } from './Styles/NavDotsStyle'
 
 const range = function (count) {
   const result = []

@@ -5,9 +5,10 @@ export default StyleSheet.create({
   button: {
     height: 45,
     borderRadius: 5,
+    padding: 5,
     marginHorizontal: Metrics.section,
     marginVertical: Metrics.baseMargin,
-    backgroundColor: Colors.fire,
+    backgroundColor: Colors.facebook,
     justifyContent: 'center'
   },
   buttonText: {
