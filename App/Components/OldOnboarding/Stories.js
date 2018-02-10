@@ -1,2 +1,2 @@
-import './OnBoarding.story'
+import './Onboarding.story'
 import './AskLocation.story'

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableHighlight } from 'react-native'
 
 import FieldBackground from '../Components/FieldBackground'
 import Logo from '../Components/Logo'
@@ -23,7 +23,9 @@ export default class SplashScreen extends Component {
           </RoundedButton>
         </View>
         <View style={styles.skipActionContainer}>
-          <Text>Skip It... I'll do it later</Text>
+          <TouchableHighlight onPress={() => navigate('OnboardingScreen')}>
+            <Text>I'll do this later</Text>
+          </TouchableHighlight>
         </View>
       </FieldBackground>
     )

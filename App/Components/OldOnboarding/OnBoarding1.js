@@ -1,5 +1,5 @@
 import React from 'react'
-import { styles } from './Styles/OnBoarding'
+import { styles } from './Styles/Onboarding'
 import { View, Text, Image } from 'react-native'
 import Images from '../../Themes/Images'
 import I18n from '../../I18n'
@@ -10,12 +10,12 @@ export default props => (
       <Image
         style={styles.image}
         resizeMode='contain'
-        source={Images.illustrationWizard3}
+        source={Images.illustrationWizard1}
       />
     </View>
     <View style={styles.textContainer}>
-      <Text style={styles.title}>{I18n.t('plan-a-game')}</Text>
-      <Text style={styles.paragraph}>{I18n.t('onboarding-3')}</Text>
+      <Text style={styles.title}>{I18n.t('hi-sport')}</Text>
+      <Text style={styles.paragraph}>{I18n.t('onboarding-1')}</Text>
     </View>
   </View>
 )

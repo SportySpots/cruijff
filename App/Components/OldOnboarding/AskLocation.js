@@ -1,5 +1,5 @@
 import React from 'react'
-import { styles, askLocation as askLocationStyle } from './Styles/OnBoarding'
+import { styles, askLocation as askLocationStyle } from './Styles/Onboarding'
 import { View, Text, Image, TouchableHighlight } from 'react-native'
 import Images from '../../Themes/Images'
 import I18n from '../../I18n'
