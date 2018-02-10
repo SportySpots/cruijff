@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 
-export default class OnboardingScreen extends Component {
+export default class GameListScreen extends Component {
   render () {
     return (
       <View>
-        <Text>OnboardingScreen</Text>
+        <Text>GameListScreen</Text>
       </View>
     )
   }
