@@ -9,21 +9,23 @@ export default StyleSheet.create({
   },
   logoContainer: {
     ...ApplicationStyles.screen.container,
+    flex: 4,
     flexDirection: 'row',
     alignItems: 'flex-end',
+    justifyContent: 'center'
+  },
+  facebookActionContainer: {
+    ...ApplicationStyles.screen.container,
+    flex: 3,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
     justifyContent: 'center'
   },
   skipActionContainer: {
     ...ApplicationStyles.screen.container,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
+    flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 70
-  },
-  facebookActionContainer: {
-    ...ApplicationStyles.screen.container,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'center'
+    paddingBottom: 50
   }
 })

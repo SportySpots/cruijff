@@ -19,13 +19,14 @@ exports[`RoundedButton component renders correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "backgroundColor": "#e73536",
+      "backgroundColor": "#3b5998",
       "borderRadius": 5,
       "height": 45,
       "justifyContent": "center",
       "marginHorizontal": 25,
       "marginVertical": 10,
       "opacity": 1,
+      "padding": 5,
     }
   }
   testID={undefined}
@@ -69,13 +70,14 @@ exports[`RoundedButton component with children renders correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "backgroundColor": "#e73536",
+      "backgroundColor": "#3b5998",
       "borderRadius": 5,
       "height": 45,
       "justifyContent": "center",
       "marginHorizontal": 25,
       "marginVertical": 10,
       "opacity": 1,
+      "padding": 5,
     }
   }
   testID={undefined}

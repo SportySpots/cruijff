@@ -36,14 +36,13 @@ const ApplicationStyles = {
       paddingVertical: Metrics.doubleBaseMargin
     },
     subtitle: {
-      color: Colors.snow,
+      color: Colors.white,
       padding: Metrics.smallMargin,
       marginBottom: Metrics.smallMargin,
       marginHorizontal: Metrics.smallMargin
     },
     titleText: {
       ...Fonts.style.h2,
-      fontSize: 14,
       color: Colors.text
     }
   }

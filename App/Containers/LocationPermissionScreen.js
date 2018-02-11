@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, Image, TouchableHighlight } from 'react-native'
+import { Image, Text, TouchableHighlight, View } from 'react-native'
 
 import RoundedButton from '../Components/RoundedButton'
 import Images from '../Themes/Images'
-
 import styles from './Styles/LocationPermissionScreenStyles'
+import Fonts from '../Themes/Fonts'
 
 export default class LocationPermissionScreen extends Component {
   render () {
@@ -15,7 +15,7 @@ export default class LocationPermissionScreen extends Component {
           <Image source={Images.illustrationShareLocation} />
         </View>
         <View style={styles.section}>
-          <Text style={styles.titleText}>
+          <Text style={Fonts.style.normal}>
             Sharing your location, helps us find sporty spots and sporty people
             near you.
           </Text>
