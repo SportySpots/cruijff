@@ -18,7 +18,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'center',
-    paddingBottom: 10
+    paddingBottom: 70
   },
   facebookActionContainer: {
     ...ApplicationStyles.screen.container,
