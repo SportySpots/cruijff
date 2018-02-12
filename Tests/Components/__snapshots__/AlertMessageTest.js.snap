@@ -31,7 +31,7 @@ exports[`AlertMessage component renders correctly if backgroundColor prop is set
       style={
         Object {
           "color": "#CCCCCC",
-          "fontFamily": "Avenir-Book",
+          "fontFamily": "Rajdhani-Regular",
           "fontSize": 17,
           "fontWeight": "bold",
           "marginHorizontal": 10,
@@ -73,7 +73,7 @@ exports[`AlertMessage component renders correctly if show is true 1`] = `
       style={
         Object {
           "color": "#CCCCCC",
-          "fontFamily": "Avenir-Book",
+          "fontFamily": "Rajdhani-Regular",
           "fontSize": 17,
           "fontWeight": "bold",
           "marginHorizontal": 10,

@@ -10,7 +10,7 @@ const ApplicationStyles = {
     mainContainer: {
       flex: 1,
       flexDirection: 'column',
-      backgroundColor: Colors.actionBlue
+      backgroundColor: Colors.white
     },
     container: {
       flex: 1,
@@ -25,44 +25,25 @@ const ApplicationStyles = {
       right: 0
     },
     section: {
+      flex: 1,
       margin: Metrics.section,
-      padding: Metrics.baseMargin
+      padding: Metrics.smallMargin
     },
     sectionText: {
       ...Fonts.style.normal,
-      color: Colors.snow,
       textAlign: 'center',
       marginVertical: Metrics.smallMargin,
       paddingVertical: Metrics.doubleBaseMargin
     },
+    titleText: {
+      ...Fonts.style.h2,
+      color: Colors.text
+    },
     subtitle: {
-      color: Colors.snow,
       padding: Metrics.smallMargin,
       marginBottom: Metrics.smallMargin,
       marginHorizontal: Metrics.smallMargin
-    },
-    titleText: {
-      ...Fonts.style.h2,
-      fontSize: 14,
-      color: Colors.text
     }
-  },
-  darkLabelContainer: {
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.border,
-    padding: Metrics.smallMargin,
-    paddingBottom: Metrics.doubleBaseMargin,
-    marginBottom: Metrics.baseMargin
-  },
-  darkLabel: {
-    fontFamily: Fonts.type.bold,
-    color: Colors.snow
-  },
-  groupContainer: {
-    margin: Metrics.smallMargin,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center'
   }
 }
 

@@ -1,6 +1,7 @@
 import { Dimensions, Text, View } from 'react-native'
 import React from 'react'
 import PropTypes from 'prop-types'
+import Fonts from '../../Themes/Fonts'
 
 const Page = ({ isLight, image, title, subtitle }) => {
   let titleElement = title
@@ -62,8 +63,8 @@ const styles = {
     paddingHorizontal: 10
   },
   title: {
+    ...Fonts.style.h1,
     textAlign: 'center',
-    fontSize: 26,
     color: '#fff',
     paddingBottom: 15
   },
@@ -71,8 +72,8 @@ const styles = {
     color: '#000'
   },
   subtitle: {
+    ...Fonts.style.normal,
     textAlign: 'center',
-    fontSize: 16,
     color: 'rgba(255, 255, 255, 0.7)'
   },
   subtitleLight: {

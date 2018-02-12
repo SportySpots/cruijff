@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableHighlight } from 'react-native'
+import { Text, TouchableHighlight, View } from 'react-native'
 
 import FieldBackground from '../Components/FieldBackground'
 import Logo from '../Components/Logo'
 import RoundedButton from '../Components/RoundedButton'
-
-// Styles
 import styles from './Styles/SplashScreenStyles'
+import Fonts from '../Themes/Fonts'
 
 export default class SplashScreen extends Component {
   render () {

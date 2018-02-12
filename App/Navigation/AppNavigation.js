@@ -1,5 +1,5 @@
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
 
 import styles from './Styles/NavigationStyles'
@@ -150,15 +150,15 @@ const DefaultNav = TabNavigator(
         const { routeName } = navigation.state
         let iconName
         if (routeName === 'SpotSearchTab') {
-          iconName = `ios-search${focused ? '' : '-outline'}`
+          iconName = 'map-marker'
         } else if (routeName === 'GameJoinTab') {
-          iconName = `ios-person-add${focused ? '' : '-outline'}`
+          iconName = 'account-plus'
         } else if (routeName === 'GamePlanTab') {
-          iconName = `ios-calendar${focused ? '' : '-outline'}`
+          iconName = 'soccer'
         } else if (routeName === 'ProfileTab') {
-          iconName = `ios-contact${focused ? '' : '-outline'}`
+          iconName = 'account-circle'
         } else if (routeName === 'SettingsTab') {
-          iconName = `ios-settings${focused ? '' : '-outline'}`
+          iconName = 'settings'
         }
         return <Ionicons name={iconName} size={25} color={tintColor} />
       }
