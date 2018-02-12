@@ -25,25 +25,24 @@ const ApplicationStyles = {
       right: 0
     },
     section: {
+      flex: 1,
       margin: Metrics.section,
-      padding: Metrics.baseMargin
+      padding: Metrics.smallMargin
     },
     sectionText: {
       ...Fonts.style.normal,
-      color: Colors.snow,
       textAlign: 'center',
       marginVertical: Metrics.smallMargin,
       paddingVertical: Metrics.doubleBaseMargin
     },
-    subtitle: {
-      color: Colors.white,
-      padding: Metrics.smallMargin,
-      marginBottom: Metrics.smallMargin,
-      marginHorizontal: Metrics.smallMargin
-    },
     titleText: {
       ...Fonts.style.h2,
       color: Colors.text
+    },
+    subtitle: {
+      padding: Metrics.smallMargin,
+      marginBottom: Metrics.smallMargin,
+      marginHorizontal: Metrics.smallMargin
     }
   }
 }
