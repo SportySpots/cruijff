@@ -1,9 +1,12 @@
 import { put, select } from 'redux-saga/effects'
 import GithubActions, { GithubSelectors } from '../Redux/GithubRedux'
+import SpotActions, { SpotsSelectors } from '../Redux/SpotsRedux'
+
 import { is } from 'ramda'
 
 // exported to make available for tests
 export const selectAvatar = GithubSelectors.selectAvatar
+export const selectSpot = SpotsSelectors.selectSpot
 
 // process STARTUP actions
 export function * startup (action) {

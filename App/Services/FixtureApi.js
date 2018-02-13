@@ -1,3 +1,5 @@
+import { find, propEq } from 'ramda'
+
 export default {
   // Functions return fixtures
   getRoot: () => {
@@ -19,6 +21,21 @@ export default {
     return {
       ok: true,
       data: username.toLowerCase() === 'gantman' ? gantmanData : skellockData
+    }
+  },
+  getAllSpots: () => {
+    const spotsData = require('../Fixtures/spots.json')
+    return {
+      ok: true,
+      data: spotsData
+    }
+  },
+  getSpot: spotId => {
+    const spotsData = require('../Fixtures/spots.json')
+    const spot = find(propEq('id', spotId))(spotsData)
+    return {
+      ok: true,
+      data: spot
     }
   }
 }
