@@ -14,21 +14,21 @@ import Fonts from '../Themes/Fonts'
 import Colors from '../Themes/Colors'
 
 import styles from './Styles/SpotListScreenStyles'
-// TODO: Implement blank screen if no spots were found
+import spots from '../Fixtures/spots.json'
 
-const spots = null
+// TODO: Implement blank screen if no spots were found
 
 export default class SpotListScreen extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      spots: null
+      spots: spots
     }
   }
 
   render () {
     const { navigate } = this.props.navigation
-    const spots = require('../Fixtures/spots.json')
+    const spots = this.state.spots
     return (
       <Container>
         <Content>
