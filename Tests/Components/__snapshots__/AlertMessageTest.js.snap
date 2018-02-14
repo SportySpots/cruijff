@@ -8,7 +8,7 @@ exports[`AlertMessage component renders correctly if backgroundColor prop is set
     Array [
       Object {
         "justifyContent": "center",
-        "marginVertical": 25,
+        "marginVertical": 5,
       },
       Object {
         "backgroundColor": "red",
@@ -52,7 +52,7 @@ exports[`AlertMessage component renders correctly if show is true 1`] = `
     Array [
       Object {
         "justifyContent": "center",
-        "marginVertical": 25,
+        "marginVertical": 5,
       },
       undefined,
     ]

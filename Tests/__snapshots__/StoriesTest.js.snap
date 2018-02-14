@@ -6,7 +6,7 @@ exports[`Storyshots AlertMessage Custom Style 1`] = `
     Array [
       Object {
         "justifyContent": "center",
-        "marginVertical": 25,
+        "marginVertical": 5,
       },
       Object {
         "backgroundColor": "red",
@@ -50,7 +50,7 @@ exports[`Storyshots AlertMessage Default 1`] = `
     Array [
       Object {
         "justifyContent": "center",
-        "marginVertical": 25,
+        "marginVertical": 5,
       },
       undefined,
     ]
@@ -523,7 +523,7 @@ exports[`Storyshots RoundedButton Default 1`] = `
       "borderRadius": 5,
       "height": 45,
       "justifyContent": "center",
-      "marginHorizontal": 25,
+      "marginHorizontal": 5,
       "marginVertical": 10,
       "opacity": 1,
       "padding": 5,
@@ -538,9 +538,9 @@ exports[`Storyshots RoundedButton Default 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "color": "white",
-        "fontSize": 14,
-        "fontWeight": "bold",
+        "color": "#fff",
+        "fontFamily": "Rajdhani-Regular",
+        "fontSize": 17,
         "marginVertical": 10,
         "textAlign": "center",
       }
@@ -574,7 +574,7 @@ exports[`Storyshots RoundedButton Text as children 1`] = `
       "borderRadius": 5,
       "height": 45,
       "justifyContent": "center",
-      "marginHorizontal": 25,
+      "marginHorizontal": 5,
       "marginVertical": 10,
       "opacity": 1,
       "padding": 5,
@@ -589,9 +589,9 @@ exports[`Storyshots RoundedButton Text as children 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "color": "white",
-        "fontSize": 14,
-        "fontWeight": "bold",
+        "color": "#fff",
+        "fontFamily": "Rajdhani-Regular",
+        "fontSize": 17,
         "marginVertical": 10,
         "textAlign": "center",
       }

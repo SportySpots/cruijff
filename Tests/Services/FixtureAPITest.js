@@ -38,3 +38,16 @@ test('FixtureAPI getUser returns the right file for skellock as default', () => 
     data: expectedFile
   })
 })
+
+test('FixtureAPI getAllSpots returns the right file', () => {
+  const expectedFile = require('../../App/Fixtures/spots.json')
+
+  expect(FixtureAPI.getAllSpots()).toEqual({
+    ok: true,
+    data: expectedFile
+  })
+})
+
+test('FixtureAPI getSpot returns the spot', () => {
+  expect(FixtureAPI.getSpot(449)['data']['id']).toEqual(449)
+})

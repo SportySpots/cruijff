@@ -23,7 +23,7 @@ exports[`RoundedButton component renders correctly 1`] = `
       "borderRadius": 5,
       "height": 45,
       "justifyContent": "center",
-      "marginHorizontal": 25,
+      "marginHorizontal": 5,
       "marginVertical": 10,
       "opacity": 1,
       "padding": 5,
@@ -38,9 +38,9 @@ exports[`RoundedButton component renders correctly 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "color": "white",
-        "fontSize": 14,
-        "fontWeight": "bold",
+        "color": "#fff",
+        "fontFamily": "Rajdhani-Regular",
+        "fontSize": 17,
         "marginVertical": 10,
         "textAlign": "center",
       }
@@ -74,7 +74,7 @@ exports[`RoundedButton component with children renders correctly 1`] = `
       "borderRadius": 5,
       "height": 45,
       "justifyContent": "center",
-      "marginHorizontal": 25,
+      "marginHorizontal": 5,
       "marginVertical": 10,
       "opacity": 1,
       "padding": 5,
@@ -89,9 +89,9 @@ exports[`RoundedButton component with children renders correctly 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "color": "white",
-        "fontSize": 14,
-        "fontWeight": "bold",
+        "color": "#fff",
+        "fontFamily": "Rajdhani-Regular",
+        "fontSize": 17,
         "marginVertical": 10,
         "textAlign": "center",
       }
