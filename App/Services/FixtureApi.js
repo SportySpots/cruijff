@@ -25,9 +25,26 @@ export default {
   },
   getAllSpots: () => {
     const spotsData = require('../Fixtures/spots.json')
+    const newWestSpots = [
+      289,
+      288,
+      287,
+      286,
+      512,
+      300,
+      311,
+      291,
+      292,
+      294,
+      295,
+      298,
+      75,
+      77,
+      74
+    ]
     return {
       ok: true,
-      data: spotsData
+      data: spotsData.filter(spot => newWestSpots.includes(spot.id))
     }
   },
   getSpot: spotId => {
