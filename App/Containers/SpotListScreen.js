@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import { Image, Text, TouchableHighlight } from 'react-native'
+import {
+  Image,
+  Text,
+  TouchableHighlight,
+  ActivityIndicator
+} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import {
   Body,
@@ -14,7 +19,8 @@ import Fonts from '../Themes/Fonts'
 import Colors from '../Themes/Colors'
 
 import styles from './Styles/SpotListScreenStyles'
-import spots from '../Fixtures/spots.json'
+
+import Api from '../Services/FixtureApi'
 
 // TODO: Implement blank screen if no spots were found
 
@@ -22,13 +28,30 @@ export default class SpotListScreen extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      spots: spots
+      spots: null,
+      isLoading: true
     }
+  }
+
+  componentDidMount () {
+    const { data } = Api.getAllSpots()
+    this.setState({ isLoading: false, spots: data })
   }
 
   render () {
     const { navigate } = this.props.navigation
-    const spots = this.state.spots
+    const { isLoading, spots } = this.state
+
+    if (isLoading) {
+      return (
+        <Container>
+          <Content>
+            <ActivityIndicator />
+          </Content>
+        </Container>
+      )
+    }
+
     return (
       <Container>
         <Content>
@@ -36,7 +59,9 @@ export default class SpotListScreen extends Component {
             return (
               <TouchableHighlight
                 key={spot.id}
-                onPress={() => navigate('SpotDetailsScreen')}
+                onPress={() =>
+                  navigate('SpotDetailsScreen', { spotId: spot.id })
+                }
               >
                 <Card style={styles.cardContainer}>
                   <CardItem>
