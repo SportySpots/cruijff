@@ -1,32 +1,12 @@
-import React, { Component } from 'react'
-import { Text, TouchableHighlight, View } from 'react-native'
+import SplashScreen from '../Components/SplashScreen'
+import facebookAction from '../Redux/FacebookRedux'
 
-import FieldBackground from '../Components/FieldBackground'
-import Logo from '../Components/Logo'
-import RoundedButton from '../Components/RoundedButton'
-import styles from './Styles/SplashScreenStyles'
-import Fonts from '../Themes/Fonts'
+import { connect } from 'react-redux'
 
-export default class SplashScreen extends Component {
-  render () {
-    const { navigate } = this.props.navigation
+const dispatchToProps = dispatch => ({
+  facebookLogin: () => dispatch(facebookAction.facebookLogin())
+})
 
-    return (
-      <FieldBackground>
-        <View style={styles.logoContainer}>
-          <Logo />
-        </View>
-        <View style={styles.facebookActionContainer}>
-          <RoundedButton onPress={() => navigate('DefaultNav')}>
-            Login using Facebook
-          </RoundedButton>
-        </View>
-        <View style={styles.skipActionContainer}>
-          <TouchableHighlight onPress={() => navigate('OnboardingScreen')}>
-            <Text>I'll do this later</Text>
-          </TouchableHighlight>
-        </View>
-      </FieldBackground>
-    )
-  }
-}
+const mapStateToProps = state => ({})
+
+export default connect(mapStateToProps, dispatchToProps)(SplashScreen)

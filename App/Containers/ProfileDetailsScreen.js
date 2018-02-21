@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import ProfileDetailsScreen from '../Components/ProfileDetailsScreen'
 
-export default class ProfileDetailsScreen extends Component {
-  render () {
-    return (
-      <View>
-        <Text>ProfileDetailsScreen</Text>
-      </View>
-    )
-  }
-}
+import { connect } from 'react-redux'
+
+const dispatchToProps = dispatch => ({})
+
+const mapStateToProps = state => ({
+  facebook: state.facebook
+})
+
+export default connect(mapStateToProps, dispatchToProps)(ProfileDetailsScreen)

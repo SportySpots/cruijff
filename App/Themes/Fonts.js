@@ -1,3 +1,5 @@
+import Colors from './Colors'
+
 const type = {
   base: 'Rajdhani-Regular',
   bold: 'Rajdhani-Bold',
@@ -50,6 +52,21 @@ const style = {
   description: {
     fontFamily: type.base,
     fontSize: size.medium
+  },
+  L: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 32,
+    color: Colors.black
+    // lineHeight: 50
+  },
+  M: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 18,
+    lineHeight: 18
+  },
+  S: {
+    fontFamily: 'Radjdhani-Regular',
+    fontSize: 12
   }
 }
 
