@@ -36,10 +36,12 @@ export default class SpotListScreen extends Component {
 
   componentDidMount () {
     const { data } = Api.getAllSpots()
+    console.log(data)
     this.setState({ isLoading: false, spots: data })
   }
 
   render () {
+    console.log('rendering')
     const { navigate } = this.props.navigation
     const { isLoading, spots } = this.state
 
@@ -52,6 +54,7 @@ export default class SpotListScreen extends Component {
         </Container>
       )
     }
+    console.log('done loading', spots)
 
     return (
       <View style={[cardList.container, this.props.style]}>
