@@ -3,15 +3,7 @@ import { View, Image, StyleSheet, TextInput, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
 import Text from './Text'
 import I18n from '../I18n'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 import Slider from './Slider'
-import {
-  Menu,
-  MenuOption,
-  MenuOptions,
-  MenuProvider,
-  MenuTrigger
-} from 'react-native-popup-menu'
 import Colors from '../Themes/Colors'
 import BasicButton from './BasicButton'
 
@@ -54,34 +46,32 @@ export default class ProfileDetailsScreen extends React.PureComponent {
       this.props.facebook.data.token.userID
     }/picture?type=large`
     return (
-      <MenuProvider>
-        <ScrollView style={styles.outerContainer}>
-          <View style={styles.center}>
-            <Image style={styles.image} source={{ uri: imageUrl }} />
+      <ScrollView style={styles.outerContainer}>
+        <View style={styles.center}>
+          <Image style={styles.image} source={{ uri: imageUrl }} />
+        </View>
+        <View style={styles.fields}>
+          <View style={styles.fieldSet}>
+            <Text>{I18n.t('Name')}</Text>
+            <TextInput defaultValue={this.props.facebook.data.profile.name} />
           </View>
-          <View style={styles.fields}>
-            <View style={styles.fieldSet}>
-              <Text>{I18n.t('Name')}</Text>
-              <TextInput defaultValue={this.props.facebook.data.profile.name} />
-            </View>
-            <View style={styles.fieldSet}>
-              <Text>{I18n.t('Age')}</Text>
-              <TextInput keyboardType='numeric' defaultValue='30' />
-            </View>
-            <View style={styles.fieldSet}>
-              <Text>{I18n.t('Style')}</Text>
-              <View style={styles.sliderLabels}>
-                <Text.S>{I18n.t('recreative')}</Text.S>
-                <Text.S>{I18n.t('competitive')}</Text.S>
-              </View>
-              <View style={{ flex: 1, height: 50 }}>
-                <Slider value={0.5} onChange={console.log} />
-              </View>
-            </View>
-            <BasicButton style={{ width: 100 }} text='save' />
+          <View style={styles.fieldSet}>
+            <Text>{I18n.t('Age')}</Text>
+            <TextInput keyboardType='numeric' defaultValue='30' />
           </View>
-        </ScrollView>
-      </MenuProvider>
+          <View style={styles.fieldSet}>
+            <Text>{I18n.t('Style')}</Text>
+            <View style={styles.sliderLabels}>
+              <Text.S>{I18n.t('recreative')}</Text.S>
+              <Text.S>{I18n.t('competitive')}</Text.S>
+            </View>
+            <View style={{ flex: 1, height: 50 }}>
+              <Slider value={0.5} onChange={console.log} />
+            </View>
+          </View>
+          <BasicButton style={{ width: 100 }} text='save' />
+        </View>
+      </ScrollView>
     )
   }
 }

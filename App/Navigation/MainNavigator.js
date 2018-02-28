@@ -6,7 +6,7 @@ import ProfileLoginScreen from '../Containers/ProfileLoginScreen'
 import CardList from '../Components/Cards/CardList'
 import CardDetail from '../Components/Cards/CardDetail'
 import SettingsScreen from '../Containers/SettingsScreen'
-import GamePlanScreen from '../Containers/GamePlanScreen'
+import GamePlanScreen from '../Components/GamePlanScreen'
 // import SpotDetailsScreen from '../Containers/SpotDetailsScreen'
 import GameDetailsScreen from '../Containers/GameDetailsScreen'
 import ProfileDetailsScreen from '../Containers/ProfileDetailsScreen'
@@ -33,20 +33,6 @@ const GameSearchNav = StackNavigator(
   },
   {
     initialRouteName: 'GameListScreen'
-  }
-)
-
-const GamePlanNav = StackNavigator(
-  {
-    GamePlanScreen: {
-      screen: GamePlanScreen,
-      navigationOptions: {
-        title: 'Plan Game'
-      }
-    }
-  },
-  {
-    initialRouteName: 'GamePlanScreen'
   }
 )
 
@@ -125,9 +111,9 @@ const DefaultNav = TabNavigator(
       }
     },
     GamePlanTab: {
-      screen: GamePlanNav,
+      screen: GamePlanScreen,
       navigationOptions: {
-        title: 'Plan Game'
+        header: null
       }
     },
     ProfileTab: {

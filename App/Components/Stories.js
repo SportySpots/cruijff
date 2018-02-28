@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react-native'
 import NavBar from './NavBar'
 import NavBarButton from './NavBarButton'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import GamePlanScreen from './GamePlanScreen'
 
 import './FieldBackground.story'
 import './Logo.story'
@@ -80,3 +81,9 @@ storiesOf('Profile')
       <ProfileLoginScreen navigation={dummyNavigator} />
     </View>
   ))
+
+storiesOf('Plan').add('Default', () => (
+  <View style={{ flex: 1 }}>
+    <GamePlanScreen />
+  </View>
+))
