@@ -9367,6 +9367,10 @@ react-native-keyboard-aware-scroll-view@0.4.2:
     prop-types "^15.6.0"
     react-native-iphone-x-helper "^1.0.1"
 
+react-native-popup-menu@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/react-native-popup-menu/-/react-native-popup-menu-0.12.2.tgz#6568b52cf645663f060a550f23241fa1552bfa0e"
+
 react-native-svg@5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-5.5.1.tgz#633d882077f048f05c721ebb793cd073e846ba1f"

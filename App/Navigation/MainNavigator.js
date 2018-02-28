@@ -84,24 +84,24 @@ const SettingsNav = StackNavigator(
   }
 )
 
-const ProfileNav = StackNavigator(
+export const ProfileNav = StackNavigator(
   {
     ProfileDetailsScreen: {
       screen: ProfileDetailsScreen,
       navigationOptions: {
-        title: 'Profile Details'
+        header: null
       }
     },
     ProfileEditScreen: {
       screen: ProfileEditScreen,
       navigationOptions: {
-        title: 'Profile Edit'
+        title: I18n.t('Profile Edit')
       }
     },
     ProfileLoginScreen: {
       screen: ProfileLoginScreen,
       navigationOptions: {
-        title: 'Signup/ Login'
+        header: null
       }
     }
   },

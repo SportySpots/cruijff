@@ -7,6 +7,7 @@ const { Types, Creators } = createActions({
   facebookLogin: null,
   facebookLoginFail: ['data'],
   facebookLoginSuccess: ['data'],
+  facebookLogout: null,
   facebookGetAccessTokenSuccess: ['token'],
   facebookGetProfileSuccess: ['data']
 })
@@ -27,6 +28,8 @@ const INITIAL_STATE = Immutable({
   data: {}
 })
 
+const facebookLogout = (state = INITIAL_STATE, action) => INITIAL_STATE
+
 const facebookFail = (state = INITIAL_STATE, action) =>
   state.merge({ status: STATUS.FAIL, data: action.data })
 
@@ -43,7 +46,8 @@ const HANDLERS = {
   [Types.FACEBOOK_LOGIN_FAIL]: facebookFail,
   [Types.FACEBOOK_LOGIN_SUCCESS]: facebookSuccess,
   [Types.FACEBOOK_GET_ACCESS_TOKEN_SUCCESS]: facebookAccessTokenSuccess,
-  [Types.FACEBOOK_GET_PROFILE_SUCCESS]: facebookGetProfileSuccess
+  [Types.FACEBOOK_GET_PROFILE_SUCCESS]: facebookGetProfileSuccess,
+  [Types.FACEBOOK_LOGOUT]: facebookLogout
 }
 
 export const reducer = createReducer(INITIAL_STATE, HANDLERS)

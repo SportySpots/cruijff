@@ -3,8 +3,8 @@ import { Text, TouchableHighlight, View } from 'react-native'
 
 import FieldBackground from './FieldBackground'
 import Logo from './Logo'
-import RoundedButton from './RoundedButton'
 import styles from '../Containers/Styles/SplashScreenStyles'
+import BasicButton from './BasicButton'
 
 export default class SplashScreen extends Component {
   render () {
@@ -16,9 +16,11 @@ export default class SplashScreen extends Component {
           <Logo />
         </View>
         <View style={styles.facebookActionContainer}>
-          <RoundedButton onPress={() => this.props.facebookLogin()}>
-            Login using Facebook
-          </RoundedButton>
+          <BasicButton
+            onPress={() => this.props.facebookLogin()}
+            text='Login using Facebook'
+            color='white'
+          />
         </View>
         <View style={styles.skipActionContainer}>
           <TouchableHighlight onPress={() => navigate('OnboardingScreen')}>

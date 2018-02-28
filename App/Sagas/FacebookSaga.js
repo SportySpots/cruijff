@@ -26,11 +26,9 @@ export const facebookGetAccessToken = api =>
 export const facebookLogin = api =>
   function * (action) {
     try {
-      console.log(1)
       const result = yield LoginManager.logInWithReadPermissions([
         'public_profile'
       ])
-      console.log(2)
       if (result.isCancelled) {
         log(LEVEL.INFO, 'facebook login Cancelled', result)
         yield put(Creators.facebookLoginFail(result))

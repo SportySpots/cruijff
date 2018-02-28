@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import ProfileLoginScreen from '../Components/ProfileLoginScreen'
+import facebookAction from '../Redux/FacebookRedux'
 
-export default class ProfileLoginScreen extends Component {
-  render () {
-    return (
-      <View>
-        <Text>ProfileLoginScreen</Text>
-      </View>
-    )
-  }
-}
+import { connect } from 'react-redux'
+
+const dispatchToProps = dispatch => ({
+  facebookLogin: () => dispatch(facebookAction.facebookLogin())
+})
+
+const mapStateToProps = state => ({})
+
+export default connect(mapStateToProps, dispatchToProps)(ProfileLoginScreen)

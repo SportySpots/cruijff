@@ -1,6 +1,6 @@
 import React from 'react'
 import I18n from '../I18n'
-import { View } from 'react-native'
+import { View, Keyboard } from 'react-native'
 import PropTypes from 'prop-types'
 import { navbarStyle } from './Styles/NavBar'
 import NavBarButton from './NavBarButton'
@@ -60,7 +60,39 @@ export default class NavBar extends React.Component {
 
   static defaultProps = {}
 
+  constructor () {
+    super()
+    this.state = { keyboardActive: false }
+  }
+
+  componentWillMount () {
+    this.keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      this._keyboardDidShow
+    )
+    this.keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      this._keyboardDidHide
+    )
+  }
+
+  componentWillUnmount () {
+    this.keyboardDidShowListener.remove()
+    this.keyboardDidHideListener.remove()
+  }
+
+  _keyboardDidShow = () => {
+    this.setState({ keyboardActive: true })
+  }
+
+  _keyboardDidHide = () => {
+    this.setState({ keyboardActive: false })
+  }
+
   render () {
+    if (this.state.keyboardActive) {
+      return null
+    }
     return (
       <View style={navbarStyle.container}>
         {buttons.map((button, index) => (

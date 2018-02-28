@@ -8,10 +8,19 @@ import { View } from 'react-native'
 
 const spots = require('../../../App/Fixtures//spots.json')
 
+const dummyNavigator = {
+  navigate: () => null,
+  state: {
+    params: { spotId: 449 }
+  }
+}
+
 storiesOf('Cards')
   .add('Single card', () => <Card onPress={() => {}} spot={spots[0]} />)
-  .add('Card list', () => <CardList spots={spots} />)
-  .add('Detail Card', () => <CardDetail spot={spots[0]} />)
+  .add('Card list', () => (
+    <CardList navigation={dummyNavigator} spots={spots} />
+  ))
+  .add('Detail Card', () => <CardDetail navigation={dummyNavigator} />)
   .add('Propertycircle', () => (
     <View>
       {[
