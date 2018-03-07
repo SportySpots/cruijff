@@ -20,6 +20,26 @@ export const card = StyleSheet.create({
   }
 })
 
+export const cardSmall = StyleSheet.create({
+  container: {
+    height: 50,
+    flexDirection: 'row'
+  },
+  image: {
+    flex: 1,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8
+  },
+  details: {
+    flex: 3,
+    flexDirection: 'column',
+    backgroundColor: Colors.white,
+    padding: 8,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8
+  }
+})
+
 export const header = StyleSheet.create({
   belowName: {
     flexDirection: 'row',

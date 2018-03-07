@@ -1,33 +1,33 @@
 import React from 'react'
 import ReactNavigation, { StackNavigator } from 'react-navigation'
 
-import styles from './Styles/NavigationStyles'
 import SplashScreen from '../Containers/SplashScreen'
 import OnboardingScreen from '../Components/Onboarding'
-import { MainScreen } from './MainNavigator'
+import {
+  GameSearchNav,
+  ProfileNav,
+  SettingsNav,
+  SpotSearchNav
+} from './MainNavigator'
 import AskLocation from '../Containers/AskLocation'
 import { connect } from 'react-redux'
 import GamePlanScreen from '../Components/Plan'
 
 export const RootNav = StackNavigator(
   {
-    LocationPermissionScreen: {
-      screen: ({ navigation }) => (
-        <AskLocation onContinue={() => navigation.navigate('DefaultNav')} />
-      )
-    },
+    LocationPermissionScreen: { screen: AskLocation },
     OnboardingScreen: { screen: OnboardingScreen },
     SplashScreen: { screen: SplashScreen },
-    DefaultNav: { screen: MainScreen },
-    PlanScreen: { screen: GamePlanScreen }
+    PlanScreen: { screen: GamePlanScreen },
+    SpotSearchTab: { screen: () => <SpotSearchNav /> },
+    GameJoinTab: { screen: GameSearchNav },
+    ProfileTab: { screen: () => <ProfileNav /> },
+    SettingsTab: { screen: SettingsNav }
   },
   {
     // Default config for all screens
     headerMode: 'none',
-    initialRouteName: 'SplashScreen',
-    navigationOptions: {
-      headerStyle: styles.header
-    }
+    initialRouteName: 'SplashScreen'
   }
 )
 

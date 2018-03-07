@@ -16,7 +16,7 @@ export const facebookGetAccessToken = api =>
         fbState.userID
       )
       yield put(Creators.facebookGetProfileSuccess(profile.data))
-      yield put(NavigationActions.navigate({ routeName: 'DefaultNav' }))
+      yield put(NavigationActions.navigate({ routeName: 'SpotSearchTab' }))
     } catch (e) {
       log(LEVEL.ERROR, 'Error getting Facebook token', e)
       yield put(Creators.facebookLoginFail(e))

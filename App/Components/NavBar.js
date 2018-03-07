@@ -8,6 +8,13 @@ import NavBarButton from './NavBarButton'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import MaterialCummunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+const showForTabs = [
+  'SpotSearchTab',
+  'GameJoinTab',
+  'ProfileTab',
+  'SettingsTab'
+]
+
 const buttons = [
   {
     buttonText: 'find',
@@ -27,7 +34,7 @@ const buttons = [
   },
   {
     buttonText: 'plan-a-game',
-    navigate: 'GamePlanTab',
+    navigate: 'PlanScreen',
     icon: {
       set: MaterialCummunityIcon,
       name: 'soccer'
@@ -90,11 +97,18 @@ export default class NavBar extends React.Component {
   }
 
   onButtonPress = button => {
-    this.props.navigation.navigate(button.navigate)
+    this.props.navigate({ routeName: button.navigate })
   }
 
   render () {
     if (this.state.keyboardActive) {
+      return null
+    }
+    if (
+      showForTabs.indexOf(
+        this.props.nav.routes[this.props.nav.index].routeName
+      ) === -1
+    ) {
       return null
     }
     return (

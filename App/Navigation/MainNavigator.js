@@ -16,7 +16,7 @@ import NavBar from '../Components/NavBar'
 import I18n from '../I18n'
 import SpotListScreen from '../Containers/SpotListScreen'
 
-const GameSearchNav = StackNavigator(
+export const GameSearchNav = StackNavigator(
   {
     GameDetailsScreen: {
       screen: GameDetailsScreen,
@@ -36,7 +36,7 @@ const GameSearchNav = StackNavigator(
   }
 )
 
-const SpotSearchNav = StackNavigator(
+export const SpotSearchNav = StackNavigator(
   {
     SpotDetailsScreen: {
       screen: CardDetail,
@@ -56,7 +56,7 @@ const SpotSearchNav = StackNavigator(
   }
 )
 
-const SettingsNav = StackNavigator(
+export const SettingsNav = StackNavigator(
   {
     SettingsScreen: {
       screen: SettingsScreen,
@@ -95,81 +95,3 @@ export const ProfileNav = StackNavigator(
     initialRouteName: 'ProfileDetailsScreen'
   }
 )
-
-const DefaultNav = TabNavigator(
-  {
-    SpotSearchTab: {
-      screen: SpotSearchNav,
-      navigationOptions: {
-        title: 'Spots'
-      }
-    },
-    GameJoinTab: {
-      screen: GameSearchNav,
-      navigationOptions: {
-        title: 'Join Game'
-      }
-    },
-    // GamePlanTab: {
-    //   screen: GamePlanScreen,
-    //   navigationOptions: {
-    //     header: null
-    //   }
-    // },
-    ProfileTab: {
-      screen: () => <ProfileNav />,
-      navigationOptions: {
-        title: 'Profile'
-      }
-    },
-    SettingsTab: {
-      screen: SettingsNav,
-      navigationOptions: {
-        title: 'Settings'
-      }
-    }
-  },
-  {
-    initialRouteName: 'SpotSearchTab',
-    tabBarComponent: () => null,
-    animationEnabled: false,
-    swipeEnabled: false
-  }
-)
-
-/*
-  MainScreen is basically a wrapper around DefaultNav, so that it contains a copy of the navigation state
-  that can be passed as a prop to other children (NavBar). This provides more flexibility than just using
-  tabBarComponent: NavBar
- */
-export class MainScreen extends React.Component {
-  constructor () {
-    super()
-    this.state = { navigation: null }
-  }
-
-  shouldComponentUpdate (nextProps, nextState) {
-    return nextState.navigation !== this.state.navigation
-  }
-
-  render () {
-    console.log(this.state.navigation)
-    return (
-      <View style={{ flex: 1 }}>
-        <DefaultNav
-          {...this.props}
-          ref={navigator => {
-            if (navigator) {
-              this.navigatorElement = navigator
-              this.setState({ navigation: navigator._navigation })
-            }
-          }}
-          onNavigationStateChange={() =>
-            this.setState({ navigation: this.navigatorElement._navigation })
-          }
-        />
-        <NavBar navigation={this.state.navigation} />
-      </View>
-    )
-  }
-}

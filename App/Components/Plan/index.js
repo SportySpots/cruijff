@@ -1,30 +1,27 @@
 import * as React from 'react'
-import GamePlanScreen from './GamePlanScreen'
-import { TabNavigator, StackNavigator } from 'react-navigation'
-import { Text, View } from 'react-native'
+import SportAndTime from './SportAndTime'
+import PickSpot from './PickSpot'
+import { StackNavigator } from 'react-navigation'
 
 const Nav = StackNavigator(
   {
     sportTime: {
-      screen: GamePlanScreen,
+      screen: SportAndTime,
       navigationOptions: {
         title: 'sportTime'
       }
     },
     pickSpot: {
-      screen: () => (
-        <View style={{ flex: 1 }}>
-          <Text>bla</Text>
-        </View>
-      ),
+      screen: PickSpot,
       navigationOptions: {
-        title: 'Join Game'
+        title: 'Pick a spot'
       }
     }
   },
   {
     tabBarComponent: () => null,
-    animationEnabled: true
+    animationEnabled: true,
+    headerMode: 'none'
   }
 )
 

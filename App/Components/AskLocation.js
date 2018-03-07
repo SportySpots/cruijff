@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 
 export default class extends React.PureComponent {
   static propTypes = {
-    onContinue: PropTypes.func,
+    navigation: PropTypes.any,
     onLocationPermission: PropTypes.func
   }
 
@@ -24,7 +24,7 @@ export default class extends React.PureComponent {
     // Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
     Permissions.request('location').then(response => {
       this.props.onLocationPermission(response)
-      this.props.onContinue()
+      this.props.navigation.navigate('SpotSearchTab')
     })
   }
 
@@ -34,7 +34,7 @@ export default class extends React.PureComponent {
       if (response === 'denied' || response === 'undetermined') {
         this.setState({ checked: true })
       } else {
-        this.ask() // won't ask because already accepted/denied w/ dont ask again, so should continue
+        this.props.navigation.navigate('SpotSearchTab')
       }
     })
   }
