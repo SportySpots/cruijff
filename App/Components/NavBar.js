@@ -89,6 +89,10 @@ export default class NavBar extends React.Component {
     this.setState({ keyboardActive: false })
   }
 
+  onButtonPress = button => {
+    this.props.navigation.navigate(button.navigate)
+  }
+
   render () {
     if (this.state.keyboardActive) {
       return null
@@ -105,7 +109,7 @@ export default class NavBar extends React.Component {
             }
           >
             <NavBarButton
-              onPress={() => this.props.navigation.navigate(button.navigate)}
+              onPress={() => this.onButtonPress(button)}
               icon={button.icon}
               buttonText={I18n.t(button.buttonText)}
               active={

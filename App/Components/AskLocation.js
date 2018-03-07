@@ -6,49 +6,78 @@ import I18n from '../I18n'
 import Colors from '../Themes/Colors'
 import Fonts from '../Themes/Fonts'
 import Text from './Text'
+import Permissions from 'react-native-permissions'
+import PropTypes from 'prop-types'
 
-export default props => (
-  <View style={styles.container}>
-    <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          resizeMode='contain'
-          source={Images.illustrationShareLocation}
-        />
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{I18n.t('share-your-location')}</Text>
-        <Text style={styles.paragraph}>
-          {I18n.t('onboarding-ask-location')}
-        </Text>
-      </View>
-    </View>
-    <View style={askLocationStyle.footer}>
-      <View>
-        <Text style={askLocationStyle.text}>
-          {I18n.t('share-your-location')}
-        </Text>
-      </View>
-      <View style={askLocationStyle.buttonsContainer}>
-        <TouchableHighlight onPress={() => console.log('test')}>
-          <View>
-            <Text style={askLocationStyle.button}>
-              {I18n.t('cancel').toUpperCase()}
+export default class extends React.PureComponent {
+  static propTypes = {
+    onContinue: PropTypes.func,
+    onLocationPermission: PropTypes.func
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = { checked: false } // has location permission been checked?
+  }
+
+  ask () {
+    // Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
+    Permissions.request('location').then(response => {
+      this.props.onLocationPermission(response)
+      this.props.onContinue()
+    })
+  }
+
+  componentWillMount () {
+    Permissions.check('location').then(response => {
+      console.log(response)
+      if (response === 'denied' || response === 'undetermined') {
+        this.setState({ checked: true })
+      } else {
+        this.ask() // won't ask because already accepted/denied w/ dont ask again, so should continue
+      }
+    })
+  }
+
+  render () {
+    if (!this.state.checked) return null
+    return (
+      <View style={styles.container}>
+        <View style={styles.container}>
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.image}
+              resizeMode='contain'
+              source={Images.illustrationShareLocation}
+            />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>{I18n.t('share-your-location')}</Text>
+            <Text style={styles.paragraph}>
+              {I18n.t('onboarding-ask-location')}
             </Text>
           </View>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={() => props.onPress()}>
+        </View>
+        <View style={askLocationStyle.footer}>
           <View>
-            <Text.M style={askLocationStyle.button}>
-              {I18n.t('allow').toUpperCase()}
-            </Text.M>
+            <Text style={askLocationStyle.text}>
+              {I18n.t('share-your-location')}
+            </Text>
           </View>
-        </TouchableHighlight>
+          <View style={askLocationStyle.buttonsContainer}>
+            <TouchableHighlight onPress={() => this.ask()}>
+              <View>
+                <Text.M style={askLocationStyle.button}>
+                  {I18n.t('continue').toUpperCase()}
+                </Text.M>
+              </View>
+            </TouchableHighlight>
+          </View>
+        </View>
       </View>
-    </View>
-  </View>
-)
+    )
+  }
+}
 
 const askLocationStyle = StyleSheet.create({
   footer: {

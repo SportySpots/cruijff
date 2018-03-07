@@ -3,10 +3,9 @@ import { StackNavigator, TabNavigator } from 'react-navigation'
 import GameListScreen from '../Containers/GameListScreen'
 import ProfileLoginScreen from '../Containers/ProfileLoginScreen'
 // import SpotListScreen from '../Containers/SpotListScreen'
-import CardList from '../Components/Cards/CardList'
 import CardDetail from '../Components/Cards/CardDetail'
 import SettingsScreen from '../Containers/SettingsScreen'
-import GamePlanScreen from '../Components/GamePlanScreen'
+import GamePlanScreen from '../Components/Plan'
 // import SpotDetailsScreen from '../Containers/SpotDetailsScreen'
 import GameDetailsScreen from '../Containers/GameDetailsScreen'
 import ProfileDetailsScreen from '../Containers/ProfileDetailsScreen'
@@ -15,6 +14,7 @@ import Ionicons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { View } from 'react-native'
 import NavBar from '../Components/NavBar'
 import I18n from '../I18n'
+import SpotListScreen from '../Containers/SpotListScreen'
 
 const GameSearchNav = StackNavigator(
   {
@@ -45,7 +45,7 @@ const SpotSearchNav = StackNavigator(
       }
     },
     SpotListScreen: {
-      screen: CardList,
+      screen: SpotListScreen,
       navigationOptions: {
         header: null
       }
@@ -110,14 +110,14 @@ const DefaultNav = TabNavigator(
         title: 'Join Game'
       }
     },
-    GamePlanTab: {
-      screen: GamePlanScreen,
-      navigationOptions: {
-        header: null
-      }
-    },
+    // GamePlanTab: {
+    //   screen: GamePlanScreen,
+    //   navigationOptions: {
+    //     header: null
+    //   }
+    // },
     ProfileTab: {
-      screen: ProfileNav,
+      screen: () => <ProfileNav />,
       navigationOptions: {
         title: 'Profile'
       }
@@ -131,28 +131,6 @@ const DefaultNav = TabNavigator(
   },
   {
     initialRouteName: 'SpotSearchTab',
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state
-        let iconName
-        if (routeName === 'SpotSearchTab') {
-          iconName = 'map-marker'
-        } else if (routeName === 'GameJoinTab') {
-          iconName = 'account-plus'
-        } else if (routeName === 'GamePlanTab') {
-          iconName = 'soccer'
-        } else if (routeName === 'ProfileTab') {
-          iconName = 'account-circle'
-        } else if (routeName === 'SettingsTab') {
-          iconName = 'settings'
-        }
-        return <Ionicons name={iconName} size={25} color={tintColor} />
-      }
-    }),
-    tabBarOptions: {
-      activeTintColor: 'green',
-      inactiveTintColor: 'gray'
-    },
     tabBarComponent: () => null,
     animationEnabled: false,
     swipeEnabled: false
@@ -175,9 +153,11 @@ export class MainScreen extends React.Component {
   }
 
   render () {
+    console.log(this.state.navigation)
     return (
       <View style={{ flex: 1 }}>
         <DefaultNav
+          {...this.props}
           ref={navigator => {
             if (navigator) {
               this.navigatorElement = navigator

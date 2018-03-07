@@ -10,7 +10,8 @@ export const reducers = combineReducers({
   github: require('./GithubRedux').reducer,
   search: require('./SearchRedux').reducer,
   facebook: require('./FacebookRedux').reducer,
-  spots: require('./SpotsRedux').reducer
+  spots: require('./SpotsRedux').reducer,
+  location: require('./LocationRedux').reducer
 })
 
 export default () => {

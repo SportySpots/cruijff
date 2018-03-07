@@ -6,13 +6,15 @@ import {
   Modal,
   FlatList
 } from 'react-native'
-import Colors from '../Themes/Colors'
-import Text from './Text'
-import I18n from '../I18n'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Calendar } from 'react-native-calendars'
 import DateTimePicker from 'react-native-modal-datetime-picker'
-import BasicButton from './BasicButton'
+import PropTypes from 'prop-types'
+
+import Colors from '../../Themes/Colors'
+import Text from '../Text'
+import I18n from '../../I18n'
+import BasicButton from '../BasicButton'
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -91,15 +93,25 @@ const dateStringToTimeString = dateString => {
 }
 
 export default class GamePlanScreen extends Component {
+  static propTypes = {
+    navigation: PropTypes.any
+  }
+
   state = {
     modals: {
       sport: false,
       date: false,
-      timeStart: false
+      timeStart: false,
+      timeEnd: false
     },
-    sport: null,
-    date: null,
-    timeStart: null
+    // sport: null,
+    // date: null,
+    // timeStart: null
+    sport: 'Football',
+    date: '10-03-2018',
+    timeStart: '10:30',
+    timeEnd: '11:30'
+
   }
   openModal (modalName) {
     this.setState({ modals: { ...this.state.modals, [modalName]: true } })
@@ -180,7 +192,7 @@ export default class GamePlanScreen extends Component {
         {this.state.timeStart &&
           this.state.timeEnd &&
           this.state.sport &&
-          this.state.date && <BasicButton text='continue' />}
+          this.state.date && <BasicButton text='continue' onPress={() => this.props.navigation.navigate('pickSpot')} />}
       </View>
     )
   }

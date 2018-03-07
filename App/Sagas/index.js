@@ -1,4 +1,4 @@
-import { takeLatest, all, fork } from 'redux-saga/effects'
+import { takeLatest, all, fork, put } from 'redux-saga/effects'
 import API from '../Services/Api'
 import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
@@ -16,6 +16,7 @@ import { getUserAvatar } from './GithubSagas'
 import { getSpotDetails } from './SpotsSagas'
 import { facebookSaga } from './FacebookSaga'
 import FacebookApi from '../Services/FacebookApi'
+import { NavigationActions } from 'react-navigation'
 
 /* ------------- API ------------- */
 

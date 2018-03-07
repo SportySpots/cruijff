@@ -41,15 +41,14 @@ export const cardList = StyleSheet.create({
   },
 
   cardContainer: {
-    margin: 4,
-    borderWidth: 1,
-    borderColor: Colors.black54,
+    marginHorizontal: 8,
+    marginVertical: 8,
     borderRadius: 8,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 2,
-    elevation: 1,
     shadowColor: 'black',
-    shadowOpacity: 1.0
+    shadowOpacity: 0.5,
+    elevation: 2
   }
 })
 

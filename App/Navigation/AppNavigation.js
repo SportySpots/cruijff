@@ -5,19 +5,21 @@ import styles from './Styles/NavigationStyles'
 import SplashScreen from '../Containers/SplashScreen'
 import OnboardingScreen from '../Components/Onboarding'
 import { MainScreen } from './MainNavigator'
-import AskLocation from '../Components/AskLocation'
+import AskLocation from '../Containers/AskLocation'
 import { connect } from 'react-redux'
+import GamePlanScreen from '../Components/Plan'
 
 export const RootNav = StackNavigator(
   {
     LocationPermissionScreen: {
       screen: ({ navigation }) => (
-        <AskLocation onPress={() => navigation.navigate('DefaultNav')} />
+        <AskLocation onContinue={() => navigation.navigate('DefaultNav')} />
       )
     },
     OnboardingScreen: { screen: OnboardingScreen },
     SplashScreen: { screen: SplashScreen },
-    DefaultNav: { screen: MainScreen }
+    DefaultNav: { screen: MainScreen },
+    PlanScreen: { screen: GamePlanScreen }
   },
   {
     // Default config for all screens

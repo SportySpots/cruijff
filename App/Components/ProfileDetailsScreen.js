@@ -18,10 +18,10 @@ import Colors from '../Themes/Colors'
 export const BottomNav = TabNavigator(
   {
     spots: {
-      screen: () => <Text>spots</Text>
+      screen: () => <Text>{I18n.t('Spots')}</Text>
     },
     games: {
-      screen: () => <Text>games</Text>
+      screen: () => <Text>{I18n.t('Games')}</Text>
     }
   },
   {

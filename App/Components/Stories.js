@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react-native'
 import NavBar from './NavBar'
 import NavBarButton from './NavBarButton'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
-import GamePlanScreen from './GamePlanScreen'
+import GamePlanScreen from './Plan/GamePlanScreen'
 
 import './FieldBackground.story'
 import './Logo.story'
