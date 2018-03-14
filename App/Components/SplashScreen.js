@@ -25,7 +25,7 @@ export default class SplashScreen extends Component {
         <View style={styles.buttonsContainer}>
           <BigButton
             onPress={() => navigate('SpotSearchTab')}
-            text={I18n.t('Signup')}
+            text={I18n.t('Signup with e-mail')}
             bgColor='blue'
             textColor='white'
           />

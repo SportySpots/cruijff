@@ -12,6 +12,7 @@ import {
 import AskLocation from '../Containers/AskLocation'
 import { connect } from 'react-redux'
 import GamePlanScreen from '../Components/Plan'
+import SignupScreen from '../Components/Signup'
 
 export const RootNav = StackNavigator(
   {
@@ -19,6 +20,7 @@ export const RootNav = StackNavigator(
     OnboardingScreen: { screen: OnboardingScreen },
     SplashScreen: { screen: SplashScreen },
     PlanScreen: { screen: GamePlanScreen },
+    SignupScreen: { screen: SignupScreen },
     SpotSearchTab: { screen: () => <SpotSearchNav /> },
     GameJoinTab: { screen: GameSearchNav },
     ProfileTab: { screen: () => <ProfileNav /> },
