@@ -11,7 +11,8 @@ export const reducers = combineReducers({
   search: require('./SearchRedux').reducer,
   facebook: require('./FacebookRedux').reducer,
   spots: require('./SpotsRedux').reducer,
-  location: require('./LocationRedux').reducer
+  location: require('./LocationRedux').reducer,
+  plan: require('./PlanGameRedux').reducer
 })
 
 export default () => {

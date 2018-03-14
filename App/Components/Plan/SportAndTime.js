@@ -14,7 +14,7 @@ import PropTypes from 'prop-types'
 import Colors from '../../Themes/Colors'
 import Text from '../Text'
 import I18n from '../../I18n'
-import BasicButton from '../BasicButton'
+import Footer from '../DarkFooter/index'
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -92,9 +92,20 @@ const dateStringToTimeString = dateString => {
   )
 }
 
-export default class GamePlanScreen extends Component {
+export default class SportAndTime extends Component {
   static propTypes = {
-    navigation: PropTypes.any
+    navigation: PropTypes.any, // Plan flow navigation
+    navigate: PropTypes.func, // Main screen navigation
+    setGameDetailField: PropTypes.func,
+    gameDetails: PropTypes.shape({
+      sport: PropTypes.string,
+      date: PropTypes.string,
+      startTime: PropTypes.string,
+      stopTime: PropTypes.string,
+      spotId: PropTypes.number,
+      description: PropTypes.string,
+      isPublic: PropTypes.bool
+    })
   }
 
   state = {
@@ -103,15 +114,7 @@ export default class GamePlanScreen extends Component {
       date: false,
       timeStart: false,
       timeEnd: false
-    },
-    // sport: null,
-    // date: null,
-    // timeStart: null
-    sport: 'Football',
-    date: '10-03-2018',
-    timeStart: '10:30',
-    timeEnd: '11:30'
-
+    }
   }
   openModal (modalName) {
     this.setState({ modals: { ...this.state.modals, [modalName]: true } })
@@ -120,85 +123,119 @@ export default class GamePlanScreen extends Component {
     this.setState({ modals: { ...this.state.modals, [modalName]: false } })
   }
 
+  onBack = () => {
+    this.props.navigate({ routeName: 'SpotSearchTab' })
+  }
+
+  onNext = () => {
+    this.props.navigation.navigate('pickSpot')
+  }
+
   render () {
     return (
-      <View style={styles.container}>
-        <SportModal
-          visible={this.state.modals.sport}
-          onSelect={sport => {
-            this.closeModal('sport')
-            this.setState({ sport })
-          }}
-        />
-        <DateModal
-          visible={this.state.modals.date}
-          onSelect={date => {
-            this.closeModal('date')
-            this.setState({ date })
-          }}
-        />
-        <DateTimePicker
-          mode='time'
-          isVisible={this.state.modals.timeStart}
-          date={this.state.timeStart && timeStringToDate(this.state.timeStart)}
-          onConfirm={date => {
-            this.setState({ timeStart: dateStringToTimeString(date) })
-            this.closeModal('timeStart')
-          }}
-          onCancel={() => {
-            this.closeModal('timeStart')
-          }}
-        />
-        <DateTimePicker
-          mode='time'
-          isVisible={this.state.modals.timeEnd}
-          date={this.state.timeEnd && timeStringToDate(this.state.timeEnd)}
-          onConfirm={date => {
-            this.setState({ timeEnd: dateStringToTimeString(date) })
-            this.closeModal('timeEnd')
-          }}
-          onCancel={() => {
-            this.closeModal('timeEnd')
-          }}
-        />
+      <View style={styles.outerContainer}>
+        <View style={styles.container}>
+          <SportModal
+            visible={this.state.modals.sport}
+            value={this.props.gameDetails.sport}
+            onSelect={sport => {
+              this.closeModal('sport')
+              this.props.setGameDetailField('sport', sport)
+            }}
+          />
+          <DateModal
+            visible={this.state.modals.date}
+            onSelect={date => {
+              this.closeModal('date')
+              this.props.setGameDetailField('date', date)
+            }}
+          />
+          <DateTimePicker
+            mode='time'
+            isVisible={this.state.modals.timeStart}
+            date={
+              this.state.timeStart &&
+              timeStringToDate(this.props.gameDetails.timeStart)
+            }
+            onConfirm={date => {
+              this.props.setGameDetailField(
+                'timeStart',
+                dateStringToTimeString(date)
+              )
+              this.closeModal('timeStart')
+            }}
+            onCancel={() => {
+              this.closeModal('timeStart')
+            }}
+          />
+          <DateTimePicker
+            mode='time'
+            isVisible={this.state.modals.timeEnd}
+            date={
+              this.state.timeEnd &&
+              timeStringToDate(this.props.gameDetails.timeEnd)
+            }
+            onConfirm={date => {
+              this.props.setGameDetailField(
+                'timeEnd',
+                dateStringToTimeString(date)
+              )
+              this.closeModal('timeEnd')
+            }}
+            onCancel={() => {
+              this.closeModal('timeEnd')
+            }}
+          />
 
-        <Text.L style={styles.title}>{I18n.t('Plan a game')}</Text.L>
-        <View style={styles.horizontal}>
-          <Text.M style={styles.text}>I want to play</Text.M>
-          <Field
-            value={this.state.sport || 'Select'}
-            onPress={() => this.openModal('sport')}
-          />
+          <Text.L style={styles.title}>{I18n.t('Plan a game')}</Text.L>
+          <View style={styles.horizontal}>
+            <Text.M style={styles.text}>I want to play</Text.M>
+            <Field
+              value={this.props.gameDetails.sport || 'Select'}
+              onPress={() => this.openModal('sport')}
+            />
+          </View>
+          <View style={styles.horizontal}>
+            <Text.M style={styles.text}>{I18n.t('on')}</Text.M>
+            <Field
+              value={this.props.gameDetails.date || 'Select'}
+              onPress={() => this.openModal('date')}
+            />
+          </View>
+          <View style={styles.horizontal}>
+            <Text.M style={styles.text}>{I18n.t('from')}</Text.M>
+            <Field
+              value={this.props.gameDetails.timeStart || 'Select'}
+              onPress={() => this.openModal('timeStart')}
+            />
+            <Text.M style={styles.text}>{I18n.t('to')}</Text.M>
+            <Field
+              value={this.props.gameDetails.timeEnd || 'Select'}
+              onPress={() => this.openModal('timeEnd')}
+            />
+          </View>
         </View>
-        <View style={styles.horizontal}>
-          <Text.M style={styles.text}>{I18n.t('on')}</Text.M>
-          <Field
-            value={this.state.date || 'Select'}
-            onPress={() => this.openModal('date')}
-          />
-        </View>
-        <View style={styles.horizontal}>
-          <Text.M style={styles.text}>{I18n.t('from')}</Text.M>
-          <Field
-            value={this.state.timeStart || 'Select'}
-            onPress={() => this.openModal('timeStart')}
-          />
-          <Text.M style={styles.text}>{I18n.t('to')}</Text.M>
-          <Field
-            value={this.state.timeEnd || 'Select'}
-            onPress={() => this.openModal('timeEnd')}
-          />
-        </View>
-        {this.state.timeStart &&
-          this.state.timeEnd &&
-          this.state.sport &&
-          this.state.date && <BasicButton text='continue' onPress={() => this.props.navigation.navigate('pickSpot')} />}
+        <Footer
+          numPages={4}
+          currentPage={0}
+          onBack={this.onBack}
+          onNext={this.onNext}
+          disableNext={
+            !this.props.gameDetails.timeStart ||
+            !this.props.gameDetails.timeEnd ||
+            !this.props.gameDetails.sport ||
+            !this.props.gameDetails.date
+          }
+        />
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    flex: 1
+  },
   container: {
     backgroundColor: Colors.primaryGreen,
     flex: 1,

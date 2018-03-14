@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import Footer from './Footer'
+import Footer from '../DarkFooter'
 import Swiper from 'react-native-swiper'
 
 /* ScreenSlider is using the same interface as FlatList (data, renderItem, keyExtractor) */
@@ -63,7 +63,7 @@ class ScreenSlider extends Component {
         <Footer
           showNext={this.props.showNext}
           numPages={this.props.data.length}
-          buttonText={
+          buttonNextText={
             this.props.footerText &&
             this.props.footerText(
               this.props.data[this.state.currentPage],
@@ -72,6 +72,7 @@ class ScreenSlider extends Component {
           }
           currentPage={this.state.currentPage}
           onNext={this.goNext}
+          showBack={false}
         />
       </View>
     )

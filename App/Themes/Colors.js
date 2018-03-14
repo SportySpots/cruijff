@@ -5,6 +5,7 @@ const colors = {
   error: 'rgba(200, 0, 0, 0.8)',
   white: '#fff',
   black: '#000',
+  gray: '#777',
 
   primaryGreen: '#009f36',
   secondaryGreen: '#005537',

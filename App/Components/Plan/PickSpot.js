@@ -3,13 +3,16 @@ import {
   ActivityIndicator,
   FlatList,
   TouchableOpacity,
-  View
+  View,
+  StyleSheet
 } from 'react-native'
 import Api from '../../Services/FixtureApi'
 import { cardList } from '../Cards/Styles/CardStyles'
 import CardSmall from '../Cards/CardSmall'
 import Text from '../Text'
 import I18n from '../../I18n'
+import PropTypes from 'prop-types'
+import Footer from '../DarkFooter'
 
 const CardContainer = props => {
   const { onPress, ...otherProps } = props
@@ -20,9 +23,22 @@ const CardContainer = props => {
   )
 }
 
-// TODO: Implement blank screen if no spots were found
-
 export default class PickSpot extends Component {
+  static propTypes = {
+    navigate: PropTypes.func,
+    navigation: PropTypes.object,
+    setGameDetailField: PropTypes.func,
+    gameDetails: PropTypes.shape({
+      sport: PropTypes.string,
+      date: PropTypes.string,
+      startTime: PropTypes.string,
+      stopTime: PropTypes.string,
+      spotId: PropTypes.number,
+      description: PropTypes.string,
+      isPublic: PropTypes.bool
+    })
+  }
+
   constructor (props) {
     super(props)
     this.state = {
@@ -36,8 +52,12 @@ export default class PickSpot extends Component {
     this.setState({ isLoading: false, spots: data })
   }
 
+  selectSpot = item => {
+    this.props.setGameDetailField('spotId', item.id)
+    this.props.navigation.navigate('description')
+  }
+
   render () {
-    const { navigate } = this.props.navigation
     const { isLoading, spots } = this.state
 
     if (isLoading) {
@@ -45,18 +65,38 @@ export default class PickSpot extends Component {
     }
 
     return (
-      <View style={[cardList.container, this.props.style]}>
-        <Text.L>{I18n.t('Pick a spot')}</Text.L>
-
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={spots.slice(0, 100)}
-          renderItem={({ item }) => (
-            <CardContainer spot={item} onPress={() => null} />
-          )}
-          keyExtractor={item => item.id}
+      <View style={style.container}>
+        <View style={[style.cardListContainer, this.props.style]}>
+          <Text.L>{I18n.t('Pick a spot')}</Text.L>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={spots.slice(0, 100)}
+            renderItem={({ item }) => (
+              <CardContainer
+                spot={item}
+                onPress={() => this.selectSpot(item)}
+              />
+            )}
+            keyExtractor={item => item.id}
+          />
+        </View>
+        <Footer
+          currentPage={1}
+          numPages={4}
+          disableNext
+          onBack={() => this.props.navigation.goBack()}
         />
       </View>
     )
   }
 }
+
+const style = StyleSheet.create({
+  cardListContainer: {
+    padding: 8,
+    flex: 1
+  },
+  container: {
+    flex: 1
+  }
+})

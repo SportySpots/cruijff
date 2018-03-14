@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, TouchableHighlight, View } from 'react-native'
+import { Text, TouchableHighlight, View, Share } from 'react-native'
 
 import FieldBackground from './FieldBackground'
 import Logo from './Logo'
