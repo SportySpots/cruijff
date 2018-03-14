@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Metrics } from '../../Themes'
+import { ApplicationStyles, Metrics } from '../../Themes/index'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -14,12 +14,10 @@ export default StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center'
   },
-  facebookActionContainer: {
-    ...ApplicationStyles.screen.container,
+  buttonsContainer: {
     flex: 3,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'center'
+    flexDirection: 'column',
+    justifyContent: 'space-around'
   },
   skipActionContainer: {
     ...ApplicationStyles.screen.container,

@@ -155,7 +155,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-fbsdk')
     compile project(':react-native-svg')
     compile project(':react-native-config')
     compile project(':appcenter-crashes')

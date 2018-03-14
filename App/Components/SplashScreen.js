@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
-import { Text, TouchableHighlight, View, Share } from 'react-native'
+import { Text, TouchableHighlight, View } from 'react-native'
 
 import FieldBackground from './FieldBackground'
 import Logo from './Logo'
-import styles from '../Containers/Styles/SplashScreenStyles'
-import BasicButton from './BasicButton'
+import styles from './Styles/SplashScreenStyles'
+import PropTypes from 'prop-types'
+import BigButton from './BigButton'
+import I18n from '../I18n'
+import Colors from '../Themes/Colors'
 
 export default class SplashScreen extends Component {
+  static propTypes = {
+    navigation: PropTypes.any
+  }
+
   render () {
     const { navigate } = this.props.navigation
 
@@ -15,11 +22,18 @@ export default class SplashScreen extends Component {
         <View style={styles.logoContainer}>
           <Logo />
         </View>
-        <View style={styles.facebookActionContainer}>
-          <BasicButton
-            onPress={() => this.props.facebookLogin()}
-            text='Login using Facebook'
-            color='white'
+        <View style={styles.buttonsContainer}>
+          <BigButton
+            onPress={() => navigate('SpotSearchTab')}
+            text={I18n.t('Signup')}
+            bgColor='blue'
+            textColor='white'
+          />
+          <BigButton
+            onPress={() => navigate('SpotSearchTab')}
+            text={I18n.t('Already signed up?')}
+            bgColor={Colors.transparent}
+            textColor='white'
           />
         </View>
         <View style={styles.skipActionContainer}>

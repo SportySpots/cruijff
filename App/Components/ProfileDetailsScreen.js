@@ -46,37 +46,27 @@ export const BottomNav = TabNavigator(
 export default class ProfileDetailsScreen extends React.PureComponent {
   static propTypes = {
     navigation: PropTypes.any,
-    logout: PropTypes.func,
-    facebook: PropTypes.shape({
-      status: PropTypes.string,
-      data: PropTypes.shape({
-        declinedPermission: PropTypes.array,
-        grantedPermissions: PropTypes.array,
-        token: PropTypes.shape({
-          accessToken: PropTypes.string,
-          userID: PropTypes.string
-        })
-      })
+    user: PropTypes.shape({
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      age: PropTypes.number,
+      level: PropTypes.number
     })
   }
 
   componentWillMount () {
-    if (this.props.facebook.status !== 'SUCCESS') {
+    if (!this.props.user.firstName) {
       this.props.navigation.navigate('ProfileLoginScreen')
     }
   }
   componentWillReceiveProps () {
-    if (this.props.facebook.status === 'SUCCESS') {
+    if (!this.props.user.firstName) {
       this.props.navigation.navigate('ProfileLoginScreen')
     }
   }
 
   render () {
-    if (
-      this.props.facebook.status !== 'SUCCESS' ||
-      !this.props.facebook.data.token ||
-      !this.props.facebook.data.profile
-    ) {
+    if (!this.props.user.firstName) {
       return null
     }
 
@@ -103,21 +93,21 @@ export default class ProfileDetailsScreen extends React.PureComponent {
       </View>
     )
 
-    const imageUrl = `https://graph.facebook.com/${
-      this.props.facebook.data.token.userID
-    }/picture?type=large`
+    const imageUrl = `https://graph.facebook.com/123123/picture?type=large`
     return (
       <MenuProvider>
         <View style={styles.outerContainer}>
           {EditMenu}
           <View style={styles.center}>
             <Image style={styles.image} source={{ uri: imageUrl }} />
-            <Text.L>{this.props.facebook.data.profile.name}</Text.L>
+            <Text.L>
+              {this.props.user.firstName} {this.props.user.lastName}
+            </Text.L>
           </View>
           <View style={styles.ageTypeContainer}>
             <View style={styles.ageContainer}>
               <Text>{I18n.t('Age')}</Text>
-              <Text.L>30</Text.L>
+              <Text.L>{this.props.user.age}</Text.L>
             </View>
             <View style={styles.type}>
               <Text>{I18n.t('Style')}</Text>

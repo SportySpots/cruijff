@@ -49,7 +49,6 @@
     "react-native-calendars": "^1.17.2",
     "react-native-config": "^0.10.0",
     "react-native-device-info": "0.11.0",
-    "react-native-fbsdk": "^0.7.0",
     "react-native-i18n": "1.0.0",
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-permissions": "^1.1.1",

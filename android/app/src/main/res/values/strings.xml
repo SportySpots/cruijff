@@ -2,6 +2,4 @@
     <string moduleConfig="true" name="appcenterCrashes_whenToSendCrashes">ALWAYS_SEND</string>
     <string moduleConfig="true" name="appcenterAnalytics_whenToEnableAnalytics">ALWAYS_SEND</string>
     <string name="app_name">SportySpots</string>
-    <string name="facebook_app_id">238532660014958</string>
-
 </resources>

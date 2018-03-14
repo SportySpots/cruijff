@@ -1,14 +1,15 @@
 import ProfileDetailsScreen from '../Components/ProfileDetailsScreen'
-import FB from '../Redux/FacebookRedux'
+import userActions from '../Redux/UserRedux'
 
 import { connect } from 'react-redux'
 
-const dispatchToProps = dispatch => ({
-  logout: () => dispatch(FB.facebookLogout())
-})
+const dispatchToProps = {
+  login: userActions.login,
+  logout: userActions.logout
+}
 
 const mapStateToProps = state => ({
-  facebook: state.facebook
+  user: state.user
 })
 
 export default connect(mapStateToProps, dispatchToProps)(ProfileDetailsScreen)
