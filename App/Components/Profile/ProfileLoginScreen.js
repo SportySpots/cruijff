@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Image } from 'react-native'
-import BasicButton from '../Components/BasicButton'
-import I18n from '../I18n'
-import Text from './Text'
-import images from '../Themes/Images'
+import BasicButton from '../BasicButton'
+import I18n from '../../I18n/index'
+import Text from '../Text'
+import images from '../../Themes/Images'
 export default class ProfileLoginScreen extends Component {
   render () {
     return (
@@ -15,8 +15,8 @@ export default class ProfileLoginScreen extends Component {
         <Text.M>{I18n.t('explain-login')}</Text.M>
 
         <BasicButton
-          onPress={() => this.props.facebookLogin()}
-          text='Login using Facebook'
+          onPress={() => null}
+          text='Login'
         />
       </View>
     )

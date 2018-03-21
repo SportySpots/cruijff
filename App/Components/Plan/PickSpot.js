@@ -7,8 +7,8 @@ import {
   StyleSheet
 } from 'react-native'
 import Api from '../../Services/FixtureApi'
-import { cardList } from '../Cards/Styles/CardStyles'
-import CardSmall from '../Cards/CardSmall'
+import { cardList } from '../SpotCards/Styles/CardStyles'
+import CardSmall from '../SpotCards/CardSmall'
 import Text from '../Text'
 import I18n from '../../I18n'
 import PropTypes from 'prop-types'

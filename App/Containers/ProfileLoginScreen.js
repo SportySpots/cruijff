@@ -1,4 +1,4 @@
-import ProfileLoginScreen from '../Components/ProfileLoginScreen'
+import ProfileLoginScreen from '../Components/Profile/ProfileLoginScreen'
 
 import { connect } from 'react-redux'
 import userActions from '../Redux/UserRedux'

@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
-import Text from './Text'
-import I18n from '../I18n'
+import Text from '../Text'
+import I18n from '../../I18n/index'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import Slider from './Slider'
+import Slider from '../Slider'
 import {
   Menu,
   MenuOption,
@@ -13,7 +13,7 @@ import {
   MenuTrigger
 } from 'react-native-popup-menu'
 import { TabBarTop, TabNavigator } from 'react-navigation'
-import Colors from '../Themes/Colors'
+import Colors from '../../Themes/Colors'
 
 export const BottomNav = TabNavigator(
   {

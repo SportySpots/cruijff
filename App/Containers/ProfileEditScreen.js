@@ -1,4 +1,4 @@
-import ProfileEditScreen from '../Components/ProfileEditScreen'
+import ProfileEditScreen from '../Components/Profile/ProfileEditScreen'
 
 import { connect } from 'react-redux'
 import userActions from '../Redux/UserRedux'

@@ -1,59 +1,53 @@
 import React from 'react'
 import { View, Image, StyleSheet, TextInput, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
-import Text from './Text'
-import I18n from '../I18n'
-import Slider from './Slider'
-import Colors from '../Themes/Colors'
-import BasicButton from './BasicButton'
+import Text from '../Text'
+import I18n from '../../I18n/index'
+import Slider from '../Slider'
+import Colors from '../../Themes/Colors'
+import BasicButton from '../BasicButton'
 
 export default class ProfileDetailsScreen extends React.PureComponent {
   static propTypes = {
-    facebook: PropTypes.shape({
-      status: PropTypes.string,
-      data: PropTypes.shape({
-        declinedPermission: PropTypes.array,
-        grantedPermissions: PropTypes.array,
-        token: PropTypes.shape({
-          accessToken: PropTypes.string,
-          userID: PropTypes.string
-        })
-      })
+    user: PropTypes.shape({
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      age: PropTypes.number,
+      level: PropTypes.number
     })
   }
 
   componentWillMount () {
-    if (this.props.facebook.status !== 'SUCCESS') {
-      this.props.navigation.navigate('ProfileLoginScreen')
+    if (!this.props.user) {
+      // todo: implement this in another way
+      // this.props.navigation.navigate('ProfileLoginScreen')
     }
   }
   componentWillReceiveProps () {
-    if (this.props.facebook.status === 'SUCCESS') {
-      this.props.navigation.navigate('ProfileLoginScreen')
+    if (this.props.user) {
+      // todo: implement this in another way
+      // this.props.navigation.navigate('ProfileLoginScreen')
     }
   }
 
   render () {
-    if (
-      this.props.facebook.status !== 'SUCCESS' ||
-      !this.props.facebook.data.token ||
-      !this.props.facebook.data.profile
-    ) {
+    if (!this.props.user) {
       return null
     }
 
-    const imageUrl = `https://graph.facebook.com/${
-      this.props.facebook.data.token.userID
-    }/picture?type=large`
     return (
       <ScrollView style={styles.outerContainer}>
         <View style={styles.center}>
-          <Image style={styles.image} source={{ uri: imageUrl }} />
+          {/* <Image style={styles.image} source={{ uri: imageUrl }} /> */}
         </View>
         <View style={styles.fields}>
           <View style={styles.fieldSet}>
-            <Text>{I18n.t('Name')}</Text>
-            <TextInput defaultValue={this.props.facebook.data.profile.name} />
+            <Text>{I18n.t('First name')}</Text>
+            <TextInput defaultValue={this.props.user.firstName} />
+          </View>
+          <View style={styles.fieldSet}>
+            <Text>{I18n.t('Last name')}</Text>
+            <TextInput defaultValue={this.props.user.lastName} />
           </View>
           <View style={styles.fieldSet}>
             <Text>{I18n.t('Age')}</Text>
@@ -66,7 +60,7 @@ export default class ProfileDetailsScreen extends React.PureComponent {
               <Text.S>{I18n.t('competitive')}</Text.S>
             </View>
             <View style={{ flex: 1, height: 50 }}>
-              <Slider value={0.5} onChange={console.log} />
+              <Slider value={this.props.user.level} onChange={console.log} />
             </View>
           </View>
           <BasicButton style={{ width: 100 }} text='save' />
