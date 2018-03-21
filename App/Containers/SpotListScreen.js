@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import CardList from '../Components/Cards/CardList'
+import CardList from '../Components/SpotCards/CardList'
 
 const dispatchToProps = dispatch => ({})
 
