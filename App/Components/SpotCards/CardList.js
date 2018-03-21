@@ -5,12 +5,9 @@ import {
   TouchableOpacity,
   ActivityIndicator
 } from 'react-native'
-import PropTypes from 'prop-types'
 
 import { cardList } from './Styles/CardStyles'
 import Card from './Card'
-
-import { Container, Content } from 'native-base'
 
 import Api from '../../Services/FixtureApi'
 
@@ -45,11 +42,9 @@ export default class SpotListScreen extends Component {
 
     if (isLoading) {
       return (
-        <Container>
-          <Content>
-            <ActivityIndicator />
-          </Content>
-        </Container>
+        <View style={{ flex: 1 }}>
+          <ActivityIndicator />
+        </View>
       )
     }
 

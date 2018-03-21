@@ -76,6 +76,7 @@
     "babel-jest": "22.1.0",
     "babel-plugin-ignite-ignore-reactotron": "^0.3.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react-native": "^3.0.2",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
@@ -88,7 +89,8 @@
     "ignite-redux-persist": "^1.1.0",
     "ignite-standard": "^1.0.0",
     "ignite-vector-icons": "^1.1.0",
-    "jest": "22.1.4",
+    "jest": "22.4.2",
+    "jest-snapshot": "^23.0.0-alpha.0",
     "lint-staged": "^6.1.0",
     "mockery": "^2.1.0",
     "prettier-standard": "^8.0.0",
@@ -110,6 +112,9 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "<rootDir>/Tests/Setup.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)/"
     ],
     "moduleNameMapper": {
       "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"

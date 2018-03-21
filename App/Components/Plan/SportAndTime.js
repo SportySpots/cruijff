@@ -75,7 +75,7 @@ const DateModal = ({ visible, onSelect }) => (
 )
 
 const timeStringToDate = timeString => {
-  const date = new Date()
+  const date = new Date('06-06-2017')
   date.setHours(timeString.split(':')[0])
   date.setMinutes(timeString.split(':')[1])
   return date
@@ -154,8 +154,9 @@ export default class SportAndTime extends Component {
             mode='time'
             isVisible={this.state.modals.timeStart}
             date={
-              this.state.timeStart &&
-              timeStringToDate(this.props.gameDetails.timeStart)
+              this.state.timeStart
+                ? timeStringToDate(this.props.gameDetails.timeStart)
+                : timeStringToDate('12:00')
             }
             onConfirm={date => {
               this.props.setGameDetailField(
@@ -172,8 +173,9 @@ export default class SportAndTime extends Component {
             mode='time'
             isVisible={this.state.modals.timeEnd}
             date={
-              this.state.timeEnd &&
-              timeStringToDate(this.props.gameDetails.timeEnd)
+              this.state.timeEnd
+                ? timeStringToDate(this.props.gameDetails.timeEnd)
+                : timeStringToDate('12:00')
             }
             onConfirm={date => {
               this.props.setGameDetailField(

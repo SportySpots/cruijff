@@ -15,7 +15,7 @@ import {
 import { TabBarTop, TabNavigator } from 'react-navigation'
 import Colors from '../../Themes/Colors'
 
-export const BottomNav = TabNavigator(
+export const BottomNav = new TabNavigator(
   {
     spots: {
       screen: () => <Text>{I18n.t('Spots')}</Text>
