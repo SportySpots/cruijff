@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/SportySpots/cruijff.svg)](https://greenkeeper.io/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+[![TravisCIBadge](https://travis-ci.org/SportySpots/cruijff.svg?branch=master)](https://travis-ci.org/SportySpots/cruijff)
 [![Build Status Android](https://build.appcenter.ms/v0.1/apps/faccffcd-1960-4ceb-82c9-e822fbb78a7f/branches/master/badge)](https://appcenter.ms)
 [![Build Status IOS](https://build.appcenter.ms/v0.1/apps/2b00396c-deef-4523-8dad-d63201f4aa8b/branches/master/badge)](https://appcenter.ms)
 
