@@ -75,10 +75,9 @@ const DateModal = ({ visible, onSelect }) => (
 )
 
 const timeStringToDate = timeString => {
-  const date = new Date('06-06-2017')
-  date.setHours(timeString.split(':')[0])
-  date.setMinutes(timeString.split(':')[1])
-  return date
+  const hours = timeString.split(':')[0]
+  const minutes = timeString.split(':')[1]
+  return new Date(Date.UTC(2016, 6, 6, hours, minutes, 0))
 }
 
 const dateStringToTimeString = dateString => {

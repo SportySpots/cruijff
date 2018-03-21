@@ -10114,7 +10114,7 @@ exports[`Storyshots Plan Step 1: Sport/time 1`] = `
                 style={undefined}
               >
                 <RCTDatePicker
-                  date={1496743200000}
+                  date={1467806400000}
                   maximumDate={undefined}
                   minimumDate={undefined}
                   minuteInterval={undefined}
@@ -10343,7 +10343,7 @@ exports[`Storyshots Plan Step 1: Sport/time 1`] = `
                 style={undefined}
               >
                 <RCTDatePicker
-                  date={1496743200000}
+                  date={1467806400000}
                   maximumDate={undefined}
                   minimumDate={undefined}
                   minuteInterval={undefined}
