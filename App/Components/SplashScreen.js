@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { Text, TouchableHighlight, View } from 'react-native'
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 
 import FieldBackground from './FieldBackground'
 import Logo from './Logo'
-import styles from './Styles/SplashScreenStyles'
 import PropTypes from 'prop-types'
 import BigButton from './BigButton'
 import I18n from '../I18n'
 import Colors from '../Themes/Colors'
+import { ApplicationStyles, Metrics } from '../Themes'
 
 export default class SplashScreen extends Component {
   static propTypes = {
@@ -45,3 +45,30 @@ export default class SplashScreen extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  ...ApplicationStyles.screen,
+  logo: {
+    height: Metrics.images.large,
+    width: Metrics.images.large
+  },
+  logoContainer: {
+    ...ApplicationStyles.screen.container,
+    flex: 4,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'center'
+  },
+  buttonsContainer: {
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  skipActionContainer: {
+    ...ApplicationStyles.screen.container,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 50
+  }
+})

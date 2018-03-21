@@ -1,3 +1,3 @@
 ### Styles Folder
 
-Component styles are separated from functionality.
+Common component styles

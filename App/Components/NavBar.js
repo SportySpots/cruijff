@@ -1,12 +1,12 @@
 import React from 'react'
 import I18n from '../I18n'
-import { View, Keyboard } from 'react-native'
+import { View, Keyboard, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
-import { navbarStyle } from './Styles/NavBar'
 import NavBarButton from './NavBarButton'
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import MaterialCummunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import Colors from '../Themes/Colors'
 
 const showForTabs = [
   'SpotSearchTab',
@@ -138,3 +138,24 @@ export default class NavBar extends React.Component {
     )
   }
 }
+
+const navbarStyle = StyleSheet.create({
+  container: {
+    height: 70,
+    marginTop: -20,
+    position: 'relative',
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    backgroundColor: Colors.transparent
+  },
+  buttonContainer: {
+    flex: 1,
+    height: 50
+  },
+  mainButtonContainer: {
+    flex: 2,
+    height: 70,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8
+  }
+})

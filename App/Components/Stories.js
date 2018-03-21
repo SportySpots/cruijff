@@ -6,7 +6,6 @@ import NavBarButton from './NavBarButton'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 import './ScreenSlider/Stories'
-import './Rating.story'
 import './SpotCards/Stories'
 import './Plan/Stories'
 import './Profile/Stories'
@@ -24,6 +23,7 @@ import NavDots from './NavDots'
 import FieldBackground from './FieldBackground'
 import Slider from './Slider'
 import SplashScreen from './SplashScreen'
+import Rating from './Rating'
 
 const dummyNavigator = {
   navigate: () => null
@@ -110,6 +110,12 @@ storiesOf('NavBar')
   ))
 
 storiesOf('NavDots').add('Default', () => <NavDots count={5} active={3} />)
+
+storiesOf('Rating')
+  .add('1', () => <Rating rating={1} />)
+  .add('3', () => <Rating rating={3} />)
+  .add('4.5', () => <Rating rating={4.5} />)
+
 storiesOf('FieldBackground').add('Default', () => (
   <FieldBackground>
     <View />

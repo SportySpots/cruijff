@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, StyleSheet } from 'react-native'
-import styles from './Styles/RoundedButtonStyles'
 import Colors from '../Themes/Colors'
 import Logo from './Logo'
 import Text from './Text'
 
-export default class RoundedButton extends Component {
+export default class Signup extends Component {
   static propTypes = {
     onPress: PropTypes.func,
     text: PropTypes.string,

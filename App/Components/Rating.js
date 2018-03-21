@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
-import { style } from './Styles/Rating'
 import Text from './Text'
+import Colors from '../Themes/Colors'
+import Fonts from '../Themes/Fonts'
 
 export default class Rating extends React.Component {
   static propTypes = {
@@ -22,3 +23,26 @@ export default class Rating extends React.Component {
     )
   }
 }
+
+const style = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  circle: {
+    width: 8,
+    height: 8,
+    borderRadius: 8,
+    marginLeft: 2,
+    marginRight: 2,
+    backgroundColor: Colors.black54
+  },
+  full: {
+    backgroundColor: Colors.primaryGreen
+  },
+  text: {
+    ...Fonts.style.S,
+    marginLeft: 8,
+    color: Colors.black
+  }
+})

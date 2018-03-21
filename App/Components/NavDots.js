@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
-import { style, themes } from './Styles/NavDots'
 
 const range = function (count) {
   const result = []
@@ -9,6 +8,17 @@ const range = function (count) {
     result.push(i)
   }
   return result
+}
+
+export const themes = {
+  light: StyleSheet.create({
+    circle: {
+      backgroundColor: '#f00'
+    },
+    active: {
+      backgroundColor: '#0f0'
+    }
+  })
 }
 
 export default class NavDots extends React.Component {
@@ -38,3 +48,17 @@ export default class NavDots extends React.Component {
     )
   }
 }
+
+const style = StyleSheet.create({
+  outer: {
+    flexDirection: 'row'
+  },
+  circle: {
+    width: 10,
+    height: 10,
+    borderRadius: 10,
+    marginLeft: 5,
+    marginRight: 5
+  },
+  active: {}
+})
