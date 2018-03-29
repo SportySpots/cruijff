@@ -95,7 +95,7 @@
     "mockery": "^2.1.0",
     "prettier-standard": "^8.0.0",
     "react-devtools": "^3.1.0",
-    "react-dom": "16.0.0",
+    "react-dom": "16.3.0",
     "react-native-cli": "2.0.1",
     "react-test-renderer": "16.0.0",
     "reactotron-react-native": "^1.13.2",
