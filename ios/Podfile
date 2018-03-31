@@ -10,9 +10,6 @@ target 'SportySpots' do
   pod 'AppCenter/Analytics', '~> 1.1.0'
   pod 'AppCenterReactNativeShared', '~> 1.1.0'
   pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
-
-  
-
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
   target 'SportySpotsTests' do
