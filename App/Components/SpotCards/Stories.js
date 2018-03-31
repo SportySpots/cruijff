@@ -17,8 +17,10 @@ const dummyNavigator = {
 }
 
 storiesOf('Cards')
-  .add('Single card', () => <Card onPress={() => {}} spot={spots[0]} />)
-  .add('Single small card', () => <CardSmall onPress={() => {}} spot={spots[0]} />)
+  .add('Single list card', () => <Card onPress={() => {}} spot={spots[0]} />)
+  .add('Single small card', () => (
+    <CardSmall onPress={() => {}} spot={spots[0]} />
+  ))
   .add('Card list', () => (
     <CardList navigation={dummyNavigator} spots={spots} />
   ))

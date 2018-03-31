@@ -10,6 +10,7 @@ import './SpotCards/Stories'
 import './Plan/Stories'
 import './Profile/Stories'
 import './DarkFooter/Stories'
+import './Games/Stories'
 
 import Onboarding from './Onboarding'
 import ImageSwiper from './ImageSwiper'
