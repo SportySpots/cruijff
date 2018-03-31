@@ -22,7 +22,7 @@
     "is_featured": false
   },
   {
-    "id": 1,
+    "id": 2,
     "uuid": "games1",
     "organizer": 1,
     "sport": 1,
@@ -44,7 +44,7 @@
     "is_featured": false
   },
   {
-    "id": 1,
+    "id": 3,
     "uuid": "games1",
     "organizer": 1,
     "sport": 1,

@@ -25,6 +25,29 @@ export default {
       data: spotsData.filter(spot => newWestSpots.includes(spot.id))
     }
   },
+
+  getGame: id => {
+    const gamesData = require('../Fixtures/games.json')
+    const usersData = require('../Fixtures/users.json')
+    const sportsData = require('../Fixtures/sports.json')
+    const spotsData = require('../Fixtures/spots.json')
+    const rsvpStatusData = require('../Fixtures/rsvpStatus.json')
+    const game = gamesData.find(game => game.id === id)
+    game.organizer = usersData.find(user => user.id === game.user)
+    game.sport = sportsData.find(sport => sport.id === game.sport)
+    game.spot = spotsData.find(spot => spot.id === game.spot)
+    game.rsvpStatuses = rsvpStatusData
+      .filter(rsvp => rsvp.game === game.id)
+      .map(status => ({
+        ...status,
+        user: usersData.find(user => user.id === status.user)
+      }))
+    return {
+      ok: true,
+      data: game
+    }
+  },
+
   getSpot: spotId => {
     const spotsData = require('../Fixtures/spots.json')
     const spot = find(propEq('id', spotId))(spotsData)

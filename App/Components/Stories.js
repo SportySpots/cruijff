@@ -25,6 +25,8 @@ import FieldBackground from './FieldBackground'
 import Slider from './Slider'
 import SplashScreen from './SplashScreen'
 import Rating from './Rating'
+import PropertyCircle from './PropertyCircle'
+import UserCircle from './UserCircle'
 
 const dummyNavigator = {
   navigate: () => null
@@ -126,4 +128,23 @@ storiesOf('FieldBackground').add('Default', () => (
 storiesOf('Slider').add('Default', () => <Slider value={0.75} />)
 storiesOf('SplashScreen').add('Default', () => (
   <SplashScreen navigation={dummyNavigator} />
+))
+
+storiesOf('PropertyCircle').add('Propertycircle', () => (
+  <View>
+    {[
+      'blablabla',
+      'ASD GDS ASD DAS',
+      'as asdasdasdsadassadas',
+      '+4',
+      'HMMMM'
+    ].map((text, idx) => <PropertyCircle text={text} key={idx} />)}
+  </View>
+))
+
+const users = require('../Fixtures/users')
+storiesOf('UserCircle').add('UserCircle', () => (
+  <View>
+    {users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}
+  </View>
 ))

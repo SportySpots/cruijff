@@ -1,6 +1,6 @@
 import React from 'react'
-import Colors from '../../Themes/Colors'
-import Fonts from '../../Themes/Fonts'
+import Colors from '../Themes/Colors'
+import Fonts from '../Themes/Fonts'
 import { Text, View, StyleSheet } from 'react-native'
 
 export default ({ text }) => (

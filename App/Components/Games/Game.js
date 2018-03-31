@@ -5,6 +5,7 @@ import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import Text from '../Text'
 import Api from '../../Services/FixtureApi'
+import ImageSwiper from '../ImageSwiper'
 
 export default class extends Component {
   static propTypes = {
@@ -12,15 +13,33 @@ export default class extends Component {
     style: PropTypes.number
   }
 
+  constructor () {
+    super()
+    this.state = {
+      loading: true,
+      game: null
+    }
+  }
+
   componentDidMount () {
-    const { data } = Api.getGame()
-    this.setState({ isLoading: false, spots: data })
+    const { data } = Api.getGame(this.props.id)
+    this.setState({ isLoading: false, game: data })
   }
 
   render () {
+    if (!this)
+    let images = []
+    const spot = this.state.game.spot
+    if (typeof spot.image === 'string') {
+      images = [spot.image]
+    } else if (typeof spot.image === 'object' && spot.length) {
+      images = spot.image
+    }
+
     return (
       <View style={[this.props.style]}>
-        <Text>bladiebla</Text>
+        <ImageSwiper images={images} />
+        <Text>{JSON.stringify(this.state.game)}asd</Text>
       </View>
     )
   }

@@ -1,9 +1,8 @@
 import React from 'react'
-import Colors from '../../Themes/Colors'
 import Fonts from '../../Themes/Fonts'
 import { View, StyleSheet } from 'react-native'
 import I18n from '../../I18n'
-import PropertyCircle from './PropertyCircle'
+import PropertyCircle from '../PropertyCircle'
 import Text from '../Text'
 
 export default ({ properties }) => (
