@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "uuid": "sportsoccer",
+    "category": "soccer",
+    "name": "pleintjesvoetbal",
+    "description": "beschrijving van pleintjesvoetbal"
+  },
+  {
+    "id": 2,
+    "uuid": "sportbasketball",
+    "category": "basketball",
+    "name": "basketbal123",
+    "description": "beschrijving van basketbal"
+  },
+  {
+    "id": 3,
+    "uuid": "sporttennis",
+    "category": "tennis",
+    "name": "tennisname",
+    "description": "beschrijving van tennis"
+  }
+]

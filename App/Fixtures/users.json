@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "uuid": "usertom",
+    "name": "Tom Klaver",
+    "username": "tomk",
+    "email": "tomklav@gmail.com"
+  },
+  {
+    "id": 2,
+    "uuid": "usersez",
+    "name": "Sezayi Arslan",
+    "username": "sezayia",
+    "email": "sez@arslan.com"
+  },
+  {
+    "id": 3,
+    "uuid": "userashu",
+    "name": "Ashutosh Bandiwdekar",
+    "username": "ashub",
+    "email": "ashu@tosh.com"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "game": 1,
+    "user": 1,
+    "status": "attending"
+  },
+  {
+    "game": 1,
+    "user": 2,
+    "status": "attending"
+  },
+  {
+    "game": 1,
+    "user": 3,
+    "status": "declined"
+  }
+]
