@@ -27,6 +27,7 @@ import SplashScreen from './SplashScreen'
 import Rating from './Rating'
 import PropertyCircle from './PropertyCircle'
 import UserCircle from './UserCircle'
+import Signup from './Signup'
 
 const dummyNavigator = {
   navigate: () => null
@@ -148,3 +149,4 @@ storiesOf('UserCircle').add('UserCircle', () => (
     {users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}
   </View>
 ))
+storiesOf('Signup').add('Default', () => <Signup />)

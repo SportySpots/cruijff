@@ -27,7 +27,6 @@ export default class extends Component {
   }
 
   render () {
-    if (!this)
     let images = []
     const spot = this.state.game.spot
     if (typeof spot.image === 'string') {
