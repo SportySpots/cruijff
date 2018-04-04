@@ -18,40 +18,41 @@ export default class Signup extends Component {
 
   render () {
     return (
-      <KeyboardAwareScrollView contentContainerStyle={style.container}>
-        <View style={style.skew} />
-        <View style={style.logoContainer}>
-          <Logo scale={1} />
-          <Text.L style={style.logoText}>SPORTYSPOTS</Text.L>
-        </View>
-        <View style={style.form}>
-          <View style={style.fieldSet}>
-            <Text style={style.text}>{I18n.t('First name')}</Text>
-            <TextInput style={style.input} defaultValue='' />
+      <View style={{ flex: 1, backgroundColor: Colors.white }}>
+        <KeyboardAwareScrollView contentContainerStyle={style.container}>
+          <View style={style.skew} />
+          <View style={style.logoContainer}>
+            <Logo scale={1} />
+            <Text.L style={style.logoText}>SPORTYSPOTS</Text.L>
           </View>
-          <View style={style.fieldSet}>
-            <Text style={style.text}>{I18n.t('Last name')}</Text>
-            <TextInput style={style.input} defaultValue='' />
+          <View style={style.form}>
+            <View style={style.fieldSet}>
+              <Text style={style.text}>{I18n.t('First name')}</Text>
+              <TextInput style={style.input} defaultValue='' />
+            </View>
+            <View style={style.fieldSet}>
+              <Text style={style.text}>{I18n.t('Last name')}</Text>
+              <TextInput style={style.input} defaultValue='' />
+            </View>
+            <View style={style.fieldSet}>
+              <Text style={style.text}>{I18n.t('E-mail address')}</Text>
+              <TextInput style={style.input} defaultValue='' />
+            </View>
+            <BigButton
+              bgColor={'blue'}
+              textColor={Colors.white}
+              text={I18n.t('Signup')}
+              onPress={() => this.props.navigation.navigate('OnboardingScreen')}
+            />
           </View>
-          <View style={style.fieldSet}>
-            <Text style={style.text}>{I18n.t('E-mail address')}</Text>
-            <TextInput style={style.input} defaultValue='' />
-          </View>
-          <BigButton
-            bgColor={'blue'}
-            textColor={Colors.white}
-            text={I18n.t('Signup')}
-            onPress={() => this.props.navigation.navigate('SpotSearchTab')}
-          />
-        </View>
-      </KeyboardAwareScrollView>
+        </KeyboardAwareScrollView>
+      </View>
     )
   }
 }
 
 const style = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: Colors.white,
     alignItems: 'center',
     justifyContent: 'center'
