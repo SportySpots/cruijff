@@ -1,4 +1,5 @@
 import I18n from 'react-native-i18n'
+import moment from 'moment'
 
 const missingTranslationRegex = /^\[missing ".*" translation\]$/
 
@@ -35,3 +36,5 @@ export default {
   ...I18n,
   t: translateOrFallback
 }
+
+moment.locale(I18n.locale.substr(0, 2))

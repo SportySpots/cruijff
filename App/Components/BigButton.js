@@ -3,7 +3,7 @@ import { View, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import Text from './Text'
 
-// import Icon from 'react-native-vector-icons/MaterialIcons'
+// import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 export default class BigButton extends Component {
   static propTypes = {
@@ -20,10 +20,17 @@ export default class BigButton extends Component {
 
   render () {
     const styles = makeStyles(this.props)
-    const { text, bgColor, textColor, disabled, ...otherProps } = this.props
+    const {
+      style,
+      text,
+      bgColor,
+      textColor,
+      disabled,
+      ...otherProps
+    } = this.props
     const Wrapper = disabled ? View : TouchableOpacity
     return (
-      <Wrapper style={styles.container} {...otherProps}>
+      <Wrapper style={[styles.container, style]} {...otherProps}>
         <Text.M style={styles.text}>{text}</Text.M>
       </Wrapper>
     )

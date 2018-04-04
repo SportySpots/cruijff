@@ -33,7 +33,7 @@ export default {
     const spotsData = require('../Fixtures/spots.json')
     const rsvpStatusData = require('../Fixtures/rsvpStatus.json')
     const game = gamesData.find(game => game.id === id)
-    game.organizer = usersData.find(user => user.id === game.user)
+    game.organizer = usersData.find(user => user.id === game.organizer)
     game.sport = sportsData.find(sport => sport.id === game.sport)
     game.spot = spotsData.find(spot => spot.id === game.spot)
     game.rsvpStatuses = rsvpStatusData

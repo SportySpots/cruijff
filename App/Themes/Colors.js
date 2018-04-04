@@ -6,6 +6,7 @@ const colors = {
   white: '#fff',
   black: '#000',
   gray: '#777',
+  lightGray: '#ccc',
 
   primaryGreen: '#009f36',
   secondaryGreen: '#005537',
@@ -16,7 +17,8 @@ const colors = {
   black54: 'rgba(0,0,0,0.54)',
   white20: 'rgba(255,255,255,.2)',
   bgGrey: '#f6f6f9',
-  darkGreen: '#2F553C'
+  darkGreen: '#2F553C',
+  red: '#ff0000'
 }
 
 export default colors

@@ -7,7 +7,7 @@ import Fonts from '../Themes/Fonts'
 
 const Text = props => <NativeText {...props} />
 
-const sizes = ['S', 'M', 'L']
+const sizes = ['S', 'SM', 'M', 'L']
 
 const styles = StyleSheet.create(
   sizes.reduce((acc, cur) => {

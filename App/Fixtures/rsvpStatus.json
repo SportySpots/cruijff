@@ -1,15 +1,18 @@
 [
   {
+    "uuid": "rsvp1",
     "game": 1,
     "user": 1,
     "status": "attending"
   },
   {
+    "uuid": "rsvp2",
     "game": 1,
     "user": 2,
     "status": "attending"
   },
   {
+    "uuid": "rsvp3",
     "game": 1,
     "user": 3,
     "status": "declined"

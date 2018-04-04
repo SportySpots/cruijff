@@ -6,6 +6,8 @@
     "sport": 1,
     "spot": 287,
     "name": "Potje voetbal @ 287",
+    "description":
+      "Deelname is toegankelijk voor iedereen. Dus ook vriendenteams, recreatieve teams, of mensen die nog nooit een voetbal hebben aangeraakt",
     "start_time": "2018-04-25T15:00:00Z",
     "end_time": "2018-04-25T16:00:00Z",
     "rsvp_open_time": "2018-03-01T15:00:00Z",
@@ -15,7 +17,7 @@
     "end_timezone": "Europe/Amsterdam",
     "invite_mode": "open",
     "status": "planned",
-    "capacity": 10,
+    "capacity": 20,
     "show_remaining": true,
     "is_listed": true,
     "is_shareable": true,
