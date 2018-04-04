@@ -5,10 +5,10 @@
       "plugins": ["ignite-ignore-reactotron"]
     },
     "development": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "plugins": [["transform-es2015-modules-commonjs", { "strict": false }]]
     },
     "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "plugins": [["transform-es2015-modules-commonjs", { "strict": false }]]
     }
   }
 }
