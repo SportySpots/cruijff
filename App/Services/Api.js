@@ -34,11 +34,10 @@ const create = (baseURL = 'https://api.sportyspots.com/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getRoot = () => api.get('')
-  const getRate = () => api.get('rate_limit')
   const getUser = username => api.get('search/users', { q: username })
   const getAllSpots = () => null
   const getSpot = spotId => spotId
+  const getGame = gameId => gameId
 
   // ------
   // STEP 3
@@ -54,11 +53,10 @@ const create = (baseURL = 'https://api.sportyspots.com/') => {
   //
   return {
     // a list of the API functions from step 2
-    getRoot,
-    getRate,
     getUser,
     getAllSpots,
-    getSpot
+    getSpot,
+    getGame
   }
 }
 

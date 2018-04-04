@@ -6,13 +6,13 @@ import { path } from 'ramda'
 
 const stepper = (fn) => (mock) => fn.next(mock).value
 
-test('first calls API', () => {
+test.skip('first calls API', () => {
   const step = stepper(getUserAvatar(FixtureAPI, {username: 'taco'}))
   // first yield is API
   expect(step()).toEqual(call(FixtureAPI.getUser, 'taco'))
 })
 
-test('success path', () => {
+test.skip('success path', () => {
   const response = FixtureAPI.getUser('taco')
   const step = stepper(getUserAvatar(FixtureAPI, {username: 'taco'}))
   // first step API
@@ -25,7 +25,7 @@ test('success path', () => {
   expect(stepResponse).toEqual(put(GithubActions.userSuccess(avatar)))
 })
 
-test('failure path', () => {
+test.skip('failure path', () => {
   const response = {ok: false}
   const step = stepper(getUserAvatar(FixtureAPI, {username: 'taco'}))
   // first step API
