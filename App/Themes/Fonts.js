@@ -65,7 +65,7 @@ const style = {
     lineHeight: 18
   },
   S: {
-    fontFamily: 'Radjdhani-Regular',
+    fontFamily: 'Rajdhani-Regular',
     fontSize: 12
   }
 }
