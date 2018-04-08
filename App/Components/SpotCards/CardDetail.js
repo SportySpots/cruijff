@@ -49,7 +49,7 @@ export default class extends React.PureComponent {
     let images = ['http://via.placeholder.com/350x150']
     if (typeof spot.image === 'string') {
       images = [spot.image]
-    } else if (typeof spot.image === 'object' && spot.length) {
+    } else if (Array.isArray(spot.image)) {
       images = spot.image
     }
 

@@ -13,7 +13,7 @@ export default (rootReducer, rootSaga) => {
   const enhancers = []
 
   /* ------------- Analytics Middleware ------------- */
-  // middleware.push(ScreenTracking)
+  middleware.push(ScreenTracking)
 
   /* ------------- Saga Middleware ------------- */
 

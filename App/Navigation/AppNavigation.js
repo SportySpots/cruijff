@@ -21,9 +21,9 @@ export const RootNav = StackNavigator(
     SplashScreen: { screen: SplashScreen },
     PlanScreen: { screen: GamePlanScreen },
     SignupScreen: { screen: SignupScreen },
-    SpotSearchTab: { screen: () => <SpotSearchNav /> },
+    SpotSearchTab: { screen: SpotSearchNav },
     GameJoinTab: { screen: GameSearchNav },
-    ProfileTab: { screen: () => <ProfileNav /> },
+    ProfileTab: { screen: ProfileNav },
     SettingsTab: { screen: SettingsNav }
   },
   {

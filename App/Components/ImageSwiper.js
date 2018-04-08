@@ -11,7 +11,7 @@ export default class extends React.PureComponent {
 
   render () {
     return (
-      <Swiper style={{ flex: 1, ...this.props.style }}>
+      <Swiper style={[{ flex: 1 }, this.props.style]}>
         {this.props.images.map((src, index) => (
           <Image key={index} style={{ flex: 1 }} source={{ uri: src }} />
         ))}
