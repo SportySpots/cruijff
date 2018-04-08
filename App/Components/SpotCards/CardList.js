@@ -9,7 +9,7 @@ import {
 import { cardList } from './Styles/CardStyles'
 import Card from './Card'
 
-import Api from '../../Services/FixtureApi'
+import Api from '../../Services/SeedorfApi'
 
 const CardContainer = props => {
   const { onPress, ...otherProps } = props
@@ -32,6 +32,7 @@ export default class SpotListScreen extends Component {
   }
 
   componentDidMount () {
+    console.log(Api)
     const { data } = Api.getAllSpots()
     this.setState({ isLoading: false, spots: data })
   }

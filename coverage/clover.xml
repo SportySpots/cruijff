@@ -123,7 +123,7 @@
       </package>
       <package name="App.Services">
         <metrics statements="21" coveredstatements="18" conditionals="9" coveredconditionals="4" methods="15" coveredmethods="4"/>
-        <file name="Api.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/Api.js">
+        <file name="SeedorfApiLive.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/SeedorfApiLive.js">
           <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="1"/>
           <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
           <line num="12" count="1" type="stmt"/>
@@ -145,7 +145,7 @@
           <line num="35" count="4" type="stmt"/>
           <line num="37" count="4" type="stmt"/>
         </file>
-        <file name="FixtureApi.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/FixtureApi.js">
+        <file name="SeedorfApiFixture.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/SeedorfApiFixture.js">
           <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
           <line num="4" count="0" type="stmt"/>
           <line num="10" count="1" type="stmt"/>

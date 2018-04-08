@@ -6,7 +6,7 @@ import {
   View,
   StyleSheet
 } from 'react-native'
-import Api from '../../Services/FixtureApi'
+import Api from '../../Services/SeedorfApi'
 import { cardList } from '../SpotCards/Styles/CardStyles'
 import CardSmall from '../SpotCards/CardSmall'
 import Text from '../Text'

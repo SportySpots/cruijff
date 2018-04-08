@@ -1,5 +1,5 @@
-import API from '../../App/Services/Api'
-import FixtureAPI from '../../App/Services/FixtureApi'
+import API from '../../App/Services/SeedorfApiLive'
+import FixtureAPI from '../../App/Services/SeedorfApiFixture'
 import R from 'ramda'
 
 test('All fixtures map to actual API', () => {

@@ -264,7 +264,7 @@ BRF:6
 BRH:4
 end_of_record
 TN:
-SF:/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/Api.js
+SF:/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/SeedorfApiLive.js
 FN:5,(anonymous_0)
 FN:37,(anonymous_1)
 FN:38,(anonymous_2)
@@ -329,7 +329,7 @@ BRF:6
 BRH:1
 end_of_record
 TN:
-SF:/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/FixtureApi.js
+SF:/Users/ashutosh/workspace/sportyspots/cruijff/App/Services/SeedorfApiFixture.js
 FN:3,(anonymous_0)
 FN:9,(anonymous_1)
 FN:15,(anonymous_2)

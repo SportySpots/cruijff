@@ -1,4 +1,4 @@
-import FixtureAPI from '../../App/Services/FixtureApi'
+import FixtureAPI from '../../App/Services/SeedorfApiFixture'
 import { put, call } from 'redux-saga/effects'
 import { getUserAvatar } from '../../App/Sagas/GithubSagas'
 import GithubActions from '../../App/Redux/GithubRedux'

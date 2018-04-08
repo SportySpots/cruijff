@@ -8,7 +8,7 @@ import { cardDetails } from './Styles/CardStyles'
 import ImageSwiper from '../ImageSwiper'
 import Header from './Header'
 import Properties from './Properties'
-import Api from '../../Services/FixtureApi'
+import Api from '../../Services/SeedorfApi'
 import Text from '../Text'
 
 export default class extends React.PureComponent {
