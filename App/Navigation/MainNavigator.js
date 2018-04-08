@@ -1,4 +1,4 @@
-import { StackNavigator, SwitchNavigator } from 'react-navigation'
+import { StackNavigator } from 'react-navigation'
 import ProfileLoginScreen from '../Containers/ProfileLoginScreen'
 import CardDetail from '../Components/SpotCards/CardDetail'
 import SettingsScreen from '../Containers/SettingsScreen'
@@ -9,6 +9,34 @@ import SpotListScreen from '../Containers/SpotListScreen'
 
 import Game from '../Components/Games/Game'
 import GamesList from '../Components/Games/GamesList'
+import SportAndTime from '../Components/Plan/SportAndTime'
+import PickSpot from '../Components/Plan/PickSpot'
+import Created from '../Components/Plan/Created'
+import planWrapper from '../Containers/Plan/planWrapper'
+import Description from '../Components/Plan/Description'
+
+export const PlanGameNav = StackNavigator(
+  {
+    sportTime: {
+      screen: planWrapper(SportAndTime)
+    },
+    pickSpot: {
+      screen: planWrapper(PickSpot)
+    },
+    description: {
+      screen: planWrapper(Description)
+    },
+    created: {
+      screen: planWrapper(Created)
+    }
+  },
+  {
+    tabBarComponent: () => null,
+    animationEnabled: true,
+    headerMode: 'none',
+    initialRouteName: 'sportTime'
+  }
+)
 
 export const GameSearchNav = StackNavigator(
   {

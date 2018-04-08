@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StatusBar, View, BackHandler } from 'react-native'
+import { StatusBar, View } from 'react-native'
 import { connect } from 'react-redux'
 import StartupActions from '../Redux/StartupRedux'
 import ReduxPersist from '../Config/ReduxPersist'
@@ -14,17 +14,6 @@ class RootContainer extends Component {
     if (!ReduxPersist.active) {
       this.props.dispatch(StartupActions.startup())
     }
-
-    // handle android hardware back button
-    BackHandler.addEventListener('hardwareBackPress', () => {
-      const { dispatch } = this.props
-      dispatch({ type: 'Navigation/BACK' })
-      return true
-    })
-  }
-
-  componentWillUnmount () {
-    BackHandler.removeEventListener('hardwareBackPress')
   }
 
   render () {

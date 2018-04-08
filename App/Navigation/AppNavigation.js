@@ -1,20 +1,16 @@
 import React from 'react'
-import ReactNavigation, {
-  StackNavigator,
-  SwitchNavigator
-} from 'react-navigation'
+import { StackNavigator } from 'react-navigation'
 
 import SplashScreen from '../Containers/SplashScreen'
 import OnboardingScreen from '../Components/Onboarding'
 import {
   GameSearchNav,
+  PlanGameNav,
   ProfileNav,
   SettingsNav,
   SpotSearchNav
 } from './MainNavigator'
 import AskLocation from '../Containers/AskLocation'
-import { connect } from 'react-redux'
-import GamePlanScreen from '../Components/Plan'
 import SignupScreen from '../Components/Signup'
 import { View } from 'react-native'
 import NavBar from '../Components/NavBar'
@@ -35,7 +31,7 @@ export const RootNav = StackNavigator(
     LocationPermissionScreen: { screen: AskLocation },
     OnboardingScreen: { screen: OnboardingScreen },
     SplashScreen: { screen: SplashScreen },
-    PlanScreen: { screen: GamePlanScreen },
+    PlanScreen: { screen: PlanGameNav },
     SignupScreen: { screen: SignupScreen },
     SpotSearchTab: { screen: withNavBar(SpotSearchNav) },
     GameSearchTab: { screen: withNavBar(GameSearchNav) },
