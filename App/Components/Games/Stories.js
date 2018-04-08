@@ -9,12 +9,12 @@ import GamesList from './GamesList'
 const dummyNavigator = {
   navigate: () => null,
   state: {
-    params: { game_id: 1 }
+    params: { id: 1 }
   }
 }
 
 storiesOf('Games')
-  .add('Game details', () => <Game id={1} />)
+  .add('Game details', () => <Game navigation={dummyNavigator} />)
   .add('Game list card', () => (
     <View style={{ marginHorizontal: 16 }}>
       <GameListCard id={1} />
