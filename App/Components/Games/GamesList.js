@@ -6,9 +6,6 @@ import {
   ActivityIndicator
 } from 'react-native'
 
-import { cardList } from './Styles/CardStyles'
-import Card from './Card'
-
 import Api from '../../Services/SeedorfApi'
 
 const CardContainer = props => {

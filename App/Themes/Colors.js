@@ -15,6 +15,7 @@ const colors = {
   actionYellow: '#f5a623',
   actionBlue: '#019ae8',
   black54: 'rgba(0,0,0,0.54)',
+  greenSemi: 'rgba(0,40,0,0.8)',
   white20: 'rgba(255,255,255,.2)',
   bgGrey: '#f6f6f9',
   darkGreen: '#2F553C',
