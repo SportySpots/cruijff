@@ -38,6 +38,7 @@ const create = (baseURL = 'https://api.sportyspots.com/') => {
   const getAllSpots = () => null
   const getSpot = spotId => spotId
   const getGame = gameId => gameId
+  const getGames = ({ month }) => api.get('search/games', { q: month })
 
   // ------
   // STEP 3
@@ -56,7 +57,8 @@ const create = (baseURL = 'https://api.sportyspots.com/') => {
     getUser,
     getAllSpots,
     getSpot,
-    getGame
+    getGame,
+    getGames
   }
 }
 

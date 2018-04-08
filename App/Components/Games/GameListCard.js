@@ -29,7 +29,7 @@ export default class GameListCard extends Component {
   }
 
   render () {
-    if (this.state.isLoading) {
+    if (this.state.isLoading || !this.state.game.spot) {
       return null
     }
     let spotImages = []

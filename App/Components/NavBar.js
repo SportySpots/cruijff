@@ -8,13 +8,6 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import MaterialCummunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Colors from '../Themes/Colors'
 
-const showForTabs = [
-  'SpotSearchTab',
-  'GameJoinTab',
-  'ProfileTab',
-  'SettingsTab'
-]
-
 const buttons = [
   {
     buttonText: 'find',
@@ -26,7 +19,7 @@ const buttons = [
   },
   {
     buttonText: 'join',
-    navigate: 'GameJoinTab',
+    navigate: 'GameSearchTab',
     icon: {
       set: MaterialIcon,
       name: 'person-add'
@@ -97,18 +90,11 @@ export default class NavBar extends React.Component {
   }
 
   onButtonPress = button => {
-    this.props.navigate({ routeName: button.navigate })
+    this.props.navigation.navigate({ routeName: button.navigate })
   }
 
   render () {
     if (this.state.keyboardActive) {
-      return null
-    }
-    if (
-      showForTabs.indexOf(
-        this.props.nav.routes[this.props.nav.index].routeName
-      ) === -1
-    ) {
       return null
     }
     return (

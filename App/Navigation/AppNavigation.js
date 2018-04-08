@@ -1,5 +1,8 @@
 import React from 'react'
-import ReactNavigation, { StackNavigator } from 'react-navigation'
+import ReactNavigation, {
+  StackNavigator,
+  SwitchNavigator
+} from 'react-navigation'
 
 import SplashScreen from '../Containers/SplashScreen'
 import OnboardingScreen from '../Components/Onboarding'
@@ -13,6 +16,19 @@ import AskLocation from '../Containers/AskLocation'
 import { connect } from 'react-redux'
 import GamePlanScreen from '../Components/Plan'
 import SignupScreen from '../Components/Signup'
+import { View } from 'react-native'
+import NavBar from '../Components/NavBar'
+
+const withNavBar = Navigator => {
+  const navigator = props => (
+    <View style={{ flex: 1 }}>
+      <Navigator {...props} />
+      <NavBar {...props} />
+    </View>
+  )
+  navigator.router = Navigator.router
+  return navigator
+}
 
 export const RootNav = StackNavigator(
   {
@@ -21,10 +37,10 @@ export const RootNav = StackNavigator(
     SplashScreen: { screen: SplashScreen },
     PlanScreen: { screen: GamePlanScreen },
     SignupScreen: { screen: SignupScreen },
-    SpotSearchTab: { screen: SpotSearchNav },
-    GameJoinTab: { screen: GameSearchNav },
-    ProfileTab: { screen: ProfileNav },
-    SettingsTab: { screen: SettingsNav }
+    SpotSearchTab: { screen: withNavBar(SpotSearchNav) },
+    GameSearchTab: { screen: withNavBar(GameSearchNav) },
+    ProfileTab: { screen: withNavBar(ProfileNav) },
+    SettingsTab: { screen: withNavBar(SettingsNav) }
   },
   {
     // Default config for all screens
@@ -33,15 +49,4 @@ export const RootNav = StackNavigator(
   }
 )
 
-const RootReduxNav = props => {
-  const { dispatch, nav } = props
-  const navigation = ReactNavigation.addNavigationHelpers({
-    dispatch,
-    state: nav
-  })
-
-  return <RootNav navigation={navigation} />
-}
-
-const mapStateToProps = state => ({ nav: state.nav })
-export default connect(mapStateToProps)(RootReduxNav)
+export default RootNav

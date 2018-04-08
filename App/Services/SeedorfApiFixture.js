@@ -1,6 +1,12 @@
 import { find, propEq } from 'ramda'
 
 export default {
+  getGames: ({ month }) => {
+    return {
+      ok: true,
+      data: require('../Fixtures/games.json')
+    }
+  },
   getAllSpots: () => {
     const spotsData = require('../Fixtures/spots.json')
     const newWestSpots = [
@@ -32,10 +38,13 @@ export default {
     const sportsData = require('../Fixtures/sports.json')
     const spotsData = require('../Fixtures/spots.json')
     const rsvpStatusData = require('../Fixtures/rsvpStatus.json')
-    const game = gamesData.find(game => game.id === id)
+    const game = JSON.parse(
+      JSON.stringify(gamesData.find(game => game.id === id))
+    )
     game.organizer = usersData.find(user => user.id === game.organizer)
     game.sport = sportsData.find(sport => sport.id === game.sport)
     game.spot = spotsData.find(spot => spot.id === game.spot)
+    console.log('spot: ', game.spot)
     game.rsvpStatuses = rsvpStatusData
       .filter(rsvp => rsvp.game === game.id)
       .map(status => ({

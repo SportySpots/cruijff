@@ -1,26 +1,27 @@
-import { StackNavigator } from 'react-navigation'
-import GameListScreen from '../Containers/GameListScreen'
+import { StackNavigator, SwitchNavigator } from 'react-navigation'
 import ProfileLoginScreen from '../Containers/ProfileLoginScreen'
 import CardDetail from '../Components/SpotCards/CardDetail'
 import SettingsScreen from '../Containers/SettingsScreen'
-import GameDetailsScreen from '../Containers/GameDetailsScreen'
 import ProfileDetailsScreen from '../Containers/ProfileDetailsScreen'
 import ProfileEditScreen from '../Containers/ProfileEditScreen'
 import I18n from '../I18n'
 import SpotListScreen from '../Containers/SpotListScreen'
 
+import Game from '../Components/Games/Game'
+import GamesList from '../Components/Games/GamesList'
+
 export const GameSearchNav = StackNavigator(
   {
     GameDetailsScreen: {
-      screen: GameDetailsScreen,
+      screen: Game,
       navigationOptions: {
         title: 'Game Details'
       }
     },
     GameListScreen: {
-      screen: GameListScreen,
+      screen: GamesList,
       navigationOptions: {
-        title: 'Games'
+        header: null
       }
     }
   },

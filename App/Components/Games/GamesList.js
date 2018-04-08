@@ -7,35 +7,38 @@ import {
 } from 'react-native'
 
 import Api from '../../Services/SeedorfApi'
+import GameListCard from './GameListCard'
+import styled from 'styled-components'
+import { MenuProvider } from 'react-native-popup-menu'
+import MonthSelector from './MonthSelector'
 
 const CardContainer = props => {
-  const { onPress, ...otherProps } = props
+  const { style, onPress, ...otherProps } = props
   return (
-    <TouchableOpacity onPress={onPress} style={cardList.cardContainer}>
-      <Card {...otherProps} />
+    <TouchableOpacity onPress={onPress} style={style}>
+      <GameListCard {...otherProps} />
     </TouchableOpacity>
   )
 }
 
-// TODO: Implement blank screen if no spots were found
-
-export default class SpotListScreen extends Component {
+export default class GamesListScreen extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      month: new Date().getMonth(),
       spots: null,
       isLoading: true
     }
   }
 
   componentDidMount () {
-    const { data } = Api.getAllSpots()
-    this.setState({ isLoading: false, spots: data })
+    const { data } = Api.getGames({ month: 4 })
+    this.setState({ isLoading: false, games: data })
   }
 
   render () {
     const { navigate } = this.props.navigation
-    const { isLoading, spots } = this.state
+    const { isLoading, games } = this.state
 
     if (isLoading) {
       return (
@@ -46,19 +49,34 @@ export default class SpotListScreen extends Component {
     }
 
     return (
-      <View style={[cardList.container, this.props.style]}>
+      <Container>
+        <MonthSelector
+          style={{ marginBottom: 16 }}
+          month={this.state.month}
+          onChange={month => this.setState({ month })}
+        />
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={spots.slice(0, 100)}
+          data={games.slice(0, 100)}
           renderItem={({ item }) => (
-            <CardContainer
-              spot={item}
-              onPress={() => navigate('SpotDetailsScreen', { spotId: item.id })}
+            <GameListCardContainer
+              id={item.id}
+              onPress={() => navigate('GameDetailsScreen', { id: item.id })}
             />
           )}
           keyExtractor={item => item.id}
         />
-      </View>
+      </Container>
     )
   }
 }
+
+const Container = styled(MenuProvider)`
+  margin-left: 8px;
+  margin-right: 8px;
+  flex: 1;
+`
+
+const GameListCardContainer = styled(CardContainer)`
+  margin-bottom: 8px;
+`

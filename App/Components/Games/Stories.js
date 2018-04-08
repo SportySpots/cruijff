@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react-native'
 import Game from './Game'
 import GameListCard from './GameListCard'
 import { View } from 'react-native'
+import GamesList from './GamesList'
 
 const dummyNavigator = {
   navigate: () => null,
@@ -19,3 +20,4 @@ storiesOf('Games')
       <GameListCard id={1} />
     </View>
   ))
+  .add('Games list', () => <GamesList navigation={dummyNavigator} />)
