@@ -44,7 +44,6 @@ export default {
     game.organizer = usersData.find(user => user.id === game.organizer)
     game.sport = sportsData.find(sport => sport.id === game.sport)
     game.spot = spotsData.find(spot => spot.id === game.spot)
-    console.log('spot: ', game.spot)
     game.rsvpStatuses = rsvpStatusData
       .filter(rsvp => rsvp.game === game.id)
       .map(status => ({

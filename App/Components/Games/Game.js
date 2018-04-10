@@ -57,7 +57,6 @@ export default class Game extends Component {
 
   componentDidMount () {
     const { data } = Api.getGame(this.props.navigation.state.params.id)
-    console.log(data)
     this.setState({ isLoading: false, game: data })
   }
 
