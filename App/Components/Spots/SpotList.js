@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 
 import { cardList } from './Styles/CardStyles'
-import Card from './Card'
+import Card from './SpotListCard'
 
 import Api from '../../Services/SeedorfApi'
 
@@ -22,7 +22,7 @@ const CardContainer = props => {
 
 // TODO: Implement blank screen if no spots were found
 
-export default class SpotListScreen extends Component {
+export default class SpotList extends Component {
   constructor (props) {
     super(props)
     this.state = {

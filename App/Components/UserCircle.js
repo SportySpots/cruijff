@@ -12,11 +12,13 @@ const userToInitials = user => {
   }
 }
 
-export default ({ user, style }) => (
+const UserCircle = ({ user, style }) => (
   <View style={[styles.circle, style]}>
     <Text.M style={styles.text}>{userToInitials(user)}</Text.M>
   </View>
 )
+
+export default UserCircle
 
 const styles = StyleSheet.create({
   circle: {

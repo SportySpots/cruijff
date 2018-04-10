@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react-native'
 import Game from './Game'
 import GameListCard from './GameListCard'
 import { View } from 'react-native'
-import GamesList from './GamesList'
+import GamesList from './GameList'
 
 const dummyNavigator = {
   navigate: () => null,

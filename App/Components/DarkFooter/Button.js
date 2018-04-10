@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import Text from '../Text'
 import Colors from '../../Themes/Colors'
 
-export default class extends React.Component {
+export default class Button extends React.Component {
   static propTypes = {
     text: PropTypes.string,
     style: PropTypes.any,

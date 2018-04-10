@@ -5,7 +5,7 @@ import Footer from '../DarkFooter'
 import Swiper from 'react-native-swiper'
 
 /* ScreenSlider is using the same interface as FlatList (data, renderItem, keyExtractor) */
-class ScreenSlider extends Component {
+export default class ScreenSlider extends Component {
   static propTypes = {
     renderItem: PropTypes.func,
     keyExtractor: PropTypes.func,
@@ -78,5 +78,3 @@ class ScreenSlider extends Component {
     )
   }
 }
-
-export default ScreenSlider

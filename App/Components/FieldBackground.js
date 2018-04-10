@@ -6,7 +6,7 @@ import { View, Dimensions, StyleSheet } from 'react-native'
 let fullWidth = Dimensions.get('window').width
 let fullHeight = Dimensions.get('window').height
 
-export default props => (
+const FieldBackground = props => (
   <View style={styles.container}>
     <View style={styles.bgContainer}>
       <Svg width={fullWidth} height={fullHeight}>
@@ -27,6 +27,8 @@ export default props => (
     <View style={styles.childContainer}>{props.children}</View>
   </View>
 )
+
+export default FieldBackground
 
 const styles = StyleSheet.create({
   container: {

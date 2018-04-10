@@ -21,7 +21,7 @@ const CardContainer = props => {
   )
 }
 
-export default class GamesListScreen extends Component {
+export default class GameList extends Component {
   constructor (props) {
     super(props)
     this.state = {

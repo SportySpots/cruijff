@@ -7,7 +7,7 @@ import Slider from '../Slider'
 import Colors from '../../Themes/Colors'
 import BasicButton from '../BasicButton'
 
-export default class ProfileDetailsScreen extends React.PureComponent {
+export default class ProfileEditScreen extends React.PureComponent {
   static propTypes = {
     user: PropTypes.shape({
       firstName: PropTypes.string,

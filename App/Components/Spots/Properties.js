@@ -5,7 +5,7 @@ import I18n from '../../I18n'
 import PropertyCircle from '../PropertyCircle'
 import Text from '../Text'
 
-export default ({ properties }) => (
+const Properties = ({ properties }) => (
   <View style={style.container}>
     {properties.map(property => (
       <View key={property.attribute_name} style={style.innerContainer}>
@@ -15,6 +15,8 @@ export default ({ properties }) => (
     ))}
   </View>
 )
+
+export default Properties
 
 const style = StyleSheet.create({
   container: {

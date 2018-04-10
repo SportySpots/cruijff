@@ -3,11 +3,13 @@ import Colors from '../Themes/Colors'
 import Fonts from '../Themes/Fonts'
 import { Text, View, StyleSheet } from 'react-native'
 
-export default ({ text }) => (
+const PropertyCircle = ({ text }) => (
   <View style={style.circle}>
     <Text style={style.text}>{text.toUpperCase()}</Text>
   </View>
 )
+
+export default PropertyCircle
 
 const style = StyleSheet.create({
   circle: {

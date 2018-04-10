@@ -3,7 +3,7 @@ import { styles } from './Styles/Onboarding'
 import { View, Text, Image } from 'react-native'
 import PropTypes from 'prop-types'
 
-export default class extends React.PureComponent {
+export default class OnboardingScreen extends React.PureComponent {
   static propTypes = {
     title: PropTypes.string,
     text: PropTypes.string,

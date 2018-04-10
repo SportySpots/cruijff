@@ -7,7 +7,7 @@ import Button from './Button'
 import Colors from '../../Themes/Colors'
 import Fonts from '../../Themes/Fonts'
 
-export default class Footer extends React.Component {
+export default class DarkFooter extends React.Component {
   static propTypes = {
     numPages: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,

@@ -4,7 +4,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import Text from './Text'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-export default props => {
+const BackButton = props => {
   const { text, style, ...otherProps } = props
   return (
     <TouchableOpacity {...otherProps}>
@@ -15,6 +15,8 @@ export default props => {
     </TouchableOpacity>
   )
 }
+
+export default BackButton
 
 const backButtonStyle = StyleSheet.create({
   button: {

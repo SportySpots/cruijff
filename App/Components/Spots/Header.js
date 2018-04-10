@@ -9,7 +9,7 @@ const Spacer = () => <Text style={header.spacer}>·</Text>
 
 const distance = 5
 
-export default ({ spot, ...props }) => (
+const Header = ({ spot, ...props }) => (
   <View {...props}>
     <Text.M>{spot.label}</Text.M>
     <View style={header.belowName}>
@@ -27,3 +27,5 @@ export default ({ spot, ...props }) => (
     </View>
   </View>
 )
+
+export default Header

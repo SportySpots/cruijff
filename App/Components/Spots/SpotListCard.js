@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import { card } from './Styles/CardStyles'
 import Header from './Header'
 
-export default class extends Component {
+export default class SpotListCard extends Component {
   static propTypes = {
     spot: PropTypes.object,
     style: PropTypes.number

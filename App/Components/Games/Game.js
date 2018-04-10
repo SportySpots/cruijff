@@ -28,7 +28,7 @@ const mapMax = (maxNum, data, fn, fnElse) => {
   }
 }
 
-export default class extends Component {
+export default class Game extends Component {
   static propTypes = {
     id: PropTypes.number,
     style: View.propTypes.style

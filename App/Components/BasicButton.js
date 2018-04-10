@@ -3,7 +3,7 @@ import Colors from '../Themes/Colors'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import Text from './Text'
 
-export default props => {
+const BasicButton = props => {
   const { text, ...otherProps } = props
   return (
     <TouchableOpacity {...otherProps}>
@@ -13,6 +13,8 @@ export default props => {
     </TouchableOpacity>
   )
 }
+
+export default BasicButton
 
 const basicButtonStyle = StyleSheet.create({
   button: {

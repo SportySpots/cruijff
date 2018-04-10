@@ -6,7 +6,7 @@ import NavBarButton from './NavBarButton'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 import './ScreenSlider/Stories'
-import './SpotCards/Stories'
+import './Spots/Stories'
 import './Plan/Stories'
 import './Profile/Stories'
 import './DarkFooter/Stories'

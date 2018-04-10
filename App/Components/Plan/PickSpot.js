@@ -7,8 +7,8 @@ import {
   StyleSheet
 } from 'react-native'
 import Api from '../../Services/SeedorfApi'
-import { cardList } from '../SpotCards/Styles/CardStyles'
-import CardSmall from '../SpotCards/CardSmall'
+import { cardList } from '../Spots/Styles/CardStyles'
+import CardSmall from '../Spots/SpotListCardSmall'
 import Text from '../Text'
 import I18n from '../../I18n'
 import PropTypes from 'prop-types'

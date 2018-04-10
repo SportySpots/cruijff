@@ -5,7 +5,7 @@ import Colors from '../Themes/Colors'
 
 const handleSize = 25
 
-export default class extends React.Component {
+export default class Slider extends React.Component {
   static propTypes = {
     value: PropTypes.number,
     onChange: PropTypes.func,

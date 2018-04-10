@@ -12,7 +12,7 @@ const Spacer = () => <Text style={{ marginLeft: 8, marginRight: 8 }}>·</Text>
 
 const distance = 1.3
 
-export default class extends Component {
+export default class SpotListCardSmall extends Component {
   static propTypes = {
     spot: PropTypes.object,
     style: PropTypes.number

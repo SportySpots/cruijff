@@ -9,7 +9,7 @@ import Text from './Text'
 import Permissions from 'react-native-permissions'
 import PropTypes from 'prop-types'
 
-export default class extends React.PureComponent {
+export default class AskLocation extends React.PureComponent {
   static propTypes = {
     navigation: PropTypes.any,
     onLocationPermission: PropTypes.func

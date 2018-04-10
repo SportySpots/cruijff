@@ -11,7 +11,7 @@ import Properties from './Properties'
 import Api from '../../Services/SeedorfApi'
 import Text from '../Text'
 
-export default class extends React.PureComponent {
+export default class Spot extends React.PureComponent {
   constructor (props) {
     super(props)
     this.state = {
