@@ -3,7 +3,7 @@ import Colors from '../../../Themes/Colors'
 
 export const card = StyleSheet.create({
   container: {
-    height: 200
+    height: 240
   },
   image: {
     flex: 3,
@@ -14,7 +14,7 @@ export const card = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: Colors.white,
-    padding: 8,
+    padding: 16,
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8
   }
@@ -35,8 +35,8 @@ export const cardSmall = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: Colors.white,
     padding: 8,
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16
   }
 })
 
@@ -69,6 +69,7 @@ export const cardList = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: 0.5,
     elevation: 2
+    // overflow: 'hidden'
   }
 })
 
