@@ -11,10 +11,15 @@ import {
   SpotSearchNav
 } from './MainNavigator'
 import AskLocation from '../Containers/AskLocation'
-import SignupScreen from '../Components/Signup'
+import SignupScreen from '../Containers/Signup'
 import { View } from 'react-native'
 import NavBar from '../Components/NavBar'
 
+/*
+  Stack Navigator has support for a (custom) NavBar,
+  We can't use it since our NavBar has the center button
+  partly overlapping the View above it
+ */
 const withNavBar = Navigator => {
   const navigator = props => (
     <View style={{ flex: 1 }}>
@@ -41,7 +46,8 @@ export const RootNav = StackNavigator(
   {
     // Default config for all screens
     headerMode: 'none',
-    initialRouteName: 'SplashScreen'
+    // initialRouteName: 'SplashScreen'
+    initialRouteName: 'SignupScreen'
   }
 )
 

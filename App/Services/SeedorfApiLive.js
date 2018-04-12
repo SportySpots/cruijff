@@ -1,8 +1,13 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
+import api from './SeedorfApi'
 
 // our "constructor"
-const create = (baseURL = 'https://api.sportyspots.com/') => {
+const create = (
+  baseURL = __DEV__
+    ? 'http://localhost:8000/api'
+    : 'https://api.sportyspots.com'
+) => {
   // ------
   // STEP 1
   // ------
@@ -10,13 +15,11 @@ const create = (baseURL = 'https://api.sportyspots.com/') => {
   // Create and configure an apisauce-based api object.
   //
   const api = apisauce.create({
-    // base URL is read from the "constructor"
     baseURL,
-    // here are some default headers
     headers: {
-      'Cache-Control': 'no-cache'
+      'Cache-Control': 'no-cache',
+      Cookie: ''
     },
-    // 10 second timeout...
     timeout: 10000
   })
 
@@ -34,12 +37,18 @@ const create = (baseURL = 'https://api.sportyspots.com/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getUser = username => api.get('search/users', { q: username })
+  const getUser = username => api.get('search/users/', { q: username })
   const getAllSpots = () => null
   const getSpot = spotId => spotId
   const getGame = gameId => gameId
-  const getGames = ({ month }) => api.get('search/games', { q: month })
-
+  const getGames = ({ month }) => api.get('search/games/', { q: month })
+  const signup = ({ username, email, password }) =>
+    api.post('/auth/registration/', {
+      username,
+      email,
+      password1: password,
+      password2: password
+    })
   // ------
   // STEP 3
   // ------
@@ -58,7 +67,9 @@ const create = (baseURL = 'https://api.sportyspots.com/') => {
     getAllSpots,
     getSpot,
     getGame,
-    getGames
+    getGames,
+    signup,
+    setToken: token => api.setHeader('Authorization', token)
   }
 }
 

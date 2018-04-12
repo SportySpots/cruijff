@@ -7,16 +7,44 @@ import Text from './Text'
 import I18n from '../I18n'
 import BigButton from './BigButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { STATUS } from '../Redux/UserRedux'
+import styled from 'styled-components'
 
 export default class Signup extends Component {
   static propTypes = {
     onPress: PropTypes.func,
     text: PropTypes.string,
     children: PropTypes.string,
-    navigation: PropTypes.object
+    navigation: PropTypes.object,
+    signupRequest: PropTypes.func
+  }
+
+  constructor () {
+    super()
+    this.state = {
+      username: '',
+      email: '',
+      password: ''
+    }
+  }
+
+  componentWillMount () {
+    console.log('signup will mount')
+    if (this.props.user.signup.status === STATUS.SUCCESS) {
+      this.props.navigation.navigate('OnboardingScreen')
+    }
+  }
+
+  componentWillReceiveProps (newProps) {
+    if (newProps.user.signup.status === STATUS.SUCCESS) {
+      this.props.navigation.navigate('OnboardingScreen')
+    }
   }
 
   render () {
+    const requestIsPending = this.props.user.signup.status === STATUS.PENDING
+    const hasError = this.props.user.signup.status === STATUS.FAILURE
+    const error = hasError ? this.props.user.signup.data : null
     return (
       <View style={{ flex: 1, backgroundColor: Colors.white }}>
         <KeyboardAwareScrollView contentContainerStyle={style.container}>
@@ -27,22 +55,54 @@ export default class Signup extends Component {
           </View>
           <View style={style.form}>
             <View style={style.fieldSet}>
-              <Text style={style.text}>{I18n.t('First name')}</Text>
-              <TextInput style={style.input} defaultValue='' />
+              <Text style={style.text}>{I18n.t('Username')}</Text>
+              {hasError &&
+                'username' in error && (
+                  <Error>{I18n.t('Username exists')}</Error>
+                )}
+              <TextInput
+                onChangeText={val => this.setState({ username: val })}
+                style={style.input}
+                editable={!requestIsPending}
+              />
             </View>
             <View style={style.fieldSet}>
-              <Text style={style.text}>{I18n.t('Last name')}</Text>
-              <TextInput style={style.input} defaultValue='' />
+              <Text style={style.text}>{I18n.t('E-mail')}</Text>
+              {hasError &&
+                'email' in error && (
+                  <Error>{I18n.t('Enter a valid e-mail address')}</Error>
+                )}
+              <TextInput
+                onChangeText={val => this.setState({ email: val })}
+                style={style.input}
+                editable={!requestIsPending}
+              />
             </View>
             <View style={style.fieldSet}>
-              <Text style={style.text}>{I18n.t('E-mail address')}</Text>
-              <TextInput style={style.input} defaultValue='' />
+              <Text style={style.text}>{I18n.t('Password')}</Text>
+              {hasError &&
+                'password1' in error && (
+                  <Error>
+                    {I18n.t('Password needs to be at least 8 characters')}
+                  </Error>
+                )}
+              <TextInput
+                onChangeText={val => this.setState({ password: val })}
+                style={style.input}
+                editable={!requestIsPending}
+              />
             </View>
             <BigButton
-              bgColor={'blue'}
+              bgColor={requestIsPending ? 'gray' : 'blue'}
               textColor={Colors.white}
               text={I18n.t('Signup')}
-              onPress={() => this.props.navigation.navigate('OnboardingScreen')}
+              onPress={() =>
+                this.props.signupRequest({
+                  username: this.state.username,
+                  email: this.state.email,
+                  password: this.state.password
+                })
+              }
             />
           </View>
         </KeyboardAwareScrollView>
@@ -90,3 +150,7 @@ const style = StyleSheet.create({
     color: Colors.black
   }
 })
+
+const Error = styled(Text)`
+  color: red;
+`
