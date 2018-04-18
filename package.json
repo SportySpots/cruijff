@@ -83,6 +83,8 @@
     "@storybook/addons": "^3.2.16",
     "@storybook/channels": "^3.2.16",
     "@storybook/react-native": "^3.2.16",
+    "apollo-link": "^1.2.2",
+    "apollo-link-schema": "^1.1.0",
     "appcenter-cli": "^1.0.8",
     "babel-core": "6.26.0",
     "babel-eslint": "7.1.1",

@@ -4,41 +4,10 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import RootContainer from './Containers/RootContainer'
 import createStore from './Redux'
-
-import ApolloClient from 'apollo-boost'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import gql from 'graphql-tag'
-import { graphql, buildClientSchema } from 'graphql'
-import { AsyncStorage } from 'react-native'
-import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools'
-import faker from 'faker'
-
-window.setTimeout(async () => {
-  const token = await AsyncStorage.getItem('TOKEN', console.log)
-  const client = new ApolloClient({
-    uri: 'http://127.0.0.1:8000/graphql',
-    cache: new InMemoryCache()
-  })
-  const schema = buildClientSchema(require('../schema.graphql.json'))
-  addMockFunctionsToSchema({
-    schema,
-    mocks: {
-      UUID: () => faker.random.uuid()
-    }
-  })
-
-  const query = `
-      {
-          spots {
-            uuid, 
-            spotGames { 
-              uuid 
-            }
-          },
-        }
-    `
-  graphql(schema, query).then(result => console.log('Got result', result))
-}, 1000)
+import { Text } from 'react-native'
+import { createClient } from './GraphQL'
+import { ApolloProvider } from 'react-apollo'
+import { Users } from './Test'
 
 // create our store
 const store = createStore()
@@ -54,11 +23,28 @@ console.log(store.getState())
  * We separate like this to play nice with React Native's hot reloading.
  */
 class App extends Component {
+  async initGraphQL () {
+    const client = await createClient()
+    this.setState({ client })
+    console.log(client)
+  }
+
+  constructor () {
+    super()
+    this.state = { client: null }
+    this.initGraphQL()
+  }
+
   render () {
+    if (!this.state.client) {
+      return null
+    }
     return (
-      <Provider store={store}>
-        <RootContainer />
-      </Provider>
+      <ApolloProvider client={this.state.client}>
+        <Provider store={store}>
+          <Users />
+        </Provider>
+      </ApolloProvider>
     )
   }
 }
