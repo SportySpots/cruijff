@@ -30,7 +30,7 @@ export default class SplashScreen extends Component {
             textColor='white'
           />
           <BigButton
-            onPress={() => navigate('SpotSearchTab')}
+            onPress={() => navigate('MainNav')}
             text={I18n.t('Already signed up?')}
             bgColor={Colors.transparent}
             textColor='white'

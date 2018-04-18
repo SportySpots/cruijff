@@ -15,6 +15,7 @@ import Colors from '../../Themes/Colors'
 import Text from '../Text'
 import I18n from '../../I18n'
 import Footer from '../DarkFooter/index'
+import { NavigationActions } from 'react-navigation'
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -123,7 +124,8 @@ export default class SportAndTime extends Component {
   }
 
   onBack = () => {
-    this.props.navigate({ routeName: 'SpotSearchTab' })
+    // https://github.com/react-navigation/react-navigation/issues/697#issuecomment-309359044
+    this.props.navigation.dispatch(NavigationActions.back())
   }
 
   onNext = () => {
