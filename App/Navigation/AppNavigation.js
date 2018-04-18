@@ -1,5 +1,5 @@
 import React from 'react'
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation'
 
 import SplashScreen from '../Containers/SplashScreen'
 import OnboardingScreen from '../Components/Onboarding'
@@ -9,7 +9,7 @@ import {
   ProfileNav,
   SettingsNav,
   SpotSearchNav
-} from './MainNavigator'
+} from './Navigators'
 import AskLocation from '../Containers/AskLocation'
 import SignupScreen from '../Containers/Signup'
 import { View } from 'react-native'
@@ -31,23 +31,52 @@ const withNavBar = Navigator => {
   return navigator
 }
 
-export const RootNav = StackNavigator(
+export const MainTabsNav = withNavBar(
+  SwitchNavigator(
+    {
+      SpotSearchTab: { screen: SpotSearchNav },
+      GameSearchTab: { screen: GameSearchNav },
+      ProfileTab: { screen: ProfileNav },
+      SettingsTab: { screen: SettingsNav }
+    },
+    {
+      tabBarComponent: () => null
+    }
+  )
+)
+
+export const MainNav = StackNavigator(
+  {
+    MainTabs: { screen: MainTabsNav },
+    PlanScreen: { screen: PlanGameNav }
+  },
+  {
+    initialRouteName: 'MainTabs',
+    headerMode: 'none'
+  }
+)
+
+/* Be careful using StackNavigator, it is really a stack
+   in the sense that all screens stay mounted if navigating
+   to a new screen (unless they are explicitly removed from history).
+
+   That is why SwitchNavigator is here, even though it doesn't have a
+   tranisition animation.
+ */
+export const RootNav = SwitchNavigator(
   {
     LocationPermissionScreen: { screen: AskLocation },
     OnboardingScreen: { screen: OnboardingScreen },
     SplashScreen: { screen: SplashScreen },
-    PlanScreen: { screen: PlanGameNav },
     SignupScreen: { screen: SignupScreen },
-    SpotSearchTab: { screen: withNavBar(SpotSearchNav) },
-    GameSearchTab: { screen: withNavBar(GameSearchNav) },
-    ProfileTab: { screen: withNavBar(ProfileNav) },
-    SettingsTab: { screen: withNavBar(SettingsNav) }
+    MainNav: { screen: MainNav }
   },
   {
     // Default config for all screens
     headerMode: 'none',
     // initialRouteName: 'SplashScreen'
-    initialRouteName: 'SignupScreen'
+    initialRouteName: 'SplashScreen',
+    tabBarComponent: () => null
   }
 )
 
