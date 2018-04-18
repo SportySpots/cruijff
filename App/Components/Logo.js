@@ -1,30 +1,63 @@
 import React from 'react'
-import Svg, { G, Path, Rect } from 'react-native-svg'
+import Svg, { G, Path, Rect, Polygon } from 'react-native-svg'
 
 export default class Logo extends React.Component {
   render () {
     return (
       <Svg
-        width={64 * this.props.scale}
-        height={74 * this.props.scale}
-        viewBox='0 0 63 74'
+        width={88 * this.props.scale}
+        height={88 * this.props.scale}
+        viewBox='0 0 79 79'
+        version='1.1'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <G fill='none' fill-rule='evenodd'>
-          <Rect fill='#07D654' width='63' height='74' rx='5' />
-          <Path fill='#FFF' d='M10.023 10.57h42.954v52.86H10.023' />
+        <G
+          id='Onboarding'
+          stroke='none'
+          stroke-width='1'
+          fill='none'
+          fill-rule='evenodd'
+        >
           <Path
-            fill='#248232'
-            d='M0 42.286h42v10.57H0zM21 21.143h42v10.57H21z'
+            d='M4.8,8.21565038e-15 L74.2,8.21565038e-15 C76.8509668,7.72867568e-15 79,2.1490332 79,4.8 L79,74.2 C79,76.8509668 76.8509668,79 74.2,79 L4.8,79 C2.1490332,79 -2.33988546e-15,76.8509668 -2.66453526e-15,74.2 L0,4.8 C-3.24649801e-16,2.1490332 2.1490332,6.03808982e-15 4.8,5.55111512e-15 Z'
+            id='Rectangle-6'
+            fill='#07D654'
           />
-          <Path
+          <Polygon
+            id='Rectangle'
+            fill='#FFFFFF'
+            points='14 11 65 11 65 68 14 68'
+          />
+          <Polygon
+            id='Rectangle-3-Copy-5'
+            fill='#248232'
+            points='0 45 53 45 53 56 0 56'
+          />
+          <Polygon
+            id='Rectangle-3-Copy-4'
+            fill='#248232'
+            points='26 22 79 22 79 33 26 33'
+          />
+          <Polygon
+            id='Rectangle-2'
             fill='#2BA84A'
-            d='M0 10.57h10.5v52.86H0M52.5 10.57H63v52.86H52.5'
+            points='0 11 14 11 14 68 0 68'
           />
-          <Path d='M0 63.43h63V74H0z' />
-          <Path
+          <Polygon
+            id='Rectangle-2-Copy-2'
+            fill='#2BA84A'
+            points='65 11 79 11 79 68 65 68'
+          />
+          <Polygon id='Rectangle-3-Copy-2' points='0 68 79 68 79 79 0 79' />
+          <Polygon
+            id='Rectangle-3-Copy'
             fill='#248232'
-            d='M10.5 0h42v10.57h-42zM10.5 63.43h42V74h-42z'
+            points='14 8.21565038e-15 65 8.21565038e-15 65 11 14 11'
+          />
+          <Polygon
+            id='Rectangle-3-Copy-3'
+            fill='#248232'
+            points='14 68 65 68 65 79 14 79'
           />
         </G>
       </Svg>
@@ -32,6 +65,4 @@ export default class Logo extends React.Component {
   }
 }
 
-Logo.defaultProps = {
-  scale: 1
-}
+Logo.defaultProps = { scale: 1 }

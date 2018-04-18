@@ -5,7 +5,7 @@ import Colors from '../Themes/Colors'
 import Logo from './Logo'
 import Text from './Text'
 import I18n from '../I18n'
-import BigButton from './BigButton'
+import DefaultButton from './DefaultButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class Signup extends Component {
@@ -38,7 +38,7 @@ export default class Signup extends Component {
               <Text style={style.text}>{I18n.t('E-mail address')}</Text>
               <TextInput style={style.input} defaultValue='' />
             </View>
-            <BigButton
+            <DefaultButton
               bgColor={'blue'}
               textColor={Colors.white}
               text={I18n.t('Signup')}

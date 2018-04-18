@@ -15,8 +15,7 @@ import './Games/Stories'
 import Onboarding from './Onboarding'
 import ImageSwiper from './ImageSwiper'
 import BackButton from './BackButton'
-import BasicButton from './BasicButton'
-import BigButton from './BigButton'
+import DefaultButton from './DefaultButton'
 import RouteButton from './RouteButton'
 import MapsButton from './MapsButton'
 import Checkbox from './Checkbox'
@@ -46,20 +45,8 @@ storiesOf('Basic components')
   ))
   .add('RouteButton', () => <RouteButton />)
   .add('MapsButton', () => <MapsButton />)
-  .add('BasicButton', () => (
-    <View style={{ backgroundColor: 'green', flex: 1 }}>
-      <BasicButton
-        style={{ width: 200 }}
-        color='white'
-        text='Im a basic button'
-      />
-    </View>
-  ))
-  .add('BigButton', () => (
-    <View style={{ backgroundColor: 'green', flex: 1 }}>
-      <BigButton bgColor='red' textColor='white' text='Im a big button' />
-    </View>
-  ))
+  .add('DefaultButton', () => <DefaultButton />)
+
   .add('Checkbox checked', () => (
     <View style={{ backgroundColor: 'green', flex: 1 }}>
       <Checkbox color='white' size={50} checked />

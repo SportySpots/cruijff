@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
+import {
+  StyleSheet,
+  TouchableHighlight,
+  TouchableOpacity,
+  View
+} from 'react-native'
 
 import FieldBackground from './FieldBackground'
 import Logo from './Logo'
+import Text from './Text'
 import PropTypes from 'prop-types'
-import BigButton from './BigButton'
+import DefaultButton from './DefaultButton'
 import I18n from '../I18n'
 import Colors from '../Themes/Colors'
-import { ApplicationStyles, Metrics } from '../Themes'
+import styled from 'styled-components/native'
+// import { ApplicationStyles, Metrics } from '../Themes'
 
 export default class SplashScreen extends Component {
   static propTypes = {
@@ -22,24 +29,21 @@ export default class SplashScreen extends Component {
         <View style={styles.logoContainer}>
           <Logo />
         </View>
-        <View style={styles.buttonsContainer}>
-          <BigButton
-            onPress={() => navigate('SignupScreen')}
-            text={I18n.t('Signup with e-mail')}
-            bgColor='blue'
-            textColor='white'
-          />
-          <BigButton
-            onPress={() => navigate('SpotSearchTab')}
-            text={I18n.t('Already signed up?')}
-            bgColor={Colors.transparent}
-            textColor='white'
-          />
+        <View style={styles.textContainer}>
+          <SplashLabel>
+            Ontdek sportlocaties en activiteiten bij jou in de buurt
+          </SplashLabel>
         </View>
-        <View style={styles.skipActionContainer}>
-          <TouchableHighlight onPress={() => navigate('OnboardingScreen')}>
-            <Text>I'll do this later</Text>
-          </TouchableHighlight>
+        <View style={styles.buttonsContainer}>
+          <DefaultButton
+            onPress={() => navigate('OnboardingScreen')}
+            text={I18n.t('Start met ontdekken')}
+            bgColor={Colors.actionYellow}
+            textColor='white'
+          />
+          <TouchableOpacity onPress={() => navigate('SpotSearchTab')}>
+            <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
+          </TouchableOpacity>
         </View>
       </FieldBackground>
     )
@@ -47,28 +51,42 @@ export default class SplashScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  ...ApplicationStyles.screen,
   logo: {
-    height: Metrics.images.large,
-    width: Metrics.images.large
+    height: 80,
+    width: 80
   },
   logoContainer: {
-    ...ApplicationStyles.screen.container,
-    flex: 4,
+    flex: 2,
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  textContainer: {
+    flex: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center'
   },
   buttonsContainer: {
     flex: 3,
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'center'
   },
   skipActionContainer: {
-    ...ApplicationStyles.screen.container,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 50
   }
 })
+
+const SplashLabel = styled(Text.L)`
+  color: ${props => props.textColor || '#fff'}
+  text-align: center;
+  `
+
+const LinkLabel = styled(Text.M)`
+  color: ${props => props.textColor || '#fff'}
+  text-align: center;
+  text-decoration-line: underline;
+`

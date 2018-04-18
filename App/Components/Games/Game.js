@@ -13,7 +13,7 @@ import styled from 'styled-components'
 import UserCircle from '../UserCircle'
 import PropertyCircle from '../PropertyCircle'
 import images from '../../Themes/Images'
-import BigButton from '../BigButton'
+import DefaultButton from '../DefaultButton'
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -138,7 +138,13 @@ export default class Game extends Component {
             {mapMax(
               8,
               attendingUsers,
-              user => <UserCircle key={user.uuid} user={user} />,
+              user => (
+                <UserCircle
+                  key={user.uuid}
+                  user={user}
+                  style={{ marginRight: 4 }}
+                />
+              ),
               () => (
                 <PropertyCircle
                   key='extra'
@@ -161,13 +167,13 @@ export default class Game extends Component {
         </Block>
         <Block>
           <HorizontalView style={{ width: '100%' }}>
-            <BigButton
+            <DefaultButton
               style={{ flex: 1, marginLeft: 0 }}
               bgColor={Colors.primaryGreen}
               textColor={Colors.white}
               text={I18n.t("I'm attending")}
             />
-            <BigButton
+            <DefaultButton
               style={{ flex: 1, marginRight: 0 }}
               bgColor={Colors.red}
               textColor={Colors.white}

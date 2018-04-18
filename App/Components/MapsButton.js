@@ -2,13 +2,15 @@ import React from 'react'
 import Colors from '../Themes/Colors'
 import styled from 'styled-components'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 
 const MapsButton = props => {
   return (
-    <ButtonContainer>
-      <Icon name='place' size={24} color={Colors.primaryGreen} />
-    </ButtonContainer>
+    <TouchableOpacity {...props}>
+      <ButtonContainer>
+        <Icon name='place' size={24} color={Colors.primaryGreen} />
+      </ButtonContainer>
+    </TouchableOpacity>
   )
 }
 
