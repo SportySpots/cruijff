@@ -8,10 +8,7 @@ export const Users = () => (
     query={gql`
       {
         spots {
-          uuid
-          spotGames {
-            uuid
-          }
+          name
         }
       }
     `}

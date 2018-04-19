@@ -1,7 +1,11 @@
-import { addMockFunctionsToSchema } from 'graphql-tools'
+import {
+  addMockFunctionsToSchema,
+  makeExecutableSchema,
+  MockList
+} from 'graphql-tools'
 import { AsyncStorage } from 'react-native'
 import { graphql, buildClientSchema } from 'graphql'
-import ApolloClient from 'apollo-boost'
+import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import faker from 'faker'
 import { print } from 'graphql/language/printer'
@@ -33,39 +37,18 @@ const createMockClient = () => {
   addMockFunctionsToSchema({
     schema,
     mocks: {
-      UUID: () => faker.random.uuid()
-    }
+      Query: () => ({
+        spots: () => new MockList([3, 5])
+      }),
+      SpotType: () => ({
+        name: () => faker.lorem.words(2)
+      }),
+      UUID: faker.random.uuid
+    },
+    preserveResolvers: false
   })
-  // https://github.com/jdachtera/redux-observable-apollo-mock/blob/ba0f300fe1533a42d7d5eb1ca81e56e0ae44475d/src/createMockLink.js
-  const schemaLink = new SchemaLink({ schema })
-  const promises = []
-  const waitLink = new ApolloLink((operation, forward) => {
-    const res = forward(operation)
-    promises.push(
-      new Promise(resolve => res.map(data => process.nextTick(resolve) && data))
-    )
-    return res
-  })
-  const finalLink = {
-    link: waitLink.concat(schemaLink),
-    flush: () => Promise.all(promises)
-  }
-  const apolloCache = new InMemoryCache(window.__APOLLO_STATE__)
   return new ApolloClient({
-    cache: apolloCache,
-    uri: 'http://graphql',
-    link: finalLink
+    cache: new InMemoryCache(),
+    link: new SchemaLink({ schema })
   })
 }
-
-// const query = `
-//     {
-//         spots {
-//           uuid,
-//           spotGames {
-//             uuid
-//           }
-//         },
-//       }
-//   `
-// graphql(schema, query).then(result => console.log('Got result', result))
