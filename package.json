@@ -39,6 +39,7 @@
     "apollo-cache-inmemory": "^1.1.12",
     "apollo-client": "^2.2.8",
     "apollo-link-context": "^1.0.8",
+    "apollo-link-error": "^1.0.9",
     "apollo-link-http": "^1.5.4",
     "appcenter": "^1.1.0",
     "appcenter-analytics": "^1.1.0",
