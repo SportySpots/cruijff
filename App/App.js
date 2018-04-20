@@ -4,8 +4,7 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import RootContainer from './Containers/RootContainer'
 import createStore from './Redux'
-import { Text } from 'react-native'
-import { createClient } from './GraphQL'
+import { createClient, createMockClient } from './GraphQL'
 import { ApolloProvider } from 'react-apollo'
 import { Users } from './Test'
 
@@ -24,9 +23,14 @@ console.log(store.getState())
  */
 class App extends Component {
   async initGraphQL () {
-    const client = await createClient()
+    const client = DebugConfig.useFixtures
+      ? await createMockClient()
+      : await createClient(
+          __DEV__
+            ? 'http://localhost:8000/graphql'
+            : 'https://sportyspots.com/api/graphql'
+        )
     this.setState({ client })
-    console.log(client)
   }
 
   constructor () {
