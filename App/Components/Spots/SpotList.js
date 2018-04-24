@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import {
-  FlatList,
-  View,
-  TouchableOpacity,
-  ActivityIndicator
-} from 'react-native'
+import { FlatList, View, TouchableOpacity } from 'react-native'
 
 import { cardList } from './Styles/CardStyles'
 import Card from './SpotListCard'
-
-import Api from '../../Services/SeedorfApi'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+import Text from '../Text'
 
 const CardContainer = props => {
   const { onPress, ...otherProps } = props
@@ -23,46 +19,53 @@ const CardContainer = props => {
 // TODO: Implement blank screen if no spots were found
 
 export default class SpotList extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      spots: null,
-      isLoading: true
-    }
-  }
-
-  componentDidMount () {
-    console.log(Api)
-    const { data } = Api.getAllSpots()
-    this.setState({ isLoading: false, spots: data })
-  }
-
   render () {
-    const { navigate } = this.props.navigation
-    const { isLoading, spots } = this.state
-
-    if (isLoading) {
-      return (
-        <View style={{ flex: 1 }}>
-          <ActivityIndicator />
-        </View>
-      )
-    }
-
     return (
-      <View style={[cardList.container, this.props.style]}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={spots.slice(0, 100)}
-          renderItem={({ item }) => (
-            <CardContainer
-              spot={item}
-              onPress={() => navigate('SpotDetailsScreen', { spotId: item.id })}
-            />
-          )}
-          keyExtractor={item => item.id}
-        />
-      </View>
+      <Query query={GET_SPOTS}>
+        {({ loading, error, data }) => {
+          if (loading) return <Text>Loading...</Text>
+          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
+
+          return (
+            <View style={[cardList.container, this.props.style]}>
+              <FlatList
+                showsVerticalScrollIndicator={false}
+                data={data.spots.slice(0, 100)}
+                renderItem={({ item }) => (
+                  <CardContainer
+                    spot={item}
+                    onPress={() =>
+                      this.props.navigation.navigate('SpotDetailsScreen', {
+                        uuid: item.uuid
+                      })
+                    }
+                  />
+                )}
+                keyExtractor={item => item.uuid}
+              />
+            </View>
+          )
+        }}
+      </Query>
     )
   }
 }
+
+const GET_SPOTS = gql`
+  {
+    spots {
+      uuid
+      name
+      images {
+        image
+      }
+      address {
+        lat
+        lng
+      }
+      sports {
+        category
+      }
+    }
+  }
+`

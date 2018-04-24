@@ -46,7 +46,7 @@ class App extends Component {
     return (
       <ApolloProvider client={this.state.client}>
         <Provider store={store}>
-          <Users />
+          <RootContainer />
         </Provider>
       </ApolloProvider>
     )

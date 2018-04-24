@@ -25,12 +25,10 @@ export default class SpotListCard extends Component {
   render () {
     const spot = this.props.spot
 
-    let image = 'http://via.placeholder.com/350x150'
-    if (typeof spot.image === 'string') {
-      image = spot.image
-    } else if (typeof spot.image === 'object' && spot.length) {
-      image = spot.image[0]
-    }
+    const image =
+      spot.images.length > 0
+        ? spot.images[0].image
+        : 'http://via.placeholder.com/350x150'
 
     return (
       <View style={[card.container, this.props.style]}>

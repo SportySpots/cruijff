@@ -37,4 +37,5 @@ export default {
   t: translateOrFallback
 }
 
+require('moment/locale/nl')
 moment.locale(I18n.locale.substr(0, 2))

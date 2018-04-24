@@ -37,7 +37,7 @@ export default class NavBarButton extends React.Component {
           ]}
         >
           <Icon name={this.props.icon.name} size={25} color={color} />
-          <Text style={{ color: color }}>{this.props.buttonText}</Text>
+          <Text.S style={{ color: color }}>{this.props.buttonText}</Text.S>
         </View>
       </TouchableOpacity>
     )

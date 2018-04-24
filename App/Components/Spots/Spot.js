@@ -1,65 +1,67 @@
 /* Card component, this is the Card that is used in a list of many Cards */
 
 import React from 'react'
-import { ActivityIndicator, View } from 'react-native'
-import PropTypes from 'prop-types'
+import { View } from 'react-native'
 
 import { cardDetails } from './Styles/CardStyles'
 import ImageSwiper from '../ImageSwiper'
 import Header from './Header'
-import Properties from './Properties'
-import Api from '../../Services/SeedorfApi'
+import Amenities from './Amenities'
 import Text from '../Text'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
 
 export default class Spot extends React.PureComponent {
-  constructor (props) {
-    super(props)
-    this.state = {
-      spot: null,
-      isLoading: true
-    }
-  }
-
-  componentDidMount () {
-    const { data } = Api.getSpot(this.props.navigation.state.params.spotId)
-    this.setState({ isLoading: false, spot: data })
-  }
-
   render () {
-    const { navigate } = this.props.navigation
-    const { isLoading, spot } = this.state
-
-    if (isLoading) {
-      return (
-        <View>
-          <ActivityIndicator />
-        </View>
-      )
-    }
-
-    let description = ''
-    const descAttrIndex = spot.attributes.findIndex(
-      attr => attr['attribute_name'] === 'Omschrijving'
-    )
-    if (descAttrIndex !== -1) {
-      description = spot.attributes[descAttrIndex].value
-      spot.attributes.splice(descAttrIndex, 1)
-    }
-
-    let images = ['http://via.placeholder.com/350x150']
-    if (typeof spot.image === 'string') {
-      images = [spot.image]
-    } else if (Array.isArray(spot.image)) {
-      images = spot.image
-    }
-
     return (
-      <View style={[cardDetails.container, this.props.style]}>
-        <ImageSwiper style={cardDetails.slider} images={images} />
-        <Header spot={spot} style={cardDetails.bottom} />
-        <Text.L>{description}</Text.L>
-        <Properties properties={spot.attributes} />
-      </View>
+      <Query
+        query={GET_SPOT_DETAILS}
+        variables={{ uuid: this.props.navigation.state.params.uuid }}
+      >
+        {({ loading, error, data }) => {
+          if (loading) return <Text>Loading...</Text>
+          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
+          const spot = data.spot
+
+          return (
+            <View style={[cardDetails.container, this.props.style]}>
+              <ImageSwiper
+                style={{ height: 200 }}
+                images={spot.images.map(image => image.image)}
+              />
+              <Header spot={spot} style={cardDetails.bottom} />
+              {spot.amenities.length > 0 && (
+                <Amenities amenities={spot.amenities[0].data} />
+              )}
+            </View>
+          )
+        }}
+      </Query>
     )
   }
 }
+
+const GET_SPOT_DETAILS = gql`
+  query spot($uuid: UUID) {
+    spot(uuid: $uuid) {
+      uuid
+      name
+      images {
+        image
+      }
+      amenities {
+        sport {
+          category
+        }
+        data
+      }
+      sports {
+        category
+      }
+      address {
+        lat
+        lng
+      }
+    }
+  }
+`

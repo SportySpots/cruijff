@@ -42,6 +42,7 @@ const create = (
   const getSpot = spotId => spotId
   const getGame = gameId => gameId
   const getGames = ({ month }) => api.get('search/games/', { q: month })
+  const createGame = game => api.post('/games/', game)
   const signup = ({ username, email, password }) =>
     api.post('/auth/registration/', {
       username,
@@ -68,8 +69,9 @@ const create = (
     getSpot,
     getGame,
     getGames,
+    createGame,
     signup,
-    setToken: token => api.setHeader('Authorization', token)
+    setToken: token => api.setHeader('Authorization', `Bearer ${token}`)
   }
 }
 

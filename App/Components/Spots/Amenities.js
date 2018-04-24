@@ -5,18 +5,18 @@ import I18n from '../../I18n'
 import PropertyCircle from '../PropertyCircle'
 import Text from '../Text'
 
-const Properties = ({ properties }) => (
+const Amenities = ({ amenities }) => console.log(amenities) || (
   <View style={style.container}>
-    {properties.map(property => (
-      <View key={property.attribute_name} style={style.innerContainer}>
-        <Text.M style={style.text}>{I18n.t(property.attribute_name)}</Text.M>
-        <PropertyCircle text={I18n.t(property.value)} />
+    {Object.keys(amenities).map((key) => console.log(amenities[key]) || (
+      <View key={key} style={style.innerContainer}>
+        <Text.M style={style.text}>{I18n.t(key)}</Text.M>
+        <PropertyCircle text={amenities[key]} />
       </View>
     ))}
   </View>
 )
 
-export default Properties
+export default Amenities
 
 const style = StyleSheet.create({
   container: {

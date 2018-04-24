@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
-import {
-  FlatList,
-  View,
-  TouchableOpacity,
-  ActivityIndicator
-} from 'react-native'
+import { FlatList, TouchableOpacity } from 'react-native'
 
-import Api from '../../Services/SeedorfApi'
 import GameListCard from './GameListCard'
 import styled from 'styled-components'
 import { MenuProvider } from 'react-native-popup-menu'
 import MonthSelector from './MonthSelector'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+import Text from '../Text'
 
 const CardContainer = props => {
   const { style, onPress, ...otherProps } = props
@@ -21,55 +18,120 @@ const CardContainer = props => {
   )
 }
 
+/* Get the min / max date for month `month`. Past months will change to future months */
+const getMonthRange = month => {
+  const currentMonth = new Date().getMonth()
+  const currentYear = new Date().getFullYear()
+  return {
+    minDate: new Date(
+      month < currentMonth ? currentYear + 1 : currentYear,
+      month,
+      0
+    ),
+    maxDate: new Date(
+      month < currentMonth ? currentYear + 1 : currentYear,
+      month + 1,
+      0
+    )
+  }
+}
+
 export default class GameList extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      month: new Date().getMonth(),
-      spots: null,
-      isLoading: true
+      month: new Date().getMonth()
     }
   }
-
-  componentDidMount () {
-    const { data } = Api.getGames({ month: 4 })
-    this.setState({ isLoading: false, games: data })
-  }
-
   render () {
-    const { navigate } = this.props.navigation
-    const { isLoading, games } = this.state
-
-    if (isLoading) {
-      return (
-        <View style={{ flex: 1 }}>
-          <ActivityIndicator />
-        </View>
-      )
-    }
-
+    const monthRange = getMonthRange(this.state.month)
     return (
-      <Container>
-        <MonthSelector
-          style={{ marginBottom: 16 }}
-          month={this.state.month}
-          onChange={month => this.setState({ month })}
-        />
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={games.slice(0, 100)}
-          renderItem={({ item }) => (
-            <GameListCardContainer
-              id={item.id}
-              onPress={() => navigate('GameDetailsScreen', { id: item.id })}
-            />
-          )}
-          keyExtractor={item => item.id}
-        />
-      </Container>
+      <Query
+        query={GET_GAMES_LIST}
+        variables={{
+          minStartTime: monthRange.minDate,
+          maxStartTime: monthRange.maxDate
+        }}
+      >
+        {({ loading, error, data }) => {
+          if (loading) return <Text>Loading...</Text>
+          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
+
+          return (
+            <Container>
+              <MonthSelector
+                style={{ marginBottom: 16 }}
+                month={this.state.month}
+                onChange={month => this.setState({ month })}
+              />
+              <FlatList
+                showsVerticalScrollIndicator={false}
+                data={data.games}
+                renderItem={({ item }) => (
+                  <GameListCardContainer
+                    game={item}
+                    onPress={() =>
+                      this.props.navigation.navigate('GameDetailsScreen', {
+                        uuid: item.uuid
+                      })
+                    }
+                  />
+                )}
+                keyExtractor={item => item.uuid}
+              />
+            </Container>
+          )
+        }}
+      </Query>
     )
   }
 }
+
+const GET_GAMES_LIST = gql`
+  query games($minStartTime: String!, $maxStartTime: String!) {
+    games(
+      isListed: true
+      orderBy: "startTime"
+      minStartTime: $minStartTime
+      maxStartTime: $maxStartTime
+    ) {
+      uuid
+      name
+      startTime
+      endTime
+      isFeatured
+      showRemaining
+      capacity
+      sport {
+        category
+      }
+      spot {
+        uuid
+        name
+        images {
+          image
+        }
+        amenities {
+          sport
+          data
+        }
+        sports {
+          category
+        }
+        address {
+          lat
+          lng
+        }
+      }
+      attendees {
+        status
+        user {
+          name
+        }
+      }
+    }
+  }
+`
 
 const Container = styled(MenuProvider)`
   margin-left: 8px;

@@ -1,11 +1,11 @@
 import { StackNavigator } from 'react-navigation'
 import ProfileLoginScreen from '../Containers/ProfileLoginScreen'
-import CardDetail from '../Components/Spots/Spot'
+import SpotDetail from '../Components/Spots/Spot'
 import SettingsScreen from '../Containers/SettingsScreen'
 import ProfileDetailsScreen from '../Containers/ProfileDetailsScreen'
 import ProfileEditScreen from '../Containers/ProfileEditScreen'
 import I18n from '../I18n'
-import SpotListScreen from '../Containers/SpotListScreen'
+import SpotList from '../Components/Spots/SpotList'
 
 import Game from '../Components/Games/Game'
 import GamesList from '../Components/Games/GameList'
@@ -61,13 +61,13 @@ export const GameSearchNav = StackNavigator(
 export const SpotSearchNav = StackNavigator(
   {
     SpotDetailsScreen: {
-      screen: CardDetail,
+      screen: SpotDetail,
       navigationOptions: {
         title: I18n.t('spot-details')
       }
     },
     SpotListScreen: {
-      screen: SpotListScreen,
+      screen: SpotList,
       navigationOptions: {
         header: null
       }

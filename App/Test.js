@@ -8,6 +8,9 @@ export const Users = () => (
     query={gql`
       {
         spots {
+          amenities {
+            sport
+          }
           name
         }
       }

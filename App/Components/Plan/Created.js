@@ -15,6 +15,9 @@ import Footer from '../DarkFooter/index'
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Checkbox from '../Checkbox'
+import { NavigationActions } from 'react-navigation'
+import PickSpot from './PickSpot'
+import Api from '../../Services/SeedorfApi'
 
 export default class Created extends Component {
   static propTypes = {
@@ -36,7 +39,32 @@ export default class Created extends Component {
     link: 'https://www.sportyspots.com/games/s532ksfd2555f'
   }
 
-  componentDidMount () {}
+  componentDidMount () {
+    console.log(
+      Api.createGame({
+        organizer: 1,
+        sport: 1,
+        spot: 287,
+        name: 'Potje voetbal @ 287',
+        description:
+          'Deelname is toegankelijk voor iedereen. Dus ook vriendenteams, recreatieve teams, of mensen die nog nooit een voetbal hebben aangeraakt',
+        start_time: '2018-04-25T15:00:00Z',
+        end_time: '2018-04-25T16:00:00Z',
+        rsvp_open_time: '2018-03-01T15:00:00Z',
+        rsvp_close_time: '2018-04-25T15:00:00Z',
+        rsvp_closed: false,
+        start_timezone: 'Europe/Amsterdam',
+        end_timezone: 'Europe/Amsterdam',
+        invite_mode: 'open',
+        status: 'planned',
+        capacity: 10,
+        show_remaining: true,
+        is_listed: true,
+        is_shareable: true,
+        is_featured: false
+      }).then(console.log)
+    )
+  }
 
   onCopy = () => {
     Clipboard.setString(this.state.link)
@@ -97,7 +125,10 @@ export default class Created extends Component {
           currentPage={3}
           showBack={false}
           buttonNextText={I18n.t('done')}
-          onNext={() => this.props.navigate({ routeName: 'SpotSearchTab' })}
+          onNext={() => {
+            this.props.navigation.popToTop()
+            this.props.navigation.goBack(null)
+          }}
         />
       </View>
     )

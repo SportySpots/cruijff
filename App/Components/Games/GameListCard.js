@@ -11,61 +11,40 @@ import I18n from '../../I18n'
 
 export default class GameListCard extends Component {
   static propTypes = {
-    id: PropTypes.number,
+    game: PropTypes.object,
     style: View.propTypes.style
   }
 
-  constructor () {
-    super()
-    this.state = {
-      isLoading: true,
-      game: null
-    }
-  }
-
-  componentDidMount () {
-    const { data } = Api.getGame(this.props.id)
-    this.setState({ isLoading: false, game: data })
-  }
-
   render () {
-    if (this.state.isLoading || !this.state.game.spot) {
-      return null
-    }
-    let spotImages = []
-    const spot = this.state.game.spot
-    if (typeof spot.image === 'string') {
-      spotImages = [spot.image]
-    } else if (typeof spot.image === 'object' && spot.length) {
-      spotImages = spot.image
-    }
+    const game = this.props.game
+    const spot = this.props.game.spot
 
-    let attendingUsers = this.state.game.rsvpStatuses
+    let attendingUsers = game.attendees
       .filter(rsvp => rsvp.status === 'attending')
       .map(rsvp => rsvp.user)
 
-    const nOpenSpots = this.state.game.capacity - attendingUsers.length
+    const nOpenSpots = game.capacity - attendingUsers.length
 
     return (
       <Container>
         <Left>
-          <Text.L>{moment(this.state.game.start_time).format('D')}</Text.L>
-          <Text.M>{moment(this.state.game.start_time).format('MMM')}</Text.M>
+          <Text.L>{moment(game.startTime).format('D')}</Text.L>
+          <Text.M>{moment(game.endTime).format('MMM')}</Text.M>
         </Left>
         <Right>
           <SpotImageContainer>
-            <SpotImage source={{ uri: spotImages[0] }} />
+            <SpotImage source={{ uri: spot.images[0].image }} />
           </SpotImageContainer>
           <Overlay>
             <Top>
               <MaterialIcon color={Colors.white} name='flag' />
-              <Title>{this.state.game.spot.label}</Title>
+              <Title>{game.spot.name}</Title>
             </Top>
             <Bottom>
               <WhiteSM>
-                {moment(this.state.game.start_time).format('HH')}-
-                {moment(this.state.game.end_time).format('HH')} ·{' '}
-                {I18n.t(this.state.game.sport.category)} ·&nbsp;
+                {moment(game.startTime).format('HH')}-
+                {moment(game.endTime).format('HH')} ·{' '}
+                {I18n.t(game.sport.category)} ·&nbsp;
               </WhiteSM>
               <OrangeSM>
                 {nOpenSpots > 0

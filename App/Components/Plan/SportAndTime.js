@@ -15,7 +15,6 @@ import Colors from '../../Themes/Colors'
 import Text from '../Text'
 import I18n from '../../I18n'
 import Footer from '../DarkFooter/index'
-import { NavigationActions } from 'react-navigation'
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -125,7 +124,7 @@ export default class SportAndTime extends Component {
 
   onBack = () => {
     // https://github.com/react-navigation/react-navigation/issues/697#issuecomment-309359044
-    this.props.navigation.dispatch(NavigationActions.back())
+    this.props.navigation.goBack(null)
   }
 
   onNext = () => {
@@ -192,28 +191,28 @@ export default class SportAndTime extends Component {
 
           <Text.L style={styles.title}>{I18n.t('Plan a game')}</Text.L>
           <View style={styles.horizontal}>
-            <Text.M style={styles.text}>I want to play</Text.M>
+            <Text.M style={styles.text}>{I18n.t('I want to play')}</Text.M>
             <Field
-              value={this.props.gameDetails.sport || 'Select'}
+              value={this.props.gameDetails.sport || I18n.t('Select')}
               onPress={() => this.openModal('sport')}
             />
           </View>
           <View style={styles.horizontal}>
             <Text.M style={styles.text}>{I18n.t('on')}</Text.M>
             <Field
-              value={this.props.gameDetails.date || 'Select'}
+              value={this.props.gameDetails.date || I18n.t('Select')}
               onPress={() => this.openModal('date')}
             />
           </View>
           <View style={styles.horizontal}>
             <Text.M style={styles.text}>{I18n.t('from')}</Text.M>
             <Field
-              value={this.props.gameDetails.timeStart || 'Select'}
+              value={this.props.gameDetails.timeStart || I18n.t('Select')}
               onPress={() => this.openModal('timeStart')}
             />
             <Text.M style={styles.text}>{I18n.t('to')}</Text.M>
             <Field
-              value={this.props.gameDetails.timeEnd || 'Select'}
+              value={this.props.gameDetails.timeEnd || I18n.t('Select')}
               onPress={() => this.openModal('timeEnd')}
             />
           </View>

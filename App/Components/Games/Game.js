@@ -14,6 +14,8 @@ import UserCircle from '../UserCircle'
 import PropertyCircle from '../PropertyCircle'
 import images from '../../Themes/Images'
 import BigButton from '../BigButton'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -30,15 +32,15 @@ const mapMax = (maxNum, data, fn, fnElse) => {
 
 export default class Game extends Component {
   static propTypes = {
-    id: PropTypes.number,
+    uuid: PropTypes.string,
     style: View.propTypes.style
   }
 
-  onShare = () => {
+  onShare = game => {
     Share.share(
       {
         message: 'You have been invited',
-        url: this.state.game.link,
+        url: game.link,
         title: 'Sportyspots'
       },
       {
@@ -47,154 +49,198 @@ export default class Game extends Component {
     )
   }
 
-  constructor () {
-    super()
-    this.state = {
-      isLoading: true,
-      game: null
-    }
-  }
-
-  componentDidMount () {
-    const { data } = Api.getGame(this.props.navigation.state.params.id)
-    this.setState({ isLoading: false, game: data })
-  }
-
-  openMaps () {
+  openMaps (game) {
     showLocation({
-      latitude: this.state.game.spot.lat,
-      longitude: this.state.game.spot.lng,
-      title: this.state.game.spot.label
+      latitude: game.spot.lat,
+      longitude: game.spot.lng,
+      title: game.spot.label
     })
   }
 
   render () {
-    if (this.state.isLoading) {
-      return null
-    }
-    let spotImages = []
-    const spot = this.state.game.spot
-    if (typeof spot.image === 'string') {
-      spotImages = [spot.image]
-    } else if (typeof spot.image === 'object' && spot.length) {
-      spotImages = spot.image
-    }
-
-    let attendingUsers = this.state.game.rsvpStatuses
-      .filter(rsvp => rsvp.status === 'attending')
-      .map(rsvp => rsvp.user)
-
-    const nOpenSpots = this.state.game.capacity - attendingUsers.length
-
     return (
-      <ScrollView style={this.props.style}>
-        <SwiperContainer>
-          <ImageSwiper images={spotImages} />
-        </SwiperContainer>
-        <BlockHeader>
-          <HeaderLeft>
-            <Text.M>{spot.label}</Text.M>
-            <HeaderLeftDetails>
-              <Text.SM>
-                {moment(this.state.game.start_time).format('D MMM')}
-              </Text.SM>
-              <Time>
-                <MaterialIcon name='access-time' />
-                <Text.SM>
-                  {moment(this.state.game.start_time).format('HH')} -{' '}
-                  {moment(this.state.game.end_time).format('HH')}
-                </Text.SM>
-              </Time>
-              <Text.SM>{I18n.t(this.state.game.sport.category)}</Text.SM>
-            </HeaderLeftDetails>
-          </HeaderLeft>
-          <HeaderRight />
-        </BlockHeader>
-        <View style={{ margin: 0 }}>
-          <TouchableOpacity onPress={() => this.openMaps()}>
-            <Image
-              style={{ height: 120 }}
-              source={{ uri: 'http://via.placeholder.com/350x150' }}
-            />
-          </TouchableOpacity>
-        </View>
-        <Block>
-          <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
-          <HorizontalView>
-            <UserCircle
-              user={this.state.game.organizer}
-              style={{ marginRight: 16 }}
-            />
-            <View style={{ flex: 1 }}>
-              <Text.SM>
-                {this.state.game.organizer.name} - {this.state.game.description}
-              </Text.SM>
-            </View>
-          </HorizontalView>
-        </Block>
-        <Block>
-          <BlockLabel>{I18n.t('Attending')}</BlockLabel>
-          <HorizontalView>
-            {mapMax(
-              8,
-              attendingUsers,
-              user => <UserCircle key={user.uuid} user={user} />,
-              () => (
-                <PropertyCircle
-                  key='extra'
-                  text={'+' + (attendingUsers.length - 7)}
-                />
-              )
-            )}
-          </HorizontalView>
-        </Block>
-        <Block>
-          <BlockLabel>{I18n.t('Open spots')}</BlockLabel>
-          <HorizontalView>
-            {mapMax(
-              8,
-              [...Array(nOpenSpots)],
-              (_, i) => <SpotOpenImage key={i} />,
-              () => <PropertyCircle key='extra' text={'+' + (nOpenSpots - 7)} />
-            )}
-          </HorizontalView>
-        </Block>
-        <Block>
-          <HorizontalView style={{ width: '100%' }}>
-            <BigButton
-              style={{ flex: 1, marginLeft: 0 }}
-              bgColor={Colors.primaryGreen}
-              textColor={Colors.white}
-              text={I18n.t("I'm attending")}
-            />
-            <BigButton
-              style={{ flex: 1, marginRight: 0 }}
-              bgColor={Colors.red}
-              textColor={Colors.white}
-              text={I18n.t("I'm not attending")}
-            />
-          </HorizontalView>
-        </Block>
-        <Block>
-          <BlockLabel>{I18n.t('Share with friends')}</BlockLabel>
-          <TouchableOpacity
-            style={{
-              backgroundColor: Colors.gray,
-              height: 48,
-              width: 48,
-              borderRadius: 48,
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            onPress={this.onShare}
-          >
-            <MaterialIcon size={32} color={Colors.white} name='share' />
-          </TouchableOpacity>
-        </Block>
-      </ScrollView>
+      <Query
+        query={GET_GAME_DETAILS}
+        variables={{ uuid: this.props.navigation.state.params.uuid }}
+      >
+        {({ loading, error, data }) => {
+          if (loading) return <Text>Loading...</Text>
+          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
+
+          const game = data.game
+          const spot = game.spot
+
+          let attendingUsers = game.attendees
+            .filter(rsvp => rsvp.status === 'ATTENDING')
+            .map(rsvp => rsvp.user)
+
+          const nOpenSpots = Math.max(0, game.capacity - attendingUsers.length)
+          return (
+            <ScrollView style={this.props.style}>
+              <SwiperContainer>
+                <ImageSwiper images={spot.images.map(i => i.image)} />
+              </SwiperContainer>
+              <BlockHeader>
+                <HeaderLeft>
+                  <Text.M>{spot.label}</Text.M>
+                  <HeaderLeftDetails>
+                    <Text.SM>{moment(game.startTime).format('D MMM')}</Text.SM>
+                    <Time>
+                      <MaterialIcon name='access-time' />
+                      <Text.SM>
+                        {moment(game.startTime).format('HH')} -{' '}
+                        {moment(game.endTime).format('HH')}
+                      </Text.SM>
+                    </Time>
+                    <Text.SM>{I18n.t(game.sport.category)}</Text.SM>
+                  </HeaderLeftDetails>
+                </HeaderLeft>
+                <HeaderRight />
+              </BlockHeader>
+              <View style={{ margin: 0 }}>
+                <TouchableOpacity onPress={() => this.openMaps(game)}>
+                  <Image
+                    style={{ height: 120 }}
+                    source={{ uri: 'http://via.placeholder.com/350x150' }}
+                  />
+                </TouchableOpacity>
+              </View>
+              <Block>
+                <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
+                <HorizontalView>
+                  <UserCircle
+                    user={game.organizer}
+                    style={{ marginRight: 16 }}
+                  />
+                  <View style={{ flex: 1 }}>
+                    <Text.SM>
+                      {game.organizer.name} - {game.description}
+                    </Text.SM>
+                  </View>
+                </HorizontalView>
+              </Block>
+              {attendingUsers.length > 0 && (
+                <Block>
+                  <BlockLabel>{I18n.t('Attending')}</BlockLabel>
+                  <HorizontalView>
+                    {mapMax(
+                      8,
+                      attendingUsers,
+                      user => <UserCircle key={user.uuid} user={user} />,
+                      () => (
+                        <PropertyCircle
+                          key='extra'
+                          text={'+' + (attendingUsers.length - 7)}
+                        />
+                      )
+                    )}
+                  </HorizontalView>
+                </Block>
+              )}
+              {nOpenSpots > 0 && (
+                <Block>
+                  <BlockLabel>{I18n.t('Open spots')}</BlockLabel>
+                  <HorizontalView>
+                    {mapMax(
+                      8,
+                      [...Array(nOpenSpots)],
+                      (_, i) => <SpotOpenImage key={i} />,
+                      () => (
+                        <PropertyCircle
+                          key='extra'
+                          text={'+' + (nOpenSpots - 7)}
+                        />
+                      )
+                    )}
+                  </HorizontalView>
+                </Block>
+              )}
+              {nOpenSpots > 0 && (
+                <Block>
+                  <HorizontalView style={{ width: '100%' }}>
+                    <BigButton
+                      style={{ flex: 1, marginLeft: 0 }}
+                      bgColor={Colors.primaryGreen}
+                      textColor={Colors.white}
+                      text={I18n.t("I'm attending")}
+                    />
+                    <BigButton
+                      style={{ flex: 1, marginRight: 0 }}
+                      bgColor={Colors.red}
+                      textColor={Colors.white}
+                      text={I18n.t("I'm not attending")}
+                    />
+                  </HorizontalView>
+                </Block>
+              )}
+              <Block>
+                <BlockLabel>{I18n.t('Share with friends')}</BlockLabel>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: Colors.gray,
+                    height: 48,
+                    width: 48,
+                    borderRadius: 48,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                  onPress={() => this.onShare(game)}
+                >
+                  <MaterialIcon size={32} color={Colors.white} name='share' />
+                </TouchableOpacity>
+              </Block>
+            </ScrollView>
+          )
+        }}
+      </Query>
     )
   }
 }
+
+const GET_GAME_DETAILS = gql`
+  query game($uuid: UUID!) {
+    game(uuid: $uuid) {
+      uuid
+      name
+      startTime
+      endTime
+      isFeatured
+      showRemaining
+      capacity
+      sport {
+        category
+      }
+      spot {
+        uuid
+        name
+        images {
+          image
+        }
+        amenities {
+          sport
+          data
+        }
+        sports {
+          category
+        }
+        address {
+          lat
+          lng
+        }
+      }
+      organizer {
+        name
+      }
+      attendees {
+        status
+        user {
+          uuid
+          name
+        }
+      }
+    }
+  }
+`
 
 const HorizontalView = styled.View`
   flex-direction: row;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation'
 
-import SplashScreen from '../Containers/SplashScreen'
+import SplashScreen from '../Components/SplashScreen'
 import OnboardingScreen from '../Components/Onboarding'
 import {
   GameSearchNav,
@@ -40,7 +40,8 @@ export const MainTabsNav = withNavBar(
       SettingsTab: { screen: SettingsNav }
     },
     {
-      tabBarComponent: () => null
+      tabBarComponent: () => null,
+      initialRouteName: 'SpotSearchTab'
     }
   )
 )
@@ -75,9 +76,11 @@ export const RootNav = SwitchNavigator(
     // Default config for all screens
     headerMode: 'none',
     // initialRouteName: 'SplashScreen'
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'MainNav',
     tabBarComponent: () => null
   }
 )
 
 export default RootNav
+
+// eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRvbXRvbSIsImV4cCI6MTUyNDU3NTcyOSwiZW1haWwiOiJ0b21rbGF2KzQ0NEBnbWFpbC5jb20ifQ.VeJT14HctWeWIFWatX9yrzeyIJgD75vGXmAwflAHodY

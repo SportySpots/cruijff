@@ -1,1 +1,42 @@
-{}
+{
+  "BASKETBALL": "Basketbal",
+  "BOOTCAMP": "Bootcamp",
+  "SOCCER": "Voetbal",
+  "TENNIS": "Tennis",
+  "FITNESS": "Fitness",
+  "OTHERS": "Overig",
+  "SKATING": "Skaten",
+  "BEACH_VOLLEYBALL": "Beachvolleybal",
+  "BOULES": "Jeu de boules",
+  "find": "Spots",
+  "join": "Meedoen",
+  "Plan a game": "Plan een potje",
+  "profile": "Profiel",
+  "settings": "Instellingen",
+
+  "players needed": "spelers nodig",
+  "full": "vol",
+
+  "Organizer": "Organisator",
+  "Attending": "Aanwezig",
+  "Share with friends": "Delen",
+
+  "Select": "Kies",
+  "Select a date": "Selecteer datum",
+  "Choose sport": "Kies sport",
+  "Pick a spot": "Kies een locatie",
+  "Describe the game": "Omschrijving",
+  "Game created": "Spel gemaakt",
+  "Share": "Delen",
+  "Copy": "Kopiëren",
+  "This event is invite-only": "Alleen op uitnodiging",
+
+  "back": "terug",
+  "continue": "doorgaan",
+  "done": "klaar",
+
+  "I want to play": "Ik organiseer een potje",
+  "on": "op",
+  "from": "vanaf",
+  "to": "tot"
+}

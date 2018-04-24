@@ -77,9 +77,6 @@ export const cardDetails = StyleSheet.create({
   container: {
     flex: 1
   },
-  slider: {
-    height: 200
-  },
   bottom: {
     padding: 8
   }

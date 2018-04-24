@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native'
 
-import { takeLatest, all, fork, put } from 'redux-saga/effects'
+import { takeLatest, all, fork, put, call } from 'redux-saga/effects'
 import api from '../Services/SeedorfApi'
 
 /* ------------- Types ------------- */
@@ -39,4 +39,9 @@ export default function * root () {
       api.setToken(action.token)
     })
   ])
+
+  const token = yield call(AsyncStorage.getItem, 'TOKEN')
+  if (token) {
+    yield put({ type: UserTypes.SET_TOKEN, token })
+  }
 }

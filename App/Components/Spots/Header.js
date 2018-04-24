@@ -11,13 +11,13 @@ const distance = 5
 
 const Header = ({ spot, ...props }) => (
   <View {...props}>
-    <Text.M>{spot.label}</Text.M>
+    <Text.M>{spot.name}</Text.M>
     <View style={header.belowName}>
       <Rating rating={spot.rating || 4} />
       <Spacer />
-      <Text.S>{Int18n.t(spot.sport)}</Text.S>
+      <Text.S>{Int18n.t(spot.sports[0].category)}</Text.S>
       <Spacer />
-      <Text.S>{distance.toFixed(1)} km</Text.S>
+      <Text.S>{JSON.stringify(Math.round(spot.address.lat))} km</Text.S>
       {spot.numGames > 0 && [
         <Spacer key={1} />,
         <Text.S key={2} style={header.plannedGamesCount}>
