@@ -57,7 +57,7 @@ export default class Spot extends React.PureComponent {
       <View style={[cardDetails.container, this.props.style]}>
         <ImageSwiper style={cardDetails.slider} images={images} />
         <Header spot={spot} style={cardDetails.bottom} />
-        <Text>{description}</Text>
+        <Text.L>{description}</Text.L>
         <Properties properties={spot.attributes} />
       </View>
     )

@@ -14,6 +14,25 @@
 * NPM (Version: 5.6.0)
 * NVM (Version: 0.33.8)
 
+### Local Development
+
+#### Setup
+```bash
+$ nvm use
+$ yarn reset
+```
+
+#### Run App
+```bash
+$ yarn run react-native run-ios
+```
+
+#### Run Storybook
+```bash
+$ yarn run storybook
+```
+
+
 ### How to Run App
 
 1. cd to the repo

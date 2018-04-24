@@ -17,6 +17,8 @@ import ImageSwiper from './ImageSwiper'
 import BackButton from './BackButton'
 import BasicButton from './BasicButton'
 import BigButton from './BigButton'
+import RouteButton from './RouteButton'
+import MapsButton from './MapsButton'
 import Checkbox from './Checkbox'
 import Text from './Text'
 import Logo from './Logo'
@@ -25,6 +27,7 @@ import FieldBackground from './FieldBackground'
 import Slider from './Slider'
 import SplashScreen from './SplashScreen'
 import Rating from './Rating'
+import RatingBig from './RatingBig'
 import PropertyCircle from './PropertyCircle'
 import UserCircle from './UserCircle'
 import Signup from './Signup'
@@ -41,6 +44,8 @@ storiesOf('Basic components')
       <BackButton text='back' />
     </View>
   ))
+  .add('RouteButton', () => <RouteButton />)
+  .add('MapsButton', () => <MapsButton />)
   .add('BasicButton', () => (
     <View style={{ backgroundColor: 'green', flex: 1 }}>
       <BasicButton
@@ -119,6 +124,11 @@ storiesOf('Rating')
   .add('1', () => <Rating rating={1} />)
   .add('3', () => <Rating rating={3} />)
   .add('4.5', () => <Rating rating={4.5} />)
+
+storiesOf('RatingBig')
+  .add('1', () => <RatingBig rating={1} />)
+  .add('3', () => <RatingBig rating={3} />)
+  .add('4.5', () => <RatingBig rating={4.5} />)
 
 storiesOf('FieldBackground').add('Default', () => (
   <FieldBackground>

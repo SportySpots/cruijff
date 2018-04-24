@@ -18,7 +18,7 @@ export default class Rating extends React.Component {
             style={[style.circle, i <= this.props.rating && style.full]}
           />
         ))}
-        <Text.S>{this.props.rating.toFixed(1)}/5.0</Text.S>
+        <Text.S style={style.text}>{this.props.rating.toFixed(1)}/5.0</Text.S>
       </View>
     )
   }
@@ -30,11 +30,11 @@ const style = StyleSheet.create({
     alignItems: 'center'
   },
   circle: {
-    width: 8,
-    height: 8,
+    width: 10,
+    height: 10,
     borderRadius: 8,
-    marginLeft: 2,
-    marginRight: 2,
+    marginLeft: 3,
+    marginRight: 3,
     backgroundColor: Colors.black54
   },
   full: {
