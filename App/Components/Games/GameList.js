@@ -88,13 +88,13 @@ export default class GameList extends Component {
 }
 
 const GET_GAMES_LIST = gql`
-  query games($minStartTime: String!, $maxStartTime: String!) {
-    games(
-      isListed: true
-      orderBy: "startTime"
-      minStartTime: $minStartTime
-      maxStartTime: $maxStartTime
-    ) {
+  #  query games($minStartTime: String!, $maxStartTime: String!) {
+  query games {
+    games #      isListed: true
+    #      orderBy: "startTime"
+    #      minStartTime: $minStartTime
+    #      maxStartTime: $maxStartTime
+    {
       uuid
       name
       startTime
@@ -112,7 +112,9 @@ const GET_GAMES_LIST = gql`
           image
         }
         amenities {
-          sport
+          sport {
+            category
+          }
           data
         }
         sports {

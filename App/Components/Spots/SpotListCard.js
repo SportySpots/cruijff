@@ -28,7 +28,7 @@ export default class SpotListCard extends Component {
     const image =
       spot.images.length > 0
         ? spot.images[0].image
-        : 'http://via.placeholder.com/350x150'
+        : 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png'
 
     return (
       <View style={[card.container, this.props.style]}>

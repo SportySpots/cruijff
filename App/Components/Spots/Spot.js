@@ -26,7 +26,9 @@ export default class Spot extends React.PureComponent {
           const images =
             spot.images.length > 0
               ? spot.images.map(image => image.image)
-              : ['http://sportyspots.com/assets/SportySpotsLogo.svg']
+              : [
+                'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png'
+              ]
 
           return (
             <Container>
