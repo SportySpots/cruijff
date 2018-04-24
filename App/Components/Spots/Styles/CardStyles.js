@@ -72,12 +72,3 @@ export const cardList = StyleSheet.create({
     // overflow: 'hidden'
   }
 })
-
-export const cardDetails = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  bottom: {
-    padding: 8
-  }
-})
