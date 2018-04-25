@@ -4,6 +4,7 @@ import SpotListCard from './SpotListCard'
 import SpotListCardSmall from './SpotListCardSmall'
 import Spot from './Spot'
 import SpotList from './SpotList'
+import SpotProperties from './SpotProperties'
 
 const spots = require('../../../App/Fixtures/spots.json')
 
@@ -12,6 +13,15 @@ const dummyNavigator = {
   state: {
     params: { spotId: 455 }
   }
+}
+
+const spotProperties = {
+  Sport: 'Voetbal',
+  Locatie: 'Plantsoen',
+  Oppervlakte: '759m2',
+  Ondergrond: 'Beton',
+  Omheining: 'Open',
+  Verlichting: 'Ja'
 }
 
 storiesOf('Cards')
@@ -23,3 +33,4 @@ storiesOf('Cards')
   ))
   .add('SpotList', () => <SpotList navigation={dummyNavigator} spots={spots} />)
   .add('Spot', () => <Spot navigation={dummyNavigator} />)
+  .add('SpotProperties', () => <SpotProperties properties={spotProperties} />)
