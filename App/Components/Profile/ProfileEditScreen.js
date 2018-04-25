@@ -5,7 +5,7 @@ import Text from '../Text'
 import I18n from '../../I18n/index'
 import Slider from '../Slider'
 import Colors from '../../Themes/Colors'
-import BasicButton from '../BasicButton'
+import DefaultButton from '../DefaultButton'
 
 export default class ProfileEditScreen extends React.PureComponent {
   static propTypes = {
@@ -63,7 +63,7 @@ export default class ProfileEditScreen extends React.PureComponent {
               <Slider value={this.props.user.level} onChange={console.log} />
             </View>
           </View>
-          <BasicButton style={{ width: 100 }} text='save' />
+          <DefaultButton style={{ width: 100 }} text='save' />
         </View>
       </ScrollView>
     )

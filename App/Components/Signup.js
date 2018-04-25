@@ -5,7 +5,7 @@ import Colors from '../Themes/Colors'
 import Logo from './Logo'
 import Text from './Text'
 import I18n from '../I18n'
-import BigButton from './BigButton'
+import DefaultButton from './DefaultButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { STATUS } from '../Redux/UserRedux'
 import styled from 'styled-components'
@@ -92,7 +92,7 @@ export default class Signup extends Component {
                 editable={!requestIsPending}
               />
             </View>
-            <BigButton
+            <DefaultButton
               bgColor={requestIsPending ? 'gray' : 'blue'}
               textColor={Colors.white}
               text={I18n.t('Signup')}

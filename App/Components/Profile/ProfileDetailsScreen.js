@@ -5,6 +5,8 @@ import Text from '../Text'
 import I18n from '../../I18n/index'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Slider from '../Slider'
+import styled from 'styled-components/native'
+
 import {
   Menu,
   MenuOption,
@@ -32,7 +34,8 @@ export const BottomNav = new TabNavigator(
         backgroundColor: Colors.white
       },
       labelStyle: {
-        color: 'black'
+        color: 'black',
+        fontWeight: '700'
       },
       indicatorStyle: {
         backgroundColor: Colors.primaryGreen,
@@ -100,9 +103,9 @@ export default class ProfileDetailsScreen extends React.PureComponent {
           {EditMenu}
           <View style={styles.center}>
             <Image style={styles.image} source={{ uri: imageUrl }} />
-            <Text.L>
+            <NameContainer>
               {this.props.user.firstName} {this.props.user.lastName}
-            </Text.L>
+            </NameContainer>
           </View>
           <View style={styles.ageTypeContainer}>
             <View style={styles.ageContainer}>
@@ -127,14 +130,14 @@ const styles = StyleSheet.create({
   image: {
     height: 100,
     width: 100,
-    borderRadius: 100
+    borderRadius: 50
   },
   center: {
     alignItems: 'center'
   },
   outerContainer: {
     flex: 1,
-    paddingTop: 16,
+    paddingTop: 24,
     backgroundColor: Colors.white
   },
   ageTypeContainer: {
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
     flex: 2
   },
   type: {
-    flex: 3
+    flex: 4
   },
   editMenu: {
     position: 'absolute',
@@ -159,3 +162,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.bgGrey
   }
 })
+
+const NameContainer = styled(Text.L)`
+  margin: 16px;
+`
