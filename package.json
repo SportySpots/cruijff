@@ -100,7 +100,7 @@
     "graphql-tools": "^2.24.0",
     "husky": "^0.14.3",
     "ignite-animatable": "^1.0.0",
-    "ignite-cli": "2.0.0",
+    "ignite-cli": "2.1.0",
     "ignite-dev-screens": "^2.3.0",
     "ignite-i18n": "^1.1.1",
     "ignite-ir-boilerplate": "^2.3.1",
