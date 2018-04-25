@@ -1,13 +1,13 @@
 import { AsyncStorage } from 'react-native'
 import { Buffer } from 'buffer'
-import { takeLatest, all, call } from 'redux-saga/effects'
+import { takeLatest, all, put, call } from 'redux-saga/effects'
 import api from '../Services/SeedorfApi'
-import { client } from '../App'
+import { client } from '../GraphQL'
 import gql from 'graphql-tag'
 
 /* ------------- Types ------------- */
 
-import { UserTypes } from '../Redux/UserRedux'
+import UserActions, { UserTypes } from '../Redux/UserRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -27,13 +27,27 @@ export default function * root () {
       const claims = JSON.parse(
         Buffer.from(action.token.split('.')[1], 'base64').toString('ascii')
       )
-      console.log(claims)
-      const result = yield call(client.query, {
-        query: gql`{user(user_id:${claims.user_id}){uuid}}`
-      })
-      console.log(result)
-      AsyncStorage.setItem('TOKEN', action.token)
+      client.setToken(action.token)
       api.setToken(action.token)
+      console.log(claims)
+      try {
+        const result = yield call(client.query, {
+          query: gql`
+            {
+              user(id: ${claims.user_id}) {
+                uuid
+              }
+            }`
+        })
+        console.log('r', result)
+      } catch (e) {
+        console.log(e)
+      }
+      AsyncStorage.setItem('TOKEN', action.token)
     })
   ])
+
+  const token = yield call(AsyncStorage.getItem, 'TOKEN')
+  console.log(UserActions)
+  yield put(UserActions.setToken(token))
 }
