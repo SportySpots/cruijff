@@ -30,6 +30,7 @@ import RatingBig from './RatingBig'
 import PropertyCircle from './PropertyCircle'
 import UserCircle from './UserCircle'
 import Signup from './Signup'
+import { STATUS } from '../Redux/UserRedux'
 
 const dummyNavigator = {
   navigate: () => null
@@ -146,4 +147,12 @@ storiesOf('UserCircle').add('UserCircle', () => (
     {users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}
   </View>
 ))
-storiesOf('Signup').add('Default', () => <Signup />)
+storiesOf('Signup').add('Default', () => (
+  <Signup
+    user={{
+      signup: {
+        status: STATUS.IDLE
+      }
+    }}
+  />
+))

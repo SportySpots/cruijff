@@ -64,6 +64,9 @@ export default {
       data: spot
     }
   },
-
+  createGame: game => ({
+    ok: true,
+    data: { ...game, uuid: 'random-uuid' }
+  }),
   setToken: token => null
 }

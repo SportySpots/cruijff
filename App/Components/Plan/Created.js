@@ -62,7 +62,7 @@ export default class Created extends Component {
         is_listed: true,
         is_shareable: true,
         is_featured: false
-      }).then(console.log)
+      })
     )
   }
 
