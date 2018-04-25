@@ -3,48 +3,39 @@ import DebugConfig from './Config/DebugConfig'
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import RootContainer from './Containers/RootContainer'
-import createStore from './Redux'
-import { createClient, createMockClient } from './GraphQL'
 import { ApolloProvider } from 'react-apollo'
-import { Users } from './Test'
+import initialize from './init'
+import { store } from './Redux'
+import { client } from './GraphQL'
 
-// create our store
-const store = createStore()
-console.log(store.getState())
+/** STARTING POINT
+  1. Initialize GraphQL Client
+  2. Initialize Redux (createStore also launches Sagas)
+  3. Get JWT From localStorage
+  4. If JWT:
+     - get UUID from query
+  5. If not JWT:
+     - show login screen.
+**/
 
-/**
- * Provides an entry point into our application.  Both index.ios.js and index.android.js
- * call this component first.
- *
- * We create our Redux store here, put it into a provider and then bring in our
- * RootContainer.
- *
- * We separate like this to play nice with React Native's hot reloading.
- */
 class App extends Component {
-  async initGraphQL () {
-    const client = DebugConfig.useFixtures
-      ? await createMockClient()
-      : await createClient(
-          __DEV__
-            ? 'http://localhost:8000/graphql'
-            : 'https://sportyspots.com/api/graphql'
-        )
-    this.setState({ client })
+  async init () {
+    await initialize()
+    this.setState({ initialized: true })
   }
 
   constructor () {
     super()
-    this.state = { client: null }
-    this.initGraphQL()
+    this.state = { initialized: false }
+    this.init()
   }
 
   render () {
-    if (!this.state.client) {
+    if (!this.state.initialized) {
       return null
     }
     return (
-      <ApolloProvider client={this.state.client}>
+      <ApolloProvider client={client}>
         <Provider store={store}>
           <RootContainer />
         </Provider>

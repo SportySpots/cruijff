@@ -43,6 +43,7 @@
     "appcenter": "^1.1.0",
     "appcenter-analytics": "^1.1.0",
     "appcenter-crashes": "^1.1.0",
+    "buffer": "^5.1.0",
     "format-json": "^1.0.3",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
