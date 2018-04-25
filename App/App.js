@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import RootContainer from './Containers/RootContainer'
 import { ApolloProvider } from 'react-apollo'
 import initialize from './init'
-import { store } from './Redux'
+import { reduxStore } from './Redux'
 import { client } from './GraphQL'
 
 /** STARTING POINT
@@ -36,7 +36,7 @@ class App extends Component {
     }
     return (
       <ApolloProvider client={client}>
-        <Provider store={store}>
+        <Provider store={reduxStore}>
           <RootContainer />
         </Provider>
       </ApolloProvider>

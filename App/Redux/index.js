@@ -1,29 +1,20 @@
 import { combineReducers } from 'redux'
-import { persistReducer } from 'redux-persist'
 import configureStore from './CreateStore'
 import rootSaga from '../Sagas/'
-import ReduxPersist from '../Config/ReduxPersist'
 
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
-  github: require('./GithubRedux').reducer,
-  search: require('./SearchRedux').reducer,
   location: require('./LocationRedux').reducer,
   plan: require('./PlanGameRedux').reducer,
   user: require('./UserRedux').reducer
 })
 
-export let store = null
+export let reduxStore = null
 
 export default () => {
   let finalReducers = reducers
-  // If rehydration is on use persistReducer otherwise default combineReducers
-  if (ReduxPersist.active) {
-    const persistConfig = ReduxPersist.storeConfig
-    finalReducers = persistReducer(persistConfig, reducers)
-  }
 
-  let { newStore, sagasManager, sagaMiddleware } = configureStore(
+  let { store, sagasManager, sagaMiddleware } = configureStore(
     finalReducers,
     rootSaga
   )
@@ -40,6 +31,6 @@ export default () => {
       })
     })
   }
-  store = newStore
-  return newStore
+  reduxStore = store
+  return store
 }

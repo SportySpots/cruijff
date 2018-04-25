@@ -7,17 +7,16 @@ export const initGraphQL = async () => {
     ? createMockClient()
     : createClient(
         __DEV__
-          ? 'http://localhost:8000/graphql'
-          : // ? 'http://10.0.3.2:8000/graphql'
-            'https://sportyspots.com/api/graphql'
+          ? // ? 'http://10.0.3.2:8000/graphql'
+            'http://localhost:8000/graphql'
+          : 'https://sportyspots.com/api/graphql'
       )
 }
 
 const initialize = async () => {
   console.log('init started')
-  createStore()
-  await initGraphQL()
-  console.log('initialization complete')
+  const store = createStore()
+  const client = await initGraphQL()
 }
 
 export default initialize

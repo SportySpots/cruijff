@@ -14,6 +14,7 @@ const { Types, Creators } = createActions({
   signupRequest: { username: null, email: null, password: null },
   signupSuccess: ['data'],
   signupFailure: ['data'],
+  setUuid: ['uuid'],
   setToken: ['token'],
   login: null,
   logout: null
@@ -29,6 +30,7 @@ export const INITIAL_STATE = Immutable({
     status: STATUS.IDLE
   },
   user: null,
+  uuid: null,
   token: null
 })
 
@@ -44,6 +46,7 @@ export const login = state => INITIAL_STATE
 export const logout = state => INITIAL_STATE
 
 export const setToken = (state, action) => state.merge({ token: action.token })
+export const setUUID = (state, action) => state.merge({ uuid: action.uuid })
 
 export const signupRequest = (state, { username, email, password }) =>
   INITIAL_STATE.merge({ signup: { status: STATUS.PENDING } })
@@ -60,6 +63,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.LOGIN]: login,
   [Types.LOGOUT]: logout,
   [Types.SET_TOKEN]: setToken,
+  [Types.SET_UUID]: setUUID,
   [Types.SIGNUP_REQUEST]: signupRequest,
   [Types.SIGNUP_SUCCESS]: signupSuccess,
   [Types.SIGNUP_FAILURE]: signupFailure

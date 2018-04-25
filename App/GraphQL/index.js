@@ -7,7 +7,6 @@ import { ApolloLink } from 'apollo-link'
 import { HttpLink } from 'apollo-link-http'
 import { onError } from 'apollo-link-error'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { AsyncStorage } from 'react-native'
 
 import mocks from './mocks'
 import ApolloProvider from 'react-apollo/ApolloProvider'
@@ -37,17 +36,28 @@ const addErrorHandlers = link => {
   ])
 }
 
-export const createClient = async uri => {
-  const token = await AsyncStorage.getItem('TOKEN')
+export const createClient = uri => {
+  let token = null
+  const middlewareLink = new ApolloLink((operation, forward) => {
+    operation.setContext({
+      headers: {
+        authorization: token
+      }
+    })
+    return forward(operation)
+  })
+
+  const httpLink = new HttpLink({
+    uri
+  })
+
   client = new ApolloClient({
-    link: addErrorHandlers(
-      new HttpLink({
-        uri,
-        headers: { authorization: `Bearer ${token}` }
-      })
-    ),
+    link: addErrorHandlers(middlewareLink.concat(httpLink)),
     cache: createCache()
   })
+  client.setToken = t => {
+    token = t
+  }
   return client
 }
 
