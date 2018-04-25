@@ -3,10 +3,10 @@ import { storiesOf } from '@storybook/react-native'
 import SpotListCard from './SpotListCard'
 import SpotListCardSmall from './SpotListCardSmall'
 import Spot from './Spot'
-import SpotList from './SpotList'
+import SpotList, { GET_SPOTS } from './SpotList'
 import { WithApolloMockProvider } from '../../GraphQL'
-
-const spots = require('../../../App/Fixtures/spots.json')
+import { GET_GAMES_LIST } from '../Games/GameList'
+import { Query } from 'react-apollo'
 
 const dummyNavigator = {
   navigate: () => null,
@@ -15,12 +15,31 @@ const dummyNavigator = {
   }
 }
 
-storiesOf('Cards')
+storiesOf('Spots')
   .add('SpotListCard', () => (
-    <SpotListCard onPress={() => {}} spot={spots[0]} />
+    <WithApolloMockProvider>
+      <Query query={GET_SPOTS}>
+        {({ loading, error, data }) =>
+          loading || error ? null : (
+            <SpotListCard spot={data.spots[0]} navigation={dummyNavigator} />
+          )
+        }
+      </Query>
+    </WithApolloMockProvider>
   ))
   .add('SpotListCardSmall', () => (
-    <SpotListCardSmall onPress={() => {}} spot={spots[0]} />
+    <WithApolloMockProvider>
+      <Query query={GET_SPOTS}>
+        {({ loading, error, data }) =>
+          loading || error ? null : (
+            <SpotListCardSmall
+              spot={data.spots[0]}
+              navigation={dummyNavigator}
+            />
+          )
+        }
+      </Query>
+    </WithApolloMockProvider>
   ))
   .add('SpotList', () => (
     <WithApolloMockProvider>
@@ -29,6 +48,6 @@ storiesOf('Cards')
   ))
   .add('Spot', () => (
     <WithApolloMockProvider>
-      <Spot navigation={dummyNavigator} />
+      <Spot uuid={1} navigation={dummyNavigator} />
     </WithApolloMockProvider>
   ))

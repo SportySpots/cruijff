@@ -87,11 +87,10 @@ export default class GameList extends Component {
   }
 }
 
-const GET_GAMES_LIST = gql`
+export const GET_GAMES_LIST = gql`
   #  query games($minStartTime: String!, $maxStartTime: String!) {
   query games {
-    games #      isListed: true
-    #      orderBy: "startTime"
+    games #      orderBy: "startTime" #      isListed: true
     #      minStartTime: $minStartTime
     #      maxStartTime: $maxStartTime
     {

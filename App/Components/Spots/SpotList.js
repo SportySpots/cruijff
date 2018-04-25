@@ -51,7 +51,7 @@ export default class SpotList extends Component {
   }
 }
 
-const GET_SPOTS = gql`
+export const GET_SPOTS = gql`
   {
     spots {
       uuid
