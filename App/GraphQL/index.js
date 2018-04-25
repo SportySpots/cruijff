@@ -10,6 +10,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { AsyncStorage } from 'react-native'
 
 import mocks from './mocks'
+import ApolloProvider from 'react-apollo/ApolloProvider'
+import React from 'react'
 
 export let client = null
 
@@ -62,3 +64,7 @@ export const createMockClient = () => {
   })
   return client
 }
+
+export const WithApolloMockProvider = props => (
+  <ApolloProvider client={createMockClient()}>{props.children}</ApolloProvider>
+)

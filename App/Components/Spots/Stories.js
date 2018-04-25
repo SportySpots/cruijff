@@ -4,6 +4,7 @@ import SpotListCard from './SpotListCard'
 import SpotListCardSmall from './SpotListCardSmall'
 import Spot from './Spot'
 import SpotList from './SpotList'
+import { WithApolloMockProvider } from '../../GraphQL'
 
 const spots = require('../../../App/Fixtures/spots.json')
 
@@ -21,5 +22,13 @@ storiesOf('Cards')
   .add('SpotListCardSmall', () => (
     <SpotListCardSmall onPress={() => {}} spot={spots[0]} />
   ))
-  .add('SpotList', () => <SpotList navigation={dummyNavigator} spots={spots} />)
-  .add('Spot', () => <Spot navigation={dummyNavigator} />)
+  .add('SpotList', () => (
+    <WithApolloMockProvider>
+      <SpotList navigation={dummyNavigator} />
+    </WithApolloMockProvider>
+  ))
+  .add('Spot', () => (
+    <WithApolloMockProvider>
+      <Spot navigation={dummyNavigator} />
+    </WithApolloMockProvider>
+  ))

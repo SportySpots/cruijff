@@ -63,5 +63,7 @@ export default {
       ok: true,
       data: spot
     }
-  }
+  },
+
+  setToken: token => null
 }

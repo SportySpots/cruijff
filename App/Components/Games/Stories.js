@@ -5,6 +5,7 @@ import Game from './Game'
 import GameListCard from './GameListCard'
 import { View } from 'react-native'
 import GamesList from './GameList'
+import { WithApolloMockProvider } from '../../GraphQL'
 
 const dummyNavigator = {
   navigate: () => null,
@@ -14,7 +15,11 @@ const dummyNavigator = {
 }
 
 storiesOf('Games')
-  .add('Game details', () => <Game navigation={dummyNavigator} />)
+  .add('Game details', () => (
+    <WithApolloMockProvider>
+      <Game navigation={dummyNavigator} />
+    </WithApolloMockProvider>
+  ))
   .add('Game list card', () => (
     <View style={{ marginHorizontal: 16 }}>
       <GameListCard id={1} />
