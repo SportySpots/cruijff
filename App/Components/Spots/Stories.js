@@ -5,7 +5,8 @@ import SpotListCardSmall from './SpotListCardSmall'
 import Spot from './Spot'
 import SpotList, { GET_SPOTS } from './SpotList'
 import { WithApolloMockProvider } from '../../GraphQL'
-import { GET_GAMES_LIST } from '../Games/GameList'
+import SpotProperties from './SpotProperties'
+
 import { Query } from 'react-apollo'
 
 const dummyNavigator = {
@@ -14,7 +15,14 @@ const dummyNavigator = {
     params: { spotId: 455 }
   }
 }
-
+const spotProperties = {
+  Sport: 'Voetbal',
+  Locatie: 'Plantsoen',
+  Oppervlakte: '759m2',
+  Ondergrond: 'Beton',
+  Omheining: 'Open',
+  Verlichting: 'Ja'
+}
 storiesOf('Spots')
   .add('SpotListCard', () => (
     <WithApolloMockProvider>
@@ -51,3 +59,4 @@ storiesOf('Spots')
       <Spot uuid={1} navigation={dummyNavigator} />
     </WithApolloMockProvider>
   ))
+  .add('SpotProperties', () => <SpotProperties properties={spotProperties} />)
