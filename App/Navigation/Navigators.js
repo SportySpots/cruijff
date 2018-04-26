@@ -56,7 +56,7 @@ export const GameSearchNav = StackNavigator(
     GamePlayerScreen: {
       screen: PlayerList,
       navigationOptions: {
-        header: null
+        title: I18n.t('Players')
       }
     }
   },
