@@ -8,6 +8,8 @@ import { WithApolloMockProvider } from '../../GraphQL'
 import SpotProperties from './SpotProperties'
 
 import { Query } from 'react-apollo'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
 const dummyNavigator = {
   navigate: () => null,
@@ -23,6 +25,14 @@ const spotProperties = {
   Omheining: 'Open',
   Verlichting: 'Ja'
 }
+
+const store = createStore(state => state, {
+  user: {
+    uuid: 1234,
+    initialized: true
+  }
+})
+
 storiesOf('Spots')
   .add('SpotListCard', () => (
     <WithApolloMockProvider>
@@ -55,8 +65,10 @@ storiesOf('Spots')
     </WithApolloMockProvider>
   ))
   .add('Spot', () => (
-    <WithApolloMockProvider>
-      <Spot uuid={1} navigation={dummyNavigator} />
-    </WithApolloMockProvider>
+    <Provider store={store}>
+      <WithApolloMockProvider>
+        <Spot uuid={1} navigation={dummyNavigator} />
+      </WithApolloMockProvider>
+    </Provider>
   ))
   .add('SpotProperties', () => <SpotProperties properties={spotProperties} />)

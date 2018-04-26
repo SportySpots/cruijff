@@ -77,6 +77,7 @@ const create = (
     getGames,
     createGame,
     signup,
+    submitRating,
     setToken: token => api.setHeader('Authorization', `Bearer ${token}`)
   }
 }

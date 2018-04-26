@@ -18,7 +18,7 @@ import { showLocation } from 'react-native-map-link'
 import { connect } from 'react-redux'
 import api from '../../Services/SeedorfApi'
 
-class SpotContents extends React.Component {
+export class SpotContents extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
