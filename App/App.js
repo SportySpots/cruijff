@@ -15,7 +15,7 @@ class App extends Component {
   async init () {
     // build redux store & apollo client
     await initialize()
-    const firstRun = !await AsyncStorage.getItem('hasBooted')
+    const firstRun = !await AsyncStorage.getItem('hasBooted') || true
     AsyncStorage.setItem('hasBooted', 'true')
     this.setState({ initialized: true, firstRun })
   }
