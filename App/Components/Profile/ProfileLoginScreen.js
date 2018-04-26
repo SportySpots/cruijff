@@ -5,36 +5,56 @@ import I18n from '../../I18n/index'
 import Text from '../Text'
 import images from '../../Themes/Images'
 import styled from 'styled-components/native'
+import userActions from '../../Redux/UserRedux'
+import { connect } from 'react-redux'
 
-export default class ProfileLoginScreen extends Component {
+class _ProfileLoginScreen extends Component {
+  componentWillMount () {
+    if (this.props.user) {
+      this.props.navigation.navigate('LoggedInProfileNav')
+    }
+  }
   render () {
     return (
-      <View style={style.maincontainer}>
-        <View style={style.container}>
+      <MainContainer>
+        <View style={{ alignItems: 'center' }}>
           <Image source={images.createProfileAvatar} />
           <View style={{ height: 32 }} />
-          <Text.L>{I18n.t('Meld je aan')}!</Text.L>
+          <Text.L>{I18n.t('Sign up')}!</Text.L>
           <View style={{ height: 32 }} />
-          <Text.M>{I18n.t('Meld je aan en start met sporten')}</Text.M>
+          <Text.M>{I18n.t('Sign up and start sporting')}</Text.M>
         </View>
         <ButtonContainer>
-          <DefaultButton onPress={() => null} text='Registreer' />
+          <DefaultButton
+            onPress={() => this.props.navigation.navigate('StackSignupScreen')}
+            text={I18n.t('Register')}
+          />
         </ButtonContainer>
-      </View>
+      </MainContainer>
     )
   }
 }
 
-const style = StyleSheet.create({
-  maincontainer: {
-    flex: 1
-  },
-  container: {
-    flex: 8,
-    alignItems: 'center'
-  }
+const dispatchToProps = {
+  login: userActions.login,
+  logout: userActions.logout
+}
+
+const mapStateToProps = state => ({
+  user: state.user
 })
 
+const ProfileLoginScreen = connect(mapStateToProps, dispatchToProps)(
+  _ProfileLoginScreen
+)
+export default ProfileLoginScreen
+
+const MainContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`
+
 const ButtonContainer = styled.View`
-  flex: 7;
+  align-self: stretch;
 `

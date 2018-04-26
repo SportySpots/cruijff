@@ -58,18 +58,18 @@ export default class ProfileDetailsScreen extends React.PureComponent {
   }
 
   componentWillMount () {
-    if (!this.props.user.firstName) {
-      this.props.navigation.navigate('ProfileLoginScreen')
-    }
+    // if (!this.props.user.firstName) {
+    //   this.props.navigation.navigate('ProfileLoginScreen')
+    // }
   }
   componentWillReceiveProps () {
-    if (!this.props.user.firstName) {
-      this.props.navigation.navigate('ProfileLoginScreen')
-    }
+    // if (!this.props.user.firstName) {
+    //   this.props.navigation.navigate('ProfileLoginScreen')
+    // }
   }
 
   render () {
-    if (!this.props.user.firstName) {
+    if (!this.props.user) {
       return null
     }
 

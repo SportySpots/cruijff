@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {
+  ActivityIndicator,
   StyleSheet,
-  TouchableHighlight,
   TouchableOpacity,
   View
 } from 'react-native'
@@ -14,9 +14,10 @@ import DefaultButton from './DefaultButton'
 import I18n from '../I18n'
 import Colors from '../Themes/Colors'
 import styled from 'styled-components/native'
+import { connect } from 'react-redux'
 // import { ApplicationStyles, Metrics } from '../Themes'
 
-export default class SplashScreen extends Component {
+class _SplashScreen extends Component {
   static propTypes = {
     navigation: PropTypes.any
   }
@@ -34,21 +35,30 @@ export default class SplashScreen extends Component {
             Ontdek sportlocaties en activiteiten bij jou in de buurt
           </SplashLabel>
         </View>
-        <View style={styles.buttonsContainer}>
-          <DefaultButton
-            onPress={() => navigate('SignupScreen')}
-            text={I18n.t('Start discovering')}
-            bgColor={Colors.actionYellow}
-            textColor='white'
-          />
-          <TouchableOpacity onPress={() => navigate('SpotSearchTab')}>
-            <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
-          </TouchableOpacity>
-        </View>
+        {this.props.user.initialized ? (
+          <View style={styles.buttonsContainer}>
+            <DefaultButton
+              onPress={() => navigate('MainNav')}
+              text={I18n.t('Start discovering')}
+              bgColor={Colors.actionYellow}
+              textColor='white'
+            />
+            <TouchableOpacity onPress={() => navigate('SignupScreen')}>
+              <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View style={styles.buttonsContainer}>
+            <ActivityIndicator size='large' color='#00ff00' />
+          </View>
+        )}
       </FieldBackground>
     )
   }
 }
+
+const SplashScreen = connect(state => ({ user: state.user }))(_SplashScreen)
+export default SplashScreen
 
 const styles = StyleSheet.create({
   logo: {

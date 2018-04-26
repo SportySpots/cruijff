@@ -10,15 +10,20 @@ export const STATUS = {
 
 /* ------------- Types and Action Creators ------------- */
 
-const { Types, Creators } = createActions({
-  signupRequest: { username: null, email: null, password: null },
-  signupSuccess: ['data'],
-  signupFailure: ['data'],
-  setUuid: ['uuid'],
-  setToken: ['token'],
-  login: null,
-  logout: null
-})
+const { Types, Creators } = createActions(
+  {
+    signupRequest: { username: null, email: null, password: null },
+    signupSuccess: ['data'],
+    signupFailure: ['data'],
+    setUuid: ['uuid'],
+    setClaims: ['claims'],
+    setToken: ['token'],
+    setInitialized: ['initialized'],
+    login: null,
+    logout: null
+  },
+  { prefix: 'USER_' }
+)
 
 export const UserTypes = Types
 export default Creators
@@ -31,7 +36,9 @@ export const INITIAL_STATE = Immutable({
   },
   user: null,
   uuid: null,
-  token: null
+  claims: {},
+  token: null,
+  initialized: false
 })
 
 /* ------------- Selectors ------------- */
@@ -47,6 +54,10 @@ export const logout = state => INITIAL_STATE
 
 export const setToken = (state, action) => state.merge({ token: action.token })
 export const setUUID = (state, action) => state.merge({ uuid: action.uuid })
+export const setClaims = (state, action) =>
+  state.merge({ claims: action.claims })
+export const setInitialized = (state, action) =>
+  state.merge({ initialized: action.initialized })
 
 export const signupRequest = (state, { username, email, password }) =>
   INITIAL_STATE.merge({ signup: { status: STATUS.PENDING } })
@@ -64,6 +75,8 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.LOGOUT]: logout,
   [Types.SET_TOKEN]: setToken,
   [Types.SET_UUID]: setUUID,
+  [Types.SET_CLAIMS]: setClaims,
+  [Types.SET_INITIALIZED]: setInitialized,
   [Types.SIGNUP_REQUEST]: signupRequest,
   [Types.SIGNUP_SUCCESS]: signupSuccess,
   [Types.SIGNUP_FAILURE]: signupFailure

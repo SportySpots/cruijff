@@ -72,6 +72,7 @@ export const createMockClient = () => {
     cache: createCache(),
     link: addErrorHandlers(new SchemaLink({ schema }))
   })
+  client.setToken = () => null
   return client
 }
 

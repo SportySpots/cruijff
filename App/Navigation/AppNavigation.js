@@ -49,7 +49,10 @@ export const MainTabsNav = withNavBar(
 export const MainNav = StackNavigator(
   {
     MainTabs: { screen: MainTabsNav },
-    PlanScreen: { screen: PlanGameNav }
+    PlanScreen: { screen: PlanGameNav },
+    StackSignupScreen: {
+      screen: SignupScreen
+    }
   },
   {
     initialRouteName: 'MainTabs',
@@ -64,22 +67,24 @@ export const MainNav = StackNavigator(
    That is why SwitchNavigator is here, even though it doesn't have a
    tranisition animation.
  */
-export const RootNav = SwitchNavigator(
-  {
-    LocationPermissionScreen: { screen: AskLocation },
-    OnboardingScreen: { screen: OnboardingScreen },
-    SplashScreen: { screen: SplashScreen },
-    SignupScreen: { screen: SignupScreen },
-    MainNav: { screen: MainNav }
-  },
-  {
-    // Default config for all screens
-    headerMode: 'none',
-    // initialRouteName: 'SplashScreen'
-    initialRouteName: 'MainNav',
-    tabBarComponent: () => null
-  }
-)
+export const RootNav = ({ initialRouteName }) =>
+  React.createElement(
+    SwitchNavigator(
+      {
+        LocationPermissionScreen: { screen: AskLocation },
+        OnboardingScreen: { screen: OnboardingScreen },
+        SplashScreen: { screen: SplashScreen },
+        SignupScreen: { screen: SignupScreen },
+        MainNav: { screen: MainNav }
+      },
+      {
+        // Default config for all screens
+        headerMode: 'none',
+        initialRouteName: initialRouteName,
+        tabBarComponent: () => null
+      }
+    )
+  )
 
 export default RootNav
 

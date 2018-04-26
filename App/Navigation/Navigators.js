@@ -1,5 +1,5 @@
-import { StackNavigator } from 'react-navigation'
-import ProfileLoginScreen from '../Containers/ProfileLoginScreen'
+import { StackNavigator, SwitchNavigator } from 'react-navigation'
+import ProfileLoginScreen from '../Components/Profile/ProfileLoginScreen'
 import SpotDetail from '../Components/Spots/Spot'
 import SettingsScreen from '../Containers/SettingsScreen'
 import ProfileDetailsScreen from '../Containers/ProfileDetailsScreen'
@@ -92,7 +92,7 @@ export const SettingsNav = StackNavigator(
   }
 )
 
-export const ProfileNav = StackNavigator(
+const LoggedInProfileNav = StackNavigator(
   {
     ProfileDetailsScreen: {
       screen: ProfileDetailsScreen,
@@ -105,15 +105,23 @@ export const ProfileNav = StackNavigator(
       navigationOptions: {
         title: I18n.t('Profile Edit')
       }
-    },
-    ProfileLoginScreen: {
-      screen: ProfileLoginScreen,
-      navigationOptions: {
-        header: null
-      }
     }
   },
   {
     initialRouteName: 'ProfileDetailsScreen'
+  }
+)
+
+export const ProfileNav = SwitchNavigator(
+  {
+    ProfileLoginScreen: {
+      screen: ProfileLoginScreen
+    },
+    LoggedInProfileNav: {
+      screen: LoggedInProfileNav
+    }
+  },
+  {
+    initialRouteName: 'ProfileLoginScreen'
   }
 )
