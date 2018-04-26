@@ -29,7 +29,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         <!-- https://developer.android.com/training/app-links/deep-linking#adding-filters -->
-        <intent-filter android:label="filter_http_view">
+        <intent-filter android:label="SportySpots">
           <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
