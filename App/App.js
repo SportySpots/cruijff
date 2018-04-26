@@ -15,14 +15,12 @@ class App extends Component {
   async init () {
     // build redux store & apollo client
     await initialize()
-    const firstRun = !await AsyncStorage.getItem('hasBooted') || true
-    AsyncStorage.setItem('hasBooted', 'true')
-    this.setState({ initialized: true, firstRun })
+    this.setState({ initialized: true })
   }
 
   constructor () {
     super()
-    this.state = { initialized: false, firstRun: null }
+    this.state = { initialized: false }
     this.init()
   }
 
@@ -35,11 +33,7 @@ class App extends Component {
         <Provider store={reduxStore}>
           <AppRootView>
             <StatusBar barStyle='light-content' />
-            <AppNavigation
-              initialRouteName={
-                this.state.firstRun ? 'OnboardingScreen' : 'MainNav'
-              }
-            />
+            <AppNavigation initialRouteName='SplashScreen' />
           </AppRootView>
         </Provider>
       </ApolloProvider>

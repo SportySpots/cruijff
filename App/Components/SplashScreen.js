@@ -3,7 +3,8 @@ import {
   ActivityIndicator,
   StyleSheet,
   TouchableOpacity,
-  View
+  View,
+  AsyncStorage
 } from 'react-native'
 
 import FieldBackground from './FieldBackground'
@@ -18,6 +19,26 @@ import { connect } from 'react-redux'
 // import { ApplicationStyles, Metrics } from '../Themes'
 
 export class _SplashScreen extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { firstRun: null }
+  }
+  async componentDidMount () {
+    const firstRun = !await AsyncStorage.getItem('firstRunDone') || true
+    await AsyncStorage.setItem('firstRunDone', 'true')
+    this.setState({ firstRun })
+  }
+
+  forwardIfLoggedIn = props => {
+    if (props.user) {
+      this.props.navigation.navigate('MainNav')
+    }
+  }
+
+  componentWillReceiveProps (props) {
+    // this.forwardIfLoggedIn(props)
+  }
+
   static propTypes = {
     navigation: PropTypes.any
   }
@@ -38,7 +59,9 @@ export class _SplashScreen extends Component {
         {this.props.user.initialized ? (
           <View style={styles.buttonsContainer}>
             <DefaultButton
-              onPress={() => navigate('MainNav')}
+              onPress={() =>
+                navigate(this.state.firstRun ? 'OnboardingScreen' : 'MainNav')
+              }
               text={I18n.t('Start discovering')}
               bgColor={Colors.actionYellow}
               textColor='white'

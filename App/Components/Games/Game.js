@@ -6,7 +6,6 @@ import ImageSwiper from '../ImageSwiper'
 import Colors from '../../Themes/Colors'
 import moment from 'moment'
 import I18n from '../../I18n'
-import { showLocation } from 'react-native-map-link'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import styled from 'styled-components'
 import UserCircle from '../UserCircle'
@@ -15,7 +14,6 @@ import images from '../../Themes/Images'
 import DefaultButton from '../DefaultButton'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import RatingBig from '../RatingBig'
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -33,7 +31,8 @@ const mapMax = (maxNum, data, fn, fnElse) => {
 class GameComponent extends Component {
   static propTypes = {
     game: PropTypes.object,
-    style: View.propTypes.style
+    style: View.propTypes.style,
+    navigation: PropTypes.object
   }
 
   constructor (props) {
@@ -41,6 +40,12 @@ class GameComponent extends Component {
     this.state = {
       rating: 0
     }
+  }
+
+  openPlayerList = () => {
+    this.props.navigation.navigate('GamePlayerScreen', {
+      uuid: this.props.game.uuid
+    })
   }
 
   onShare = game => {
@@ -54,14 +59,6 @@ class GameComponent extends Component {
         dialogTitle: I18n.t('share')
       }
     )
-  }
-
-  openMaps (game) {
-    showLocation({
-      latitude: game.spot.lat,
-      longitude: game.spot.lng,
-      title: game.spot.name
-    })
   }
 
   render () {
@@ -96,72 +93,59 @@ class GameComponent extends Component {
           <HeaderRight />
         </BlockHeader>
         <Block>
-          <Text>{I18n.t('Rate this spot')}</Text>
-          <HorizontalView style={{ justifyContent: 'space-between' }}>
-            <RatingBig onPress={console.log} />
-            <TouchableOpacity>
-              <Text.M style={{ color: Colors.actionYellow }}>
-                {I18n.t('submit').toUpperCase()}
-              </Text.M>
-            </TouchableOpacity>
-          </HorizontalView>
-        </Block>
-        <View style={{ margin: 0 }}>
-          <TouchableOpacity onPress={() => this.openMaps(game)}>
-            <Image
-              style={{ height: 120 }}
-              source={{ uri: 'http://via.placeholder.com/350x150' }}
-            />
-          </TouchableOpacity>
-        </View>
-        <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
-          <HorizontalView>
-            <UserCircle user={game.organizer} style={{ marginRight: 16 }} />
-            <View style={{ flex: 1 }}>
-              <Text.SM>
-                {game.organizer.name} - {game.description}
-              </Text.SM>
-            </View>
-          </HorizontalView>
+          <TouchableOpacity onPress={this.openPlayerList}>
+            <HorizontalView>
+              <UserCircle user={game.organizer} style={{ marginRight: 16 }} />
+              <View style={{ flex: 1 }}>
+                <Text.SM>
+                  {game.organizer.name} - {game.description}
+                </Text.SM>
+              </View>
+            </HorizontalView>
+          </TouchableOpacity>
         </Block>
         {attendingUsers.length > 0 && (
           <Block>
             <BlockLabel>{I18n.t('Attending')}</BlockLabel>
-            <HorizontalView>
-              {mapMax(
-                8,
-                attendingUsers,
-                user => (
-                  <UserCircle
-                    key={user.uuid}
-                    user={user}
-                    style={{ marginRight: 4 }}
-                  />
-                ),
-                () => (
-                  <PropertyCircle
-                    key='extra'
-                    text={'+' + (attendingUsers.length - 7)}
-                  />
-                )
-              )}
-            </HorizontalView>
+            <TouchableOpacity onPress={this.openPlayerList}>
+              <HorizontalView>
+                {mapMax(
+                  8,
+                  attendingUsers,
+                  user => (
+                    <UserCircle
+                      key={user.uuid}
+                      user={user}
+                      style={{ marginRight: 4 }}
+                    />
+                  ),
+                  () => (
+                    <PropertyCircle
+                      key='extra'
+                      text={'+' + (attendingUsers.length - 7)}
+                    />
+                  )
+                )}
+              </HorizontalView>
+            </TouchableOpacity>
           </Block>
         )}
         {nOpenSpots > 0 && (
           <Block>
             <BlockLabel>{I18n.t('Open spots')}</BlockLabel>
-            <HorizontalView>
-              {mapMax(
-                8,
-                [...Array(nOpenSpots)],
-                (_, i) => <SpotOpenImage key={i} />,
-                () => (
-                  <PropertyCircle key='extra' text={'+' + (nOpenSpots - 7)} />
-                )
-              )}
-            </HorizontalView>
+            <TouchableOpacity onPress={this.openPlayerList}>
+              <HorizontalView>
+                {mapMax(
+                  8,
+                  [...Array(nOpenSpots)],
+                  (_, i) => <SpotOpenImage key={i} />,
+                  () => (
+                    <PropertyCircle key='extra' text={'+' + (nOpenSpots - 7)} />
+                  )
+                )}
+              </HorizontalView>
+            </TouchableOpacity>
           </Block>
         )}
         {nOpenSpots > 0 && (
@@ -218,7 +202,13 @@ export default class Game extends Component {
         {({ loading, error, data }) => {
           if (loading) return <Text>Loading...</Text>
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
-          return <GameComponent style={this.props.style} game={data.game} />
+          return (
+            <GameComponent
+              style={this.props.style}
+              game={data.game}
+              navigation={this.props.navigation}
+            />
+          )
         }}
       </Query>
     )

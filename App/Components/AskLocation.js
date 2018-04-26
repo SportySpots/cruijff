@@ -23,7 +23,7 @@ export default class AskLocation extends React.PureComponent {
   ask () {
     // Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
     Permissions.request('location').then(response => {
-      this.props.navigation.navigate('SplashScreen')
+      this.props.navigation.navigate('MainNav')
     })
   }
 
@@ -32,7 +32,7 @@ export default class AskLocation extends React.PureComponent {
       if (response === 'denied' || response === 'undetermined') {
         this.setState({ checked: true })
       } else {
-        this.props.navigation.navigate('SplashScreen')
+        this.props.navigation.navigate('MainNav')
       }
     })
   }
