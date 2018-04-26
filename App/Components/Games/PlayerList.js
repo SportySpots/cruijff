@@ -8,6 +8,8 @@ import I18n from '../../I18n'
 import Colors from '../../Themes/Colors'
 import { ScrollView, View } from 'react-native'
 import propTypes from 'prop-types'
+import UserCircle from '../UserCircle'
+import moment from 'moment'
 export const BottomNav = ({ screens }) =>
   React.createElement(
     new TabNavigator(screens, {
@@ -44,17 +46,38 @@ const statuses = {
 
 class UserRow extends Component {
   static propTypes = {
-    user: propTypes.object
+    attendee: propTypes.object
   }
   render () {
-    const user = this.props.user
+    const user = this.props.attendee.user
     return (
-      <ScrollView style={{ flex: 1 }}>
-        <Text>{JSON.stringify(user)}</Text>
-      </ScrollView>
+      <UserRowContainer>
+        <UserCircle user={user} />
+        <UserRowRight>
+          <Text.M>{user.name}</Text.M>
+          <Text.S>
+            {I18n.t('Signed up at')}:{' '}
+            {moment(this.props.attendee.createdAt).format('d MMMM YYYY HH:mm')}
+          </Text.S>
+        </UserRowRight>
+      </UserRowContainer>
     )
   }
 }
+
+const UserRowContainer = styled(View)`
+  height: 50px;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  border-bottom-width: 1px;
+  border-bottom-color: ${Colors.lightGray};
+`
+
+const UserRowRight = styled.View`
+  flex-direction: column;
+  padding-left: 8px;
+`
 
 export default class UserList extends Component {
   render () {
@@ -63,17 +86,18 @@ export default class UserList extends Component {
         {({ loading, error, data }) => {
           if (loading) return <Text>Loading...</Text>
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
-
           const screens = {}
           for (let status of Object.keys(statuses)) {
-            const users = data.game.attendees
-              .filter(attendee => attendee.status === status)
-              .map(a => a.user)
+            const attendees = data.game.attendees.filter(
+              attendee => attendee.status === status
+            )
             screens[status] = {
               screen: () => (
-                <View>
-                  {users.map(user => <UserRow key={user.uuid} user={user} />)}
-                </View>
+                <ScrollView style={{ flex: 1 }}>
+                  {attendees.map(attendee => (
+                    <UserRow key={attendee.user.uuid} attendee={attendee} />
+                  ))}
+                </ScrollView>
               ),
               navigationOptions: {
                 tabBarLabel: statuses[status].label
@@ -97,6 +121,7 @@ export const GET_GAME_USERS_LIST = gql`
       uuid
       attendees {
         status
+        createdAt
         user {
           uuid
           name
