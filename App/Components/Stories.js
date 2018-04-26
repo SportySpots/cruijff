@@ -26,7 +26,7 @@ import Logo from './Logo'
 import NavDots from './NavDots'
 import FieldBackground from './FieldBackground'
 import Slider from './Slider'
-import SplashScreen from './SplashScreen'
+import { _SplashScreen as SplashScreen } from './SplashScreen'
 import Rating from './Rating'
 import RatingBig from './RatingBig'
 import PropertyCircle from './PropertyCircle'
@@ -130,7 +130,7 @@ storiesOf('FieldBackground').add('Default', () => (
 
 storiesOf('Slider').add('Default', () => <Slider value={0.75} />)
 storiesOf('SplashScreen').add('Default', () => (
-  <SplashScreen navigation={dummyNavigator} />
+  <SplashScreen user={{ initialized: true }} navigation={dummyNavigator} />
 ))
 
 storiesOf('PropertyCircle').add('Propertycircle', () => (

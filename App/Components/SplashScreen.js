@@ -17,7 +17,7 @@ import styled from 'styled-components/native'
 import { connect } from 'react-redux'
 // import { ApplicationStyles, Metrics } from '../Themes'
 
-class _SplashScreen extends Component {
+export class _SplashScreen extends Component {
   static propTypes = {
     navigation: PropTypes.any
   }
