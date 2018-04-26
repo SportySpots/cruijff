@@ -14,6 +14,7 @@ import PickSpot from '../Components/Plan/PickSpot'
 import Created from '../Components/Plan/Created'
 import planWrapper from '../Containers/Plan/planWrapper'
 import Description from '../Components/Plan/Description'
+import PlayerList from '../Components/Games/PlayerList'
 
 export const PlanGameNav = StackNavigator(
   {
@@ -43,11 +44,17 @@ export const GameSearchNav = StackNavigator(
     GameDetailsScreen: {
       screen: Game,
       navigationOptions: {
-        title: 'Game Details'
+        title: I18n.t('Game Details')
       }
     },
     GameListScreen: {
       screen: GamesList,
+      navigationOptions: {
+        header: null
+      }
+    },
+    GamePlayerScreen: {
+      screen: PlayerList,
       navigationOptions: {
         header: null
       }

@@ -50,6 +50,12 @@ const create = (
       password1: password,
       password2: password
     })
+
+  const submitRating = (spotUuid, userUuid, rating) => {
+    api.post(`/games/${spotUuid}/reactions`, {
+      // todo : construct proper post
+    })
+  }
   // ------
   // STEP 3
   // ------

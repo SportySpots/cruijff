@@ -68,5 +68,9 @@ export default {
     ok: true,
     data: { ...game, uuid: 'random-uuid' }
   }),
+  submitRating: (spotUuid, userUuid, rating) => ({
+    ok: true,
+    data: {}
+  }),
   setToken: token => null
 }
