@@ -17,8 +17,8 @@ export default class RatingBig extends React.Component {
         {[1, 2, 3, 4, 5].map(i => {
           const IconComp = i <= this.props.rating ? FullStar : Star
           return (
-            <TouchableOpacity onPress={() => this.props.onPress(i)}>
-              <IconComp key={i} name='stars' size={24} />
+            <TouchableOpacity key={i} onPress={() => this.props.onPress(i)}>
+              <IconComp name='stars' size={24} />
             </TouchableOpacity>
           )
         })}

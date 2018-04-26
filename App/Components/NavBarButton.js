@@ -29,7 +29,14 @@ export default class NavBarButton extends React.Component {
       ? Colors.white
       : this.props.active ? Colors.primaryGreen : Colors.black54
     return (
-      <TouchableOpacity style={{ flex: 1 }} onPress={this.onPress}>
+      <TouchableOpacity
+        style={{
+          flex: 1,
+          borderTopWidth: this.props.main ? 0 : 1,
+          borderTopColor: Colors.lightGray
+        }}
+        onPress={this.onPress}
+      >
         <View
           style={[
             navbarButtonStyle.button,

@@ -56,14 +56,6 @@ class GameComponent extends Component {
     )
   }
 
-  openMaps (game) {
-    showLocation({
-      latitude: game.spot.lat,
-      longitude: game.spot.lng,
-      title: game.spot.name
-    })
-  }
-
   render () {
     const game = this.props.game
     const spot = game.spot
@@ -95,25 +87,6 @@ class GameComponent extends Component {
           </HeaderLeft>
           <HeaderRight />
         </BlockHeader>
-        <Block>
-          <Text>{I18n.t('Rate this spot')}</Text>
-          <HorizontalView style={{ justifyContent: 'space-between' }}>
-            <RatingBig onPress={console.log} />
-            <TouchableOpacity>
-              <Text.M style={{ color: Colors.actionYellow }}>
-                {I18n.t('submit').toUpperCase()}
-              </Text.M>
-            </TouchableOpacity>
-          </HorizontalView>
-        </Block>
-        <View style={{ margin: 0 }}>
-          <TouchableOpacity onPress={() => this.openMaps(game)}>
-            <Image
-              style={{ height: 120 }}
-              source={{ uri: 'http://via.placeholder.com/350x150' }}
-            />
-          </TouchableOpacity>
-        </View>
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
           <HorizontalView>
