@@ -9,7 +9,7 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import styled from 'styled-components'
 import I18n from '../../I18n'
-import { Image, ScrollView, TouchableOpacity, View } from 'react-native'
+import { ScrollView, TouchableOpacity, View } from 'react-native'
 import RatingBig from '../RatingBig'
 import FlatButton from '../FlatButton'
 import SpotProperties from './SpotProperties'
@@ -17,6 +17,7 @@ import Colors from '../../Themes/Colors'
 import { showLocation } from 'react-native-map-link'
 import { connect } from 'react-redux'
 import api from '../../Services/SeedorfApi'
+import MapView from 'react-native-maps'
 
 export class SpotContents extends React.Component {
   constructor (props) {
@@ -69,14 +70,6 @@ export class SpotContents extends React.Component {
         <Block>
           <Header spot={spot} />
         </Block>
-        <View style={{ margin: 0 }}>
-          <TouchableOpacity onPress={() => this.openSpot(spot)}>
-            <Image
-              style={{ height: 120 }}
-              source={{ uri: 'http://via.placeholder.com/350x150' }}
-            />
-          </TouchableOpacity>
-        </View>
         {this.state.showRating && (
           <Block style={{ backgroundColor: Colors.bgGrey }}>
             <Text>{I18n.t('Rate this spot')}</Text>
@@ -94,6 +87,19 @@ export class SpotContents extends React.Component {
             </HorizontalView>
           </Block>
         )}
+        <View style={{ margin: 0 }}>
+          <TouchableOpacity onPress={() => this.openSpot(spot)}>
+            <MapView
+              style={{ height: 120 }}
+              initialRegion={{
+                latitude: spot.address.lat,
+                longitude: spot.address.lng,
+                latitudeDelta: 0.01,
+                longitudeDelta: 0.01
+              }}
+            />
+          </TouchableOpacity>
+        </View>
         {spot.amenities.length > 0 && (
           <SpotProperties properties={spot.amenities[0].data} />
         )}
