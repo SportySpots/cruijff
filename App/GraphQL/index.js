@@ -41,7 +41,8 @@ export const createClient = uri => {
   const middlewareLink = new ApolloLink((operation, forward) => {
     operation.setContext({
       headers: {
-        authorization: token
+        authorization: `Bearer ${token}`,
+        cookie: null
       }
     })
     return forward(operation)

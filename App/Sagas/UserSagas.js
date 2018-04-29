@@ -1,6 +1,5 @@
-import { call, put } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
-import userActions from '../Redux/UserRedux'
+import { all, call, put, takeLatest } from 'redux-saga/effects'
+import userActions, { UserTypes } from '../Redux/UserRedux'
 import gql from 'graphql-tag'
 import { client } from '../GraphQL'
 import { AsyncStorage } from 'react-native'
@@ -24,22 +23,41 @@ export function * setToken (api, action) {
   const claims = JSON.parse(
     Buffer.from(action.token.split('.')[1], 'base64').toString('ascii')
   )
-  yield put(userActions.setClaims(claims))
-  client.setToken(action.token)
-  api.setToken(action.token)
   try {
     const result = yield call(client.query, {
       query: gql`
         {
-          user(id: ${claims.user_id}) {
+          currentuser {
             uuid
           }
-        }`
+        }
+      `
     })
-    yield put(userActions.setUuid(result.data.user.uuid))
+    yield put(userActions.setClaims(claims))
+    yield put(userActions.setUuid(result.data.currentuser.uuid))
+    yield call(AsyncStorage.setItem, 'TOKEN', action.token)
+    client.setToken(action.token)
+    api.setToken(action.token)
   } catch (e) {
-    console.log(e)
+    yield put(userActions.logout())
   }
-  AsyncStorage.setItem('TOKEN', action.token)
   yield put(userActions.setInitialized(true))
+}
+
+export function * usersRootSaga (api) {
+  yield all([
+    takeLatest(UserTypes.SIGNUP_REQUEST, signup, api),
+    takeLatest(UserTypes.LOGOUT, function * () {
+      console.log('logout saga')
+      yield call(AsyncStorage.removeItem, 'TOKEN')
+    }),
+    takeLatest(UserTypes.SET_TOKEN, setToken, api)
+  ])
+
+  const token = yield call(AsyncStorage.getItem, 'TOKEN')
+  if (token) {
+    yield put(userActions.setToken(token))
+  } else {
+    yield put(userActions.setInitialized(true))
+  }
 }

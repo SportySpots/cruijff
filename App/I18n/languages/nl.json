@@ -11,12 +11,12 @@
   "find": "Spots",
   "join": "Meedoen",
   "Plan a game": "Plan een potje",
+  "plan a game": "plan een potje",
   "profile": "Profiel",
   "settings": "Instellingen",
 
   "players needed": "spelers nodig",
   "full": "vol",
-
   "Organizer": "Organisator",
   "Attending": "Aanwezig",
   "Share with friends": "Delen",
@@ -38,5 +38,28 @@
   "I want to play": "Ik organiseer een potje",
   "on": "op",
   "from": "vanaf",
-  "to": "tot"
+  "to": "tot",
+
+  "attending": "aanwezig",
+  "declined": "afwezig",
+  "invited": "uitgenodigd",
+  "Game Details": "Speloverzicht",
+  "Players": "Spelers",
+  "spot-details": "Spotoverzicht",
+  "Profile Edit": "Profiel aanpassen",
+  "Start discovering": "Start met ontdekken",
+  "Already signed up? Log in": "Heb je al een account? Log in",
+  "hi-sport": "Hoi sporter!",
+  "join-a-game": "Ontdek en doe mee",
+  "plan-a-game": "Plan een potje",
+  "onboarding-1":
+    "Hoi! Leuk dat je meedoet met wat de grootste sportclub ter wereld gaat worden. Veel plezier!",
+  "onboarding-2":
+    "Ontdek alle SportySpots bij jou in de buurt. Druk op de 'meedoen' om potjes sport te vinden die bij jou in de buurt worden georganiseerd.",
+  "onboarding-3":
+    "Druk op de 'Plan een potje' knop om je vrienden of andere leden uit te nodigen voor jouw favorite sport.",
+
+  "E-mail": "E-mail",
+  "Password": "Wachtwoord",
+  "Username": "Gebruikersnaam"
 }
