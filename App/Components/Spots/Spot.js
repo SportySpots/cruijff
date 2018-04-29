@@ -116,7 +116,7 @@ const Spot = connect(state => ({ uuid: state.user.uuid }))(
 
 export default Spot
 
-const GET_SPOT_DETAILS = gql`
+export const GET_SPOT_DETAILS = gql`
   query spot($uuid: UUID, $user_uuid: UUID) {
     spot(uuid: $uuid) {
       uuid

@@ -8,6 +8,9 @@ import { showLocation } from 'react-native-map-link'
 import Colors from '../../Themes/Colors'
 import RoundButton from '../RoundButton'
 
+// TODO: display google-maps link in case the map component crashes.
+// Use <ErrorBoundary>
+
 const DELTA = 0.003
 
 const Relative = styled.View`

@@ -1,7 +1,7 @@
 import React from 'react'
 import Text from './Text'
 
-// See: https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html#introducing-error-boundaries
+// See: https://reactjs.org/docs/error-boundaries.html
 class ErrorBoundary extends React.Component {
   state = { hasError: false }
 
