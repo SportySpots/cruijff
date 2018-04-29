@@ -3,14 +3,10 @@ import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/native'
 
-const size = 50
-
 const Container = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${size};
-  width: ${size};
   border-radius: 50;
   border-width: 1;
   border-color: #ddd;
@@ -19,19 +15,29 @@ const Container = styled.View`
   shadow-opacity: 0.4;
 `
 
-const RoundButton = ({ children, bgColor, onPress, ...rest }) => (
+const RoundButton = ({ children, size, bgColor, onPress, ...rest }) => (
   <TouchableOpacity onPress={onPress} {...rest}>
-    <Container style={{ backgroundColor: bgColor }}>{children}</Container>
+    <Container
+      style={{
+        height: size,
+        width: size,
+        backgroundColor: bgColor
+      }}
+    >
+      {children}
+    </Container>
   </TouchableOpacity>
 )
 
 RoundButton.propTypes = {
   children: PropTypes.any.isRequired,
+  size: PropTypes.number,
   bgColor: PropTypes.string,
   onPress: PropTypes.func
 }
 
 RoundButton.defaultProps = {
+  size: 50,
   bgColor: 'white',
   onPress: () => {}
 }

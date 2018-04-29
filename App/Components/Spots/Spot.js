@@ -17,7 +17,8 @@ import Colors from '../../Themes/Colors'
 import { showLocation } from 'react-native-map-link'
 import { connect } from 'react-redux'
 import api from '../../Services/SeedorfApi'
-import MiniMap from '../Maps/MiniMap'
+import ErrorBoundary from '../ErrorBoundary'
+import SpotMap from '../Maps/SpotMap'
 
 export class SpotContents extends React.Component {
   constructor (props) {
@@ -80,10 +81,9 @@ export class SpotContents extends React.Component {
           </Block>
         )}
         <View style={{ margin: 0 }}>
-          <MiniMap
-            center={{ latitude: spot.address.lat, longitude: spot.address.lng }}
-            title={spot.name}
-          />
+          <ErrorBoundary>
+            <SpotMap spot={spot} />
+          </ErrorBoundary>
         </View>
         {spot.amenities.length > 0 && (
           <SpotProperties properties={spot.amenities[0].data} />
