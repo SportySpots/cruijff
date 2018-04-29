@@ -32,7 +32,7 @@ export default class NavBarButton extends React.Component {
       <TouchableOpacity
         style={{
           flex: 1,
-          borderTopWidth: this.props.main ? 0 : 1,
+          borderTopWidth: this.props.main ? 0 : StyleSheet.hairlineWidth,
           borderTopColor: Colors.lightGray
         }}
         onPress={this.onPress}
