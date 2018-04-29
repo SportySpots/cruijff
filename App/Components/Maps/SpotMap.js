@@ -1,10 +1,9 @@
 import React from 'react'
-import { TouchableOpacity, View } from 'react-native'
+import { View } from 'react-native' // eslint-disable-line
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import MapView from 'react-native-maps'
-import { Marker } from 'react-native-maps'
+import MapView, { Marker } from 'react-native-maps'
 import { showLocation } from 'react-native-map-link'
 import Colors from '../../Themes/Colors'
 import RoundButton from '../RoundButton'
