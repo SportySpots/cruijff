@@ -14,6 +14,8 @@ import images from '../../Themes/Images'
 import DefaultButton from '../DefaultButton'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
+import ErrorBoundary from '../ErrorBoundary'
+import SpotMap from '../Maps/SpotMap'
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -92,6 +94,11 @@ class GameComponent extends Component {
           </HeaderLeft>
           <HeaderRight />
         </BlockHeader>
+        <View style={{ margin: 0 }}>
+          <ErrorBoundary>
+            <SpotMap spot={spot} />
+          </ErrorBoundary>
+        </View>
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
           <TouchableOpacity onPress={this.openPlayerList}>

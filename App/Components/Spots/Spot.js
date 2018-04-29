@@ -9,14 +9,15 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import styled from 'styled-components'
 import I18n from '../../I18n'
-import { Image, ScrollView, TouchableOpacity, View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import RatingBig from '../RatingBig'
 import FlatButton from '../FlatButton'
 import SpotProperties from './SpotProperties'
 import Colors from '../../Themes/Colors'
-import { showLocation } from 'react-native-map-link'
 import { connect } from 'react-redux'
 import api from '../../Services/SeedorfApi'
+import ErrorBoundary from '../ErrorBoundary'
+import SpotMap from '../Maps/SpotMap'
 
 export class SpotContents extends React.Component {
   constructor (props) {
@@ -26,14 +27,6 @@ export class SpotContents extends React.Component {
       userRating: null, // todo: set from props
       showRating: true
     }
-  }
-
-  openSpot (spot) {
-    showLocation({
-      latitude: spot.lat,
-      longitude: spot.lng,
-      title: spot.name
-    })
   }
 
   submitRating = async () => {
@@ -69,14 +62,6 @@ export class SpotContents extends React.Component {
         <Block>
           <Header spot={spot} />
         </Block>
-        <View style={{ margin: 0 }}>
-          <TouchableOpacity onPress={() => this.openSpot(spot)}>
-            <Image
-              style={{ height: 120 }}
-              source={{ uri: 'http://via.placeholder.com/350x150' }}
-            />
-          </TouchableOpacity>
-        </View>
         {this.state.showRating && (
           <Block style={{ backgroundColor: Colors.bgGrey }}>
             <Text>{I18n.t('Rate this spot')}</Text>
@@ -94,6 +79,11 @@ export class SpotContents extends React.Component {
             </HorizontalView>
           </Block>
         )}
+        <View style={{ margin: 0 }}>
+          <ErrorBoundary>
+            <SpotMap spot={spot} />
+          </ErrorBoundary>
+        </View>
         {spot.amenities.length > 0 && (
           <SpotProperties properties={spot.amenities[0].data} />
         )}
@@ -126,7 +116,7 @@ const Spot = connect(state => ({ uuid: state.user.uuid }))(
 
 export default Spot
 
-const GET_SPOT_DETAILS = gql`
+export const GET_SPOT_DETAILS = gql`
   query spot($uuid: UUID, $user_uuid: UUID) {
     spot(uuid: $uuid) {
       uuid
