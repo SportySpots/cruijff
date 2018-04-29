@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import Text from '../Text'
-import Api from '../../Services/SeedorfApi'
 import Colors from '../../Themes/Colors'
 import moment from 'moment'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
@@ -33,7 +32,14 @@ export default class GameListCard extends Component {
         </Left>
         <Right>
           <SpotImageContainer>
-            <SpotImage source={{ uri: spot.images[0].image }} />
+            <SpotImage
+              source={{
+                uri:
+                  spot.images && spot.images.length > 0
+                    ? spot.images[0].image
+                    : 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png'
+              }}
+            />
           </SpotImageContainer>
           <Overlay>
             <Top>

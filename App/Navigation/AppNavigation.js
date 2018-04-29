@@ -11,7 +11,7 @@ import {
   SpotSearchNav
 } from './Navigators'
 import AskLocation from '../Components/AskLocation'
-import SignupScreen from '../Containers/Signup'
+import SignupScreen from '../Components/Signup'
 import { View } from 'react-native'
 import NavBar from '../Components/NavBar'
 

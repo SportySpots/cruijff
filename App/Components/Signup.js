@@ -7,44 +7,65 @@ import Text from './Text'
 import I18n from '../I18n'
 import DefaultButton from './DefaultButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { STATUS } from '../Redux/UserRedux'
+import userActions, { STATUS } from '../Redux/UserRedux'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+import api from '../Services/SeedorfApi'
 
-export default class Signup extends Component {
+export class _Signup extends Component {
   static propTypes = {
     onPress: PropTypes.func,
     text: PropTypes.string,
     children: PropTypes.string,
     navigation: PropTypes.object,
-    signupRequest: PropTypes.func
+    setToken: PropTypes.func,
+    user: PropTypes.object
   }
 
   constructor () {
     super()
     this.state = {
+      requestStatus: STATUS.IDLE,
+      error: null,
       username: '',
       email: '',
       password: ''
     }
   }
 
+  signupRequest = async () => {
+    this.setState({ requestStatus: STATUS.PENDING })
+    const result = await api.signup({
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    })
+    if (result.problem) {
+      this.setState({
+        requestStatus: STATUS.FAILURE,
+        error: result.data
+      })
+    } else {
+      this.props.setToken(result.data.token)
+    }
+  }
+
   componentWillMount () {
-    console.log('signup will mount')
-    if (this.props.user.signup.status === STATUS.SUCCESS) {
-      this.props.navigation.navigate('OnboardingScreen')
+    if (this.props.user.uuid) {
+      this.props.navigation.navigate('MainNav')
     }
   }
 
   componentWillReceiveProps (newProps) {
-    if (newProps.user.signup.status === STATUS.SUCCESS) {
-      this.props.navigation.navigate('OnboardingScreen')
+    if (newProps.user.uuid) {
+      newProps.navigation.navigate('MainNav')
     }
   }
 
   render () {
-    const requestIsPending = this.props.user.signup.status === STATUS.PENDING
-    const hasError = this.props.user.signup.status === STATUS.FAILURE
-    const error = hasError ? this.props.user.signup.data : null
+    const requestIsPending = this.state.requestStatus === STATUS.PENDING
+    const hasError = this.state.requestStatus === STATUS.FAILURE
+    const error = hasError ? this.state.error : null
     return (
       <View style={{ flex: 1, backgroundColor: Colors.white }}>
         <KeyboardAwareScrollView contentContainerStyle={style.container}>
@@ -96,13 +117,7 @@ export default class Signup extends Component {
               bgColor={requestIsPending ? 'gray' : 'blue'}
               textColor={Colors.white}
               text={I18n.t('Signup')}
-              onPress={() =>
-                this.props.signupRequest({
-                  username: this.state.username,
-                  email: this.state.email,
-                  password: this.state.password
-                })
-              }
+              onPress={this.signupRequest}
             />
           </View>
         </KeyboardAwareScrollView>
@@ -110,6 +125,11 @@ export default class Signup extends Component {
     )
   }
 }
+
+const Signup = connect(state => ({ user: state.user }), {
+  setToken: userActions.setToken
+})(_Signup)
+export default Signup
 
 const style = StyleSheet.create({
   container: {

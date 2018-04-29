@@ -235,7 +235,9 @@ const GET_GAME_DETAILS = gql`
           image
         }
         amenities {
-          sport
+          sport {
+            category
+          }
           data
         }
         sports {

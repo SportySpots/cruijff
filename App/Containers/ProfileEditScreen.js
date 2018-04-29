@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import userActions from '../Redux/UserRedux'
 
 const dispatchToProps = {
-  login: userActions.login,
   logout: userActions.logout
 }
 

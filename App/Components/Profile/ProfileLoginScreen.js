@@ -35,18 +35,11 @@ class _ProfileLoginScreen extends Component {
   }
 }
 
-const dispatchToProps = {
-  login: userActions.login,
-  logout: userActions.logout
-}
-
 const mapStateToProps = state => ({
   user: state.user
 })
 
-const ProfileLoginScreen = connect(mapStateToProps, dispatchToProps)(
-  _ProfileLoginScreen
-)
+const ProfileLoginScreen = connect(mapStateToProps)(_ProfileLoginScreen)
 export default ProfileLoginScreen
 
 const MainContainer = styled.View`
