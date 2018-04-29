@@ -4,17 +4,17 @@ import styled from 'styled-components'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 
-const Checkbox = props => {
+const Check = props => {
   return (
     <TouchableOpacity {...props}>
       <ButtonContainer>
-        <Icon name='check-box-outline-blank' size={48} color={Colors.white} />
+        <Icon name='check-box' size={48} color={Colors.white} />
       </ButtonContainer>
     </TouchableOpacity>
   )
 }
 
-export default Checkbox
+export default Check
 
 const ButtonContainer = styled.View`
   display: flex;
