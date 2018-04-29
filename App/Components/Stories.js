@@ -105,7 +105,7 @@ storiesOf('NavBar')
   ))
   .add('At bottom', () => (
     <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: 'red' }} />
+      <View style={{ flex: 1, backgroundColor: 'white' }} />
       <NavBar nav={dummyReduxNav} navigate={() => null} />
     </View>
   ))
