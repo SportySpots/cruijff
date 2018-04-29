@@ -17,7 +17,7 @@ import Colors from '../../Themes/Colors'
 import { showLocation } from 'react-native-map-link'
 import { connect } from 'react-redux'
 import api from '../../Services/SeedorfApi'
-import MapView from 'react-native-maps'
+import MiniMap from '../Maps/MiniMap'
 
 export class SpotContents extends React.Component {
   constructor (props) {
@@ -27,14 +27,6 @@ export class SpotContents extends React.Component {
       userRating: null, // todo: set from props
       showRating: true
     }
-  }
-
-  openSpot (spot) {
-    showLocation({
-      latitude: spot.lat,
-      longitude: spot.lng,
-      title: spot.name
-    })
   }
 
   submitRating = async () => {
@@ -88,17 +80,10 @@ export class SpotContents extends React.Component {
           </Block>
         )}
         <View style={{ margin: 0 }}>
-          <TouchableOpacity onPress={() => this.openSpot(spot)}>
-            <MapView
-              style={{ height: 120 }}
-              initialRegion={{
-                latitude: spot.address.lat,
-                longitude: spot.address.lng,
-                latitudeDelta: 0.01,
-                longitudeDelta: 0.01
-              }}
-            />
-          </TouchableOpacity>
+          <MiniMap
+            center={{ latitude: spot.address.lat, longitude: spot.address.lng }}
+            title={spot.name}
+          />
         </View>
         {spot.amenities.length > 0 && (
           <SpotProperties properties={spot.amenities[0].data} />
