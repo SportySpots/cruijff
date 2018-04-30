@@ -30,7 +30,7 @@ const Flex = styled.View`
   flex: 1;
 `
 
-const Space = styled.View`
+const Spacer = styled.View`
   width: 6;
 `
 
@@ -52,7 +52,7 @@ const SpotMap = ({ spot, delta }) => {
           <RoundButton>
             <Icon name='directions' size={24} color={Colors.primaryGreen} />
           </RoundButton>
-          <Space />
+          <Spacer />
           <RoundButton onPress={() => showLocation({ ...center, title })}>
             <Icon name='map' size={24} color={Colors.primaryGreen} />
           </RoundButton>

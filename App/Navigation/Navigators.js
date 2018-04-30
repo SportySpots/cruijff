@@ -6,6 +6,7 @@ import ProfileDetailsScreen from '../Containers/ProfileDetailsScreen'
 import ProfileEditScreen from '../Containers/ProfileEditScreen'
 import I18n from '../I18n'
 import SpotList from '../Components/Spots/SpotList'
+import SpotMap from '../Components/Spots/SpotMap'
 
 import Game from '../Components/Games/Game'
 import GamesList from '../Components/Games/GameList'
@@ -78,10 +79,17 @@ export const SpotSearchNav = StackNavigator(
       navigationOptions: {
         header: null
       }
+    },
+    SpotMapScreen: {
+      screen: SpotMap,
+      navigationOptions: {
+        header: null
+      }
     }
   },
   {
     initialRouteName: 'SpotListScreen'
+    // initialRouteName: 'SpotMapScreen'
   }
 )
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/native'
+import Colors from '../Themes/Colors'
 
 const Container = styled.View`
   display: flex;
@@ -38,7 +39,7 @@ RoundButton.propTypes = {
 
 RoundButton.defaultProps = {
   size: 50,
-  bgColor: 'white',
+  bgColor: Colors.white,
   onPress: () => {}
 }
 
