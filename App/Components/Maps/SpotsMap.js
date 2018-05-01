@@ -1,21 +1,14 @@
 import React from 'react'
 import {
-  ActivityIndicator,
-  FlatList,
   TouchableOpacity,
-  View,
-  Dimensions,
-  StyleSheet
+  View, // eslint-disable-line
+  Dimensions
 } from 'react-native'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 import MapView, { Marker } from 'react-native-maps'
-import { showLocation } from 'react-native-map-link'
 import Swiper from 'react-native-swiper'
 import Colors from '../../Themes/Colors'
-import Text from '../Text'
-import RoundButton from '../RoundButton'
 import { cardList } from '../Spots/Styles/CardStyles'
 import CardSmall from '../Spots/SpotMapCardSmall'
 
@@ -37,15 +30,6 @@ const Absolute = styled.View`
   bottom: 0;
   left: 0;
   right: 0;
-`
-
-const Flex = styled.View`
-  flex-direction: row;
-  flex: 1;
-`
-
-const Spacer = styled.View`
-  width: 6;
 `
 
 const CardContainer = ({ onPress, ...rest }) => (
@@ -96,7 +80,7 @@ class SpotsMap extends React.PureComponent {
     // Get spot location
     const { address: { lat, lng } } = spot
     // Center map on the spot
-    const center = { latitude: lat, longitude: lng }
+    const center = { latitude: lat, longitude: lng } // eslint-disable-line
     // Make sure the card is swiped after the currentSpot is updated (otherwise
     // we'll have an infinite loop!)
     this.setState(({ currentSpot: index, center }) => {
@@ -117,12 +101,12 @@ class SpotsMap extends React.PureComponent {
           onRegionChangeComplete={this.handleRegionChange}
         >
           {spots.map(({ uuid, address, name }, index) => {
-            const center = { latitude: address.lat, longitude: address.lng }
+            const latLng = { latitude: address.lat, longitude: address.lng }
             return (
               <Marker
                 key={name}
                 tracksViewChanges={false}
-                coordinate={center}
+                coordinate={latLng}
                 pinColor={
                   currentSpot === index ? Colors.primaryGreen : Colors.black
                 }
