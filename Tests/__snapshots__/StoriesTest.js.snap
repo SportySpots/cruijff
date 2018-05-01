@@ -98,7 +98,7 @@ exports[`Storyshots Basic components BackButton 1`] = `
 </View>
 `;
 
-exports[`Storyshots Basic components Checkbox checked 1`] = `
+exports[`Storyshots Basic components Check 1`] = `
 <View
   style={
     Object {
@@ -125,11 +125,7 @@ exports[`Storyshots Basic components Checkbox checked 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "alignItems": "flex-start",
-        "height": 50,
-        "justifyContent": "center",
         "opacity": 1,
-        "width": 50,
       }
     }
     testID={undefined}
@@ -137,28 +133,16 @@ exports[`Storyshots Basic components Checkbox checked 1`] = `
   >
     <View
       style={
-        Object {
-          "borderColor": "white",
-          "borderRadius": 1.5625,
-          "borderWidth": 1,
-          "bottom": 0,
-          "left": 0,
-          "marginBottom": 12.5,
-          "marginLeft": 0,
-          "marginRight": 25,
-          "marginTop": 12.5,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-        }
-      }
-    />
-    <View
-      style={
-        Object {
-          "left": -6.25,
-          "top": -6.25,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 48,
+            "justifyContent": "center",
+            "width": 48,
+          },
+          undefined,
+        ]
       }
     >
       <Text
@@ -168,8 +152,8 @@ exports[`Storyshots Basic components Checkbox checked 1`] = `
         style={
           Array [
             Object {
-              "color": "white",
-              "fontSize": 50,
+              "color": "#fff",
+              "fontSize": 48,
             },
             undefined,
             Object {
@@ -180,14 +164,14 @@ exports[`Storyshots Basic components Checkbox checked 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
 </View>
 `;
 
-exports[`Storyshots Basic components Checkbox unchecked 1`] = `
+exports[`Storyshots Basic components Checkbox 1`] = `
 <View
   style={
     Object {
@@ -214,11 +198,7 @@ exports[`Storyshots Basic components Checkbox unchecked 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "alignItems": "flex-start",
-        "height": 50,
-        "justifyContent": "center",
         "opacity": 1,
-        "width": 50,
       }
     }
     testID={undefined}
@@ -226,30 +206,40 @@ exports[`Storyshots Basic components Checkbox unchecked 1`] = `
   >
     <View
       style={
-        Object {
-          "borderColor": "white",
-          "borderRadius": 1.5625,
-          "borderWidth": 1,
-          "bottom": 0,
-          "left": 0,
-          "marginBottom": 12.5,
-          "marginLeft": 0,
-          "marginRight": 25,
-          "marginTop": 12.5,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 48,
+            "justifyContent": "center",
+            "width": 48,
+          },
+          undefined,
+        ]
       }
-    />
-    <View
-      style={
-        Object {
-          "left": -6.25,
-          "top": -6.25,
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#fff",
+              "fontSize": 48,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
         }
-      }
-    />
+      >
+        
+      </Text>
+    </View>
   </View>
 </View>
 `;
@@ -3271,7 +3261,7 @@ exports[`Storyshots Onboarding Default 1`] = `
                     }
                   }
                 >
-                  Plan a game
+                  Join a game
                 </Text>
                 <Text
                   accessible={true}
@@ -3365,7 +3355,7 @@ exports[`Storyshots Onboarding Default 1`] = `
                     }
                   }
                 >
-                  Join a game
+                  Plan a game
                 </Text>
                 <Text
                   accessible={true}
@@ -5521,7 +5511,7 @@ exports[`Storyshots Plan Step 1: Sport/time 1`] = `
                           "marginTop": 4,
                         },
                         Object {
-                          "color": "#00adf5",
+                          "color": "#d9e1e8",
                         },
                       ]
                     }
@@ -5570,6 +5560,9 @@ exports[`Storyshots Plan Step 1: Sport/time 1`] = `
                           "fontWeight": "300",
                           "marginTop": 4,
                         },
+                        Object {
+                          "color": "#d9e1e8",
+                        },
                       ]
                     }
                   >
@@ -5616,6 +5609,9 @@ exports[`Storyshots Plan Step 1: Sport/time 1`] = `
                           "fontSize": 16,
                           "fontWeight": "300",
                           "marginTop": 4,
+                        },
+                        Object {
+                          "color": "#d9e1e8",
                         },
                       ]
                     }
@@ -5674,6 +5670,9 @@ exports[`Storyshots Plan Step 1: Sport/time 1`] = `
                           "fontSize": 16,
                           "fontWeight": "300",
                           "marginTop": 4,
+                        },
+                        Object {
+                          "color": "#00adf5",
                         },
                       ]
                     }
@@ -11724,11 +11723,7 @@ exports[`Storyshots Plan Step 4: Created 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "alignItems": "flex-start",
-              "height": 72,
-              "justifyContent": "center",
               "opacity": 1,
-              "width": 72,
             }
           }
           testID={undefined}
@@ -11736,28 +11731,16 @@ exports[`Storyshots Plan Step 4: Created 1`] = `
         >
           <View
             style={
-              Object {
-                "borderColor": "#fff",
-                "borderRadius": 2.25,
-                "borderWidth": 1,
-                "bottom": 0,
-                "left": 0,
-                "marginBottom": 18,
-                "marginLeft": 0,
-                "marginRight": 36,
-                "marginTop": 18,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              }
-            }
-          />
-          <View
-            style={
-              Object {
-                "left": -9,
-                "top": -9,
-              }
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "width": 48,
+                },
+                undefined,
+              ]
             }
           >
             <Text
@@ -11768,7 +11751,7 @@ exports[`Storyshots Plan Step 4: Created 1`] = `
                 Array [
                   Object {
                     "color": "#fff",
-                    "fontSize": 72,
+                    "fontSize": 48,
                   },
                   undefined,
                   Object {
@@ -11779,7 +11762,7 @@ exports[`Storyshots Plan Step 4: Created 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>

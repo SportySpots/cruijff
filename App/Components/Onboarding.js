@@ -11,12 +11,12 @@ const data = [
     image: Images.illustrationWizard1
   },
   {
-    title: I18n.t('plan-a-game'),
+    title: I18n.t('join-a-game'),
     text: I18n.t('onboarding-2'),
     image: Images.illustrationWizard2
   },
   {
-    title: I18n.t('join-a-game'),
+    title: I18n.t('plan-a-game'),
     text: I18n.t('onboarding-3'),
     image: Images.illustrationWizard3
   }

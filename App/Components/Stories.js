@@ -22,6 +22,7 @@ import FlatButton from './FlatButton'
 import RouteButton from './RouteButton'
 import MapsButton from './MapsButton'
 import Checkbox from './Checkbox'
+import Check from './Check'
 import Text from './Text'
 import Logo from './Logo'
 import NavDots from './NavDots'
@@ -52,15 +53,14 @@ storiesOf('Basic components')
   .add('DefaultButton', () => <DefaultButton text='Press me please' />)
   .add('SecondaryButton', () => <SecondaryButton text='Press me please' />)
   .add('FlatButton', () => <FlatButton text='SUBMIT' />)
-
-  .add('Checkbox checked', () => (
-    <View style={{ backgroundColor: 'green', flex: 1 }}>
-      <Checkbox color='white' size={50} checked />
+  .add('Checkbox', () => (
+    <View style={{ flex: 1, backgroundColor: 'green' }}>
+      <Checkbox />
     </View>
   ))
-  .add('Checkbox unchecked', () => (
-    <View style={{ backgroundColor: 'green', flex: 1 }}>
-      <Checkbox color='white' size={50} checked={false} />
+  .add('Check', () => (
+    <View style={{ flex: 1, backgroundColor: 'green' }}>
+      <Check />
     </View>
   ))
 
