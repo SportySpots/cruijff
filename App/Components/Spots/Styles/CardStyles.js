@@ -26,17 +26,17 @@ export const cardSmall = StyleSheet.create({
     flexDirection: 'row'
   },
   image: {
-    flex: 1,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8
+    flex: 1
+    // borderTopLeftRadius: 8,
+    // borderTopRightRadius: 8
   },
   details: {
     flex: 3,
     flexDirection: 'column',
     backgroundColor: Colors.white,
-    padding: 8,
-    borderBottomLeftRadius: 16,
-    borderBottomRightRadius: 16
+    padding: 8
+    // borderBottomLeftRadius: 16,
+    // borderBottomRightRadius: 16
   }
 })
 
