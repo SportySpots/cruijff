@@ -72,5 +72,14 @@ export default {
     ok: true,
     data: {}
   }),
+  signup: () => ({
+    ok: true,
+    data: {
+      token: '12345'
+    }
+  }),
+  verifyToken: token => ({
+    ok: true
+  }),
   setToken: token => null
 }

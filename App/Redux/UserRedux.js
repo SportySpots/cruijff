@@ -27,7 +27,6 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  user: null,
   uuid: null,
   claims: {},
   token: null,
@@ -36,7 +35,7 @@ export const INITIAL_STATE = Immutable({
 
 /* ------------- Reducers ------------- */
 
-export const logout = state => INITIAL_STATE
+export const logout = state => INITIAL_STATE.merge({ initialized: true })
 
 export const setToken = (state, action) => state.merge({ token: action.token })
 export const setUUID = (state, action) => state.merge({ uuid: action.uuid })

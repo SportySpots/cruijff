@@ -16,6 +16,8 @@ import {
 } from 'react-native-popup-menu'
 import { TabBarTop, TabNavigator } from 'react-navigation'
 import Colors from '../../Themes/Colors'
+import userActions from '../../Redux/UserRedux'
+import { connect } from 'react-redux'
 
 export const BottomNav = new TabNavigator(
   {
@@ -46,7 +48,7 @@ export const BottomNav = new TabNavigator(
   }
 )
 
-export default class ProfileDetailsScreen extends React.PureComponent {
+export class _ProfileDetailsScreen extends React.PureComponent {
   static propTypes = {
     navigation: PropTypes.any,
     user: PropTypes.shape({
@@ -55,6 +57,11 @@ export default class ProfileDetailsScreen extends React.PureComponent {
       age: PropTypes.number,
       level: PropTypes.number
     })
+  }
+
+  onLogout = () => {
+    this.props.logout()
+    this.props.navigation.navigate('SplashScreen')
   }
 
   render () {
@@ -77,7 +84,7 @@ export default class ProfileDetailsScreen extends React.PureComponent {
               <Text.M>{I18n.t('Edit')}</Text.M>
             </MenuOption>
             <MenuOption disabled />
-            <MenuOption onSelect={() => this.props.logout()}>
+            <MenuOption onSelect={this.onLogout}>
               <Text.M style={{ color: 'red' }}>Log out</Text.M>
             </MenuOption>
           </MenuOptions>
@@ -114,6 +121,19 @@ export default class ProfileDetailsScreen extends React.PureComponent {
     )
   }
 }
+
+const dispatchToProps = {
+  logout: userActions.logout
+}
+
+const mapStateToProps = state => ({
+  user: state.user
+})
+
+const ProfileDetailsScreen = connect(mapStateToProps, dispatchToProps)(
+  _ProfileDetailsScreen
+)
+export default ProfileDetailsScreen
 
 const styles = StyleSheet.create({
   image: {

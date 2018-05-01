@@ -10,11 +10,19 @@ import { connect } from 'react-redux'
 
 class _ProfileLoginScreen extends Component {
   componentWillMount () {
-    if (this.props.user) {
+    if (this.props.user.uuid) {
+      this.props.navigation.navigate('ProfileDetailsScreen')
+    }
+  }
+  componentWillReceiveProps (newProps) {
+    if (!this.props.user.uuid && newProps.user.uuid) {
       this.props.navigation.navigate('LoggedInProfileNav')
     }
   }
   render () {
+    if (this.props.user.uuid) {
+      return null
+    }
     return (
       <MainContainer>
         <View style={{ alignItems: 'center' }}>

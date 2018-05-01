@@ -47,18 +47,13 @@ export class _Signup extends Component {
       })
     } else {
       this.props.setToken(result.data.token)
+      this.props.navigation.goBack(null)
     }
   }
 
   componentWillMount () {
     if (this.props.user.uuid) {
       this.props.navigation.navigate('MainNav')
-    }
-  }
-
-  componentWillReceiveProps (newProps) {
-    if (newProps.user.uuid) {
-      newProps.navigation.navigate('MainNav')
     }
   }
 

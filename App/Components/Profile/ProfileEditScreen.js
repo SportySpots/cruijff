@@ -6,8 +6,10 @@ import I18n from '../../I18n/index'
 import Slider from '../Slider'
 import Colors from '../../Themes/Colors'
 import DefaultButton from '../DefaultButton'
+import userActions from '../../Redux/UserRedux'
+import { connect } from 'react-redux'
 
-export default class ProfileEditScreen extends React.PureComponent {
+class _ProfileEditScreen extends React.PureComponent {
   static propTypes = {
     user: PropTypes.shape({
       firstName: PropTypes.string,
@@ -69,6 +71,19 @@ export default class ProfileEditScreen extends React.PureComponent {
     )
   }
 }
+
+const dispatchToProps = {
+  logout: userActions.logout
+}
+
+const mapStateToProps = state => ({
+  user: state.user
+})
+
+const ProfileEditScreen = connect(mapStateToProps, dispatchToProps)(
+  _ProfileEditScreen
+)
+export default ProfileEditScreen
 
 const styles = StyleSheet.create({
   image: {

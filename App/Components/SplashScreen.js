@@ -24,13 +24,13 @@ export class _SplashScreen extends Component {
     this.state = { firstRun: null }
   }
   async componentDidMount () {
-    const firstRun = !await AsyncStorage.getItem('firstRunDone') || true
+    const firstRun = !await AsyncStorage.getItem('firstRunDone')
     await AsyncStorage.setItem('firstRunDone', 'true')
     this.setState({ firstRun })
   }
 
   forwardIfLoggedIn = props => {
-    if (props.user) {
+    if (props.user.uuid) {
       this.props.navigation.navigate('MainNav')
     }
   }

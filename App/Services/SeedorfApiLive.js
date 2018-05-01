@@ -43,6 +43,7 @@ const create = (
   const getGame = gameId => gameId
   const getGames = ({ month }) => api.get('search/games/', { q: month })
   const createGame = game => api.post('/games/', game)
+  const verifyToken = token => api.post('/auth/token-verify/', { token: token })
   const signup = ({ username, email, password }) =>
     api.post('/auth/registration/', {
       username,
@@ -78,7 +79,8 @@ const create = (
     createGame,
     signup,
     submitRating,
-    setToken: token => api.setHeader('Authorization', `Bearer ${token}`)
+    verifyToken,
+    setToken: token => api.setHeader('Authorization', `token ${token}`)
   }
 }
 

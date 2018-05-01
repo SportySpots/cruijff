@@ -1,9 +1,9 @@
 import { StackNavigator, SwitchNavigator } from 'react-navigation'
 import ProfileLoginScreen from '../Components/Profile/ProfileLoginScreen'
 import SpotDetail from '../Components/Spots/Spot'
-import SettingsScreen from '../Containers/SettingsScreen'
-import ProfileDetailsScreen from '../Containers/ProfileDetailsScreen'
-import ProfileEditScreen from '../Containers/ProfileEditScreen'
+import SettingsScreen from '../Components/SettingsScreen'
+import ProfileDetailsScreen from '../Components/Profile/ProfileDetailsScreen'
+import ProfileEditScreen from '../Components/Profile/ProfileEditScreen'
 import I18n from '../I18n'
 import SpotList from '../Components/Spots/SpotList'
 

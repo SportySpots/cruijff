@@ -11,19 +11,14 @@ export function * setToken (api, action) {
   )
   try {
     client.setToken(action.token)
-    const result = yield call(client.query, {
-      query: gql`
-        {
-          currentuser {
-            uuid
-          }
-        }
-      `
-    })
-    yield put(userActions.setClaims(claims))
-    yield put(userActions.setUuid(result.data.currentuser.uuid))
-    yield call(AsyncStorage.setItem, 'TOKEN', action.token)
     api.setToken(action.token)
+    const result = yield call(api.verifyToken, action.token)
+    if (!result.ok) {
+      throw new Error(JSON.stringify(result.data))
+    }
+    yield put(userActions.setClaims(claims))
+    yield put(userActions.setUuid(claims.uuid))
+    yield call(AsyncStorage.setItem, 'TOKEN', action.token)
   } catch (e) {
     yield put(userActions.logout())
   }

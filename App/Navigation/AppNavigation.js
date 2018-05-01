@@ -74,7 +74,6 @@ export const RootNav = ({ initialRouteName }) =>
         LocationPermissionScreen: { screen: AskLocation },
         OnboardingScreen: { screen: OnboardingScreen },
         SplashScreen: { screen: SplashScreen },
-        SignupScreen: { screen: SignupScreen },
         MainNav: { screen: MainNav }
       },
       {
