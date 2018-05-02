@@ -13,7 +13,16 @@ const SpotMap = ({ navigation }) => (
     {({ loading, error, data }) => {
       if (loading) return <Text>Loading...</Text>
       if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
-      return <SpotsMap navigation={navigation} spots={data.spots} />
+      return (
+        <SpotsMap
+          spots={data.spots}
+          onCardPress={spotId =>
+            navigation.navigate('SpotDetailsScreen', {
+              uuid: spotId
+            })
+          }
+        />
+      )
     }}
   </Query>
 )

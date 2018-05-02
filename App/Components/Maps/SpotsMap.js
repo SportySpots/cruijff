@@ -17,255 +17,105 @@ import CardSmall from '../Spots/SpotMapCardSmall'
 
 const { width, height } = Dimensions.get('window')
 const ASPECT_RATIO = width / height
-const LATITUDE_DELTA = 50 // 0.0922;
+const LATITUDE_DELTA = 0.0922
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 
+// -----------------------------------------------------------------------------
+// STYLE:
+// -----------------------------------------------------------------------------
 const Relative = styled.View`
   position: relative;
   margin: 0;
 `
-
+// -----------------------------------------------------------------------------
 const Absolute = styled.View`
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 `
-
-const CardContainer = ({ onPress, ...rest }) => (
-  <TouchableOpacity onPress={onPress} style={cardList.cardContainer}>
-    <CardSmall {...rest} />
-  </TouchableOpacity>
-)
-
-class SpotsMap extends React.PureComponent {
-  state = {
-    center: {
-      latitude: this.props.spots[0].address.lat,
-      longitude: this.props.spots[0].address.lng
-    },
-    delta: {
-      latitudeDelta: this.props.delta.latitudeDelta,
-      longitudeDelta: this.props.delta.latitudeDelta
-    },
-    currentSpot: 0 // index
-  }
-
-  // Fires every time a card is swiped. The new index is passed as the argument
-  handleIndexChange = index => {
-    // Get spot associated to the new index
-    const spot = this.props.spots[index]
-    // Get spot location
-    const { address: { lat, lng } } = spot
-    // Center map on the spot
-    const center = { latitude: lat, longitude: lng }
-    this.setState({ currentSpot: index, center })
-  }
-
-  // Fires every time the map stops panning
-  handleRegionChange = region => {
-    const { latitude, longitude, latitudeDelta, longitudeDelta } = region
-    const center = { latitude, longitude }
-    const delta = { latitudeDelta, longitudeDelta }
-    this.setState({ center, delta })
-  }
-
-  // Fires every time a marker is clicked in order to swipe the the card
-  // associated to said marked into the view port
-  handleMarkerPess = index => {
-    // Calculate the offset between the index of the current spot and the new one
-    const offset = index - this.state.currentSpot
-    // Get spot associated to the new index
-    const spot = this.props.spots[index]
-    // Get spot location
-    const { address: { lat, lng } } = spot
-    // Center map on the spot
-    const center = { latitude: lat, longitude: lng } // eslint-disable-line
-    // Make sure the card is swiped after the currentSpot is updated (otherwise
-    // we'll have an infinite loop!)
-    this.setState(({ currentSpot: index, center }) => {
-      this.refs.swiper.scrollBy(offset, true)
-    })
-  }
-
-  render () {
-    const { navigation, spots } = this.props
-    const { center, delta, currentSpot } = this.state
-
-    return (
-      <Relative style={{ flex: 1 }}>
-        <MapView
-          style={{ flex: 1 }}
-          region={{ ...center, ...delta }}
-          moveOnMarkerPress={false}
-          onRegionChangeComplete={this.handleRegionChange}
-        >
-          {spots.map(({ uuid, address, name }, index) => {
-            const latLng = { latitude: address.lat, longitude: address.lng }
-            return (
-              <Marker
-                key={name}
-                tracksViewChanges={false}
-                coordinate={latLng}
-                pinColor={
-                  currentSpot === index ? Colors.primaryGreen : Colors.black
-                }
-                onPress={() => {
-                  this.handleMarkerPess(index)
-                }}
-              />
-            )
-          })}
-        </MapView>
-        <Absolute>
-          <Swiper
-            ref='swiper'
-            loop={false}
-            bounces
-            showsPagination={false}
-            containerStyle={{ height: 80 }}
-            index={currentSpot}
-            onIndexChanged={this.handleIndexChange}
-          >
-            {spots.map(spot => (
-              <CardContainer
-                key={spot.uuid}
-                spot={spot}
-                onPress={() =>
-                  navigation.navigate('SpotDetailsScreen', {
-                    uuid: spot.uuid
-                  })
-                }
-              />
-            ))}
-          </Swiper>
-        </Absolute>
-      </Relative>
-    )
-  }
-}
-
-SpotsMap.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired
-  }).isRequired,
-  // TODO: use fragment instead!
-  spots: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      address: PropTypes.shape({
-        lat: PropTypes.number.isRequired,
-        lng: PropTypes.number.isRequired
-      }).isRequired
-    }).isRequired
-  ),
-  delta: PropTypes.shape({
-    latitudeDelta: PropTypes.number.isRequired,
-    longitudeDelta: PropTypes.number.isRequired
-  }).isRequired
-}
-
-SpotsMap.defaultProps = {
-  spots: [],
-  delta: {
-    latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA
-  }
-}
-
-export default SpotsMap
-
-/* import React from 'react'
-import { TouchableOpacity, View, Dimensions } from 'react-native' // eslint-disable-line
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import MapView, { Marker } from 'react-native-maps'
-import Swiper from 'react-native-swiper'
-import Colors from '../../Themes/Colors'
-import { cardList } from '../Spots/Styles/CardStyles'
-import CardSmall from '../Spots/SpotMapCardSmall'
-
-// TODO: display google-maps link in case the map component crashes.
-// Use <ErrorBoundary>
-
-const { width, height } = Dimensions.get('window')
-const ASPECT_RATIO = width / height
-const LATITUDE_DELTA = 50 // 0.0922;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
-
-const Relative = styled.View`
-  position: relative;
-  margin: 0;
-`
-
-const Absolute = styled.View`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-`
-
-const CardContainer = ({ onPress, ...rest }) => (
-  <TouchableOpacity onPress={onPress} style={cardList.cardContainer}>
-    <CardSmall {...rest} />
-  </TouchableOpacity>
-)
-
+// -----------------------------------------------------------------------------
+// AUX FUNCTIONS:
+// -----------------------------------------------------------------------------
+const getSpotLocation = spot => ({
+  latitude: spot.address.lat,
+  longitude: spot.address.lng
+})
+// -----------------------------------------------------------------------------
+// COMPONENT:
+// -----------------------------------------------------------------------------
+/**
+ * @summary Map component displaying a given set of spots plus a swiper component
+ * at the bottom showing the spot cards. On render, the map is centered on
+ * the 'initialLocation'. The component exposes a onCardPress method.
+ */
 class SpotsMap extends React.PureComponent {
   state = {
     region: {
       latitude: this.props.spots[0].address.lat,
       longitude: this.props.spots[0].address.lng,
-      latitudeDelta: this.props.delta.latitudeDelta,
-      longitudeDelta: this.props.delta.latitudeDelta
+      latitudeDelta: LATITUDE_DELTA,
+      longitudeDelta: LONGITUDE_DELTA
     },
-    currentSpot: 0 // index
+    currentSpot: 0 // index of the current spot based on the spots array
   }
 
-  // Fires every time a card is swiped. The new index is passed as the argument
+  /**
+   * @summary Fires every time a card is swiped. As a result, the map is
+   * centered in the spot's location associated to the card.
+   * @param {int} index - Index of the card being swiped.
+   */
   handleIndexChange = index => {
-    // Get spot associated to the new index
+    // Get spot associated to the new card/index
     const spot = this.props.spots[index]
-    // Get spot location
-    const { address: { lat, lng } } = spot
-    // Center map on the spot
-    const center = { latitude: lat, longitude: lng }
+
+    const latLng = getSpotLocation(spot)
+
+    // Center map on the spot keeping delta as it is
     this.setState({
       currentSpot: index,
-      region: { ...this.state.region, ...center }
+      region: { ...this.state.region, ...latLng }
     })
   }
 
-  // Fires every time the map stops panning
+  /**
+   * @summary Fires every time the map stops panning. For us the map is a
+   * controlled component, so we keep track of the map's region in our state
+   * @param {object} region - { latitude, longitude, latitudeDelta, longitudeDelta }
+   */
   handleRegionChange = region => {
-    console.log('REGION', region)
     this.setState({ region })
   }
 
-  // Fires every time a marker is clicked in order to swipe the the card
-  // associated to said marked into the view port
+  /**
+   * @summary Fires every time a marker is pressed. We first center the map in
+   * the spot location and then we use the index of the marker in order to
+   * display the associated card
+   * @param {int} index - Index of the marker being swiped.
+   */
   handleMarkerPess = index => {
     const { region, currentSpot } = this.state // eslint-disable-line
-    // Calculate the offset between the index of the current spot and the new one
+
+    // Calculate the offset between the index of the current spot and the new
+    // one so that we know how many time we have to scroll the swiper
     const offset = index - currentSpot
+
     // Get spot associated to the new index
     const spot = this.props.spots[index]
-    // Get spot location
-    const { address: { lat, lng } } = spot
+
+    const latLng = getSpotLocation(spot) // eslint-disable-line
+
+    const rg = { ...region, ...latLng }
+
     // Center map on the spot
-    const center = { latitude: lat, longitude: lng } // eslint-disable-line
-    // Make sure the card is swiped after the currentSpot is updated (otherwise
-    // we'll have an infinite loop!)
-    this.setState(({
-      currentSpot: index,
-      region: { ...region, ...center }
-    }) => {
+    this.setState(({ currentSpot: index, region: rg }) => {
+      // AFTER the map is re-centered, scroll the swiper to the desired card
       this.refs.swiper.scrollBy(offset, true)
     })
   }
 
   render () {
-    const { navigation, spots } = this.props
+    const { spots, onCardPress } = this.props
     const { region, currentSpot } = this.state
 
     return (
@@ -276,22 +126,19 @@ class SpotsMap extends React.PureComponent {
           moveOnMarkerPress={false}
           onRegionChangeComplete={this.handleRegionChange}
         >
-          {spots.map(({ uuid, address, name }, index) => {
-            const center = { latitude: address.lat, longitude: address.lng }
-            return (
-              <Marker
-                key={name}
-                tracksViewChanges={false}
-                coordinate={center}
-                pinColor={
-                  currentSpot === index ? Colors.primaryGreen : Colors.black
-                }
-                onPress={() => {
-                  this.handleMarkerPess(index)
-                }}
-              />
-            )
-          })}
+          {spots.map((spot, index) => (
+            <Marker
+              key={spot.uuid}
+              tracksViewChanges={false}
+              coordinate={getSpotLocation(spot)}
+              pinColor={
+                Colors[currentSpot === index ? 'primaryGreen' : 'black']
+              }
+              onPress={() => {
+                this.handleMarkerPess(index)
+              }}
+            />
+          ))}
         </MapView>
         <Absolute>
           <Swiper
@@ -304,15 +151,15 @@ class SpotsMap extends React.PureComponent {
             onIndexChanged={this.handleIndexChange}
           >
             {spots.map(spot => (
-              <CardContainer
+              <TouchableOpacity
                 key={spot.uuid}
-                spot={spot}
-                onPress={() =>
-                  navigation.navigate('SpotDetailsScreen', {
-                    uuid: spot.uuid
-                  })
-                }
-              />
+                onPress={() => {
+                  onCardPress(spot.uuid)
+                }}
+                style={cardList.cardContainer}
+              >
+                <CardSmall spot={spot} />
+              </TouchableOpacity>
             ))}
           </Swiper>
         </Absolute>
@@ -322,9 +169,11 @@ class SpotsMap extends React.PureComponent {
 }
 
 SpotsMap.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired
-  }).isRequired,
+  // TODO
+  /* initialLocation: PropTypes.shape({
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired
+  }).isRequired, */
   // TODO: use fragment instead!
   spots: PropTypes.arrayOf(
     PropTypes.shape({
@@ -335,18 +184,12 @@ SpotsMap.propTypes = {
       }).isRequired
     }).isRequired
   ),
-  delta: PropTypes.shape({
-    latitudeDelta: PropTypes.number.isRequired,
-    longitudeDelta: PropTypes.number.isRequired
-  }).isRequired
+  onCardPress: PropTypes.func
 }
 
 SpotsMap.defaultProps = {
   spots: [],
-  delta: {
-    latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA
-  }
+  onCardPress: () => {}
 }
 
-export default SpotsMap */
+export default SpotsMap
