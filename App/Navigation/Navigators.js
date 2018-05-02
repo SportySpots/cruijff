@@ -88,8 +88,8 @@ export const SpotSearchNav = StackNavigator(
     }
   },
   {
-    // initialRouteName: 'SpotListScreen'
-    initialRouteName: 'SpotMapScreen'
+    initialRouteName: 'SpotListScreen'
+    // initialRouteName: 'SpotMapScreen'
   }
 )
 
