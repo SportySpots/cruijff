@@ -21,7 +21,7 @@ const CardContainer = props => {
 export default class SpotList extends Component {
   render () {
     return (
-      <Query query={GET_SPOTS}>
+      <Query query={GET_SPOTS} fetchPolicy='network-only'>
         {({ loading, error, data }) => {
           if (loading) return <Text>Loading...</Text>
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>

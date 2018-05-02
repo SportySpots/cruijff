@@ -71,6 +71,22 @@ const create = (
     api.post(`/games/${gameUUID}/sport/`, {
       uuid: sportUUID
     })
+  const setGameSpot = ({ gameUUID, spotUUID }) =>
+    api.post(`/games/${gameUUID}/spot/`, {
+      uuid: spotUUID
+    })
+  const setGameTimes = ({ gameUUID, startTime, endTime }) =>
+    api.put(`/games/${gameUUID}/`, {
+      start_time: startTime,
+      end_time: endTime,
+      rsvp_open_time: startTime,
+      rsvp_close_time: endTime
+    })
+
+  const setGameDescription = ({ gameUUID, description }) =>
+    api.put(`/games/${gameUUID}/`, {
+      description: description
+    })
 
   // const setGameStartTime = ({ gameUUID, start_date, start_time }) => api.put(`/games/${gameUUID}/`), {
   //   start_time:
@@ -97,6 +113,9 @@ const create = (
     getGames,
     createGame,
     setGameSport,
+    setGameSpot,
+    setGameTimes,
+    setGameDescription,
     signup,
     submitRating,
     verifyToken,

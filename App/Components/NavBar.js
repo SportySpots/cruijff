@@ -43,7 +43,7 @@ const buttons = [
     },
     icon: {
       set: MaterialCummunityIcon,
-      name: 'soccer'
+      name: 'calendar-plus'
     },
     main: true
   },
@@ -148,20 +148,20 @@ export default NavBar
 
 const navbarStyle = StyleSheet.create({
   container: {
-    height: 70,
-    marginTop: -20,
+    height: 56,
+    marginTop: -8,
     position: 'relative',
     flexDirection: 'row',
     alignItems: 'flex-end',
     backgroundColor: Colors.transparent
   },
   buttonContainer: {
-    flex: 1,
-    height: 50
+    flex: 9,
+    height: 48
   },
   mainButtonContainer: {
-    flex: 2,
-    height: 70,
+    flex: 11,
+    height: 56,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8
   }

@@ -83,7 +83,7 @@ class GameComponent extends Component {
             <HeaderLeftDetails>
               <Text.SM>{moment(game.startTime).format('D MMM')}</Text.SM>
               <Time>
-                <MaterialIcon name='access-time' />
+                <MaterialIcon name='access-time' style={{ paddingRight: 4 }} />
                 <Text.SM>
                   {moment(game.startTime).format('HH')} -{' '}
                   {moment(game.endTime).format('HH')}
@@ -159,13 +159,13 @@ class GameComponent extends Component {
           <Block>
             <HorizontalView style={{ width: '100%' }}>
               <DefaultButton
-                style={{ flex: 1, marginLeft: 0 }}
+                style={{ flex: 1, marginLeft: -10 }}
                 bgColor={Colors.primaryGreen}
                 textColor={Colors.white}
                 text={I18n.t("I'm attending")}
               />
               <DefaultButton
-                style={{ flex: 1, marginRight: 0 }}
+                style={{ flex: 1, marginRight: -10 }}
                 bgColor={Colors.red}
                 textColor={Colors.white}
                 text={I18n.t("I'm not attending")}

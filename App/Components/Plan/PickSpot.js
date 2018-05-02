@@ -6,13 +6,15 @@ import {
   View,
   StyleSheet
 } from 'react-native'
-import Api from '../../Services/SeedorfApi'
 import { cardList } from '../Spots/Styles/CardStyles'
 import CardSmall from '../Spots/SpotListCardSmall'
 import Text from '../Text'
 import I18n from '../../I18n'
 import PropTypes from 'prop-types'
 import Footer from '../DarkFooter'
+import { GET_SPOTS } from '../Spots/SpotList'
+import { Query } from 'react-apollo'
+import api from '../../Services/SeedorfApi'
 
 const CardContainer = props => {
   const { onPress, ...otherProps } = props
@@ -25,68 +27,53 @@ const CardContainer = props => {
 
 export default class PickSpot extends Component {
   static propTypes = {
-    navigate: PropTypes.func,
-    navigation: PropTypes.object,
-    setGameDetailField: PropTypes.func,
-    gameDetails: PropTypes.shape({
-      sport: PropTypes.string,
-      date: PropTypes.string,
-      startTime: PropTypes.string,
-      stopTime: PropTypes.string,
-      spotId: PropTypes.number,
-      description: PropTypes.string,
-      isPublic: PropTypes.bool
+    navigation: PropTypes.object
+  }
+
+  selectSpot = async item => {
+    const result = await api.setGameSpot({
+      gameUUID: this.props.navigation.state.params.uuid,
+      spotUUID: item.uuid
     })
-  }
-
-  constructor (props) {
-    super(props)
-    this.state = {
-      spots: null,
-      isLoading: true
+    if (result.ok) {
+      this.props.navigation.navigate('description', {
+        uuid: this.props.navigation.state.params.uuid
+      })
     }
-  }
-
-  componentDidMount () {
-    const { data } = Api.getAllSpots()
-    this.setState({ isLoading: false, spots: data })
-  }
-
-  selectSpot = item => {
-    this.props.setGameDetailField('spotId', item.id)
-    this.props.navigation.navigate('description')
   }
 
   render () {
-    const { isLoading, spots } = this.state
-
-    if (isLoading) {
-      return <ActivityIndicator />
-    }
-
     return (
-      <View style={style.container}>
-        <View style={[style.cardListContainer, this.props.style]}>
-          <Text.L>{I18n.t('Pick a spot')}</Text.L>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={spots.slice(0, 100)}
-            renderItem={({ item }) => (
-              <CardContainer
-                spot={item}
-                onPress={() => this.selectSpot(item)}
+      <Query query={GET_SPOTS}>
+        {({ loading, error, data }) => {
+          if (loading) return <Text>Loading...</Text>
+          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
+          return (
+            <View style={style.container}>
+              <View style={[style.cardListContainer, this.props.style]}>
+                <Text.L>{I18n.t('Pick a spot')}</Text.L>
+                <FlatList
+                  showsVerticalScrollIndicator={false}
+                  data={data.spots.slice(0, 100)}
+                  renderItem={({ item }) => (
+                    <CardContainer
+                      spot={item}
+                      onPress={() => this.selectSpot(item)}
+                    />
+                  )}
+                  keyExtractor={item => item.uuid}
+                />
+              </View>
+              <Footer
+                currentPage={1}
+                numPages={4}
+                disableNext
+                onBack={() => this.props.navigation.goBack()}
               />
-            )}
-            keyExtractor={item => item.id}
-          />
-        </View>
-        <Footer
-          currentPage={1}
-          numPages={4}
-          disableNext
-          onBack={() => this.props.navigation.goBack()}
-        />
-      </View>
+            </View>
+          )
+        }}
+      </Query>
     )
   }
 }

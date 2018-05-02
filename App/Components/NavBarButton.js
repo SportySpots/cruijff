@@ -32,7 +32,7 @@ export default class NavBarButton extends React.Component {
       <TouchableOpacity
         style={{
           flex: 1,
-          borderTopWidth: this.props.main ? 0 : 1,
+          borderTopWidth: this.props.main ? 0 : StyleSheet.hairlineWidth,
           borderTopColor: Colors.lightGray
         }}
         onPress={this.onPress}
@@ -43,7 +43,7 @@ export default class NavBarButton extends React.Component {
             this.props.main && navbarButtonStyle.mainButton
           ]}
         >
-          <Icon name={this.props.icon.name} size={25} color={color} />
+          <Icon name={this.props.icon.name} size={24} color={color} />
           <Text.S style={{ color: color }}>{this.props.buttonText}</Text.S>
         </View>
       </TouchableOpacity>

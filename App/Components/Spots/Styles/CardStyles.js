@@ -22,7 +22,7 @@ export const card = StyleSheet.create({
 
 export const cardSmall = StyleSheet.create({
   container: {
-    height: 50,
+    height: 64,
     flexDirection: 'row'
   },
   image: {
@@ -43,7 +43,7 @@ export const cardSmall = StyleSheet.create({
 export const header = StyleSheet.create({
   belowName: {
     flexDirection: 'row',
-    marginTop: 4
+    marginTop: 8
   },
   spacer: {
     marginLeft: 8,
@@ -67,7 +67,7 @@ export const cardList = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 2,
     shadowColor: 'black',
-    shadowOpacity: 0.5,
+    shadowOpacity: 0.3,
     elevation: 2
     // overflow: 'hidden'
   }

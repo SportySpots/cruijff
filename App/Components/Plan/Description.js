@@ -6,29 +6,31 @@ import Colors from '../../Themes/Colors'
 import Text from '../Text'
 import I18n from '../../I18n'
 import Footer from '../DarkFooter/index'
+import api from '../../Services/SeedorfApi'
 
 export default class Description extends Component {
   static propTypes = {
-    navigation: PropTypes.any,
-    setGameDetailField: PropTypes.func,
-    gameDetails: PropTypes.shape({
-      sport: PropTypes.string,
-      date: PropTypes.string,
-      startTime: PropTypes.string,
-      stopTime: PropTypes.string,
-      spotId: PropTypes.number,
-      description: PropTypes.string,
-      isPublic: PropTypes.bool
-    })
+    navigation: PropTypes.any
   }
-
+  constructor (props) {
+    super(props)
+    this.state = { description: '' }
+  }
   componentDidMount () {
     this._input && this._input.focus()
   }
 
-  onNext = () => {
+  onNext = async () => {
     Keyboard.dismiss()
-    this.props.navigation.navigate('created')
+    const result = await api.setGameDescription({
+      gameUUID: this.props.navigation.state.params.uuid,
+      description: this.state.description
+    })
+    if (result.ok) {
+      this.props.navigation.navigate('created', {
+        uuid: this.props.navigation.state.params.uuid
+      })
+    }
   }
 
   onBack = () => {
@@ -48,9 +50,7 @@ export default class Description extends Component {
             placeholderTextColor={Colors.white}
             selectionColor={Colors.white}
             underlineColorAndroid={Colors.white}
-            onChangeText={text =>
-              this.props.setGameDetailField('description', text)
-            }
+            onChangeText={text => this.setState({ description: text })}
             ref={elm => {
               this._input = elm
             }}
@@ -61,7 +61,7 @@ export default class Description extends Component {
           currentPage={2}
           onBack={this.onBack}
           onNext={this.onNext}
-          disableNext={!this.props.gameDetails.description}
+          disableNext={!this.state.description}
         />
       </View>
     )

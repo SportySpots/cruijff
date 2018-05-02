@@ -41,7 +41,7 @@ export default class SpotListCardSmall extends Component {
       <View style={[cardSmall.container, this.props.style]}>
         <View style={cardSmall.details}>
           <Text.M>{spot.label}</Text.M>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: 'row', paddingTop: 8 }}>
             <Rating rating={spot.rating || 4} />
             <Spacer />
             <Text.S>{distance.toFixed(1)} km</Text.S>

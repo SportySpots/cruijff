@@ -6,7 +6,7 @@ const colors = {
   white: '#fff',
   black: '#000',
   gray: '#777',
-  lightGray: '#ccc',
+  lightGray: '#e6e6e6',
 
   primaryGreen: '#009f36',
   secondaryGreen: '#005537',
@@ -14,7 +14,7 @@ const colors = {
   secondaryLightBlueGreen: 'rgba(0, 53, 58, 0.4)',
   actionYellow: '#f5a623',
   actionBlue: '#019ae8',
-  black54: 'rgba(0,0,0,0.54)',
+  black54: 'rgba(0,0,0,0.34)',
   greenSemi: 'rgba(0,40,0,0.8)',
   white20: 'rgba(255,255,255,.2)',
   bgGrey: '#f6f6f9',

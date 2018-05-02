@@ -66,7 +66,7 @@ export default class GameList extends Component {
               />
               <FlatList
                 showsVerticalScrollIndicator={false}
-                data={data.games}
+                data={data.games.filter(game => game.spot)}
                 renderItem={({ item }) => (
                   <GameListCardContainer
                     game={item}
@@ -90,8 +90,7 @@ export default class GameList extends Component {
 export const GET_GAMES_LIST = gql`
   #  query games($minStartTime: String!, $maxStartTime: String!) {
   query games {
-    games #      orderBy: "startTime" #      isListed: true
-    #      minStartTime: $minStartTime
+    games #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
     #      maxStartTime: $maxStartTime
     {
       uuid
