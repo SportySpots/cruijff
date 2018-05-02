@@ -8,6 +8,9 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import MaterialCummunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Colors from '../Themes/Colors'
 
+import api from '../Services/SeedorfApi'
+import { connect } from 'react-redux'
+
 const buttons = [
   {
     buttonText: 'find',
@@ -27,7 +30,17 @@ const buttons = [
   },
   {
     buttonText: 'plan-a-game',
-    navigate: 'PlanScreen',
+    onPress: async function () {
+      // called with this = NavBar component
+      const result = await api.createGame({
+        name: this.props.user.claims.username + "'s game"
+      })
+      if (result.ok) {
+        this.props.navigation.navigate('PlanScreen', {
+          uuid: result.data.uuid
+        })
+      }
+    },
     icon: {
       set: MaterialCummunityIcon,
       name: 'soccer'
@@ -52,10 +65,11 @@ const buttons = [
   }
 ]
 
-export default class NavBar extends React.Component {
+export class _NavBar extends React.Component {
   static propTypes = {
     buttonText: PropTypes.string,
-    navigation: PropTypes.any // react-navigation object
+    navigation: PropTypes.any, // react-navigation object
+    user: PropTypes.object
   }
 
   static defaultProps = {}
@@ -90,7 +104,11 @@ export default class NavBar extends React.Component {
   }
 
   onButtonPress = button => {
-    this.props.navigation.navigate({ routeName: button.navigate })
+    if (button.onPress) {
+      button.onPress.call(this)
+    } else {
+      this.props.navigation.navigate({ routeName: button.navigate })
+    }
   }
 
   render () {
@@ -124,6 +142,9 @@ export default class NavBar extends React.Component {
     )
   }
 }
+
+const NavBar = connect(state => ({ user: state.user }))(_NavBar)
+export default NavBar
 
 const navbarStyle = StyleSheet.create({
   container: {

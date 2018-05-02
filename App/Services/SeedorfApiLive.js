@@ -1,6 +1,7 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
 import api from './SeedorfApi'
+import moment from 'moment'
 
 // our "constructor"
 const create = (
@@ -42,7 +43,6 @@ const create = (
   const getSpot = spotId => spotId
   const getGame = gameId => gameId
   const getGames = ({ month }) => api.get('search/games/', { q: month })
-  const createGame = game => api.post('/games/', game)
   const verifyToken = token => api.post('/auth/token-verify/', { token: token })
   const signup = ({ username, email, password }) =>
     api.post('/auth/registration/', {
@@ -57,6 +57,25 @@ const create = (
       // todo : construct proper post
     })
   }
+
+  const createGame = ({ name }) =>
+    api.post('/games/', {
+      name,
+      start_time: moment().toISOString(),
+      rsvp_open_time: moment().toISOString(),
+      rsvp_close_time: moment().toISOString(),
+      end_time: moment().toISOString()
+    })
+
+  const setGameSport = ({ gameUUID, sportUUID }) =>
+    api.post(`/games/${gameUUID}/sport/`, {
+      uuid: sportUUID
+    })
+
+  // const setGameStartTime = ({ gameUUID, start_date, start_time }) => api.put(`/games/${gameUUID}/`), {
+  //   start_time:
+  // }
+
   // ------
   // STEP 3
   // ------
@@ -77,10 +96,11 @@ const create = (
     getGame,
     getGames,
     createGame,
+    setGameSport,
     signup,
     submitRating,
     verifyToken,
-    setToken: token => api.setHeader('Authorization', `token ${token}`)
+    setToken: token => api.setHeader('Authorization', `JWT ${token}`)
   }
 }
 

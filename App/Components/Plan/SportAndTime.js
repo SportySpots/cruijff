@@ -15,6 +15,10 @@ import Colors from '../../Themes/Colors'
 import Text from '../Text'
 import I18n from '../../I18n'
 import Footer from '../DarkFooter/index'
+import api from '../../Services/SeedorfApi'
+import { client } from '../../GraphQL/index'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -27,7 +31,26 @@ const Field = ({ value, onPress }) => (
   </TouchableOpacity>
 )
 
-const SportModal = ({ visible, onSelect }) => (
+const SportModal = props => (
+  <Query
+    query={gql`
+      {
+        sports {
+          uuid
+          name
+        }
+      }
+    `}
+  >
+    {({ data, loading, error }) => {
+      if (error || loading) {
+        return null
+      } else return <_SportModal {...props} data={data} />
+    }}
+  </Query>
+)
+
+const _SportModal = ({ visible, onSelect, data }) => (
   <Modal
     visible={visible}
     animationType={'fade'}
@@ -38,13 +61,13 @@ const SportModal = ({ visible, onSelect }) => (
       <View style={styles.modalInnerContainer}>
         <Text.L>{I18n.t('Choose sport')}</Text.L>
         <FlatList
-          keyExtractor={(item, index) => index}
+          keyExtractor={item => item.uuid}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => onSelect(item)}>
-              <Text.M>{I18n.t(item)}</Text.M>
+              <Text.M>{I18n.t(item.name)}</Text.M>
             </TouchableOpacity>
           )}
-          data={['Football', 'Basketball', 'Tennis']}
+          data={data.sports}
           ItemSeparatorComponent={() => (
             <View style={{ height: 1, backgroundColor: Colors.black54 }} />
           )}
@@ -94,27 +117,42 @@ const dateStringToTimeString = dateString => {
 export default class SportAndTime extends Component {
   static propTypes = {
     navigation: PropTypes.any, // Plan flow navigation
-    navigate: PropTypes.func, // Main screen navigation
-    setGameDetailField: PropTypes.func,
-    gameDetails: PropTypes.shape({
-      sport: PropTypes.string,
-      date: PropTypes.string,
-      startTime: PropTypes.string,
-      stopTime: PropTypes.string,
-      spotId: PropTypes.number,
-      description: PropTypes.string,
-      isPublic: PropTypes.bool
-    })
+    navigate: PropTypes.func // Main screen navigation
+  }
+  constructor (props) {
+    super(props)
+    this.state = {
+      modals: {
+        sport: false,
+        date: false,
+        timeStart: false,
+        timeEnd: false
+      },
+      game: null
+    }
+    this.refreshGame()
   }
 
-  state = {
-    modals: {
-      sport: false,
-      date: false,
-      timeStart: false,
-      timeEnd: false
+  refreshGame = async () => {
+    try {
+      const result = await client.query({
+        query: gql`
+          {
+            game(uuid: "${this.props.navigation.state.params.uuid}") {
+              startTime
+              endTime
+              sport { uuid, name }
+              capacity
+            }
+          }
+        `
+      })
+      console.log(result)
+    } catch (e) {
+      console.log(e)
     }
   }
+
   openModal (modalName) {
     this.setState({ modals: { ...this.state.modals, [modalName]: true } })
   }
@@ -132,15 +170,24 @@ export default class SportAndTime extends Component {
   }
 
   render () {
+    const gameUUID = this.props.navigation.state.params.uuid
+    if (!this.state.game) {
+      return null
+    }
     return (
       <View style={styles.outerContainer}>
         <View style={styles.container}>
           <SportModal
             visible={this.state.modals.sport}
             value={this.props.gameDetails.sport}
-            onSelect={sport => {
+            onSelect={async sport => {
               this.closeModal('sport')
-              this.props.setGameDetailField('sport', sport)
+              const result = await api.setGameSport({
+                gameUUID: gameUUID,
+                sportUUID: sport.uuid
+              })
+              console.log(result)
+              // this.props.setGameDetailField('sport', sport)
             }}
           />
           <DateModal
