@@ -32,6 +32,11 @@ const buttons = [
     buttonText: 'plan-a-game',
     onPress: async function () {
       // called with this = NavBar component
+      if (!this.props.user.claims.uuid) {
+        this.props.navigation.navigate('ProfileTab')
+        return
+      }
+
       const result = await api.createGame({
         name: this.props.user.claims.username + "'s game"
       })

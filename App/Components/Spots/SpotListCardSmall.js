@@ -40,7 +40,7 @@ export default class SpotListCardSmall extends Component {
     return (
       <View style={[cardSmall.container, this.props.style]}>
         <View style={cardSmall.details}>
-          <Text.M>{spot.label}</Text.M>
+          <Text.M>{spot.name}</Text.M>
           <View style={{ flexDirection: 'row', paddingTop: 8 }}>
             <Rating rating={spot.rating || 4} />
             <Spacer />

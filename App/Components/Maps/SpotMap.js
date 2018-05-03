@@ -40,15 +40,21 @@ const Flex = styled.View`
 `
 // -----------------------------------------------------------------------------
 const Spacer = styled.View`
-  width: 6;
+  width: 6px;
 `
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:
 // -----------------------------------------------------------------------------
-const getSpotLocation = spot => ({
-  latitude: spot.address.lat,
-  longitude: spot.address.lng
-})
+const getSpotLocation = spot =>
+  spot.address
+    ? {
+      latitude: spot.address.lat,
+      longitude: spot.address.lng
+    }
+    : {
+      latitude: 4,
+      longitude: 14
+    }
 // -----------------------------------------------------------------------------
 // COMPONENT:
 // -----------------------------------------------------------------------------

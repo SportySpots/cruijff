@@ -17,7 +17,7 @@ const Header = ({ spot, ...props }) => (
       <Spacer />
       <Text.S>{Int18n.t(spot.sports[0].category)}</Text.S>
       <Spacer />
-      <Text.S>{JSON.stringify(Math.round(spot.address.lat))} km</Text.S>
+      <Text.S>5 km</Text.S>
       {spot.numGames > 0 && [
         <Spacer key={1} />,
         <Text.S key={2} style={header.plannedGamesCount}>
