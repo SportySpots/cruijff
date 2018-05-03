@@ -1,36 +1,27 @@
-import './Config'
-import DebugConfig from './Config/DebugConfig'
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { ApolloProvider } from 'react-apollo'
-import initialize from './init'
-import { reduxStore } from './Redux'
-import { client } from './GraphQL'
-import { StatusBar, AsyncStorage } from 'react-native'
+import { StatusBar } from 'react-native'
 import AppNavigation from './Navigation/AppNavigation'
 import Colors from './Themes/Colors'
 import styled from 'styled-components'
+import createStore from './Redux'
+import { createClient, createMockClient } from './GraphQL/index'
+import config from './config'
 
 class App extends Component {
-  async init () {
-    // build redux store & apollo client
-    await initialize()
-    this.setState({ initialized: true })
-  }
-
   constructor () {
     super()
-    this.state = { initialized: false }
-    this.init()
+    this.store = createStore()
+    this.client = config.useFixtures
+      ? createMockClient()
+      : createClient(config.seedorfGraphQLUrl)
   }
 
   render () {
-    if (!this.state.initialized) {
-      return null
-    }
     return (
-      <ApolloProvider client={client}>
-        <Provider store={reduxStore}>
+      <ApolloProvider client={this.client}>
+        <Provider store={this.store}>
           <AppRootView>
             <StatusBar barStyle='light-content' />
             <AppNavigation initialRouteName='SplashScreen' />
@@ -47,5 +38,4 @@ const AppRootView = styled.View`
   background-color: ${Colors.white};
 `
 
-// allow reactotron overlay for fast design in dev mode
-export default (DebugConfig.useReactotron ? console.tron.overlay(App) : App)
+export default App

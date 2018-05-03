@@ -1,6 +1,6 @@
 import API from '../Services/SeedorfApiLive'
 import FixtureAPI from '../Services/SeedorfApiFixture'
-import DebugConfig from '../Config/DebugConfig'
+import config from '../config'
 
-const SeedorfAPI = DebugConfig.useFixtures ? FixtureAPI : API.create()
+const SeedorfAPI = config.useFixtures ? FixtureAPI : API.create()
 export default SeedorfAPI

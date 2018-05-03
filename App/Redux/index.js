@@ -12,10 +12,8 @@ export const reducers = combineReducers({
 export let reduxStore = null
 
 export default () => {
-  let finalReducers = reducers
-
   let { store, sagasManager, sagaMiddleware } = configureStore(
-    finalReducers,
+    reducers,
     rootSaga
   )
 

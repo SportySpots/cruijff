@@ -179,13 +179,13 @@
           <line num="3" count="5" type="stmt"/>
           <line num="6" count="5" type="stmt"/>
         </file>
-        <file name="index.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/index.js">
+        <file name="config.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/config.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
       </package>
       <package name="storybook">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <file name="index.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/storybook/index.js">
+        <file name="config.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/storybook/config.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
         <file name="storybook.js" path="/Users/ashutosh/workspace/sportyspots/cruijff/storybook/storybook.js">

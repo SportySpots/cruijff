@@ -410,7 +410,7 @@ BRF:6
 BRH:3
 end_of_record
 TN:
-SF:/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/index.js
+SF:/Users/ashutosh/workspace/sportyspots/cruijff/App/Themes/config.js
 FNF:0
 FNH:0
 LF:0
@@ -419,7 +419,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/ashutosh/workspace/sportyspots/cruijff/storybook/index.js
+SF:/Users/ashutosh/workspace/sportyspots/cruijff/storybook/config.js
 FNF:0
 FNH:0
 LF:0

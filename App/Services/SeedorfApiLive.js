@@ -1,14 +1,10 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
-import api from './SeedorfApi'
+import config from '../config'
 import moment from 'moment'
 
 // our "constructor"
-const create = (
-  baseURL = __DEV__
-    ? 'http://localhost:8000/api'
-    : 'https://api.sportyspots.com'
-) => {
+const create = () => {
   // ------
   // STEP 1
   // ------
@@ -16,7 +12,7 @@ const create = (
   // Create and configure an apisauce-based api object.
   //
   const api = apisauce.create({
-    baseURL,
+    baseURL: config.seedorfRestUrl,
     headers: {
       'Cache-Control': 'no-cache',
       Cookie: ''
