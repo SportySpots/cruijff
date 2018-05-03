@@ -1,17 +1,17 @@
 import React from 'react'
-import Fonts from '../Themes/Fonts'
 import Text from './Text'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import Colors from '../Themes/Colors'
 import styled from 'styled-components/native'
 
-const DefaultButton = ({ bgColor, textColor, text, ...props }) => {
+const DefaultButton = ({ bgColor, textColor, text, disabled, ...props }) => {
+  const RootComponent = disabled ? View : TouchableOpacity
   return (
-    <TouchableOpacity {...props}>
+    <RootComponent {...props}>
       <ButtonContainer bgColor={bgColor}>
         <ButtonLabel textColor={textColor}>{text}</ButtonLabel>
       </ButtonContainer>
-    </TouchableOpacity>
+    </RootComponent>
   )
 }
 

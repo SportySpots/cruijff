@@ -1,8 +1,8 @@
+// https://stackoverflow.com/questions/39022216/react-native-programmatically-check-if-in-remote-js-debugging-is-enabled
+
 export default {
   showDevScreens: __DEV__,
   useFixtures: false,
   ezLogin: false,
-  yellowBox: __DEV__,
-  reduxLogging: __DEV__,
-  useReactotron: __DEV__
+  yellowBox: __DEV__
 }

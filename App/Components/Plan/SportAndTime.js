@@ -133,14 +133,18 @@ export default class SportAndTime extends Component {
     this.refreshGame()
   }
 
+  get gameUUID () {
+    return this.props.navigation.state.params.uuid
+  }
+
   refreshGame = async () => {
     try {
       const result = await client.query({
         query: gql`
           {
-            game(uuid: "${this.props.navigation.state.params.uuid}") {
-              startTime
-              endTime
+            game(uuid: "${this.gameUUID}") {
+              start_time
+              end_time
               sport { uuid, name }
               capacity
             }
@@ -167,12 +171,82 @@ export default class SportAndTime extends Component {
 
   onNext = () => {
     this.props.navigation.navigate('pickSpot', {
-      uuid: this.props.navigation.state.params.uuid
+      uuid: this.gameUUID
     })
   }
 
+  setSport = async sport => {
+    this.closeModal('sport')
+    const result = await api.setGameSport({
+      gameUUID: this.gameUUID,
+      sportUUID: sport.uuid
+    })
+    if (result.ok) {
+      this.setState({ game: { ...this.state.game, sport: sport } })
+    }
+  }
+
+  setDate = async date => {
+    this.closeModal('date')
+    const startTime = moment(
+      date + 'T' + moment(this.state.game.start_time).format('HH:mm:ss')
+    ).toISOString()
+    const endTime = moment(
+      date + 'T' + moment(this.state.game.end_time).format('HH:mm:ss')
+    ).toISOString()
+    const result = await api.setGameTimes({
+      gameUUID: this.gameUUID,
+      startTime: startTime,
+      endTime: endTime
+    })
+    if (result.ok) {
+      this.setState({
+        game: {
+          ...this.state.game,
+          start_time: startTime,
+          end_time: endTime
+        }
+      })
+    }
+  }
+
+  setStartTime = async date => {
+    this.closeModal('timeStart')
+    const timeString = dateStringToTimeString(date) + ':00'
+    const startTime = moment(
+      moment(this.state.game.start_time).format('YYYY-MM-DD') + 'T' + timeString
+    ).toISOString()
+    const result = await api.setGameTimes({
+      gameUUID: this.gameUUID,
+      startTime: startTime,
+      endTime: this.state.game.end_time
+    })
+    if (result.ok) {
+      this.setState({
+        game: { ...this.state.game, start_time: startTime }
+      })
+    }
+  }
+
+  setEndTime = async date => {
+    this.closeModal('timeEnd')
+    const timeString = dateStringToTimeString(date) + ':00'
+    const endTime = moment(
+      moment(this.state.game.end_time).format('YYYY-MM-DD') + 'T' + timeString
+    ).toISOString()
+    const result = await api.setGameTimes({
+      gameUUID: this.gameUUID,
+      endTime: endTime,
+      startTime: this.state.game.start_time
+    })
+    if (result.ok) {
+      this.setState({
+        game: { ...this.state.game, end_time: endTime }
+      })
+    }
+  }
+
   render () {
-    const gameUUID = this.props.navigation.state.params.uuid
     if (!this.state.game) {
       return null
     }
@@ -181,74 +255,23 @@ export default class SportAndTime extends Component {
         <View style={styles.container}>
           <SportModal
             visible={this.state.modals.sport}
-            value={this.props.gameDetails.sport}
-            onSelect={async sport => {
-              this.closeModal('sport')
-              const result = await api.setGameSport({
-                gameUUID: gameUUID,
-                sportUUID: sport.uuid
-              })
-              if (result.ok) {
-                this.setState({ game: { ...this.state.game, sport: sport } })
-              }
-            }}
+            value={this.state.game.sport}
+            onSelect={this.setSport}
           />
           <DateModal
             game={this.state.game}
             visible={this.state.modals.date}
-            onSelect={async date => {
-              this.closeModal('date')
-              const startTime = moment(
-                date +
-                  'T' +
-                  moment(this.state.game.startTime).format('HH:mm:ss')
-              ).toISOString()
-              const endTime = moment(
-                date + 'T' + moment(this.state.game.endTime).format('HH:mm:ss')
-              ).toISOString()
-              const result = await api.setGameTimes({
-                gameUUID: gameUUID,
-                startTime: startTime,
-                endTime: endTime
-              })
-              if (result.ok) {
-                this.setState({
-                  game: {
-                    ...this.state.game,
-                    startTime: startTime,
-                    endTime: endTime
-                  }
-                })
-              }
-            }}
+            onSelect={this.setDate}
           />
           <DateTimePicker
             mode='time'
             isVisible={this.state.modals.timeStart}
             date={
               this.state.game.timeStart
-                ? timeStringToDate(this.state.game.timeStart)
+                ? timeStringToDate(this.state.game.start_time)
                 : timeStringToDate('12:00')
             }
-            onConfirm={async date => {
-              this.closeModal('timeStart')
-              const timeString = dateStringToTimeString(date) + ':00'
-              const startTime = moment(
-                moment(this.state.game.startTime).format('YYYY-MM-DD') +
-                  'T' +
-                  timeString
-              ).toISOString()
-              const result = await api.setGameTimes({
-                gameUUID: gameUUID,
-                startTime: startTime,
-                endTime: this.state.game.endTime
-              })
-              if (result.ok) {
-                this.setState({
-                  game: { ...this.state.game, startTime: startTime }
-                })
-              }
-            }}
+            onConfirm={this.setStartTime}
             onCancel={() => {
               this.closeModal('timeStart')
             }}
@@ -258,28 +281,10 @@ export default class SportAndTime extends Component {
             isVisible={this.state.modals.timeEnd}
             date={
               this.state.game.timeEnd
-                ? timeStringToDate(this.state.game.timeEnd)
+                ? timeStringToDate(this.state.game.end_time)
                 : timeStringToDate('12:00')
             }
-            onConfirm={async date => {
-              this.closeModal('timeEnd')
-              const timeString = dateStringToTimeString(date) + ':00'
-              const endTime = moment(
-                moment(this.state.game.endTime).format('YYYY-MM-DD') +
-                  'T' +
-                  timeString
-              ).toISOString()
-              const result = await api.setGameTimes({
-                gameUUID: gameUUID,
-                endTime: endTime,
-                startTime: this.state.game.startTime
-              })
-              if (result.ok) {
-                this.setState({
-                  game: { ...this.state.game, endTime: endTime }
-                })
-              }
-            }}
+            onConfirm={this.setEndTime}
             onCancel={() => {
               this.closeModal('timeEnd')
             }}
@@ -301,7 +306,7 @@ export default class SportAndTime extends Component {
             <Text.M style={styles.text}>{I18n.t('on')}</Text.M>
             <Field
               value={
-                moment(this.state.game.startTime).format('DD-MM') ||
+                moment(this.state.game.start_time).format('DD-MM') ||
                 I18n.t('Select')
               }
               onPress={() => this.openModal('date')}
@@ -311,7 +316,7 @@ export default class SportAndTime extends Component {
             <Text.M style={styles.text}>{I18n.t('from')}</Text.M>
             <Field
               value={
-                moment(this.state.game.startTime).format('HH:mm') ||
+                moment(this.state.game.start_time).format('HH:mm') ||
                 I18n.t('Select')
               }
               onPress={() => this.openModal('timeStart')}
@@ -319,7 +324,7 @@ export default class SportAndTime extends Component {
             <Text.M style={styles.text}>{I18n.t('to')}</Text.M>
             <Field
               value={
-                moment(this.state.game.endTime).format('HH:mm') ||
+                moment(this.state.game.end_time).format('HH:mm') ||
                 I18n.t('Select')
               }
               onPress={() => this.openModal('timeEnd')}
@@ -332,8 +337,8 @@ export default class SportAndTime extends Component {
           onBack={this.onBack}
           onNext={this.onNext}
           disableNext={
-            !this.state.game.startTime ||
-            !this.state.game.endTime ||
+            !this.state.game.start_time ||
+            !this.state.game.end_time ||
             !this.state.game.sport
           }
         />

@@ -90,15 +90,14 @@ export default class GameList extends Component {
 export const GET_GAMES_LIST = gql`
   #  query games($minStartTime: String!, $maxStartTime: String!) {
   query games {
-    games #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
-    #      maxStartTime: $maxStartTime
+    games #      maxStartTime: $maxStartTime #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
     {
       uuid
       name
-      startTime
-      endTime
-      isFeatured
-      showRemaining
+      start_time
+      end_time
+      is_featured
+      show_remaining
       capacity
       sport {
         category

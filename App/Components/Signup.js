@@ -27,7 +27,8 @@ export class _Signup extends Component {
     this.state = {
       requestStatus: STATUS.IDLE,
       error: null,
-      username: '',
+      first_name: '',
+      last_name: '',
       email: '',
       password: ''
     }
@@ -36,11 +37,12 @@ export class _Signup extends Component {
   signupRequest = async () => {
     this.setState({ requestStatus: STATUS.PENDING })
     const result = await api.signup({
-      username: this.state.username,
+      username: this.state.email,
       email: this.state.email,
       password: this.state.password
     })
     if (result.problem) {
+      console.log('problem')
       this.setState({
         requestStatus: STATUS.FAILURE,
         error: result.data
@@ -57,10 +59,37 @@ export class _Signup extends Component {
     }
   }
 
+  shouldComponentUpdate () {
+    console.log('should update')
+    return true
+  }
+
+  get requestIsPending () {
+    return this.state.requestStatus === STATUS.PENDING
+  }
+
+  get hasError () {
+    return this.state.requestStatus === STATUS.FAILURE
+  }
+
+  get error () {
+    return this.hasError ? this.state.error : null
+  }
+
+  get signupButtonIsDisabled () {
+    return (
+      this.requestIsPending ||
+      !(
+        this.state.first_name &&
+        this.state.last_name &&
+        this.state.email &&
+        this.state.password
+      )
+    )
+  }
+
   render () {
-    const requestIsPending = this.state.requestStatus === STATUS.PENDING
-    const hasError = this.state.requestStatus === STATUS.FAILURE
-    const error = hasError ? this.state.error : null
+    console.log('rendering')
     return (
       <View style={{ flex: 1, backgroundColor: Colors.white }}>
         <KeyboardAwareScrollView contentContainerStyle={style.container}>
@@ -70,34 +99,44 @@ export class _Signup extends Component {
             <Text.L style={style.logoText}>SPORTYSPOTS</Text.L>
           </View>
           <View style={style.form}>
-            <View style={style.fieldSet}>
-              <Text style={style.text}>{I18n.t('Username')}</Text>
-              {hasError &&
-                'username' in error && (
-                  <Error>{I18n.t('Username exists')}</Error>
-                )}
-              <TextInput
-                onChangeText={val => this.setState({ username: val })}
+            <FieldSet>
+              <Text style={style.text}>{I18n.t('First name')}</Text>
+              <Input
+                onChangeText={val => this.setState({ first_name: val })}
                 style={style.input}
-                editable={!requestIsPending}
+                editable={!this.requestIsPending}
               />
-            </View>
-            <View style={style.fieldSet}>
+            </FieldSet>
+            <FieldSet>
+              <Text style={style.text}>{I18n.t('Last name')}</Text>
+              <Input
+                onChangeText={val => this.setState({ last_name: val })}
+                style={style.input}
+                editable={!this.requestIsPending}
+              />
+            </FieldSet>
+            <FieldSet>
               <Text style={style.text}>{I18n.t('E-mail')}</Text>
-              {hasError &&
-                'email' in error && (
-                  <Error>{I18n.t('Enter a valid e-mail address')}</Error>
+              {this.hasError &&
+                'email' in this.error && (
+                  <Error>
+                    {I18n.t(
+                      'username' in this.error
+                        ? 'E-mail address in use'
+                        : 'Enter a valid e-mail address'
+                    )}
+                  </Error>
                 )}
-              <TextInput
+              <Input
                 onChangeText={val => this.setState({ email: val })}
                 style={style.input}
-                editable={!requestIsPending}
+                editable={!this.requestIsPending}
               />
-            </View>
-            <View style={style.fieldSet}>
+            </FieldSet>
+            <FieldSet>
               <Text style={style.text}>{I18n.t('Password')}</Text>
-              {hasError &&
-                'password1' in error && (
+              {this.hasError &&
+                'password1' in this.error && (
                   <Error>
                     {I18n.t('Password needs to be at least 8 characters')}
                   </Error>
@@ -105,13 +144,16 @@ export class _Signup extends Component {
               <TextInput
                 onChangeText={val => this.setState({ password: val })}
                 style={style.input}
-                editable={!requestIsPending}
+                editable={!this.requestIsPending}
               />
-            </View>
+            </FieldSet>
             <DefaultButton
-              bgColor={requestIsPending ? 'gray' : 'blue'}
+              bgColor={
+                this.signupButtonIsDisabled ? 'grey' : Colors.actionYellow
+              }
               textColor={Colors.white}
               text={I18n.t('Signup')}
+              disabled={this.signupButtonIsDisabled}
               onPress={this.signupRequest}
             />
           </View>
@@ -126,6 +168,16 @@ const Signup = connect(state => ({ user: state.user }), {
 })(_Signup)
 export default Signup
 
+const FieldSet = styled.View`
+  margin-top: 8px;
+`
+const Error = styled(Text)`
+  color: red;
+`
+const Input = styled(TextInput)`
+  color: black;
+`
+
 const style = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
@@ -134,7 +186,7 @@ const style = StyleSheet.create({
   },
   skew: {
     position: 'absolute',
-    height: 130,
+    height: 100,
     width: 1000,
     left: -500,
     top: 0,
@@ -142,30 +194,20 @@ const style = StyleSheet.create({
     transform: [{ rotate: '-10deg' }]
   },
   logoContainer: {
-    marginTop: 60,
+    marginTop: 16,
     alignItems: 'center',
     justifyContent: 'center'
   },
   logoText: {
-    marginTop: 32,
+    marginTop: 8,
     color: Colors.black
   },
   form: {
-    marginTop: 16,
+    marginTop: 8,
     width: '100%',
     paddingHorizontal: 16
   },
-  fieldSet: {
-    marginTop: 16
-  },
   text: {
-    color: Colors.black
-  },
-  input: {
     color: Colors.black
   }
 })
-
-const Error = styled(Text)`
-  color: red;
-`

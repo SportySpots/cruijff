@@ -27,8 +27,8 @@ export default class GameListCard extends Component {
     return (
       <Container>
         <Left>
-          <Text.L>{moment(game.startTime).format('D')}</Text.L>
-          <Text.M>{moment(game.endTime).format('MMM')}</Text.M>
+          <Text.L>{moment(game.start_time).format('D')}</Text.L>
+          <Text.M>{moment(game.end_time).format('MMM')}</Text.M>
         </Left>
         <Right>
           <SpotImageContainer>
@@ -48,8 +48,8 @@ export default class GameListCard extends Component {
             </Top>
             <Bottom>
               <WhiteSM>
-                {moment(game.startTime).format('HH')}-
-                {moment(game.endTime).format('HH')} ·{' '}
+                {moment(game.start_time).format('HH')}-
+                {moment(game.end_time).format('HH')} ·{' '}
                 {I18n.t(game.sport.category)} ·&nbsp;
               </WhiteSM>
               <OrangeSM>

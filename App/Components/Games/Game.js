@@ -81,12 +81,12 @@ class GameComponent extends Component {
           <HeaderLeft>
             <Text.M>{spot.name}</Text.M>
             <HeaderLeftDetails>
-              <Text.SM>{moment(game.startTime).format('D MMM')}</Text.SM>
+              <Text.SM>{moment(game.start_time).format('D MMM')}</Text.SM>
               <Time>
                 <MaterialIcon name='access-time' style={{ paddingRight: 4 }} />
                 <Text.SM>
-                  {moment(game.startTime).format('HH')} -{' '}
-                  {moment(game.endTime).format('HH')}
+                  {moment(game.start_time).format('HH')} -{' '}
+                  {moment(game.end_time).format('HH')}
                 </Text.SM>
               </Time>
               <Text.SM>{I18n.t(game.sport.category)}</Text.SM>
@@ -227,10 +227,10 @@ const GET_GAME_DETAILS = gql`
     game(uuid: $uuid) {
       uuid
       name
-      startTime
-      endTime
-      isFeatured
-      showRemaining
+      start_time
+      end_time
+      is_featured
+      show_remaining
       capacity
       sport {
         category
