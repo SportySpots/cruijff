@@ -38,4 +38,4 @@ export default {
 }
 
 require('moment/locale/nl')
-moment.locale(I18n.locale.substr(0, 2))
+moment.locale(I18n.locale ? I18n.locale.substr(0, 2) : 'nl')

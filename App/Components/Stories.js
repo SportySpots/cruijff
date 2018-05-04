@@ -35,10 +35,19 @@ import PropertyCircle from './PropertyCircle'
 import UserCircle from './UserCircle'
 import Signup from './Signup'
 import { STATUS } from '../Redux/UserRedux'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
 const dummyNavigator = {
   navigate: () => null
 }
+
+const store = createStore(state => state, {
+  user: {
+    uuid: 1234,
+    initialized: true
+  }
+})
 
 storiesOf('Logo').add('Default', () => <Logo />)
 
@@ -97,7 +106,11 @@ const dummyReduxNav = {
 }
 
 storiesOf('NavBar')
-  .add('Default', () => <NavBar nav={dummyReduxNav} navigate={() => null} />)
+  .add('Default', () => (
+    <Provider store={store}>
+      <NavBar nav={dummyReduxNav} navigate={() => null} />
+    </Provider>
+  ))
   .add('NavBarButton', () => (
     <NavBarButton
       icon={{ set: MaterialIcon, name: 'settings' }}
@@ -105,10 +118,12 @@ storiesOf('NavBar')
     />
   ))
   .add('At bottom', () => (
-    <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: 'white' }} />
-      <NavBar nav={dummyReduxNav} navigate={() => null} />
-    </View>
+    <Provider store={store}>
+      <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: 'white' }} />
+        <NavBar nav={dummyReduxNav} navigate={() => null} />
+      </View>
+    </Provider>
   ))
 
 storiesOf('NavDots').add('Default', () => <NavDots count={5} active={3} />)
@@ -153,11 +168,14 @@ storiesOf('UserCircle').add('UserCircle', () => (
   </View>
 ))
 storiesOf('Signup').add('Default', () => (
-  <Signup
-    user={{
-      signup: {
-        status: STATUS.IDLE
-      }
-    }}
-  />
+  <Provider store={store}>
+    <Signup
+      navigation={dummyNavigator}
+      user={{
+        signup: {
+          status: STATUS.IDLE
+        }
+      }}
+    />
+  </Provider>
 ))
