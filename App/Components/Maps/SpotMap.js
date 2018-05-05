@@ -82,13 +82,17 @@ class SpotMap extends React.PureComponent {
       maximumAge: 1000
     }
 
-    try {
-      position = await getCurrentPosition(options)
-    } catch (exc) {
-      console.log(
-        "Ups, we couldn't get your position! Make sure you GPS is enabled ;)",
-        exc
-      )
+    if ('geolocation' in navigator) {
+      try {
+        position = await getCurrentPosition(options)
+      } catch (exc) {
+        console.log(
+          "Ups, we couldn't get your position! Make sure you GPS is enabled ;)",
+          exc
+        )
+      }
+    } else {
+      console.log('Geolocation is not available')
     }
 
     // Show directions FROM the user's current position (if available) TO the
