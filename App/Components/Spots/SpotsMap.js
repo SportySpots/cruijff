@@ -9,7 +9,6 @@ import {
 import MapView, { Marker } from 'react-native-maps'
 import Swiper from 'react-native-swiper'
 import Colors from '../../Themes/Colors'
-import ErrorBoundary from '../ErrorBoundary'
 import { cardList } from './Styles/CardStyles'
 
 const { width, height } = Dimensions.get('window')
@@ -95,7 +94,7 @@ class SpotsMap extends React.PureComponent {
     // Get spot associated to the new index and determine the new map's region
     const spot = this.props.spots[index]
     const latLng = getSpotLocation(spot)
-    const region = { ...this.state.region, ...latLng }
+    const region = { ...this.state.region, ...latLng } // eslint-disable-line
 
     // Number of times we have to scroll the swiper to reach the desired card
     const offset = index - this.state.currentSpot

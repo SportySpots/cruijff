@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
-import { FlatList, View, TouchableOpacity } from 'react-native'
+import React from 'react'
 
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import Text from '../../Components/Text'
 import SpotsList from '../../Components/Spots/SpotsList'
-import { cardList } from '../../Components/Spots/Styles/CardStyles'
 import Card from '../../Components/Spots/SpotListCard'
 
 // TODO: Implement blank screen if no spots were found --> this should probably
