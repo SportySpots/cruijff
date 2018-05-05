@@ -49,45 +49,101 @@ const getSpotLocation = spot => ({
   latitude: spot.address.lat,
   longitude: spot.address.lng
 })
+// ------------------------------------------------------------------------------
+const getCurrentPosition = (options = {}) =>
+  new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject, options)
+  })
 // -----------------------------------------------------------------------------
 // COMPONENT:
 // -----------------------------------------------------------------------------
 /**
- * @summary Renders map center on the post's location plus two buttons. The first
- * button takes the user to google maps and provides direction to reach the spot.
- * The second button takes the user google maps and shows the location
+ * @summary Renders a map centered on the post's location. Two buttons are
+ * displayed at the bottom of the map, the first one takes the user to google
+ * maps and shows the spot's location; the second button takes the user to
+ * google maps and provides directions to the spot based on the user's current
+ * position.
  */
-const SpotMap = ({ spot }) => {
-  // Get sport location
-  const latLng = getSpotLocation(spot)
-
-  // Define map region centered on the spot
-  const region = {
-    ...latLng,
-    latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA
+class SpotMap extends React.PureComponent {
+  handleLocationBtnPress = ({ latLng, title = '' }) => {
+    showLocation({
+      ...latLng,
+      title,
+      googleForceLatLon: true // force GoogleMaps to use the latLng from the query instead of the title
+    })
   }
 
-  return (
-    <Relative>
-      <MapView style={{ height: 150 }} initialRegion={region}>
-        <Marker coordinate={latLng} pinColor={Colors.primaryGreen} />
-      </MapView>
-      <Absolute>
-        <Flex>
-          <RoundButton>
-            <Icon name='directions' size={24} color={Colors.primaryGreen} />
-          </RoundButton>
-          <Spacer />
-          <RoundButton
-            onPress={() => showLocation({ ...latLng, title: spot.name })}
-          >
-            <Icon name='map' size={24} color={Colors.primaryGreen} />
-          </RoundButton>
-        </Flex>
-      </Absolute>
-    </Relative>
-  )
+  handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
+    // Get user's position from navigator
+    let position
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 1000
+    }
+
+    try {
+      position = await getCurrentPosition(options)
+    } catch (exc) {
+      console.log(
+        "Ups, we couldn't get your position! Make sure you GPS is enabled ;)",
+        exc
+      )
+    }
+
+    // Show directions FROM the user's current position (if available) TO the
+    // spot's location
+    showLocation({
+      sourceLatitude:
+        (position && position.coords && position.coords.latitude) || undefined,
+      sourceLongitude:
+        (position && position.coords && position.coords.longitude) || undefined,
+      ...latLng,
+      title,
+      googleForceLatLon: true // force GoogleMaps to use the latLng from the query instead of the title
+    })
+  }
+
+  render () {
+    const { spot } = this.props
+
+    // Get sport location
+    const latLng = getSpotLocation(spot)
+
+    // Define map region centered on the spot
+    const region = {
+      ...latLng,
+      latitudeDelta: LATITUDE_DELTA,
+      longitudeDelta: LONGITUDE_DELTA
+    }
+
+    return (
+      <Relative>
+        <MapView style={{ height: 150 }} initialRegion={region}>
+          <Marker coordinate={latLng} pinColor={Colors.primaryGreen} />
+        </MapView>
+        <Absolute>
+          <Flex>
+            <RoundButton
+              onPress={() => {
+                this.handleDirectionsBtnPress({ latLng, title: spot.name })
+              }}
+            >
+              <Icon name='directions' size={24} color={Colors.primaryGreen} />
+            </RoundButton>
+            <Spacer />
+            <RoundButton
+              onPress={() => {
+                this.handleLocationBtnPress({ latLng, title: spot.name })
+              }}
+            >
+              <Icon name='map' size={24} color={Colors.primaryGreen} />
+            </RoundButton>
+          </Flex>
+        </Absolute>
+      </Relative>
+    )
+  }
 }
 
 SpotMap.propTypes = {
@@ -99,6 +155,10 @@ SpotMap.propTypes = {
       lng: PropTypes.number.isRequired
     }).isRequired
   }).isRequired
+}
+
+SpotMap.defaultProps = {
+  userLoc: null
 }
 
 export default SpotMap
