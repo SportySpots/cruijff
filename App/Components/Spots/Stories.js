@@ -2,8 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react-native'
 import SpotListCard from './SpotListCard'
 import SpotListCardSmall from './SpotListCardSmall'
-import Spot from './Spot'
-import SpotList, { GET_SPOTS } from './SpotList'
+import Spot, { GET_SPOT_DETAILS } from './Spot'
+import SpotsListScreen, { GET_SPOTS } from '../../Screens/Spots/SpotsListScreen'
+import SpotMap from './SpotMap'
 import { WithApolloMockProvider } from '../../GraphQL'
 import SpotProperties from './SpotProperties'
 
@@ -59,9 +60,9 @@ storiesOf('Spots')
       </Query>
     </WithApolloMockProvider>
   ))
-  .add('SpotList', () => (
+  .add('SpotsListScreen', () => (
     <WithApolloMockProvider>
-      <SpotList navigation={dummyNavigator} />
+      <SpotsListScreen navigation={dummyNavigator} />
     </WithApolloMockProvider>
   ))
   .add('Spot', () => (
@@ -72,3 +73,15 @@ storiesOf('Spots')
     </Provider>
   ))
   .add('SpotProperties', () => <SpotProperties properties={spotProperties} />)
+  .add('SpotMap', () => (
+    <WithApolloMockProvider>
+      <Query
+        query={GET_SPOT_DETAILS}
+        variables={{ uuid: dummyNavigator.state.params.spotId }}
+      >
+        {({ loading, error, data }) =>
+          loading || error ? null : <SpotMap spot={data.spot} />
+        }
+      </Query>
+    </WithApolloMockProvider>
+  ))

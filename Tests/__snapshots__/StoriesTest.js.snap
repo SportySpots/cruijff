@@ -15449,7 +15449,7 @@ exports[`Storyshots Spots Spot 1`] = `
 </Text>
 `;
 
-exports[`Storyshots Spots SpotList 1`] = `
+exports[`Storyshots Spots SpotsListScreen 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}

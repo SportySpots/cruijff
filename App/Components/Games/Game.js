@@ -15,7 +15,7 @@ import DefaultButton from '../DefaultButton'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import ErrorBoundary from '../ErrorBoundary'
-import SpotMap from '../Maps/SpotMap'
+import SpotMap from '../Spots/SpotMap'
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />

@@ -2,22 +2,22 @@
 
 import React from 'react'
 
-import ImageSwiper from '../ImageSwiper'
-import Header from './Header'
-import Text from '../Text'
+import ImageSwiper from '../../Components/ImageSwiper'
+import Header from '../../Components/Spots/Header'
+import Text from '../../Components/Text'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import styled from 'styled-components'
 import I18n from '../../I18n'
 import { ScrollView, View } from 'react-native'
-import RatingBig from '../RatingBig'
-import FlatButton from '../FlatButton'
-import SpotProperties from './SpotProperties'
+import RatingBig from '../../Components/RatingBig'
+import FlatButton from '../../Components/FlatButton'
+import SpotProperties from '../../Components/Spots/SpotProperties'
 import Colors from '../../Themes/Colors'
 import { connect } from 'react-redux'
 import api from '../../Services/SeedorfApi'
-import ErrorBoundary from '../ErrorBoundary'
-import SpotMap from '../Maps/SpotMap'
+import ErrorBoundary from '../../Components/ErrorBoundary'
+import SpotMap from '../../Components/Spots/SpotMap'
 
 export class SpotContents extends React.Component {
   constructor (props) {
@@ -93,7 +93,7 @@ export class SpotContents extends React.Component {
   }
 }
 
-const Spot = connect(state => ({ uuid: state.user.uuid }))(
+const SpotDetailsScreen = connect(state => ({ uuid: state.user.uuid }))(
   ({ navigation, uuid }) => (
     <Query
       query={GET_SPOT_DETAILS}
@@ -114,7 +114,7 @@ const Spot = connect(state => ({ uuid: state.user.uuid }))(
   )
 )
 
-export default Spot
+export default SpotDetailsScreen
 
 export const GET_SPOT_DETAILS = gql`
   query spot($uuid: UUID, $user_uuid: UUID) {
