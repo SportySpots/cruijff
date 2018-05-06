@@ -14,6 +14,13 @@ import React from 'react'
 
 export let client = null
 
+/* Workaround for apollo client bug?
+   https://github.com/facebook/react-native/issues/9599#issuecomment-259908536
+*/
+if (typeof global.self === 'undefined') {
+  global.self = global
+}
+
 const createCache = () => {
   return new InMemoryCache({
     dataIdFromObject: object => object.uuid || null

@@ -1,12 +1,12 @@
 import { StackNavigator, SwitchNavigator } from 'react-navigation'
 import ProfileLoginScreen from '../Components/Profile/ProfileLoginScreen'
-import SpotDetail from '../Components/Spots/Spot'
 import SettingsScreen from '../Components/SettingsScreen'
 import ProfileDetailsScreen from '../Components/Profile/ProfileDetailsScreen'
 import ProfileEditScreen from '../Components/Profile/ProfileEditScreen'
 import I18n from '../I18n'
-import SpotList from '../Components/Spots/SpotList'
-import SpotMap from '../Components/Spots/SpotMap'
+import SpotsListScreen from '../Screens/Spots/SpotsListScreen'
+import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen'
+import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen'
 
 import Game from '../Components/Games/Game'
 import GamesList from '../Components/Games/GameList'
@@ -69,27 +69,27 @@ export const GameSearchNav = StackNavigator(
 export const SpotSearchNav = StackNavigator(
   {
     SpotDetailsScreen: {
-      screen: SpotDetail,
+      screen: SpotDetailsScreen,
       navigationOptions: {
         title: I18n.t('spot-details')
       }
     },
-    SpotListScreen: {
-      screen: SpotList,
+    SpotsListScreen: {
+      screen: SpotsListScreen,
       navigationOptions: {
         header: null
       }
     },
-    SpotMapScreen: {
-      screen: SpotMap,
+    SpotsMapScreen: {
+      screen: SpotsMapScreen,
       navigationOptions: {
         header: null
       }
     }
   },
   {
-    initialRouteName: 'SpotListScreen'
-    // initialRouteName: 'SpotMapScreen'
+    initialRouteName: 'SpotsListScreen'
+    // initialRouteName: 'SpotsMapScreen'
   }
 )
 

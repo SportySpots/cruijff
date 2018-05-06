@@ -12,7 +12,7 @@ import Text from '../Text'
 import I18n from '../../I18n'
 import PropTypes from 'prop-types'
 import Footer from '../DarkFooter'
-import { GET_SPOTS } from '../Spots/SpotList'
+import { GET_SPOTS } from '../Spots/SpotsList'
 import { Query } from 'react-apollo'
 import api from '../../Services/SeedorfApi'
 

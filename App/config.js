@@ -1,5 +1,5 @@
 import { Text } from 'react-native'
-
+import fetch from 'whatwg-fetch'
 // Allow/disallow font-scaling in app
 Text.defaultProps.allowFontScaling = true
 
