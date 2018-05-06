@@ -1,8 +1,8 @@
 import { StackNavigator, SwitchNavigator } from 'react-navigation'
-import ProfileLoginScreen from '../Components/Profile/ProfileLoginScreen'
-import SettingsScreen from '../Components/SettingsScreen'
-import ProfileDetailsScreen from '../Components/Profile/ProfileDetailsScreen'
-import ProfileEditScreen from '../Components/Profile/ProfileEditScreen'
+import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen'
+import SettingsScreen from '../Screens/SettingsScreen'
+import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen'
+import ProfileEditScreen from '../Screens/Profile/ProfileEditScreen'
 import I18n from '../I18n'
 import SpotsListScreen from '../Screens/Spots/SpotsListScreen'
 import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen'
@@ -129,14 +129,14 @@ const LoggedInProfileNav = StackNavigator(
 
 export const ProfileNav = SwitchNavigator(
   {
-    ProfileLoginScreen: {
-      screen: ProfileLoginScreen
+    ProfileSignupScreen: {
+      screen: ProfileSignupScreen
     },
     LoggedInProfileNav: {
       screen: LoggedInProfileNav
     }
   },
   {
-    initialRouteName: 'ProfileLoginScreen'
+    initialRouteName: 'ProfileSignupScreen'
   }
 )

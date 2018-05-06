@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Image } from 'react-native'
-import DefaultButton from '../DefaultButton'
+import DefaultButton from '../../Components/DefaultButton'
 import I18n from '../../I18n/index'
-import Text from '../Text'
+import Text from '../../Components/Text'
 import images from '../../Themes/Images'
 import styled from 'styled-components/native'
 import userActions from '../../Redux/UserRedux'
 import { connect } from 'react-redux'
 
-class _ProfileLoginScreen extends Component {
+class _ProfileSignupScreen extends Component {
   componentWillMount () {
     if (this.props.user.uuid) {
       this.props.navigation.navigate('ProfileDetailsScreen')
@@ -34,7 +34,7 @@ class _ProfileLoginScreen extends Component {
         </View>
         <ButtonContainer>
           <DefaultButton
-            onPress={() => this.props.navigation.navigate('StackSignupScreen')}
+            onPress={() => this.props.navigation.navigate('SignupScreen')}
             text={I18n.t('Register')}
           />
         </ButtonContainer>
@@ -47,8 +47,8 @@ const mapStateToProps = state => ({
   user: state.user
 })
 
-const ProfileLoginScreen = connect(mapStateToProps)(_ProfileLoginScreen)
-export default ProfileLoginScreen
+const ProfileSignupScreen = connect(mapStateToProps)(_ProfileSignupScreen)
+export default ProfileSignupScreen
 
 const MainContainer = styled.View`
   flex: 1;

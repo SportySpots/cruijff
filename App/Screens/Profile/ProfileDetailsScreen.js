@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
-import Text from '../Text'
+import Text from '../../Components/Text'
 import I18n from '../../I18n/index'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import Slider from '../Slider'
+import Slider from '../../Components/Slider'
 import styled from 'styled-components/native'
 
 import {

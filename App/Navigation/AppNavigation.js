@@ -1,7 +1,7 @@
 import React from 'react'
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation'
 
-import SplashScreen from '../Components/SplashScreen'
+import SplashScreen from '../Screens/SplashScreen'
 import OnboardingScreen from '../Components/Onboarding'
 import {
   GameSearchNav,
@@ -11,9 +11,11 @@ import {
   SpotSearchNav
 } from './Navigators'
 import AskLocation from '../Components/AskLocation'
-import SignupScreen from '../Components/Signup'
+import SignupScreen from '../Screens/SignupScreen'
 import { View } from 'react-native'
 import NavBar from '../Components/NavBar'
+import LoginScreen from '../Screens/LoginScreen'
+import I18n from '../I18n'
 
 /*
   Stack Navigator has support for a (custom) NavBar,
@@ -32,7 +34,7 @@ const withNavBar = Navigator => {
 }
 
 export const MainTabsNav = withNavBar(
-  SwitchNavigator(
+  TabNavigator(
     {
       SpotSearchTab: { screen: SpotSearchNav },
       GameSearchTab: { screen: GameSearchNav },
@@ -41,6 +43,8 @@ export const MainTabsNav = withNavBar(
     },
     {
       tabBarComponent: () => null,
+      animationEnabled: false,
+      swipeEnabled: false,
       initialRouteName: 'SpotSearchTab'
     }
   )
@@ -48,43 +52,47 @@ export const MainTabsNav = withNavBar(
 
 export const MainNav = StackNavigator(
   {
-    MainTabs: { screen: MainTabsNav },
-    PlanScreen: { screen: PlanGameNav },
-    StackSignupScreen: {
-      screen: SignupScreen
-    }
+    MainTabs: { screen: MainTabsNav, navigationOptions: { header: null } },
+    PlanScreen: { screen: PlanGameNav, navigationOptions: { header: null } }
   },
   {
-    initialRouteName: 'MainTabs',
-    headerMode: 'none'
+    initialRouteName: 'MainTabs'
   }
 )
 
-/* Be careful using StackNavigator, it is really a stack
-   in the sense that all screens stay mounted if navigating
-   to a new screen (unless they are explicitly removed from history).
+const RootNav = SwitchNavigator(
+  {
+    LocationPermissionScreen: { screen: AskLocation },
+    OnboardingScreen: { screen: OnboardingScreen },
+    SplashScreen: { screen: SplashScreen },
+    MainNav: { screen: MainNav }
+  },
+  {
+    // Default config for all screens
+    headerMode: 'none',
+    initialRouteName: 'SplashScreen',
+    tabBarComponent: () => null
+  }
+)
 
-   That is why SwitchNavigator is here, even though it doesn't have a
-   tranisition animation.
- */
-export const RootNav = ({ initialRouteName }) =>
-  React.createElement(
-    SwitchNavigator(
-      {
-        LocationPermissionScreen: { screen: AskLocation },
-        OnboardingScreen: { screen: OnboardingScreen },
-        SplashScreen: { screen: SplashScreen },
-        MainNav: { screen: MainNav }
-      },
-      {
-        // Default config for all screens
-        headerMode: 'none',
-        initialRouteName: initialRouteName,
-        tabBarComponent: () => null
+export default StackNavigator(
+  {
+    RootNav: {
+      screen: RootNav,
+      navigationOptions: { header: null }
+    },
+    LoginScreen: {
+      screen: LoginScreen,
+      navigationOptions: {
+        title: I18n.t('login')
       }
-    )
-  )
-
-export default RootNav
-
-// eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRvbXRvbSIsImV4cCI6MTUyNDU3NTcyOSwiZW1haWwiOiJ0b21rbGF2KzQ0NEBnbWFpbC5jb20ifQ.VeJT14HctWeWIFWatX9yrzeyIJgD75vGXmAwflAHodY
+    },
+    SignupScreen: {
+      screen: SignupScreen,
+      navigationOptions: { title: I18n.t('Sign up') }
+    }
+  },
+  {
+    initialRouteName: 'RootNav'
+  }
+)

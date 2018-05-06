@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { View, StyleSheet, TextInput, ScrollView } from 'react-native'
+import { TextInput } from 'react-native'
 import Colors from '../Themes/Colors'
-import Logo from './Logo'
-import Text from './Text'
-import I18n from '../I18n'
-import DefaultButton from './DefaultButton'
+import Text from '../Components/Text'
+import I18n from '../I18n/index'
+import DefaultButton from '../Components/DefaultButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import userActions, { STATUS } from '../Redux/UserRedux'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import api from '../Services/SeedorfApi'
+import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 
 export class _Signup extends Component {
   static propTypes = {
@@ -89,34 +89,26 @@ export class _Signup extends Component {
   }
 
   render () {
-    console.log('rendering')
     return (
-      <View style={{ flex: 1, backgroundColor: Colors.white }}>
-        <KeyboardAwareScrollView contentContainerStyle={style.container}>
-          <View style={style.skew} />
-          <View style={style.logoContainer}>
-            <Logo scale={1} />
-            <Text.L style={style.logoText}>SPORTYSPOTS</Text.L>
-          </View>
-          <View style={style.form}>
+      <KeyboardAwareScrollView contentContainerStyle={{flex: 1}}>
+        <LogoHeaderBackground>
+          <Form>
             <FieldSet>
-              <Text style={style.text}>{I18n.t('First name')}</Text>
+              <BlackText>{I18n.t('First name')}</BlackText>
               <Input
                 onChangeText={val => this.setState({ first_name: val })}
-                style={style.input}
                 editable={!this.requestIsPending}
               />
             </FieldSet>
             <FieldSet>
-              <Text style={style.text}>{I18n.t('Last name')}</Text>
+              <BlackText>{I18n.t('Last name')}</BlackText>
               <Input
                 onChangeText={val => this.setState({ last_name: val })}
-                style={style.input}
                 editable={!this.requestIsPending}
               />
             </FieldSet>
             <FieldSet>
-              <Text style={style.text}>{I18n.t('E-mail')}</Text>
+              <BlackText>{I18n.t('E-mail')}</BlackText>
               {this.hasError &&
                 'email' in this.error && (
                   <Error>
@@ -129,21 +121,19 @@ export class _Signup extends Component {
                 )}
               <Input
                 onChangeText={val => this.setState({ email: val })}
-                style={style.input}
                 editable={!this.requestIsPending}
               />
             </FieldSet>
             <FieldSet>
-              <Text style={style.text}>{I18n.t('Password')}</Text>
+              <BlackText>{I18n.t('Password')}</BlackText>
               {this.hasError &&
                 'password1' in this.error && (
                   <Error>
                     {I18n.t('Password needs to be at least 8 characters')}
                   </Error>
                 )}
-              <TextInput
+              <Input
                 onChangeText={val => this.setState({ password: val })}
-                style={style.input}
                 editable={!this.requestIsPending}
               />
             </FieldSet>
@@ -156,9 +146,9 @@ export class _Signup extends Component {
               disabled={this.signupButtonIsDisabled}
               onPress={this.signupRequest}
             />
-          </View>
-        </KeyboardAwareScrollView>
-      </View>
+          </Form>
+        </LogoHeaderBackground>
+      </KeyboardAwareScrollView>
     )
   }
 }
@@ -178,36 +168,11 @@ const Input = styled(TextInput)`
   color: black;
 `
 
-const style = StyleSheet.create({
-  container: {
-    backgroundColor: Colors.white,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  skew: {
-    position: 'absolute',
-    height: 100,
-    width: 1000,
-    left: -500,
-    top: 0,
-    backgroundColor: Colors.secondaryDarkBlueGreen,
-    transform: [{ rotate: '-10deg' }]
-  },
-  logoContainer: {
-    marginTop: 16,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  logoText: {
-    marginTop: 8,
-    color: Colors.black
-  },
-  form: {
-    marginTop: 8,
-    width: '100%',
-    paddingHorizontal: 16
-  },
-  text: {
-    color: Colors.black
-  }
-})
+const Form = styled.View`
+  width: 100%;
+  padding-horizontal: 16;
+`
+
+const BlackText = styled(Text)`
+  color: ${Colors.black};
+`

@@ -47,6 +47,12 @@ const create = () => {
       password1: password,
       password2: password
     })
+  const login = ({ username, email, password }) =>
+    api.post('/auth/login/', {
+      username,
+      email,
+      password: password
+    })
 
   const submitRating = (spotUuid, userUuid, rating) => {
     api.post(`/games/${spotUuid}/reactions`, {
@@ -113,6 +119,7 @@ const create = () => {
     setGameTimes,
     setGameDescription,
     signup,
+    login,
     submitRating,
     verifyToken,
     setToken: token => api.setHeader('Authorization', `JWT ${token}`)

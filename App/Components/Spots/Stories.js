@@ -2,7 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react-native'
 import SpotListCard from './SpotListCard'
 import SpotListCardSmall from './SpotListCardSmall'
-import Spot, { GET_SPOT_DETAILS } from './Spot'
+import SpotDetailsScreen, {
+  GET_SPOT_DETAILS
+} from '../../Screens/Spots/SpotDetailsScreen'
 import SpotsListScreen, { GET_SPOTS } from '../../Screens/Spots/SpotsListScreen'
 import SpotMap from './SpotMap'
 import { WithApolloMockProvider } from '../../GraphQL'
@@ -65,10 +67,10 @@ storiesOf('Spots')
       <SpotsListScreen navigation={dummyNavigator} />
     </WithApolloMockProvider>
   ))
-  .add('Spot', () => (
+  .add('SpotDetailsScreen', () => (
     <Provider store={store}>
       <WithApolloMockProvider>
-        <Spot uuid={1} navigation={dummyNavigator} />
+        <SpotDetailsScreen uuid={1} navigation={dummyNavigator} />
       </WithApolloMockProvider>
     </Provider>
   ))

@@ -1,6 +1,6 @@
 import React from 'react'
 import ScreenSlider from './ScreenSlider/index'
-import OnboardingScreen from './OnboardingScreen'
+import OnboardingScreen from '../Screens/OnboardingScreen'
 import I18n from '../I18n'
 import Images from '../Themes/Images'
 

@@ -8,9 +8,10 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import './ScreenSlider/Stories'
 import './Spots/Stories'
 import './Plan/Stories'
-import './Profile/Stories'
+import '../Screens/Profile/Stories'
 import './DarkFooter/Stories'
 import './Games/Stories'
+import '../Backgrounds/Stories'
 
 import Onboarding from './Onboarding'
 import ImageSwiper from './ImageSwiper'
@@ -25,15 +26,14 @@ import Check from './Check'
 import Text from './Text'
 import Logo from './Logo'
 import NavDots from './NavDots'
-import FieldBackground from './FieldBackground'
 import Slider from './Slider'
-import { _SplashScreen as SplashScreen } from './SplashScreen'
+import { _SplashScreen as SplashScreen } from '../Screens/SplashScreen'
 import Rating from './Rating'
 import RatingBig from './RatingBig'
 import PropertyCircle from './PropertyCircle'
 import UserCircle from './UserCircle'
-import Signup from './Signup'
-import { STATUS } from '../Redux/UserRedux'
+import SignupScreen from '../Screens/SignupScreen'
+import LoginScreen from '../Screens/LoginScreen'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
@@ -137,12 +137,6 @@ storiesOf('RatingBig')
   .add('3', () => <RatingBig rating={3} />)
   .add('4.5', () => <RatingBig rating={4.5} />)
 
-storiesOf('FieldBackground').add('Default', () => (
-  <FieldBackground>
-    <View />
-  </FieldBackground>
-))
-
 storiesOf('Slider').add('Default', () => <Slider value={0.75} />)
 storiesOf('SplashScreen').add('Default', () => (
   <SplashScreen user={{ initialized: true }} navigation={dummyNavigator} />
@@ -166,15 +160,13 @@ storiesOf('UserCircle').add('UserCircle', () => (
     {users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}
   </View>
 ))
-storiesOf('Signup').add('Default', () => (
+storiesOf('SignupScreen').add('Default', () => (
   <Provider store={store}>
-    <Signup
-      navigation={dummyNavigator}
-      user={{
-        signup: {
-          status: STATUS.IDLE
-        }
-      }}
-    />
+    <SignupScreen navigation={dummyNavigator} />
+  </Provider>
+))
+storiesOf('LoginScreen').add('Default', () => (
+  <Provider store={store}>
+    <LoginScreen navigation={dummyNavigator} />
   </Provider>
 ))

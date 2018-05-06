@@ -1,5 +1,10 @@
 import { Text } from 'react-native'
-import fetch from 'whatwg-fetch'
+
+if (typeof global.self === 'undefined') {
+  // needed for apollo client
+  global.self = global
+}
+
 // Allow/disallow font-scaling in app
 Text.defaultProps.allowFontScaling = true
 
@@ -20,7 +25,7 @@ if (__DEV__) {
   /* When using React Native Debugger with Network debug enabled, all network calls are proxied from the host system.
      So in this case use localhost, otherwise the host IP as seen from the device 10.0.3.2.
    */
-  const networkDebugEnabled = false // set to false if not using network debugger
+  const networkDebugEnabled = true // set to false if not using network debugger
   settings.seedorfRestUrl =
     isDebuggingEnabled && networkDebugEnabled
       ? 'http://localhost:8000/api'
@@ -29,7 +34,6 @@ if (__DEV__) {
     isDebuggingEnabled && networkDebugEnabled
       ? 'http://localhost:8000/graphql'
       : 'http://10.0.3.2:8000/graphql'
-  console.log(settings.seedorfRestUrl)
   settings.useFixtures = false
 }
 

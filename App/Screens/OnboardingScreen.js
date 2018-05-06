@@ -1,5 +1,5 @@
 import React from 'react'
-import { styles } from './Styles/Onboarding'
+import { styles } from '../Components/Styles/Onboarding'
 import { View, Text, Image } from 'react-native'
 import PropTypes from 'prop-types'
 

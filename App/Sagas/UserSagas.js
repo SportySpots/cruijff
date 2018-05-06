@@ -26,8 +26,6 @@ export function * setToken (api, action) {
 }
 
 export function * usersRootSaga (api) {
-  console.log('root')
-  setTimeout(() => fetch('http://10.4.4.4').catch(console.error), 3000)
   yield all([
     takeLatest(UserTypes.LOGOUT, function * () {
       yield call(AsyncStorage.removeItem, 'TOKEN')

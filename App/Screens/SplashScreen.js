@@ -7,16 +7,15 @@ import {
   AsyncStorage
 } from 'react-native'
 
-import FieldBackground from './FieldBackground'
-import Logo from './Logo'
-import Text from './Text'
+import FieldBackground from '../Backgrounds/FieldBackground'
+import Logo from '../Components/Logo'
+import Text from '../Components/Text'
 import PropTypes from 'prop-types'
-import DefaultButton from './DefaultButton'
-import I18n from '../I18n'
+import DefaultButton from '../Components/DefaultButton'
+import I18n from '../I18n/index'
 import Colors from '../Themes/Colors'
 import styled from 'styled-components/native'
 import { connect } from 'react-redux'
-// import { ApplicationStyles, Metrics } from '../Themes'
 
 export class _SplashScreen extends Component {
   constructor (props) {
@@ -66,7 +65,7 @@ export class _SplashScreen extends Component {
               bgColor={Colors.actionYellow}
               textColor='white'
             />
-            <TouchableOpacity onPress={() => navigate('SignupScreen')}>
+            <TouchableOpacity onPress={() => navigate('LoginScreen')}>
               <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
             </TouchableOpacity>
           </View>

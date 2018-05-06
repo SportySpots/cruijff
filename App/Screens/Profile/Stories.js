@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import { storiesOf } from '@storybook/react-native'
 import ProfileDetailsScreen from './ProfileDetailsScreen'
 import ProfileEditScreen from './ProfileEditScreen'
-import ProfileLoginScreen from './ProfileLoginScreen'
+import ProfileLoginScreen from './ProfileSignupScreen'
 import { Provider } from 'react-redux'
 
 import { createStore } from 'redux'
