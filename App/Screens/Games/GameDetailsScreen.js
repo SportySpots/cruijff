@@ -66,6 +66,12 @@ class GameComponent extends Component {
   render () {
     const game = this.props.game
     const spot = game.spot
+    const images =
+      spot.images.length > 0
+        ? spot.images.map(image => image.image)
+        : [
+          'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png'
+        ]
 
     let attendingUsers = game.attendees
       .filter(rsvp => rsvp.status === 'ATTENDING')
@@ -75,7 +81,7 @@ class GameComponent extends Component {
     return (
       <ScrollView style={this.props.style}>
         <SwiperContainer>
-          <ImageSwiper images={spot.images.map(i => i.image)} />
+          <ImageSwiper images={images} />
         </SwiperContainer>
         <BlockHeader>
           <HeaderLeft>
@@ -106,7 +112,8 @@ class GameComponent extends Component {
               <UserCircle user={game.organizer} style={{ marginRight: 16 }} />
               <View style={{ flex: 1 }}>
                 <Text.SM>
-                  {game.organizer.name} - {game.description}
+                  {game.organizer.first_name} {game.organizer.last_name} -{' '}
+                  {game.description}
                 </Text.SM>
               </View>
             </HorizontalView>
@@ -256,13 +263,15 @@ const GET_GAME_DETAILS = gql`
         }
       }
       organizer {
-        name
+        first_name
+        last_name
       }
       attendees {
         status
         user {
           uuid
-          name
+          first_name
+          last_name
         }
       }
     }

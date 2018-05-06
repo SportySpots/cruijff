@@ -94,6 +94,11 @@ const create = () => {
       description: description
     })
 
+  const setGameCapacity = ({ gameUUID, capacity }) =>
+    api.put(`/games/${gameUUID}/`, {
+      capacity
+    })
+
   // const setGameStartTime = ({ gameUUID, start_date, start_time }) => api.put(`/games/${gameUUID}/`), {
   //   start_time:
   // }
@@ -118,6 +123,7 @@ const create = () => {
     getGame,
     getGames,
     createGame,
+    setGameCapacity,
     setGameSport,
     setGameSpot,
     setGameTimes,
