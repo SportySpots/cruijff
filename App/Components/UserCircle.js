@@ -10,8 +10,11 @@ const userToInitials = user => {
   // } else {
   //   return user.name.substr(0, 1)
   // }
-  console.log(user)
-  return user.first_name.substr(0, 1) + user.last_name.substr(0, 1)
+  if (user.first_name && user.last_name) {
+    return user.first_name.substr(0, 1) + user.last_name.substr(0, 1)
+  } else {
+    return '?'
+  }
 }
 
 const UserCircle = ({ user, style }) => (
