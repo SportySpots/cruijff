@@ -40,7 +40,7 @@ const create = () => {
   const getGame = gameId => gameId
   const getGames = ({ month }) => api.get('search/games/', { q: month })
   const verifyToken = token => api.post('/auth/token-verify/', { token: token })
-  const signup = ({ username, email, password }) =>
+  const signup = ({ username, email, first_name, last_name, password }) =>
     api.post('/auth/registration/', {
       username,
       email,
@@ -51,9 +51,13 @@ const create = () => {
     api.post('/auth/login/', {
       username,
       email,
-      password: password
+      password
     })
-
+  const updateUser = ({ uuid, first_name, last_name }) =>
+    api.patch(`/users/${uuid}/`, {
+      first_name,
+      last_name
+    })
   const submitRating = (spotUuid, userUuid, rating) => {
     api.post(`/games/${spotUuid}/reactions`, {
       // todo : construct proper post
@@ -120,6 +124,7 @@ const create = () => {
     setGameDescription,
     signup,
     login,
+    updateUser,
     submitRating,
     verifyToken,
     setToken: token => api.setHeader('Authorization', `JWT ${token}`)

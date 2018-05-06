@@ -1,11 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react-native'
 import { View } from 'react-native'
-import SportAndTime from './SportAndTime'
-import PickSpot from './PickSpot'
-import Description from './Description'
-import Created from './Created'
-import { WithApolloMockProvider } from '../../GraphQL'
+import SportAndTime from './SportAndTimeScreen'
+import PickSpot from './PickSpotScreen'
+import Description from './DescriptionScreen'
+import Created from './CreatedScreen'
+import { WithApolloMockProvider } from '../../GraphQL/index'
 
 const gameDetails = {
   sport: null,

@@ -10,7 +10,7 @@ import userActions, { STATUS } from '../Redux/UserRedux'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import api from '../Services/SeedorfApi'
-import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
+import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground'
 
 export class _Signup extends Component {
   static propTypes = {
@@ -39,7 +39,9 @@ export class _Signup extends Component {
     const result = await api.signup({
       username: this.state.email,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      first_name: this.state.first_name,
+      last_name: this.state.last_name
     })
     if (result.problem) {
       console.log('problem')
@@ -90,7 +92,7 @@ export class _Signup extends Component {
 
   render () {
     return (
-      <KeyboardAwareScrollView contentContainerStyle={{flex: 1}}>
+      <KeyboardAwareScrollView contentContainerStyle={{ flex: 1 }}>
         <LogoHeaderBackground>
           <Form>
             <FieldSet>

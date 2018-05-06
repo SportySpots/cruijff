@@ -9,14 +9,14 @@ import {
 import PropTypes from 'prop-types'
 
 import Colors from '../../Themes/Colors'
-import Text from '../Text'
-import I18n from '../../I18n'
-import Footer from '../DarkFooter/index'
+import Text from '../../Components/Text'
+import I18n from '../../I18n/index'
+import Footer from '../../Components/DarkFooter/index'
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import Checkbox from '../Checkbox'
+import Checkbox from '../../Components/Checkbox'
 import { NavigationActions } from 'react-navigation'
-import PickSpot from './PickSpot'
+import PickSpot from './PickSpotScreen'
 import Api from '../../Services/SeedorfApi'
 
 export default class Created extends Component {

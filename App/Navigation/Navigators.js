@@ -8,14 +8,14 @@ import SpotsListScreen from '../Screens/Spots/SpotsListScreen'
 import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen'
 import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen'
 
-import Game from '../Components/Games/Game'
-import GamesList from '../Components/Games/GameList'
-import SportAndTime from '../Components/Plan/SportAndTime'
-import PickSpot from '../Components/Plan/PickSpot'
-import Created from '../Components/Plan/Created'
+import Game from '../Screens/Games/GameDetailsScreen'
+import GamesList from '../Screens/Games/GameListScreen'
+import SportAndTime from '../Screens/Plan/SportAndTimeScreen'
+import PickSpot from '../Screens/Plan/PickSpotScreen'
+import Created from '../Screens/Plan/CreatedScreen'
 import planWrapper from '../Containers/Plan/planWrapper'
-import Description from '../Components/Plan/Description'
-import PlayerList from '../Components/Games/PlayerList'
+import Description from '../Screens/Plan/DescriptionScreen'
+import PlayerList from '../Screens/Games/PlayerListScreen'
 
 export const PlanGameNav = StackNavigator(
   {

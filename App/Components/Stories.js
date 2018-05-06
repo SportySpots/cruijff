@@ -7,7 +7,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 import './ScreenSlider/Stories'
 import './Spots/Stories'
-import './Plan/Stories'
+import '../Screens/Plan/Stories'
 import '../Screens/Profile/Stories'
 import './DarkFooter/Stories'
 import './Games/Stories'

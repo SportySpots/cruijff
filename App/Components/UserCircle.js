@@ -4,12 +4,14 @@ import { View, StyleSheet } from 'react-native'
 import Text from './Text'
 
 const userToInitials = user => {
-  const splitName = user.name.split(' ')
-  if (splitName.length > 1) {
-    return splitName[0][0] + splitName[1][0]
-  } else {
-    return user.name.substr(0, 1)
-  }
+  // const splitName = user.name.split(' ')
+  // if (splitName.length > 1) {
+  //   return splitName[0][0] + splitName[1][0]
+  // } else {
+  //   return user.name.substr(0, 1)
+  // }
+  console.log(user)
+  return user.first_name.substr(0, 1) + user.last_name.substr(0, 1)
 }
 
 const UserCircle = ({ user, style }) => (

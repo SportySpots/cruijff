@@ -65,9 +65,11 @@ export class _SplashScreen extends Component {
               bgColor={Colors.actionYellow}
               textColor='white'
             />
-            <TouchableOpacity onPress={() => navigate('LoginScreen')}>
-              <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
-            </TouchableOpacity>
+            {!this.props.user.uuid && (
+              <TouchableOpacity onPress={() => navigate('LoginScreen')}>
+                <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
+              </TouchableOpacity>
+            )}
           </View>
         ) : (
           <View style={styles.buttonsContainer}>

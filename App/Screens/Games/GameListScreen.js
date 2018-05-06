@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { FlatList, TouchableOpacity } from 'react-native'
 
-import GameListCard from './GameListCard'
+import GameListCard from '../../Components/Games/GameListCard'
 import styled from 'styled-components'
 import { MenuProvider } from 'react-native-popup-menu'
-import MonthSelector from './MonthSelector'
+import MonthSelector from '../../Components/Games/MonthSelector'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import Text from '../Text'
+import Text from '../../Components/Text'
 
 const CardContainer = props => {
   const { style, onPress, ...otherProps } = props

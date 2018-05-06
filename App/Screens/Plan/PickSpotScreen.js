@@ -6,13 +6,13 @@ import {
   View,
   StyleSheet
 } from 'react-native'
-import { cardList } from '../Spots/Styles/CardStyles'
-import CardSmall from '../Spots/SpotListCardSmall'
-import Text from '../Text'
-import I18n from '../../I18n'
+import { cardList } from '../../Components/Spots/Styles/CardStyles'
+import CardSmall from '../../Components/Spots/SpotListCardSmall'
+import Text from '../../Components/Text'
+import I18n from '../../I18n/index'
 import PropTypes from 'prop-types'
-import Footer from '../DarkFooter'
-import { GET_SPOTS } from '../Spots/SpotsList'
+import Footer from '../../Components/DarkFooter/index'
+import { GET_SPOTS } from '../../Components/Spots/SpotsList'
 import { Query } from 'react-apollo'
 import api from '../../Services/SeedorfApi'
 

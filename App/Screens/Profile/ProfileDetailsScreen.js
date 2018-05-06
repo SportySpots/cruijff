@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 import Text from '../../Components/Text'
@@ -6,6 +6,7 @@ import I18n from '../../I18n/index'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Slider from '../../Components/Slider'
 import styled from 'styled-components/native'
+import gql from 'graphql-tag'
 
 import {
   Menu,
@@ -18,6 +19,8 @@ import { TabBarTop, TabNavigator } from 'react-navigation'
 import Colors from '../../Themes/Colors'
 import userActions from '../../Redux/UserRedux'
 import { connect } from 'react-redux'
+import { Query } from 'react-apollo'
+import UserCircle from '../../Components/UserCircle'
 
 export const BottomNav = new TabNavigator(
   {
@@ -48,7 +51,7 @@ export const BottomNav = new TabNavigator(
   }
 )
 
-export class _ProfileDetailsScreen extends React.PureComponent {
+export class ProfileDetailsScreenComponent extends React.PureComponent {
   static propTypes = {
     navigation: PropTypes.any,
     user: PropTypes.shape({
@@ -65,10 +68,6 @@ export class _ProfileDetailsScreen extends React.PureComponent {
   }
 
   render () {
-    if (!this.props.user) {
-      return null
-    }
-
     const EditMenu = (
       <View style={styles.editMenu}>
         <Menu name='popup'>
@@ -92,26 +91,30 @@ export class _ProfileDetailsScreen extends React.PureComponent {
       </View>
     )
 
-    const imageUrl = `https://graph.facebook.com/123123/picture?type=large`
+    const user = this.props.user
     return (
       <MenuProvider>
         <View style={styles.outerContainer}>
           {EditMenu}
           <View style={styles.center}>
-            <Image style={styles.image} source={{ uri: imageUrl }} />
+            <UserCircle user={user} />
             <NameContainer>
-              {this.props.user.firstName} {this.props.user.lastName}
+              {user.first_name} {user.last_name}
             </NameContainer>
           </View>
           <View style={styles.ageTypeContainer}>
-            <View style={styles.ageContainer}>
-              <Text>{I18n.t('Age')}</Text>
-              <Text.L>{this.props.user.age}</Text.L>
-            </View>
-            <View style={styles.type}>
-              <Text>{I18n.t('Style')}</Text>
-              <Slider disabled value={0.5} onChange={console.log} />
-            </View>
+            {this.props.user.profile && (
+              <View style={styles.ageContainer}>
+                <Text>{I18n.t('Age')}</Text>
+                <Text.L>{this.props.user.profile.year_of_birth}</Text.L>
+              </View>
+            )}
+            {false && (
+              <View style={styles.type}>
+                <Text>{I18n.t('Style')}</Text>
+                <Slider disabled value={0.5} onChange={console.log} />
+              </View>
+            )}
           </View>
           <View style={styles.bottomNavContainer}>
             <BottomNav style={{ flex: 1 }} />
@@ -131,8 +134,44 @@ const mapStateToProps = state => ({
 })
 
 const ProfileDetailsScreen = connect(mapStateToProps, dispatchToProps)(
-  _ProfileDetailsScreen
+  class extends Component {
+    static propTypes = {
+      user: PropTypes.object,
+      navigation: PropTypes.object
+    }
+
+    render () {
+      return (
+        <Query
+          query={GET_USER_DETAILS}
+          variables={{ uuid: this.props.user.uuid }}
+        >
+          {({ loading, error, data }) => {
+            if (loading) return <Text>Loading...</Text>
+            if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
+            return (
+              <ProfileDetailsScreenComponent {...this.props} user={data.user} />
+            )
+          }}
+        </Query>
+      )
+    }
+  }
 )
+
+export const GET_USER_DETAILS = gql`
+  query user($uuid: UUID) {
+    user(uuid: $uuid) {
+      uuid
+      first_name
+      last_name
+      #      profile {
+      #        year_of_birth
+      #      }
+    }
+  }
+`
+
 export default ProfileDetailsScreen
 
 const styles = StyleSheet.create({

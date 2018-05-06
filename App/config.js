@@ -1,4 +1,5 @@
 import { Text } from 'react-native'
+import './I18n/I18n'
 
 if (typeof global.self === 'undefined') {
   // needed for apollo client

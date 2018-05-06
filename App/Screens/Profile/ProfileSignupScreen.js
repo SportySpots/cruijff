@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Image } from 'react-native'
+import { View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import DefaultButton from '../../Components/DefaultButton'
 import I18n from '../../I18n/index'
 import Text from '../../Components/Text'
@@ -38,6 +38,11 @@ class _ProfileSignupScreen extends Component {
             text={I18n.t('Register')}
           />
         </ButtonContainer>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('LoginScreen')}
+        >
+          <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
+        </TouchableOpacity>
       </MainContainer>
     )
   }
@@ -58,4 +63,9 @@ const MainContainer = styled.View`
 
 const ButtonContainer = styled.View`
   align-self: stretch;
+`
+
+const LinkLabel = styled(Text.M)`
+  text-align: center;
+  text-decoration-line: underline;
 `

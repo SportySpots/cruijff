@@ -5,6 +5,8 @@ import { Query } from 'react-apollo'
 import Text from '../../Components/Text'
 import SpotsList from '../../Components/Spots/SpotsList'
 import Card from '../../Components/Spots/SpotListCard'
+import { View } from 'react-native'
+import CenteredActivityIndicator from '../../CenteredActivityIndicator'
 
 // TODO: Implement blank screen if no spots were found --> this should probably
 // handled in SpotsList (child) component itself
@@ -19,7 +21,7 @@ const SpotsListScreen = ({ navigation, style }) => {
   return (
     <Query query={GET_SPOTS}>
       {({ loading, error, data }) => {
-        if (loading) return <Text>Loading...</Text>
+        if (loading) return <CenteredActivityIndicator />
         if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
 
         return (
