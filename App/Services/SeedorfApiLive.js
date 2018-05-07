@@ -2,8 +2,10 @@
 import apisauce from 'apisauce'
 import config from '../config'
 import moment from 'moment'
-
+import { client } from '../GraphQL'
+import gql from 'graphql-tag'
 // our "constructor"
+
 const create = () => {
   // ------
   // STEP 1
@@ -44,6 +46,8 @@ const create = () => {
     api.post('/auth/registration/', {
       username,
       email,
+      first_name,
+      last_name,
       password1: password,
       password2: password
     })
@@ -73,10 +77,28 @@ const create = () => {
       end_time: moment().toISOString()
     })
 
-  const setGameSport = ({ gameUUID, sportUUID }) =>
+  const setGameSport = ({ gameUUID, sport }) => {
     api.post(`/games/${gameUUID}/sport/`, {
-      uuid: sportUUID
+      uuid: sport.uuid
     })
+    global.client = client
+    const q = gql`
+      query game($uuid: UUID!) {
+        game(uuid: $uuid) {
+          sport
+        }
+    `
+    client.writeQuery({
+      query: q,
+      data: {
+        sport: { uuid: sport.uuid }
+      },
+      variables: {
+        uuid: gameUUID
+      }
+    })
+  }
+
   const setGameSpot = ({ gameUUID, spotUUID }) =>
     api.post(`/games/${gameUUID}/spot/`, {
       uuid: spotUUID

@@ -23,9 +23,7 @@ import { client } from '../../GraphQL/index'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import moment from 'moment'
-import { Keyboard } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import Fonts from '../../Themes/Fonts'
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -140,6 +138,10 @@ export default class SportAndTime extends Component {
     this.refreshGame()
   }
 
+  shouldComponentUpdate () {
+    return true
+  }
+
   get gameUUID () {
     return this.props.navigation.state.params.uuid
   }
@@ -187,13 +189,16 @@ export default class SportAndTime extends Component {
 
   setSport = async sport => {
     this.closeModal('sport')
-    const result = await api.setGameSport({
-      gameUUID: this.gameUUID,
-      sportUUID: sport.uuid
-    })
-    if (result.ok) {
-      this.setState({ game: { ...this.state.game, sport: sport } })
+    // request goes through, but response is unexpected from the perspective of Apollo Client
+    try {
+      const result = await api.setGameSport({
+        gameUUID: this.gameUUID,
+        sport: sport
+      })
+    } catch (e) {
+      console.log(e)
     }
+    this.setState({ game: { ...this.state.game, sport: sport } })
   }
 
   setDate = async date => {

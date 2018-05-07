@@ -44,7 +44,6 @@ export class _Signup extends Component {
       last_name: this.state.last_name
     })
     if (result.problem) {
-      console.log('problem')
       this.setState({
         requestStatus: STATUS.FAILURE,
         error: result.data
@@ -61,17 +60,12 @@ export class _Signup extends Component {
     }
   }
 
-  shouldComponentUpdate () {
-    console.log('should update')
-    return true
-  }
-
   get requestIsPending () {
     return this.state.requestStatus === STATUS.PENDING
   }
 
   get hasError () {
-    return this.state.requestStatus === STATUS.FAILURE
+    return this.state.requestStatus === STATUS.FAILURE && this.state.errorrrr
   }
 
   get error () {
@@ -92,7 +86,7 @@ export class _Signup extends Component {
 
   render () {
     return (
-      <KeyboardAwareScrollView contentContainerStyle={{ flex: 1 }}>
+      <KeyboardAwareScrollView>
         <LogoHeaderBackground>
           <Form>
             <FieldSet>

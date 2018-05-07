@@ -7,6 +7,7 @@ import SpotsList from '../../Components/Spots/SpotsList'
 import Card from '../../Components/Spots/SpotListCard'
 import { View } from 'react-native'
 import CenteredActivityIndicator from '../../CenteredActivityIndicator'
+import withQuery from '../../GraphQL/withQuery'
 
 // TODO: Implement blank screen if no spots were found --> this should probably
 // handled in SpotsList (child) component itself
@@ -18,22 +19,14 @@ const SpotsListScreen = ({ navigation, style }) => {
     })
   }
 
-  return (
-    <Query query={GET_SPOTS}>
-      {({ loading, error, data }) => {
-        if (loading) return <CenteredActivityIndicator />
-        if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
+  const _SpotsList = withQuery(GET_SPOTS)(SpotsList)
 
-        return (
-          <SpotsList
-            spots={data.spots}
-            cardComponent={Card}
-            onCardPress={handleCardPress}
-            style={style}
-          />
-        )
-      }}
-    </Query>
+  return (
+    <_SpotsList
+      cardComponent={Card}
+      onCardPress={handleCardPress}
+      style={style}
+    />
   )
 }
 

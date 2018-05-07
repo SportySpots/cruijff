@@ -1,3 +1,4 @@
+import React from 'react'
 import { StackNavigator, SwitchNavigator } from 'react-navigation'
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen'
 import SettingsScreen from '../Screens/SettingsScreen'
@@ -16,6 +17,8 @@ import Created from '../Screens/Plan/CreatedScreen'
 import planWrapper from '../Containers/Plan/planWrapper'
 import Description from '../Screens/Plan/DescriptionScreen'
 import PlayerList from '../Screens/Games/PlayerListScreen'
+import Text from '../Components/Text'
+import { TouchableOpacity } from 'react-native'
 
 export const PlanGameNav = StackNavigator(
   {
@@ -116,10 +119,7 @@ const LoggedInProfileNav = StackNavigator(
       }
     },
     ProfileEditScreen: {
-      screen: ProfileEditScreen,
-      navigationOptions: {
-        title: I18n.t('Profile Edit')
-      }
+      screen: ProfileEditScreen
     }
   },
   {

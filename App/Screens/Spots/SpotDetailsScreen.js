@@ -18,6 +18,8 @@ import { connect } from 'react-redux'
 import api from '../../Services/SeedorfApi'
 import ErrorBoundary from '../../Components/ErrorBoundary'
 import SpotMap from '../../Components/Spots/SpotMap'
+import ProfileEditScreen from '../Profile/ProfileEditScreen'
+import StackBackHeader from '../../Components/StackBackHeader'
 
 export class SpotContents extends React.Component {
   constructor (props) {
@@ -113,6 +115,11 @@ const SpotDetailsScreen = connect(state => ({ uuid: state.user.uuid }))(
     </Query>
   )
 )
+
+SpotDetailsScreen.navigationOptions = {
+  title: I18n.t('Spot details'),
+  header: props => <StackBackHeader {...props} title={I18n.t('Spot details')} />
+}
 
 export default SpotDetailsScreen
 

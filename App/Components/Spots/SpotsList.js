@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { FlatList, View, TouchableOpacity } from 'react-native'
 import { cardList } from '../Spots/Styles/CardStyles'
 
-const SpotsList = ({ spots, cardComponent, onCardPress, style }) => (
+const SpotsList = ({ data, cardComponent, onCardPress, style }) => (
   <View style={[cardList.container, style]}>
     <FlatList
       showsVerticalScrollIndicator={false}
-      data={spots}
+      data={data.spots}
       renderItem={({ item: spot }) => (
         <TouchableOpacity
           key={spot.uuid}

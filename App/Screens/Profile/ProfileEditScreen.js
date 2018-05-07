@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
-import { View, Image, StyleSheet, TextInput, ScrollView } from 'react-native'
+import {
+  View,
+  Image,
+  StyleSheet,
+  TextInput,
+  ScrollView,
+  TouchableOpacity
+} from 'react-native'
 import PropTypes from 'prop-types'
 import Text from '../../Components/Text'
 import I18n from '../../I18n/index'
@@ -11,7 +18,7 @@ import { GET_USER_DETAILS } from './ProfileDetailsScreen'
 import UserCircle from '../../Components/UserCircle'
 import { Query } from 'react-apollo'
 import SeedorfAPI from '../../Services/SeedorfApi'
-
+import StackBackHeader from '../../Components/StackBackHeader'
 class ProfileEditComponent extends React.PureComponent {
   static propTypes = {
     refetch: PropTypes.func,
@@ -127,6 +134,11 @@ const ProfileEditScreen = connect(mapStateToProps)(
     }
   }
 )
+
+ProfileEditScreen.navigationOptions = {
+  title: I18n.t('Profile Edit'),
+  header: props => <StackBackHeader {...props} title={I18n.t('Profile Edit')} />
+}
 
 export default ProfileEditScreen
 

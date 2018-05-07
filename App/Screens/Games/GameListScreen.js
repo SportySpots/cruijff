@@ -8,6 +8,7 @@ import MonthSelector from '../../Components/Games/MonthSelector'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import Text from '../../Components/Text'
+import withQuery from '../../GraphQL/withQuery'
 
 const CardContainer = props => {
   const { style, onPress, ...otherProps } = props
@@ -45,44 +46,38 @@ export default class GameList extends Component {
   }
   render () {
     const monthRange = getMonthRange(this.state.month)
-    return (
-      <Query
-        query={GET_GAMES_LIST}
-        variables={{
-          minStartTime: monthRange.minDate,
-          maxStartTime: monthRange.maxDate
-        }}
-      >
-        {({ loading, error, data }) => {
-          if (loading) return <Text>Loading...</Text>
-          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
 
-          return (
-            <Container>
-              <MonthSelector
-                style={{ marginBottom: 16 }}
-                month={this.state.month}
-                onChange={month => this.setState({ month })}
-              />
-              <FlatList
-                showsVerticalScrollIndicator={false}
-                data={data.games.filter(game => game.spot)}
-                renderItem={({ item }) => (
-                  <GameListCardContainer
-                    game={item}
-                    onPress={() =>
-                      this.props.navigation.navigate('GameDetailsScreen', {
-                        uuid: item.uuid
-                      })
-                    }
-                  />
-                )}
-                keyExtractor={item => item.uuid}
-              />
-            </Container>
-          )
-        }}
-      </Query>
+    const Contents = withQuery(GET_GAMES_LIST)(({ data }) => (
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={data.games.filter(game => game.spot)}
+        renderItem={({ item }) => (
+          <GameListCardContainer
+            game={item}
+            onPress={() =>
+              this.props.navigation.navigate('GameDetailsScreen', {
+                uuid: item.uuid
+              })
+            }
+          />
+        )}
+        keyExtractor={item => item.uuid}
+      />
+    ))
+    return (
+      <Container>
+        <MonthSelector
+          style={{ marginBottom: 16 }}
+          month={this.state.month}
+          onChange={month => this.setState({ month })}
+        />
+        <Contents
+          variables={{
+            minStartTime: monthRange.minDate,
+            maxStartTime: monthRange.maxDate
+          }}
+        />
+      </Container>
     )
   }
 }
@@ -90,8 +85,7 @@ export default class GameList extends Component {
 export const GET_GAMES_LIST = gql`
   #  query games($minStartTime: String!, $maxStartTime: String!) {
   query games {
-    games #      maxStartTime: $maxStartTime #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
-    {
+    games { #      maxStartTime: $maxStartTime #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
       uuid
       name
       start_time

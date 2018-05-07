@@ -21,6 +21,7 @@ import userActions from '../../Redux/UserRedux'
 import { connect } from 'react-redux'
 import { Query } from 'react-apollo'
 import UserCircle from '../../Components/UserCircle'
+import withQuery from '../../GraphQL/withQuery'
 
 export const BottomNav = new TabNavigator(
   {
@@ -68,6 +69,7 @@ export class ProfileDetailsScreenComponent extends React.PureComponent {
   }
 
   render () {
+    const user = this.props.data.user
     const EditMenu = (
       <View style={styles.editMenu}>
         <Menu name='popup'>
@@ -91,7 +93,6 @@ export class ProfileDetailsScreenComponent extends React.PureComponent {
       </View>
     )
 
-    const user = this.props.user
     return (
       <MenuProvider>
         <View style={styles.outerContainer}>
@@ -134,30 +135,12 @@ const mapStateToProps = state => ({
 })
 
 const ProfileDetailsScreen = connect(mapStateToProps, dispatchToProps)(
-  class extends Component {
-    static propTypes = {
-      user: PropTypes.object,
-      navigation: PropTypes.object
-    }
-
-    render () {
-      return (
-        <Query
-          query={GET_USER_DETAILS}
-          variables={{ uuid: this.props.user.uuid }}
-        >
-          {({ loading, error, data }) => {
-            if (loading) return <Text>Loading...</Text>
-            if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
-            return (
-              <ProfileDetailsScreenComponent {...this.props} user={data.user} />
-            )
-          }}
-        </Query>
-      )
-    }
+  props => {
+    const Contents = withQuery(GET_USER_DETAILS)(ProfileDetailsScreenComponent)
+    return <Contents {...props} variables={{ uuid: props.user.uuid }} />
   }
 )
+export default ProfileDetailsScreen
 
 export const GET_USER_DETAILS = gql`
   query user($uuid: UUID) {
@@ -171,8 +154,6 @@ export const GET_USER_DETAILS = gql`
     }
   }
 `
-
-export default ProfileDetailsScreen
 
 const styles = StyleSheet.create({
   image: {

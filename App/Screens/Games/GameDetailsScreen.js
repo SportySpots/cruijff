@@ -16,6 +16,8 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import ErrorBoundary from '../../Components/ErrorBoundary'
 import SpotMap from '../../Components/Spots/SpotMap'
+import SpotDetailsScreen from '../Spots/SpotDetailsScreen'
+import StackBackHeader from '../../Components/StackBackHeader'
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -205,6 +207,12 @@ export default class Game extends Component {
   static propTypes = {
     uuid: PropTypes.string,
     style: View.propTypes.style
+  }
+  static navigationOptions = {
+    title: I18n.t('Game details'),
+    header: props => (
+      <StackBackHeader {...props} title={I18n.t('Game details')} />
+    )
   }
 
   render () {
