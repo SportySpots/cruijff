@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import Text from '../Components/Text'
-import CenteredActivityIndicator from '../CenteredActivityIndicator'
+import CenteredActivityIndicator from '../Components/CenteredActivityIndicator'
 
 const withQuery = query => Component => props => {
   return (

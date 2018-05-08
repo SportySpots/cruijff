@@ -247,6 +247,7 @@ const GET_GAME_DETAILS = gql`
       is_featured
       show_remaining
       capacity
+      description
       sport {
         category
       }

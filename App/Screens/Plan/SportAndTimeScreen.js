@@ -6,8 +6,7 @@ import {
   Modal,
   FlatList,
   TextInput,
-  ScrollView,
-  TouchableWithoutFeedback
+  Keyboard
 } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Calendar } from 'react-native-calendars'
@@ -21,9 +20,9 @@ import Footer from '../../Components/DarkFooter/index'
 import api from '../../Services/SeedorfApi'
 import { client } from '../../GraphQL/index'
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
 import moment from 'moment'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import withQuery from '../../GraphQL/withQuery'
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -36,32 +35,15 @@ const Field = ({ value, onPress }) => (
   </TouchableOpacity>
 )
 
-const SportModal = props => (
-  <Query
-    query={gql`
-      {
-        sports {
-          uuid
-          name
-        }
+const SportModal = ({ visible, onSelect }) => {
+  const Contents = withQuery(gql`
+    {
+      sports {
+        uuid
+        name
       }
-    `}
-  >
-    {({ data, loading, error }) => {
-      if (error || loading) {
-        return null
-      } else return <_SportModal {...props} data={data} />
-    }}
-  </Query>
-)
-
-const _SportModal = ({ visible, onSelect, data }) => (
-  <Modal
-    visible={visible}
-    animationType={'fade'}
-    onRequestClose={() => onSelect(null)}
-    transparent
-  >
+    }
+  `)(({ data }) => (
     <View style={styles.modalContainer}>
       <View style={styles.modalInnerContainer}>
         <Text.L>{I18n.t('Choose sport')}</Text.L>
@@ -79,8 +61,19 @@ const _SportModal = ({ visible, onSelect, data }) => (
         />
       </View>
     </View>
-  </Modal>
-)
+  ))
+
+  return (
+    <Modal
+      visible={visible}
+      animationType={'fade'}
+      onRequestClose={() => onSelect(null)}
+      transparent
+    >
+      <Contents />
+    </Modal>
+  )
+}
 
 const DateModal = ({ game, visible, onSelect }) => (
   <Modal
@@ -177,11 +170,13 @@ export default class SportAndTime extends Component {
   }
 
   onBack = () => {
+    Keyboard.dismiss()
     // https://github.com/react-navigation/react-navigation/issues/697#issuecomment-309359044
     this.props.navigation.goBack(null)
   }
 
   onNext = () => {
+    Keyboard.dismiss()
     this.props.navigation.navigate('pickSpot', {
       uuid: this.gameUUID
     })
@@ -319,7 +314,7 @@ export default class SportAndTime extends Component {
             />
 
             <Text.L style={styles.title}>{I18n.t('Plan a game')}</Text.L>
-            <View style={styles.horizontal}>
+            <View style={[styles.horizontal, { flex: 1, flexWrap: 'wrap' }]}>
               <Text.M style={styles.text}>{I18n.t('I want to play')}</Text.M>
               <Field
                 value={

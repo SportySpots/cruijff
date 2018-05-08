@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
-import {
-  ActivityIndicator,
-  FlatList,
-  TouchableOpacity,
-  View,
-  StyleSheet
-} from 'react-native'
+import { FlatList, TouchableOpacity, View, StyleSheet } from 'react-native'
 import { cardList } from '../../Components/Spots/Styles/CardStyles'
 import CardSmall from '../../Components/Spots/SpotListCardSmall'
 import Text from '../../Components/Text'
 import I18n from '../../I18n/index'
 import PropTypes from 'prop-types'
 import Footer from '../../Components/DarkFooter/index'
-import { GET_SPOTS } from '../../Components/Spots/SpotsList'
-import { Query } from 'react-apollo'
+import { GET_SPOTS } from '../Spots/SpotsListScreen'
 import api from '../../Services/SeedorfApi'
+import withQuery from '../../GraphQL/withQuery'
 
 const CardContainer = props => {
   const { onPress, ...otherProps } = props
@@ -25,9 +19,12 @@ const CardContainer = props => {
   )
 }
 
-export default class PickSpot extends Component {
+class PickSpotComponent extends Component {
   static propTypes = {
-    navigation: PropTypes.object
+    navigation: PropTypes.object,
+    data: PropTypes.shape({
+      spots: PropTypes.array
+    })
   }
 
   selectSpot = async item => {
@@ -44,39 +41,33 @@ export default class PickSpot extends Component {
 
   render () {
     return (
-      <Query query={GET_SPOTS}>
-        {({ loading, error, data }) => {
-          if (loading) return <Text>Loading...</Text>
-          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
-          return (
-            <View style={style.container}>
-              <View style={[style.cardListContainer, this.props.style]}>
-                <Text.L>{I18n.t('Pick a spot')}</Text.L>
-                <FlatList
-                  showsVerticalScrollIndicator={false}
-                  data={data.spots.slice(0, 100)}
-                  renderItem={({ item }) => (
-                    <CardContainer
-                      spot={item}
-                      onPress={() => this.selectSpot(item)}
-                    />
-                  )}
-                  keyExtractor={item => item.uuid}
-                />
-              </View>
-              <Footer
-                currentPage={1}
-                numPages={4}
-                disableNext
-                onBack={() => this.props.navigation.goBack()}
+      <View style={style.container}>
+        <View style={[style.cardListContainer, this.props.style]}>
+          <Text.L>{I18n.t('Pick a spot')}</Text.L>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={this.props.data.spots.slice(0, 100)}
+            renderItem={({ item }) => (
+              <CardContainer
+                spot={item}
+                onPress={() => this.selectSpot(item)}
               />
-            </View>
-          )
-        }}
-      </Query>
+            )}
+            keyExtractor={item => item.uuid}
+          />
+        </View>
+        <Footer
+          currentPage={1}
+          numPages={4}
+          disableNext
+          onBack={() => this.props.navigation.goBack()}
+        />
+      </View>
     )
   }
 }
+
+export default withQuery(GET_SPOTS)(PickSpotComponent)
 
 const style = StyleSheet.create({
   cardListContainer: {

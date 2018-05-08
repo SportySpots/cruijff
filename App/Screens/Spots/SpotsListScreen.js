@@ -6,7 +6,7 @@ import Text from '../../Components/Text'
 import SpotsList from '../../Components/Spots/SpotsList'
 import Card from '../../Components/Spots/SpotListCard'
 import { View } from 'react-native'
-import CenteredActivityIndicator from '../../CenteredActivityIndicator'
+import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator'
 import withQuery from '../../GraphQL/withQuery'
 
 // TODO: Implement blank screen if no spots were found --> this should probably

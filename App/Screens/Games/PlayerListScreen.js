@@ -82,7 +82,10 @@ const UserRowRight = styled.View`
 export default class UserList extends Component {
   render () {
     return (
-      <Query query={GET_GAME_USERS_LIST} variables={{ uuid: this.props.uuid }}>
+      <Query
+        query={GET_GAME_USERS_LIST}
+        variables={{ uuid: this.props.navigation.state.params.uuid }}
+      >
         {({ loading, error, data }) => {
           if (loading) return <Text>Loading...</Text>
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
@@ -121,12 +124,12 @@ export const GET_GAME_USERS_LIST = gql`
       uuid
       attendees {
         status
-        createdAt
+        created_at
         user {
           uuid
           name
           profile {
-            yearOfBirth
+            year_of_birth
           }
         }
       }

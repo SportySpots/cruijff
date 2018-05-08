@@ -25,16 +25,19 @@ if (__DEV__) {
 
   /* When using React Native Debugger with Network debug enabled, all network calls are proxied from the host system.
      So in this case use localhost, otherwise the host IP as seen from the device 10.0.3.2.
+     Genymotion - host @ 10.0.3.2
+     Android studio emulator - host @ 10.0.2.2
    */
   const networkDebugEnabled = true // set to false if not using network debugger
   settings.seedorfRestUrl =
     isDebuggingEnabled && networkDebugEnabled
       ? 'http://localhost:8000/api'
-      : 'http://10.0.3.2:8000/api'
+      : 'http://10.0.2.2:8000/api'
   settings.seedorfGraphQLUrl =
     isDebuggingEnabled && networkDebugEnabled
       ? 'http://localhost:8000/graphql'
-      : 'http://10.0.3.2:8000/graphql'
+      : 'http://10.0.2.2:8000/graphql'
+
   settings.useFixtures = false
 }
 
