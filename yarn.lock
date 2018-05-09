@@ -7192,6 +7192,10 @@ lodash.flattendeep@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
 
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+
 lodash.includes@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
@@ -7207,6 +7211,10 @@ lodash.isarray@^3.0.0:
 lodash.isboolean@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz#6c2e171db2a257cd96802fd43b01b20d5f5870f6"
+
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
 lodash.isinteger@^4.0.4:
   version "4.0.4"
@@ -9719,10 +9727,12 @@ react-native-animatable@^1.2.3, react-native-animatable@^1.2.4:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-calendars@^1.17.2:
-  version "1.17.2"
-  resolved "https://registry.yarnpkg.com/react-native-calendars/-/react-native-calendars-1.17.2.tgz#45d3546cb19438661042cd3d0b7c7661477f30fc"
+react-native-calendars@^1.19.3:
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/react-native-calendars/-/react-native-calendars-1.19.3.tgz#4a9a6ec9d695b9f5f6003d80fe6c0930453e89eb"
   dependencies:
+    lodash.get "^4.4.2"
+    lodash.isequal "^4.5.0"
     prop-types "^15.5.10"
     xdate "^0.8.0"
 
