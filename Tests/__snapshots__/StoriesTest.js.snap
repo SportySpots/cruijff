@@ -5292,7 +5292,7 @@ exports[`Storyshots Plan Step 4: Created 1`] = `
             ]
           }
         >
-          https://www.sportyspots.com/games/s532ksfd2555f
+          https://www.sportyspots.com/games/something
         </Text>
       </View>
       <View
@@ -5462,115 +5462,6 @@ exports[`Storyshots Plan Step 4: Created 1`] = `
             }
           >
             Copy
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-          }
-        }
-      >
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "display": "flex",
-                  "height": 48,
-                  "justifyContent": "center",
-                  "width": 48,
-                },
-                undefined,
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 48,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "flex": 1,
-              "flexDirection": "row",
-              "flexWrap": "wrap",
-            }
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "Rajdhani-SemiBold",
-                    "fontSize": 18,
-                    "lineHeight": NaN,
-                  },
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 24,
-                  },
-                ],
-              ]
-            }
-          >
-            This event is invite-only
           </Text>
         </View>
       </View>

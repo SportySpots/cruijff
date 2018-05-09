@@ -40,7 +40,11 @@ storiesOf('Plan')
   .add('Step 4: Created', () => (
     <WithApolloMockProvider>
       <View style={{ flex: 1 }}>
-        <Created gameDetails={gameDetails} setGameDetailField={() => null} />
+        <Created
+          navigation={{ state: { params: { uuid: 'something' } } }}
+          gameDetails={gameDetails}
+          setGameDetailField={() => null}
+        />
       </View>
     </WithApolloMockProvider>
   ))
