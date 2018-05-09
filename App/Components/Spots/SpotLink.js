@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View } from 'react-native' // eslint-disable-line
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { showLocation } from 'react-native-map-link'
