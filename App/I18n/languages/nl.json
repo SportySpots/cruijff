@@ -8,6 +8,15 @@
   "SKATING": "Skaten",
   "BEACH_VOLLEYBALL": "Beachvolleybal",
   "BOULES": "Jeu de boules",
+  "Basketball": "Basketbal",
+  "Bootcamp": "Bootcamp",
+  "Soccer": "Voetbal",
+  "Tennis": "Tennis",
+  "Fitness": "Fitness",
+  "Others": "Overig",
+  "Skating": "Skaten",
+  "Beach_volleyball": "Beachvolleybal",
+  "Boules": "Jeu de boules",
   "find": "Spots",
   "join": "Meedoen",
   "Plan a game": "Plan een potje",
@@ -35,7 +44,7 @@
   "continue": "doorgaan",
   "done": "klaar",
 
-  "I want to play": "Ik organiseer een potje",
+  "I want to play": "Ik plan",
   "on": "op",
   "from": "vanaf",
   "to": "tot",
@@ -66,5 +75,13 @@
   "Sign up": "Aanmelden",
   "Signup": "Aanmelden",
   "Sign up and start sporting": "Meld je aan om te beginnen met sporten",
-  "Register": "Registreren"
+  "Register": "Registreren",
+
+  "E-mail address in use": "E-mail adres al in gebruik",
+  "Password needs to be at least 8 characters":
+    "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
+
+  "share-your-location": "Locatie delen",
+  "onboarding-ask-location":
+    "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien."
 }

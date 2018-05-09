@@ -17,10 +17,13 @@ const create = () => {
     baseURL: config.seedorfRestUrl,
     headers: {
       'Cache-Control': 'no-cache',
-      Cookie: ''
+      Cookie: '',
+      vary: ''
     },
     timeout: 10000
   })
+
+  // api.addMonitor(console.log)
 
   // ------
   // STEP 2

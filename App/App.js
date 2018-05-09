@@ -1,3 +1,4 @@
+import config from './config'
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { ApolloProvider } from 'react-apollo'
@@ -7,7 +8,6 @@ import Colors from './Themes/Colors'
 import styled from 'styled-components'
 import createStore from './Redux'
 import { createClient, createMockClient } from './GraphQL/index'
-import config from './config'
 
 class App extends Component {
   constructor () {

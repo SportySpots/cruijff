@@ -23,6 +23,7 @@ import gql from 'graphql-tag'
 import moment from 'moment'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import withQuery from '../../GraphQL/withQuery'
+import styled from 'styled-components'
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -35,6 +36,24 @@ const Field = ({ value, onPress }) => (
   </TouchableOpacity>
 )
 
+const ModalContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+`
+
+const ModalInnerContainer = styled.View`
+  flex: 1;
+  background-color: ${Colors.white};
+  margin: 36px;
+  padding: 8px;
+`
+
+const SportItemContainer = styled.View`
+  height: 44px;
+  justify-content: center;
+`
+
 const SportModal = ({ visible, onSelect }) => {
   const Contents = withQuery(gql`
     {
@@ -44,14 +63,16 @@ const SportModal = ({ visible, onSelect }) => {
       }
     }
   `)(({ data }) => (
-    <View style={styles.modalContainer}>
-      <View style={styles.modalInnerContainer}>
+    <ModalContainer>
+      <ModalInnerContainer>
         <Text.L>{I18n.t('Choose sport')}</Text.L>
         <FlatList
           keyExtractor={item => item.uuid}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => onSelect(item)}>
-              <Text.M>{I18n.t(item.name)}</Text.M>
+              <SportItemContainer>
+                <Text.M>{I18n.t(item.name)}</Text.M>
+              </SportItemContainer>
             </TouchableOpacity>
           )}
           data={data.sports}
@@ -59,8 +80,8 @@ const SportModal = ({ visible, onSelect }) => {
             <View style={{ height: 1, backgroundColor: Colors.black54 }} />
           )}
         />
-      </View>
-    </View>
+      </ModalInnerContainer>
+    </ModalContainer>
   ))
 
   return (

@@ -137,7 +137,9 @@ export class _NavBar extends React.Component {
               buttonText={I18n.t(button.buttonText)}
               active={
                 this.props.navigation &&
-                this.props.navigation.state.index === index
+                this.props.navigation.state.routes[
+                  this.props.navigation.state.index
+                ].routeName === button.navigate
               }
               main={!!button.main}
             />

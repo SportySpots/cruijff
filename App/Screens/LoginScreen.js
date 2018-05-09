@@ -40,7 +40,6 @@ export class _LoginScreen extends Component {
       password: this.state.password
     })
     if (result.problem) {
-      console.log('problem')
       this.setState({
         requestStatus: STATUS.FAILURE,
         error: result.data
