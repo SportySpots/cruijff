@@ -63,4 +63,5 @@ buck-out/
 
 # Misc
 #
-.env
+.env*
+!.env.example
