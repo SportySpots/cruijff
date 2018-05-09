@@ -4,7 +4,8 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  locationPermission: ['status']
+  updateLocation: null,
+  updateLocationFinished: ['location']
 })
 
 export const LocationTypes = Types
@@ -12,21 +13,16 @@ export default Creators
 
 /* ------------- Reducers ------------- */
 
-export const STATUS = {
-  PENDING: 'pending',
-  AUTHORIZED: 'authorized',
-  DENIED: 'denied'
-}
-
 const INITIAL_STATE = Immutable({
-  status: STATUS.PENDING
+  lat: 4,
+  lng: 6
 })
 
-const locationPermission = (state = INITIAL_STATE, action) =>
-  state.merge({ status: action.status })
+const updateLocationFinished = (state = INITIAL_STATE, action) =>
+  console.log(action) || state.merge(action.location)
 
 const HANDLERS = {
-  [Types.LOCATION_PERMISSION]: locationPermission
+  [Types.UPDATE_LOCATION_FINISHED]: updateLocationFinished
 }
 
 export const reducer = createReducer(INITIAL_STATE, HANDLERS)

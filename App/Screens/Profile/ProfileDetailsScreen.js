@@ -117,9 +117,11 @@ export class ProfileDetailsScreenComponent extends React.PureComponent {
               </View>
             )}
           </View>
-          <View style={styles.bottomNavContainer}>
-            <BottomNav style={{ flex: 1 }} />
-          </View>
+          {false && (
+            <View style={styles.bottomNavContainer}>
+              <BottomNav style={{ flex: 1 }} />
+            </View>
+          )}
         </View>
       </MenuProvider>
     )

@@ -28,7 +28,7 @@ if (__DEV__) {
      Genymotion - host @ 10.0.3.2
      Android studio emulator - host @ 10.0.2.2
    */
-  const networkDebugEnabled = true // set to false if not using network debugger
+  const networkDebugEnabled = false // set to false if not using network debugger
   settings.seedorfRestUrl =
     isDebuggingEnabled && networkDebugEnabled
       ? 'http://localhost:8000/api'

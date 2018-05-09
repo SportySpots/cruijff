@@ -12,22 +12,11 @@ import withQuery from '../../GraphQL/withQuery'
 // TODO: Implement blank screen if no spots were found --> this should probably
 // handled in SpotsList (child) component itself
 
-const SpotsListScreen = ({ navigation, style }) => {
-  const handleCardPress = spotId => {
-    navigation.navigate('SpotDetailsScreen', {
-      uuid: spotId
-    })
+class SpotsListScreen extends React.Component {
+  render () {
+    const Contents = withQuery(GET_SPOTS)(SpotsList)
+    return <Contents />
   }
-
-  const _SpotsList = withQuery(GET_SPOTS)(SpotsList)
-
-  return (
-    <_SpotsList
-      cardComponent={Card}
-      onCardPress={handleCardPress}
-      style={style}
-    />
-  )
 }
 
 export default SpotsListScreen

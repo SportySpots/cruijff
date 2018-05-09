@@ -10,7 +10,7 @@ import {
   SettingsNav,
   SpotSearchNav
 } from './Navigators'
-import AskLocation from '../Components/AskLocation'
+import AskLocation from '../Screens/AskLocationScreen'
 import SignupScreen from '../Screens/SignupScreen'
 import { View } from 'react-native'
 import NavBar from '../Components/NavBar'
