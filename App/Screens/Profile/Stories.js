@@ -8,6 +8,7 @@ import ProfileLoginScreen from './ProfileSignupScreen'
 import { Provider } from 'react-redux'
 
 import { createStore } from 'redux'
+import { WithApolloMockProvider } from '../../GraphQL'
 
 const dummyNavigator = {
   navigate: () => null
@@ -24,18 +25,22 @@ const store = createStore(state => state, {
 
 storiesOf('Profile')
   .add('Detail', () => (
-    <View style={{ flex: 1 }}>
-      <Provider store={store}>
-        <ProfileDetailsScreen navigation={dummyNavigator} />
-      </Provider>
-    </View>
+    <WithApolloMockProvider>
+      <View style={{ flex: 1 }}>
+        <Provider store={store}>
+          <ProfileDetailsScreen navigation={dummyNavigator} />
+        </Provider>
+      </View>
+    </WithApolloMockProvider>
   ))
   .add('Edit', () => (
-    <View style={{ flex: 1 }}>
-      <Provider store={store}>
-        <ProfileEditScreen navigation={dummyNavigator} />
-      </Provider>
-    </View>
+    <WithApolloMockProvider>
+      <View style={{ flex: 1 }}>
+        <Provider store={store}>
+          <ProfileEditScreen navigation={dummyNavigator} />
+        </Provider>
+      </View>
+    </WithApolloMockProvider>
   ))
   .add('Login', () => (
     <View style={{ flex: 1 }}>

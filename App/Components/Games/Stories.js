@@ -43,7 +43,11 @@ storiesOf('Games')
   .add('Player list', () => (
     <View style={{ flex: 1 }}>
       <WithApolloMockProvider>
-        <PlayerList uuid='cdfa268a-e809-43be-a659-bd2310737baa' />
+        <PlayerList
+          navigation={{
+            state: { params: { uuid: 'cdfa268a-e809-43be-a659-bd2310737baa' } }
+          }}
+        />
       </WithApolloMockProvider>
     </View>
   ))

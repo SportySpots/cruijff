@@ -1,21 +1,26 @@
 import React from 'react'
 
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
-import Text from '../../Components/Text'
 import SpotsList from '../../Components/Spots/SpotsList'
-import Card from '../../Components/Spots/SpotListCard'
-import { View } from 'react-native'
-import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator'
 import withQuery from '../../GraphQL/withQuery'
-
-// TODO: Implement blank screen if no spots were found --> this should probably
-// handled in SpotsList (child) component itself
+import Card from '../../Components/Spots/SpotListCard'
 
 class SpotsListScreen extends React.Component {
+  handleCardPress = spotId => {
+    this.props.navigation.navigate('SpotDetailsScreen', {
+      uuid: spotId
+    })
+  }
+
   render () {
     const Contents = withQuery(GET_SPOTS)(SpotsList)
-    return <Contents />
+    return (
+      <Contents
+        cardComponent={Card}
+        onCardPress={uuid => this.handleCardPress(uuid)}
+        style={this.props.style}
+      />
+    )
   }
 }
 

@@ -45,18 +45,6 @@
             "deprecationReason": null
           },
           {
-            "name": "currentuser",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "UserType",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "users",
             "description": null,
             "args": [],
@@ -73,7 +61,7 @@
             "deprecationReason": null
           },
           {
-            "name": "userProfile",
+            "name": "user_profile",
             "description": null,
             "args": [
               {
@@ -96,7 +84,7 @@
             "deprecationReason": null
           },
           {
-            "name": "userProfiles",
+            "name": "user_profiles",
             "description": null,
             "args": [],
             "type": {
@@ -151,7 +139,7 @@
             "deprecationReason": null
           },
           {
-            "name": "rsvpStatus",
+            "name": "rsvp_status",
             "description": null,
             "args": [
               {
@@ -167,14 +155,14 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "RSVPStatusType",
+              "name": "RsvpStatusType",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "rsvpStatuses",
+            "name": "rsvp_statuses",
             "description": null,
             "args": [],
             "type": {
@@ -182,7 +170,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "RSVPStatusType",
+                "name": "RsvpStatusType",
                 "ofType": null
               }
             },
@@ -346,7 +334,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -362,7 +350,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -378,7 +366,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -422,7 +410,7 @@
             "deprecationReason": null
           },
           {
-            "name": "lastLogin",
+            "name": "last_login",
             "description": "",
             "args": [],
             "type": {
@@ -434,7 +422,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isSuperuser",
+            "name": "is_superuser",
             "description": "Designates that this user has all permissions without explicitly assigning them.",
             "args": [],
             "type": {
@@ -466,7 +454,7 @@
             "deprecationReason": null
           },
           {
-            "name": "firstName",
+            "name": "first_name",
             "description": "",
             "args": [],
             "type": {
@@ -482,7 +470,7 @@
             "deprecationReason": null
           },
           {
-            "name": "lastName",
+            "name": "last_name",
             "description": "",
             "args": [],
             "type": {
@@ -514,7 +502,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isStaff",
+            "name": "is_staff",
             "description": "Designates whether the user can log into this admin site.",
             "args": [],
             "type": {
@@ -530,7 +518,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isActive",
+            "name": "is_active",
             "description": "Designates whether this user should be treated as active. Unselect this instead of deleting accounts.",
             "args": [],
             "type": {
@@ -546,7 +534,7 @@
             "deprecationReason": null
           },
           {
-            "name": "dateJoined",
+            "name": "date_joined",
             "description": "",
             "args": [],
             "type": {
@@ -590,7 +578,7 @@
             "deprecationReason": null
           },
           {
-            "name": "gameOrganizers",
+            "name": "game_organizers",
             "description": null,
             "args": [],
             "type": {
@@ -606,7 +594,7 @@
             "deprecationReason": null
           },
           {
-            "name": "rsvpStatuses",
+            "name": "rsvp_statuses",
             "description": null,
             "args": [],
             "type": {
@@ -614,7 +602,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "RSVPStatusType",
+                "name": "RsvpStatusType",
                 "ofType": null
               }
             },
@@ -699,7 +687,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -715,7 +703,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -731,7 +719,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -823,7 +811,7 @@
             "deprecationReason": null
           },
           {
-            "name": "yearOfBirth",
+            "name": "year_of_birth",
             "description": "",
             "args": [],
             "type": {
@@ -942,7 +930,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -958,7 +946,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -974,7 +962,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -1078,7 +1066,7 @@
             "deprecationReason": null
           },
           {
-            "name": "sportGames",
+            "name": "sport_games",
             "description": null,
             "args": [],
             "type": {
@@ -1126,7 +1114,7 @@
             "deprecationReason": null
           },
           {
-            "name": "openingTimes",
+            "name": "opening_times",
             "description": null,
             "args": [],
             "type": {
@@ -1276,7 +1264,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -1292,7 +1280,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -1308,7 +1296,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -1340,13 +1328,9 @@
             "description": "",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SportType",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "SportType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -1356,13 +1340,9 @@
             "description": "",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SpotType",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "SpotType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -1384,71 +1364,71 @@
             "deprecationReason": null
           },
           {
-            "name": "startTime",
+            "name": "description",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "start_time",
             "description": "Start time of the game in UTC.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "endTime",
+            "name": "end_time",
             "description": "End time of the game in UTC.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "rsvpOpenTime",
+            "name": "rsvp_open_time",
             "description": "UTC time before that RSVPs will no longer be accepted, though organizers may close RSVPs earlier",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "rsvpCloseTime",
+            "name": "rsvp_close_time",
             "description": "UTC time after that RSVPs will no longer be accepted, though organizers may close RSVPs earlier",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "rsvpClosed",
+            "name": "rsvp_closed",
             "description": "Is RSVPing explicitly closed for the game.",
             "args": [],
             "type": {
@@ -1464,7 +1444,7 @@
             "deprecationReason": null
           },
           {
-            "name": "startTimezone",
+            "name": "start_timezone",
             "description": "Timezone of the start time of the game.",
             "args": [],
             "type": {
@@ -1480,7 +1460,7 @@
             "deprecationReason": null
           },
           {
-            "name": "endTimezone",
+            "name": "end_timezone",
             "description": "Timezone of the end time of the game.",
             "args": [],
             "type": {
@@ -1496,7 +1476,7 @@
             "deprecationReason": null
           },
           {
-            "name": "inviteMode",
+            "name": "invite_mode",
             "description": "If the game is open for everyone to join or based on organizers approval or is invite only.",
             "args": [],
             "type": {
@@ -1540,7 +1520,7 @@
             "deprecationReason": null
           },
           {
-            "name": "showRemaining",
+            "name": "show_remaining",
             "description": "If the game page should show the number of open player spots left.",
             "args": [],
             "type": {
@@ -1556,7 +1536,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isListed",
+            "name": "is_listed",
             "description": "If this game is publicly searchable on SportySpots.",
             "args": [],
             "type": {
@@ -1572,7 +1552,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isShareable",
+            "name": "is_shareable",
             "description": "If this game shows social sharing buttons.",
             "args": [],
             "type": {
@@ -1588,7 +1568,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isFeatured",
+            "name": "is_featured",
             "description": "If this game is featured.",
             "args": [],
             "type": {
@@ -1612,7 +1592,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "RSVPStatusType",
+                "name": "RsvpStatusType",
                 "ofType": null
               }
             },
@@ -1647,7 +1627,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -1663,7 +1643,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -1679,7 +1659,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -1815,7 +1795,7 @@
             "deprecationReason": null
           },
           {
-            "name": "homepageUrl",
+            "name": "homepage_url",
             "description": "Where can we find out more about this spot ?",
             "args": [],
             "type": {
@@ -1831,7 +1811,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isVerified",
+            "name": "is_verified",
             "description": "Is this Spot verfified by the SportySpots team ?",
             "args": [],
             "type": {
@@ -1847,7 +1827,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isPermanentlyClosed",
+            "name": "is_permanently_closed",
             "description": "Is this Spot permanently closed ?",
             "args": [],
             "type": {
@@ -1863,7 +1843,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isPublic",
+            "name": "is_public",
             "description": "Is this Spot a public spot ?",
             "args": [],
             "type": {
@@ -1879,7 +1859,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isTemporary",
+            "name": "is_temporary",
             "description": "Is this spot temporary (e.g. for a special event) ?",
             "args": [],
             "type": {
@@ -1895,7 +1875,7 @@
             "deprecationReason": null
           },
           {
-            "name": "establishmentDate",
+            "name": "establishment_date",
             "description": "",
             "args": [],
             "type": {
@@ -1907,7 +1887,7 @@
             "deprecationReason": null
           },
           {
-            "name": "closureDate",
+            "name": "closure_date",
             "description": "",
             "args": [],
             "type": {
@@ -1935,7 +1915,7 @@
             "deprecationReason": null
           },
           {
-            "name": "spotGames",
+            "name": "spot_games",
             "description": null,
             "args": [],
             "type": {
@@ -1967,7 +1947,7 @@
             "deprecationReason": null
           },
           {
-            "name": "openingTimes",
+            "name": "opening_times",
             "description": null,
             "args": [],
             "type": {
@@ -2026,7 +2006,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -2042,7 +2022,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -2058,7 +2038,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -2086,7 +2066,7 @@
             "deprecationReason": null
           },
           {
-            "name": "rawAddress",
+            "name": "raw_address",
             "description": "Complete address",
             "args": [],
             "type": {
@@ -2102,7 +2082,7 @@
             "deprecationReason": null
           },
           {
-            "name": "rawGeocoderResponse",
+            "name": "raw_geocoder_response",
             "description": "Raw api response from the geocoder service. e.g. google maps",
             "args": [],
             "type": {
@@ -2114,7 +2094,7 @@
             "deprecationReason": null
           },
           {
-            "name": "geocoderService",
+            "name": "geocoder_service",
             "description": "Geocoder used to convert raw address into latlong coordinates.",
             "args": [],
             "type": {
@@ -2126,7 +2106,7 @@
             "deprecationReason": null
           },
           {
-            "name": "formattedAddress",
+            "name": "formatted_address",
             "description": "Formatted address returned by the geocoding service",
             "args": [],
             "type": {
@@ -2166,7 +2146,7 @@
             "deprecationReason": null
           },
           {
-            "name": "plusGlobalCode",
+            "name": "plus_global_code",
             "description": "",
             "args": [],
             "type": {
@@ -2178,7 +2158,7 @@
             "deprecationReason": null
           },
           {
-            "name": "plusLocalCode",
+            "name": "plus_local_code",
             "description": "",
             "args": [],
             "type": {
@@ -2290,7 +2270,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -2306,7 +2286,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -2322,7 +2302,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -2398,7 +2378,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isFlagged",
+            "name": "is_flagged",
             "description": "Is this image marked as offensive/ non-relevant ?",
             "args": [],
             "type": {
@@ -2414,7 +2394,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isUserSubmitted",
+            "name": "is_user_submitted",
             "description": "Is this image submitted by the user ?",
             "args": [],
             "type": {
@@ -2457,7 +2437,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -2473,7 +2453,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -2489,7 +2469,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -2565,7 +2545,7 @@
             "deprecationReason": null
           },
           {
-            "name": "startTime",
+            "name": "start_time",
             "description": "",
             "args": [],
             "type": {
@@ -2581,7 +2561,7 @@
             "deprecationReason": null
           },
           {
-            "name": "endTime",
+            "name": "end_time",
             "description": "",
             "args": [],
             "type": {
@@ -2597,7 +2577,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isClosed",
+            "name": "is_closed",
             "description": "",
             "args": [],
             "type": {
@@ -2703,7 +2683,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -2719,7 +2699,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -2735,7 +2715,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -8194,7 +8174,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "RSVPStatusType",
+        "name": "RsvpStatusType",
         "description": null,
         "fields": [
           {
@@ -8214,7 +8194,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
+            "name": "created_at",
             "description": "",
             "args": [],
             "type": {
@@ -8230,7 +8210,7 @@
             "deprecationReason": null
           },
           {
-            "name": "modifiedAt",
+            "name": "modified_at",
             "description": "",
             "args": [],
             "type": {
@@ -8246,7 +8226,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deletedAt",
+            "name": "deleted_at",
             "description": "",
             "args": [],
             "type": {
@@ -8311,7 +8291,7 @@
             "args": [],
             "type": {
               "kind": "ENUM",
-              "name": "RSVPStatusStatus",
+              "name": "RsvpStatusStatus",
               "ofType": null
             },
             "isDeprecated": false,
@@ -8325,7 +8305,7 @@
       },
       {
         "kind": "ENUM",
-        "name": "RSVPStatusStatus",
+        "name": "RsvpStatusStatus",
         "description": "An enumeration.",
         "fields": null,
         "inputFields": null,
@@ -12665,7 +12645,7 @@
             "deprecationReason": null
           },
           {
-            "name": "rawSql",
+            "name": "raw_sql",
             "description": null,
             "args": [],
             "type": {
@@ -12689,7 +12669,7 @@
             "deprecationReason": null
           },
           {
-            "name": "startTime",
+            "name": "start_time",
             "description": null,
             "args": [],
             "type": {
@@ -12701,7 +12681,7 @@
             "deprecationReason": null
           },
           {
-            "name": "stopTime",
+            "name": "stop_time",
             "description": null,
             "args": [],
             "type": {
@@ -12713,7 +12693,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isSlow",
+            "name": "is_slow",
             "description": null,
             "args": [],
             "type": {
@@ -12725,7 +12705,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isSelect",
+            "name": "is_select",
             "description": null,
             "args": [],
             "type": {
@@ -12737,7 +12717,7 @@
             "deprecationReason": null
           },
           {
-            "name": "transId",
+            "name": "trans_id",
             "description": null,
             "args": [],
             "type": {
@@ -12749,7 +12729,7 @@
             "deprecationReason": null
           },
           {
-            "name": "transStatus",
+            "name": "trans_status",
             "description": null,
             "args": [],
             "type": {
@@ -12761,7 +12741,7 @@
             "deprecationReason": null
           },
           {
-            "name": "isoLevel",
+            "name": "iso_level",
             "description": null,
             "args": [],
             "type": {
