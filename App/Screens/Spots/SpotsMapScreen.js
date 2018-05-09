@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import { GET_SPOTS } from './SpotsListScreen'
 import Text from '../../Components/Text'
-import Card from '../../Components/Spots/SpotMapCardSmall'
+import Card from '../../Components/Spots/SpotListCardSmall'
 import SpotsMapWithListFallback from '../../Components/Spots/SpotsMapWithListFallback'
 
 // TODO: handle no spots were found case --> probably handle this on SpotsMap

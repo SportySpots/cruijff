@@ -14,8 +14,7 @@ import images from '../../Themes/Images'
 import DefaultButton from '../../Components/DefaultButton'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import ErrorBoundary from '../../Components/ErrorBoundary'
-import SpotMap from '../../Components/Spots/SpotMap'
+import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback'
 import SpotDetailsScreen from '../Spots/SpotDetailsScreen'
 import StackBackHeader from '../../Components/StackBackHeader'
 
@@ -102,11 +101,7 @@ class GameComponent extends Component {
           </HeaderLeft>
           <HeaderRight />
         </BlockHeader>
-        <View style={{ margin: 0 }}>
-          <ErrorBoundary>
-            <SpotMap spot={spot} />
-          </ErrorBoundary>
-        </View>
+        <SpotMapWithLinkFallback spot={spot} />
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
           <TouchableOpacity onPress={this.openPlayerList}>
@@ -115,7 +110,7 @@ class GameComponent extends Component {
               <View style={{ flex: 1 }}>
                 <Text.SM>
                   {game.organizer.first_name} {game.organizer.last_name} -{' '}
-                  {game.description}
+                  {game.description || ''}
                 </Text.SM>
               </View>
             </HorizontalView>

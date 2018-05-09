@@ -16,8 +16,7 @@ import SpotProperties from '../../Components/Spots/SpotProperties'
 import Colors from '../../Themes/Colors'
 import { connect } from 'react-redux'
 import api from '../../Services/SeedorfApi'
-import ErrorBoundary from '../../Components/ErrorBoundary'
-import SpotMap from '../../Components/Spots/SpotMap'
+import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback'
 import ProfileEditScreen from '../Profile/ProfileEditScreen'
 import StackBackHeader from '../../Components/StackBackHeader'
 
@@ -81,11 +80,7 @@ export class SpotContents extends React.Component {
             </HorizontalView>
           </Block>
         )}
-        <View style={{ margin: 0 }}>
-          <ErrorBoundary>
-            <SpotMap spot={spot} />
-          </ErrorBoundary>
-        </View>
+        <SpotMapWithLinkFallback spot={spot} />
         {spot.amenities.length > 0 && (
           <SpotProperties properties={spot.amenities[0].data} />
         )}

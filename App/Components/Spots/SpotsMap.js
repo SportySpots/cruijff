@@ -101,7 +101,7 @@ class SpotsMap extends React.PureComponent {
 
     // Center map on the spot
     this.setState(({ currentSpot: index, region }) => {
-      // After the map is re-centered, scroll the swiper to the desired card.
+      // After that, scroll the swiper to the desired card.
       this.refs.swiper.scrollBy(offset, true)
     })
   }

@@ -11,9 +11,6 @@ import { showLocation } from 'react-native-map-link'
 import Colors from '../../Themes/Colors'
 import RoundButton from '../RoundButton'
 
-// TODO: display google-maps link in case the map component crashes.
-// Use <ErrorBoundary>
-
 const { width, height } = Dimensions.get('window')
 const ASPECT_RATIO = width / height
 const LATITUDE_DELTA = 0.003
@@ -113,6 +110,9 @@ const SpotMap = ({ spot }) => {
   if (!latLng.latitude || !latLng.longitude) {
     return null
   }
+
+  // Test fallback
+  // throw new Error(401, 'bla')
 
   // Define map region centered on the spot
   const region = {
