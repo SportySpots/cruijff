@@ -23,7 +23,7 @@ const create = () => {
     timeout: 10000
   })
 
-  // api.addMonitor(console.log)
+  api.addMonitor(console.log)
 
   // ------
   // STEP 2

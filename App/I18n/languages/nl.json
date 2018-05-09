@@ -83,5 +83,8 @@
 
   "share-your-location": "Locatie delen",
   "onboarding-ask-location":
-    "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien."
+    "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
+
+  "First name": "Voornaam",
+  "Last name": "Achternaam"
 }

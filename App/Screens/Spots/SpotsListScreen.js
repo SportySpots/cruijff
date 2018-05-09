@@ -41,6 +41,9 @@ export const GET_SPOTS = gql`
       sports {
         category
       }
+      spot_games {
+        uuid
+      }
     }
   }
 `

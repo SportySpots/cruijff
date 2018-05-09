@@ -66,11 +66,13 @@ export default class GameList extends Component {
     ))
     return (
       <Container>
-        <MonthSelector
-          style={{ marginBottom: 16 }}
-          month={this.state.month}
-          onChange={month => this.setState({ month })}
-        />
+        {false && (
+          <MonthSelector
+            style={{ marginBottom: 16 }}
+            month={this.state.month}
+            onChange={month => this.setState({ month })}
+          />
+        )}
         <Contents
           variables={{
             minStartTime: monthRange.minDate,
@@ -85,7 +87,8 @@ export default class GameList extends Component {
 export const GET_GAMES_LIST = gql`
   #  query games($minStartTime: String!, $maxStartTime: String!) {
   query games {
-    games { #      maxStartTime: $maxStartTime #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
+    games {
+      #      maxStartTime: $maxStartTime #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
       uuid
       name
       start_time

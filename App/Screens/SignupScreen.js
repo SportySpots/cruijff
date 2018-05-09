@@ -65,7 +65,7 @@ export class _Signup extends Component {
   }
 
   get hasError () {
-    return this.state.requestStatus === STATUS.FAILURE && this.state.errorrrr
+    return this.state.requestStatus === STATUS.FAILURE && this.state.error
   }
 
   get error () {
@@ -85,6 +85,7 @@ export class _Signup extends Component {
   }
 
   render () {
+    console.log(this.error)
     return (
       <KeyboardAwareScrollView>
         <LogoHeaderBackground>
