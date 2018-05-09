@@ -11,6 +11,8 @@ target 'SportySpots' do
   pod 'AppCenterReactNativeShared', '~> 1.1.0'
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'CodePush', :path => '../node_modules/react-native-code-push'
+
   target 'SportySpotsTests' do
     inherit! :search_paths
     # Pods for testing

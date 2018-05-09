@@ -103,3 +103,18 @@ The `.env` file is ignored by git keeping those secrets out of your repo.
 2. Add your config variables
 3. Follow instructions at [https://github.com/luggit/react-native-config#setup](https://github.com/luggit/react-native-config#setup)
 4. Done!
+
+### Appcenter
+[Appcenter](https://appcenter.ms/)
+
+Login into appcenter 
+```bash
+$ yarn appcenter login
+```
+
+Get apps list
+```bash
+$ yarn appcenter apps list
+```
+
+
