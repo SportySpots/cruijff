@@ -69,11 +69,9 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>comgooglemaps</string>
-		<string>citymapper</string>
-	</array>
-	<key>CodePushDeploymentKey</key>
-	<string>1C0EHUBxXWzn15la48riXAKYp1CWB1GVn9fiW</string>
+  <array>
+      <string>comgooglemaps</string>
+      <string>citymapper</string>
+  </array>
 </dict>
 </plist>
