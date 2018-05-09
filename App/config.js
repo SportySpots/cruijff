@@ -11,7 +11,7 @@ Text.defaultProps.allowFontScaling = true
 
 const settings = {
   seedorfRestUrl: 'https://sportyspots.com/api',
-  seedorfGraphQLUrl: 'https://sportyspots.com/api/graphql',
+  seedorfGraphQLUrl: 'https://sportyspots.com/graphql',
   useFixtures: false
 }
 

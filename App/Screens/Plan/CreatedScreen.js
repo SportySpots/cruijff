@@ -15,9 +15,6 @@ import Footer from '../../Components/DarkFooter/index'
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Checkbox from '../../Components/Checkbox'
-import { NavigationActions } from 'react-navigation'
-import PickSpot from './PickSpotScreen'
-import Api from '../../Services/SeedorfApi'
 
 export default class Created extends Component {
   static propTypes = {
@@ -35,46 +32,22 @@ export default class Created extends Component {
     })
   }
 
-  state = {
-    link: 'https://www.sportyspots.com/games/s532ksfd2555f'
-  }
-
-  componentDidMount () {
-    console.log(
-      Api.createGame({
-        organizer: 1,
-        sport: 1,
-        spot: 287,
-        name: 'Potje voetbal @ 287',
-        description:
-          'Deelname is toegankelijk voor iedereen. Dus ook vriendenteams, recreatieve teams, of mensen die nog nooit een voetbal hebben aangeraakt',
-        start_time: '2018-04-25T15:00:00Z',
-        end_time: '2018-04-25T16:00:00Z',
-        rsvp_open_time: '2018-03-01T15:00:00Z',
-        rsvp_close_time: '2018-04-25T15:00:00Z',
-        rsvp_closed: false,
-        start_timezone: 'Europe/Amsterdam',
-        end_timezone: 'Europe/Amsterdam',
-        invite_mode: 'open',
-        status: 'planned',
-        capacity: 10,
-        show_remaining: true,
-        is_listed: true,
-        is_shareable: true,
-        is_featured: false
-      })
+  get link () {
+    return (
+      'https://www.sportyspots.com/games/' +
+      this.props.navigation.state.params.uuid
     )
   }
 
   onCopy = () => {
-    Clipboard.setString(this.state.link)
+    Clipboard.setString(this.link)
   }
 
   onShare = () => {
     Share.share(
       {
         message: 'You have been invited',
-        url: this.state.link,
+        url: this.link,
         title: 'Sportyspots'
       },
       {
@@ -89,7 +62,7 @@ export default class Created extends Component {
         <View style={styles.innerContainer}>
           <Text.L style={styles.title}>{I18n.t('Game created')}!</Text.L>
           <View style={styles.linkContainer}>
-            <Text style={styles.link}>{this.state.link}</Text>
+            <Text style={styles.link}>{this.link}</Text>
           </View>
           <View style={styles.buttons}>
             <TouchableOpacity style={styles.shareButton} onPress={this.onShare}>
@@ -101,24 +74,26 @@ export default class Created extends Component {
               <Text.M style={styles.shareButtonText}>{I18n.t('Copy')}</Text.M>
             </TouchableOpacity>
           </View>
-          <View style={styles.inviteOnly}>
-            <Checkbox
-              color={Colors.white}
-              checked={!this.props.gameDetails.isPublic}
-              onPress={() =>
-                this.props.setGameDetailField(
-                  'isPublic',
-                  !this.props.gameDetails.isPublic
-                )
-              }
-              size={72}
-            />
-            <View style={styles.inviteOnlyTextContainer}>
-              <Text.M style={styles.inviteOnlyText}>
-                {I18n.t('This event is invite-only')}
-              </Text.M>
+          {false && (
+            <View style={styles.inviteOnly}>
+              <Checkbox
+                color={Colors.white}
+                checked={!this.props.gameDetails.isPublic}
+                onPress={() =>
+                  this.props.setGameDetailField(
+                    'isPublic',
+                    !this.props.gameDetails.isPublic
+                  )
+                }
+                size={72}
+              />
+              <View style={styles.inviteOnlyTextContainer}>
+                <Text.M style={styles.inviteOnlyText}>
+                  {I18n.t('This event is invite-only')}
+                </Text.M>
+              </View>
             </View>
-          </View>
+          )}
         </View>
         <Footer
           numPages={4}
