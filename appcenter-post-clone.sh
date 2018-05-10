@@ -10,3 +10,5 @@ echo $GIT_CRYPT_BASE64_SYMMETRIC_KEY | openssl base64 -d -out git_crypt_symmetri
 
 # unlock git crypt encrypted files
 git-crypt unlock git_crypt_symmetric_base64_decoded.key
+
+echo 'Appcenter Post Clone: Done'
