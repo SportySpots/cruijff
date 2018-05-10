@@ -1,20 +1,18 @@
-import React from 'react'
-import Colors from '../Themes/Colors'
-import styled from 'styled-components'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import React from 'react';
+import Colors from '../Themes/Colors';
+import styled from 'styled-components';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Checkbox = props => {
-  return (
-    <TouchableOpacity {...props}>
-      <ButtonContainer>
-        <Icon name='check-box-outline-blank' size={48} color={Colors.white} />
-      </ButtonContainer>
-    </TouchableOpacity>
-  )
-}
+const Checkbox = props => (
+  <TouchableOpacity {...props}>
+    <ButtonContainer>
+      <Icon name="check-box-outline-blank" size={48} color={Colors.white} />
+    </ButtonContainer>
+  </TouchableOpacity>
+);
 
-export default Checkbox
+export default Checkbox;
 
 const ButtonContainer = styled.View`
   display: flex;
@@ -22,4 +20,4 @@ const ButtonContainer = styled.View`
   align-items: center;
   width: 48px;
   height: 48px;
-`
+`;

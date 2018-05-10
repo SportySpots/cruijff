@@ -1,10 +1,10 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react-native'
-import { View } from 'react-native'
-import ScreenSlider from './index'
+import React from 'react';
+import { storiesOf } from '@storybook/react-native';
+import { View } from 'react-native';
+import ScreenSlider from './index';
 
-const data = [1, 2, 3]
-const colors = ['#f00', '#f00', '#0f0', '#00f']
+const data = [1, 2, 3];
+const colors = ['#f00', '#f00', '#0f0', '#00f'];
 
 storiesOf('Screenslider').add('ScreenSlider', () => (
   <ScreenSlider
@@ -14,9 +14,9 @@ storiesOf('Screenslider').add('ScreenSlider', () => (
       <View
         style={{
           flex: 1,
-          backgroundColor: colors[item]
+          backgroundColor: colors[item],
         }}
       />
     )}
   />
-))
+));

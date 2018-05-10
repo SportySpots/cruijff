@@ -1,27 +1,27 @@
-import { Text } from 'react-native'
-import './I18n/I18n'
-import Config from 'react-native-config'
+import { Text } from 'react-native';
+import './I18n/I18n';
+import Config from 'react-native-config';
 
 if (typeof global.self === 'undefined') {
   // needed for apollo client
-  global.self = global
+  global.self = global;
 }
 
 // Allow/disallow font-scaling in app
-Text.defaultProps.allowFontScaling = true
+Text.defaultProps.allowFontScaling = true;
 
 const settings = {
   seedorfRestUrl: Config.SEEDORF_REST_URL,
   seedorfGraphQLUrl: Config.SEEDORF_GRAPHQL_URL,
-  useFixtures: Config.USE_FIXTURES === 'YES'
-}
+  useFixtures: Config.USE_FIXTURES === 'YES',
+};
 
 if (__DEV__) {
   // If ReactNative's yellow box warnings are too much, it is possible to turn
   // it off, but the healthier approach is to fix the warnings.  =)
-  console.disableYellowBox = false
+  console.disableYellowBox = false;
 }
 
-console.log(settings)
+console.log(settings);
 
-export default settings
+export default settings;

@@ -1,9 +1,9 @@
 // a library to wrap and simplify api calls
-import apisauce from 'apisauce'
-import config from '../config'
-import moment from 'moment'
-import { client } from '../GraphQL'
-import gql from 'graphql-tag'
+import apisauce from 'apisauce';
+import config from '../config';
+import moment from 'moment';
+import { client } from '../GraphQL';
+import gql from 'graphql-tag';
 // our "constructor"
 
 const create = () => {
@@ -18,12 +18,12 @@ const create = () => {
     headers: {
       'Cache-Control': 'no-cache',
       Cookie: '',
-      vary: ''
+      vary: '',
     },
-    timeout: 10000
-  })
+    timeout: 10000,
+  });
 
-  api.addMonitor(console.log)
+  api.addMonitor(console.log);
 
   // ------
   // STEP 2
@@ -39,37 +39,39 @@ const create = () => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getUser = username => api.get('search/users/', { q: username })
-  const getAllSpots = () => null
-  const getSpot = spotId => spotId
-  const getGame = gameId => gameId
-  const getGames = ({ month }) => api.get('search/games/', { q: month })
-  const verifyToken = token => api.post('/auth/token-verify/', { token: token })
-  const signup = ({ username, email, first_name, last_name, password }) =>
+  const getUser = username => api.get('search/users/', { q: username });
+  const getAllSpots = () => null;
+  const getSpot = spotId => spotId;
+  const getGame = gameId => gameId;
+  const getGames = ({ month }) => api.get('search/games/', { q: month });
+  const verifyToken = token => api.post('/auth/token-verify/', { token });
+  const signup = ({
+    username, email, first_name, last_name, password,
+  }) =>
     api.post('/auth/registration/', {
       username,
       email,
       first_name,
       last_name,
       password1: password,
-      password2: password
-    })
+      password2: password,
+    });
   const login = ({ username, email, password }) =>
     api.post('/auth/login/', {
       username,
       email,
-      password
-    })
+      password,
+    });
   const updateUser = ({ uuid, first_name, last_name }) =>
     api.patch(`/users/${uuid}/`, {
       first_name,
-      last_name
-    })
+      last_name,
+    });
   const submitRating = (spotUuid, userUuid, rating) => {
     api.post(`/games/${spotUuid}/reactions`, {
       // todo : construct proper post
-    })
-  }
+    });
+  };
 
   const createGame = ({ name }) =>
     api.post('/games/', {
@@ -77,52 +79,52 @@ const create = () => {
       start_time: moment().toISOString(),
       rsvp_open_time: moment().toISOString(),
       rsvp_close_time: moment().toISOString(),
-      end_time: moment().toISOString()
-    })
+      end_time: moment().toISOString(),
+    });
 
   const setGameSport = ({ gameUUID, sport }) => {
     api.post(`/games/${gameUUID}/sport/`, {
-      uuid: sport.uuid
-    })
-    global.client = client
+      uuid: sport.uuid,
+    });
+    global.client = client;
     const q = gql`
       query game($uuid: UUID!) {
         game(uuid: $uuid) {
           sport
         }
-    `
+    `;
     client.writeQuery({
       query: q,
       data: {
-        sport: { uuid: sport.uuid }
+        sport: { uuid: sport.uuid },
       },
       variables: {
-        uuid: gameUUID
-      }
-    })
-  }
+        uuid: gameUUID,
+      },
+    });
+  };
 
   const setGameSpot = ({ gameUUID, spotUUID }) =>
     api.post(`/games/${gameUUID}/spot/`, {
-      uuid: spotUUID
-    })
+      uuid: spotUUID,
+    });
   const setGameTimes = ({ gameUUID, startTime, endTime }) =>
     api.put(`/games/${gameUUID}/`, {
       start_time: startTime,
       end_time: endTime,
       rsvp_open_time: startTime,
-      rsvp_close_time: endTime
-    })
+      rsvp_close_time: endTime,
+    });
 
   const setGameDescription = ({ gameUUID, description }) =>
     api.put(`/games/${gameUUID}/`, {
-      description: description
-    })
+      description,
+    });
 
   const setGameCapacity = ({ gameUUID, capacity }) =>
     api.put(`/games/${gameUUID}/`, {
-      capacity
-    })
+      capacity,
+    });
 
   // const setGameStartTime = ({ gameUUID, start_date, start_time }) => api.put(`/games/${gameUUID}/`), {
   //   start_time:
@@ -158,11 +160,11 @@ const create = () => {
     updateUser,
     submitRating,
     verifyToken,
-    setToken: token => api.setHeader('Authorization', `JWT ${token}`)
-  }
-}
+    setToken: token => api.setHeader('Authorization', `JWT ${token}`),
+  };
+};
 
 // let's return back our create method as the default.
 export default {
-  create
-}
+  create,
+};

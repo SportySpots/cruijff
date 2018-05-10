@@ -1,13 +1,13 @@
-import React from 'react'
-import { header } from './Styles/CardStyles'
-import Int18n from '../../I18n'
-import { View } from 'react-native'
-import Text from '../Text'
-import Rating from '../Rating'
+import React from 'react';
+import { header } from './Styles/CardStyles';
+import Int18n from '../../I18n';
+import { View } from 'react-native';
+import Text from '../Text';
+import Rating from '../Rating';
 
-const Spacer = () => <Text style={header.spacer}>·</Text>
+const Spacer = () => <Text style={header.spacer}>·</Text>;
 
-const distance = 5
+const distance = 5;
 
 const Header = ({ spot, ...props }) => (
   <View {...props}>
@@ -23,10 +23,10 @@ const Header = ({ spot, ...props }) => (
           <Spacer key={1} />,
           <Text.S key={2} style={header.plannedGamesCount}>
             {spot.spot_games.length} {Int18n.t('games')}
-          </Text.S>
+          </Text.S>,
         ]}
     </View>
   </View>
-)
+);
 
-export default Header
+export default Header;

@@ -1,11 +1,11 @@
-import React from 'react'
-import Svg, { Path } from 'react-native-svg'
-import Colors from '../Themes/Colors'
+import React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import Colors from '../Themes/Colors';
 
-import { View, Dimensions, StyleSheet } from 'react-native'
+import { View, Dimensions, StyleSheet } from 'react-native';
 
-let fullWidth = Dimensions.get('window').width
-let fullHeight = Dimensions.get('window').height
+const fullWidth = Dimensions.get('window').width;
+const fullHeight = Dimensions.get('window').height;
 
 const FieldBackground = props => (
   <View style={styles.container}>
@@ -14,36 +14,36 @@ const FieldBackground = props => (
         <Path
           d={`M${0.2 * fullWidth} 0 h ${0.08 * fullWidth} L ${0.16 *
             fullWidth} ${fullHeight} h ${-0.12 * fullWidth} Z`}
-          fill='white'
+          fill="white"
         />
         <Path
           d={`M0 0 h ${fullWidth} v ${0.5 * fullHeight} L 0 ${2 /
             3 *
             fullHeight} Z`}
           fill={Colors.secondaryDarkBlueGreen}
-          opacity='.84'
+          opacity=".84"
         />
       </Svg>
     </View>
     <View style={styles.childContainer}>{props.children}</View>
   </View>
-)
+);
 
-export default FieldBackground
+export default FieldBackground;
 
 const styles = StyleSheet.create({
   container: {
     width: fullWidth,
-    height: fullHeight
+    height: fullHeight,
   },
   bgContainer: {
     backgroundColor: Colors.primaryGreen,
     position: 'absolute',
     left: 0,
-    top: 0
+    top: 0,
   },
   childContainer: {
     width: fullWidth,
-    height: fullHeight
-  }
-})
+    height: fullHeight,
+  },
+});

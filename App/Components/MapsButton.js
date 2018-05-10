@@ -1,20 +1,18 @@
-import React from 'react'
-import Colors from '../Themes/Colors'
-import styled from 'styled-components'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import React from 'react';
+import Colors from '../Themes/Colors';
+import styled from 'styled-components';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
-const MapsButton = props => {
-  return (
-    <TouchableOpacity {...props}>
-      <ButtonContainer>
-        <Icon name='place' size={24} color={Colors.primaryGreen} />
-      </ButtonContainer>
-    </TouchableOpacity>
-  )
-}
+const MapsButton = props => (
+  <TouchableOpacity {...props}>
+    <ButtonContainer>
+      <Icon name="place" size={24} color={Colors.primaryGreen} />
+    </ButtonContainer>
+  </TouchableOpacity>
+);
 
-export default MapsButton
+export default MapsButton;
 
 const ButtonContainer = styled.View`
   display: flex;
@@ -26,4 +24,4 @@ const ButtonContainer = styled.View`
   border-radius: 50px;
   shadow-color: #000;
   shadow-opacity: 0.2;
-`
+`;

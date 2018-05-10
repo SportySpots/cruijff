@@ -1,18 +1,18 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react-native'
-import { View } from 'react-native'
-import SportAndTime from './SportAndTimeScreen'
-import PickSpot from './PickSpotScreen'
-import Description from './DescriptionScreen'
-import Created from './CreatedScreen'
-import { WithApolloMockProvider } from '../../GraphQL/index'
+import React from 'react';
+import { storiesOf } from '@storybook/react-native';
+import { View } from 'react-native';
+import SportAndTime from './SportAndTimeScreen';
+import PickSpot from './PickSpotScreen';
+import Description from './DescriptionScreen';
+import Created from './CreatedScreen';
+import { WithApolloMockProvider } from '../../GraphQL/index';
 
 const gameDetails = {
   sport: null,
   timeStart: null,
   timeEnd: null,
-  date: null
-}
+  date: null,
+};
 
 storiesOf('Plan')
   .add('Step 1: Sport/time', () => (
@@ -47,4 +47,4 @@ storiesOf('Plan')
         />
       </View>
     </WithApolloMockProvider>
-  ))
+  ));

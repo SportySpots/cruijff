@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { View, StyleSheet, TextInput, ScrollView } from 'react-native'
-import Colors from '../Themes/Colors'
-import Logo from '../Components/Logo'
-import Text from '../Components/Text'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, StyleSheet, TextInput, ScrollView } from 'react-native';
+import Colors from '../Themes/Colors';
+import Logo from '../Components/Logo';
+import Text from '../Components/Text';
+import styled from 'styled-components';
 
 export default class LogoHeaderBackground extends Component {
-  render () {
+  render() {
     return (
       <View style={{ flex: 1, backgroundColor: Colors.white }}>
         <AbsoluteFull>
@@ -19,7 +19,7 @@ export default class LogoHeaderBackground extends Component {
         </AbsoluteFull>
         <View style={{ flex: 1, marginTop: 160 }}>{this.props.children}</View>
       </View>
-    )
+    );
   }
 }
 
@@ -29,12 +29,12 @@ const AbsoluteFull = styled.View`
   right: 0;
   top: 0;
   bottom: 0;
-`
+`;
 const style = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   skew: {
     position: 'absolute',
@@ -43,15 +43,15 @@ const style = StyleSheet.create({
     left: -500,
     top: 0,
     backgroundColor: Colors.secondaryDarkBlueGreen,
-    transform: [{ rotate: '-10deg' }]
+    transform: [{ rotate: '-10deg' }],
   },
   logoContainer: {
     marginTop: 16,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   logoText: {
     marginTop: 8,
-    color: Colors.black
-  }
-})
+    color: Colors.black,
+  },
+});

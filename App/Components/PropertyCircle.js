@@ -1,15 +1,15 @@
-import React from 'react'
-import Colors from '../Themes/Colors'
-import Fonts from '../Themes/Fonts'
-import { Text, View, StyleSheet } from 'react-native'
+import React from 'react';
+import Colors from '../Themes/Colors';
+import Fonts from '../Themes/Fonts';
+import { Text, View, StyleSheet } from 'react-native';
 
 const PropertyCircle = ({ text }) => (
   <View style={style.circle}>
     <Text style={style.text}>{JSON.stringify(text).toUpperCase()}</Text>
   </View>
-)
+);
 
-export default PropertyCircle
+export default PropertyCircle;
 
 const style = StyleSheet.create({
   circle: {
@@ -19,13 +19,13 @@ const style = StyleSheet.create({
     backgroundColor: Colors.primaryGreen,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   text: {
     ...Fonts.style.S,
     color: Colors.white,
     fontSize: 12,
     padding: 4,
-    textAlign: 'center'
-  }
-})
+    textAlign: 'center',
+  },
+});
