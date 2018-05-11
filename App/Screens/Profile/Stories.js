@@ -45,10 +45,7 @@ storiesOf('Profile')
   .add('Login', () => (
     <View style={{ flex: 1 }}>
       <Provider store={store}>
-        <ProfileLoginScreen
-          navigation={dummyNavigator}
-          user={userStateNotLoggedIn}
-        />
+        <ProfileLoginScreen navigation={dummyNavigator} user={userStateNotLoggedIn} />
       </Provider>
     </View>
   ));

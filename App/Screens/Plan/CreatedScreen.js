@@ -1,20 +1,14 @@
-import React, { Component } from 'react'
-import {
-  View,
-  StyleSheet,
-  Share,
-  TouchableOpacity,
-  Clipboard
-} from 'react-native'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import { View, StyleSheet, Share, TouchableOpacity, Clipboard } from 'react-native';
+import PropTypes from 'prop-types';
 
-import Colors from '../../Themes/Colors'
-import Text from '../../Components/Text'
-import I18n from '../../I18n/index'
-import Footer from '../../Components/DarkFooter/index'
+import Colors from '../../Themes/Colors';
+import Text from '../../Components/Text';
+import I18n from '../../I18n/index';
+import Footer from '../../Components/DarkFooter/index';
 
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import Checkbox from '../../Components/Checkbox'
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import Checkbox from '../../Components/Checkbox';
 
 export default class Created extends Component {
   static propTypes = {
@@ -28,35 +22,32 @@ export default class Created extends Component {
       stopTime: PropTypes.string,
       spotId: PropTypes.number,
       description: PropTypes.string,
-      isPublic: PropTypes.bool
-    })
-  }
+      isPublic: PropTypes.bool,
+    }),
+  };
 
-  get link () {
-    return (
-      'https://www.sportyspots.com/games/' +
-      this.props.navigation.state.params.uuid
-    )
+  get link() {
+    return `https://www.sportyspots.com/games/${this.props.navigation.state.params.uuid}`;
   }
 
   onCopy = () => {
-    Clipboard.setString(this.link)
-  }
+    Clipboard.setString(this.link);
+  };
 
   onShare = () => {
     Share.share(
       {
         message: 'You have been invited',
         url: this.link,
-        title: 'Sportyspots'
+        title: 'Sportyspots',
       },
       {
-        dialogTitle: I18n.t('invite')
-      }
-    )
-  }
+        dialogTitle: I18n.t('invite'),
+      },
+    );
+  };
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <View style={styles.innerContainer}>
@@ -66,11 +57,11 @@ export default class Created extends Component {
           </View>
           <View style={styles.buttons}>
             <TouchableOpacity style={styles.shareButton} onPress={this.onShare}>
-              <Icon size={24} color={Colors.white} name='share' />
+              <Icon size={24} color={Colors.white} name="share" />
               <Text.M style={styles.shareButtonText}>{I18n.t('Share')}</Text.M>
             </TouchableOpacity>
             <TouchableOpacity style={styles.shareButton} onPress={this.onCopy}>
-              <Icon size={24} color={Colors.white} name='content-copy' />
+              <Icon size={24} color={Colors.white} name="content-copy" />
               <Text.M style={styles.shareButtonText}>{I18n.t('Copy')}</Text.M>
             </TouchableOpacity>
           </View>
@@ -80,17 +71,12 @@ export default class Created extends Component {
                 color={Colors.white}
                 checked={!this.props.gameDetails.isPublic}
                 onPress={() =>
-                  this.props.setGameDetailField(
-                    'isPublic',
-                    !this.props.gameDetails.isPublic
-                  )
+                  this.props.setGameDetailField('isPublic', !this.props.gameDetails.isPublic)
                 }
                 size={72}
               />
               <View style={styles.inviteOnlyTextContainer}>
-                <Text.M style={styles.inviteOnlyText}>
-                  {I18n.t('This event is invite-only')}
-                </Text.M>
+                <Text.M style={styles.inviteOnlyText}>{I18n.t('This event is invite-only')}</Text.M>
               </View>
             </View>
           )}
@@ -101,31 +87,31 @@ export default class Created extends Component {
           showBack={false}
           buttonNextText={I18n.t('done')}
           onNext={() => {
-            this.props.navigation.popToTop()
-            this.props.navigation.goBack(null)
+            this.props.navigation.popToTop();
+            this.props.navigation.goBack(null);
           }}
         />
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.primaryGreen,
-    flex: 1
+    flex: 1,
   },
   innerContainer: {
     flex: 1,
     padding: 32,
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   white: {
-    color: Colors.white
+    color: Colors.white,
   },
   title: {
     color: Colors.white,
-    marginBottom: 16
+    marginBottom: 16,
   },
   linkContainer: {
     backgroundColor: Colors.black54,
@@ -135,39 +121,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   link: {
     color: '#ccc',
     textAlign: 'center',
-    fontSize: 16
+    fontSize: 16,
   },
   buttons: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   shareButtonText: {
     color: Colors.white,
     fontSize: 20,
-    marginLeft: 8
+    marginLeft: 8,
   },
   shareButton: {
     flexDirection: 'row',
     padding: 8,
     borderWidth: 1,
     borderColor: Colors.white,
-    marginRight: 8
+    marginRight: 8,
   },
   inviteOnly: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   inviteOnlyText: {
     color: Colors.white,
-    fontSize: 24
+    fontSize: 24,
   },
   inviteOnlyTextContainer: {
     flex: 1,
     flexDirection: 'row',
-    flexWrap: 'wrap'
-  }
-})
+    flexWrap: 'wrap',
+  },
+});

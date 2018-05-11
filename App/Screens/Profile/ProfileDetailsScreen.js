@@ -1,56 +1,50 @@
-import React, { Component } from 'react'
-import { View, Image, StyleSheet } from 'react-native'
-import PropTypes from 'prop-types'
-import Text from '../../Components/Text'
-import I18n from '../../I18n/index'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import Slider from '../../Components/Slider'
-import styled from 'styled-components/native'
-import gql from 'graphql-tag'
+import React, { Component } from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import Text from '../../Components/Text';
+import I18n from '../../I18n/index';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import Slider from '../../Components/Slider';
+import styled from 'styled-components/native';
+import gql from 'graphql-tag';
 
-import {
-  Menu,
-  MenuOption,
-  MenuOptions,
-  MenuProvider,
-  MenuTrigger
-} from 'react-native-popup-menu'
-import { TabBarTop, TabNavigator } from 'react-navigation'
-import Colors from '../../Themes/Colors'
-import userActions from '../../Redux/UserRedux'
-import { connect } from 'react-redux'
-import { Query } from 'react-apollo'
-import UserCircle from '../../Components/UserCircle'
-import withQuery from '../../GraphQL/withQuery'
+import { Menu, MenuOption, MenuOptions, MenuProvider, MenuTrigger } from 'react-native-popup-menu';
+import { TabBarTop, TabNavigator } from 'react-navigation';
+import Colors from '../../Themes/Colors';
+import userActions from '../../Redux/UserRedux';
+import { connect } from 'react-redux';
+import { Query } from 'react-apollo';
+import UserCircle from '../../Components/UserCircle';
+import withQuery from '../../GraphQL/withQuery';
 
 export const BottomNav = new TabNavigator(
   {
     spots: {
-      screen: () => <Text>{I18n.t('Spots')}</Text>
+      screen: () => <Text>{I18n.t('Spots')}</Text>,
     },
     games: {
-      screen: () => <Text>{I18n.t('Games')}</Text>
-    }
+      screen: () => <Text>{I18n.t('Games')}</Text>,
+    },
   },
   {
     tabBarComponent: TabBarTop,
     tabBarPosition: 'top',
     tabBarOptions: {
       style: {
-        backgroundColor: Colors.white
+        backgroundColor: Colors.white,
       },
       labelStyle: {
         color: 'black',
-        fontWeight: '700'
+        fontWeight: '700',
       },
       indicatorStyle: {
         backgroundColor: Colors.primaryGreen,
-        height: 4
-      }
+        height: 4,
+      },
     },
-    initialRouteName: 'spots'
-  }
-)
+    initialRouteName: 'spots',
+  },
+);
 
 export class ProfileDetailsScreenComponent extends React.PureComponent {
   static propTypes = {
@@ -59,29 +53,25 @@ export class ProfileDetailsScreenComponent extends React.PureComponent {
       firstName: PropTypes.string,
       lastName: PropTypes.string,
       age: PropTypes.number,
-      level: PropTypes.number
-    })
-  }
+      level: PropTypes.number,
+    }),
+  };
 
   onLogout = () => {
-    this.props.logout()
-    this.props.navigation.navigate('SplashScreen')
-  }
+    this.props.logout();
+    this.props.navigation.navigate('SplashScreen');
+  };
 
-  render () {
-    const user = this.props.data.user
+  render() {
+    const user = this.props.data.user;
     const EditMenu = (
       <View style={styles.editMenu}>
-        <Menu name='popup'>
-          <MenuTrigger menuName='popup'>
-            <Icon size={24} name='more-vert' />
+        <Menu name="popup">
+          <MenuTrigger menuName="popup">
+            <Icon size={24} name="more-vert" />
           </MenuTrigger>
           <MenuOptions>
-            <MenuOption
-              onSelect={() =>
-                this.props.navigation.navigate('ProfileEditScreen')
-              }
-            >
+            <MenuOption onSelect={() => this.props.navigation.navigate('ProfileEditScreen')}>
               <Text.M>{I18n.t('Edit')}</Text.M>
             </MenuOption>
             <MenuOption disabled />
@@ -91,7 +81,7 @@ export class ProfileDetailsScreenComponent extends React.PureComponent {
           </MenuOptions>
         </Menu>
       </View>
-    )
+    );
 
     return (
       <MenuProvider>
@@ -124,25 +114,23 @@ export class ProfileDetailsScreenComponent extends React.PureComponent {
           )}
         </View>
       </MenuProvider>
-    )
+    );
   }
 }
 
 const dispatchToProps = {
-  logout: userActions.logout
-}
+  logout: userActions.logout,
+};
 
 const mapStateToProps = state => ({
-  user: state.user
-})
+  user: state.user,
+});
 
-const ProfileDetailsScreen = connect(mapStateToProps, dispatchToProps)(
-  props => {
-    const Contents = withQuery(GET_USER_DETAILS)(ProfileDetailsScreenComponent)
-    return <Contents {...props} variables={{ uuid: props.user.uuid }} />
-  }
-)
-export default ProfileDetailsScreen
+const ProfileDetailsScreen = connect(mapStateToProps, dispatchToProps)((props) => {
+  const Contents = withQuery(GET_USER_DETAILS)(ProfileDetailsScreenComponent);
+  return <Contents {...props} variables={{ uuid: props.user.uuid }} />;
+});
+export default ProfileDetailsScreen;
 
 export const GET_USER_DETAILS = gql`
   query user($uuid: UUID) {
@@ -155,45 +143,45 @@ export const GET_USER_DETAILS = gql`
       #      }
     }
   }
-`
+`;
 
 const styles = StyleSheet.create({
   image: {
     height: 100,
     width: 100,
-    borderRadius: 50
+    borderRadius: 50,
   },
   center: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   outerContainer: {
     flex: 1,
     paddingTop: 24,
-    backgroundColor: Colors.white
+    backgroundColor: Colors.white,
   },
   ageTypeContainer: {
     flexDirection: 'row',
-    marginHorizontal: 16
+    marginHorizontal: 16,
   },
   ageContainer: {
-    flex: 2
+    flex: 2,
   },
   type: {
-    flex: 4
+    flex: 4,
   },
   editMenu: {
     position: 'absolute',
     right: 8,
-    top: 8
+    top: 8,
   },
   bottomNavContainer: {
     flex: 1,
     borderTopWidth: 2,
     borderTopColor: Colors.bgGrey,
-    backgroundColor: Colors.bgGrey
-  }
-})
+    backgroundColor: Colors.bgGrey,
+  },
+});
 
 const NameContainer = styled(Text.L)`
   margin: 16px;
-`
+`;

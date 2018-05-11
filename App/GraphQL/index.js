@@ -14,20 +14,22 @@ import React from 'react';
 
 export let client = null;
 
-const createCache = () => new InMemoryCache({
-  dataIdFromObject: object => object.uuid || null,
-});
+const createCache = () =>
+  new InMemoryCache({
+    dataIdFromObject: object => object.uuid || null,
+  });
 
-const addErrorHandlers = link => ApolloLink.from([
-  onError(({ graphQLErrors, networkError }) => {
-    if (graphQLErrors) {
-      graphQLErrors.map(({ message, locations, path }) =>
-        console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`));
-    }
-    if (networkError) console.log(`[Network error]: ${networkError}`);
-  }),
-  link,
-]);
+const addErrorHandlers = link =>
+  ApolloLink.from([
+    onError(({ graphQLErrors, networkError }) => {
+      if (graphQLErrors) {
+        graphQLErrors.map(({ message, locations, path }) =>
+          console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`));
+      }
+      if (networkError) console.log(`[Network error]: ${networkError}`);
+    }),
+    link,
+  ]);
 
 export const createClient = (uri) => {
   let token = null;

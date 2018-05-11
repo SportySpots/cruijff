@@ -1,11 +1,11 @@
-import React from 'react'
-import I18n from '../../I18n/index'
-import { StyleSheet, View } from 'react-native'
-import PropTypes from 'prop-types'
-import NavDots from '../NavDots'
-import Button from './Button'
-import Colors from '../../Themes/Colors'
-import Fonts from '../../Themes/Fonts'
+import React from 'react';
+import I18n from '../../I18n/index';
+import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
+import NavDots from '../NavDots';
+import Button from './Button';
+import Colors from '../../Themes/Colors';
+import Fonts from '../../Themes/Fonts';
 
 export default class DarkFooter extends React.Component {
   static propTypes = {
@@ -18,25 +18,25 @@ export default class DarkFooter extends React.Component {
     onBack: PropTypes.func,
     showBack: PropTypes.bool,
     disableBack: PropTypes.bool,
-    buttonBackText: PropTypes.string
-  }
+    buttonBackText: PropTypes.string,
+  };
 
   static defaultProps = {
     buttonNextText: I18n.t('continue'),
     showNext: true,
     buttonBackText: I18n.t('back'),
-    showBack: true
-  }
+    showBack: true,
+  };
 
   onNext = () => {
-    this.props.onNext && this.props.onNext()
-  }
+    this.props.onNext && this.props.onNext();
+  };
 
   onBack = () => {
-    this.props.onBack && this.props.onBack()
-  }
+    this.props.onBack && this.props.onBack();
+  };
 
-  render () {
+  render() {
     return (
       <View style={style.container}>
         {this.props.showBack && (
@@ -63,18 +63,18 @@ export default class DarkFooter extends React.Component {
           />
         )}
       </View>
-    )
+    );
   }
 }
 
 const navDotsTheme = StyleSheet.create({
   circle: {
-    backgroundColor: Colors.white20
+    backgroundColor: Colors.white20,
   },
   active: {
-    backgroundColor: Colors.actionYellow
-  }
-})
+    backgroundColor: Colors.actionYellow,
+  },
+});
 
 const style = StyleSheet.create({
   container: {
@@ -82,18 +82,18 @@ const style = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: Colors.black,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   title: {
-    ...Fonts.style.L
+    ...Fonts.style.L,
   },
   navDots: {},
   nextButton: {
     position: 'absolute',
-    right: 5
+    right: 5,
   },
   backButton: {
     position: 'absolute',
-    left: 5
-  }
-})
+    left: 5,
+  },
+});

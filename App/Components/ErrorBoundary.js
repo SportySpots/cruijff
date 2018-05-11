@@ -1,32 +1,32 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Text from './Text'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Text from './Text';
 
 // See: https://reactjs.org/docs/error-boundaries.html
 class ErrorBoundary extends React.Component {
-  state = { hasError: false }
+  state = { hasError: false };
 
-  componentDidCatch () {
-    this.setState({ hasError: true })
+  componentDidCatch() {
+    this.setState({ hasError: true });
   }
 
-  render () {
-    const { hasError } = this.state
-    const { children, fallbackComponent } = this.props
+  render() {
+    const { hasError } = this.state;
+    const { children, fallbackComponent } = this.props;
 
     if (hasError) {
-      return React.createElement(fallbackComponent)
+      return React.createElement(fallbackComponent);
     }
-    return children
+    return children;
   }
 }
 
 ErrorBoundary.propTypes = {
-  fallbackComponent: PropTypes.func
-}
+  fallbackComponent: PropTypes.func,
+};
 
 ErrorBoundary.defaultProps = {
-  fallbackComponent: () => <Text>Error in Component</Text>
-}
+  fallbackComponent: () => <Text>Error in Component</Text>,
+};
 
-export default ErrorBoundary
+export default ErrorBoundary;

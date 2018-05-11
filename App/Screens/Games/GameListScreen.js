@@ -24,16 +24,8 @@ const getMonthRange = (month) => {
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();
   return {
-    minDate: new Date(
-      month < currentMonth ? currentYear + 1 : currentYear,
-      month,
-      0,
-    ),
-    maxDate: new Date(
-      month < currentMonth ? currentYear + 1 : currentYear,
-      month + 1,
-      0,
-    ),
+    minDate: new Date(month < currentMonth ? currentYear + 1 : currentYear, month, 0),
+    maxDate: new Date(month < currentMonth ? currentYear + 1 : currentYear, month + 1, 0),
   };
 };
 

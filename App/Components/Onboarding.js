@@ -30,9 +30,7 @@ export default class Onboarding extends React.Component {
         data={data}
         style={{ flex: 1 }}
         renderItem={({ item }) => <OnboardingScreen {...item} />}
-        footerText={(item, index) =>
-          I18n.t(index < data.length - 1 ? 'continue' : 'lets go')
-        }
+        footerText={(item, index) => I18n.t(index < data.length - 1 ? 'continue' : 'lets go')}
         onDone={() => navigate('LocationPermissionScreen')}
       />
     );

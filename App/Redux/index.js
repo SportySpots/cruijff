@@ -12,10 +12,7 @@ export const reducers = combineReducers({
 export let reduxStore = null;
 
 export default () => {
-  let { store, sagasManager, sagaMiddleware } = configureStore(
-    reducers,
-    rootSaga,
-  );
+  let { store, sagasManager, sagaMiddleware } = configureStore(reducers, rootSaga);
 
   if (module.hot) {
     module.hot.accept(() => {

@@ -1,70 +1,65 @@
-import React from 'react'
-import { styles } from '../Components/Styles/Onboarding'
-import { View, Image, TouchableHighlight, StyleSheet } from 'react-native'
-import Images from '../Themes/Images'
-import I18n from '../I18n/index'
-import Colors from '../Themes/Colors'
-import Fonts from '../Themes/Fonts'
-import Text from '../Components/Text'
-import Permissions from 'react-native-permissions'
-import PropTypes from 'prop-types'
-import locationActions from '../Redux/LocationRedux'
-import { connect } from 'react-redux'
+import React from 'react';
+import { styles } from '../Components/Styles/Onboarding';
+import { View, Image, TouchableHighlight, StyleSheet } from 'react-native';
+import Images from '../Themes/Images';
+import I18n from '../I18n/index';
+import Colors from '../Themes/Colors';
+import Fonts from '../Themes/Fonts';
+import Text from '../Components/Text';
+import Permissions from 'react-native-permissions';
+import PropTypes from 'prop-types';
+import locationActions from '../Redux/LocationRedux';
+import { connect } from 'react-redux';
 
-export default connect({}, { getLocation: locationActions.updateLocation })(
-  class AskLocation extends React.PureComponent {
+export default connect({}, { getLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
     static propTypes = {
       navigation: PropTypes.any,
-      onLocationPermission: PropTypes.func
+      onLocationPermission: PropTypes.func,
+    };
+
+    constructor(props) {
+      super(props);
+      this.state = { checked: false }; // has location permission been checked?
     }
 
-    constructor (props) {
-      super(props)
-      this.state = { checked: false } // has location permission been checked?
-    }
-
-    ask () {
+    ask() {
       // Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
-      Permissions.request('location').then(response => {
-        this.props.updateLocation()
-        this.props.navigation.navigate('MainNav')
-      })
+      Permissions.request('location').then((response) => {
+        this.props.updateLocation();
+        this.props.navigation.navigate('MainNav');
+      });
     }
 
-    componentWillMount () {
-      Permissions.check('location').then(response => {
+    componentWillMount() {
+      Permissions.check('location').then((response) => {
         if (response === 'denied' || response === 'undetermined') {
-          this.setState({ checked: true })
+          this.setState({ checked: true });
         } else {
-          this.props.navigation.navigate('MainNav')
+          this.props.navigation.navigate('MainNav');
         }
-      })
+      });
     }
 
-    render () {
-      if (!this.state.checked) return null
+    render() {
+      if (!this.state.checked) return null;
       return (
         <View style={styles.container}>
           <View style={styles.container}>
             <View style={styles.imageContainer}>
               <Image
                 style={styles.image}
-                resizeMode='contain'
+                resizeMode="contain"
                 source={Images.illustrationShareLocation}
               />
             </View>
             <View style={styles.textContainer}>
               <Text style={styles.title}>{I18n.t('share-your-location')}</Text>
-              <Text style={styles.paragraph}>
-                {I18n.t('onboarding-ask-location')}
-              </Text>
+              <Text style={styles.paragraph}>{I18n.t('onboarding-ask-location')}</Text>
             </View>
           </View>
           <View style={askLocationStyle.footer}>
             <View>
-              <Text style={askLocationStyle.text}>
-                {I18n.t('share-your-location')}
-              </Text>
+              <Text style={askLocationStyle.text}>{I18n.t('share-your-location')}</Text>
             </View>
             <View style={askLocationStyle.buttonsContainer}>
               <TouchableHighlight onPress={() => this.ask()}>
@@ -77,10 +72,9 @@ export default connect({}, { getLocation: locationActions.updateLocation })(
             </View>
           </View>
         </View>
-      )
+      );
     }
-  }
-)
+});
 
 const askLocationStyle = StyleSheet.create({
   footer: {
@@ -89,18 +83,18 @@ const askLocationStyle = StyleSheet.create({
     backgroundColor: Colors.black,
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   text: {
     ...Fonts.style.S,
     fontSize: 16,
-    color: Colors.white
+    color: Colors.white,
   },
   buttonsContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   button: {
     color: Colors.actionYellow,
-    marginHorizontal: 10
-  }
-})
+    marginHorizontal: 10,
+  },
+});

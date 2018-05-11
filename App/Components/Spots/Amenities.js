@@ -5,16 +5,18 @@ import I18n from '../../I18n';
 import PropertyCircle from '../PropertyCircle';
 import Text from '../Text';
 
-const Amenities = ({ amenities }) => console.log(amenities) || (
-  <View style={style.container}>
-    {Object.keys(amenities).map(key => console.log(amenities[key]) || (
-      <View key={key} style={style.innerContainer}>
-        <Text.M style={style.text}>{I18n.t(key)}</Text.M>
-        <PropertyCircle text={amenities[key]} />
-      </View>
-    ))}
-  </View>
-);
+const Amenities = ({ amenities }) =>
+  console.log(amenities) || (
+    <View style={style.container}>
+      {Object.keys(amenities).map(key =>
+          console.log(amenities[key]) || (
+            <View key={key} style={style.innerContainer}>
+              <Text.M style={style.text}>{I18n.t(key)}</Text.M>
+              <PropertyCircle text={amenities[key]} />
+            </View>
+          ))}
+    </View>
+  );
 
 export default Amenities;
 

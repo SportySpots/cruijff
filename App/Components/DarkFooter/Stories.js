@@ -13,12 +13,8 @@ class Wrapper extends React.Component {
       <DarkFooter
         currentPage={this.state.currentPage}
         numPages={4}
-        onNext={() =>
-          this.setState({ currentPage: this.state.currentPage + 1 })
-        }
-        onBack={() =>
-          this.setState({ currentPage: this.state.currentPage - 1 })
-        }
+        onNext={() => this.setState({ currentPage: this.state.currentPage + 1 })}
+        onBack={() => this.setState({ currentPage: this.state.currentPage - 1 })}
       />
     );
   }

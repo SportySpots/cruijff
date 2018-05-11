@@ -18,10 +18,7 @@ storiesOf('Plan')
   .add('Step 1: Sport/time', () => (
     <WithApolloMockProvider>
       <View style={{ flex: 1 }}>
-        <SportAndTime
-          gameDetails={gameDetails}
-          setGameDetailField={() => null}
-        />
+        <SportAndTime gameDetails={gameDetails} setGameDetailField={() => null} />
       </View>
     </WithApolloMockProvider>
   ))

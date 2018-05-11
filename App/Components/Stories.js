@@ -86,9 +86,7 @@ storiesOf('Text')
   .add('Medium text', () => <Text.M>Medium size</Text.M>)
   .add('Large text', () => <Text.L>Large size</Text.L>);
 
-storiesOf('Onboarding').add('Default', () => (
-  <Onboarding navigation={dummyNavigator} />
-));
+storiesOf('Onboarding').add('Default', () => <Onboarding navigation={dummyNavigator} />);
 
 storiesOf('ImageSwiper').add('Default', () => (
   <ImageSwiper
@@ -111,10 +109,7 @@ storiesOf('NavBar')
     </Provider>
   ))
   .add('NavBarButton', () => (
-    <NavBarButton
-      icon={{ set: MaterialIcon, name: 'settings' }}
-      buttonText="test"
-    />
+    <NavBarButton icon={{ set: MaterialIcon, name: 'settings' }} buttonText="test" />
   ))
   .add('At bottom', () => (
     <Provider store={store}>
@@ -144,22 +139,16 @@ storiesOf('SplashScreen').add('Default', () => (
 
 storiesOf('PropertyCircle').add('Propertycircle', () => (
   <View>
-    {[
-      'blablabla',
-      'ASD GDS ASD DAS',
-      'as asdasdasdsadassadas',
-      '+4',
-      'HMMMM',
-    ].map((text, idx) => <PropertyCircle text={text} key={idx} />)}
+    {['blablabla', 'ASD GDS ASD DAS', 'as asdasdasdsadassadas', '+4', 'HMMMM'].map((text, idx) => (
+      <PropertyCircle text={text} key={idx} />
+    ))}
   </View>
 ));
 
 const users = require('../Fixtures/users');
 
 storiesOf('UserCircle').add('UserCircle', () => (
-  <View>
-    {users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}
-  </View>
+  <View>{users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}</View>
 ));
 storiesOf('SignupScreen').add('Default', () => (
   <Provider store={store}>

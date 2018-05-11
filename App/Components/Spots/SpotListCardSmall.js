@@ -1,40 +1,40 @@
 /* Card component, this is the Card that is used in a list of many Cards */
 
-import React, { Component } from 'react'
-import { Image, View } from 'react-native'
-import PropTypes from 'prop-types'
-import Text from '../Text'
+import React, { Component } from 'react';
+import { Image, View } from 'react-native';
+import PropTypes from 'prop-types';
+import Text from '../Text';
 
-import { cardSmall } from './Styles/CardStyles'
-import Rating from '../Rating'
+import { cardSmall } from './Styles/CardStyles';
+import Rating from '../Rating';
 
-const Spacer = () => <Text style={{ marginLeft: 8, marginRight: 8 }}>·</Text>
+const Spacer = () => <Text style={{ marginLeft: 8, marginRight: 8 }}>·</Text>;
 
-const distance = 1.3
+const distance = 1.3;
 
 export default class SpotListCardSmall extends Component {
   static propTypes = {
     spot: PropTypes.object,
-    style: PropTypes.number
-  }
+    style: PropTypes.number,
+  };
 
   /* forward setNativeProps to the root (View) so that Card can be used as Touchable */
-  setNativeProps = nativeProps => {
-    this._root.setNativeProps(nativeProps)
+  setNativeProps = (nativeProps) => {
+    this._root.setNativeProps(nativeProps);
+  };
+
+  componentWillMount() {
+    this.distance = 5;
   }
 
-  componentWillMount () {
-    this.distance = 5
-  }
+  render() {
+    const spot = this.props.spot;
 
-  render () {
-    const spot = this.props.spot
-
-    let image = 'http://via.placeholder.com/350x150'
+    let image = 'http://via.placeholder.com/350x150';
     if (typeof spot.image === 'string') {
-      image = spot.image
+      image = spot.image;
     } else if (typeof spot.image === 'object' && spot.length) {
-      image = spot.image[0]
+      image = spot.image[0];
     }
 
     return (
@@ -49,6 +49,6 @@ export default class SpotListCardSmall extends Component {
         </View>
         <Image style={cardSmall.image} source={{ uri: image }} />
       </View>
-    )
+    );
   }
 }

@@ -38,9 +38,7 @@ class _ProfileSignupScreen extends Component {
             text={I18n.t('Register')}
           />
         </ButtonContainer>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('LoginScreen')}
-        >
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('LoginScreen')}>
           <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
         </TouchableOpacity>
       </MainContainer>

@@ -7,23 +7,7 @@ export default {
   }),
   getAllSpots: () => {
     const spotsData = require('../Fixtures/spots.json');
-    const newWestSpots = [
-      289,
-      288,
-      287,
-      286,
-      512,
-      300,
-      311,
-      291,
-      292,
-      294,
-      295,
-      298,
-      75,
-      77,
-      74,
-    ];
+    const newWestSpots = [289, 288, 287, 286, 512, 300, 311, 291, 292, 294, 295, 298, 75, 77, 74];
     return {
       ok: true,
       data: spotsData.filter(spot => newWestSpots.includes(spot.id)),
@@ -40,12 +24,10 @@ export default {
     game.organizer = usersData.find(user => user.id === game.organizer);
     game.sport = sportsData.find(sport => sport.id === game.sport);
     game.spot = spotsData.find(spot => spot.id === game.spot);
-    game.rsvpStatuses = rsvpStatusData
-      .filter(rsvp => rsvp.game === game.id)
-      .map(status => ({
-        ...status,
-        user: usersData.find(user => user.id === status.user),
-      }));
+    game.rsvpStatuses = rsvpStatusData.filter(rsvp => rsvp.game === game.id).map(status => ({
+      ...status,
+      user: usersData.find(user => user.id === status.user),
+    }));
     return {
       ok: true,
       data: game,

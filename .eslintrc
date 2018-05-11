@@ -1,10 +1,14 @@
 {
+  "parser": "babel-eslint",
   "extends": "airbnb",
   "rules": {
     "global-require": 0,
     "no-named-as-default": 0,
     "react/jsx-filename-extension": 0,
-    "no-console": 0
+    "react/sort-comp": 0,
+    "no-console": 0,
+    "prefer-destructuring": 0,
+    "react/no-did-mount-set-state"
   },
   "globals": {
     "__DEV__": true

@@ -39,10 +39,8 @@ export const logout = state => INITIAL_STATE.merge({ initialized: true });
 
 export const setToken = (state, action) => state.merge({ token: action.token });
 export const setUUID = (state, action) => state.merge({ uuid: action.uuid });
-export const setClaims = (state, action) =>
-  state.merge({ claims: action.claims });
-export const setInitialized = (state, action) =>
-  state.merge({ initialized: action.initialized });
+export const setClaims = (state, action) => state.merge({ claims: action.claims });
+export const setInitialized = (state, action) => state.merge({ initialized: action.initialized });
 
 /* ------------- Hookup Reducers To Types ------------- */
 

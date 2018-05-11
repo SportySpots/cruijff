@@ -1,15 +1,15 @@
-import React from 'react'
-import I18n from '../I18n'
-import { View, Keyboard, StyleSheet } from 'react-native'
-import PropTypes from 'prop-types'
-import NavBarButton from './NavBarButton'
+import React from 'react';
+import I18n from '../I18n';
+import { View, Keyboard, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import NavBarButton from './NavBarButton';
 
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
-import MaterialCummunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import Colors from '../Themes/Colors'
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialCummunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Colors from '../Themes/Colors';
 
-import api from '../Services/SeedorfApi'
-import { connect } from 'react-redux'
+import api from '../Services/SeedorfApi';
+import { connect } from 'react-redux';
 
 const buttons = [
   {
@@ -17,119 +17,109 @@ const buttons = [
     navigate: 'SpotSearchTab',
     icon: {
       set: MaterialIcon,
-      name: 'search'
-    }
+      name: 'search',
+    },
   },
   {
     buttonText: 'join',
     navigate: 'GameSearchTab',
     icon: {
       set: MaterialIcon,
-      name: 'person-add'
-    }
+      name: 'person-add',
+    },
   },
   {
     buttonText: 'plan-a-game',
-    onPress: async function () {
+    async onPress() {
       // called with this = NavBar component
       if (!this.props.user.claims.uuid) {
-        this.props.navigation.navigate('ProfileTab')
-        return
+        this.props.navigation.navigate('ProfileTab');
+        return;
       }
 
       const result = await api.createGame({
-        name: this.props.user.claims.username + "'s game"
-      })
+        name: `${this.props.user.claims.username}'s game`,
+      });
       if (result.ok) {
         this.props.navigation.navigate('PlanScreen', {
-          uuid: result.data.uuid
-        })
+          uuid: result.data.uuid,
+        });
       }
     },
     icon: {
       set: MaterialCummunityIcon,
-      name: 'calendar-plus'
+      name: 'calendar-plus',
     },
-    main: true
+    main: true,
   },
   {
     buttonText: 'profile',
     navigate: 'ProfileTab',
     icon: {
       set: MaterialIcon,
-      name: 'account-circle'
-    }
+      name: 'account-circle',
+    },
   },
   {
     buttonText: 'settings',
     navigate: 'SettingsTab',
     icon: {
       set: MaterialIcon,
-      name: 'settings'
-    }
-  }
-]
+      name: 'settings',
+    },
+  },
+];
 
 export class _NavBar extends React.Component {
   static propTypes = {
     buttonText: PropTypes.string,
     navigation: PropTypes.any, // react-navigation object
-    user: PropTypes.object
+    user: PropTypes.object,
+  };
+
+  static defaultProps = {};
+
+  constructor() {
+    super();
+    this.state = { keyboardActive: false };
   }
 
-  static defaultProps = {}
-
-  constructor () {
-    super()
-    this.state = { keyboardActive: false }
+  componentWillMount() {
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
   }
 
-  componentWillMount () {
-    this.keyboardDidShowListener = Keyboard.addListener(
-      'keyboardDidShow',
-      this._keyboardDidShow
-    )
-    this.keyboardDidHideListener = Keyboard.addListener(
-      'keyboardDidHide',
-      this._keyboardDidHide
-    )
-  }
-
-  componentWillUnmount () {
-    this.keyboardDidShowListener.remove()
-    this.keyboardDidHideListener.remove()
+  componentWillUnmount() {
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
   }
 
   _keyboardDidShow = () => {
-    this.setState({ keyboardActive: true })
-  }
+    this.setState({ keyboardActive: true });
+  };
 
   _keyboardDidHide = () => {
-    this.setState({ keyboardActive: false })
-  }
+    this.setState({ keyboardActive: false });
+  };
 
-  onButtonPress = button => {
+  onButtonPress = (button) => {
     if (button.onPress) {
-      button.onPress.call(this)
+      button.onPress.call(this);
     } else {
-      this.props.navigation.navigate({ routeName: button.navigate })
+      this.props.navigation.navigate({ routeName: button.navigate });
     }
-  }
+  };
 
-  render () {
+  render() {
     if (this.state.keyboardActive) {
-      return null
+      return null;
     }
     return (
       <View style={navbarStyle.container}>
         {buttons.map((button, index) => (
           <View
             key={index}
-            style={
-              button.main
-                ? navbarStyle.mainButtonContainer
-                : navbarStyle.buttonContainer
-            }
+            style={button.main ? navbarStyle.mainButtonContainer : navbarStyle.buttonContainer}
           >
             <NavBarButton
               onPress={() => this.onButtonPress(button)}
@@ -137,21 +127,20 @@ export class _NavBar extends React.Component {
               buttonText={I18n.t(button.buttonText)}
               active={
                 this.props.navigation &&
-                this.props.navigation.state.routes[
-                  this.props.navigation.state.index
-                ].routeName === button.navigate
+                this.props.navigation.state.routes[this.props.navigation.state.index].routeName ===
+                  button.navigate
               }
               main={!!button.main}
             />
           </View>
         ))}
       </View>
-    )
+    );
   }
 }
 
-const NavBar = connect(state => ({ user: state.user }))(_NavBar)
-export default NavBar
+const NavBar = connect(state => ({ user: state.user }))(_NavBar);
+export default NavBar;
 
 const navbarStyle = StyleSheet.create({
   container: {
@@ -160,16 +149,16 @@ const navbarStyle = StyleSheet.create({
     position: 'relative',
     flexDirection: 'row',
     alignItems: 'flex-end',
-    backgroundColor: Colors.transparent
+    backgroundColor: Colors.transparent,
   },
   buttonContainer: {
     flex: 9,
-    height: 48
+    height: 48,
   },
   mainButtonContainer: {
     flex: 11,
     height: 56,
     borderTopLeftRadius: 8,
-    borderTopRightRadius: 8
-  }
-})
+    borderTopRightRadius: 8,
+  },
+});

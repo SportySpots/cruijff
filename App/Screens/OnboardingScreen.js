@@ -1,30 +1,26 @@
-import React from 'react'
-import { styles } from '../Components/Styles/Onboarding'
-import { View, Text, Image } from 'react-native'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { styles } from '../Components/Styles/Onboarding';
+import { View, Text, Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class OnboardingScreen extends React.PureComponent {
   static propTypes = {
     title: PropTypes.string,
     text: PropTypes.string,
-    image: PropTypes.any
-  }
+    image: PropTypes.any,
+  };
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image
-            style={styles.image}
-            resizeMode='contain'
-            source={this.props.image}
-          />
+          <Image style={styles.image} resizeMode="contain" source={this.props.image} />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.title}>{this.props.title}</Text>
           <Text style={styles.paragraph}>{this.props.text}</Text>
         </View>
       </View>
-    )
+    );
   }
 }

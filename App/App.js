@@ -13,9 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.store = createStore();
-    this.client = config.useFixtures
-      ? createMockClient()
-      : createClient(config.seedorfGraphQLUrl);
+    this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
   }
 
   render() {

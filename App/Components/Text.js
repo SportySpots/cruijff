@@ -24,10 +24,7 @@ sizes.map((size) => {
   Text[size] = (props) => {
     const { style, ...otherProps } = props;
     return (
-      <Text
-        style={[{ backgroundColor: 'transparent' }, styles[size], style]}
-        {...otherProps}
-      />
+      <Text style={[{ backgroundColor: 'transparent' }, styles[size], style]} {...otherProps} />
     );
   };
 });

@@ -1,30 +1,30 @@
-import React from 'react'
+import React from 'react';
 
-import gql from 'graphql-tag'
-import SpotsList from '../../Components/Spots/SpotsList'
-import withQuery from '../../GraphQL/withQuery'
-import Card from '../../Components/Spots/SpotListCard'
+import gql from 'graphql-tag';
+import SpotsList from '../../Components/Spots/SpotsList';
+import withQuery from '../../GraphQL/withQuery';
+import Card from '../../Components/Spots/SpotListCard';
 
 class SpotsListScreen extends React.Component {
-  handleCardPress = spotId => {
+  handleCardPress = (spotId) => {
     this.props.navigation.navigate('SpotDetailsScreen', {
-      uuid: spotId
-    })
-  }
+      uuid: spotId,
+    });
+  };
 
-  render () {
-    const Contents = withQuery(GET_SPOTS)(SpotsList)
+  render() {
+    const Contents = withQuery(GET_SPOTS)(SpotsList);
     return (
       <Contents
         cardComponent={Card}
         onCardPress={uuid => this.handleCardPress(uuid)}
         style={this.props.style}
       />
-    )
+    );
   }
 }
 
-export default SpotsListScreen
+export default SpotsListScreen;
 
 export const GET_SPOTS = gql`
   {
@@ -46,4 +46,4 @@ export const GET_SPOTS = gql`
       }
     }
   }
-`
+`;

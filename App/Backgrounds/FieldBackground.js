@@ -17,9 +17,7 @@ const FieldBackground = props => (
           fill="white"
         />
         <Path
-          d={`M0 0 h ${fullWidth} v ${0.5 * fullHeight} L 0 ${2 /
-            3 *
-            fullHeight} Z`}
+          d={`M0 0 h ${fullWidth} v ${0.5 * fullHeight} L 0 ${2 / 3 * fullHeight} Z`}
           fill={Colors.secondaryDarkBlueGreen}
           opacity=".84"
         />

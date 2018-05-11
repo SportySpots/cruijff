@@ -10,11 +10,7 @@ const StackBackHeader = ({ navigation, title, ...props }) =>
     <Container>
       <TouchableOpacity onPress={() => navigation.goBack(null)}>
         <Horizontal>
-          <Icon
-            name="keyboard-backspace"
-            size={32}
-            color={Colors.primaryGreen}
-          />
+          <Icon name="keyboard-backspace" size={32} color={Colors.primaryGreen} />
           <TitleText>{title}</TitleText>
         </Horizontal>
       </TouchableOpacity>

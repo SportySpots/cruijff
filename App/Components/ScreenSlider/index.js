@@ -1,8 +1,8 @@
-import { View, Text } from 'react-native'
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import Footer from '../DarkFooter'
-import Swiper from 'react-native-swiper'
+import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import Footer from '../DarkFooter';
+import Swiper from 'react-native-swiper';
 
 /* ScreenSlider is using the same interface as FlatList (data, renderItem, keyExtractor) */
 export default class ScreenSlider extends Component {
@@ -11,50 +11,50 @@ export default class ScreenSlider extends Component {
     keyExtractor: PropTypes.func,
     data: PropTypes.array,
     showNext: PropTypes.bool,
-    onDone: PropTypes.func
-  }
+    onDone: PropTypes.func,
+  };
 
   static defaultProps = {
     renderItem: item => <Text>{JSON.stringify(item)}</Text>,
     keyExtractor: (item, index) => index,
     data: ['No data'],
-    showNext: true
-  }
+    showNext: true,
+  };
 
-  constructor () {
-    super()
+  constructor() {
+    super();
 
     this.state = {
-      currentPage: 0
-    }
+      currentPage: 0,
+    };
   }
 
-  onIndexChanged = index => {
-    this.setState({ currentPage: index })
-  }
+  onIndexChanged = (index) => {
+    this.setState({ currentPage: index });
+  };
 
   goNext = () => {
     if (this.state.currentPage + 1 < this.props.data.length) {
-      this.swiper.scrollBy(1)
+      this.swiper.scrollBy(1);
     } else {
-      this.props.onDone && this.props.onDone()
+      this.props.onDone && this.props.onDone();
     }
-  }
+  };
 
-  render () {
+  render() {
     const swiperScreens = this.props.data.map((item, index) => (
       <View style={{ flex: 1 }} key={this.props.keyExtractor(item, index)}>
         {this.props.renderItem({ item })}
       </View>
-    ))
+    ));
 
     return (
       <View style={{ flex: 1 }}>
         <Swiper
           loop={false}
           showsPagination={false}
-          ref={ref => {
-            this.swiper = ref
+          ref={(ref) => {
+            this.swiper = ref;
           }}
           onIndexChanged={this.onIndexChanged}
         >
@@ -65,16 +65,13 @@ export default class ScreenSlider extends Component {
           numPages={this.props.data.length}
           buttonNextText={
             this.props.footerText &&
-            this.props.footerText(
-              this.props.data[this.state.currentPage],
-              this.state.currentPage
-            )
+            this.props.footerText(this.props.data[this.state.currentPage], this.state.currentPage)
           }
           currentPage={this.state.currentPage}
           onNext={this.goNext}
           showBack={false}
         />
       </View>
-    )
+    );
   }
 }

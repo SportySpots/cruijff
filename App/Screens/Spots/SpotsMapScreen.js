@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native' // eslint-disable-line
+import { ScrollView, View } from 'react-native'; // eslint-disable-line
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { GET_SPOTS } from './SpotsListScreen';

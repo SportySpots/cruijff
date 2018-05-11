@@ -51,10 +51,7 @@ storiesOf('Spots')
       <Query query={GET_SPOTS}>
         {({ loading, error, data }) =>
           (loading || error ? null : (
-            <SpotListCardSmall
-              spot={data.spots[0]}
-              navigation={dummyNavigator}
-            />
+            <SpotListCardSmall spot={data.spots[0]} navigation={dummyNavigator} />
           ))
         }
       </Query>
@@ -75,13 +72,8 @@ storiesOf('Spots')
   .add('SpotProperties', () => <SpotProperties properties={spotProperties} />)
   .add('SpotMap', () => (
     <WithApolloMockProvider>
-      <Query
-        query={GET_SPOT_DETAILS}
-        variables={{ uuid: dummyNavigator.state.params.spotId }}
-      >
-        {({ loading, error, data }) =>
-          (loading || error ? null : <SpotMap spot={data.spot} />)
-        }
+      <Query query={GET_SPOT_DETAILS} variables={{ uuid: dummyNavigator.state.params.spotId }}>
+        {({ loading, error, data }) => (loading || error ? null : <SpotMap spot={data.spot} />)}
       </Query>
     </WithApolloMockProvider>
   ));

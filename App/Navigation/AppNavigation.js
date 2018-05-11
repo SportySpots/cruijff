@@ -3,13 +3,7 @@ import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation'
 
 import SplashScreen from '../Screens/SplashScreen';
 import OnboardingScreen from '../Components/Onboarding';
-import {
-  GameSearchNav,
-  PlanGameNav,
-  ProfileNav,
-  SettingsNav,
-  SpotSearchNav,
-} from './Navigators';
+import { GameSearchNav, PlanGameNav, ProfileNav, SettingsNav, SpotSearchNav } from './Navigators';
 import AskLocation from '../Screens/AskLocationScreen';
 import SignupScreen from '../Screens/SignupScreen';
 import { View } from 'react-native';

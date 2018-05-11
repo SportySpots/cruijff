@@ -76,10 +76,7 @@ const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
     try {
       position = await getCurrentPosition(options);
     } catch (exc) {
-      console.log(
-        "Ups, we couldn't get your position! Make sure you GPS is enabled ;)",
-        exc,
-      );
+      console.log("Ups, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
     }
   } else {
     console.log('Geolocation is not available');
@@ -88,10 +85,8 @@ const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
   // Show directions FROM the user's current position (if available) TO the
   // spot's location
   showLocation({
-    sourceLatitude:
-      (position && position.coords && position.coords.latitude) || undefined,
-    sourceLongitude:
-      (position && position.coords && position.coords.longitude) || undefined,
+    sourceLatitude: (position && position.coords && position.coords.latitude) || undefined,
+    sourceLongitude: (position && position.coords && position.coords.longitude) || undefined,
     ...latLng,
     title,
     googleForceLatLon: true, // force GoogleMaps to use the latLng from the query instead of the title

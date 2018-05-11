@@ -8,18 +8,10 @@ const withQuery = query => Component => props => (
     {({
  loading, error, data, refetch,
 }) => {
-        if (loading) return <CenteredActivityIndicator />;
-        if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
-        return (
-          <Component
-            {...props}
-            loading={loading}
-            error={error}
-            data={data}
-            refetch={refetch}
-          />
-        );
-      }}
+      if (loading) return <CenteredActivityIndicator />;
+      if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
+      return <Component {...props} loading={loading} error={error} data={data} refetch={refetch} />;
+    }}
   </Query>
 );
 
