@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { View, StyleSheet, TextInput, ScrollView } from 'react-native'
-import Colors from '../Themes/Colors'
-import Logo from './Logo'
-import Text from './Text'
-import I18n from '../I18n'
-import BigButton from './BigButton'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, StyleSheet, TextInput, ScrollView } from 'react-native';
+import Colors from '../Themes/Colors';
+import Logo from './Logo';
+import Text from './Text';
+import I18n from '../I18n';
+import BigButton from './BigButton';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export default class Signup extends Component {
   static propTypes = {
     onPress: PropTypes.func,
     text: PropTypes.string,
     children: PropTypes.string,
-    navigation: PropTypes.object
-  }
+    navigation: PropTypes.object,
+  };
 
-  render () {
+  render() {
     return (
       <View style={{ flex: 1, backgroundColor: Colors.white }}>
         <KeyboardAwareScrollView contentContainerStyle={style.container}>
@@ -28,18 +28,18 @@ export default class Signup extends Component {
           <View style={style.form}>
             <View style={style.fieldSet}>
               <Text style={style.text}>{I18n.t('First name')}</Text>
-              <TextInput style={style.input} defaultValue='' />
+              <TextInput style={style.input} defaultValue="" />
             </View>
             <View style={style.fieldSet}>
               <Text style={style.text}>{I18n.t('Last name')}</Text>
-              <TextInput style={style.input} defaultValue='' />
+              <TextInput style={style.input} defaultValue="" />
             </View>
             <View style={style.fieldSet}>
               <Text style={style.text}>{I18n.t('E-mail address')}</Text>
-              <TextInput style={style.input} defaultValue='' />
+              <TextInput style={style.input} defaultValue="" />
             </View>
             <BigButton
-              bgColor={'blue'}
+              bgColor="blue"
               textColor={Colors.white}
               text={I18n.t('Signup')}
               onPress={() => this.props.navigation.navigate('OnboardingScreen')}
@@ -47,7 +47,7 @@ export default class Signup extends Component {
           </View>
         </KeyboardAwareScrollView>
       </View>
-    )
+    );
   }
 }
 
@@ -55,7 +55,7 @@ const style = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   skew: {
     position: 'absolute',
@@ -64,29 +64,29 @@ const style = StyleSheet.create({
     left: -500,
     top: 0,
     backgroundColor: Colors.secondaryDarkBlueGreen,
-    transform: [{ rotate: '-10deg' }]
+    transform: [{ rotate: '-10deg' }],
   },
   logoContainer: {
     marginTop: 60,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   logoText: {
     marginTop: 32,
-    color: Colors.black
+    color: Colors.black,
   },
   form: {
     marginTop: 16,
     width: '100%',
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
   },
   fieldSet: {
-    marginTop: 16
+    marginTop: 16,
   },
   text: {
-    color: Colors.black
+    color: Colors.black,
   },
   input: {
-    color: Colors.black
-  }
-})
+    color: Colors.black,
+  },
+});

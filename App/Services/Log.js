@@ -3,8 +3,8 @@ export const LEVEL = {
   WARNING: 'WARNING',
   ERROR: 'ERROR',
   SEVERE: 'SEVERE',
-  CRITICAL: 'CRITICAL'
-}
+  CRITICAL: 'CRITICAL',
+};
 
 // console.tron.display({
 //   name: '🔥 IGNITE 🔥',
@@ -20,14 +20,14 @@ export const LEVEL = {
 //
 //
 
-export function log (level, message, args) {
+export function log(level, message, args) {
   if (console.tron) {
     console.tron.display({
       name: level,
       preview: message,
-      value: args || null
-    })
+      value: args || null,
+    });
   } else {
-    console.log(level, message)
+    console.log(level, message);
   }
 }

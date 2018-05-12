@@ -1,49 +1,43 @@
-import React, { Component } from 'react'
-import {
-  ActivityIndicator,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  AsyncStorage
-} from 'react-native'
+import React, { Component } from 'react';
+import { ActivityIndicator, StyleSheet, TouchableOpacity, View, AsyncStorage } from 'react-native';
 
-import FieldBackground from '../Backgrounds/FieldBackground'
-import Logo from '../Components/Logo'
-import Text from '../Components/Text'
-import PropTypes from 'prop-types'
-import DefaultButton from '../Components/DefaultButton'
-import I18n from '../I18n/index'
-import Colors from '../Themes/Colors'
-import styled from 'styled-components/native'
-import { connect } from 'react-redux'
+import FieldBackground from '../Backgrounds/FieldBackground';
+import Logo from '../Components/Logo';
+import Text from '../Components/Text';
+import PropTypes from 'prop-types';
+import DefaultButton from '../Components/DefaultButton';
+import I18n from '../I18n/index';
+import Colors from '../Themes/Colors';
+import styled from 'styled-components/native';
+import { connect } from 'react-redux';
 
 export class _SplashScreen extends Component {
-  constructor (props) {
-    super(props)
-    this.state = { firstRun: null }
+  constructor(props) {
+    super(props);
+    this.state = { firstRun: null };
   }
-  async componentDidMount () {
-    const firstRun = !await AsyncStorage.getItem('firstRunDone')
-    await AsyncStorage.setItem('firstRunDone', 'true')
-    this.setState({ firstRun })
+  async componentDidMount() {
+    const firstRun = !await AsyncStorage.getItem('firstRunDone');
+    await AsyncStorage.setItem('firstRunDone', 'true');
+    this.setState({ firstRun });
   }
 
-  forwardIfLoggedIn = props => {
+  forwardIfLoggedIn = (props) => {
     if (props.user.uuid) {
-      this.props.navigation.navigate('MainNav')
+      this.props.navigation.navigate('MainNav');
     }
-  }
+  };
 
-  componentWillReceiveProps (props) {
+  componentWillReceiveProps(props) {
     // this.forwardIfLoggedIn(props)
   }
 
   static propTypes = {
-    navigation: PropTypes.any
-  }
+    navigation: PropTypes.any,
+  };
 
-  render () {
-    const { navigate } = this.props.navigation
+  render() {
+    const { navigate } = this.props.navigation;
 
     return (
       <FieldBackground>
@@ -51,19 +45,15 @@ export class _SplashScreen extends Component {
           <Logo />
         </View>
         <View style={styles.textContainer}>
-          <SplashLabel>
-            Ontdek sportlocaties en activiteiten bij jou in de buurt
-          </SplashLabel>
+          <SplashLabel>Ontdek sportlocaties en activiteiten bij jou in de buurt</SplashLabel>
         </View>
         {this.props.user.initialized ? (
           <View style={styles.buttonsContainer}>
             <DefaultButton
-              onPress={() =>
-                navigate(this.state.firstRun ? 'OnboardingScreen' : 'MainNav')
-              }
+              onPress={() => navigate(this.state.firstRun ? 'OnboardingScreen' : 'MainNav')}
               text={I18n.t('Start discovering')}
               bgColor={Colors.actionYellow}
-              textColor='white'
+              textColor="white"
             />
             {!this.props.user.uuid && (
               <TouchableOpacity onPress={() => navigate('LoginScreen')}>
@@ -73,54 +63,54 @@ export class _SplashScreen extends Component {
           </View>
         ) : (
           <View style={styles.buttonsContainer}>
-            <ActivityIndicator size='large' color='#00ff00' />
+            <ActivityIndicator size="large" color="#00ff00" />
           </View>
         )}
       </FieldBackground>
-    )
+    );
   }
 }
 
-const SplashScreen = connect(state => ({ user: state.user }))(_SplashScreen)
-export default SplashScreen
+const SplashScreen = connect(state => ({ user: state.user }))(_SplashScreen);
+export default SplashScreen;
 
 const styles = StyleSheet.create({
   logo: {
     height: 80,
-    width: 80
+    width: 80,
   },
   logoContainer: {
     flex: 2,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   textContainer: {
     flex: 2,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   buttonsContainer: {
     flex: 3,
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   skipActionContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 50
-  }
-})
+    paddingBottom: 50,
+  },
+});
 
 const SplashLabel = styled(Text.L)`
   color: ${props => props.textColor || '#fff'}
   text-align: center;
-  `
+  `;
 
 const LinkLabel = styled(Text.M)`
   color: ${props => props.textColor || '#fff'}
   text-align: center;
   text-decoration-line: underline;
-`
+`;

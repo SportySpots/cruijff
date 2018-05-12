@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,23 +6,24 @@ import {
   Modal,
   FlatList,
   TextInput,
-  Keyboard
-} from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import { Calendar } from 'react-native-calendars'
-import DateTimePicker from 'react-native-modal-datetime-picker'
-import PropTypes from 'prop-types'
+  Keyboard,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Calendar } from 'react-native-calendars';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import PropTypes from 'prop-types';
 
-import Colors from '../../Themes/Colors'
-import Text from '../../Components/Text'
-import I18n from '../../I18n/index'
-import Footer from '../../Components/DarkFooter/index'
-import api from '../../Services/SeedorfApi'
-import { client } from '../../GraphQL/index'
-import gql from 'graphql-tag'
-import moment from 'moment'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import withQuery from '../../GraphQL/withQuery'
+import Colors from '../../Themes/Colors';
+import Text from '../../Components/Text';
+import I18n from '../../I18n/index';
+import Footer from '../../Components/DarkFooter/index';
+import api from '../../Services/SeedorfApi';
+import { client } from '../../GraphQL/index';
+import gql from 'graphql-tag';
+import moment from 'moment';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import withQuery from '../../GraphQL/withQuery';
+import styled from 'styled-components';
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>
@@ -30,10 +31,28 @@ const Field = ({ value, onPress }) => (
       <View style={styles.fieldBlock}>
         <Text.M style={styles.fieldValue}>{value}</Text.M>
       </View>
-      <Icon size={24} name='keyboard-arrow-down' />
+      <Icon size={24} name="keyboard-arrow-down" />
     </View>
   </TouchableOpacity>
-)
+);
+
+const ModalContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+`;
+
+const ModalInnerContainer = styled.View`
+  flex: 1;
+  background-color: ${Colors.white};
+  margin: 36px;
+  padding: 8px;
+`;
+
+const SportItemContainer = styled.View`
+  height: 44px;
+  justify-content: center;
+`;
 
 const SportModal = ({ visible, onSelect }) => {
   const Contents = withQuery(gql`
@@ -44,14 +63,16 @@ const SportModal = ({ visible, onSelect }) => {
       }
     }
   `)(({ data }) => (
-    <View style={styles.modalContainer}>
-      <View style={styles.modalInnerContainer}>
+    <ModalContainer>
+      <ModalInnerContainer>
         <Text.L>{I18n.t('Choose sport')}</Text.L>
         <FlatList
           keyExtractor={item => item.uuid}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => onSelect(item)}>
-              <Text.M>{I18n.t(item.name)}</Text.M>
+              <SportItemContainer>
+                <Text.M>{I18n.t(item.name)}</Text.M>
+              </SportItemContainer>
             </TouchableOpacity>
           )}
           data={data.sports}
@@ -59,29 +80,24 @@ const SportModal = ({ visible, onSelect }) => {
             <View style={{ height: 1, backgroundColor: Colors.black54 }} />
           )}
         />
-      </View>
-    </View>
-  ))
+      </ModalInnerContainer>
+    </ModalContainer>
+  ));
 
   return (
     <Modal
       visible={visible}
-      animationType={'fade'}
+      animationType="fade"
       onRequestClose={() => onSelect(null)}
       transparent
     >
       <Contents />
     </Modal>
-  )
-}
+  );
+};
 
 const DateModal = ({ game, visible, onSelect }) => (
-  <Modal
-    visible={visible}
-    animationType={'fade'}
-    onRequestClose={() => onSelect(null)}
-    transparent
-  >
+  <Modal visible={visible} animationType="fade" onRequestClose={() => onSelect(null)} transparent>
     <View style={styles.modalContainer}>
       <View style={styles.modalInnerContainer}>
         <Text.L>{I18n.t('Select a date')}</Text.L>
@@ -93,50 +109,50 @@ const DateModal = ({ game, visible, onSelect }) => (
       </View>
     </View>
   </Modal>
-)
+);
 
-const timeStringToDate = timeString => {
-  const hours = timeString.split(':')[0]
-  const minutes = timeString.split(':')[1]
-  return new Date(Date.UTC(2016, 6, 6, hours, minutes, 0))
-}
+const timeStringToDate = (timeString) => {
+  const hours = timeString.split(':')[0];
+  const minutes = timeString.split(':')[1];
+  return new Date(Date.UTC(2016, 6, 6, hours, minutes, 0));
+};
 
-const dateStringToTimeString = dateString => {
-  const date = new Date(dateString)
+const dateStringToTimeString = (dateString) => {
+  const date = new Date(dateString);
   return (
-    (date.getHours() < 10 ? '0' : '') +
-    date.getHours() +
-    ':' +
-    (date.getMinutes() < 10 ? '0' : '') +
-    date.getMinutes()
-  )
-}
+    `${(date.getHours() < 10 ? '0' : '') +
+    date.getHours()
+    }:${
+      date.getMinutes() < 10 ? '0' : ''
+    }${date.getMinutes()}`
+  );
+};
 
 export default class SportAndTime extends Component {
   static propTypes = {
-    navigation: PropTypes.any // Plan flow navigation
-  }
-  constructor (props) {
-    super(props)
+    navigation: PropTypes.any, // Plan flow navigation
+  };
+  constructor(props) {
+    super(props);
     this.state = {
       modals: {
         sport: false,
         date: false,
         timeStart: false,
-        timeEnd: false
+        timeEnd: false,
       },
       capacityField: '',
-      game: null
-    }
-    this.refreshGame()
+      game: null,
+    };
+    this.refreshGame();
   }
 
-  shouldComponentUpdate () {
-    return true
+  shouldComponentUpdate() {
+    return true;
   }
 
-  get gameUUID () {
-    return this.props.navigation.state.params.uuid
+  get gameUUID() {
+    return this.props.navigation.state.params.uuid;
   }
 
   refreshGame = async () => {
@@ -151,126 +167,118 @@ export default class SportAndTime extends Component {
               capacity
             }
           }
-        `
-      })
+        `,
+      });
       this.setState({
         game: result.data.game,
-        capacityField: result.data.game.capacity
-      })
+        capacityField: result.data.game.capacity,
+      });
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  }
+  };
 
-  openModal (modalName) {
-    this.setState({ modals: { ...this.state.modals, [modalName]: true } })
+  openModal(modalName) {
+    this.setState({ modals: { ...this.state.modals, [modalName]: true } });
   }
-  closeModal (modalName) {
-    this.setState({ modals: { ...this.state.modals, [modalName]: false } })
+  closeModal(modalName) {
+    this.setState({ modals: { ...this.state.modals, [modalName]: false } });
   }
 
   onBack = () => {
-    Keyboard.dismiss()
+    Keyboard.dismiss();
     // https://github.com/react-navigation/react-navigation/issues/697#issuecomment-309359044
-    this.props.navigation.goBack(null)
-  }
+    this.props.navigation.goBack(null);
+  };
 
   onNext = () => {
-    Keyboard.dismiss()
+    Keyboard.dismiss();
     this.props.navigation.navigate('pickSpot', {
-      uuid: this.gameUUID
-    })
-  }
+      uuid: this.gameUUID,
+    });
+  };
 
-  setSport = async sport => {
-    this.closeModal('sport')
+  setSport = async (sport) => {
+    this.closeModal('sport');
     // request goes through, but response is unexpected from the perspective of Apollo Client
     try {
       const result = await api.setGameSport({
         gameUUID: this.gameUUID,
-        sport: sport
-      })
+        sport,
+      });
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-    this.setState({ game: { ...this.state.game, sport: sport } })
-  }
+    this.setState({ game: { ...this.state.game, sport } });
+  };
 
-  setDate = async date => {
-    this.closeModal('date')
-    const startTime = moment(
-      date + 'T' + moment(this.state.game.start_time).format('HH:mm:ss')
-    ).toISOString()
-    const endTime = moment(
-      date + 'T' + moment(this.state.game.end_time).format('HH:mm:ss')
-    ).toISOString()
+  setDate = async (date) => {
+    this.closeModal('date');
+    const startTime = moment(`${date}T${moment(this.state.game.start_time).format('HH:mm:ss')}`).toISOString();
+    const endTime = moment(`${date}T${moment(this.state.game.end_time).format('HH:mm:ss')}`).toISOString();
     const result = await api.setGameTimes({
       gameUUID: this.gameUUID,
-      startTime: startTime,
-      endTime: endTime
-    })
+      startTime,
+      endTime,
+    });
     if (result.ok) {
       this.setState({
         game: {
           ...this.state.game,
           start_time: startTime,
-          end_time: endTime
-        }
-      })
+          end_time: endTime,
+        },
+      });
     }
-  }
+  };
 
-  setStartTime = async date => {
-    this.closeModal('timeStart')
-    const timeString = dateStringToTimeString(date) + ':00'
-    const startTime = moment(
-      moment(this.state.game.start_time).format('YYYY-MM-DD') + 'T' + timeString
-    ).toISOString()
+  setStartTime = async (date) => {
+    this.closeModal('timeStart');
+    const timeString = `${dateStringToTimeString(date)}:00`;
+    const startTime = moment(`${moment(this.state.game.start_time).format('YYYY-MM-DD')}T${timeString}`).toISOString();
     const result = await api.setGameTimes({
       gameUUID: this.gameUUID,
-      startTime: startTime,
-      endTime: this.state.game.end_time
-    })
+      startTime,
+      endTime: this.state.game.end_time,
+    });
     if (result.ok) {
       this.setState({
-        game: { ...this.state.game, start_time: startTime }
-      })
+        game: { ...this.state.game, start_time: startTime },
+      });
     }
-  }
+  };
 
-  setEndTime = async date => {
-    this.closeModal('timeEnd')
-    const timeString = dateStringToTimeString(date) + ':00'
-    const endTime = moment(
-      moment(this.state.game.end_time).format('YYYY-MM-DD') + 'T' + timeString
-    ).toISOString()
+  setEndTime = async (date) => {
+    this.closeModal('timeEnd');
+    const timeString = `${dateStringToTimeString(date)}:00`;
+    const endTime = moment(`${moment(this.state.game.end_time).format('YYYY-MM-DD')}T${timeString}`).toISOString();
     const result = await api.setGameTimes({
       gameUUID: this.gameUUID,
-      endTime: endTime,
-      startTime: this.state.game.start_time
-    })
+      endTime,
+      startTime: this.state.game.start_time,
+    });
     if (result.ok) {
       this.setState({
-        game: { ...this.state.game, end_time: endTime }
-      })
+        game: { ...this.state.game, end_time: endTime },
+      });
     }
-  }
+  };
 
   setCapacity = async () => {
     const result = await api.setGameCapacity({
       gameUUID: this.gameUUID,
-      capacity: this.state.capacityField
-    })
+      capacity: this.state.capacityField,
+    });
     if (result.ok) {
       this.setState({
-        game: { ...this.state.game, capacity: this.state.capacityField }
-      })
+        game: { ...this.state.game, capacity: this.state.capacityField },
+      });
     }
-  }
+  };
 
-  render () {
+  render() {
     if (!this.state.game) {
-      return null
+      return null;
     }
     return (
       <View style={styles.container}>
@@ -287,7 +295,7 @@ export default class SportAndTime extends Component {
               onSelect={this.setDate}
             />
             <DateTimePicker
-              mode='time'
+              mode="time"
               isVisible={this.state.modals.timeStart}
               date={
                 this.state.game.timeStart
@@ -296,11 +304,11 @@ export default class SportAndTime extends Component {
               }
               onConfirm={this.setStartTime}
               onCancel={() => {
-                this.closeModal('timeStart')
+                this.closeModal('timeStart');
               }}
             />
             <DateTimePicker
-              mode='time'
+              mode="time"
               isVisible={this.state.modals.timeEnd}
               date={
                 this.state.game.timeEnd
@@ -309,7 +317,7 @@ export default class SportAndTime extends Component {
               }
               onConfirm={this.setEndTime}
               onCancel={() => {
-                this.closeModal('timeEnd')
+                this.closeModal('timeEnd');
               }}
             />
 
@@ -318,9 +326,7 @@ export default class SportAndTime extends Component {
               <Text.M style={styles.text}>{I18n.t('I want to play')}</Text.M>
               <Field
                 value={
-                  this.state.game.sport
-                    ? I18n.t(this.state.game.sport.name)
-                    : I18n.t('Select')
+                  this.state.game.sport ? I18n.t(this.state.game.sport.name) : I18n.t('Select')
                 }
                 onPress={() => this.openModal('sport')}
               />
@@ -328,42 +334,33 @@ export default class SportAndTime extends Component {
             <View style={styles.horizontal}>
               <Text.M style={styles.text}>{I18n.t('on')}</Text.M>
               <Field
-                value={
-                  moment(this.state.game.start_time).format('DD-MM') ||
-                  I18n.t('Select')
-                }
+                value={moment(this.state.game.start_time).format('DD-MM') || I18n.t('Select')}
                 onPress={() => this.openModal('date')}
               />
             </View>
             <View style={styles.horizontal}>
               <Text.M style={styles.text}>{I18n.t('from')}</Text.M>
               <Field
-                value={
-                  moment(this.state.game.start_time).format('HH:mm') ||
-                  I18n.t('Select')
-                }
+                value={moment(this.state.game.start_time).format('HH:mm') || I18n.t('Select')}
                 onPress={() => this.openModal('timeStart')}
               />
               <Text.M style={styles.text}>{I18n.t('to')}</Text.M>
               <Field
-                value={
-                  moment(this.state.game.end_time).format('HH:mm') ||
-                  I18n.t('Select')
-                }
+                value={moment(this.state.game.end_time).format('HH:mm') || I18n.t('Select')}
                 onPress={() => this.openModal('timeEnd')}
               />
             </View>
             <View style={styles.horizontal}>
               <Text.M style={styles.text}>{I18n.t('capacity')}</Text.M>
               <TextInput
-                keyboardType='numeric'
+                keyboardType="numeric"
                 underlineColorAndroid={Colors.white}
                 style={{ fontSize: 24, marginLeft: 8 }}
                 defaultValue={this.state.game.capacity}
                 onChangeText={val => this.setState({ capacityField: val })}
                 onBlur={this.setCapacity}
               />
-              <Icon size={24} name='keyboard-arrow-down' />
+              <Icon size={24} name="keyboard-arrow-down" />
             </View>
           </View>
         </KeyboardAwareScrollView>
@@ -373,61 +370,59 @@ export default class SportAndTime extends Component {
           onBack={this.onBack}
           onNext={this.onNext}
           disableNext={
-            !this.state.game.start_time ||
-            !this.state.game.end_time ||
-            !this.state.game.sport
+            !this.state.game.start_time || !this.state.game.end_time || !this.state.game.sport
           }
         />
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    height: '100%'
+    height: '100%',
   },
   container: {
     backgroundColor: Colors.primaryGreen,
-    flex: 1
+    flex: 1,
   },
   horizontal: {
     flexDirection: 'row',
     marginVertical: 16,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
     color: Colors.white,
     marginBottom: 32,
-    fontSize: 48
+    fontSize: 48,
   },
   text: {
     color: Colors.white,
-    fontSize: 24
+    fontSize: 24,
   },
   fieldContainer: {
     marginHorizontal: 8,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   fieldBlock: {
     borderBottomWidth: 1,
     borderBottomColor: Colors.white,
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   fieldValue: {
-    fontSize: 28
+    fontSize: 28,
   },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,.8)'
+    backgroundColor: 'rgba(0,0,0,.8)',
   },
   modalInnerContainer: {
     backgroundColor: Colors.white,
     flex: 1,
     margin: 36,
-    padding: 8
-  }
-})
+    padding: 8,
+  },
+});

@@ -1,53 +1,48 @@
-import React from 'react'
-import { TouchableOpacity, View, StyleSheet } from 'react-native'
-import PropTypes from 'prop-types'
-import Text from './Text'
-import Colors from '../Themes/Colors'
+import React from 'react';
+import { TouchableOpacity, View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import Text from './Text';
+import Colors from '../Themes/Colors';
 
 export default class NavBarButton extends React.Component {
   static propTypes = {
     buttonText: PropTypes.string.isRequired,
     icon: PropTypes.shape({
       set: PropTypes.any,
-      name: PropTypes.string
+      name: PropTypes.string,
     }),
     onPress: PropTypes.func,
-    main: PropTypes.bool
-  }
+    main: PropTypes.bool,
+  };
 
   static defaultProps = {
-    main: false
-  }
+    main: false,
+  };
 
   onPress = () => {
-    this.props.onPress && this.props.onPress()
-  }
+    this.props.onPress && this.props.onPress();
+  };
 
-  render () {
-    const Icon = this.props.icon.set
+  render() {
+    const Icon = this.props.icon.set;
     const color = this.props.main
       ? Colors.white
-      : this.props.active ? Colors.primaryGreen : Colors.black54
+      : this.props.active ? Colors.primaryGreen : Colors.black54;
     return (
       <TouchableOpacity
         style={{
           flex: 1,
           borderTopWidth: this.props.main ? 0 : StyleSheet.hairlineWidth,
-          borderTopColor: Colors.lightGray
+          borderTopColor: Colors.lightGray,
         }}
         onPress={this.onPress}
       >
-        <View
-          style={[
-            navbarButtonStyle.button,
-            this.props.main && navbarButtonStyle.mainButton
-          ]}
-        >
+        <View style={[navbarButtonStyle.button, this.props.main && navbarButtonStyle.mainButton]}>
           <Icon name={this.props.icon.name} size={24} color={color} />
-          <Text.S style={{ color: color }}>{this.props.buttonText}</Text.S>
+          <Text.S style={{ color }}>{this.props.buttonText}</Text.S>
         </View>
       </TouchableOpacity>
-    )
+    );
   }
 }
 
@@ -57,11 +52,11 @@ const navbarButtonStyle = StyleSheet.create({
     backgroundColor: Colors.white,
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   mainButton: {
     backgroundColor: Colors.primaryGreen,
     borderTopLeftRadius: 8,
-    borderTopRightRadius: 8
-  }
-})
+    borderTopRightRadius: 8,
+  },
+});

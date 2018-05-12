@@ -11,17 +11,17 @@ import SpotsMapWithListFallback from '../../Components/Spots/SpotsMapWithListFal
 // and SpotsList components
 
 const SpotsMapScreen = ({ navigation }) => {
-  const handleCardPress = spotId => {
+  const handleCardPress = (spotId) => {
     navigation.navigate('SpotDetailsScreen', {
-      uuid: spotId
-    })
-  }
+      uuid: spotId,
+    });
+  };
 
   return (
     <Query query={GET_SPOTS}>
       {({ loading, error, data }) => {
-        if (loading) return <Text>Loading...</Text>
-        if (error) return <Text>Error :( {JSON.stringify(error)}</Text>
+        if (loading) return <Text>Loading...</Text>;
+        if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
         return (
           <SpotsMapWithListFallback
@@ -29,16 +29,16 @@ const SpotsMapScreen = ({ navigation }) => {
             cardComponent={Card}
             onCardPress={handleCardPress}
           />
-        )
+        );
       }}
     </Query>
-  )
-}
+  );
+};
 
 SpotsMapScreen.propTypes = {
   navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired
-  }).isRequired
-}
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
-export default SpotsMapScreen
+export default SpotsMapScreen;

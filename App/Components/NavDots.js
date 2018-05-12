@@ -1,37 +1,37 @@
-import * as React from 'react'
-import { StyleSheet, View } from 'react-native'
-import PropTypes from 'prop-types'
+import * as React from 'react';
+import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 
 const range = function (count) {
-  const result = []
+  const result = [];
   for (let i = 0; i < count; i++) {
-    result.push(i)
+    result.push(i);
   }
-  return result
-}
+  return result;
+};
 
 export const themes = {
   light: StyleSheet.create({
     circle: {
-      backgroundColor: '#f00'
+      backgroundColor: '#f00',
     },
     active: {
-      backgroundColor: '#0f0'
-    }
-  })
-}
+      backgroundColor: '#0f0',
+    },
+  }),
+};
 
 export default class NavDots extends React.Component {
   static defaultProps = {
-    theme: themes.light
-  }
+    theme: themes.light,
+  };
   static propTypes = {
     count: PropTypes.number,
     active: PropTypes.number,
     theme: PropTypes.object,
-    style: PropTypes.number
-  }
-  render () {
+    style: PropTypes.number,
+  };
+  render() {
     return (
       <View style={[style.outer, this.props.style]}>
         {range(this.props.count).map(i => (
@@ -40,25 +40,25 @@ export default class NavDots extends React.Component {
             style={[
               style.circle,
               this.props.theme.circle,
-              i === this.props.active && [style.active, this.props.theme.active]
+              i === this.props.active && [style.active, this.props.theme.active],
             ]}
           />
         ))}
       </View>
-    )
+    );
   }
 }
 
 const style = StyleSheet.create({
   outer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   circle: {
     width: 10,
     height: 10,
     borderRadius: 10,
     marginLeft: 5,
-    marginRight: 5
+    marginRight: 5,
   },
-  active: {}
-})
+  active: {},
+});

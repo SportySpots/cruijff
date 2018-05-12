@@ -103,3 +103,27 @@ The `.env` file is ignored by git keeping those secrets out of your repo.
 2. Add your config variables
 3. Follow instructions at [https://github.com/luggit/react-native-config#setup](https://github.com/luggit/react-native-config#setup)
 4. Done!
+
+### Git Crypt
+[Git Crypt](https://github.com/AGWA/git-crypt)
+
+[Github Reference - Associate Email with GPG Key](https://help.github.com/articles/associating-an-email-with-your-gpg-key/)
+List your keys
+```bash
+gpg --list-secret-keys --keyid-format LONG
+```
+
+Git crypt export symmetric key
+```bash
+$ git-crypt export-key /path/to/key/symmetric_binary_key.key
+```
+
+Convert binary key to base64 encoded string
+```bash
+$ openssl base64 -A -in symmetric_binary_key.key -out symmetric_base64.key
+```
+
+Convery base64 key to binary key
+```bash
+$ openssl base64 -d -A -in symmetric_base64_key.key -out symmetric_binary_key.key
+```

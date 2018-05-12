@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { TextInput } from 'react-native'
-import Colors from '../Themes/Colors'
-import Text from '../Components/Text'
-import I18n from '../I18n/index'
-import DefaultButton from '../Components/DefaultButton'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import userActions, { STATUS } from '../Redux/UserRedux'
-import styled from 'styled-components'
-import { connect } from 'react-redux'
-import api from '../Services/SeedorfApi'
-import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { TextInput } from 'react-native';
+import Colors from '../Themes/Colors';
+import Text from '../Components/Text';
+import I18n from '../I18n/index';
+import DefaultButton from '../Components/DefaultButton';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import userActions, { STATUS } from '../Redux/UserRedux';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+import api from '../Services/SeedorfApi';
+import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 
 export class _Signup extends Component {
   static propTypes = {
@@ -19,72 +19,68 @@ export class _Signup extends Component {
     children: PropTypes.string,
     navigation: PropTypes.object,
     setToken: PropTypes.func,
-    user: PropTypes.object
-  }
+    user: PropTypes.object,
+  };
 
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
       requestStatus: STATUS.IDLE,
       error: null,
       first_name: '',
       last_name: '',
       email: '',
-      password: ''
-    }
+      password: '',
+    };
   }
 
   signupRequest = async () => {
-    this.setState({ requestStatus: STATUS.PENDING })
+    this.setState({ requestStatus: STATUS.PENDING });
     const result = await api.signup({
       username: this.state.email,
       email: this.state.email,
       password: this.state.password,
       first_name: this.state.first_name,
-      last_name: this.state.last_name
-    })
+      last_name: this.state.last_name,
+    });
     if (result.problem) {
       this.setState({
         requestStatus: STATUS.FAILURE,
-        error: result.data
-      })
+        error: result.data,
+      });
     } else {
-      this.props.setToken(result.data.token)
-      this.props.navigation.goBack(null)
+      this.props.setToken(result.data.token);
+      this.props.navigation.goBack(null);
     }
-  }
+  };
 
-  componentWillMount () {
+  componentWillMount() {
     if (this.props.user.uuid) {
-      this.props.navigation.navigate('MainNav')
+      this.props.navigation.navigate('MainNav');
     }
   }
 
-  get requestIsPending () {
-    return this.state.requestStatus === STATUS.PENDING
+  get requestIsPending() {
+    return this.state.requestStatus === STATUS.PENDING;
   }
 
-  get hasError () {
-    return this.state.requestStatus === STATUS.FAILURE && this.state.errorrrr
+  get hasError() {
+    return this.state.requestStatus === STATUS.FAILURE && this.state.error;
   }
 
-  get error () {
-    return this.hasError ? this.state.error : null
+  get error() {
+    return this.hasError ? this.state.error : null;
   }
 
-  get signupButtonIsDisabled () {
+  get signupButtonIsDisabled() {
     return (
       this.requestIsPending ||
-      !(
-        this.state.first_name &&
-        this.state.last_name &&
-        this.state.email &&
-        this.state.password
-      )
-    )
+      !(this.state.first_name && this.state.last_name && this.state.email && this.state.password)
+    );
   }
 
-  render () {
+  render() {
+    console.log(this.error);
     return (
       <KeyboardAwareScrollView>
         <LogoHeaderBackground>
@@ -108,11 +104,9 @@ export class _Signup extends Component {
               {this.hasError &&
                 'email' in this.error && (
                   <Error>
-                    {I18n.t(
-                      'username' in this.error
+                    {I18n.t('username' in this.error
                         ? 'E-mail address in use'
-                        : 'Enter a valid e-mail address'
-                    )}
+                        : 'Enter a valid e-mail address')}
                   </Error>
                 )}
               <Input
@@ -124,9 +118,7 @@ export class _Signup extends Component {
               <BlackText>{I18n.t('Password')}</BlackText>
               {this.hasError &&
                 'password1' in this.error && (
-                  <Error>
-                    {I18n.t('Password needs to be at least 8 characters')}
-                  </Error>
+                  <Error>{I18n.t('Password needs to be at least 8 characters')}</Error>
                 )}
               <Input
                 onChangeText={val => this.setState({ password: val })}
@@ -134,9 +126,7 @@ export class _Signup extends Component {
               />
             </FieldSet>
             <DefaultButton
-              bgColor={
-                this.signupButtonIsDisabled ? 'grey' : Colors.actionYellow
-              }
+              bgColor={this.signupButtonIsDisabled ? 'grey' : Colors.actionYellow}
               textColor={Colors.white}
               text={I18n.t('Signup')}
               disabled={this.signupButtonIsDisabled}
@@ -145,30 +135,30 @@ export class _Signup extends Component {
           </Form>
         </LogoHeaderBackground>
       </KeyboardAwareScrollView>
-    )
+    );
   }
 }
 
 const Signup = connect(state => ({ user: state.user }), {
-  setToken: userActions.setToken
-})(_Signup)
-export default Signup
+  setToken: userActions.setToken,
+})(_Signup);
+export default Signup;
 
 const FieldSet = styled.View`
   margin-top: 8px;
-`
+`;
 const Error = styled(Text)`
   color: red;
-`
+`;
 const Input = styled(TextInput)`
   color: black;
-`
+`;
 
 const Form = styled.View`
   width: 100%;
   padding-horizontal: 16;
-`
+`;
 
 const BlackText = styled(Text)`
   color: ${Colors.black};
-`
+`;

@@ -1,14 +1,14 @@
-import { StyleSheet } from 'react-native'
-import Colors from '../../../Themes/Colors'
+import { StyleSheet } from 'react-native';
+import Colors from '../../../Themes/Colors';
 
 export const card = StyleSheet.create({
   container: {
-    height: 240
+    height: 240,
   },
   image: {
     flex: 3,
     borderTopLeftRadius: 8,
-    borderTopRightRadius: 8
+    borderTopRightRadius: 8,
   },
   bottom: {
     flex: 1,
@@ -16,17 +16,17 @@ export const card = StyleSheet.create({
     backgroundColor: Colors.white,
     padding: 16,
     borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8
-  }
-})
+    borderBottomRightRadius: 8,
+  },
+});
 
 export const cardSmall = StyleSheet.create({
   container: {
     height: 64,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   image: {
-    flex: 1
+    flex: 1,
     // borderTopLeftRadius: 8,
     // borderTopRightRadius: 8
   },
@@ -34,30 +34,30 @@ export const cardSmall = StyleSheet.create({
     flex: 3,
     flexDirection: 'column',
     backgroundColor: Colors.white,
-    padding: 8
+    padding: 8,
     // borderBottomLeftRadius: 16,
     // borderBottomRightRadius: 16
-  }
-})
+  },
+});
 
 export const header = StyleSheet.create({
   belowName: {
     flexDirection: 'row',
-    marginTop: 8
+    marginTop: 8,
   },
   spacer: {
     marginLeft: 8,
-    marginRight: 8
+    marginRight: 8,
   },
   plannedGamesCount: {
-    color: Colors.actionYellow
-  }
-})
+    color: Colors.actionYellow,
+  },
+});
 
 export const cardList = StyleSheet.create({
   container: {
     paddingHorizontal: 8,
-    backgroundColor: Colors.bgGrey
+    backgroundColor: Colors.bgGrey,
   },
 
   cardContainer: {
@@ -68,7 +68,7 @@ export const cardList = StyleSheet.create({
     shadowRadius: 2,
     shadowColor: 'black',
     shadowOpacity: 0.3,
-    elevation: 2
+    elevation: 2,
     // overflow: 'hidden'
-  }
-})
+  },
+});

@@ -1,44 +1,44 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, TextInput, ScrollView, Keyboard } from 'react-native'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import { View, StyleSheet, TextInput, ScrollView, Keyboard } from 'react-native';
+import PropTypes from 'prop-types';
 
-import Colors from '../../Themes/Colors'
-import Text from '../../Components/Text'
-import I18n from '../../I18n/index'
-import Footer from '../../Components/DarkFooter/index'
-import api from '../../Services/SeedorfApi'
+import Colors from '../../Themes/Colors';
+import Text from '../../Components/Text';
+import I18n from '../../I18n/index';
+import Footer from '../../Components/DarkFooter/index';
+import api from '../../Services/SeedorfApi';
 
 export default class Description extends Component {
   static propTypes = {
-    navigation: PropTypes.any
+    navigation: PropTypes.any,
+  };
+  constructor(props) {
+    super(props);
+    this.state = { description: '' };
   }
-  constructor (props) {
-    super(props)
-    this.state = { description: '' }
-  }
-  componentDidMount () {
-    this._input && this._input.focus()
+  componentDidMount() {
+    this._input && this._input.focus();
   }
 
   onNext = async () => {
-    Keyboard.dismiss()
+    Keyboard.dismiss();
     const result = await api.setGameDescription({
       gameUUID: this.props.navigation.state.params.uuid,
-      description: this.state.description
-    })
+      description: this.state.description,
+    });
     if (result.ok) {
       this.props.navigation.navigate('created', {
-        uuid: this.props.navigation.state.params.uuid
-      })
+        uuid: this.props.navigation.state.params.uuid,
+      });
     }
-  }
+  };
 
   onBack = () => {
-    Keyboard.dismiss()
-    this.props.navigation.goBack()
-  }
+    Keyboard.dismiss();
+    this.props.navigation.goBack();
+  };
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
@@ -51,8 +51,8 @@ export default class Description extends Component {
             selectionColor={Colors.white}
             underlineColorAndroid={Colors.white}
             onChangeText={text => this.setState({ description: text })}
-            ref={elm => {
-              this._input = elm
+            ref={(elm) => {
+              this._input = elm;
             }}
           />
         </ScrollView>
@@ -64,23 +64,23 @@ export default class Description extends Component {
           disableNext={!this.state.description}
         />
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.primaryGreen,
-    flex: 1
+    flex: 1,
   },
   scrollView: {
     flex: 1,
-    padding: 32
+    padding: 32,
   },
   title: {
-    color: Colors.white
+    color: Colors.white,
   },
   input: {
-    color: Colors.white
-  }
-})
+    color: Colors.white,
+  },
+});

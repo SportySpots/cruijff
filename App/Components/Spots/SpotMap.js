@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 import {
   View, // eslint-disable-line
-  Dimensions
-} from 'react-native'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import MapView, { Marker } from 'react-native-maps'
-import { showLocation } from 'react-native-map-link'
-import Colors from '../../Themes/Colors'
-import RoundButton from '../RoundButton'
+  Dimensions,
+} from 'react-native';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import MapView, { Marker } from 'react-native-maps';
+import { showLocation } from 'react-native-map-link';
+import Colors from '../../Themes/Colors';
+import RoundButton from '../RoundButton';
 
 const { width, height } = Dimensions.get('window')
 const ASPECT_RATIO = width / height
@@ -22,78 +22,73 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 const Relative = styled.View`
   position: relative;
   margin: 0;
-`
+`;
 // -----------------------------------------------------------------------------
 const Absolute = styled.View`
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 16px;
-`
+`;
 // -----------------------------------------------------------------------------
 const Flex = styled.View`
   flex-direction: row;
   flex: 1;
-`
+`;
 // -----------------------------------------------------------------------------
 const Spacer = styled.View`
   width: 6;
-`
+`;
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:
 // -----------------------------------------------------------------------------
 const getSpotLocation = spot => ({
   latitude: spot && spot.address && spot.address.lat,
-  longitude: spot && spot.address && spot.address.lng
-})
+  longitude: spot && spot.address && spot.address.lng,
+});
 // ------------------------------------------------------------------------------
 const getCurrentPosition = (options = {}) =>
   new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject, options)
-  })
+    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+  });
 // -----------------------------------------------------------------------------
 const handleLocationBtnPress = ({ latLng, title = '' }) => {
   showLocation({
     ...latLng,
     title,
-    googleForceLatLon: true // force GoogleMaps to use the latLng from the query instead of the title
-  })
-}
+    googleForceLatLon: true, // force GoogleMaps to use the latLng from the query instead of the title
+  });
+};
 // -----------------------------------------------------------------------------
 const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
   // Get user's position from navigator
-  let position
+  let position;
   const options = {
     enableHighAccuracy: true,
     timeout: 10000,
-    maximumAge: 1000
-  }
+    maximumAge: 1000,
+  };
 
   if ('geolocation' in navigator) {
     try {
-      position = await getCurrentPosition(options)
+      position = await getCurrentPosition(options);
     } catch (exc) {
-      console.log(
-        "Ups, we couldn't get your position! Make sure you GPS is enabled ;)",
-        exc
-      )
+      console.log("Ups, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
     }
   } else {
-    console.log('Geolocation is not available')
+    console.log('Geolocation is not available');
   }
 
   // Show directions FROM the user's current position (if available) TO the
   // spot's location
   showLocation({
-    sourceLatitude:
-      (position && position.coords && position.coords.latitude) || undefined,
-    sourceLongitude:
-      (position && position.coords && position.coords.longitude) || undefined,
+    sourceLatitude: (position && position.coords && position.coords.latitude) || undefined,
+    sourceLongitude: (position && position.coords && position.coords.longitude) || undefined,
     ...latLng,
     title,
-    googleForceLatLon: true // force GoogleMaps to use the latLng from the query instead of the title
-  })
-}
+    googleForceLatLon: true, // force GoogleMaps to use the latLng from the query instead of the title
+  });
+};
 // -----------------------------------------------------------------------------
 // COMPONENT:
 // -----------------------------------------------------------------------------
@@ -105,10 +100,10 @@ const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
  */
 const SpotMap = ({ spot }) => {
   // Get sport location
-  const latLng = getSpotLocation(spot)
+  const latLng = getSpotLocation(spot);
 
   if (!latLng.latitude || !latLng.longitude) {
-    return null
+    return null;
   }
 
   // Test fallback
@@ -118,8 +113,8 @@ const SpotMap = ({ spot }) => {
   const region = {
     ...latLng,
     latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA
-  }
+    longitudeDelta: LONGITUDE_DELTA,
+  };
 
   return (
     <Relative>
@@ -130,24 +125,24 @@ const SpotMap = ({ spot }) => {
         <Flex>
           <RoundButton
             onPress={() => {
-              handleDirectionsBtnPress({ latLng, title: spot.name })
+              handleDirectionsBtnPress({ latLng, title: spot.name });
             }}
           >
-            <Icon name='directions' size={24} color={Colors.primaryGreen} />
+            <Icon name="directions" size={24} color={Colors.primaryGreen} />
           </RoundButton>
           <Spacer />
           <RoundButton
             onPress={() => {
-              handleLocationBtnPress({ latLng, title: spot.name })
+              handleLocationBtnPress({ latLng, title: spot.name });
             }}
           >
-            <Icon name='map' size={24} color={Colors.primaryGreen} />
+            <Icon name="map" size={24} color={Colors.primaryGreen} />
           </RoundButton>
         </Flex>
       </Absolute>
     </Relative>
-  )
-}
+  );
+};
 
 SpotMap.propTypes = {
   // TODO: use fragment instead!
@@ -155,9 +150,9 @@ SpotMap.propTypes = {
     name: PropTypes.string.isRequired,
     address: PropTypes.shape({
       lat: PropTypes.number.isRequired,
-      lng: PropTypes.number.isRequired
-    }).isRequired
-  }).isRequired
-}
+      lng: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
-export default SpotMap
+export default SpotMap;

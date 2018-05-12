@@ -6,7 +6,7 @@ const images = {
   illustrationWizard3: require('../Images/illustration-wizard-3.png'),
   illustrationShareLocation: require('../Images/illustration-share-location.png'),
   createProfileAvatar: require('../Images/create-profile-avatar.png'),
-  spotOpenCircle: require('../Images/spot-open-circle.png')
-}
+  spotOpenCircle: require('../Images/spot-open-circle.png'),
+};
 
-export default images
+export default images;

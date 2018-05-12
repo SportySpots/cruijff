@@ -1,9 +1,9 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react-native'
-import LogoHeaderBackground from './LogoHeaderBackground'
-import Text from '../Components/Text'
-import FieldBackground from './FieldBackground'
-import { View } from 'react-native'
+import React from 'react';
+import { storiesOf } from '@storybook/react-native';
+import LogoHeaderBackground from './LogoHeaderBackground';
+import Text from '../Components/Text';
+import FieldBackground from './FieldBackground';
+import { View } from 'react-native';
 
 storiesOf('Backgrounds')
   .add('LogoHeader', () => (
@@ -15,4 +15,4 @@ storiesOf('Backgrounds')
     <FieldBackground>
       <View />
     </FieldBackground>
-  ))
+  ));

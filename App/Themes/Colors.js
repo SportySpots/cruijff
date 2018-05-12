@@ -19,7 +19,7 @@ const colors = {
   white20: 'rgba(255,255,255,.2)',
   bgGrey: '#f6f6f9',
   darkGreen: '#2F553C',
-  red: '#ff0000'
-}
+  red: '#ff0000',
+};
 
-export default colors
+export default colors;

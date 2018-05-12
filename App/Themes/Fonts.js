@@ -1,10 +1,10 @@
-import Colors from './Colors'
+import Colors from './Colors';
 
 const type = {
   base: 'Rajdhani-Regular',
   bold: 'Rajdhani-Bold',
-  emphasis: 'Rajdhani-SemiBold'
-}
+  emphasis: 'Rajdhani-SemiBold',
+};
 
 const size = {
   h1: 38,
@@ -17,34 +17,34 @@ const size = {
   regular: 17,
   medium: 14,
   small: 12,
-  tiny: 8.5
-}
+  tiny: 8.5,
+};
 
 const style = {
   L: {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 32,
-    color: Colors.black
+    color: Colors.black,
     // lineHeight: 50
   },
   M: {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 18,
-    lineHeight: 18
+    lineHeight: 18,
   },
   SM: {
     fontFamily: 'Rajdhani-Regular',
     fontSize: 16,
-    lineHeight: 16
+    lineHeight: 16,
   },
   S: {
     fontFamily: 'Rajdhani-Regular',
-    fontSize: 12
-  }
-}
+    fontSize: 12,
+  },
+};
 
 export default {
   type,
   size,
-  style
-}
+  style,
+};
