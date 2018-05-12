@@ -1,7 +1,7 @@
-import React from 'react'
-import ErrorBoundary from '../ErrorBoundary'
-import SpotMap from './SpotMap'
-import SpotLink from './SpotLink'
+import React from 'react';
+import ErrorBoundary from '../ErrorBoundary';
+import SpotMap from './SpotMap';
+import SpotLink from './SpotLink';
 
 /**
  * @summary Wrapper component around SpotMap making sure that, in case the map
@@ -11,6 +11,6 @@ const SpotMapWithLinkFallback = props => (
   <ErrorBoundary fallbackComponent={() => <SpotLink {...props} />}>
     <SpotMap {...props} />
   </ErrorBoundary>
-)
+);
 
-export default SpotMapWithLinkFallback
+export default SpotMapWithLinkFallback;

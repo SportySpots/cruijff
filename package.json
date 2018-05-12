@@ -45,6 +45,7 @@
     "buffer": "^5.1.0",
     "format-json": "^1.0.3",
     "graphql": "^0.13.2",
+    "graphql-anywhere": "^4.1.10",
     "graphql-tag": "^2.8.0",
     "identity-obj-proxy": "^3.0.0",
     "lodash": "^4.17.4",

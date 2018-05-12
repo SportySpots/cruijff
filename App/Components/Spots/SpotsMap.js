@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
-import {
-  TouchableOpacity,
-  View, // eslint-disable-line
-  Dimensions,
-} from 'react-native';
+import { TouchableOpacity, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Swiper from 'react-native-swiper';
 import Colors from '../../Themes/Colors';
+import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import { cardList } from './Styles/CardStyles';
 
 const { width, height } = Dimensions.get('window');
@@ -69,10 +67,10 @@ class SpotsMap extends React.PureComponent {
     const latLng = getSpotLocation(spot);
 
     // Center map on the spot keeping delta as it is
-    this.setState({
+    this.setState(prevState => ({
       currentSpot: index,
-      region: { ...this.state.region, ...latLng },
-    });
+      region: { ...prevState.region, ...latLng },
+    }));
   };
 
   /**
@@ -94,16 +92,19 @@ class SpotsMap extends React.PureComponent {
     // Get spot associated to the new index and determine the new map's region
     const spot = this.props.spots[index];
     const latLng = getSpotLocation(spot);
-    const region = { ...this.state.region, ...latLng }; // eslint-disable-line
 
     // Number of times we have to scroll the swiper to reach the desired card
     const offset = index - this.state.currentSpot;
+    const swiper = this.refs.swiper; // eslint-disable-line
 
     // Center map on the spot
-    this.setState(({ currentSpot: index, region }) => {
+    this.setState({
+      currentSpot: index,
+      region: { ...this.state.region, ...latLng },
+    }, () => {
       // After that, scroll the swiper to the desired card.
-      this.refs.swiper.scrollBy(offset, true)
-    })
+      swiper.scrollBy(offset, true);
+    });
   }
 
   render() {
@@ -111,7 +112,7 @@ class SpotsMap extends React.PureComponent {
     const { region, currentSpot } = this.state;
 
     // Test fallback
-    // throw new Error(401, 'bla')
+    // throw new Error(401, 'bla');
 
     return (
       <Relative style={{ flex: 1 }}>
@@ -135,12 +136,11 @@ class SpotsMap extends React.PureComponent {
         </MapView>
         <Absolute>
           <Swiper
-            ref="swiper"
+            ref="swiper" // eslint-disable-line
             loop={false}
             bounces
             showsPagination={false}
             containerStyle={{ height: 80 }}
-            index={currentSpot}
             onIndexChanged={this.handleIndexChange}
           >
             {spots.map(spot => (
@@ -167,14 +167,7 @@ SpotsMap.propTypes = {
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired
   }).isRequired, */
-  // TODO: use fragment instead!
-  spots: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    address: PropTypes.shape({
-      lat: PropTypes.number.isRequired,
-      lng: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired),
+  spots: PropTypes.arrayOf(propType(spotFragment)),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
 };

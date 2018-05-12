@@ -4,27 +4,33 @@ import { FlatList, View, TouchableOpacity } from 'react-native';
 import { cardList } from '../Spots/Styles/CardStyles';
 
 const SpotsList = ({
-  data, cardComponent, onCardPress, style,
-}) => (
-  <View style={[cardList.container, style]}>
-    <FlatList
-      showsVerticalScrollIndicator={false}
-      data={data.spots}
-      renderItem={({ item: spot }) => (
-        <TouchableOpacity
-          key={spot.uuid}
-          onPress={() => {
-            onCardPress(spot.uuid);
-          }}
-          style={cardList.cardContainer}
-        >
-          {React.createElement(cardComponent, { spot })}
-        </TouchableOpacity>
-      )}
-      keyExtractor={item => item.uuid}
-    />
-  </View>
-);
+  data,
+  cardComponent,
+  onCardPress,
+  style,
+}) => {
+  console.log('DATA', data);
+  return (
+    <View style={[cardList.container, style]}>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={data.spots}
+        renderItem={({ item: spot }) => (
+          <TouchableOpacity
+            key={spot.uuid}
+            onPress={() => {
+              onCardPress(spot.uuid);
+            }}
+            style={cardList.cardContainer}
+          >
+            {React.createElement(cardComponent, { spot })}
+          </TouchableOpacity>
+        )}
+        keyExtractor={item => item.uuid}
+      />
+    </View>
+  )
+}
 
 SpotsList.propTypes = {
   // TODO: use fragment instead!
