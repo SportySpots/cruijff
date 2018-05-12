@@ -1,20 +1,18 @@
 import React from 'react';
-import {
-  View, // eslint-disable-line
-  Dimensions,
-} from 'react-native';
-import PropTypes from 'prop-types';
+import { Dimensions } from 'react-native';
+import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MapView, { Marker } from 'react-native-maps';
 import { showLocation } from 'react-native-map-link';
+import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../Themes/Colors';
 import RoundButton from '../RoundButton';
 
-const { width, height } = Dimensions.get('window')
-const ASPECT_RATIO = width / height
-const LATITUDE_DELTA = 0.003
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
+const { width, height } = Dimensions.get('window');
+const ASPECT_RATIO = width / height;
+const LATITUDE_DELTA = 0.003;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 // -----------------------------------------------------------------------------
 // STYLE:
@@ -56,7 +54,8 @@ const handleLocationBtnPress = ({ latLng, title = '' }) => {
   showLocation({
     ...latLng,
     title,
-    googleForceLatLon: true, // force GoogleMaps to use the latLng from the query instead of the title
+    // force GoogleMaps to use the latLng from the query instead of the title
+    googleForceLatLon: true,
   });
 };
 // -----------------------------------------------------------------------------
@@ -73,7 +72,7 @@ const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
     try {
       position = await getCurrentPosition(options);
     } catch (exc) {
-      console.log("Ups, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
+      console.log("Oops, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
     }
   } else {
     console.log('Geolocation is not available');
@@ -86,7 +85,8 @@ const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
     sourceLongitude: (position && position.coords && position.coords.longitude) || undefined,
     ...latLng,
     title,
-    googleForceLatLon: true, // force GoogleMaps to use the latLng from the query instead of the title
+    // force GoogleMaps to use the latLng from the query instead of the title
+    googleForceLatLon: true,
   });
 };
 // -----------------------------------------------------------------------------
@@ -107,7 +107,7 @@ const SpotMap = ({ spot }) => {
   }
 
   // Test fallback
-  // throw new Error(401, 'bla')
+  // throw new Error(401, 'bla');
 
   // Define map region centered on the spot
   const region = {
@@ -145,14 +145,7 @@ const SpotMap = ({ spot }) => {
 };
 
 SpotMap.propTypes = {
-  // TODO: use fragment instead!
-  spot: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    address: PropTypes.shape({
-      lat: PropTypes.number.isRequired,
-      lng: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired,
+  spot: propType(spotFragment).isRequired,
 };
 
 export default SpotMap;

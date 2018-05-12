@@ -91,8 +91,8 @@ export const SpotSearchNav = StackNavigator(
     },
   },
   {
-    initialRouteName: 'SpotsListScreen',
-    // initialRouteName: 'SpotsMapScreen',
+    // initialRouteName: 'SpotsListScreen',
+    initialRouteName: 'SpotsMapScreen',
   },
 );
 
