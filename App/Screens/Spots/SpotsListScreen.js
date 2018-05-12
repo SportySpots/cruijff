@@ -1,8 +1,9 @@
 import React from 'react';
 
-import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
 import SpotsList from '../../Components/Spots/SpotsList';
 import withQuery from '../../GraphQL/withQuery';
+import spotsQuery from '../../GraphQL/Spots/Queries/spots';
 import Card from '../../Components/Spots/SpotListCard';
 
 class SpotsListScreen extends React.Component {
@@ -13,7 +14,7 @@ class SpotsListScreen extends React.Component {
   };
 
   render() {
-    const Contents = withQuery(GET_SPOTS)(SpotsList);
+    const Contents = withQuery(spotsQuery)(SpotsList);
     return (
       <Contents
         cardComponent={Card}
@@ -25,25 +26,3 @@ class SpotsListScreen extends React.Component {
 }
 
 export default SpotsListScreen;
-
-export const GET_SPOTS = gql`
-  {
-    spots {
-      uuid
-      name
-      images {
-        image
-      }
-      address {
-        lat
-        lng
-      }
-      sports {
-        category
-      }
-      spot_games {
-        uuid
-      }
-    }
-  }
-`;
