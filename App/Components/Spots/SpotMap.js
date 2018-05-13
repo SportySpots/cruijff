@@ -136,7 +136,7 @@ const SpotMap = ({ spot }) => {
               handleLocationBtnPress({ latLng, title: spot.name });
             }}
           >
-            <Icon name="map" size={24} color={Colors.primaryGreen} />
+            <Icon name="location-on" size={24} color={Colors.primaryGreen} />
           </RoundButton>
         </Flex>
       </Absolute>

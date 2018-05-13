@@ -1,5 +1,6 @@
 import React from 'react';
 import { StackNavigator, SwitchNavigator } from 'react-navigation';
+// import { TouchableOpacity } from 'react-native';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
 import SettingsScreen from '../Screens/SettingsScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
@@ -8,6 +9,7 @@ import I18n from '../I18n';
 import SpotsListScreen from '../Screens/Spots/SpotsListScreen';
 import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen';
 import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen';
+import { SpotsHeaderLeft, SpotsHeaderRight } from '../Components/Spots/SpotsHeader';
 
 import Game from '../Screens/Games/GameDetailsScreen';
 import GamesList from '../Screens/Games/GameListScreen';
@@ -17,8 +19,7 @@ import Created from '../Screens/Plan/CreatedScreen';
 import planWrapper from '../Containers/Plan/planWrapper';
 import Description from '../Screens/Plan/DescriptionScreen';
 import PlayerList from '../Screens/Games/PlayerListScreen';
-import Text from '../Components/Text';
-import { TouchableOpacity } from 'react-native';
+// import Text from '../Components/Text';
 
 export const PlanGameNav = StackNavigator(
   {
@@ -79,20 +80,37 @@ export const SpotSearchNav = StackNavigator(
     },
     SpotsListScreen: {
       screen: SpotsListScreen,
-      navigationOptions: {
-        header: null,
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: <SpotsHeaderLeft />,
+          headerRight: (
+            <SpotsHeaderRight
+              navigation={navigation}
+              icon="location-on"
+              to="SpotsMapScreen"
+            />
+          ),
+        };
       },
     },
     SpotsMapScreen: {
       screen: SpotsMapScreen,
-      navigationOptions: {
-        header: null,
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: <SpotsHeaderLeft />,
+          headerRight: (
+            <SpotsHeaderRight
+              navigation={navigation}
+              icon="dehaze"
+              to="SpotsListScreen"
+            />
+          ),
+        };
       },
     },
   },
   {
-    // initialRouteName: 'SpotsListScreen',
-    initialRouteName: 'SpotsMapScreen',
+    initialRouteName: 'SpotsListScreen',
   },
 );
 
