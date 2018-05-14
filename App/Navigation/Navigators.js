@@ -93,6 +93,20 @@ export const SpotSearchNav = StackNavigator(
         };
       },
     },
+  },
+  {
+    initialRouteName: 'SpotsListScreen',
+  },
+);
+
+export const SpotMapSearchNav = StackNavigator(
+  {
+    SpotDetailsScreen: {
+      screen: SpotDetailsScreen,
+      navigationOptions: {
+        title: I18n.t('spot-details'),
+      },
+    },
     SpotsMapScreen: {
       screen: SpotsMapScreen,
       navigationOptions({ navigation }) {
@@ -110,7 +124,7 @@ export const SpotSearchNav = StackNavigator(
     },
   },
   {
-    initialRouteName: 'SpotsListScreen',
+    initialRouteName: 'SpotsMapScreen',
   },
 );
 

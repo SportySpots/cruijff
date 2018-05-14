@@ -43,6 +43,8 @@ const getSpotLocation = spot => ({
  * is placed at the bottom of the map showing the selected spot details. On
  * render, the map is centered on the 'initialLocation'. The component exposes a
  * onCardPress method.
+ * @see {@link https://github.com/leecade/react-native-swiper/issues/68}
+ * @see {@link https://github.com/leecade/react-native-swiper/issues/299}
  */
 class SpotsMap extends React.PureComponent {
   state = {

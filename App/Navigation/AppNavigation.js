@@ -9,6 +9,7 @@ import {
   ProfileNav,
   SettingsNav,
   SpotSearchNav,
+  SpotMapSearchNav,
 } from './Navigators';
 import AskLocation from '../Screens/AskLocationScreen';
 import SignupScreen from '../Screens/SignupScreen';
@@ -51,6 +52,7 @@ export const MainTabsNav = withNavBar(TabNavigator(
 export const MainNav = StackNavigator(
   {
     MainTabs: { screen: MainTabsNav, navigationOptions: { header: null } },
+    SpotsMapScreen: { screen: SpotMapSearchNav, navigationOptions: { header: null } },
     PlanScreen: { screen: PlanGameNav, navigationOptions: { header: null } },
   },
   {
