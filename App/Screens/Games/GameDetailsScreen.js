@@ -18,6 +18,13 @@ import ErrorBoundary from '../../Components/ErrorBoundary';
 import SpotMap from '../../Components/Spots/SpotMap';
 import SpotDetailsScreen from '../Spots/SpotDetailsScreen';
 import StackBackHeader from '../../Components/StackBackHeader';
+import { connect } from 'react-redux';
+import API from '../../Services/SeedorfApi';
+
+const RSVP_STATUSES = {
+  ATTENDING: 'ATTENDING',
+  DECLINED: 'DECLINED',
+};
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -36,6 +43,7 @@ class GameComponent extends Component {
     game: PropTypes.object,
     style: View.propTypes.style,
     navigation: PropTypes.object,
+    user: PropTypes.object,
   };
 
   constructor(props) {
@@ -64,6 +72,81 @@ class GameComponent extends Component {
     );
   };
 
+  get userRSVP() {
+    for (const attendee of this.props.game.attendees) {
+      if (attendee.user.uuid === this.props.user.uuid) {
+        return attendee;
+      }
+    }
+    return null;
+  }
+
+  get userStatus() {
+    const attendee = this.userRSVP;
+    if (attendee) {
+      return attendee.status;
+    }
+    return null;
+  }
+
+  setRSVPStatus = async (status) => {
+    const attendee = this.userRSVP;
+    if (attendee) {
+      await API.updateRSVPStatus({
+        gameUUID: this.props.game.uuid,
+        rsvpUUID: attendee.uuid,
+        status,
+      });
+    } else {
+      await API.setRSVPStatus({ gameUUID: this.props.game.uuid, status });
+    }
+    this.props.refetch();
+  }
+
+  rsvpBlock = () => {
+    const status = this.userStatus;
+    console.log('status', status);
+    if (!status) {
+      return (
+        <Block>
+          <HorizontalView style={{ width: '100%' }}>
+            <DefaultButton
+              style={{ flex: 1, marginLeft: -10 }}
+              bgColor={Colors.primaryGreen}
+              textColor={Colors.white}
+              text={I18n.t("I'm attending")}
+              onPress={() => this.setRSVPStatus(RSVP_STATUSES.ATTENDING)}
+            />
+            <DefaultButton
+              style={{ flex: 1, marginRight: -10 }}
+              bgColor={Colors.red}
+              textColor={Colors.white}
+              text={I18n.t("I'm not attending")}
+              onPress={() => this.setRSVPStatus(RSVP_STATUSES.DECLINED)}
+            />
+          </HorizontalView>
+        </Block>
+      );
+    }
+    return (
+      <Block>
+        <HorizontalView style={{ width: '100%' }}>
+          <DefaultButton
+            style={{ flex: 1, marginLeft: -10 }}
+            bgColor={status === RSVP_STATUSES.ATTENDING ? Colors.white : Colors.primaryGreen}
+            textColor={status === RSVP_STATUSES.ATTENDING ? Colors.black : Colors.white}
+            text={I18n.t(status === RSVP_STATUSES.ATTENDING ? "I'm not attending" : "I'm attending")}
+            onPress={() =>
+              this.setRSVPStatus(status === RSVP_STATUSES.ATTENDING
+                ? RSVP_STATUSES.DECLINED
+                : RSVP_STATUSES.ATTENDING)
+            }
+          />
+        </HorizontalView>
+      </Block>
+    );
+  }
+
   render() {
     const game = this.props.game;
     const spot = game.spot;
@@ -75,8 +158,10 @@ class GameComponent extends Component {
         ];
 
     const attendingUsers = game.attendees
-      .filter(rsvp => rsvp.status === 'ATTENDING')
-      .map(rsvp => rsvp.user);
+      ? game.attendees
+        .filter(rsvp => rsvp.status === 'ATTENDING')
+        .map(rsvp => rsvp.user)
+      : [];
 
     const nOpenSpots = Math.max(0, game.capacity - attendingUsers.length);
     return (
@@ -148,24 +233,7 @@ class GameComponent extends Component {
             </TouchableOpacity>
           </Block>
         )}
-        {nOpenSpots > 0 && (
-          <Block>
-            <HorizontalView style={{ width: '100%' }}>
-              <DefaultButton
-                style={{ flex: 1, marginLeft: -10 }}
-                bgColor={Colors.primaryGreen}
-                textColor={Colors.white}
-                text={I18n.t("I'm attending")}
-              />
-              <DefaultButton
-                style={{ flex: 1, marginRight: -10 }}
-                bgColor={Colors.red}
-                textColor={Colors.white}
-                text={I18n.t("I'm not attending")}
-              />
-            </HorizontalView>
-          </Block>
-        )}
+        { this.rsvpBlock() }
         <Block>
           <BlockLabel>{I18n.t('Share with friends')}</BlockLabel>
           <TouchableOpacity
@@ -187,10 +255,12 @@ class GameComponent extends Component {
   }
 }
 
-export default class Game extends Component {
+class _Game extends Component {
   static propTypes = {
     uuid: PropTypes.string,
     style: View.propTypes.style,
+    navigation: PropTypes.object,
+    user: PropTypes.object,
   };
   static navigationOptions = {
     title: I18n.t('Game details'),
@@ -200,7 +270,9 @@ export default class Game extends Component {
   render() {
     return (
       <Query query={GET_GAME_DETAILS} variables={{ uuid: this.props.navigation.state.params.uuid }}>
-        {({ loading, error, data }) => {
+        {({
+ loading, error, data, refetch,
+}) => {
           if (loading) return <Text>Loading...</Text>;
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
           return (
@@ -208,6 +280,8 @@ export default class Game extends Component {
               style={this.props.style}
               game={data.game}
               navigation={this.props.navigation}
+              user={this.props.user}
+              refetch={refetch}
             />
           );
         }}
@@ -215,6 +289,9 @@ export default class Game extends Component {
     );
   }
 }
+
+const Game = connect(state => ({ user: state.user }))(_Game);
+export default Game;
 
 const GET_GAME_DETAILS = gql`
   query game($uuid: UUID!) {
@@ -255,6 +332,7 @@ const GET_GAME_DETAILS = gql`
         last_name
       }
       attendees {
+        uuid
         status
         user {
           uuid

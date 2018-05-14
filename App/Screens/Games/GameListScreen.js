@@ -42,7 +42,7 @@ export default class GameList extends Component {
     const Contents = withQuery(GET_GAMES_LIST)(({ data }) => (
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={data.games.filter(game => game.spot)}
+        data={data.games ? data.games.filter(game => game.spot) : []}
         renderItem={({ item }) => (
           <GameListCardContainer
             game={item}
