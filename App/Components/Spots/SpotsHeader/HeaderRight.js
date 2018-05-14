@@ -12,21 +12,19 @@ const Container = styled.Text`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const HeaderRight = ({ navigation, icon, to }) => (
-  <Container onPress={() => { navigation.navigate(to); }}>
+const HeaderRight = ({ icon, onPress }) => (
+  <Container onPress={onPress}>
     <Icon name={icon} size={24} color="black" />
   </Container>
 );
 
 HeaderRight.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
   icon: PropTypes.string.isRequired,
-  to: PropTypes.oneOf([
-    'SpotsListScreen',
-    'SpotsMapScreen',
-  ]).isRequired,
+  onPress: PropTypes.func,
+};
+
+HeaderRight.defaultProps = {
+  onPress: () => {},
 };
 
 export default HeaderRight;

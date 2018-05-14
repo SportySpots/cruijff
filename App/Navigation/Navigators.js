@@ -85,9 +85,8 @@ export const SpotSearchNav = StackNavigator(
           headerLeft: <SpotsHeaderLeft />,
           headerRight: (
             <SpotsHeaderRight
-              navigation={navigation}
               icon="location-on"
-              to="SpotsMapScreen"
+              onPress={() => { navigation.navigate('SpotsMapScreen'); }}
             />
           ),
         };
@@ -114,9 +113,8 @@ export const SpotMapSearchNav = StackNavigator(
           headerLeft: <SpotsHeaderLeft />,
           headerRight: (
             <SpotsHeaderRight
-              navigation={navigation}
               icon="dehaze"
-              to="SpotsListScreen"
+              onPress={() => { navigation.goBack(null); }}
             />
           ),
         };
@@ -124,6 +122,9 @@ export const SpotMapSearchNav = StackNavigator(
     },
   },
   {
+    tabBarComponent: () => null,
+    animationEnabled: false,
+    swipeEnabled: false,
     initialRouteName: 'SpotsMapScreen',
   },
 );

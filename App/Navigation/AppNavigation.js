@@ -1,6 +1,6 @@
 import React from 'react';
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
-
+import { View } from 'react-native';
 import SplashScreen from '../Screens/SplashScreen';
 import OnboardingScreen from '../Components/Onboarding';
 import {
@@ -13,7 +13,6 @@ import {
 } from './Navigators';
 import AskLocation from '../Screens/AskLocationScreen';
 import SignupScreen from '../Screens/SignupScreen';
-import { View } from 'react-native';
 import NavBar from '../Components/NavBar';
 import LoginScreen from '../Screens/LoginScreen';
 import I18n from '../I18n';
