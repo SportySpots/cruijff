@@ -9,7 +9,7 @@ import I18n from '../I18n';
 import SpotsListScreen from '../Screens/Spots/SpotsListScreen';
 import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen';
 import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen';
-import { SpotsHeaderLeft, SpotsHeaderRight } from '../Components/Spots/SpotsHeader';
+import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
 
 import Game from '../Screens/Games/GameDetailsScreen';
 import GamesList from '../Screens/Games/GameListScreen';
@@ -82,9 +82,13 @@ export const SpotSearchNav = StackNavigator(
       screen: SpotsListScreen,
       navigationOptions({ navigation }) {
         return {
-          headerLeft: <SpotsHeaderLeft />,
+          headerLeft: (
+            <SpotsHeaderBtn
+              icon="search"
+            />
+          ),
           headerRight: (
-            <SpotsHeaderRight
+            <SpotsHeaderBtn
               icon="location-on"
               onPress={() => { navigation.navigate('SpotsMapScreen'); }}
             />
@@ -110,9 +114,13 @@ export const SpotMapSearchNav = StackNavigator(
       screen: SpotsMapScreen,
       navigationOptions({ navigation }) {
         return {
-          headerLeft: <SpotsHeaderLeft />,
+          headerLeft: (
+            <SpotsHeaderBtn
+              icon="search"
+            />
+          ),
           headerRight: (
-            <SpotsHeaderRight
+            <SpotsHeaderBtn
               icon="dehaze"
               onPress={() => { navigation.goBack(null); }}
             />
