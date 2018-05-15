@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, TextInput, ScrollView, Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
-
-import Colors from '../../Themes/Colors';
+import React, { Component } from 'react';
+import { Keyboard, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import Footer from '../../Components/DarkFooter/index';
 import Text from '../../Components/Text';
 import I18n from '../../I18n/index';
-import Footer from '../../Components/DarkFooter/index';
 import api from '../../Services/SeedorfApi';
+import Colors from '../../Themes/Colors';
+
 
 export default class Description extends Component {
   static propTypes = {

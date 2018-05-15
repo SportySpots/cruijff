@@ -1,11 +1,11 @@
 /* Card component, this is the Card that is used in a list of many Cards */
 
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
-import PropTypes from 'prop-types';
-
-import { card } from './Styles/CardStyles';
 import Header from './Header';
+import { card } from './Styles/CardStyles';
+
 
 export default class SpotListCard extends Component {
   static propTypes = {

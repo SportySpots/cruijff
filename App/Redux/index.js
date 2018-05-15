@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import configureStore from './CreateStore';
 import rootSaga from '../Sagas/';
+import configureStore from './CreateStore';
 
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({

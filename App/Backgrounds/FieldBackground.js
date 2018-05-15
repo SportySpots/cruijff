@@ -1,8 +1,8 @@
 import React from 'react';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import Colors from '../Themes/Colors';
 
-import { View, Dimensions, StyleSheet } from 'react-native';
 
 const fullWidth = Dimensions.get('window').width;
 const fullHeight = Dimensions.get('window').height;

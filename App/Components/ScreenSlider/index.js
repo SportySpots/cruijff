@@ -1,8 +1,8 @@
-import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Footer from '../DarkFooter';
+import { Text, View } from 'react-native';
 import Swiper from 'react-native-swiper';
+import Footer from '../DarkFooter';
 
 /* ScreenSlider is using the same interface as FlatList (data, renderItem, keyExtractor) */
 export default class ScreenSlider extends Component {

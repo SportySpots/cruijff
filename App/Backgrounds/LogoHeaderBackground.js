@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, StyleSheet, TextInput, ScrollView } from 'react-native';
-import Colors from '../Themes/Colors';
+import { StyleSheet, View } from 'react-native';
+import styled from 'styled-components';
 import Logo from '../Components/Logo';
 import Text from '../Components/Text';
-import styled from 'styled-components';
+import Colors from '../Themes/Colors';
 
 export default class LogoHeaderBackground extends Component {
   render() {

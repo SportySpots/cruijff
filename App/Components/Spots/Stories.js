@@ -1,16 +1,16 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import SpotListCard from './SpotListCard';
-import SpotListCardSmall from './SpotListCardSmall';
+import React from 'react';
+import { Query } from 'react-apollo';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { WithApolloMockProvider } from '../../GraphQL';
 import SpotDetailsScreen, { GET_SPOT_DETAILS } from '../../Screens/Spots/SpotDetailsScreen';
 import SpotsListScreen, { GET_SPOTS } from '../../Screens/Spots/SpotsListScreen';
+import SpotListCard from './SpotListCard';
+import SpotListCardSmall from './SpotListCardSmall';
 import SpotMap from './SpotMap';
-import { WithApolloMockProvider } from '../../GraphQL';
 import SpotProperties from './SpotProperties';
 
-import { Query } from 'react-apollo';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
 
 const dummyNavigator = {
   navigate: () => null,
