@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import DefaultButton from '../../Components/DefaultButton';
-import I18n from '../../I18n/index';
-import Text from '../../Components/Text';
-import images from '../../Themes/Images';
-import styled from 'styled-components/native';
-import userActions from '../../Redux/UserRedux';
+import { Image, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
+import styled from 'styled-components/native';
+import DefaultButton from '../../Components/DefaultButton';
+import Text from '../../Components/Text';
+import I18n from '../../I18n/index';
+import images from '../../Themes/Images';
 
 class _ProfileSignupScreen extends Component {
   componentWillMount() {

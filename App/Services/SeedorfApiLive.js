@@ -1,9 +1,9 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce';
-import config from '../config';
+import gql from 'graphql-tag';
 import moment from 'moment';
 import { client } from '../GraphQL';
-import gql from 'graphql-tag';
+import config from '../config';
 // our "constructor"
 
 const create = () => {
@@ -108,6 +108,7 @@ const create = () => {
     api.post(`/games/${gameUUID}/spot/`, {
       uuid: spotUUID,
     });
+
   const setGameTimes = ({ gameUUID, startTime, endTime }) =>
     api.put(`/games/${gameUUID}/`, {
       start_time: startTime,
@@ -126,7 +127,8 @@ const create = () => {
       capacity,
     });
 
-  // const setGameStartTime = ({ gameUUID, start_date, start_time }) => api.put(`/games/${gameUUID}/`), {
+  // const setGameStartTime = ({ gameUUID, start_date, start_time }) =>
+  //  api.put(`/games/${gameUUID}/`), {
   //   start_time:
   // }
 

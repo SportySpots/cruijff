@@ -1,20 +1,50 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import { Image, StyleSheet, TouchableHighlight, View } from 'react-native';
+import Permissions from 'react-native-permissions';
+import { connect } from 'react-redux';
 import { styles } from '../Components/Styles/Onboarding';
-import { View, Image, TouchableHighlight, StyleSheet } from 'react-native';
-import Images from '../Themes/Images';
+import Text from '../Components/Text';
 import I18n from '../I18n/index';
+import locationActions from '../Redux/LocationRedux';
 import Colors from '../Themes/Colors';
 import Fonts from '../Themes/Fonts';
-import Text from '../Components/Text';
-import Permissions from 'react-native-permissions';
-import PropTypes from 'prop-types';
-import locationActions from '../Redux/LocationRedux';
-import { connect } from 'react-redux';
+import Images from '../Themes/Images';
+
+const askLocationStyle = StyleSheet.create({
+  footer: {
+    height: 50,
+    flexDirection: 'row',
+    backgroundColor: Colors.black,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 8,
+  },
+  text: {
+    ...Fonts.style.S,
+    fontSize: 16,
+    color: Colors.white,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+  },
+  button: {
+    color: Colors.actionYellow,
+    marginHorizontal: 10,
+  },
+});
 
 export default connect({}, { getLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
     static propTypes = {
-      navigation: PropTypes.any,
+      navigation: PropTypes.navigation,
       onLocationPermission: PropTypes.func,
+      updateLocation: PropTypes.func,
+    };
+
+    static defaultProps = {
+      navigation: undefined,
+      onLocationPermission: undefined,
+      updateLocation: undefined,
     };
 
     constructor(props) {
@@ -74,27 +104,4 @@ export default connect({}, { getLocation: locationActions.updateLocation })(clas
         </View>
       );
     }
-});
-
-const askLocationStyle = StyleSheet.create({
-  footer: {
-    height: 50,
-    flexDirection: 'row',
-    backgroundColor: Colors.black,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 8,
-  },
-  text: {
-    ...Fonts.style.S,
-    fontSize: 16,
-    color: Colors.white,
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-  },
-  button: {
-    color: Colors.actionYellow,
-    marginHorizontal: 10,
-  },
 });

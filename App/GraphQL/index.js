@@ -1,16 +1,13 @@
-import { buildClientSchema } from 'graphql';
-
-import { addMockFunctionsToSchema } from 'graphql-tools';
-import ApolloClient from 'apollo-client';
-import { SchemaLink } from 'apollo-link-schema';
-import { ApolloLink } from 'apollo-link';
-import { HttpLink } from 'apollo-link-http';
-import { onError } from 'apollo-link-error';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-
-import mocks from './mocks';
-import ApolloProvider from 'react-apollo/ApolloProvider';
+import ApolloClient from 'apollo-client';
+import { ApolloLink } from 'apollo-link';
+import { onError } from 'apollo-link-error';
+import { HttpLink } from 'apollo-link-http';
+import { SchemaLink } from 'apollo-link-schema';
+import { buildClientSchema } from 'graphql';
+import { addMockFunctionsToSchema } from 'graphql-tools';
 import React from 'react';
+import ApolloProvider from 'react-apollo/ApolloProvider';
 
 export let client = null;
 

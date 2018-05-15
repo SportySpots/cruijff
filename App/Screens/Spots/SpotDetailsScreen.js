@@ -1,26 +1,24 @@
 /* Card component, this is the Card that is used in a list of many Cards */
 
-import React from 'react';
-
-import ImageSwiper from '../../Components/ImageSwiper';
-import Header from '../../Components/Spots/Header';
-import Text from '../../Components/Text';
 import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
-import styled from 'styled-components';
-import I18n from '../../I18n';
+import React from 'react';
 import { ScrollView, View } from 'react-native';
-import RatingBig from '../../Components/RatingBig';
-import FlatButton from '../../Components/FlatButton';
-import SpotProperties from '../../Components/Spots/SpotProperties';
-import Colors from '../../Themes/Colors';
 import { connect } from 'react-redux';
-import api from '../../Services/SeedorfApi';
+import styled from 'styled-components';
 import ErrorBoundary from '../../Components/ErrorBoundary';
+import FlatButton from '../../Components/FlatButton';
+import ImageSwiper from '../../Components/ImageSwiper';
+import RatingBig from '../../Components/RatingBig';
+import Header from '../../Components/Spots/Header';
 import SpotMap from '../../Components/Spots/SpotMap';
-import ProfileEditScreen from '../Profile/ProfileEditScreen';
+import SpotProperties from '../../Components/Spots/SpotProperties';
 import StackBackHeader from '../../Components/StackBackHeader';
+import Text from '../../Components/Text';
 import withQuery from '../../GraphQL/withQuery';
+import I18n from '../../I18n';
+import api from '../../Services/SeedorfApi';
+import Colors from '../../Themes/Colors';
+
 
 export const GET_SPOT_DETAILS = gql`
   query spot($uuid: UUID) {

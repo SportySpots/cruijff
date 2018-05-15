@@ -1,9 +1,7 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
-import locationActions, { LocationTypes } from '../Redux/LocationRedux';
-import { client } from '../GraphQL';
-import { AsyncStorage } from 'react-native';
 import Permissions from 'react-native-permissions';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { reduxStore } from '../Redux';
+import locationActions, { LocationTypes } from '../Redux/LocationRedux';
 
 export function* locationSaga(api) {
   yield takeLatest(LocationTypes.UPDATE_LOCATION, function* () {

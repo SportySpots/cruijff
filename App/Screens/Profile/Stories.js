@@ -1,14 +1,12 @@
+import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-
-import { storiesOf } from '@storybook/react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { WithApolloMockProvider } from '../../GraphQL';
 import ProfileDetailsScreen from './ProfileDetailsScreen';
 import ProfileEditScreen from './ProfileEditScreen';
 import ProfileLoginScreen from './ProfileSignupScreen';
-import { Provider } from 'react-redux';
-
-import { createStore } from 'redux';
-import { WithApolloMockProvider } from '../../GraphQL';
 
 const dummyNavigator = {
   navigate: () => null,
