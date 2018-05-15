@@ -36,15 +36,10 @@ const askLocationStyle = StyleSheet.create({
 
 export default connect(null, { getLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
     static propTypes = {
-      navigation: PropTypes.navigation,
+      navigation: PropTypes.shape({
+        navigate: PropTypes.func.isRequired,
+      }).isRequired,
       onLocationPermission: PropTypes.func,
-      updateLocation: PropTypes.func,
-    };
-
-    static defaultProps = {
-      navigation: undefined,
-      onLocationPermission: undefined,
-      updateLocation: undefined,
     };
 
     constructor(props) {
@@ -67,6 +62,8 @@ export default connect(null, { getLocation: locationActions.updateLocation })(cl
         } else {
           this.props.navigation.navigate('MainNav');
         }
+      }).catch(() => {
+        this.props.navigation.navigate('MainNav');
       });
     }
 

@@ -22,7 +22,7 @@ class App extends Component {
         <Provider store={this.store}>
           <AppRootView>
             <StatusBar barStyle="light-content" />
-            <AppNavigation initialRouteName="SplashNav" />
+            <AppNavigation initialRouteName="RootNav" />
           </AppRootView>
         </Provider>
       </ApolloProvider>

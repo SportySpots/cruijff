@@ -73,12 +73,10 @@ export class _SplashScreen extends Component {
   }
 
   static propTypes = {
-    navigation: PropTypes.navigation,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
   };
-
-  static defaultProps = {
-    navigation: undefined,
-  }
 
   render() {
     const { navigate } = this.props.navigation;
