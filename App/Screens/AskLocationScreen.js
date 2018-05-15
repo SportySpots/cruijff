@@ -34,7 +34,7 @@ const askLocationStyle = StyleSheet.create({
   },
 });
 
-export default connect({}, { getLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
+export default connect(null, { getLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
     static propTypes = {
       navigation: PropTypes.navigation,
       onLocationPermission: PropTypes.func,
