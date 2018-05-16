@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, TouchableOpacity, Share } from 'react-native';
+import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
+import moment from 'moment';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+
+import API from '../../Services/SeedorfApi';
 import Text from '../../Components/Text';
 import ImageSwiper from '../../Components/ImageSwiper';
 import Colors from '../../Themes/Colors';
-import moment from 'moment';
 import I18n from '../../I18n/index';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import styled from 'styled-components';
 import UserCircle from '../../Components/UserCircle';
 import PropertyCircle from '../../Components/PropertyCircle';
-import images from '../../Themes/Images';
+import themeImages from '../../Themes/Images';
 import DefaultButton from '../../Components/DefaultButton';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
 import ErrorBoundary from '../../Components/ErrorBoundary';
 import SpotMap from '../../Components/Spots/SpotMap';
-import SpotDetailsScreen from '../Spots/SpotDetailsScreen';
 import StackBackHeader from '../../Components/StackBackHeader';
-import { connect } from 'react-redux';
-import API from '../../Services/SeedorfApi';
+import PropTypeDefinitions from '../../PropTypesDefinitions';
+import { GET_GAME_DETAILS } from '../../GraphQL/queries';
+import withQuery from '../../GraphQL/withQuery';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -27,7 +28,7 @@ const RSVP_STATUSES = {
 };
 
 const SpotOpenImage = () => (
-  <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
+  <Image source={themeImages.spotOpenCircle} style={{ width: 42, height: 42 }} />
 );
 
 const mapMax = (maxNum, data, fn, fnElse) => {
@@ -40,18 +41,19 @@ const mapMax = (maxNum, data, fn, fnElse) => {
 
 class GameComponent extends Component {
   static propTypes = {
-    game: PropTypes.object,
+    game: PropTypes.any.isRequired,
     style: View.propTypes.style,
-    navigation: PropTypes.object,
+    navigation: PropTypeDefinitions.navigation,
     user: PropTypes.object,
+    refetch: PropTypes.func,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      rating: 0,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     rating: 0,
+  //   };
+  // }
 
   openPlayerList = () => {
     this.props.navigation.navigate('GamePlayerScreen', {
@@ -62,7 +64,7 @@ class GameComponent extends Component {
   onShare = (game) => {
     Share.share(
       {
-        message: 'You have been invited',
+        message: I18n.t('You have been invited'),
         url: game.link,
         title: 'Sportyspots',
       },
@@ -105,7 +107,6 @@ class GameComponent extends Component {
 
   rsvpBlock = () => {
     const status = this.userStatus;
-    console.log('status', status);
     if (!status) {
       return (
         <Block>
@@ -136,11 +137,20 @@ class GameComponent extends Component {
             bgColor={status === RSVP_STATUSES.ATTENDING ? Colors.white : Colors.primaryGreen}
             textColor={status === RSVP_STATUSES.ATTENDING ? Colors.black : Colors.white}
             text={I18n.t(status === RSVP_STATUSES.ATTENDING ? "I'm not attending" : "I'm attending")}
-            onPress={() =>
-              this.setRSVPStatus(status === RSVP_STATUSES.ATTENDING
-                ? RSVP_STATUSES.DECLINED
-                : RSVP_STATUSES.ATTENDING)
-            }
+            onPress={() => {
+              if (status === RSVP_STATUSES.ATTENDING) {
+                Alert.alert(
+                  I18n.t('Confirm'),
+                  I18n.t('Are you sure you want to stop attending?'),
+                  [
+                    { text: I18n.t('No'), onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                    { text: I18n.t('Yes'), onPress: () => this.setRSVPStatus(RSVP_STATUSES.DECLINED) },
+                  ],
+                );
+              } else {
+                this.setRSVPStatus(RSVP_STATUSES.ATTENDING);
+              }
+            }}
           />
         </HorizontalView>
       </Block>
@@ -255,94 +265,24 @@ class GameComponent extends Component {
   }
 }
 
-class _Game extends Component {
-  static propTypes = {
-    uuid: PropTypes.string,
-    style: View.propTypes.style,
-    navigation: PropTypes.object,
-    user: PropTypes.object,
-  };
-  static navigationOptions = {
-    title: I18n.t('Game details'),
-    header: props => <StackBackHeader {...props} title={I18n.t('Game details')} />,
-  };
-
-  render() {
+const GameDetailsScreen = connect(state => ({ user: state.user }))(
+  (props) => {
+    const Contents = withQuery(GET_GAME_DETAILS)(GameComponent);
     return (
-      <Query query={GET_GAME_DETAILS} variables={{ uuid: this.props.navigation.state.params.uuid }}>
-        {({
- loading, error, data, refetch,
-}) => {
-          if (loading) return <Text>Loading...</Text>;
-          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
-          return (
-            <GameComponent
-              style={this.props.style}
-              game={data.game}
-              navigation={this.props.navigation}
-              user={this.props.user}
-              refetch={refetch}
-            />
-          );
-        }}
-      </Query>
+      <Contents
+        {...props}
+        variables={{ uuid: props.navigation.state.params.uuid }}
+      />
     );
-  }
-}
+  },
+);
 
-const Game = connect(state => ({ user: state.user }))(_Game);
-export default Game;
+GameDetailsScreen.navigationOptions = {
+  title: I18n.t('Game details'),
+  header: props => <StackBackHeader {...props} title={I18n.t('Game details')} />,
+};
 
-const GET_GAME_DETAILS = gql`
-  query game($uuid: UUID!) {
-    game(uuid: $uuid) {
-      uuid
-      name
-      start_time
-      end_time
-      is_featured
-      show_remaining
-      capacity
-      description
-      sport {
-        category
-      }
-      spot {
-        uuid
-        name
-        images {
-          image
-        }
-        amenities {
-          sport {
-            category
-          }
-          data
-        }
-        sports {
-          category
-        }
-        address {
-          lat
-          lng
-        }
-      }
-      organizer {
-        first_name
-        last_name
-      }
-      attendees {
-        uuid
-        status
-        user {
-          uuid
-          first_name
-          last_name
-        }
-      }
-    }
-  }
-`;
+export default GameDetailsScreen;
 
 const HorizontalView = styled.View`
   flex-direction: row;
