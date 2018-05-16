@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import locationActions from '../Redux/LocationRedux';
 import { connect } from 'react-redux';
 
-export default connect({}, { getLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
+export default connect(null, { getLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
     static propTypes = {
       navigation: PropTypes.any,
       onLocationPermission: PropTypes.func,
