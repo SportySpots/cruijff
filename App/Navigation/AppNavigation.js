@@ -1,6 +1,4 @@
-import React from 'react';
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
-import { View } from 'react-native';
 import SplashScreen from '../Screens/SplashScreen';
 import OnboardingScreen from '../Components/Onboarding';
 import {
@@ -9,7 +7,6 @@ import {
   ProfileNav,
   SettingsNav,
   SpotSearchNav,
-  SpotMapSearchNav,
 } from './Navigators';
 import AskLocation from '../Screens/AskLocationScreen';
 import SignupScreen from '../Screens/SignupScreen';
@@ -17,23 +14,7 @@ import NavBar from '../Components/NavBar';
 import LoginScreen from '../Screens/LoginScreen';
 import I18n from '../I18n';
 
-/*
-  Stack Navigator has support for a (custom) NavBar,
-  We can't use it since our NavBar has the center button
-  partly overlapping the View above it
- */
-const withNavBar = (Navigator) => {
-  const navigator = props => (
-    <View style={{ flex: 1 }}>
-      <Navigator {...props} />
-      <NavBar {...props} />
-    </View>
-  );
-  navigator.router = Navigator.router;
-  return navigator;
-};
-
-export const MainTabsNav = withNavBar(TabNavigator(
+export const MainTabsNav = TabNavigator(
   {
     SpotSearchTab: { screen: SpotSearchNav },
     GameSearchTab: { screen: GameSearchNav },
@@ -41,17 +22,17 @@ export const MainTabsNav = withNavBar(TabNavigator(
     SettingsTab: { screen: SettingsNav },
   },
   {
-    tabBarComponent: () => null,
+    tabBarComponent: NavBar,
+    tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
     initialRouteName: 'SpotSearchTab',
   },
-));
+);
 
 export const MainNav = StackNavigator(
   {
     MainTabs: { screen: MainTabsNav, navigationOptions: { header: null } },
-    SpotsMapScreen: { screen: SpotMapSearchNav, navigationOptions: { header: null } },
     PlanScreen: { screen: PlanGameNav, navigationOptions: { header: null } },
   },
   {

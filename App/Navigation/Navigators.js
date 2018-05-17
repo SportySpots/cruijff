@@ -19,7 +19,6 @@ import Created from '../Screens/Plan/CreatedScreen';
 import planWrapper from '../Containers/Plan/planWrapper';
 import Description from '../Screens/Plan/DescriptionScreen';
 import PlayerList from '../Screens/Games/PlayerListScreen';
-// import Text from '../Components/Text';
 
 export const PlanGameNav = StackNavigator(
   {
@@ -78,6 +77,25 @@ export const SpotSearchNav = StackNavigator(
         title: I18n.t('spot-details'),
       },
     },
+    SpotsMapScreen: {
+      screen: SpotsMapScreen,
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: (
+            <SpotsHeaderBtn
+              icon="search"
+            />
+          ),
+          headerRight: (
+            <SpotsHeaderBtn
+              icon="dehaze"
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+          tabBarVisible: false,
+        };
+      },
+    },
     SpotsListScreen: {
       screen: SpotsListScreen,
       navigationOptions({ navigation }) {
@@ -99,41 +117,6 @@ export const SpotSearchNav = StackNavigator(
   },
   {
     initialRouteName: 'SpotsListScreen',
-  },
-);
-
-export const SpotMapSearchNav = StackNavigator(
-  {
-    SpotDetailsScreen: {
-      screen: SpotDetailsScreen,
-      navigationOptions: {
-        title: I18n.t('spot-details'),
-      },
-    },
-    SpotsMapScreen: {
-      screen: SpotsMapScreen,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: (
-            <SpotsHeaderBtn
-              icon="search"
-            />
-          ),
-          headerRight: (
-            <SpotsHeaderBtn
-              icon="dehaze"
-              onPress={() => { navigation.goBack(null); }}
-            />
-          ),
-        };
-      },
-    },
-  },
-  {
-    tabBarComponent: () => null,
-    animationEnabled: false,
-    swipeEnabled: false,
-    initialRouteName: 'SpotsMapScreen',
   },
 );
 

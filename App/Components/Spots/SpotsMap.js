@@ -5,15 +5,19 @@ import styled from 'styled-components';
 import { TouchableOpacity, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Swiper from 'react-native-swiper';
+import { withNavigation, NavigationActions } from 'react-navigation';
 import Colors from '../../Themes/Colors';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import { cardList } from './Styles/CardStyles';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+// -----------------------------------------------------------------------------
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
+const AMSTERDAM = { latitude: 52.3724437, longitude: 4.8887393 };
 // -----------------------------------------------------------------------------
 // STYLE:
 // -----------------------------------------------------------------------------
@@ -47,15 +51,34 @@ const getSpotLocation = spot => ({
  * @see {@link https://github.com/leecade/react-native-swiper/issues/299}
  */
 class SpotsMap extends React.PureComponent {
-  state = {
-    region: {
-      latitude: this.props.spots[0].address.lat,
-      longitude: this.props.spots[0].address.lng,
-      latitudeDelta: LATITUDE_DELTA,
-      longitudeDelta: LONGITUDE_DELTA,
-    },
-    currentSpot: 0, // index of the current spot based on the spots array
-  };
+  constructor(props) {
+    super(props);
+
+    const initLoc = (
+      this.props.spots &&
+      this.props.spots.length > 0 &&
+      this.props.spots[0] &&
+      this.props.spots[0].address
+    );
+
+    this.state = {
+      region: {
+        latitude: (initLoc && initLoc.lat) || AMSTERDAM.latitude,
+        longitude: (initLoc && initLoc.lng) || AMSTERDAM.longitude,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      },
+      currentSpot: 0, // index of the current spot based on the spots array
+    };
+  }
+
+  /* componentWillMount() {
+    const setParamsAction = NavigationActions.setParams({
+      params: { hideTabBar: true },
+      key: 'tab-name',
+    });
+    this.props.navigation.dispatch(setParamsAction);
+  } */
 
   /**
    * @summary Fires every time a card is swiped. As a result, the map is
@@ -179,4 +202,4 @@ SpotsMap.defaultProps = {
   onCardPress: () => {},
 };
 
-export default SpotsMap;
+export default withNavigation(SpotsMap);
