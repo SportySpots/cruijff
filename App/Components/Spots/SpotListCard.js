@@ -3,9 +3,9 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
+import Config from 'react-native-config';
 import Header from './Header';
 import { card } from './Styles/CardStyles';
-
 
 export default class SpotListCard extends Component {
   static propTypes = {
@@ -22,12 +22,19 @@ export default class SpotListCard extends Component {
     this.distance = 5;
   }
 
+  getImageUrl = (image) => {
+    if (image.startsWith('http')) {
+      return image;
+    }
+    return Config.SEEDORF_HOST + image;
+  }
+
   render() {
     const spot = this.props.spot;
 
     const image =
       spot.images.length > 0
-        ? spot.images[0].image
+        ? this.getImageUrl(spot.images[0].image)
         : 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png';
 
     return (

@@ -4,8 +4,8 @@ import gql from 'graphql-tag';
 import moment from 'moment';
 import { client } from '../GraphQL';
 import config from '../config';
-// our "constructor"
 
+// our "constructor"
 const create = () => {
   // ------
   // STEP 1
@@ -45,6 +45,7 @@ const create = () => {
   const getGame = gameId => gameId;
   const getGames = ({ month }) => api.get('search/games/', { q: month });
   const verifyToken = token => api.post('/auth/token-verify/', { token });
+
   const signup = ({
     username, email, first_name, last_name, password,
   }) =>
@@ -56,17 +57,20 @@ const create = () => {
       password1: password,
       password2: password,
     });
+
   const login = ({ username, email, password }) =>
     api.post('/auth/login/', {
       username,
       email,
       password,
     });
+
   const updateUser = ({ uuid, first_name, last_name }) =>
     api.patch(`/users/${uuid}/`, {
       first_name,
       last_name,
     });
+
   const submitRating = (spotUuid, userUuid, rating) => {
     api.post(`/games/${spotUuid}/reactions`, {
       // todo : construct proper post

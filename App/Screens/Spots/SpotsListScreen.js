@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ViewPropTypes } from 'react-native';
 import Card from '../../Components/Spots/SpotListCard';
 import SpotsList from '../../Components/Spots/SpotsList';
 import withQuery from '../../GraphQL/withQuery';
@@ -15,11 +14,14 @@ export const GET_SPOTS = gql`
         lat
         lng
       }
+      images {
+        image
+        sport {
+          uuid
+        }
+      }
       sports {
         category
-        images {
-          image
-        }
       }
       spot_games {
         uuid
@@ -30,7 +32,6 @@ export const GET_SPOTS = gql`
 
 class SpotsListScreen extends React.Component {
   static propTypes = {
-    style: ViewPropTypes.style.isRequired,
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired,
     }).isRequired,
