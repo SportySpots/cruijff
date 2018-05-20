@@ -7,7 +7,9 @@ import { SchemaLink } from 'apollo-link-schema';
 import { buildClientSchema } from 'graphql';
 import { addMockFunctionsToSchema } from 'graphql-tools';
 import React from 'react';
+import mocks from './mocks';
 import ApolloProvider from 'react-apollo/ApolloProvider';
+
 
 export let client = null;
 
