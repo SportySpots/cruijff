@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import { View, ScrollView, Image, TouchableOpacity, Share } from 'react-native';
-import PropTypes from 'prop-types';
-import Text from '../../Components/Text';
-import ImageSwiper from '../../Components/ImageSwiper';
-import Colors from '../../Themes/Colors';
+import gql from 'graphql-tag';
 import moment from 'moment';
-import I18n from '../../I18n/index';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Query } from 'react-apollo';
+import { Image, ScrollView, Share, TouchableOpacity, View, ViewPropTypes } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
-import UserCircle from '../../Components/UserCircle';
-import PropertyCircle from '../../Components/PropertyCircle';
-import images from '../../Themes/Images';
 import DefaultButton from '../../Components/DefaultButton';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
 import ErrorBoundary from '../../Components/ErrorBoundary';
+import ImageSwiper from '../../Components/ImageSwiper';
+import PropertyCircle from '../../Components/PropertyCircle';
 import SpotMap from '../../Components/Spots/SpotMap';
-import SpotDetailsScreen from '../Spots/SpotDetailsScreen';
 import StackBackHeader from '../../Components/StackBackHeader';
+import Text from '../../Components/Text';
+import UserCircle from '../../Components/UserCircle';
+import I18n from '../../I18n/index';
+import Colors from '../../Themes/Colors';
+import images from '../../Themes/Images';
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -34,7 +33,7 @@ const mapMax = (maxNum, data, fn, fnElse) => {
 class GameComponent extends Component {
   static propTypes = {
     game: PropTypes.object,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     navigation: PropTypes.object,
   };
 
@@ -190,7 +189,7 @@ class GameComponent extends Component {
 export default class Game extends Component {
   static propTypes = {
     uuid: PropTypes.string,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
   };
   static navigationOptions = {
     title: I18n.t('Game details'),

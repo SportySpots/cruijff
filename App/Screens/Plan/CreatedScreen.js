@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Share, TouchableOpacity, Clipboard } from 'react-native';
 import PropTypes from 'prop-types';
-
-import Colors from '../../Themes/Colors';
-import Text from '../../Components/Text';
-import I18n from '../../I18n/index';
-import Footer from '../../Components/DarkFooter/index';
-
+import React, { Component } from 'react';
+import { Clipboard, Share, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Checkbox from '../../Components/Checkbox';
+import Footer from '../../Components/DarkFooter/index';
+import Text from '../../Components/Text';
+import I18n from '../../I18n/index';
+import Colors from '../../Themes/Colors';
 
 export default class Created extends Component {
   static propTypes = {

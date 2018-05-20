@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React from 'react';
 import styled from 'styled-components/native';
-import Text from '../Text';
 import Colors from '../../Themes/Colors';
+import Text from '../Text';
 
 const SpotProperties = ({ properties, lineColor }) => (
   <PropertyContainer>

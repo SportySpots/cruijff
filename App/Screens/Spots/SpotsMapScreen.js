@@ -1,11 +1,10 @@
-import React from 'react';
-import { ScrollView, View } from 'react-native'; // eslint-disable-line
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Query } from 'react-apollo';
-import { GET_SPOTS } from './SpotsListScreen';
-import Text from '../../Components/Text';
 import Card from '../../Components/Spots/SpotMapCardSmall';
 import SpotsMapWithListFallback from '../../Components/Spots/SpotsMapWithListFallback';
+import Text from '../../Components/Text';
+import { GET_SPOTS } from './SpotsListScreen';
 
 // TODO: handle no spots were found case --> probably handle this on SpotsMap
 // and SpotsList components

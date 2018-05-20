@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { TextInput } from 'react-native';
-import Colors from '../Themes/Colors';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
+import DefaultButton from '../Components/DefaultButton';
 import Text from '../Components/Text';
 import I18n from '../I18n/index';
-import DefaultButton from '../Components/DefaultButton';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import userActions, { STATUS } from '../Redux/UserRedux';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
 import api from '../Services/SeedorfApi';
-import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
+import Colors from '../Themes/Colors';
 
 export class _Signup extends Component {
   static propTypes = {

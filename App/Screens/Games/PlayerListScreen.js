@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
 import gql from 'graphql-tag';
+import moment from 'moment';
+import propTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import Text from '../../Components/Text';
+import { ScrollView, View } from 'react-native';
 import { TabBarTop, TabNavigator } from 'react-navigation';
+import styled from 'styled-components';
+import Text from '../../Components/Text';
+import UserCircle from '../../Components/UserCircle';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
-import { ScrollView, View } from 'react-native';
-import propTypes from 'prop-types';
-import UserCircle from '../../Components/UserCircle';
-import moment from 'moment';
 
 export const BottomNav = ({ screens }) =>
   React.createElement(new TabNavigator(screens, {

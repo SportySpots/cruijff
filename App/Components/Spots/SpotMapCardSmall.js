@@ -1,12 +1,10 @@
 /* Card component, this is the Card that is used at the spot map search screen */
-
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
-import PropTypes from 'prop-types';
-import Text from '../Text';
-
-import { cardSmall } from './Styles/CardStyles';
 import Rating from '../Rating';
+import Text from '../Text';
+import { cardSmall } from './Styles/CardStyles';
 
 const Spacer = () => <Text style={{ marginLeft: 8, marginRight: 8 }}>·</Text>;
 

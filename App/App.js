@@ -1,13 +1,13 @@
-import config from './config';
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import { ApolloProvider } from 'react-apollo';
 import { StatusBar } from 'react-native';
-import AppNavigation from './Navigation/AppNavigation';
-import Colors from './Themes/Colors';
+import { Provider } from 'react-redux';
 import styled from 'styled-components';
-import createStore from './Redux';
 import { createClient, createMockClient } from './GraphQL/index';
+import AppNavigation from './Navigation/AppNavigation';
+import createStore from './Redux';
+import Colors from './Themes/Colors';
+import config from './config';
 
 class App extends Component {
   constructor() {
@@ -22,7 +22,7 @@ class App extends Component {
         <Provider store={this.store}>
           <AppRootView>
             <StatusBar barStyle="light-content" />
-            <AppNavigation initialRouteName="SplashNav" />
+            <AppNavigation initialRouteName="RootNav" />
           </AppRootView>
         </Provider>
       </ApolloProvider>

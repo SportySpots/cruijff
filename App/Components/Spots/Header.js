@@ -1,9 +1,9 @@
 import React from 'react';
-import { header } from './Styles/CardStyles';
-import Int18n from '../../I18n';
 import { View } from 'react-native';
-import Text from '../Text';
+import Int18n from '../../I18n';
 import Rating from '../Rating';
+import Text from '../Text';
+import { header } from './Styles/CardStyles';
 
 const Spacer = () => <Text style={header.spacer}>·</Text>;
 

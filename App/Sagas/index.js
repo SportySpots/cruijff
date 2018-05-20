@@ -2,7 +2,6 @@ import { fork } from 'redux-saga/effects';
 import api from '../Services/SeedorfApi';
 
 /* ------------- Sagas ------------- */
-
 import { usersRootSaga } from './UserSagas';
 import { locationSaga } from './LocationSagas';
 
