@@ -1,12 +1,12 @@
 import React from 'react';
 import Swiper from 'react-native-swiper';
-import { Image, View } from 'react-native';
+import { Image, View, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 
 export default class ImageSwiper extends React.PureComponent {
   static propTypes = {
     images: PropTypes.arrayOf(PropTypes.string),
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
   };
 
   render() {

@@ -2,6 +2,7 @@ import { Text } from 'react-native';
 import Config from 'react-native-config';
 import './I18n/I18n';
 
+
 if (typeof global.self === 'undefined') {
   // needed for apollo client
   global.self = global;
@@ -21,7 +22,5 @@ if (__DEV__) {
   // it off, but the healthier approach is to fix the warnings.  =)
   console.disableYellowBox = false;
 }
-
-console.log(settings);
 
 export default settings;

@@ -1,7 +1,7 @@
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import I18n from '../../I18n';
@@ -11,7 +11,7 @@ import Text from '../Text';
 export default class GameListCard extends Component {
   static propTypes = {
     game: PropTypes.object,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
   };
 
   render() {

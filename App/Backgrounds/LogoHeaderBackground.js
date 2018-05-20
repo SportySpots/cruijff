@@ -1,26 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import styled from 'styled-components';
 import Logo from '../Components/Logo';
 import Text from '../Components/Text';
 import Colors from '../Themes/Colors';
-
-export default class LogoHeaderBackground extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1, backgroundColor: Colors.white }}>
-        <AbsoluteFull>
-          <View style={style.skew} />
-          <View style={style.logoContainer}>
-            <Logo scale={1} />
-            <Text.L style={style.logoText}>SPORTYSPOTS</Text.L>
-          </View>
-        </AbsoluteFull>
-        <View style={{ flex: 1, marginTop: 160 }}>{this.props.children}</View>
-      </View>
-    );
-  }
-}
+import PropTypes from 'prop-types';
 
 const AbsoluteFull = styled.View`
   position: absolute;
@@ -29,6 +13,7 @@ const AbsoluteFull = styled.View`
   top: 0;
   bottom: 0;
 `;
+
 const style = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
@@ -54,3 +39,21 @@ const style = StyleSheet.create({
     color: Colors.black,
   },
 });
+
+
+function LogoHeaderBackground(props) {
+  return (
+    <View style={{ flex: 1, backgroundColor: Colors.white }}>
+      <AbsoluteFull>
+        <View style={style.skew} />
+        <View style={style.logoContainer}>
+          <Logo scale={1} />
+          <Text.L style={style.logoText}>SPORTYSPOTS</Text.L>
+        </View>
+      </AbsoluteFull>
+      <View style={{ flex: 1, marginTop: 160 }}>{props.children}</View>
+    </View>
+  );
+}
+
+export default LogoHeaderBackground;

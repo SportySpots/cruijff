@@ -7,6 +7,23 @@ import Colors from '../Themes/Colors';
 const fullWidth = Dimensions.get('window').width;
 const fullHeight = Dimensions.get('window').height;
 
+const styles = StyleSheet.create({
+  container: {
+    width: fullWidth,
+    height: fullHeight,
+  },
+  bgContainer: {
+    backgroundColor: Colors.primaryGreen,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+  },
+  childContainer: {
+    width: fullWidth,
+    height: fullHeight,
+  },
+});
+
 const FieldBackground = props => (
   <View style={styles.container}>
     <View style={styles.bgContainer}>
@@ -28,20 +45,3 @@ const FieldBackground = props => (
 );
 
 export default FieldBackground;
-
-const styles = StyleSheet.create({
-  container: {
-    width: fullWidth,
-    height: fullHeight,
-  },
-  bgContainer: {
-    backgroundColor: Colors.primaryGreen,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-  },
-  childContainer: {
-    width: fullWidth,
-    height: fullHeight,
-  },
-});

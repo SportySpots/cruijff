@@ -3,7 +3,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import { Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, Share, TouchableOpacity, View, ViewPropTypes } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import DefaultButton from '../../Components/DefaultButton';
@@ -33,7 +33,7 @@ const mapMax = (maxNum, data, fn, fnElse) => {
 class GameComponent extends Component {
   static propTypes = {
     game: PropTypes.object,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     navigation: PropTypes.object,
   };
 
@@ -189,7 +189,7 @@ class GameComponent extends Component {
 export default class Game extends Component {
   static propTypes = {
     uuid: PropTypes.string,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
   };
   static navigationOptions = {
     title: I18n.t('Game details'),
