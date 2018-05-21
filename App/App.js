@@ -38,6 +38,4 @@ const AppRootView = styled.View`
   background-color: ${Colors.white};
 `;
 
-App = codePush(App);
-
-export default App;
+export default codePush(App);
