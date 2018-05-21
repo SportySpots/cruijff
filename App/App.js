@@ -8,6 +8,8 @@ import AppNavigation from './Navigation/AppNavigation';
 import createStore from './Redux';
 import Colors from './Themes/Colors';
 import config from './config';
+import codePush from "react-native-code-push";
+
 
 class App extends Component {
   constructor() {
@@ -35,5 +37,7 @@ const AppRootView = styled.View`
   flex-direction: column;
   background-color: ${Colors.white};
 `;
+
+App = codePush(App);
 
 export default App;
