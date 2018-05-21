@@ -18,6 +18,11 @@ class App extends Component {
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
   }
 
+  // NOTE: https://github.com/Microsoft/react-native-code-push/issues/516#issuecomment-275688344
+  // To remove warning caused by required listener
+  codePushDownloadDidProgress(progress) {
+  }
+
   render() {
     return (
       <ApolloProvider client={this.client}>
