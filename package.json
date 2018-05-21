@@ -74,6 +74,7 @@
     "react-native-map-link": "^1.1.1",
     "react-native-maps": "0.20.1",
     "react-native-modal-datetime-picker": "^4.13.0",
+    "react-native-onesignal": "^3.2.3",
     "react-native-permissions": "^1.1.1",
     "react-native-popup-menu": "^0.12.2",
     "react-native-svg": "5.5.1",
