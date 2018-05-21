@@ -9,7 +9,7 @@ target 'SportySpots' do
   pod 'AppCenter/Crashes', '~> 1.1.0'
   pod 'AppCenter/Analytics', '~> 1.1.0'
   pod 'AppCenterReactNativeShared', '~> 1.1.0'
-  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+  # pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
   rn_path = '../node_modules/react-native'
   rn_maps_path = '../node_modules/react-native-maps'
