@@ -78,6 +78,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
@@ -157,6 +158,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-code-push')
     compile 'com.android.support:appcompat-v7:26.0.2'
     compile 'com.google.android.gms:play-services-gcm:11.8.0'
     compile project(':react-native-svg')
