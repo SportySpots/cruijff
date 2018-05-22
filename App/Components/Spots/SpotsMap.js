@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { TouchableOpacity, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Swiper from 'react-native-swiper';
-import { withNavigation, NavigationActions } from 'react-navigation';
 import Colors from '../../Themes/Colors';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import { cardList } from './Styles/CardStyles';
@@ -71,14 +70,6 @@ class SpotsMap extends React.PureComponent {
       currentSpot: 0, // index of the current spot based on the spots array
     };
   }
-
-  /* componentWillMount() {
-    const setParamsAction = NavigationActions.setParams({
-      params: { hideTabBar: true },
-      key: 'tab-name',
-    });
-    this.props.navigation.dispatch(setParamsAction);
-  } */
 
   /**
    * @summary Fires every time a card is swiped. As a result, the map is
@@ -202,4 +193,4 @@ SpotsMap.defaultProps = {
   onCardPress: () => {},
 };
 
-export default withNavigation(SpotsMap);
+export default SpotsMap;
