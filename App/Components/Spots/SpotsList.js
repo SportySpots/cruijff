@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
 import { FlatList, View, TouchableOpacity } from 'react-native';
+import { propType } from 'graphql-anywhere';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import { cardList } from '../Spots/Styles/CardStyles';
 

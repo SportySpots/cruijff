@@ -1,13 +1,13 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-
-import Game from '../../Screens/Games/GameDetailsScreen';
-import GameListCard from './GameListCard';
-import { View } from 'react-native';
-import GamesList, { GET_GAMES_LIST } from '../../Screens/Games/GameListScreen';
-import { WithApolloMockProvider } from '../../GraphQL';
+import React from 'react';
 import { Query } from 'react-apollo';
+import { View } from 'react-native';
+import { WithApolloMockProvider } from '../../GraphQL';
+import Game from '../../Screens/Games/GameDetailsScreen';
+import GamesList, { GET_GAMES_LIST } from '../../Screens/Games/GameListScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
+import GameListCard from './GameListCard';
+
 
 const dummyNavigator = {
   navigate: () => null,

@@ -1,11 +1,11 @@
-import React from 'react';
-import I18n from '../../I18n/index';
-import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
-import NavDots from '../NavDots';
-import Button from './Button';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
 import Fonts from '../../Themes/Fonts';
+import NavDots from '../NavDots';
+import Button from './Button';
 
 export default class DarkFooter extends React.Component {
   static propTypes = {

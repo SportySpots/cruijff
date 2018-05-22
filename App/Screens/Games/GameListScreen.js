@@ -1,14 +1,14 @@
+import gql from 'graphql-tag';
 import React, { Component } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
-
-import GameListCard from '../../Components/Games/GameListCard';
-import styled from 'styled-components';
 import { MenuProvider } from 'react-native-popup-menu';
+import styled from 'styled-components';
+import GameListCard from '../../Components/Games/GameListCard';
 import MonthSelector from '../../Components/Games/MonthSelector';
-import gql from 'graphql-tag';
+import withQuery from '../../GraphQL/withQuery';
 import { Query } from 'react-apollo';
 import Text from '../../Components/Text';
-import withQuery from '../../GraphQL/withQuery';
+
 
 const CardContainer = (props) => {
   const { style, onPress, ...otherProps } = props;

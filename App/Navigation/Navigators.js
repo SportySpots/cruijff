@@ -1,24 +1,22 @@
 import React from 'react';
 import { StackNavigator, SwitchNavigator } from 'react-navigation';
-// import { TouchableOpacity } from 'react-native';
+import I18n from '../I18n';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
 import SettingsScreen from '../Screens/SettingsScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../Screens/Profile/ProfileEditScreen';
-import I18n from '../I18n';
 import SpotsListScreen from '../Screens/Spots/SpotsListScreen';
 import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen';
 import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen';
 import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
-
+import planWrapper from '../Containers/Plan/planWrapper';
 import Game from '../Screens/Games/GameDetailsScreen';
 import GamesList from '../Screens/Games/GameListScreen';
-import SportAndTime from '../Screens/Plan/SportAndTimeScreen';
-import PickSpot from '../Screens/Plan/PickSpotScreen';
 import Created from '../Screens/Plan/CreatedScreen';
-import planWrapper from '../Containers/Plan/planWrapper';
 import Description from '../Screens/Plan/DescriptionScreen';
 import PlayerList from '../Screens/Games/PlayerListScreen';
+import PickSpot from '../Screens/Plan/PickSpotScreen';
+import SportAndTime from '../Screens/Plan/SportAndTimeScreen';
 
 export const PlanGameNav = StackNavigator(
   {

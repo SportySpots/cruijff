@@ -1,4 +1,4 @@
-/* Card component, this is the Card that is used in a list of many Cards */
+/* Card component, this is the Card that is used at the spot map search screen */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
@@ -10,7 +10,7 @@ const Spacer = () => <Text style={{ marginLeft: 8, marginRight: 8 }}>·</Text>;
 
 const distance = 1.3;
 
-export default class SpotListCardSmall extends Component {
+export default class SpotMapCardSmall extends Component {
   static propTypes = {
     spot: PropTypes.object,
     style: PropTypes.number,
@@ -26,20 +26,20 @@ export default class SpotListCardSmall extends Component {
   }
 
   render() {
-    const spot = this.props.spot;
+    const { spot } = this.props;
 
     let image = 'http://via.placeholder.com/350x150';
-    if (typeof spot.image === 'string') {
-      image = spot.image;
-    } else if (typeof spot.image === 'object' && spot.length) {
-      image = spot.image[0];
-    }
+    if (spot.images && spot.images.length > 0 && typeof spot.images[0].image === 'string') {
+      image = spot.images[0].image;
+    } /* else if (typeof spot.image === 'object' && spot.length) {
+      image = spot.image[0]
+    } */
 
     return (
       <View style={[cardSmall.container, this.props.style]}>
         <View style={cardSmall.details}>
           <Text.M>{spot.name}</Text.M>
-          <View style={{ flexDirection: 'row', paddingTop: 8 }}>
+          <View style={{ flexDirection: 'row' }}>
             <Rating rating={spot.rating || 4} />
             <Spacer />
             <Text.S>{distance.toFixed(1)} km</Text.S>

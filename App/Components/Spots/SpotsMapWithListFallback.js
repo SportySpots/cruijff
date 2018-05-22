@@ -1,7 +1,7 @@
 import React from 'react';
 import ErrorBoundary from '../ErrorBoundary';
-import SpotsMap from './SpotsMap';
 import SpotsList from './SpotsList';
+import SpotsMap from './SpotsMap';
 
 /**
  * @summary Wrapper component around SpotsMap making sure that, in case the map

@@ -78,6 +78,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
@@ -157,6 +158,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-code-push')
     compile 'com.android.support:appcompat-v7:26.0.2'
     compile 'com.google.android.gms:play-services-gcm:11.8.0'
     compile project(':react-native-svg')
@@ -169,6 +171,7 @@ dependencies {
     compile project(':react-native-device-info')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile 'com.facebook.react:react-native:+'  // From node_modules
+    // compile ('com.facebook.react:react-native:0.50.4') { force = true }  // From node_modules
     compile(project(':react-native-maps')){
       exclude group: 'com.google.android.gms', module: 'play-services-base'
       exclude group: 'com.google.android.gms', module: 'play-services-maps'

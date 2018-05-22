@@ -1,6 +1,4 @@
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
-import SplashScreen from '../Screens/SplashScreen';
-import OnboardingScreen from '../Components/Onboarding';
 import {
   GameSearchNav,
   PlanGameNav,
@@ -8,11 +6,13 @@ import {
   SettingsNav,
   SpotSearchNav,
 } from './Navigators';
-import AskLocation from '../Screens/AskLocationScreen';
-import SignupScreen from '../Screens/SignupScreen';
-import NavBar from '../Components/NavBar';
-import LoginScreen from '../Screens/LoginScreen';
 import I18n from '../I18n';
+import NavBar from '../Components/NavBar';
+import SplashScreen from '../Screens/SplashScreen';
+import LoginScreen from '../Screens/LoginScreen';
+import SignupScreen from '../Screens/SignupScreen';
+import OnboardingScreen from '../Components/Onboarding';
+import AskLocation from '../Screens/AskLocationScreen';
 
 export const MainTabsNav = TabNavigator(
   {

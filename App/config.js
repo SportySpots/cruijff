@@ -23,6 +23,4 @@ if (__DEV__) {
   console.disableYellowBox = false;
 }
 
-console.log(settings);
-
 export default settings;

@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { View, Image, StyleSheet, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import Text from '../../Components/Text';
-import I18n from '../../I18n/index';
-import Slider from '../../Components/Slider';
-import Colors from '../../Themes/Colors';
-import DefaultButton from '../../Components/DefaultButton';
-import { connect } from 'react-redux';
-import { GET_USER_DETAILS } from './ProfileDetailsScreen';
-import UserCircle from '../../Components/UserCircle';
+import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import SeedorfAPI from '../../Services/SeedorfApi';
+import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { connect } from 'react-redux';
+import DefaultButton from '../../Components/DefaultButton';
+import Slider from '../../Components/Slider';
 import StackBackHeader from '../../Components/StackBackHeader';
+import Text from '../../Components/Text';
+import UserCircle from '../../Components/UserCircle';
+import I18n from '../../I18n/index';
+import SeedorfAPI from '../../Services/SeedorfApi';
+import Colors from '../../Themes/Colors';
+import { GET_USER_DETAILS } from './ProfileDetailsScreen';
 
 class ProfileEditComponent extends React.PureComponent {
   static propTypes = {

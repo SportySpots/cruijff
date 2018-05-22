@@ -73,5 +73,7 @@
 		<string>comgooglemaps</string>
 		<string>citymapper</string>
 	</array>
+	<key>CodePushDeploymentKey</key>
+	<string>Fys4YOUOPMzpoFgIC4YxluGhZZGeSJu5aAky7</string>
 </dict>
 </plist>

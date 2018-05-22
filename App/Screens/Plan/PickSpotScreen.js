@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FlatList, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { cardList } from '../../Components/Spots/Styles/CardStyles';
+import Footer from '../../Components/DarkFooter/index';
 import CardSmall from '../../Components/Spots/SpotListCardSmall';
 import Text from '../../Components/Text';
+import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
-import Footer from '../../Components/DarkFooter/index';
 import spotsQuery from '../../GraphQL/Spots/Queries/spots';
 import api from '../../Services/SeedorfApi';
-import withQuery from '../../GraphQL/withQuery';
 
 const CardContainer = (props) => {
   const { onPress, ...otherProps } = props;

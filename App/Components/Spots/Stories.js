@@ -1,15 +1,15 @@
+import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { storiesOf } from '@storybook/react-native';
-import SpotListCard from './SpotListCard';
-import SpotListCardSmall from './SpotListCardSmall';
+import { createStore } from 'redux';
+import { WithApolloMockProvider } from '../../GraphQL';
 import SpotDetailsScreen, { GET_SPOT_DETAILS } from '../../Screens/Spots/SpotDetailsScreen';
 import SpotsListScreen from '../../Screens/Spots/SpotsListScreen';
 import spotsQuery from '../../GraphQL/Spots/Queries/spots';
+import SpotListCard from './SpotListCard';
+import SpotListCardSmall from './SpotListCardSmall';
 import SpotMap from './SpotMap';
-import { WithApolloMockProvider } from '../../GraphQL';
 import SpotProperties from './SpotProperties';
 
 const dummyNavigator = {
@@ -18,6 +18,7 @@ const dummyNavigator = {
     params: { spotId: 455 },
   },
 };
+
 const spotProperties = {
   Sport: 'Voetbal',
   Locatie: 'Plantsoen',

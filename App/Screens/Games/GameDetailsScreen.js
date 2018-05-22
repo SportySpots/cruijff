@@ -1,22 +1,21 @@
-import React, { Component } from 'react'
-import { View, ScrollView, Image, TouchableOpacity, Share } from 'react-native'
-import PropTypes from 'prop-types'
-import Text from '../../Components/Text'
-import ImageSwiper from '../../Components/ImageSwiper'
-import Colors from '../../Themes/Colors'
-import moment from 'moment'
-import I18n from '../../I18n/index'
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
-import styled from 'styled-components'
-import UserCircle from '../../Components/UserCircle'
-import PropertyCircle from '../../Components/PropertyCircle'
-import images from '../../Themes/Images'
-import DefaultButton from '../../Components/DefaultButton'
-import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
-import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback'
-import SpotDetailsScreen from '../Spots/SpotDetailsScreen'
-import StackBackHeader from '../../Components/StackBackHeader'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+import { Image, ScrollView, Share, TouchableOpacity, View, ViewPropTypes } from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import styled from 'styled-components';
+import moment from 'moment';
+import Text from '../../Components/Text';
+import ImageSwiper from '../../Components/ImageSwiper';
+import Colors from '../../Themes/Colors';
+import I18n from '../../I18n/index';
+import UserCircle from '../../Components/UserCircle';
+import PropertyCircle from '../../Components/PropertyCircle';
+import images from '../../Themes/Images';
+import DefaultButton from '../../Components/DefaultButton';
+import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
+import StackBackHeader from '../../Components/StackBackHeader';
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -33,7 +32,7 @@ const mapMax = (maxNum, data, fn, fnElse) => {
 class GameComponent extends Component {
   static propTypes = {
     game: PropTypes.object,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     navigation: PropTypes.object,
   };
 
@@ -186,7 +185,7 @@ class GameComponent extends Component {
 export default class Game extends Component {
   static propTypes = {
     uuid: PropTypes.string,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
   };
   static navigationOptions = {
     title: I18n.t('Game details'),

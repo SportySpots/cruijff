@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Modal,
-  FlatList,
-  TextInput,
-  Keyboard,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Calendar } from 'react-native-calendars';
-import DateTimePicker from 'react-native-modal-datetime-picker';
-import PropTypes from 'prop-types';
-
-import Colors from '../../Themes/Colors';
-import Text from '../../Components/Text';
-import I18n from '../../I18n/index';
-import Footer from '../../Components/DarkFooter/index';
-import api from '../../Services/SeedorfApi';
-import { client } from '../../GraphQL/index';
 import gql from 'graphql-tag';
 import moment from 'moment';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { FlatList, Keyboard, Modal, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { Calendar } from 'react-native-calendars';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import withQuery from '../../GraphQL/withQuery';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
+import Footer from '../../Components/DarkFooter/index';
+import Text from '../../Components/Text';
+import { client } from '../../GraphQL/index';
+import withQuery from '../../GraphQL/withQuery';
+import I18n from '../../I18n/index';
+import api from '../../Services/SeedorfApi';
+import Colors from '../../Themes/Colors';
+
 
 const Field = ({ value, onPress }) => (
   <TouchableOpacity onPress={() => onPress && onPress()}>

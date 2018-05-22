@@ -1,11 +1,11 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce';
-import config from '../config';
+import gql from 'graphql-tag';
 import moment from 'moment';
 import { client } from '../GraphQL';
-import gql from 'graphql-tag';
-// our "constructor"
+import config from '../config';
 
+// our "constructor"
 const create = () => {
   // ------
   // STEP 1
@@ -45,6 +45,7 @@ const create = () => {
   const getGame = gameId => gameId;
   const getGames = ({ month }) => api.get('search/games/', { q: month });
   const verifyToken = token => api.post('/auth/token-verify/', { token });
+
   const signup = ({
     username, email, first_name, last_name, password,
   }) =>
@@ -56,17 +57,20 @@ const create = () => {
       password1: password,
       password2: password,
     });
+
   const login = ({ username, email, password }) =>
     api.post('/auth/login/', {
       username,
       email,
       password,
     });
+
   const updateUser = ({ uuid, first_name, last_name }) =>
     api.patch(`/users/${uuid}/`, {
       first_name,
       last_name,
     });
+
   const submitRating = (spotUuid, userUuid, rating) => {
     api.post(`/games/${spotUuid}/reactions`, {
       // todo : construct proper post
@@ -108,6 +112,7 @@ const create = () => {
     api.post(`/games/${gameUUID}/spot/`, {
       uuid: spotUUID,
     });
+
   const setGameTimes = ({ gameUUID, startTime, endTime }) =>
     api.put(`/games/${gameUUID}/`, {
       start_time: startTime,
@@ -126,7 +131,8 @@ const create = () => {
       capacity,
     });
 
-  // const setGameStartTime = ({ gameUUID, start_date, start_time }) => api.put(`/games/${gameUUID}/`), {
+  // const setGameStartTime = ({ gameUUID, start_date, start_time }) =>
+  //  api.put(`/games/${gameUUID}/`), {
   //   start_time:
   // }
 
