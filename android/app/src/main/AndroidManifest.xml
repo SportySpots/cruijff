@@ -11,7 +11,7 @@
 
   <uses-sdk
         android:minSdkVersion="23"
-        android:targetSdkVersion="27" />
+        android:targetSdkVersion="26" />
 
     <application
       android:name=".MainApplication"
@@ -49,7 +49,7 @@
       <meta-data
         tools:replace="android:value"
         android:name="android.support.VERSION"
-        android:value="26.0.2" />
+        android:value="26.1.0" />
     </application>
 
 </manifest>
