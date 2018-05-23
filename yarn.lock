@@ -10054,12 +10054,6 @@ react-native-modal@3.1.0:
     prop-types "15.5.10"
     react-native-animatable "^1.2.3"
 
-react-native-onesignal@^3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/react-native-onesignal/-/react-native-onesignal-3.2.4.tgz#8c5bb9743f415499cd5eb36e56e6e604f201d12d"
-  dependencies:
-    invariant "^2.2.2"
-
 react-native-permissions@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-1.1.1.tgz#4876004681ff8556454613d85249b01baff9b35b"

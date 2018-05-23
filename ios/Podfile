@@ -15,6 +15,8 @@ target 'SportySpots' do
   pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
   pod 'React', path: rn_path, subspecs: [
     'Core',
+    'CxxBridge',
+    'DevSupport',
     'RCTActionSheet',
     'RCTAnimation',
     'RCTGeolocation',
@@ -27,11 +29,16 @@ target 'SportySpots' do
     'RCTWebSocket',
     'BatchedBridge'
   ]
+
+  # React Native third party dependencies podspecs
+  pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
+  pod 'GLog', :podspec => "#{rn_path}/third-party-podspecs/glog.podspec"
+  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+
   pod 'react-native-maps', path: rn_maps_path
-  pod 'GoogleMaps'  # Remove this line if you don't want to support Google Maps on iOS
   pod 'react-native-google-maps', path: rn_maps_path  # Remove this line if you don't want to support Google Maps on iOS
-  # pod 'CodePush', :path => '../node_modules/react-native-code-push'
-  # pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
+  pod 'GoogleMaps'  # Remove this line if you don't want to support Google Maps on iOS
+  pod 'Google-Maps-iOS-Utils' # Remove this line if you don't want to support GoogleMaps on iOS
 
 end
 
