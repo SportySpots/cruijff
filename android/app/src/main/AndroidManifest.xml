@@ -23,7 +23,7 @@
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
         android:windowSoftInputMode="adjustResize"
-        android:launchMode="singleTask">
+        android:launchMode="singleTop">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
@@ -44,7 +44,7 @@
       <!-- https://github.com/react-community/react-native-maps/blob/master/docs/installation.md#android -->
       <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="@string/GOOGLE_MAPS_API_KEY" />
+        android:value="@string/GOOGLE_MAPS_ANDROID_API_KEY" />
     </application>
 
 </manifest>

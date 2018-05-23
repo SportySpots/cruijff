@@ -27,13 +27,11 @@ target 'SportySpots' do
     'RCTWebSocket',
     'BatchedBridge'
   ]
-
   pod 'react-native-maps', path: rn_maps_path
-
   pod 'GoogleMaps'  # Remove this line if you don't want to support Google Maps on iOS
   pod 'react-native-google-maps', path: rn_maps_path  # Remove this line if you don't want to support Google Maps on iOS
-
-  pod 'CodePush', :path => '../node_modules/react-native-code-push'
+  # pod 'CodePush', :path => '../node_modules/react-native-code-push'
+  # pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
 
 end
 

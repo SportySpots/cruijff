@@ -67,7 +67,7 @@ and other sensitive information in a `.env` file:
 
 ```
 API_URL=https://myapi.com
-GOOGLE_MAPS_API_KEY=abcdefgh
+GOOGLE_MAPS_ANDROID_API_KEY=abcdefgh
 ```
 
 and access them from React Native like so:
@@ -76,7 +76,7 @@ and access them from React Native like so:
 import Secrets from 'react-native-config'
 
 Secrets.API_URL  // 'https://myapi.com'
-Secrets.GOOGLE_MAPS_API_KEY  // 'abcdefgh'
+Secrets.GOOGLE_MAPS_ANDROID_API_KEY  // 'abcdefgh'
 ```
 
 Generate release key
