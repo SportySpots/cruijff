@@ -49,8 +49,8 @@ export class _Signup extends Component {
         error: result.data,
       });
     } else {
+      this.props.navigation.popToTop();
       this.props.setToken(result.data.token);
-      this.props.navigation.goBack(null);
     }
   };
 
