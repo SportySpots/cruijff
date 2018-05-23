@@ -2,6 +2,7 @@
 
 import I18n from 'react-native-i18n';
 
+// todo: set locale based on user/phone settings
 I18n.locale = 'nl';
 
 // Enable fallbacks if you want `en-US` and `en-GB` to fallback to `en`
