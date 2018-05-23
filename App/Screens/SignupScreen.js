@@ -80,7 +80,6 @@ export class _Signup extends Component {
   }
 
   render() {
-    console.log(this.error);
     return (
       <KeyboardAwareScrollView>
         <LogoHeaderBackground>

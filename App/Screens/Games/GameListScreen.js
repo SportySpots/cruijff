@@ -39,10 +39,12 @@ export default class GameList extends Component {
   render() {
     const monthRange = getMonthRange(this.state.month);
 
-    const Contents = withQuery(GET_GAMES_LIST)(({ data }) => (
+    const Contents = withQuery(GET_GAMES_LIST)(({ data, refetch, loading }) => (
       <FlatList
         showsVerticalScrollIndicator={false}
         data={data.games ? data.games.filter(game => game.spot) : []}
+        refreshing={loading}
+        onRefresh={() => console.log('refetch') || refetch()}
         renderItem={({ item }) => (
           <GameListCardContainer
             game={item}

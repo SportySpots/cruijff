@@ -1,6 +1,8 @@
 import React from 'react';
 import { StackNavigator, SwitchNavigator } from 'react-navigation';
+import { View } from 'react-native';
 import I18n from '../I18n';
+import Text from '../Components/Text';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
 import SettingsScreen from '../Screens/SettingsScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
@@ -80,9 +82,7 @@ export const SpotSearchNav = StackNavigator(
       navigationOptions({ navigation }) {
         return {
           headerLeft: (
-            <SpotsHeaderBtn
-              icon="search"
-            />
+            <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
           ),
           headerRight: (
             <SpotsHeaderBtn
@@ -99,9 +99,7 @@ export const SpotSearchNav = StackNavigator(
       navigationOptions({ navigation }) {
         return {
           headerLeft: (
-            <SpotsHeaderBtn
-              icon="search"
-            />
+            <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
           ),
           headerRight: (
             <SpotsHeaderBtn
