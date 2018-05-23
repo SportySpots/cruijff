@@ -323,6 +323,13 @@
 			remoteGlobalIDString = F886647B1F4ADB500036D01B;
 			remoteInfo = "CodePush-tvOS";
 		};
+		C542E08E20B5D0A40013FDD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7A8A9196A90479AAFCA75A7 /* RNDeviceInfo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E72EC1401F7ABB5A0001BC90;
+			remoteInfo = "RNDeviceInfo-tvOS";
+		};
 		C55FCD2320B4BEAC008E1611 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
@@ -943,6 +950,7 @@
 			isa = PBXGroup;
 			children = (
 				C5CD16682017BE0F000C7202 /* libRNDeviceInfo.a */,
+				C542E08F20B5D0A40013FDD6 /* libRNDeviceInfo-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1105,10 +1113,10 @@
 					C55FCD1520B4BEAC008E1611 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = FD94WWSEG4;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1469,6 +1477,13 @@
 			fileType = archive.ar;
 			path = libCodePush.a;
 			remoteRef = C540902220B35A5800B2F4D7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C542E08F20B5D0A40013FDD6 /* libRNDeviceInfo-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNDeviceInfo-tvOS.a";
+			remoteRef = C542E08E20B5D0A40013FDD6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C55FCD3320B4C166008E1611 /* libRCTOneSignal.a */ = {
@@ -1856,7 +1871,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SportySpots/SportySpots.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -1891,8 +1906,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportyspots.ios;
 				PRODUCT_NAME = SportySpots;
-				PROVISIONING_PROFILE = "858460a4-9338-46df-b53b-f19e83ad4637";
-				PROVISIONING_PROFILE_SPECIFIER = SportySpotsDistribution;
+				PROVISIONING_PROFILE = "9a692b9a-f34b-4450-b172-c9a295063b6b";
+				PROVISIONING_PROFILE_SPECIFIER = SportySpotsDevelopment;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1904,7 +1919,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SportySpots/SportySpots.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FD94WWSEG4;
@@ -1938,8 +1953,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportyspots.ios;
 				PRODUCT_NAME = SportySpots;
-				PROVISIONING_PROFILE = "858460a4-9338-46df-b53b-f19e83ad4637";
-				PROVISIONING_PROFILE_SPECIFIER = SportySpotsDistribution;
+				PROVISIONING_PROFILE = "9a692b9a-f34b-4450-b172-c9a295063b6b";
+				PROVISIONING_PROFILE_SPECIFIER = SportySpotsDevelopment;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -2036,9 +2051,9 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = FD94WWSEG4;
 				ENABLE_TESTABILITY = YES;
@@ -2050,8 +2065,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportyspots.ios.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9cee7169-91f6-4170-add4-09d0cb19e0a2";
+				PROVISIONING_PROFILE_SPECIFIER = SportySpotsDevelopment;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2071,9 +2088,9 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FD94WWSEG4;
@@ -2085,8 +2102,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportyspots.ios.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9cee7169-91f6-4170-add4-09d0cb19e0a2";
+				PROVISIONING_PROFILE_SPECIFIER = SportySpotsDevelopment;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
