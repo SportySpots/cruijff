@@ -1,52 +1,89 @@
+import gql from 'graphql-tag';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { ScrollView } from 'react-native';
+import Config from 'react-native-config';
 import { connect } from 'react-redux';
-import { Query } from 'react-apollo';
-import spotQuery from '../../GraphQL/Spots/Queries/spot';
+import styled from 'styled-components';
+import api from '../../Services/SeedorfApi';
+import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
+import FlatButton from '../../Components/FlatButton';
+import ImageSwiper from '../../Components/ImageSwiper';
+import RatingBig from '../../Components/RatingBig';
+import Header from '../../Components/Spots/Header';
+import SpotProperties from '../../Components/Spots/SpotProperties';
 import StackBackHeader from '../../Components/StackBackHeader';
-import I18n from '../../I18n';
 import Text from '../../Components/Text';
-import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
-import SpotDetails from '../../Components/Spots/SpotDetails';
+import withQuery from '../../GraphQL/withQuery';
+import I18n from '../../I18n';
+import Colors from '../../Themes/Colors';
 
-const SpotDetailsScreen = ({ navigation, uuid }) => (
-  <Query
-    query={spotQuery}
-    variables={{
-      uuid: navigation.state.params.uuid,
-      user_uuid: uuid,
-    }}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <CenteredActivityIndicator />;
-      if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
-      return (
-        <SpotDetails spot={data.spot} uuid={uuid} />
-      );
-    }}
-  </Query>
-);
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const HorizontalView = styled.View`
+  flex-direction: row;
+`;
+//------------------------------------------------------------------------------
+const Block = styled.View`
+  padding: 16px;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+class SpotRating extends React.PureComponent {
+  state = {
+    rating: 0,
+    userRating: null, // todo: set from props
+    showRating: true,
+  }
 
-SpotDetailsScreen.propTypes = {
-  navigation: PropTypes.shape({
-    state: PropTypes.shape({
-      params: PropTypes.shape({
-        uuid: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
-  uuid: PropTypes.string.isRequired,
-};
+  submitRating = async () => {
+    const { spotId, userId } = this.props;
+    const { rating } = this.state;
 
-SpotDetailsScreen.navigationOptions = {
-  title: I18n.t('Spot details'),
-  header: props => <StackBackHeader {...props} title={I18n.t('Spot details')} />,
-};
+    if (this.state.rating <= 0) {
+      return;
+    }
 
-const withRedux = connect(state => ({ uuid: state.user.uuid }));
+    try {
+      const result = await api.submitRating(spotId, userId, rating);
+      console.log(result);
+      this.setState({ userRating: this.state.rating });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-export default withRedux(SpotDetailsScreen);
+  render() {
+    const { showRating } = this.state;
+
+    if (!showRating) {
+      return null;
+    }
+
+    return (
+      <Block style={{ backgroundColor: Colors.bgGrey }}>
+        <Text>{I18n.t('Rate this spot')}</Text>
+        <HorizontalView style={{ justifyContent: 'space-between' }}>
+          <RatingBig
+            rating={this.state.rating}
+            onPress={i => this.setState({ rating: i })}
+          />
+          <FlatButton
+            text={I18n.t(this.state.userRating ? 'thank you' : 'submit').toUpperCase()}
+            onPress={this.submitRating}
+          />
+        </HorizontalView>
+      </Block>
+    );
+  }
+}
+
+SpotRating.
+export default SpotRating;
+
+
 
 /*
 import gql from 'graphql-tag';

@@ -6,20 +6,21 @@ import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import { cardList } from '../Spots/Styles/CardStyles';
 
 const SpotsList = ({
-  data,
+  // data,
   spots,
   cardComponent,
   onCardPress,
   style,
-  refetch,
-  loading,
+  // refetch,
+  // loading,
 }) => (
   <View style={[cardList.container, style]}>
     <FlatList
-      onRefresh={() => console.log('refetch') || refetch()}
+      // onRefresh={() => console.log('refetch') || refetch()}
       showsVerticalScrollIndicator={false}
-      data={data && data.spots ? data.spots : spots}
-      refreshing={loading}
+      // data={data && data.spots ? data.spots : spots}
+      data={spots}
+      // refreshing={loading}
       renderItem={({ item: spot }) => (
         <TouchableOpacity
           key={spot.uuid}
@@ -37,11 +38,11 @@ const SpotsList = ({
 );
 
 SpotsList.propTypes = {
-  data: PropTypes.shape({
+  /* data: PropTypes.shape({
     spots: PropTypes.arrayOf(propType(spotFragment)),
   }),
   loading: PropTypes.bool,
-  refetch: PropTypes.func.isRequired,
+  refetch: PropTypes.func.isRequired, */
   spots: PropTypes.arrayOf(propType(spotFragment)),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
@@ -49,7 +50,7 @@ SpotsList.propTypes = {
 };
 
 SpotsList.defaultProps = {
-  data: {},
+  // data: {},
   spots: [],
   onCardPress: () => {},
   style: {},

@@ -1,52 +1,73 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Query } from 'react-apollo';
-import spotQuery from '../../GraphQL/Spots/Queries/spot';
-import StackBackHeader from '../../Components/StackBackHeader';
-import I18n from '../../I18n';
-import Text from '../../Components/Text';
-import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
-import SpotDetails from '../../Components/Spots/SpotDetails';
+import { propType } from 'graphql-anywhere';
+import { ScrollView } from 'react-native';
+import Config from 'react-native-config';
+import styled from 'styled-components';
+import spotDetailsFragment from '../../GraphQL/Spots/Fragments/spotDetails';
+import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
+import ImageSwiper from '../../Components/ImageSwiper';
+import Header from '../../Components/Spots/Header';
+import SpotProperties from '../../Components/Spots/SpotProperties';
+import Colors from '../../Themes/Colors';
 
-const SpotDetailsScreen = ({ navigation, uuid }) => (
-  <Query
-    query={spotQuery}
-    variables={{
-      uuid: navigation.state.params.uuid,
-      user_uuid: uuid,
-    }}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <CenteredActivityIndicator />;
-      if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
-
-      return (
-        <SpotDetails spot={data.spot} uuid={uuid} />
-      );
-    }}
-  </Query>
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled(ScrollView)`
+  background-color: ${Colors.white};
+`;
+//------------------------------------------------------------------------------
+const ImageSwiperContainer = styled.View`
+  height: 200px;
+`;
+//------------------------------------------------------------------------------
+const Block = styled.View`
+  padding: 16px;
+`;
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png';
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+const getImageUrl = image => (
+  image.startsWith('http') ? image : Config.SEEDORF_HOST + image
 );
+//------------------------------------------------------------------------------
+const getSpotImages = spot => (
+  spot && spot.images && spot.images.length > 0
+    ? spot.images.map(({ image }) => getImageUrl(image))
+    : [SPOT_IMG]
+);
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const SpotDetails = ({ spot }) => {
+  const images = getSpotImages(spot);
 
-SpotDetailsScreen.propTypes = {
-  navigation: PropTypes.shape({
-    state: PropTypes.shape({
-      params: PropTypes.shape({
-        uuid: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
-  uuid: PropTypes.string.isRequired,
+  return (
+    <Container>
+      <ImageSwiperContainer>
+        <ImageSwiper images={images} />
+      </ImageSwiperContainer>
+      <Block>
+        <Header spot={spot} />
+      </Block>
+      <SpotMapWithLinkFallback spot={spot} />
+      {spot.amenities.length > 0 && (
+        <SpotProperties properties={spot.amenities[0].data} />
+      )}
+      <Block style={{ height: 100 }} />
+    </Container>
+  );
 };
 
-SpotDetailsScreen.navigationOptions = {
-  title: I18n.t('Spot details'),
-  header: props => <StackBackHeader {...props} title={I18n.t('Spot details')} />,
+SpotDetails.propTypes = {
+  spot: propType(spotDetailsFragment).isRequired,
 };
 
-const withRedux = connect(state => ({ uuid: state.user.uuid }));
-
-export default withRedux(SpotDetailsScreen);
+export default SpotDetails;
 
 /*
 import gql from 'graphql-tag';
