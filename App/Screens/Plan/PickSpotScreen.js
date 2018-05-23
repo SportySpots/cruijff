@@ -40,13 +40,17 @@ class PickSpotComponent extends Component {
   };
 
   render() {
+    const spots = this.props.data.spots.filter((spot) => {
+      const sportUUIDs = spot.sports.map(sport => sport.uuid);
+      return (sportUUIDs.indexOf(this.props.navigation.state.params.sportUUID) !== -1);
+    });
     return (
       <View style={style.container}>
         <View style={[style.cardListContainer, this.props.style]}>
           <Text.L>{I18n.t('Pick a spot')}</Text.L>
           <FlatList
             showsVerticalScrollIndicator={false}
-            data={this.props.data.spots.slice(0, 100)}
+            data={spots}
             renderItem={({ item }) => (
               <CardContainer spot={item} onPress={() => this.selectSpot(item)} />
             )}

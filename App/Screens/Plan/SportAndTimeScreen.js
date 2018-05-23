@@ -187,6 +187,7 @@ export default class SportAndTime extends Component {
     Keyboard.dismiss();
     this.props.navigation.navigate('pickSpot', {
       uuid: this.gameUUID,
+      sportUUID: this.state.game.sport.uuid,
     });
   };
 

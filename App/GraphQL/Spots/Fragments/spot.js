@@ -13,6 +13,7 @@ const spotFragment = gql`
       lng
     }
     sports {
+      uuid
       category
     }
     spot_games {
