@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   componentWillMount() {
+    console.log(OneSignal);
     OneSignal.init('YOUR_ONESIGNAL_APPID');
 
     OneSignal.addEventListener('received', this.onReceived);
