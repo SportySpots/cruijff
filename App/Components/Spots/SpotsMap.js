@@ -124,8 +124,10 @@ class SpotsMap extends React.PureComponent {
   }
 
   render() {
-    const { spots, cardComponent, onCardPress } = this.props;
+    const { cardComponent, onCardPress } = this.props;
     const { region, currentSpot } = this.state;
+
+    const spots = this.props.filter(spot => spot.address);
 
     // Test fallback
     // throw new Error(401, 'bla');
