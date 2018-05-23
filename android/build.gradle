@@ -17,7 +17,7 @@ allprojects {
     repositories {
         configurations.all {
             resolutionStrategy {
-                force "com.google.android.gms:play-services-gcm:11.8.0"
+                force "com.google.android.gms:play-services-gcm:12.0.1"
             }
         }
         mavenLocal()
