@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { View, Image, TouchableHighlight } from 'react-native';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import Permissions from 'react-native-permissions';
 import { connect } from 'react-redux';
 import Images from '../Themes/Images';
@@ -12,7 +12,7 @@ import Fonts from '../Themes/Fonts';
 import Text from '../Components/Text';
 import PropTypesDefinitions from '../PropTypesDefinitions';
 
-export default connect(null, { getLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
+export default connect(null, { updateLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
   static propTypes = {
     navigation: PropTypesDefinitions.navigation.isRequired,
     updateLocation: PropTypes.func.isRequired,
