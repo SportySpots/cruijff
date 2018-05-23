@@ -91,6 +91,7 @@ export const GET_GAMES_LIST = gql`
       show_remaining
       capacity
       sport {
+        uuid
         category
       }
       spot {
@@ -100,22 +101,28 @@ export const GET_GAMES_LIST = gql`
           image
         }
         amenities {
+          uuid
           sport {
+            uuid
             category
           }
           data
         }
         sports {
+          uuid
           category
         }
         address {
+          uuid
           lat
           lng
         }
       }
       attendees {
+        uuid
         status
         user {
+          uuid
           name
         }
       }

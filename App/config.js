@@ -23,6 +23,8 @@ if (__DEV__) {
   console.disableYellowBox = false;
   // settings.seedorfRestUrl = 'https://training.sportyspots.com/api';
   // settings.seedorfGraphQLUrl = 'https://training.sportyspots.com/graphql';
+  settings.seedorfRestUrl = 'http://localhost:8000/api';
+  settings.seedorfGraphQLUrl = 'http://localhost:8000/graphql';
 }
 
 export default settings;
