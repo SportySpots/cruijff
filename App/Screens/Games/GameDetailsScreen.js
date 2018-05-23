@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
-import PropTypes from 'prop-types';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-
+import I18n from '../../I18n/index';
+import Colors from '../../Themes/Colors';
 import API from '../../Services/SeedorfApi';
 import Text from '../../Components/Text';
 import ImageSwiper from '../../Components/ImageSwiper';
-import Colors from '../../Themes/Colors';
-import I18n from '../../I18n/index';
 import UserCircle from '../../Components/UserCircle';
 import PropertyCircle from '../../Components/PropertyCircle';
 import themeImages from '../../Themes/Images';

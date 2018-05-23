@@ -1,13 +1,15 @@
-import config from './config';
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import { ApolloProvider } from 'react-apollo';
 import { StatusBar } from 'react-native';
-import AppNavigation from './Navigation/AppNavigation';
-import Colors from './Themes/Colors';
+import { Provider } from 'react-redux';
 import styled from 'styled-components';
-import createStore from './Redux';
 import { createClient, createMockClient } from './GraphQL/index';
+import AppNavigation from './Navigation/AppNavigation';
+import createStore from './Redux';
+import Colors from './Themes/Colors';
+import config from './config';
+import codePush from "react-native-code-push";
+
 
 class App extends Component {
   constructor() {
@@ -16,13 +18,18 @@ class App extends Component {
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
   }
 
+  // NOTE: https://github.com/Microsoft/react-native-code-push/issues/516#issuecomment-275688344
+  // To remove warning caused by required listener
+  codePushDownloadDidProgress(progress) {
+  }
+
   render() {
     return (
       <ApolloProvider client={this.client}>
         <Provider store={this.store}>
           <AppRootView>
             <StatusBar barStyle="light-content" />
-            <AppNavigation initialRouteName="SplashNav" />
+            <AppNavigation initialRouteName="RootNav" />
           </AppRootView>
         </Provider>
       </ApolloProvider>
@@ -36,4 +43,4 @@ const AppRootView = styled.View`
   background-color: ${Colors.white};
 `;
 
-export default App;
+export default codePush(App);

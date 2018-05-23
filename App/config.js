@@ -1,6 +1,7 @@
 import { Text } from 'react-native';
-import './I18n/I18n';
 import Config from 'react-native-config';
+import './I18n/I18n';
+
 
 if (typeof global.self === 'undefined') {
   // needed for apollo client
@@ -23,7 +24,5 @@ if (__DEV__) {
   settings.seedorfRestUrl = 'http://localhost:8000/api';
   settings.seedorfGraphQLUrl = 'http://localhost:8000/graphql';
 }
-
-console.log(settings);
 
 export default settings;

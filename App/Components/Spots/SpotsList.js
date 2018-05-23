@@ -1,6 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { FlatList, TouchableOpacity, View } from 'react-native';
 import { cardList } from '../Spots/Styles/CardStyles';
 
 const SpotsList = ({

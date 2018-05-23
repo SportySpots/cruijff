@@ -1,7 +1,6 @@
-import planGameAction from '../../Redux/PlanGameRedux';
 import { NavigationActions } from 'react-navigation';
-
 import { connect } from 'react-redux';
+import planGameAction from '../../Redux/PlanGameRedux';
 
 const dispatchToProps = {
   clear: planGameAction.clearGame,

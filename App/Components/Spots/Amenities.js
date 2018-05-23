@@ -1,7 +1,7 @@
 import React from 'react';
-import Fonts from '../../Themes/Fonts';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import I18n from '../../I18n';
+import Fonts from '../../Themes/Fonts';
 import PropertyCircle from '../PropertyCircle';
 import Text from '../Text';
 

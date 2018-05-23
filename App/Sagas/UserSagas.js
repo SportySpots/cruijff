@@ -1,9 +1,9 @@
+import { Buffer } from 'buffer';
+import { AsyncStorage } from 'react-native';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { client } from '../GraphQL';
 import userActions, { UserTypes } from '../Redux/UserRedux';
 import gql from 'graphql-tag';
-import { client } from '../GraphQL';
-import { AsyncStorage } from 'react-native';
-import { Buffer } from 'buffer';
 
 export function* setToken(api, action) {
   const claims = JSON.parse(Buffer.from(action.token.split('.')[1], 'base64').toString('ascii'));

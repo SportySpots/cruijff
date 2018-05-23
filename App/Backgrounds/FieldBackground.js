@@ -1,11 +1,28 @@
 import React from 'react';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import Colors from '../Themes/Colors';
 
-import { View, Dimensions, StyleSheet } from 'react-native';
 
 const fullWidth = Dimensions.get('window').width;
 const fullHeight = Dimensions.get('window').height;
+
+const styles = StyleSheet.create({
+  container: {
+    width: fullWidth,
+    height: fullHeight,
+  },
+  bgContainer: {
+    backgroundColor: Colors.primaryGreen,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+  },
+  childContainer: {
+    width: fullWidth,
+    height: fullHeight,
+  },
+});
 
 const FieldBackground = props => (
   <View style={styles.container}>
@@ -28,20 +45,3 @@ const FieldBackground = props => (
 );
 
 export default FieldBackground;
-
-const styles = StyleSheet.create({
-  container: {
-    width: fullWidth,
-    height: fullHeight,
-  },
-  bgContainer: {
-    backgroundColor: Colors.primaryGreen,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-  },
-  childContainer: {
-    width: fullWidth,
-    height: fullHeight,
-  },
-});

@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
-import Text from '../../Components/Text';
-import I18n from '../../I18n/index';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Slider from '../../Components/Slider';
-import styled from 'styled-components/native';
 import gql from 'graphql-tag';
-
+import PropTypes from 'prop-types';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { Menu, MenuOption, MenuOptions, MenuProvider, MenuTrigger } from 'react-native-popup-menu';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { TabBarTop, TabNavigator } from 'react-navigation';
-import Colors from '../../Themes/Colors';
-import userActions from '../../Redux/UserRedux';
 import { connect } from 'react-redux';
-import { Query } from 'react-apollo';
+import styled from 'styled-components/native';
+import Slider from '../../Components/Slider';
+import Text from '../../Components/Text';
 import UserCircle from '../../Components/UserCircle';
 import withQuery from '../../GraphQL/withQuery';
+import I18n from '../../I18n/index';
+import userActions from '../../Redux/UserRedux';
+import Colors from '../../Themes/Colors';
+
 
 export const BottomNav = new TabNavigator(
   {
