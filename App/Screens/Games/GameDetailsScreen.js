@@ -39,7 +39,7 @@ const mapMax = (maxNum, data, fn, fnElse) => {
 
 class GameComponent extends Component {
   static propTypes = {
-    game: PropTypes.any.isRequired,
+    data: PropTypes.any.isRequired,
     style: View.propTypes.style,
     navigation: PropTypeDefinitions.navigation,
     user: PropTypes.object,
@@ -55,7 +55,7 @@ class GameComponent extends Component {
 
   openPlayerList = () => {
     this.props.navigation.navigate('GamePlayerScreen', {
-      uuid: this.props.game.uuid,
+      uuid: this.props.data.game.uuid,
     });
   };
 
@@ -73,7 +73,7 @@ class GameComponent extends Component {
   };
 
   get userRSVP() {
-    for (const attendee of this.props.game.attendees) {
+    for (const attendee of this.props.data.game.attendees) {
       if (attendee.user.uuid === this.props.user.uuid) {
         return attendee;
       }
@@ -93,12 +93,12 @@ class GameComponent extends Component {
     const attendee = this.userRSVP;
     if (attendee) {
       await API.updateRSVPStatus({
-        gameUUID: this.props.game.uuid,
+        gameUUID: this.props.data.game.uuid,
         rsvpUUID: attendee.uuid,
         status,
       });
     } else {
-      await API.setRSVPStatus({ gameUUID: this.props.game.uuid, status });
+      await API.setRSVPStatus({ gameUUID: this.props.data.game.uuid, status });
     }
     this.props.refetch();
   }
@@ -156,7 +156,7 @@ class GameComponent extends Component {
   }
 
   render() {
-    const game = this.props.game;
+    const game = this.props.data.game;
     const spot = game.spot;
     const images =
       spot.images.length > 0
