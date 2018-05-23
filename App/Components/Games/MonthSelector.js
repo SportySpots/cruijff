@@ -13,7 +13,7 @@ export default class MonthSelector extends React.Component {
   static propTypes: {
     month: PropTypes.number.required,
     onChange: PropTypes.func.required,
-    style: View.propTypes,
+    style: PropTypes.any,
   };
 
   render() {

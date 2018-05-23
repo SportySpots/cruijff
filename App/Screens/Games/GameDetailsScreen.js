@@ -40,7 +40,7 @@ const mapMax = (maxNum, data, fn, fnElse) => {
 class GameComponent extends Component {
   static propTypes = {
     data: PropTypes.any.isRequired,
-    style: View.propTypes.style,
+    style: PropTypes.any,
     navigation: PropTypeDefinitions.navigation,
     user: PropTypes.object,
     refetch: PropTypes.func,
