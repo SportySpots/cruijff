@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import Card from '../../Components/Spots/SpotMapCardSmall';
-import SpotsMapWithListFallback from '../../Components/Spots/SpotsMapWithListFallback';
+import spotsQuery from '../../GraphQL/Spots/Queries/spots';
 import Text from '../../Components/Text';
-import { GET_SPOTS } from './SpotsListScreen';
+import Card from '../../Components/Spots/SpotListCardSmall';
+import SpotsMapWithListFallback from '../../Components/Spots/SpotsMapWithListFallback';
+import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
 
 // TODO: handle no spots were found case --> probably handle this on SpotsMap
 // and SpotsList components
@@ -17,9 +18,9 @@ const SpotsMapScreen = ({ navigation }) => {
   };
 
   return (
-    <Query query={GET_SPOTS}>
+    <Query query={spotsQuery}>
       {({ loading, error, data }) => {
-        if (loading) return <Text>Loading...</Text>;
+        if (loading) return <CenteredActivityIndicator />;
         if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
         return (

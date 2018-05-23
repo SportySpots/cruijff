@@ -1,32 +1,20 @@
-import React from 'react';
-import { View } from 'react-native';
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
-import NavBar from '../Components/NavBar';
-import OnboardingScreen from '../Components/Onboarding';
+import {
+  GameSearchNav,
+  PlanGameNav,
+  ProfileNav,
+  SettingsNav,
+  SpotSearchNav,
+} from './Navigators';
 import I18n from '../I18n';
-import AskLocation from '../Screens/AskLocationScreen';
+import NavBar from '../Components/NavBar';
+import SplashScreen from '../Screens/SplashScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import SignupScreen from '../Screens/SignupScreen';
-import SplashScreen from '../Screens/SplashScreen';
-import { GameSearchNav, PlanGameNav, ProfileNav, SettingsNav, SpotSearchNav } from './Navigators';
+import OnboardingScreen from '../Components/Onboarding';
+import AskLocation from '../Screens/AskLocationScreen';
 
-/*
-  Stack Navigator has support for a (custom) NavBar,
-  We can't use it since our NavBar has the center button
-  partly overlapping the View above it
- */
-const withNavBar = (Navigator) => {
-  const navigator = props => (
-    <View style={{ flex: 1 }}>
-      <Navigator {...props} />
-      <NavBar {...props} />
-    </View>
-  );
-  navigator.router = Navigator.router;
-  return navigator;
-};
-
-export const MainTabsNav = withNavBar(TabNavigator(
+export const MainTabsNav = TabNavigator(
   {
     SpotSearchTab: { screen: SpotSearchNav },
     GameSearchTab: { screen: GameSearchNav },
@@ -34,12 +22,13 @@ export const MainTabsNav = withNavBar(TabNavigator(
     SettingsTab: { screen: SettingsNav },
   },
   {
-    tabBarComponent: () => null,
+    tabBarComponent: NavBar,
+    tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
     initialRouteName: 'SpotSearchTab',
   },
-));
+);
 
 export const MainNav = StackNavigator(
   {
@@ -70,7 +59,9 @@ export default StackNavigator(
   {
     RootNav: {
       screen: RootNav,
-      navigationOptions: { header: null },
+      navigationOptions: {
+        header: null,
+      },
     },
     LoginScreen: {
       screen: LoginScreen,
@@ -80,7 +71,9 @@ export default StackNavigator(
     },
     SignupScreen: {
       screen: SignupScreen,
-      navigationOptions: { title: I18n.t('Sign up') },
+      navigationOptions: {
+        title: I18n.t('Sign up'),
+      },
     },
   },
   {

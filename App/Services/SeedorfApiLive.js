@@ -131,8 +131,18 @@ const create = () => {
       capacity,
     });
 
+  const setRSVPStatus = ({ gameUUID, status }) =>
+    api.post(`/games/${gameUUID}/rsvps/`, {
+      status: status.toLowerCase(),
+    });
+
+  const updateRSVPStatus = ({ gameUUID, rsvpUUID, status }) =>
+    api.patch(`/games/${gameUUID}/rsvps/${rsvpUUID}/`, {
+      status: status.toLowerCase(),
+    });
+
   // const setGameStartTime = ({ gameUUID, start_date, start_time }) =>
-  //  api.put(`/games/${gameUUID}/`), {
+  // api.put(`/games/${gameUUID}/`), {
   //   start_time:
   // }
 
@@ -166,6 +176,8 @@ const create = () => {
     updateUser,
     submitRating,
     verifyToken,
+    setRSVPStatus,
+    updateRSVPStatus,
     setToken: token => api.setHeader('Authorization', `JWT ${token}`),
   };
 };

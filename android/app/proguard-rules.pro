@@ -71,4 +71,4 @@
 
 # https://github.com/luggit/react-native-config#problems-with-proguard
 
--keep class com.sportyspots.BuildConfig { *; }
+-keep class com.sportyspots.android.BuildConfig { *; }

@@ -1,25 +1,21 @@
-/* Card component, this is the Card that is used in a list of many Cards */
-
 import gql from 'graphql-tag';
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import Config from 'react-native-config';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import ErrorBoundary from '../../Components/ErrorBoundary';
+import api from '../../Services/SeedorfApi';
+import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
 import FlatButton from '../../Components/FlatButton';
 import ImageSwiper from '../../Components/ImageSwiper';
 import RatingBig from '../../Components/RatingBig';
 import Header from '../../Components/Spots/Header';
-import SpotMap from '../../Components/Spots/SpotMap';
 import SpotProperties from '../../Components/Spots/SpotProperties';
 import StackBackHeader from '../../Components/StackBackHeader';
 import Text from '../../Components/Text';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n';
-import api from '../../Services/SeedorfApi';
 import Colors from '../../Themes/Colors';
-
 
 export const GET_SPOT_DETAILS = gql`
   query spot($uuid: UUID) {
@@ -46,6 +42,7 @@ export const GET_SPOT_DETAILS = gql`
   }
 `;
 
+/* Card component, this is the Card that is used in a list of many Cards */
 export const SpotContents = withQuery(GET_SPOT_DETAILS)(class _SpotContents extends React.Component {
   constructor(props) {
     super(props);
@@ -112,11 +109,7 @@ export const SpotContents = withQuery(GET_SPOT_DETAILS)(class _SpotContents exte
               </HorizontalView>
             </Block>
           )}
-        <View style={{ margin: 0 }}>
-          <ErrorBoundary>
-            <SpotMap spot={spot} />
-          </ErrorBoundary>
-        </View>
+        <SpotMapWithLinkFallback spot={spot} />
         {spot.amenities.length > 0 && <SpotProperties properties={spot.amenities[0].data} />}
         <Block style={{ height: 100 }} />
       </Container>

@@ -1,34 +1,9 @@
-import gql from 'graphql-tag';
-import PropTypes from 'prop-types';
 import React from 'react';
-import Card from '../../Components/Spots/SpotListCard';
+import PropTypes from 'prop-types';
 import SpotsList from '../../Components/Spots/SpotsList';
 import withQuery from '../../GraphQL/withQuery';
-
-export const GET_SPOTS = gql`
-  {
-    spots {
-      uuid
-      name
-      address {
-        lat
-        lng
-      }
-      images {
-        image
-        sport {
-          uuid
-        }
-      }
-      sports {
-        category
-      }
-      spot_games {
-        uuid
-      }
-    }
-  }
-`;
+import spotsQuery from '../../GraphQL/Spots/Queries/spots';
+import Card from '../../Components/Spots/SpotListCard';
 
 class SpotsListScreen extends React.Component {
   static propTypes = {
@@ -44,7 +19,7 @@ class SpotsListScreen extends React.Component {
   };
 
   render() {
-    const Contents = withQuery(GET_SPOTS)(SpotsList);
+    const Contents = withQuery(spotsQuery)(SpotsList);
     return (
       <Contents
         cardComponent={Card}

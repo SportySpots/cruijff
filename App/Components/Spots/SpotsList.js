@@ -1,15 +1,21 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { FlatList, TouchableOpacity, View } from 'react-native';
+import PropTypes from 'prop-types';
+import { FlatList, View, TouchableOpacity } from 'react-native';
+import { propType } from 'graphql-anywhere';
+import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import { cardList } from '../Spots/Styles/CardStyles';
 
 const SpotsList = ({
-  data, cardComponent, onCardPress, style,
+  data,
+  spots,
+  cardComponent,
+  onCardPress,
+  style,
 }) => (
   <View style={[cardList.container, style]}>
     <FlatList
       showsVerticalScrollIndicator={false}
-      data={data.spots}
+      data={data && data.spots ? data.spots : spots}
       renderItem={({ item: spot }) => (
         <TouchableOpacity
           key={spot.uuid}
@@ -27,20 +33,17 @@ const SpotsList = ({
 );
 
 SpotsList.propTypes = {
-  // TODO: use fragment instead!
-  spots: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    address: PropTypes.shape({
-      lat: PropTypes.number.isRequired,
-      lng: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired),
+  data: PropTypes.shape({
+    spots: PropTypes.arrayOf(propType(spotFragment)),
+  }),
+  spots: PropTypes.arrayOf(propType(spotFragment)),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
-  style: PropTypes.object,
+  style: PropTypes.object, // eslint-disable-line
 };
 
 SpotsList.defaultProps = {
+  data: {},
   spots: [],
   onCardPress: () => {},
   style: {},

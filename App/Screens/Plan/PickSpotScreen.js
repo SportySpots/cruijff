@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
+import PropTypes from 'prop-types';
+import { FlatList, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { cardList } from '../../Components/Spots/Styles/CardStyles';
 import Footer from '../../Components/DarkFooter/index';
 import CardSmall from '../../Components/Spots/SpotListCardSmall';
-import { cardList } from '../../Components/Spots/Styles/CardStyles';
 import Text from '../../Components/Text';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
+import spotsQuery from '../../GraphQL/Spots/Queries/spots';
 import api from '../../Services/SeedorfApi';
-import { GET_SPOTS } from '../Spots/SpotsListScreen';
 
 const CardContainer = (props) => {
   const { onPress, ...otherProps } = props;
@@ -64,7 +64,7 @@ class PickSpotComponent extends Component {
   }
 }
 
-export default withQuery(GET_SPOTS)(PickSpotComponent);
+export default withQuery(spotsQuery)(PickSpotComponent);
 
 const style = StyleSheet.create({
   cardListContainer: {
