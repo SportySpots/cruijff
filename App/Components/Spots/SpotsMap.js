@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
-import {
-  TouchableOpacity,
-  View, // eslint-disable-line
-  Dimensions,
-} from 'react-native';
+import { TouchableOpacity, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Swiper from 'react-native-swiper';
 import Colors from '../../Themes/Colors';
+import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import { cardList } from './Styles/CardStyles';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+// -----------------------------------------------------------------------------
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
+const AMSTERDAM = { latitude: 52.3724437, longitude: 4.8887393 };
 // -----------------------------------------------------------------------------
 // STYLE:
 // -----------------------------------------------------------------------------
@@ -45,17 +46,30 @@ const getSpotLocation = spot => ({
  * is placed at the bottom of the map showing the selected spot details. On
  * render, the map is centered on the 'initialLocation'. The component exposes a
  * onCardPress method.
+ * @see {@link https://github.com/leecade/react-native-swiper/issues/68}
+ * @see {@link https://github.com/leecade/react-native-swiper/issues/299}
  */
 class SpotsMap extends React.PureComponent {
-  state = {
-    region: {
-      latitude: this.props.spots[0].address.lat,
-      longitude: this.props.spots[0].address.lng,
-      latitudeDelta: LATITUDE_DELTA,
-      longitudeDelta: LONGITUDE_DELTA,
-    },
-    currentSpot: 0, // index of the current spot based on the spots array
-  };
+  constructor(props) {
+    super(props);
+
+    const initLoc = (
+      this.props.spots &&
+      this.props.spots.length > 0 &&
+      this.props.spots[0] &&
+      this.props.spots[0].address
+    );
+
+    this.state = {
+      region: {
+        latitude: (initLoc && initLoc.lat) || AMSTERDAM.latitude,
+        longitude: (initLoc && initLoc.lng) || AMSTERDAM.longitude,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      },
+      currentSpot: 0, // index of the current spot based on the spots array
+    };
+  }
 
   /**
    * @summary Fires every time a card is swiped. As a result, the map is
@@ -69,10 +83,10 @@ class SpotsMap extends React.PureComponent {
     const latLng = getSpotLocation(spot);
 
     // Center map on the spot keeping delta as it is
-    this.setState({
+    this.setState(prevState => ({
       currentSpot: index,
-      region: { ...this.state.region, ...latLng },
-    });
+      region: { ...prevState.region, ...latLng },
+    }));
   };
 
   /**
@@ -94,24 +108,27 @@ class SpotsMap extends React.PureComponent {
     // Get spot associated to the new index and determine the new map's region
     const spot = this.props.spots[index];
     const latLng = getSpotLocation(spot);
-    const region = { ...this.state.region, ...latLng }; // eslint-disable-line
 
     // Number of times we have to scroll the swiper to reach the desired card
     const offset = index - this.state.currentSpot;
+    const swiper = this.refs.swiper; // eslint-disable-line
 
     // Center map on the spot
-    this.setState(({ currentSpot: index, region }) => {
-      // After the map is re-centered, scroll the swiper to the desired card.
-      this.refs.swiper.scrollBy(offset, true);
+    this.setState({
+      currentSpot: index,
+      region: { ...this.state.region, ...latLng },
+    }, () => {
+      // After that, scroll the swiper to the desired card.
+      swiper.scrollBy(offset, true);
     });
-  };
+  }
 
   render() {
     const { spots, cardComponent, onCardPress } = this.props;
     const { region, currentSpot } = this.state;
 
     // Test fallback
-    // throw new Error(401, 'bla')
+    // throw new Error(401, 'bla');
 
     return (
       <Relative style={{ flex: 1 }}>
@@ -135,12 +152,11 @@ class SpotsMap extends React.PureComponent {
         </MapView>
         <Absolute>
           <Swiper
-            ref="swiper"
+            ref="swiper" // eslint-disable-line
             loop={false}
             bounces
             showsPagination={false}
             containerStyle={{ height: 80 }}
-            index={currentSpot}
             onIndexChanged={this.handleIndexChange}
           >
             {spots.map(spot => (
@@ -167,14 +183,7 @@ SpotsMap.propTypes = {
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired
   }).isRequired, */
-  // TODO: use fragment instead!
-  spots: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    address: PropTypes.shape({
-      lat: PropTypes.number.isRequired,
-      lng: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired),
+  spots: PropTypes.arrayOf(propType(spotFragment)),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
 };

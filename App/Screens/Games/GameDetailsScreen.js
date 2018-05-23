@@ -14,12 +14,11 @@ import UserCircle from '../../Components/UserCircle';
 import PropertyCircle from '../../Components/PropertyCircle';
 import themeImages from '../../Themes/Images';
 import DefaultButton from '../../Components/DefaultButton';
-import ErrorBoundary from '../../Components/ErrorBoundary';
-import SpotMap from '../../Components/Spots/SpotMap';
 import StackBackHeader from '../../Components/StackBackHeader';
 import PropTypeDefinitions from '../../PropTypesDefinitions';
 import { GET_GAME_DETAILS } from '../../GraphQL/queries';
 import withQuery from '../../GraphQL/withQuery';
+import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -194,11 +193,7 @@ class GameComponent extends Component {
           </HeaderLeft>
           <HeaderRight />
         </BlockHeader>
-        <View style={{ margin: 0 }}>
-          <ErrorBoundary>
-            <SpotMap spot={spot} />
-          </ErrorBoundary>
-        </View>
+        <SpotMapWithLinkFallback spot={spot} />
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
           <TouchableOpacity onPress={this.openPlayerList}>
@@ -206,7 +201,8 @@ class GameComponent extends Component {
               <UserCircle user={game.organizer} style={{ marginRight: 16 }} />
               <View style={{ flex: 1 }}>
                 <Text.SM>
-                  {game.organizer.first_name} {game.organizer.last_name} - {game.description}
+                  {game.organizer.first_name} {game.organizer.last_name} -{' '}
+                  {game.description || ''}
                 </Text.SM>
               </View>
             </HorizontalView>

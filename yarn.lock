@@ -843,6 +843,10 @@ apollo-utilities@^1.0.0, apollo-utilities@^1.0.1, apollo-utilities@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.12.tgz#9e2b2a34cf89f3bf0d73a664effd8c1bb5d1b7f7"
 
+apollo-utilities@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.12.tgz#9e2b2a34cf89f3bf0d73a664effd8c1bb5d1b7f7"
+
 app-module-path@2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/app-module-path/-/app-module-path-2.2.0.tgz#641aa55dfb7d6a6f0a8141c4b9c0aa50b6c24dd5"
@@ -5441,6 +5445,12 @@ gradle-to-js@^1.0.1:
 graphql-anywhere@^4.1.10:
   version "4.1.10"
   resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-4.1.10.tgz#247ada0c8d85b9d5d6b37180973442ac68ff15de"
+  dependencies:
+    apollo-utilities "^1.0.12"
+
+graphql-anywhere@^4.1.8:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-4.1.8.tgz#23882e6a16ec824febbe5bca40937cdd76c5acdc"
   dependencies:
     apollo-utilities "^1.0.12"
 
