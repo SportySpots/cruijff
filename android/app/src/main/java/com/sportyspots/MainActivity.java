@@ -1,4 +1,4 @@
-package com.sportyspots;
+package com.sportyspots.android;
 
 import com.facebook.react.ReactActivity;
 import android.content.Intent;
