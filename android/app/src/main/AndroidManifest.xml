@@ -44,7 +44,7 @@
       <!-- https://github.com/react-community/react-native-maps/blob/master/docs/installation.md#android -->
       <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="@string/GOOGLE_MAPS_API_KEY" />
+        android:value="@string/GOOGLE_MAPS_ANDROID_API_KEY" />
     </application>
 
 </manifest>
