@@ -114,14 +114,19 @@ class GameComponent extends Component {
               bgColor={Colors.primaryGreen}
               textColor={Colors.white}
               text={I18n.t("I'm attending")}
-              onPress={() => this.setRSVPStatus(RSVP_STATUSES.ATTENDING)}
+              onPress={() => !this.props.user.uuid ?
+                this.props.navigation.navigate('ProfileTab') :
+                this.setRSVPStatus(RSVP_STATUSES.ATTENDING)
+              }
             />
             <DefaultButton
               style={{ flex: 1, marginRight: -10 }}
               bgColor={Colors.red}
               textColor={Colors.white}
               text={I18n.t("I'm not attending")}
-              onPress={() => this.setRSVPStatus(RSVP_STATUSES.DECLINED)}
+              onPress={() => !this.props.user.uuid ?
+                this.props.navigation.navigate('ProfileTab') :
+                this.setRSVPStatus(RSVP_STATUSES.DECLINED)}
             />
           </HorizontalView>
         </Block>
