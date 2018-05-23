@@ -74,7 +74,7 @@ export class _LoginScreen extends Component {
 
   render() {
     return (
-      <KeyboardAwareScrollView contentContainerStyle={{ flex: 1 }}>
+      <KeyboardAwareScrollView>
         <LogoHeaderBackground>
           <Form>
             <FieldSet>

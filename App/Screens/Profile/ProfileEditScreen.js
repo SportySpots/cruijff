@@ -80,7 +80,7 @@ class ProfileEditComponent extends React.PureComponent {
               </View>
             </View>
           )}
-          <DefaultButton style={{ width: 100 }} text="save" onPress={this.updateUser} />
+          <DefaultButton style={{ width: 100 }} text={I18n.t('Save')} onPress={this.updateUser} />
         </View>
       </ScrollView>
     );

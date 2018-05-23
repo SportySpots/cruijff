@@ -75,7 +75,7 @@ export class ProfileDetailsScreenComponent extends React.PureComponent {
             </MenuOption>
             <MenuOption disabled />
             <MenuOption onSelect={this.onLogout}>
-              <Text.M style={{ color: 'red' }}>Log out</Text.M>
+              <Text.M style={{ color: 'red' }}>{I18n.t('Log out')}</Text.M>
             </MenuOption>
           </MenuOptions>
         </Menu>
