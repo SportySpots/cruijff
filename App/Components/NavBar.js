@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import NavBarButton from './NavBarButton';
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import MaterialCummunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../Themes/Colors';
 
 import api from '../Services/SeedorfApi';
@@ -47,7 +47,7 @@ const buttons = [
       }
     },
     icon: {
-      set: MaterialCummunityIcon,
+      set: MaterialCommunityIcon,
       name: 'calendar-plus',
     },
     main: true,
