@@ -7,7 +7,7 @@ import Game from '../../Screens/Games/GameDetailsScreen';
 import GamesList, { GET_GAMES_LIST } from '../../Screens/Games/GameListScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
 import GameListCard from './GameListCard';
-
+import GameProperties from './GameProperties'
 
 const dummyNavigator = {
   navigate: () => null,
@@ -50,4 +50,5 @@ storiesOf('Games')
         />
       </WithApolloMockProvider>
     </View>
-  ));
+  ))
+  .add('GameProperties', () => <GameProperties properties={gameProperties} />)
