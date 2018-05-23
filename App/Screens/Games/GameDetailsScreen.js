@@ -1,22 +1,21 @@
-import gql from 'graphql-tag';
-import moment from 'moment';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { Image, ScrollView, Share, TouchableOpacity, View, ViewPropTypes } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
-import DefaultButton from '../../Components/DefaultButton';
-import ErrorBoundary from '../../Components/ErrorBoundary';
-import ImageSwiper from '../../Components/ImageSwiper';
-import PropertyCircle from '../../Components/PropertyCircle';
-import SpotMap from '../../Components/Spots/SpotMap';
-import StackBackHeader from '../../Components/StackBackHeader';
+import moment from 'moment';
 import Text from '../../Components/Text';
-import UserCircle from '../../Components/UserCircle';
-import I18n from '../../I18n/index';
+import ImageSwiper from '../../Components/ImageSwiper';
 import Colors from '../../Themes/Colors';
+import I18n from '../../I18n/index';
+import UserCircle from '../../Components/UserCircle';
+import PropertyCircle from '../../Components/PropertyCircle';
 import images from '../../Themes/Images';
+import DefaultButton from '../../Components/DefaultButton';
+import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
+import StackBackHeader from '../../Components/StackBackHeader';
 
 const SpotOpenImage = () => (
   <Image source={images.spotOpenCircle} style={{ width: 42, height: 42 }} />
@@ -99,11 +98,7 @@ class GameComponent extends Component {
           </HeaderLeft>
           <HeaderRight />
         </BlockHeader>
-        <View style={{ margin: 0 }}>
-          <ErrorBoundary>
-            <SpotMap spot={spot} />
-          </ErrorBoundary>
-        </View>
+        <SpotMapWithLinkFallback spot={spot} />
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
           <TouchableOpacity onPress={this.openPlayerList}>
@@ -111,7 +106,8 @@ class GameComponent extends Component {
               <UserCircle user={game.organizer} style={{ marginRight: 16 }} />
               <View style={{ flex: 1 }}>
                 <Text.SM>
-                  {game.organizer.first_name} {game.organizer.last_name} - {game.description}
+                  {game.organizer.first_name} {game.organizer.last_name} -{' '}
+                  {game.description || ''}
                 </Text.SM>
               </View>
             </HorizontalView>
@@ -225,7 +221,7 @@ const GET_GAME_DETAILS = gql`
       is_featured
       show_remaining
       capacity
-      description
+      #description
       sport {
         category
       }
