@@ -32,6 +32,7 @@ export const GET_SPOT_DETAILS = gql`
         data
       }
       sports {
+        uuid
         category
       }
       address {
