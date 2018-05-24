@@ -1,20 +1,25 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Platform, Dimensions } from 'react-native';
 // import { propType } from 'graphql-anywhere';
 import PropTypes from 'prop-types';
+import Secrets from 'react-native-config'
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import MapView, { Marker } from 'react-native-maps';
+import GoogleStaticMap from 'react-native-google-static-map';
 import { showLocation } from 'react-native-map-link';
 // import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../Themes/Colors';
 import RoundButton from '../RoundButton';
 
-const { width, height } = Dimensions.get('window');
-const ASPECT_RATIO = width / height;
-const LATITUDE_DELTA = 0.003;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
+// -----------------------------------------------------------------------------
+// CONSTANTS:
+// -----------------------------------------------------------------------------
+const { width: windowWidth } = Dimensions.get('window');
+// -----------------------------------------------------------------------------
+const { GOOGLE_MAPS_IOS_API_KEY, GOOGLE_MAPS_ANDROID_API_KEY } = Secrets;
+const GOOGLE_MAPS_API_KEY = Platform.OS === 'ios'
+  ? GOOGLE_MAPS_IOS_API_KEY
+  : GOOGLE_MAPS_ANDROID_API_KEY;
 // -----------------------------------------------------------------------------
 // STYLE:
 // -----------------------------------------------------------------------------
@@ -65,8 +70,8 @@ const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
   let position;
   const options = {
     enableHighAccuracy: true,
-    timeout: 10000,
-    maximumAge: 1000,
+    timeout: 1000,
+    maximumAge: 100000,
   };
 
   if ('geolocation' in navigator) {
@@ -110,18 +115,15 @@ const SpotMap = ({ spot }) => {
   // Test fallback
   // throw new Error(401, 'bla');
 
-  // Define map region centered on the spot
-  const region = {
-    ...latLng,
-    latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA,
-  };
-
   return (
     <Relative>
-      <MapView style={{ height: 150 }} initialRegion={region}>
-        <Marker coordinate={latLng} pinColor={Colors.primaryGreen} />
-      </MapView>
+      <GoogleStaticMap
+        latitude={latLng.latitude.toString()}
+        longitude={latLng.longitude.toString()}
+        zoom={13}
+        size={{ width: parseInt(windowWidth, 10), height: 150 }}
+        apiKey={GOOGLE_MAPS_API_KEY}
+      />
       <Absolute>
         <Flex>
           <RoundButton
