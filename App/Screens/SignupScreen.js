@@ -109,6 +109,7 @@ export class _Signup extends Component {
                   </Error>
                 )}
               <Input
+                keyboardType="email-address"
                 onChangeText={val => this.setState({ email: val })}
                 editable={!this.requestIsPending}
               />
@@ -120,6 +121,7 @@ export class _Signup extends Component {
                   <Error>{I18n.t('Password needs to be at least 8 characters')}</Error>
                 )}
               <Input
+                secureTextEntry
                 onChangeText={val => this.setState({ password: val })}
                 editable={!this.requestIsPending}
               />
