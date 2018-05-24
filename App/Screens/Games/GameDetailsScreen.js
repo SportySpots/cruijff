@@ -198,7 +198,7 @@ class GameComponent extends Component {
           </HeaderLeft>
           <HeaderRight />
         </BlockHeader>
-        <SpotMapWithLinkFallback spot={spot} />
+        { false && <SpotMapWithLinkFallback spot={spot} /> }
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
           <TouchableOpacity onPress={this.openPlayerList}>
@@ -219,10 +219,10 @@ class GameComponent extends Component {
             <TouchableOpacity onPress={this.openPlayerList}>
               <HorizontalView>
                 {mapMax(
-                  8,
+                  7,
                   attendingUsers,
                   user => <UserCircle key={user.uuid} user={user} style={{ marginRight: 4 }} />,
-                  () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 7}`} />,
+                  () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 6}`} />,
                 )}
               </HorizontalView>
             </TouchableOpacity>
@@ -234,10 +234,10 @@ class GameComponent extends Component {
             <TouchableOpacity onPress={this.openPlayerList}>
               <HorizontalView>
                 {mapMax(
-                  8,
+                  7,
                   [...Array(nOpenSpots)],
                   (_, i) => <SpotOpenImage key={i} />,
-                  () => <PropertyCircle key="extra" text={`+${nOpenSpots - 7}`} />,
+                  () => <PropertyCircle key="extra" text={`+${nOpenSpots - 6}`} />,
                 )}
               </HorizontalView>
             </TouchableOpacity>
