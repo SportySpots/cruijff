@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import NavBar from './NavBar';
-import NavBarButton from './NavBarButton';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 import './ScreenSlider/Stories';
 import './Spots/Stories';
@@ -13,6 +13,8 @@ import './DarkFooter/Stories';
 import './Games/Stories';
 import '../Backgrounds/Stories';
 
+import NavBar from './NavBar';
+import NavBarButton from './NavBarButton';
 import Onboarding from './Onboarding';
 import ImageSwiper from './ImageSwiper';
 import BackButton from './BackButton';
@@ -34,8 +36,7 @@ import PropertyCircle from './PropertyCircle';
 import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import LoginScreen from '../Screens/LoginScreen';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import FilterScreen from '../Screens/Filters';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -159,4 +160,7 @@ storiesOf('LoginScreen').add('Default', () => (
   <Provider store={store}>
     <LoginScreen navigation={dummyNavigator} />
   </Provider>
+));
+storiesOf('FilterScreen').add('Default', () => (
+  <FilterScreen navigation={dummyNavigator} />
 ));
