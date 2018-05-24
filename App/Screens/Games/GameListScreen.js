@@ -133,6 +133,7 @@ export const GET_GAMES_LIST = gql`
 const Container = styled(MenuProvider)`
   margin-left: 8px;
   margin-right: 8px;
+  margin-top: 32px;
   flex: 1;
 `;
 
