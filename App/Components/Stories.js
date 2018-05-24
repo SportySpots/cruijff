@@ -92,7 +92,7 @@ storiesOf('ImageSwiper').add('Default', () => (
   <ImageSwiper
     images={[
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A',
-      'http://via.placeholder.com/350x150',
+      'https://via.placeholder.com/350x150',
     ]}
   />
 ));

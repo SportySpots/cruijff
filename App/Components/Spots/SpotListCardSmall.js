@@ -35,7 +35,7 @@ export default class SpotListCardSmall extends Component {
 
   render() {
     const spot = this.props.spot;
-    let image = 'http://via.placeholder.com/350x150';
+    let image = 'https://via.placeholder.com/350x150';
     if (spot.images.length > 0) {
       image = SpotListCardSmall.getImageUrl(spot.images[0].image);
     }
