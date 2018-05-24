@@ -8,9 +8,9 @@ import InfoScreen from '../Screens/InfoScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../Screens/Profile/ProfileEditScreen';
 import SpotsListScreen from '../Screens/Spots/SpotsListScreen';
-import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen';
+// import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen';
 import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen';
-import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
+// import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
 import planWrapper from '../Containers/Plan/planWrapper';
 import Game from '../Screens/Games/GameDetailsScreen';
 import GamesList from '../Screens/Games/GameListScreen';
@@ -77,36 +77,36 @@ export const SpotSearchNav = StackNavigator(
         title: I18n.t('spot-details'),
       },
     },
-    // SpotsMapScreen: {
-    //   screen: SpotsMapScreen,
-    //   navigationOptions({ navigation }) {
-    //     return {
-    //       headerLeft: (
-    //         <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
-    //       ),
-    //       headerRight: (
-    //         <SpotsHeaderBtn
-    //           icon="dehaze"
-    //           onPress={() => { navigation.goBack(null); }}
-    //         />
-    //       ),
-    //       tabBarVisible: false,
-    //     };
-    //   },
-    // },
-    SpotsListScreen: {
-      screen: SpotsListScreen,
+    /* SpotsMapScreen: {
+      screen: SpotsMapScreen,
       navigationOptions({ navigation }) {
         return {
           headerLeft: (
             <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
           ),
-          headerRight: false ? (
+          headerRight: (
+            <SpotsHeaderBtn
+              icon="dehaze"
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+          tabBarVisible: false,
+        };
+      },
+    }, */
+    SpotsListScreen: {
+      screen: SpotsListScreen,
+      navigationOptions({ navigation }) { // eslint-disable-line
+        return {
+          headerLeft: (
+            <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
+          ),
+          /* headerRight: (
             <SpotsHeaderBtn
               icon="location-on"
               onPress={() => { navigation.navigate('SpotsMapScreen'); }}
             />
-          ) : null,
+          ), */
         };
       },
     },
