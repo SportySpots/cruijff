@@ -114,7 +114,7 @@ export const SpotContents = withQuery(GET_SPOT_DETAILS)(class _SpotContents exte
               </HorizontalView>
             </Block>
           )}
-        { false && <SpotMapWithLinkFallback spot={spot} /> }
+        <SpotMapWithLinkFallback spot={spot} />
         {spot.amenities.length > 0 && <SpotProperties properties={spot.amenities[0].data} />}
         <Block style={{ height: 100 }} />
       </Container>

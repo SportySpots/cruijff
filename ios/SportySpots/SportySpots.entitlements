@@ -7,6 +7,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:sportyspots.com</string>
+		<string>applinks:training.sportyspots.com</string>
 	</array>
 </dict>
 </plist>

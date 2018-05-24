@@ -200,7 +200,7 @@ class GameComponent extends Component {
           </HeaderLeft>
           <HeaderRight />
         </BlockHeader>
-        { false && <SpotMapWithLinkFallback spot={spot} /> }
+        <SpotMapWithLinkFallback spot={spot} />
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
           <TouchableOpacity onPress={this.openPlayerList}>

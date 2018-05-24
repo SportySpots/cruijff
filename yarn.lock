@@ -10013,6 +10013,10 @@ react-native-easy-grid@0.1.17:
   dependencies:
     lodash "^4.11.1"
 
+react-native-google-static-map@^0.1.12:
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/react-native-google-static-map/-/react-native-google-static-map-0.1.12.tgz#fc25f913afa8dccca8596e1b1f18ba18e67f2cdb"
+
 react-native-i18n@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-i18n/-/react-native-i18n-1.0.0.tgz#0c407d9ebb846aae1aa5e05de6503008553f02fd"
