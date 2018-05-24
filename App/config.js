@@ -15,6 +15,7 @@ const settings = {
   seedorfRestUrl: Config.SEEDORF_REST_URL,
   seedorfGraphQLUrl: Config.SEEDORF_GRAPHQL_URL,
   useFixtures: Config.USE_FIXTURES === 'YES',
+  deeplinkHost: Config.DEEPLINK_HOST,
 };
 
 if (__DEV__) {

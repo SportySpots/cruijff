@@ -19,6 +19,7 @@ import PropTypeDefinitions from '../../PropTypesDefinitions';
 import { GET_GAME_DETAILS } from '../../GraphQL/queries';
 import withQuery from '../../GraphQL/withQuery';
 import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
+import config from '../../config';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -60,8 +61,8 @@ class GameComponent extends Component {
   };
 
   onShare = (game) => {
-    const url = `https://www.sportyspots.com/games/${game.uuid}`;
-    const message = `${I18n.t('You have been invited to a SportySptos game:')}: ${url}`;
+    const url = `https://${config.deeplinkHost}/games/${game.uuid}`;
+    const message = `${I18n.t('You have been invited to a SportySpots game:')}: ${url}`;
     Share.share(
       {
         message,

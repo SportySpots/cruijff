@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform, Dimensions } from 'react-native';
 // import { propType } from 'graphql-anywhere';
 import PropTypes from 'prop-types';
-import Secrets from 'react-native-config'
+import Secrets from 'react-native-config';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import GoogleStaticMap from 'react-native-google-static-map';
