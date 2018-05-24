@@ -37,6 +37,7 @@ import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import FilterScreen from '../Screens/Filters';
+import NothingFound from './NothingFound';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -161,6 +162,13 @@ storiesOf('LoginScreen').add('Default', () => (
     <LoginScreen navigation={dummyNavigator} />
   </Provider>
 ));
+storiesOf('NothingFound').add('Default', () => (
+  <NothingFound
+    icon="map-marker"
+    text="Oops, nothing found"
+  />
+));
+
 storiesOf('FilterScreen').add('Default', () => (
   <FilterScreen navigation={dummyNavigator} />
 ));

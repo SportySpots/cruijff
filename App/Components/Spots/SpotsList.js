@@ -4,6 +4,8 @@ import { FlatList, View, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import { cardList } from '../Spots/Styles/CardStyles';
+import NothingFound from '../NothingFound';
+import I18n from '../../I18n';
 
 const SpotsList = ({
   data,
@@ -13,28 +15,34 @@ const SpotsList = ({
   style,
   refetch,
   loading,
-}) => (
-  <View style={[cardList.container, style]}>
-    <FlatList
-      onRefresh={() => console.log('refetch') || refetch()}
-      showsVerticalScrollIndicator={false}
-      data={data && data.spots ? data.spots : spots}
-      refreshing={loading}
-      renderItem={({ item: spot }) => (
-        <TouchableOpacity
-          key={spot.uuid}
-          onPress={() => {
-            onCardPress(spot.uuid);
-          }}
-          style={cardList.cardContainer}
-        >
-          {React.createElement(cardComponent, { spot })}
-        </TouchableOpacity>
-      )}
-      keyExtractor={item => item.uuid}
-    />
-  </View>
-);
+}) => {
+  const spotsForList = data && data.spots ? data.spots : spots;
+
+  return (
+    <View style={[cardList.container, style, { flex: 1 }]}>
+      <FlatList
+        onRefresh={refetch}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ flexGrow: 1 }}
+        data={spotsForList}
+        refreshing={loading}
+        ListEmptyComponent={<NothingFound icon="map-marker" text={I18n.t('No spots found')} />}
+        renderItem={({ item: spot }) => (
+          <TouchableOpacity
+            key={spot.uuid}
+            onPress={() => {
+              onCardPress(spot.uuid);
+            }}
+            style={cardList.cardContainer}
+          >
+            {React.createElement(cardComponent, {spot})}
+          </TouchableOpacity>
+        )}
+        keyExtractor={item => item.uuid}
+      />
+    </View>
+  );
+};
 
 SpotsList.propTypes = {
   data: PropTypes.shape({

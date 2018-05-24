@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import GameListCard from '../../Components/Games/GameListCard';
 import MonthSelector from '../../Components/Games/MonthSelector';
 import withQuery from '../../GraphQL/withQuery';
+import I18n from '../../I18n';
+import NothingFound from '../../Components/NothingFound';
 // import { Query } from 'react-apollo';
 // import Text from '../../Components/Text';
 
@@ -39,25 +41,30 @@ export default class GameList extends Component {
   render() {
     const monthRange = getMonthRange(this.state.month);
 
-    const Contents = withQuery(GET_GAMES_LIST)(({ data, refetch, loading }) => (
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={data.games ? data.games.filter(game => game.spot) : []}
-        refreshing={loading}
-        onRefresh={() => console.log('refetch') || refetch()}
-        renderItem={({ item }) => (
-          <GameListCardContainer
-            game={item}
-            onPress={() =>
-              this.props.navigation.navigate('GameDetailsScreen', {
-                uuid: item.uuid,
-              })
-            }
-          />
-        )}
-        keyExtractor={item => item.uuid}
-      />
-    ));
+    const Contents = withQuery(GET_GAMES_LIST)(({ data, refetch, loading }) => {
+      const gamesForList = data.games ? data.games.filter(game => game.spot) : [];
+      return (
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={gamesForList}
+          refreshing={loading}
+          contentContainerStyle={{ flexGrow: 1 }}
+          ListEmptyComponent={<NothingFound icon="cancel" text={I18n.t('No games found')} />}
+          onRefresh={() => console.log('refetch') || refetch()}
+          renderItem={({ item }) => (
+            <GameListCardContainer
+              game={item}
+              onPress={() =>
+                this.props.navigation.navigate('GameDetailsScreen', {
+                  uuid: item.uuid,
+                })
+              }
+            />
+          )}
+          keyExtractor={item => item.uuid}
+        />
+      );
+    });
     return (
       <Container>
         {false && (
