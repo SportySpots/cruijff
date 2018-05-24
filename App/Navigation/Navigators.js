@@ -101,12 +101,12 @@ export const SpotSearchNav = StackNavigator(
           headerLeft: (
             <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
           ),
-          headerRight: (
+          headerRight: false ? (
             <SpotsHeaderBtn
               icon="location-on"
               onPress={() => { navigation.navigate('SpotsMapScreen'); }}
             />
-          ),
+          ) : () => null,
         };
       },
     },
