@@ -5,9 +5,11 @@ const spotFragment = gql`
     uuid
     name
     images {
+      uuid
       image
     }
     address {
+      uuid
       lat
       lng
     }
