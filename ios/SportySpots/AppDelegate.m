@@ -17,6 +17,8 @@
 #import <React/RCTRootView.h>
 #import "ReactNativeConfig.h"
 
+#import "RCTLinkingManager.h"
+
 @import GoogleMaps;
 
 @implementation AppDelegate
@@ -54,5 +56,14 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
+ restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
+{
+ return [RCTLinkingManager application:application
+                  continueUserActivity:userActivity
+                    restorationHandler:restorationHandler];
+}
+
 
 @end
