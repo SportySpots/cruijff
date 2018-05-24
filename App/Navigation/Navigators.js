@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import I18n from '../I18n';
 import Text from '../Components/Text';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
-import SettingsScreen from '../Screens/SettingsScreen';
+import InfoScreen from '../Screens/InfoScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../Screens/Profile/ProfileEditScreen';
 import SpotsListScreen from '../Screens/Spots/SpotsListScreen';
@@ -116,17 +116,17 @@ export const SpotSearchNav = StackNavigator(
   },
 );
 
-export const SettingsNav = StackNavigator(
+export const InfoNav = StackNavigator(
   {
-    SettingsScreen: {
-      screen: SettingsScreen,
+    InfoScreen: {
+      screen: InfoScreen,
       navigationOptions: {
-        title: 'Settings',
+        title: I18n.t('Info'),
       },
     },
   },
   {
-    initialRouteName: 'SettingsScreen',
+    initialRouteName: 'InfoScreen',
   },
 );
 

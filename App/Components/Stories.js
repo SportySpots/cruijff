@@ -109,7 +109,7 @@ storiesOf('NavBar')
     </Provider>
   ))
   .add('NavBarButton', () => (
-    <NavBarButton icon={{ set: MaterialIcon, name: 'settings' }} buttonText="test" />
+    <NavBarButton icon={{ set: MaterialIcon, name: 'info' }} buttonText="test" />
   ))
   .add('At bottom', () => (
     <Provider store={store}>

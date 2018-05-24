@@ -61,11 +61,11 @@ const buttons = [
     },
   },
   {
-    buttonText: 'settings',
-    navigate: 'SettingsTab',
+    buttonText: 'info',
+    navigate: 'InfoTab',
     icon: {
       set: MaterialIcon,
-      name: 'settings',
+      name: 'info',
     },
   },
 ];
