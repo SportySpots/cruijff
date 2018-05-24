@@ -33,7 +33,10 @@ const buttons = [
     async onPress() {
       // called with this = NavBar component
       if (!this.props.user.claims.uuid) {
-        this.props.navigation.navigate('ProfileTab');
+        const activeRoute = this.props.navigation.state.routes[this.props.navigation.state.index];
+        if (activeRoute.routeName !== 'ProfileTab') {
+          this.props.navigation.navigate('ProfileTab');
+        }
         return;
       }
 
