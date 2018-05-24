@@ -19,6 +19,7 @@ export const GET_GAME_DETAILS = gql`
         uuid
         name
         images {
+          uuid
           image
         }
         amenities {
