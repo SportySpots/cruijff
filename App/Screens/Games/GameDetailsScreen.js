@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, ScrollView, Share, TouchableOpacity, View, Platform } from 'react-native';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -60,11 +60,12 @@ class GameComponent extends Component {
   };
 
   onShare = (game) => {
+    const url = `https://www.sportyspots.com/games/${game.uuid}`;
+    const message = `${I18n.t('You have been invited to a SportySptos game:')}: ${url}`;
     Share.share(
       {
-        message: I18n.t('You have been invited'),
-        url: game.link,
-        title: 'Sportyspots',
+        message,
+        title: 'SportySpots',
       },
       {
         dialogTitle: I18n.t('share'),

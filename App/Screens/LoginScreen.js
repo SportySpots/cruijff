@@ -119,6 +119,9 @@ const Error = styled(Text)`
   color: red;
 `;
 const Input = styled(TextInput)`
+  font-size: 16px;
+  margin-vertical: 8px;
+  padding-vertical: 8px;
   color: black;
 `;
 

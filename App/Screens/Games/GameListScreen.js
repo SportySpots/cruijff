@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import GameListCard from '../../Components/Games/GameListCard';
 import MonthSelector from '../../Components/Games/MonthSelector';
 import withQuery from '../../GraphQL/withQuery';
-import { Query } from 'react-apollo';
-import Text from '../../Components/Text';
+// import { Query } from 'react-apollo';
+// import Text from '../../Components/Text';
 
 
 const CardContainer = (props) => {
@@ -98,6 +98,7 @@ export const GET_GAMES_LIST = gql`
         uuid
         name
         images {
+          uuid
           image
         }
         amenities {
