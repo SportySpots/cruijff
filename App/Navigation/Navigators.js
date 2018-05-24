@@ -77,7 +77,7 @@ export const SpotSearchNav = StackNavigator(
         title: I18n.t('spot-details'),
       },
     },
-    SpotsMapScreen: {
+    /* SpotsMapScreen: {
       screen: SpotsMapScreen,
       navigationOptions({ navigation }) {
         return {
@@ -93,20 +93,20 @@ export const SpotSearchNav = StackNavigator(
           tabBarVisible: false,
         };
       },
-    },
+    }, */
     SpotsListScreen: {
       screen: SpotsListScreen,
-      navigationOptions({ navigation }) {
+      navigationOptions({ navigation }) { // eslint-disable-line
         return {
           headerLeft: (
             <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
           ),
-          headerRight: (
+          /* headerRight: (
             <SpotsHeaderBtn
               icon="location-on"
               onPress={() => { navigation.navigate('SpotsMapScreen'); }}
             />
-          ),
+          ), */
         };
       },
     },
