@@ -77,23 +77,23 @@ export const SpotSearchNav = StackNavigator(
         title: I18n.t('spot-details'),
       },
     },
-    SpotsMapScreen: {
-      screen: SpotsMapScreen,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: (
-            <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
-          ),
-          headerRight: (
-            <SpotsHeaderBtn
-              icon="dehaze"
-              onPress={() => { navigation.goBack(null); }}
-            />
-          ),
-          tabBarVisible: false,
-        };
-      },
-    },
+    // SpotsMapScreen: {
+    //   screen: SpotsMapScreen,
+    //   navigationOptions({ navigation }) {
+    //     return {
+    //       headerLeft: (
+    //         <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
+    //       ),
+    //       headerRight: (
+    //         <SpotsHeaderBtn
+    //           icon="dehaze"
+    //           onPress={() => { navigation.goBack(null); }}
+    //         />
+    //       ),
+    //       tabBarVisible: false,
+    //     };
+    //   },
+    // },
     SpotsListScreen: {
       screen: SpotsListScreen,
       navigationOptions({ navigation }) {

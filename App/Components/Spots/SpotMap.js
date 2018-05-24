@@ -1,11 +1,12 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
-import { propType } from 'graphql-anywhere';
+// import { propType } from 'graphql-anywhere';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MapView, { Marker } from 'react-native-maps';
 import { showLocation } from 'react-native-map-link';
-import spotFragment from '../../GraphQL/Spots/Fragments/spot';
+// import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../Themes/Colors';
 import RoundButton from '../RoundButton';
 
@@ -145,7 +146,7 @@ const SpotMap = ({ spot }) => {
 };
 
 SpotMap.propTypes = {
-  spot: propType(spotFragment).isRequired,
+  spot: PropTypes.any.isRequired,
 };
 
 export default SpotMap;
