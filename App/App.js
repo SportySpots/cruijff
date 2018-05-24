@@ -5,6 +5,7 @@ import codePush from 'react-native-code-push';
 import { Provider } from 'react-redux';
 import styled from 'styled-components';
 import { createClient, createMockClient } from './GraphQL/index';
+import ConnectionCheck from './Components/ConnectionCheck';
 import AppNavigation from './Navigation/AppNavigation';
 import createStore from './Redux';
 import Colors from './Themes/Colors';
@@ -61,6 +62,7 @@ class App extends Component {
         <Provider store={this.store}>
           <AppRootView>
             <StatusBar barStyle="light-content" />
+            <ConnectionCheck />
             <AppNavigation ref={(ref) => { this.router = ref; }} initialRouteName="RootNav" />
           </AppRootView>
         </Provider>
