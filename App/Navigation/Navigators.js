@@ -106,7 +106,7 @@ export const SpotSearchNav = StackNavigator(
               icon="location-on"
               onPress={() => { navigation.navigate('SpotsMapScreen'); }}
             />
-          ) : () => null,
+          ) : null,
         };
       },
     },
