@@ -153,6 +153,7 @@ const Error = styled(Text)`
 `;
 const Input = styled(TextInput)`
   color: black;
+  font-size: 16px;
 `;
 
 const Form = styled.View`

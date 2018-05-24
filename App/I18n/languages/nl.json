@@ -108,5 +108,7 @@
 
   "Spot details": "Spot overzicht",
   "No spots found": "Geen spots gevonden...",
-  "No games found": "Geen potjes gevonden..."
+  "No games found": "Geen potjes gevonden...",
+
+  "Wrong username or password": "Geen geldige e-mail of wachtwoord"
 }
