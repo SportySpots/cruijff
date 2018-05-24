@@ -106,7 +106,10 @@ export class _NavBar extends React.Component {
     if (button.onPress) {
       button.onPress.call(this);
     } else {
-      this.props.navigation.navigate({ routeName: button.navigate });
+      const activeRoute = this.props.navigation.state.routes[this.props.navigation.state.index];
+      if (activeRoute.routeName !== button.navigate) {
+        this.props.navigation.navigate({ routeName: button.navigate });
+      }
     }
   };
 
