@@ -98,6 +98,7 @@ export const GET_GAMES_LIST = gql`
         uuid
         name
         images {
+          uuid
           image
         }
         amenities {
