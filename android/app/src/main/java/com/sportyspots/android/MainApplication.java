@@ -19,7 +19,7 @@ import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyti
 import com.microsoft.appcenter.reactnative.appcenter.AppCenterReactNativePackage;
 import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
-import com.airbnb.android.react.maps.MapsPackage;
+//import com.airbnb.android.react.maps.MapsPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -53,8 +53,8 @@ public class MainApplication extends Application implements ReactApplication {
             new AppCenterReactNativePackage(MainApplication.this),
             new ReactNativeI18n(),
             new VectorIconsPackage(),
-            new RNDeviceInfo(),
-            new MapsPackage()
+            new RNDeviceInfo()
+//            new MapsPackage()
       );
     }
 
