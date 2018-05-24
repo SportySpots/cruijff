@@ -60,15 +60,11 @@ class GameComponent extends Component {
   };
 
   onShare = (game) => {
-    const url = `https://www.sportyspots.com/games/${this.props.data.game.uuid}`;
-    let message = I18n.t('You have been invited');
-    if (Platform.OS === 'ios') {
-      message += ` ${game.link}`;
-    }
+    const url = `https://www.sportyspots.com/games/${game.uuid}`;
+    const message = `${I18n.t('You have been invited to a SportySptos game:')}: ${url}`;
     Share.share(
       {
         message,
-        url,
         title: 'SportySpots',
       },
       {
