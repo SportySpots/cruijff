@@ -75,7 +75,7 @@ class InfoScreen extends React.Component {
         version: metadata.appVersion,
         description: metadata.description,
       });
-    });
+    }).catch(() => null);
   }
 
   render() {
