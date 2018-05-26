@@ -16,6 +16,26 @@ const dummyNavigator = {
   },
 };
 
+const game = {
+  "uuid": "6b7588e0-0c95-4797-94ea-51b03e1eedbf",
+  "name": "Sez's game",
+  "start_time": "2018-05-24T16:00:00+00:00",
+  "end_time": "2018-05-24T04:00:00+00:00",
+  "is_featured": false,
+  "show_remaining": true,
+  "capacity": 8,
+  "description": "The description",
+  "sport": {
+    "category": "BEACH_VOLLEYBALL"
+  },
+  "spot": null,
+  "organizer": {
+    "first_name": "Tom",
+    "last_name": "Klaver"
+  },
+  "attendees": []
+}
+
 storiesOf('Games')
   .add('Game details', () => (
     <WithApolloMockProvider>
@@ -51,4 +71,4 @@ storiesOf('Games')
       </WithApolloMockProvider>
     </View>
   ))
-  .add('GameProperties', () => <GameProperties properties={gameProperties} />)
+  .add('GameProperties', () => <GameProperties game={game} />)
