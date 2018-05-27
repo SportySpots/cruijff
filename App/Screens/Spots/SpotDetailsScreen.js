@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import spotQuery from '../../GraphQL/Spots/Queries/spot';
-import StackBackHeader from '../../Components/StackBackHeader';
-import I18n from '../../I18n';
 import Text from '../../Components/Text';
 import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
 import SpotDetails from '../../Components/Spots/SpotDetails';
@@ -37,11 +35,6 @@ SpotDetailsScreen.propTypes = {
     }).isRequired,
   }).isRequired,
   uuid: PropTypes.string.isRequired,
-};
-
-SpotDetailsScreen.navigationOptions = {
-  title: I18n.t('Spot details'),
-  header: props => <StackBackHeader {...props} title={I18n.t('Spot details')} />,
 };
 
 const withRedux = connect(state => ({ uuid: state.user.uuid }));

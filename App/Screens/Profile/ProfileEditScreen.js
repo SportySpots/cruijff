@@ -5,7 +5,6 @@ import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { connect } from 'react-redux';
 import DefaultButton from '../../Components/DefaultButton';
 import Slider from '../../Components/Slider';
-import StackBackHeader from '../../Components/StackBackHeader';
 import Text from '../../Components/Text';
 import UserCircle from '../../Components/UserCircle';
 import I18n from '../../I18n/index';
@@ -113,11 +112,6 @@ const ProfileEditScreen = connect(mapStateToProps)(class extends Component {
       );
     }
 });
-
-ProfileEditScreen.navigationOptions = {
-  title: I18n.t('Profile Edit'),
-  header: props => <StackBackHeader {...props} title={I18n.t('Profile Edit')} />,
-};
 
 export default ProfileEditScreen;
 

@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import moment from 'moment';
-import propTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Query } from 'react-apollo';
 import { ScrollView, View } from 'react-native';
 import { TabBarTop, TabNavigator } from 'react-navigation';
@@ -10,7 +10,6 @@ import Text from '../../Components/Text';
 import UserCircle from '../../Components/UserCircle';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
-import StackBackHeader from '../../Components/StackBackHeader';
 
 export const BottomNav = ({ screens }) =>
   React.createElement(new TabNavigator(screens, {
@@ -44,26 +43,28 @@ const statuses = {
   },
 };
 
-class UserRow extends Component {
-  static propTypes = {
-    attendee: propTypes.object,
-  };
-  render() {
-    const user = this.props.attendee.user;
-    return (
-      <UserRowContainer>
-        <UserCircle user={user} />
-        <UserRowRight>
-          <Text.M>{user.name}</Text.M>
-          <Text.S>
-            {I18n.t('Signed up at')}:{' '}
-            {moment(this.props.attendee.createdAt).format('d MMMM YYYY HH:mm')}
-          </Text.S>
-        </UserRowRight>
-      </UserRowContainer>
-    );
-  }
-}
+const UserRow = ({ attendee }) => {
+  const { user } = attendee;
+
+  return (
+    <UserRowContainer>
+      <UserCircle user={user} />
+      <UserRowRight>
+        <Text.M>{user.name}</Text.M>
+        <Text.S>
+          {I18n.t('Signed up at')}:{' '}
+          {moment(this.props.attendee.createdAt).format('d MMMM YYYY HH:mm')}
+        </Text.S>
+      </UserRowRight>
+    </UserRowContainer>
+  );
+};
+
+UserRow.propTypes = {
+  attendee: PropTypes.shape({
+    user: PropTypes.object, // TODO: use fragment instead
+  }).isRequired,
+};
 
 const UserRowContainer = styled(View)`
   height: 50px;
@@ -78,48 +79,6 @@ const UserRowRight = styled.View`
   flex-direction: column;
   padding-left: 8px;
 `;
-
-export default class UserList extends Component {
-  static navigationOptions = {
-    title: I18n.t('Player list'),
-    header: props => <StackBackHeader {...props} title={I18n.t('Player list')} />,
-  }
-
-  render() {
-    return (
-      <Query
-        query={GET_GAME_USERS_LIST}
-        variables={{ uuid: this.props.navigation.state.params.uuid }}
-      >
-        {({ loading, error, data }) => {
-          if (loading) return <Text>Loading...</Text>;
-          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
-          const screens = {};
-          for (const status of Object.keys(statuses)) {
-            const attendees = data.game.attendees.filter(attendee => attendee.status === status);
-            screens[status] = {
-              screen: () => (
-                <ScrollView style={{ flex: 1 }}>
-                  {attendees.map(attendee => (
-                    <UserRow key={attendee.user.uuid} attendee={attendee} />
-                  ))}
-                </ScrollView>
-              ),
-              navigationOptions: {
-                tabBarLabel: statuses[status].label,
-              },
-            };
-          }
-          return (
-            <View style={{ flex: 1 }}>
-              <BottomNav screens={screens} />
-            </View>
-          );
-        }}
-      </Query>
-    );
-  }
-}
 
 export const GET_GAME_USERS_LIST = gql`
   query game($uuid: UUID) {
@@ -141,3 +100,38 @@ export const GET_GAME_USERS_LIST = gql`
     }
   }
 `;
+
+const UserList = () => (
+  <Query
+    query={GET_GAME_USERS_LIST}
+    variables={{ uuid: this.props.navigation.state.params.uuid }}
+  >
+    {({ loading, error, data }) => {
+      if (loading) return <Text>Loading...</Text>;
+      if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
+      const screens = {};
+      for (const status of Object.keys(statuses)) {
+        const attendees = data.game.attendees.filter(attendee => attendee.status === status);
+        screens[status] = {
+          screen: () => (
+            <ScrollView style={{ flex: 1 }}>
+              {attendees.map(attendee => (
+                <UserRow key={attendee.user.uuid} attendee={attendee} />
+              ))}
+            </ScrollView>
+          ),
+          navigationOptions: {
+            tabBarLabel: statuses[status].label,
+          },
+        };
+      }
+      return (
+        <View style={{ flex: 1 }}>
+          <BottomNav screens={screens} />
+        </View>
+      );
+    }}
+  </Query>
+);
+
+export default UserList;
