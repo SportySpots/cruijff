@@ -57,4 +57,11 @@ const LogoHeaderBackground = ({ children }) => (
   </View>
 );
 
+LogoHeaderBackground.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.func,
+  ]).isRequired,
+};
+
 export default LogoHeaderBackground;
