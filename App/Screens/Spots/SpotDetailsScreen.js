@@ -74,18 +74,23 @@ export const GET_SPOT_DETAILS = gql`
       uuid
       name
       images {
+        uuid
         image
       }
       amenities {
+        uuid
         sport {
+          uuid
           category
         }
         data
       }
       sports {
+        uuid
         category
       }
       address {
+        uuid
         lat
         lng
       }

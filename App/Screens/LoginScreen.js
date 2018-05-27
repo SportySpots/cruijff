@@ -80,6 +80,7 @@ export class _LoginScreen extends Component {
             <FieldSet>
               <BlackText>{I18n.t('E-mail')}</BlackText>
               <Input
+                keyboardType="email-address"
                 onChangeText={val => this.setState({ email: val })}
                 editable={!this.requestIsPending}
               />
@@ -119,6 +120,9 @@ const Error = styled(Text)`
   color: red;
 `;
 const Input = styled(TextInput)`
+  font-size: 16px;
+  margin-vertical: 8px;
+  padding-vertical: 8px;
   color: black;
 `;
 

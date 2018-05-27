@@ -51,6 +51,7 @@ class ProfileEditComponent extends React.PureComponent {
           <View style={styles.fieldSet}>
             <Text>{I18n.t('First name')}</Text>
             <TextInput
+              style={styles.input}
               onChangeText={val => this.setState({ user: { ...user, first_name: val } })}
               defaultValue={user.first_name}
             />
@@ -58,6 +59,7 @@ class ProfileEditComponent extends React.PureComponent {
           <View style={styles.fieldSet}>
             <Text>{I18n.t('Last name')}</Text>
             <TextInput
+              style={styles.input}
               onChangeText={val => this.setState({ user: { ...user, last_name: val } })}
               defaultValue={user.last_name}
             />
@@ -142,5 +144,10 @@ const styles = StyleSheet.create({
   sliderLabels: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  input: {
+    fontSize: 16,
+    marginVertical: 8,
+    paddingVertical: 8,
   },
 });

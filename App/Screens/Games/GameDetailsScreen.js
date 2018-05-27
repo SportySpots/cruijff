@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, ScrollView, Share, TouchableOpacity, View, Platform } from 'react-native';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -19,6 +19,7 @@ import PropTypeDefinitions from '../../PropTypesDefinitions';
 import { GET_GAME_DETAILS } from '../../GraphQL/queries';
 import withQuery from '../../GraphQL/withQuery';
 import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
+import config from '../../config';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -60,11 +61,12 @@ class GameComponent extends Component {
   };
 
   onShare = (game) => {
+    const url = `https://${config.deeplinkHost}/games/${game.uuid}`;
+    const message = `${I18n.t('You have been invited to a SportySpots game:')}: ${url}`;
     Share.share(
       {
-        message: I18n.t('You have been invited'),
-        url: game.link,
-        title: 'Sportyspots',
+        message,
+        title: 'SportySpots',
       },
       {
         dialogTitle: I18n.t('share'),
@@ -219,10 +221,10 @@ class GameComponent extends Component {
             <TouchableOpacity onPress={this.openPlayerList}>
               <HorizontalView>
                 {mapMax(
-                  8,
+                  7,
                   attendingUsers,
                   user => <UserCircle key={user.uuid} user={user} style={{ marginRight: 4 }} />,
-                  () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 7}`} />,
+                  () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 6}`} />,
                 )}
               </HorizontalView>
             </TouchableOpacity>
@@ -234,10 +236,10 @@ class GameComponent extends Component {
             <TouchableOpacity onPress={this.openPlayerList}>
               <HorizontalView>
                 {mapMax(
-                  8,
+                  7,
                   [...Array(nOpenSpots)],
                   (_, i) => <SpotOpenImage key={i} />,
-                  () => <PropertyCircle key="extra" text={`+${nOpenSpots - 7}`} />,
+                  () => <PropertyCircle key="extra" text={`+${nOpenSpots - 6}`} />,
                 )}
               </HorizontalView>
             </TouchableOpacity>

@@ -4,11 +4,12 @@ const spotFragment = gql`
   fragment spotFragment on SpotType {
     uuid
     name
-    description
     images {
+      uuid
       image
     }
     address {
+      uuid
       lat
       lng
     }

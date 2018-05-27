@@ -12,29 +12,36 @@ export const GET_GAME_DETAILS = gql`
       capacity
       description
       sport {
+        uuid
         category
       }
       spot {
         uuid
         name
         images {
+          uuid
           image
         }
         amenities {
+          uuid
           sport {
+            uuid
             category
           }
           data
         }
         sports {
+          uuid
           category
         }
         address {
+          uuid
           lat
           lng
         }
       }
       organizer {
+        uuid
         first_name
         last_name
       }

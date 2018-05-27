@@ -3,7 +3,7 @@ import {
   GameSearchNav,
   PlanGameNav,
   ProfileNav,
-  SettingsNav,
+  InfoNav,
   SpotSearchNav,
 } from './Navigators';
 import I18n from '../I18n';
@@ -19,7 +19,7 @@ export const MainTabsNav = TabNavigator(
     SpotSearchTab: { screen: SpotSearchNav },
     GameSearchTab: { screen: GameSearchNav },
     ProfileTab: { screen: ProfileNav },
-    SettingsTab: { screen: SettingsNav },
+    InfoTab: { screen: InfoNav },
   },
   {
     tabBarComponent: NavBar,

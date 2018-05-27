@@ -10,6 +10,7 @@ import Text from '../../Components/Text';
 import UserCircle from '../../Components/UserCircle';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
+import StackBackHeader from '../../Components/StackBackHeader';
 
 export const BottomNav = ({ screens }) =>
   React.createElement(new TabNavigator(screens, {
@@ -79,6 +80,11 @@ const UserRowRight = styled.View`
 `;
 
 export default class UserList extends Component {
+  static navigationOptions = {
+    title: I18n.t('Player list'),
+    header: props => <StackBackHeader {...props} title={I18n.t('Player list')} />,
+  }
+
   render() {
     return (
       <Query
@@ -120,12 +126,14 @@ export const GET_GAME_USERS_LIST = gql`
     game(uuid: $uuid) {
       uuid
       attendees {
+        uuid
         status
         created_at
         user {
           uuid
           name
           profile {
+            uuid
             year_of_birth
           }
         }

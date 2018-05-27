@@ -37,7 +37,7 @@ class SpotsListScreen extends React.Component {
               spots={data.spots}
               cardComponent={Card}
               onCardPress={uuid => this.handleCardPress(uuid)}
-              style={this.props.style}
+              // style={this.props.style}
             />
           );
         }}
