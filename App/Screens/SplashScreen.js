@@ -15,12 +15,12 @@ const styles = StyleSheet.create({
     height: 80,
     width: 80,
   },
-  logoContainer: {
+  /* logoContainer: {
     flex: 2,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }, */
   textContainer: {
     flex: 2,
     flexDirection: 'row',
@@ -40,10 +40,19 @@ const styles = StyleSheet.create({
   },
 });
 
+const LogoContainer = styled.View`
+  flex: 2;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+`;
+
 const SplashLabel = styled(Text.L)`
   color: ${props => props.textColor || '#fff'}
   text-align: center;
-  `;
+  font-size: 30px;
+`;
 
 const LinkLabel = styled(Text.M)`
   color: ${props => props.textColor || '#fff'}
@@ -83,11 +92,13 @@ export class _SplashScreen extends Component {
 
     return (
       <FieldBackground>
-        <View style={styles.logoContainer}>
+        <LogoContainer>
           <Logo />
-        </View>
+        </LogoContainer>
         <View style={styles.textContainer}>
-          <SplashLabel>Ontdek sportlocaties en activiteiten bij jou in de buurt</SplashLabel>
+          <SplashLabel>
+            {I18n.t('Ontdek sportlocaties en activiteiten bij jou in de buurt')}
+          </SplashLabel>
         </View>
         {this.props.user.initialized ? (
           <View style={styles.buttonsContainer}>
@@ -96,6 +107,7 @@ export class _SplashScreen extends Component {
               text={I18n.t('Start discovering')}
               bgColor={Colors.actionYellow}
               textColor="white"
+              activeOpacity={0.8}
             />
             {!this.props.user.uuid && (
               <TouchableOpacity onPress={() => navigate('LoginScreen')}>
