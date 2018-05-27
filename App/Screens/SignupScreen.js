@@ -89,6 +89,7 @@ export class _Signup extends Component {
               <Input
                 onChangeText={val => this.setState({ first_name: val })}
                 editable={!this.requestIsPending}
+                autoFocus
               />
             </FieldSet>
             <FieldSet>
