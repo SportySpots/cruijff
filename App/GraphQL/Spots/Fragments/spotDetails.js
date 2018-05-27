@@ -5,18 +5,23 @@ const spotDetailsFragment = gql`
     uuid
     name
     images {
+      uuid
       image
     }
     amenities {
+      uuid
       sport {
+        uuid
         category
       }
       data
     }
     sports {
+      uuid
       category
     }
     address {
+      uuid
       lat
       lng
     }

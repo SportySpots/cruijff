@@ -1,67 +1,33 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
 import { ScrollView } from 'react-native';
-import Config from 'react-native-config';
 import styled from 'styled-components';
-import spotDetailsFragment from '../../GraphQL/Spots/Fragments/spotDetails';
-import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
-import ImageSwiper from '../../Components/ImageSwiper';
-import Header from '../../Components/Spots/Header';
-import SpotProperties from '../../Components/Spots/SpotProperties';
-import Colors from '../../Themes/Colors';
+import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
+import Colors from '../../../Themes/Colors';
+import SpotMapWithLinkFallback from '../../../Components/Spots/SpotMapWithLinkFallback';
+import Header from '../../../Components/Spots/Header';
+import SpotImages from './SpotImages';
+import SpotProperties from './SpotProperties';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
 const Container = styled(ScrollView)`
   background-color: ${Colors.white};
 `;
-//------------------------------------------------------------------------------
-const ImageSwiperContainer = styled.View`
-  height: 200px;
-`;
-//------------------------------------------------------------------------------
+
 const Block = styled.View`
   padding: 16px;
 `;
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png';
-//------------------------------------------------------------------------------
-// AUX FUNCTIONS:
-//------------------------------------------------------------------------------
-const getImageUrl = image => (
-  image.startsWith('http') ? image : Config.SEEDORF_HOST + image
-);
-//------------------------------------------------------------------------------
-const getSpotImages = spot => (
-  spot && spot.images && spot.images.length > 0
-    ? spot.images.map(({ image }) => getImageUrl(image))
-    : [SPOT_IMG]
-);
-//------------------------------------------------------------------------------
-// COMPONENT:
-//------------------------------------------------------------------------------
-const SpotDetails = ({ spot }) => {
-  const images = getSpotImages(spot);
 
-  return (
-    <Container>
-      <ImageSwiperContainer>
-        <ImageSwiper images={images} />
-      </ImageSwiperContainer>
-      <Block>
-        <Header spot={spot} />
-      </Block>
-      <SpotMapWithLinkFallback spot={spot} />
-      {spot.amenities.length > 0 && (
-        <SpotProperties properties={spot.amenities[0].data} />
-      )}
-      <Block style={{ height: 100 }} />
-    </Container>
-  );
-};
+const SpotDetails = ({ spot }) => (
+  <Container>
+    <SpotImages spot={spot} />
+    <Block>
+      <Header spot={spot} />
+    </Block>
+    <SpotMapWithLinkFallback spot={spot} />
+    <SpotProperties spot={spot} />
+    <Block style={{ height: 100 }} />
+  </Container>
+);
 
 SpotDetails.propTypes = {
   spot: propType(spotDetailsFragment).isRequired,
@@ -221,4 +187,78 @@ const HorizontalView = styled.View`
 const Block = styled.View`
   padding: 16px;
 `;
+*/
+
+
+/*
+import React from 'react';
+import { propType } from 'graphql-anywhere';
+import { ScrollView } from 'react-native';
+import Config from 'react-native-config';
+import styled from 'styled-components';
+import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
+import SpotMapWithLinkFallback from '../../../Components/Spots/SpotMapWithLinkFallback';
+import ImageSwiper from '../../../Components/ImageSwiper';
+import Header from '../../../Components/Spots/Header';
+import SpotProperties from '../../../Components/Spots/SpotProperties';
+import Colors from '../../../Themes/Colors';
+
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png';
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled(ScrollView)`
+  background-color: ${Colors.white};
+`;
+//------------------------------------------------------------------------------
+const ImageSwiperContainer = styled.View`
+  height: 200px;
+`;
+//------------------------------------------------------------------------------
+const Block = styled.View`
+  padding: 16px;
+`;
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+const getImageUrl = image => (
+  image.startsWith('http') ? image : Config.SEEDORF_HOST + image
+);
+//------------------------------------------------------------------------------
+const getSpotImages = spot => (
+  spot && spot.images && spot.images.length > 0
+    ? spot.images.map(({ image }) => getImageUrl(image))
+    : [SPOT_IMG]
+);
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const SpotDetails = ({ spot }) => {
+  const images = getSpotImages(spot);
+
+  return (
+    <Container>
+      <ImageSwiperContainer>
+        <ImageSwiper images={images} />
+      </ImageSwiperContainer>
+      <Block>
+        <Header spot={spot} />
+      </Block>
+      <SpotMapWithLinkFallback spot={spot} />
+      {spot.amenities.length > 0 && (
+        <SpotProperties properties={spot.amenities[0].data} />
+      )}
+      <Block style={{ height: 100 }} />
+    </Container>
+  );
+};
+
+SpotDetails.propTypes = {
+  spot: propType(spotDetailsFragment).isRequired,
+};
+
+export default SpotDetails;
 */
