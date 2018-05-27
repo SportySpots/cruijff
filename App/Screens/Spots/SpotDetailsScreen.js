@@ -7,12 +7,12 @@ import Text from '../../Components/Text';
 import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
 import SpotDetails from '../../Components/Spots/SpotDetails';
 
-const SpotDetailsScreen = ({ navigation, uuid }) => (
+const SpotDetailsScreen = ({ navigation, userId }) => (
   <Query
     query={spotQuery}
     variables={{
       uuid: navigation.state.params.uuid,
-      user_uuid: uuid,
+      user_uuid: userId,
     }}
   >
     {({ loading, error, data }) => {
@@ -20,7 +20,7 @@ const SpotDetailsScreen = ({ navigation, uuid }) => (
       if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
       return (
-        <SpotDetails spot={data.spot} uuid={uuid} />
+        <SpotDetails spot={data.spot} userId={userId} />
       );
     }}
   </Query>
@@ -34,10 +34,10 @@ SpotDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  uuid: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
 };
 
-const withRedux = connect(state => ({ uuid: state.user.uuid }));
+const withRedux = connect(state => ({ userId: state.user.uuid }));
 
 export default withRedux(SpotDetailsScreen);
 
