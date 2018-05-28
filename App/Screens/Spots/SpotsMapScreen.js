@@ -10,30 +10,32 @@ import CenteredActivityIndicator from '../../Components/CenteredActivityIndicato
 // TODO: handle no spots were found case --> probably handle this on SpotsMap
 // and SpotsList components
 
-const SpotsMapScreen = ({ navigation }) => {
-  const handleCardPress = (spotId) => {
-    navigation.navigate('SpotDetailsScreen', {
+class SpotsMapScreen extends React.Component {
+  handleCardPress = (spotId) => {
+    this.props.navigation.navigate('SpotDetailsScreen', {
       uuid: spotId,
     });
   };
 
-  return (
-    <Query query={spotsQuery}>
-      {({ loading, error, data }) => {
-        if (loading) return <CenteredActivityIndicator />;
-        if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
+  render() {
+    return (
+      <Query query={spotsQuery}>
+        {({ loading, error, data }) => {
+          if (loading) return <CenteredActivityIndicator />;
+          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
-        return (
-          <SpotsMapWithListFallback
-            spots={data.spots}
-            cardComponent={Card}
-            onCardPress={handleCardPress}
-          />
-        );
-      }}
-    </Query>
-  );
-};
+          return (
+            <SpotsMapWithListFallback
+              spots={data.spots}
+              cardComponent={Card}
+              onCardPress={this.handleCardPress}
+            />
+          );
+        }}
+      </Query>
+    );
+  }
+}
 
 SpotsMapScreen.propTypes = {
   navigation: PropTypes.shape({

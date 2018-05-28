@@ -8,58 +8,49 @@ import NothingFound from '../NothingFound';
 import I18n from '../../I18n';
 
 const SpotsList = ({
-  data,
   spots,
   cardComponent,
   onCardPress,
+  onRefresh,
+  refreshing,
   style,
-  refetch,
-  loading,
-}) => {
-  const spotsForList = data && data.spots ? data.spots : spots;
-
-  return (
-    <View style={[cardList.container, style, { flex: 1 }]}>
-      <FlatList
-        onRefresh={refetch}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}
-        data={spotsForList}
-        refreshing={loading}
-        ListEmptyComponent={<NothingFound icon="map-marker" text={I18n.t('No spots found')} />}
-        renderItem={({ item: spot }) => (
-          <TouchableOpacity
-            key={spot.uuid}
-            onPress={() => {
-              onCardPress(spot.uuid);
-            }}
-            style={cardList.cardContainer}
-          >
-            {React.createElement(cardComponent, {spot})}
-          </TouchableOpacity>
-        )}
-        keyExtractor={item => item.uuid}
-      />
-    </View>
-  );
-};
+}) => (
+  <View style={[cardList.container, style, { flex: 1 }]}>
+    <FlatList
+      onRefresh={onRefresh}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ flexGrow: 1 }}
+      data={spots}
+      refreshing={refreshing}
+      ListEmptyComponent={<NothingFound icon="map-marker" text={I18n.t('No spots found')} />}
+      renderItem={({ item: spot }) => (
+        <TouchableOpacity
+          key={spot.uuid}
+          onPress={() => { onCardPress(spot.uuid); }}
+          style={cardList.cardContainer}
+        >
+          {React.createElement(cardComponent, { spot })}
+        </TouchableOpacity>
+      )}
+      keyExtractor={item => item.uuid}
+    />
+  </View>
+);
 
 SpotsList.propTypes = {
-  data: PropTypes.shape({
-    spots: PropTypes.arrayOf(propType(spotFragment)),
-  }),
-  loading: PropTypes.bool,
-  refetch: PropTypes.func.isRequired,
   spots: PropTypes.arrayOf(propType(spotFragment)),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
-  style: PropTypes.object, // eslint-disable-line
+  onRefresh: PropTypes.func,
+  refreshing: PropTypes.bool,
+  style: PropTypes.object,
 };
 
 SpotsList.defaultProps = {
-  data: {},
   spots: [],
   onCardPress: () => {},
+  onRefresh: () => {},
+  refreshing: false,
   style: {},
 };
 

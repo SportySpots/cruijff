@@ -3,13 +3,14 @@ import { StackNavigator, SwitchNavigator } from 'react-navigation';
 import { View } from 'react-native';
 import I18n from '../I18n';
 import Text from '../Components/Text';
+import StackBackHeader from '../Components/StackBackHeader';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
 import InfoScreen from '../Screens/InfoScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../Screens/Profile/ProfileEditScreen';
 import SpotsListScreen from '../Screens/Spots/SpotsListScreen';
-// import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen';
 import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen';
+// import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen';
 // import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
 import planWrapper from '../Containers/Plan/planWrapper';
 import Game from '../Screens/Games/GameDetailsScreen';
@@ -47,8 +48,15 @@ export const GameSearchNav = StackNavigator(
   {
     GameDetailsScreen: {
       screen: Game,
-      navigationOptions: {
-        title: I18n.t('Game Details'),
+      navigationOptions({ navigation }) {
+        return {
+          header: () => (
+            <StackBackHeader
+              title={I18n.t('Game details')}
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
       },
     },
     GameListScreen: {
@@ -59,8 +67,15 @@ export const GameSearchNav = StackNavigator(
     },
     GamePlayerScreen: {
       screen: PlayerList,
-      navigationOptions: {
-        title: I18n.t('Players'),
+      navigationOptions({ navigation }) {
+        return {
+          header: () => (
+            <StackBackHeader
+              title={I18n.t('Player list')}
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
       },
     },
   },
@@ -73,8 +88,15 @@ export const SpotSearchNav = StackNavigator(
   {
     SpotDetailsScreen: {
       screen: SpotDetailsScreen,
-      navigationOptions: {
-        title: I18n.t('spot-details'),
+      navigationOptions({ navigation }) {
+        return {
+          header: () => (
+            <StackBackHeader
+              title={I18n.t('Spot details')}
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
       },
     },
     /* SpotsMapScreen: {
@@ -99,7 +121,9 @@ export const SpotSearchNav = StackNavigator(
       navigationOptions({ navigation }) { // eslint-disable-line
         return {
           headerLeft: (
-            <View style={{ marginLeft: 8 }}><Text.M>{I18n.t('Find a spot')}</Text.M></View>
+            <View style={{ marginLeft: 8 }}>
+              <Text.M>{I18n.t('Find a spot')}</Text.M>
+            </View>
           ),
           /* headerRight: (
             <SpotsHeaderBtn
@@ -140,6 +164,17 @@ const LoggedInProfileNav = StackNavigator(
     },
     ProfileEditScreen: {
       screen: ProfileEditScreen,
+      navigationOptions({ navigation }) {
+        return {
+          title: I18n.t('Profile Edit'),
+          header: () => (
+            <StackBackHeader
+              title={I18n.t('Profile Edit')}
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
+      },
     },
   },
   {

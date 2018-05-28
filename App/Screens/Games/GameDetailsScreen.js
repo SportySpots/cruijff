@@ -14,7 +14,6 @@ import UserCircle from '../../Components/UserCircle';
 import PropertyCircle from '../../Components/PropertyCircle';
 import themeImages from '../../Themes/Images';
 import DefaultButton from '../../Components/DefaultButton';
-import StackBackHeader from '../../Components/StackBackHeader';
 import PropTypeDefinitions from '../../PropTypesDefinitions';
 import { GET_GAME_DETAILS } from '../../GraphQL/queries';
 import withQuery from '../../GraphQL/withQuery';
@@ -278,11 +277,6 @@ const GameDetailsScreen = connect(state => ({ user: state.user }))(
     );
   },
 );
-
-GameDetailsScreen.navigationOptions = {
-  title: I18n.t('Game details'),
-  header: props => <StackBackHeader {...props} title={I18n.t('Game details')} />,
-};
 
 export default GameDetailsScreen;
 
