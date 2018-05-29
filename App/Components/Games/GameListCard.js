@@ -86,8 +86,8 @@ const GameListCard = ({ game }) => {
   return (
     <Container>
       <Left>
-        <Text.L>{moment(game.start_time).format('D')}</Text.L>
-        <Text.M>{moment(game.end_time).format('MMM')}</Text.M>
+        <Text.L>{moment.utc(game.start_time).format('D')}</Text.L>
+        <Text.M>{moment.utc(game.end_time).format('MMM')}</Text.M>
       </Left>
       <Right>
         <SpotImageContainer>
