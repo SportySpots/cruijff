@@ -107,8 +107,8 @@ const GameListCard = ({ game }) => {
           </Top>
           <Bottom>
             <WhiteSM>
-              {moment(game.start_time).format('HH')}-
-              {moment(game.end_time).format('HH')} · {I18n.t(game.sport.category)} ·&nbsp;
+              {moment.utc(game.start_time).format('H:mm')}-
+              {moment.utc(game.end_time).format('H:mm')} · {I18n.t(game.sport.category)} ·&nbsp;
             </WhiteSM>
             <OrangeSM>
               {nOpenSpots > 0 ? `${nOpenSpots} ${I18n.t('players needed')}` : I18n.t('full')}
