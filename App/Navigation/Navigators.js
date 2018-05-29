@@ -166,7 +166,6 @@ const LoggedInProfileNav = StackNavigator(
       screen: ProfileEditScreen,
       navigationOptions({ navigation }) {
         return {
-          title: I18n.t('Profile Edit'),
           header: () => (
             <StackBackHeader
               title={I18n.t('Profile Edit')}
