@@ -7,10 +7,10 @@ import GameListCard from '../../Components/Games/GameListCard';
 import MonthSelector from '../../Components/Games/MonthSelector';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n';
+import Colors from '../../Themes/Colors';
 import NothingFound from '../../Components/NothingFound';
 // import { Query } from 'react-apollo';
 // import Text from '../../Components/Text';
-
 
 const CardContainer = (props) => {
   const { style, onPress, ...otherProps } = props;
@@ -20,6 +20,18 @@ const CardContainer = (props) => {
     </TouchableOpacity>
   );
 };
+
+const Container = styled(MenuProvider)`
+  flex: 1;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 32px;
+  background-color: ${Colors.white};
+`;
+
+const GameListCardContainer = styled(CardContainer)`
+  margin-bottom: 8px;
+`;
 
 /* Get the min / max date for month `month`. Past months will change to future months */
 const getMonthRange = (month) => {
@@ -136,15 +148,4 @@ export const GET_GAMES_LIST = gql`
       }
     }
   }
-`;
-
-const Container = styled(MenuProvider)`
-  margin-left: 8px;
-  margin-right: 8px;
-  margin-top: 32px;
-  flex: 1;
-`;
-
-const GameListCardContainer = styled(CardContainer)`
-  margin-bottom: 8px;
 `;
