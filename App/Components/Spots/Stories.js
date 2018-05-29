@@ -4,13 +4,14 @@ import { Query } from 'react-apollo';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { WithApolloMockProvider } from '../../GraphQL';
-import SpotDetailsScreen, { GET_SPOT_DETAILS } from '../../Screens/Spots/SpotDetailsScreen';
+import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import SpotsListScreen from '../../Screens/Spots/SpotsListScreen';
-import spotsQuery from '../../GraphQL/Spots/Queries/spots';
+import GET_SPOT_DETAILS from '../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
+import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import SpotListCard from './SpotListCard';
 import SpotListCardSmall from './SpotListCardSmall';
 import SpotMap from './SpotMap';
-import SpotProperties from './SpotProperties';
+import SpotProperties from './SpotDetails/SpotProperties';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -38,7 +39,7 @@ const store = createStore(state => state, {
 storiesOf('Spots')
   .add('SpotListCard', () => (
     <WithApolloMockProvider>
-      <Query query={spotsQuery}>
+      <Query query={GET_SPOTS}>
         {({ loading, error, data }) =>
           (loading || error ? null : (
             <SpotListCard spot={data.spots[0]} navigation={dummyNavigator} />
@@ -49,7 +50,7 @@ storiesOf('Spots')
   ))
   .add('SpotListCardSmall', () => (
     <WithApolloMockProvider>
-      <Query query={spotsQuery}>
+      <Query query={GET_SPOTS}>
         {({ loading, error, data }) =>
           (loading || error ? null : (
             <SpotListCardSmall spot={data.spots[0]} navigation={dummyNavigator} />

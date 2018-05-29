@@ -12,7 +12,7 @@ const SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const ImageSwiperContainer = styled.View`
+const Container = styled.View`
   height: 200px;
 `;
 //------------------------------------------------------------------------------
@@ -34,9 +34,9 @@ const SpotImages = ({ spot }) => {
   const images = getSpotImages(spot);
 
   return (
-    <ImageSwiperContainer>
+    <Container>
       <ImageSwiper images={images} />
-    </ImageSwiperContainer>
+    </Container>
   );
 };
 

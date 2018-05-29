@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
-import spotQuery from '../../GraphQL/Spots/Queries/spot';
+import GET_SPOT_DETAILS from '../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Text from '../../Components/Text';
 import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
 import SpotDetails from '../../Components/Spots/SpotDetails';
 
 const SpotDetailsScreen = ({ navigation, userId }) => (
   <Query
-    query={spotQuery}
+    query={GET_SPOT_DETAILS}
     variables={{
       uuid: navigation.state.params.uuid,
       user_uuid: userId,

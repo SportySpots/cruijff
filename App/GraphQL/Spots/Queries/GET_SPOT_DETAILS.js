@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import spotDetailsFragment from '../Fragments/spotDetails';
 
-const spot = gql`
+const GET_SPOT_DETAILS = gql`
   query spot($uuid: UUID!) {
     spot(uuid: $uuid) {
       ...spotDetailsFragment
@@ -10,4 +10,4 @@ const spot = gql`
   ${spotDetailsFragment}
 `;
 
-export default spot;
+export default GET_SPOT_DETAILS;

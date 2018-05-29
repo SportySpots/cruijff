@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import spotFragment from '../Fragments/spot';
 
-const spots = gql`
+const GET_SPOTS = gql`
   query {
     spots {
       ...spotFragment
@@ -10,4 +10,4 @@ const spots = gql`
   ${spotFragment}
 `;
 
-export default spots;
+export default GET_SPOTS;
