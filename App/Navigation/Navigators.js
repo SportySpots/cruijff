@@ -121,7 +121,7 @@ export const SpotSearchNav = StackNavigator(
       navigationOptions({ navigation }) { // eslint-disable-line
         return {
           headerLeft: (
-            <View style={{ marginLeft: 8 }}>
+            <View style={{ marginLeft: 16 }}>
               <Text.M>{I18n.t('Find a spot')}</Text.M>
             </View>
           ),
