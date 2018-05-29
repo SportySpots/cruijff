@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import spotsQuery from '../../GraphQL/Spots/Queries/spots';
+import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import Text from '../../Components/Text';
 import Card from '../../Components/Spots/SpotListCardSmall';
 import SpotsMapWithListFallback from '../../Components/Spots/SpotsMapWithListFallback';
@@ -19,7 +19,7 @@ class SpotsMapScreen extends React.Component {
 
   render() {
     return (
-      <Query query={spotsQuery}>
+      <Query query={GET_SPOTS}>
         {({ loading, error, data }) => {
           if (loading) return <CenteredActivityIndicator />;
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;

@@ -7,7 +7,7 @@ import CardSmall from '../../Components/Spots/SpotListCardSmall';
 import Text from '../../Components/Text';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
-import spotsQuery from '../../GraphQL/Spots/Queries/spots';
+import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import api from '../../Services/SeedorfApi';
 
 const CardContainer = (props) => {
@@ -68,7 +68,7 @@ class PickSpotComponent extends Component {
   }
 }
 
-export default withQuery(spotsQuery)(PickSpotComponent);
+export default withQuery(GET_SPOTS)(PickSpotComponent);
 
 const style = StyleSheet.create({
   cardListContainer: {
