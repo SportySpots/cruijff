@@ -1,4 +1,3 @@
-import gql from 'graphql-tag';
 import React, { Component } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { MenuProvider } from 'react-native-popup-menu';
@@ -8,6 +7,7 @@ import MonthSelector from '../../Components/Games/MonthSelector';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
+import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import NothingFound from '../../Components/NothingFound';
 // import { Query } from 'react-apollo';
 // import Text from '../../Components/Text';
@@ -23,9 +23,10 @@ const CardContainer = (props) => {
 
 const Container = styled(MenuProvider)`
   flex: 1;
-  padding-left: 8px;
+  /* padding-left: 8px;
   padding-right: 8px;
-  padding-top: 32px;
+  padding-top: 32px; */
+  padding: 8px;
   background-color: ${Colors.white};
 `;
 
@@ -96,56 +97,3 @@ export default class GameList extends Component {
     );
   }
 }
-
-export const GET_GAMES_LIST = gql`
-  #  query games($minStartTime: String!, $maxStartTime: String!) {
-  query games {
-    games {
-      #      maxStartTime: $maxStartTime #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
-      uuid
-      name
-      start_time
-      end_time
-      is_featured
-      show_remaining
-      capacity
-      sport {
-        uuid
-        category
-      }
-      spot {
-        uuid
-        name
-        images {
-          uuid
-          image
-        }
-        amenities {
-          uuid
-          sport {
-            uuid
-            category
-          }
-          data
-        }
-        sports {
-          uuid
-          category
-        }
-        address {
-          uuid
-          lat
-          lng
-        }
-      }
-      attendees {
-        uuid
-        status
-        user {
-          uuid
-          name
-        }
-      }
-    }
-  }
-`;
