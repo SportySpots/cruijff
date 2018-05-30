@@ -23,9 +23,10 @@ const CardContainer = (props) => {
 
 const Container = styled(MenuProvider)`
   flex: 1;
-  padding-left: 8px;
+  /* padding-left: 8px;
   padding-right: 8px;
-  padding-top: 32px;
+  padding-top: 32px; */
+  padding: 8px;
   background-color: ${Colors.white};
 `;
 

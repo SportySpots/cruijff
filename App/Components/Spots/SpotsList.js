@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FlatList, View, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
-import { cardList } from '../Spots/Styles/CardStyles';
+import { cardList } from './Styles/CardStyles';
 import NothingFound from '../NothingFound';
 import I18n from '../../I18n';
 

@@ -61,8 +61,14 @@ export const GameSearchNav = StackNavigator(
     },
     GameListScreen: {
       screen: GamesList,
-      navigationOptions: {
-        header: null,
+      navigationOptions({ navigation }) { // eslint-disable-line
+        return {
+          headerLeft: (
+            <View style={{ marginLeft: 16 }}>
+              <Text.M>{I18n.t('Find a game')}</Text.M>
+            </View>
+          ),
+        };
       },
     },
     GamePlayerScreen: {
