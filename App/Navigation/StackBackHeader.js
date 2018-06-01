@@ -20,7 +20,7 @@ const Horizontal = styled.View`
 
 const StackBackHeader = ({ title, onPress }) => (
   <Container>
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
       <Horizontal>
         <Icon name="keyboard-backspace" size={32} color={Colors.black} />
         <Text.M bold style={{ marginLeft: 8 }}>{title}</Text.M>

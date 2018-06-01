@@ -28,6 +28,7 @@ const SpotsList = ({
           key={spot.uuid}
           onPress={() => { onCardPress(spot.uuid); }}
           style={cardList.cardContainer}
+          activeOpacity={0.8}
         >
           {React.createElement(cardComponent, { spot })}
         </TouchableOpacity>
