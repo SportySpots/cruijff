@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import Colors from '../Themes/Colors';
-import Text from './Text';
+import Text from '../Components/Text';
 
 const Container = styled.View`
   height: 48px;

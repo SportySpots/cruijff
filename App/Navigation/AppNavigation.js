@@ -14,7 +14,7 @@ import LoginScreen from '../Screens/LoginScreen';
 import SignupScreen from '../Screens/SignupScreen';
 import OnboardingScreen from '../Components/Onboarding';
 import AskLocation from '../Screens/AskLocationScreen';
-import StackBackHeader from '../Components/StackBackHeader';
+import StackBackHeader from './StackBackHeader';
 
 export const MainTabsNav = TabNavigator(
   {

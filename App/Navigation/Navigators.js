@@ -3,7 +3,7 @@ import { StackNavigator, SwitchNavigator } from 'react-navigation';
 import { View } from 'react-native';
 import I18n from '../I18n';
 import Text from '../Components/Text';
-import StackBackHeader from '../Components/StackBackHeader';
+import StackBackHeader from './StackBackHeader';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
 import InfoScreen from '../Screens/InfoScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
@@ -20,6 +20,7 @@ import Description from '../Screens/Plan/DescriptionScreen';
 import PlayerList from '../Screens/Games/PlayerListScreen';
 import PickSpot from '../Screens/Plan/PickSpotScreen';
 import SportAndTime from '../Screens/Plan/SportAndTimeScreen';
+import DefaultHeader from './DefaultHeader';
 
 export const PlanGameNav = StackNavigator(
   {
@@ -61,28 +62,15 @@ export const GameSearchNav = StackNavigator(
     },
     GameListScreen: {
       screen: GamesList,
-      navigationOptions({ navigation }) { // eslint-disable-line
-        return {
-          headerLeft: (
-            <View style={{ marginLeft: 16 }}>
-              <Text.M bold>{I18n.t('Find a game')}</Text.M>
-            </View>
-          ),
-        };
-      },
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Find a game')} />,
+      }),
     },
     GamePlayerScreen: {
       screen: PlayerList,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: () => (
-            <StackBackHeader
-              title={I18n.t('Player list')}
-              onPress={() => { navigation.goBack(null); }}
-            />
-          ),
-        };
-      },
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Player list')} />,
+      }),
     },
   },
   {
@@ -124,21 +112,15 @@ export const SpotSearchNav = StackNavigator(
     }, */
     SpotsListScreen: {
       screen: SpotsListScreen,
-      navigationOptions({ navigation }) { // eslint-disable-line
-        return {
-          headerLeft: (
-            <View style={{ marginLeft: 16 }}>
-              <Text.M bold>{I18n.t('Find a spot')}</Text.M>
-            </View>
-          ),
-          /* headerRight: (
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Find a spot')} />,
+        /* headerRight: (
             <SpotsHeaderBtn
               icon="location-on"
               onPress={() => { navigation.navigate('SpotsMapScreen'); }}
             />
-          ), */
-        };
-      },
+        ), */
+      }),
     },
   },
   {
