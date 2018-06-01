@@ -68,9 +68,16 @@ export const GameSearchNav = StackNavigator(
     },
     GamePlayerScreen: {
       screen: PlayerList,
-      navigationOptions: () => ({
-        headerLeft: <DefaultHeader title={I18n.t('Player list')} />,
-      }),
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: () => (
+            <StackBackHeader
+              title={I18n.t('Player list')}
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
+      },
     },
   },
   {
