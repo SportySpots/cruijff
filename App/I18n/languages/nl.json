@@ -19,6 +19,8 @@
   "Boules": "Jeu de boules",
   "find": "Spots",
   "join": "Meedoen",
+  "info": "Info",
+  "Info": "Info",
   "Plan a game": "Plan een potje",
   "plan a game": "plan een potje",
   "profile": "Profiel",
@@ -111,5 +113,9 @@
   "No spots found": "Geen spots gevonden...",
   "No games found": "Geen potjes gevonden...",
 
-  "Wrong username or password": "Geen geldige e-mail of wachtwoord"
+  "Wrong username or password": "Geen geldige e-mail of wachtwoord",
+
+  "I'm attending": "Ik doe mee",
+  "Player list": "Deelnemers",
+  "Signed up at": "Aangemeld op"
 }
