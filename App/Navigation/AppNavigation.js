@@ -1,4 +1,5 @@
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
+import React from 'react';
 import {
   GameSearchNav,
   PlanGameNav,
@@ -13,6 +14,7 @@ import LoginScreen from '../Screens/LoginScreen';
 import SignupScreen from '../Screens/SignupScreen';
 import OnboardingScreen from '../Components/Onboarding';
 import AskLocation from '../Screens/AskLocationScreen';
+import StackBackHeader from '../Components/StackBackHeader';
 
 export const MainTabsNav = TabNavigator(
   {
@@ -65,14 +67,28 @@ export default StackNavigator(
     },
     LoginScreen: {
       screen: LoginScreen,
-      navigationOptions: {
-        title: I18n.t('login'),
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: (
+            <StackBackHeader
+              title={I18n.t('login')}
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
       },
     },
     SignupScreen: {
       screen: SignupScreen,
-      navigationOptions: {
-        title: I18n.t('Sign up'),
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: (
+            <StackBackHeader
+              title={I18n.t('Sign up')}
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
       },
     },
   },

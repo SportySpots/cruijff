@@ -50,7 +50,7 @@ export const GameSearchNav = StackNavigator(
       screen: Game,
       navigationOptions({ navigation }) {
         return {
-          header: () => (
+          headerLeft: () => (
             <StackBackHeader
               title={I18n.t('Game details')}
               onPress={() => { navigation.goBack(null); }}
@@ -65,7 +65,7 @@ export const GameSearchNav = StackNavigator(
         return {
           headerLeft: (
             <View style={{ marginLeft: 16 }}>
-              <Text.M>{I18n.t('Find a game')}</Text.M>
+              <Text.M bold>{I18n.t('Find a game')}</Text.M>
             </View>
           ),
         };
@@ -75,7 +75,7 @@ export const GameSearchNav = StackNavigator(
       screen: PlayerList,
       navigationOptions({ navigation }) {
         return {
-          header: () => (
+          headerLeft: () => (
             <StackBackHeader
               title={I18n.t('Player list')}
               onPress={() => { navigation.goBack(null); }}
@@ -96,7 +96,7 @@ export const SpotSearchNav = StackNavigator(
       screen: SpotDetailsScreen,
       navigationOptions({ navigation }) {
         return {
-          header: () => (
+          headerLeft: () => (
             <StackBackHeader
               title={I18n.t('Spot details')}
               onPress={() => { navigation.goBack(null); }}
@@ -128,7 +128,7 @@ export const SpotSearchNav = StackNavigator(
         return {
           headerLeft: (
             <View style={{ marginLeft: 16 }}>
-              <Text.M>{I18n.t('Find a spot')}</Text.M>
+              <Text.M bold>{I18n.t('Find a spot')}</Text.M>
             </View>
           ),
           /* headerRight: (
@@ -172,7 +172,7 @@ const LoggedInProfileNav = StackNavigator(
       screen: ProfileEditScreen,
       navigationOptions({ navigation }) {
         return {
-          header: () => (
+          headerLeft: () => (
             <StackBackHeader
               title={I18n.t('Profile Edit')}
               onPress={() => { navigation.goBack(null); }}

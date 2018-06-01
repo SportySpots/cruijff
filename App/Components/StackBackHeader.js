@@ -11,8 +11,6 @@ const Container = styled.View`
   padding-left: 8px;
   padding-top: 8px;
   background-color: white;
-  border-bottom-width: 1px;
-  border-bottom-color: ${Colors.primaryGreen};
 `;
 
 const Horizontal = styled.View`
@@ -20,16 +18,12 @@ const Horizontal = styled.View`
   align-items: center;
 `;
 
-const TitleText = styled(Text.M)`
-  color: ${Colors.primaryGreen};
-`;
-
 const StackBackHeader = ({ title, onPress }) => (
   <Container>
     <TouchableOpacity onPress={onPress}>
       <Horizontal>
-        <Icon name="keyboard-backspace" size={32} color={Colors.primaryGreen} />
-        <TitleText>{title}</TitleText>
+        <Icon name="keyboard-backspace" size={32} color={Colors.black} />
+        <Text.M bold style={{ marginLeft: 8 }}>{title}</Text.M>
       </Horizontal>
     </TouchableOpacity>
   </Container>
