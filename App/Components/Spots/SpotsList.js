@@ -11,29 +11,26 @@ const SpotsList = ({
   spots,
   cardComponent,
   onCardPress,
-  onRefresh,
-  refreshing,
   style,
+  ...rest
 }) => (
   <View style={[cardList.container, style, { flex: 1 }]}>
     <FlatList
-      onRefresh={onRefresh}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ flexGrow: 1 }}
       data={spots}
-      refreshing={refreshing}
       ListEmptyComponent={<NothingFound icon="map-marker" text={I18n.t('No spots found')} />}
       renderItem={({ item: spot }) => (
         <TouchableOpacity
           key={spot.uuid}
           onPress={() => { onCardPress(spot.uuid); }}
           style={cardList.cardContainer}
-          activeOpacity={0.8}
         >
           {React.createElement(cardComponent, { spot })}
         </TouchableOpacity>
       )}
       keyExtractor={item => item.uuid}
+      {...rest}
     />
   </View>
 );
@@ -42,16 +39,12 @@ SpotsList.propTypes = {
   spots: PropTypes.arrayOf(propType(spotFragment)),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
-  onRefresh: PropTypes.func,
-  refreshing: PropTypes.bool,
   style: PropTypes.object,
 };
 
 SpotsList.defaultProps = {
   spots: [],
   onCardPress: () => {},
-  onRefresh: () => {},
-  refreshing: false,
   style: {},
 };
 

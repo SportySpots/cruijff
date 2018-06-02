@@ -8,11 +8,11 @@ const spotFragment = gql`
       uuid
       image
     }
-    address {
-      uuid
-      lat
-      lng
-    }
+    #address {
+    #  uuid
+    #  lat
+    #  lng
+    #}
     sports {
       uuid
       category
