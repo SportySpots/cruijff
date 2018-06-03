@@ -179,7 +179,7 @@ class GameComponent extends Component {
 
     const nOpenSpots = Math.max(0, game.capacity - attendingUsers.length);
     return (
-      <ScrollView style={this.props.style}>
+      <ScrollView style={{ ...this.props.style, backgroundColor: 'white' }}>
         <SwiperContainer>
           <ImageSwiper images={images} />
         </SwiperContainer>
