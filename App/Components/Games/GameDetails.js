@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, ScrollView, Share, TouchableOpacity, View, Platform } from 'react-native';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';

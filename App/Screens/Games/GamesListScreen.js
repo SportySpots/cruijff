@@ -20,7 +20,9 @@ const Container = styled(View)`
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
-const curatedGames = games => (games ? games.filter(game => game.spot) : []);
+const curatedGames = games => (
+  games && games.length > 0 ? games.filter(game => game.spot) : []
+);
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -35,7 +37,11 @@ class GamesListScreen extends React.Component {
     return (
       <Query
         query={GET_GAMES_LIST}
-        variables={{ offset: 0, limit: 20 }}
+        variables={{
+          offset: 0,
+          limit: 20,
+          ordering: 'start_time',
+        }}
         fetchPolicy="cache-and-network"
       >
         {({

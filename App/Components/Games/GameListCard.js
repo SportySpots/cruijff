@@ -1,7 +1,6 @@
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ViewPropTypes } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import I18n from '../../I18n';
