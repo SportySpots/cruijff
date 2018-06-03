@@ -12,6 +12,7 @@ const ButtonContainer = styled.View`
   background-color: ${props => props.bgColor};
   margin: 16px;
   height: 56px;
+  border: 1px solid ${props => props.borderColor || props.bgColor};
   border-radius: 4px;
 `;
 
@@ -22,6 +23,7 @@ const ButtonLabel = styled(Text.M)`
 
 const DefaultButton = ({
   bgColor,
+  borderColor,
   textColor,
   text,
   disabled,
@@ -30,7 +32,7 @@ const DefaultButton = ({
   const RootComponent = disabled ? View : TouchableOpacity;
   return (
     <RootComponent {...props}>
-      <ButtonContainer bgColor={bgColor}>
+      <ButtonContainer bgColor={bgColor} borderColor={borderColor}>
         <ButtonLabel textColor={textColor}>{text}</ButtonLabel>
       </ButtonContainer>
     </RootComponent>
@@ -39,6 +41,7 @@ const DefaultButton = ({
 
 DefaultButton.propTypes = {
   bgColor: PropTypes.string,
+  borderColor: PropTypes.string,
   textColor: PropTypes.string,
   text: PropTypes.string,
   disabled: PropTypes.bool,
@@ -46,6 +49,7 @@ DefaultButton.propTypes = {
 
 DefaultButton.defaultProps = {
   bgColor: Colors.actionYellow,
+  borderColor: null,
   textColor: '#fff',
   text: '',
   disabled: false,
