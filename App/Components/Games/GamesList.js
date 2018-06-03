@@ -32,6 +32,7 @@ const GamesList = ({
       <CardContainer
         key={game.uuid}
         onPress={() => { onCardPress(game.uuid); }}
+        activeOpacity={1}
       >
         {React.createElement(cardComponent, { game })}
       </CardContainer>
