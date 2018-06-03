@@ -39,19 +39,19 @@ const gameDetailsFragment = gql`
         lng
       }
     }
-    #organizer {
-    #  uuid
-    #  first_name
-    #  last_name
-    #}
+    organizer {
+      uuid
+      first_name
+      last_name
+    }
     attendees {
       uuid
       status
-      #user {
-      #  uuid
-      #  first_name
-      #  last_name
-      #}
+      user {
+        uuid
+        first_name
+        last_name
+      }
     }
   }
 `;

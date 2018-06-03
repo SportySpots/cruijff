@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
-import { Alert, Image, ScrollView, Share, TouchableOpacity, View, Platform } from 'react-native';
-import moment from 'moment';
+/* import React from 'react';
 import PropTypes from 'prop-types';
+import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
+import { propType } from 'graphql-anywhere';
+import moment from 'moment';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import I18n from '../../I18n/index';
-import Colors from '../../Themes/Colors';
-import API from '../../Services/SeedorfApi';
-import Text from '../../Components/Text';
-import ImageSwiper from '../../Components/ImageSwiper';
-import UserCircle from '../../Components/UserCircle';
-import PropertyCircle from '../../Components/PropertyCircle';
-import themeImages from '../../Themes/Images';
-import DefaultButton from '../../Components/DefaultButton';
-import PropTypeDefinitions from '../../PropTypesDefinitions';
-import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
-import withQuery from '../../GraphQL/withQuery';
-import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
-import config from '../../config';
+import I18n from '../../../I18n/index';
+import Colors from '../../../Themes/Colors';
+import API from '../../../Services/SeedorfApi';
+import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
+import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import Text from '../../Text';
+import ImageSwiper from '../../ImageSwiper';
+import UserCircle from '../../UserCircle';
+import PropertyCircle from '../../PropertyCircle';
+import themeImages from '../../../Themes/Images';
+import DefaultButton from '../../DefaultButton';
+import PropTypeDefinitions from '../../../PropTypesDefinitions';
+import withQuery from '../../../GraphQL/withQuery';
+import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
+import config from '../../../config';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -37,15 +39,7 @@ const mapMax = (maxNum, data, fn, fnElse) => {
   return returnArr;
 };
 
-class GameComponent extends Component {
-  static propTypes = {
-    data: PropTypes.any.isRequired,
-    style: PropTypes.any,
-    navigation: PropTypeDefinitions.navigation,
-    user: PropTypes.object,
-    refetch: PropTypes.func,
-  };
-
+class GameDetails extends React.PureComponent {
   // constructor(props) {
   //   super(props);
   //   this.state = {
@@ -265,8 +259,8 @@ class GameComponent extends Component {
     );
   }
 }
-
-const GameDetailsScreen = connect(state => ({ user: state.user }))(
+*/
+/* const GameDetailsScreen = connect(state => ({ user: state.user }))(
   (props) => {
     const Contents = withQuery(GET_GAME_DETAILS)(GameComponent);
     return (
@@ -276,9 +270,17 @@ const GameDetailsScreen = connect(state => ({ user: state.user }))(
       />
     );
   },
-);
+); */
+/*
+GameDetails.propTypes = {
+  game: propType(gameDetailsFragment).isRequired,
+  style: PropTypes.any,
+  navigation: PropTypeDefinitions.navigation,
+  user: PropTypes.object,
+  refetch: PropTypes.func,
+};
 
-export default GameDetailsScreen;
+export default GameDetails;
 
 const HorizontalView = styled.View`
   flex-direction: row;
@@ -317,7 +319,7 @@ const Time = styled(HorizontalView)`
 const BlockLabel = styled(Text.M)`
   margin-bottom: 8px;
 `;
-
+*/
 
 /*
 import React, { Component } from 'react';
