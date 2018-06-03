@@ -35,7 +35,7 @@ export const createClient = (uri) => {
   const middlewareLink = new ApolloLink((operation, forward) => {
     operation.setContext({
       headers: {
-        authorization: `JWT ${token}`,
+        authorization: token ? `JWT ${token}` : null,
         cookie: null,
       },
     });

@@ -178,7 +178,7 @@ const create = () => {
     verifyToken,
     setRSVPStatus,
     updateRSVPStatus,
-    setToken: token => api.setHeader('Authorization', `JWT ${token}`),
+    setToken: token => api.setHeader('Authorization', token ? `JWT ${token}` : null),
   };
 };
 
