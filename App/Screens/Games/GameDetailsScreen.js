@@ -291,8 +291,6 @@ const HorizontalView = styled.View`
 `;
 
 const ChevronContainer = styled(HorizontalView)`
-  /* display: flex;
-  flex-direction: row; */
   justify-content: center;
   align-items: center;
 `;
