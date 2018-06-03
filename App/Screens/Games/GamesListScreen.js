@@ -53,16 +53,29 @@ class GamesListScreen extends React.Component {
         }) => {
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
+          console.log(
+            '*****data.games.length', data && data.games && data.games.length || 0,
+            '*****data.games.length', data && data.games && curatedGames(data.games).length || 0,
+          );
+
           const loadMore = () => {
             fetchMore({
               variables: {
-                offset: curatedGames(data.games).length,
+                offset: data.games.length,
               },
               updateQuery: (prev, { fetchMoreResult }) => {
-                if (!fetchMoreResult) return prev;
-                return Object.assign({}, prev, {
+                console.log(
+                  '*****prev.games.length', curatedGames(prev.games).length,
+                  '*****fetchMoreResult.games.length', curatedGames(fetchMoreResult.games).length,
+                );
+                // Don't do anything if there weren't any new items
+                // if (!fetchMoreResult) return prev;
+                if (!fetchMoreResult) return Object.assign({}, { games: curatedGames(prev.games) });
+                // Concatenate the new feed results after the old ones
+                /* return Object.assign({}, prev, {
                   games: [...curatedGames(prev.games), ...curatedGames(fetchMoreResult.games)],
-                });
+                }); */
+                return Object.assign({}, { games: curatedGames(fetchMoreResult.games) });
               },
             });
           };
@@ -70,14 +83,14 @@ class GamesListScreen extends React.Component {
           return (
             <Container>
               <GamesList
-                games={(data && curatedGames(data.games)) || []}
+                games={(data && data.games && curatedGames(data.games)) || []}
                 cardComponent={Card}
                 onCardPress={this.handleCardPress}
                 // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
                 onEndReached={loadMore}
-                onEndReachedThreshold={1}
+                onEndReachedThreshold={0.5}
               />
             </Container>
           );

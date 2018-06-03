@@ -17,8 +17,10 @@ export const GET_GAMES_LIST = gql`
   #  query games($minStartTime: String!, $maxStartTime: String!) {
   query games {
     games {
-      #      maxStartTime: $maxStartTime #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
-
+      # maxStartTime: $maxStartTime
+      # minStartTime: $minStartTime
+      # orderBy: "startTime"
+      # isListed: true
     }
   }
 `;
