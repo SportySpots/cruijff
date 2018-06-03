@@ -34,7 +34,11 @@ SpotDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  userId: PropTypes.string.isRequired,
+  userId: PropTypes.string,
+};
+
+SpotDetailsScreen.defaultProps = {
+  userId: null,
 };
 
 const withRedux = connect(state => ({ userId: state.user.uuid }));
