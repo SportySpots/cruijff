@@ -1,3 +1,58 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FlatList, View, TouchableOpacity } from 'react-native';
+import { propType } from 'graphql-anywhere';
+import gameFragment from '../../../GraphQL/Games/Fragments/game';
+// import { cardList } from './Styles/CardStyles';
+import NothingFound from '../../NothingFound';
+import I18n from '../../../I18n';
+
+const GamesList = ({
+  games,
+  cardComponent,
+  onCardPress,
+  style,
+  ...rest
+}) => (
+  <View style={[cardList.container, style, { flex: 1 }]}>
+    <FlatList
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ flexGrow: 1 }}
+      data={games}
+      ListEmptyComponent={<NothingFound icon="cancel" text={I18n.t('No games found')} />}
+      renderItem={({ item: game }) => (
+        <TouchableOpacity
+          key={game.uuid}
+          onPress={() => { onCardPress(game.uuid); }}
+          style={{ marginBottom: '8px' }}
+        >
+          {React.createElement(cardComponent, { game })}
+        </TouchableOpacity>
+      )}
+      keyExtractor={item => item.uuid}
+      {...rest}
+    />
+  </View>
+);
+
+GamesList.propTypes = {
+  games: PropTypes.arrayOf(propType(gameFragment)),
+  cardComponent: PropTypes.func.isRequired,
+  onCardPress: PropTypes.func,
+  style: PropTypes.object,
+};
+
+GamesList.defaultProps = {
+  games: [],
+  onCardPress: () => {},
+  style: {},
+};
+
+export default GamesList;
+
+
+
+/*
 import React, { Component } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { MenuProvider } from 'react-native-popup-menu';
@@ -25,7 +80,7 @@ const Container = styled(MenuProvider)`
   flex: 1;
   /* padding-left: 8px;
   padding-right: 8px;
-  padding-top: 32px; */
+  padding-top: 32px; //
   padding: 8px;
   background-color: ${Colors.white};
 `;
@@ -34,7 +89,7 @@ const GameListCardContainer = styled(CardContainer)`
   margin-bottom: 8px;
 `;
 
-/* Get the min / max date for month `month`. Past months will change to future months */
+/* Get the min / max date for month `month`. Past months will change to future months //
 const getMonthRange = (month) => {
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();
@@ -97,3 +152,4 @@ export default class GameList extends Component {
     );
   }
 }
+*/

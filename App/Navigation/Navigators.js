@@ -1,8 +1,8 @@
 import React from 'react';
 import { StackNavigator, SwitchNavigator } from 'react-navigation';
-import { View } from 'react-native';
+// import { View } from 'react-native';
 import I18n from '../I18n';
-import Text from '../Components/Text';
+// import Text from '../Components/Text';
 import StackBackHeader from './StackBackHeader';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
 import InfoScreen from '../Screens/InfoScreen';
@@ -14,7 +14,7 @@ import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen';
 // import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
 import planWrapper from '../Containers/Plan/planWrapper';
 import Game from '../Screens/Games/GameDetailsScreen';
-import GamesList from '../Screens/Games/GameListScreen';
+import GamesListScreen from '../Screens/Games/GamesListScreen';
 import Created from '../Screens/Plan/CreatedScreen';
 import Description from '../Screens/Plan/DescriptionScreen';
 import PlayerList from '../Screens/Games/PlayerListScreen';
@@ -61,7 +61,7 @@ export const GameSearchNav = StackNavigator(
       },
     },
     GameListScreen: {
-      screen: GamesList,
+      screen: GamesListScreen,
       navigationOptions: () => ({
         headerLeft: <DefaultHeader title={I18n.t('Find a game')} />,
       }),

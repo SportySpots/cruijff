@@ -20,11 +20,11 @@ const spotDetailsFragment = gql`
       uuid
       category
     }
-    #address {
-    #  uuid
-    #  lat
-    #  lng
-    #}
+    address {
+      uuid
+      lat
+      lng
+    }
   }
 `;
 

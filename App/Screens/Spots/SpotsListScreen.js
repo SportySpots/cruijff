@@ -1,17 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
+import styled from 'styled-components';
+import Colors from '../../Themes/Colors';
 import SpotsList from '../../Components/Spots/SpotsList';
 import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import Text from '../../Components/Text';
 import Card from '../../Components/Spots/SpotListCard';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  flex: 1;
+  padding: 8px;
+  background-color: ${Colors.bgGrey};
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 class SpotsListScreen extends React.Component {
   handleCardPress = (spotId) => {
     this.props.navigation.navigate('SpotDetailsScreen', {
       uuid: spotId,
     });
-  };
+  }
 
   render() {
     return (
@@ -44,16 +57,18 @@ class SpotsListScreen extends React.Component {
           };
 
           return (
-            <SpotsList
-              spots={(data && data.spots) || []}
-              cardComponent={Card}
-              onCardPress={this.handleCardPress}
-              // FlatList props
-              onRefresh={refetch}
-              refreshing={loading}
-              onEndReached={loadMore}
-              onEndReachedThreshold={1}
-            />
+            <Container>
+              <SpotsList
+                spots={(data && data.spots) || []}
+                cardComponent={Card}
+                onCardPress={this.handleCardPress}
+                // FlatList props
+                onRefresh={refetch}
+                refreshing={loading}
+                onEndReached={loadMore}
+                onEndReachedThreshold={1}
+              />
+            </Container>
           );
         }}
       </Query>
