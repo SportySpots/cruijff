@@ -138,8 +138,8 @@ class GameComponent extends Component {
         <HorizontalView style={{ width: '100%' }}>
           <DefaultButton
             style={{ flex: 1, marginLeft: -10 }}
-            bgColor={status === RSVP_STATUSES.ATTENDING ? Colors.white : Colors.primaryGreen}
-            textColor={status === RSVP_STATUSES.ATTENDING ? Colors.black : Colors.white}
+            bgColor={status === RSVP_STATUSES.ATTENDING ? Colors.red : Colors.primaryGreen}
+            textColor={status === RSVP_STATUSES.ATTENDING ? Colors.white : Colors.white}
             text={I18n.t(status === RSVP_STATUSES.ATTENDING ? "I'm not attending" : "I'm attending")}
             onPress={() => {
               if (status === RSVP_STATUSES.ATTENDING) {
@@ -179,7 +179,7 @@ class GameComponent extends Component {
 
     const nOpenSpots = Math.max(0, game.capacity - attendingUsers.length);
     return (
-      <ScrollView style={{ ...this.props.style, backgroundColor: 'white' }}>
+      <ScrollView style={{ ...this.props.style, backgroundColor: Colors.white }}>
         <SwiperContainer>
           <ImageSwiper images={images} />
         </SwiperContainer>
