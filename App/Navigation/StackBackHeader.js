@@ -8,22 +8,27 @@ import Text from '../Components/Text';
 
 const Container = styled.View`
   height: 48px;
-  padding-left: 8px;
-  padding-top: 8px;
   background-color: white;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Horizontal = styled.View`
   flex-direction: row;
   align-items: center;
+  padding-left: 8px;
+`;
+
+const TitleText = styled(Text.M)`
+  margin-left: 16px;
 `;
 
 const StackBackHeader = ({ title, onPress }) => (
   <Container>
     <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
       <Horizontal>
-        <Icon name="keyboard-backspace" size={32} color={Colors.black} />
-        <Text.M bold style={{ marginLeft: 8 }}>{title}</Text.M>
+        <Icon name="arrow-back" size={24} color={Colors.black} />
+        <TitleText bold>{title}</TitleText>
       </Horizontal>
     </TouchableOpacity>
   </Container>

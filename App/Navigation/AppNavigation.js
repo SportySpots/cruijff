@@ -71,7 +71,7 @@ export default StackNavigator(
         return {
           headerLeft: (
             <StackBackHeader
-              title={I18n.t('login')}
+              title={I18n.t('Hi again!')}
               onPress={() => { navigation.goBack(null); }}
             />
           ),

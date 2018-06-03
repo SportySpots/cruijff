@@ -4,7 +4,6 @@ import { TextInput } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 import DefaultButton from '../Components/DefaultButton';
 import Text from '../Components/Text';
 import I18n from '../I18n/index';
@@ -34,6 +33,12 @@ const Form = styled.View`
 
 const BlackText = styled(Text)`
   color: ${Colors.black};
+`;
+
+const Container = styled.View`
+  flex: 1;
+  height: 100%;
+  background-color: ${Colors.white};
 `;
 
 class LoginScreen extends Component {
@@ -98,8 +103,8 @@ class LoginScreen extends Component {
 
   render() {
     return (
-      <KeyboardAwareScrollView>
-        <LogoHeaderBackground>
+      <Container>
+        <KeyboardAwareScrollView>
           <Form>
             <FieldSet>
               <BlackText>{I18n.t('E-mail')}</BlackText>
@@ -108,12 +113,16 @@ class LoginScreen extends Component {
                 onChangeText={val => this.setState({ email: val })}
                 editable={!this.requestIsPending}
                 autoFocus
+                autoCapitalize="none"
+                blurOnSubmit={false}
+                onSubmitEditing={() => { this.passwordField.root.focus(); }}
               />
             </FieldSet>
             <FieldSet>
               <BlackText>{I18n.t('Password')}</BlackText>
               {this.hasError && <Error>{I18n.t('Wrong username or password')}</Error>}
               <Input
+                ref={(ref) => { this.passwordField = ref; }}
                 secureTextEntry
                 onChangeText={val => this.setState({ password: val })}
                 editable={!this.requestIsPending}
@@ -127,8 +136,8 @@ class LoginScreen extends Component {
               onPress={this.loginRequest}
             />
           </Form>
-        </LogoHeaderBackground>
-      </KeyboardAwareScrollView>
+        </KeyboardAwareScrollView>
+      </Container>
     );
   }
 }
