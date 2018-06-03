@@ -113,12 +113,16 @@ class LoginScreen extends Component {
                 onChangeText={val => this.setState({ email: val })}
                 editable={!this.requestIsPending}
                 autoFocus
+                autoCapitalize="none"
+                blurOnSubmit={false}
+                onSubmitEditing={() => { this.passwordField.root.focus(); }}
               />
             </FieldSet>
             <FieldSet>
               <BlackText>{I18n.t('Password')}</BlackText>
               {this.hasError && <Error>{I18n.t('Wrong username or password')}</Error>}
               <Input
+                ref={(ref) => { this.passwordField = ref; }}
                 secureTextEntry
                 onChangeText={val => this.setState({ password: val })}
                 editable={!this.requestIsPending}
