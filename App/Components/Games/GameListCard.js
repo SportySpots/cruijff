@@ -17,11 +17,11 @@ const Container = styled(HorizontalView)`
 
 const Left = styled.View`
   flex: 1;
-  padding-left: 16px;
+  padding-left: 8px;
 `;
 
 const Right = styled.View`
-  flex: 3;
+  flex: 5;
 `;
 const SpotImage = styled.Image`
   height: 100px;
@@ -76,12 +76,6 @@ const Bottom = styled.View`
 const GameListCard = ({ game }) => {
   const { spot } = game;
 
-  const attendingUsers = game.attendees
-    .filter(rsvp => rsvp.status === 'attending')
-    .map(rsvp => rsvp.user);
-
-  const nOpenSpots = game.capacity - attendingUsers.length;
-
   return (
     <Container>
       <Left>
@@ -106,11 +100,11 @@ const GameListCard = ({ game }) => {
           </Top>
           <Bottom>
             <WhiteSM>
-              {moment.utc(game.start_time).format('H:mm')}-
+              {moment.utc(game.start_time).format('H:mm')}&nbsp;-&nbsp;
               {moment.utc(game.end_time).format('H:mm')} · {I18n.t(game.sport.category)} ·&nbsp;
             </WhiteSM>
             <OrangeSM>
-              {nOpenSpots > 0 ? `${nOpenSpots} ${I18n.t('players needed')}` : I18n.t('full')}
+              {game.capacity} {I18n.t('people')}
             </OrangeSM>
           </Bottom>
         </Overlay>

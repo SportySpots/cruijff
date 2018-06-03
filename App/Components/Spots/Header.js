@@ -10,11 +10,11 @@ import { header } from './Styles/CardStyles';
 const Spacer = () => <Text style={header.spacer}>·</Text>;
 
 const Title = styled(Text.M)`
-  font-size: 19px;
+  font-size: 22px;
 `;
 
 const Subtitle = styled(Text.S)`
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 const Header = ({ spot, ...props }) => (

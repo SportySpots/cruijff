@@ -55,7 +55,7 @@ const UserRow = ({ attendee }) => {
     <UserRowContainer>
       <UserCircle user={user} />
       <UserRowRight>
-        <Text.M>{user.name}</Text.M>
+        <Text.M>{user.first_name} {user.last_name}</Text.M>
         <Text.S>
           {I18n.t('Signed up at')}:{' '}
           {moment(attendee.createdAt).format('d MMMM YYYY HH:mm')}
