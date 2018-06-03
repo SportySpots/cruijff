@@ -14,7 +14,7 @@ import Card from '../../Components/Games/GameListCard';
 //------------------------------------------------------------------------------
 const Container = styled(View)`
   flex: 1;
-  padding: 8px;
+  padding: 0 8px;
   background-color: ${Colors.white};
 `;
 //------------------------------------------------------------------------------
