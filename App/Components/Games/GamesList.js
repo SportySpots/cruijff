@@ -27,7 +27,7 @@ const GamesList = ({
     showsVerticalScrollIndicator={false}
     contentContainerStyle={{ flexGrow: 1 }}
     data={games}
-    ListEmptyComponent={<NothingFound icon="cancel" text={I18n.t('No games found')} />}
+    ListEmptyComponent={<NothingFound icon="calendar-plus" text={I18n.t('No games found')} />}
     renderItem={({ item: game }) => (
       <CardContainer
         key={game.uuid}
