@@ -26,7 +26,7 @@ const RSVP_STATUSES = {
 };
 
 const SpotOpenImage = () => (
-  <Image source={themeImages.spotOpenCircle} style={{ width: 42, height: 42 }} />
+  <Image source={themeImages.spotOpenCircle} style={{ width: 42, height: 42, marginRight: 4 }} />
 );
 
 const mapMax = (maxNum, data, fn, fnElse) => {
@@ -220,12 +220,17 @@ class GameComponent extends Component {
             <BlockLabel>{I18n.t('Attending')}</BlockLabel>
             <TouchableOpacity onPress={this.openPlayerList}>
               <HorizontalView>
-                {mapMax(
-                  7,
-                  attendingUsers,
-                  user => <UserCircle key={user.uuid} user={user} style={{ marginRight: 4 }} />,
-                  () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 6}`} />,
-                )}
+                <HorizontalView style={{ flex: 1 }}>
+                  {mapMax(
+                    7,
+                    attendingUsers,
+                    user => <UserCircle key={user.uuid} user={user} style={{ marginRight: 4 }} />,
+                    () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 6}`} />,
+                  )}
+                </HorizontalView>
+                <ChevronContainer>
+                  <MaterialIcon name="chevron-right" size={30} color={Colors.black} />
+                </ChevronContainer>
               </HorizontalView>
             </TouchableOpacity>
           </Block>
@@ -283,6 +288,11 @@ export default GameDetailsScreen;
 
 const HorizontalView = styled.View`
   flex-direction: row;
+`;
+
+const ChevronContainer = styled(HorizontalView)`
+  justify-content: center;
+  align-items: center;
 `;
 
 const SwiperContainer = styled.View`
