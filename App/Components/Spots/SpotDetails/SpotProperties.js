@@ -6,12 +6,12 @@ import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
 import Colors from '../../../Themes/Colors';
 import Text from '../../Text';
 
-const PropertyContainer = styled.View`
+const Container = styled.View`
   display: flex;
   flex-direction: column;
 `;
 
-const PropertyRow = styled.View`
+const Row = styled.View`
   display: flex;
   padding: 8px;
   flex-direction: row;
@@ -20,14 +20,14 @@ const PropertyRow = styled.View`
   border-bottom-width: 1px;
 `;
 
-const PropertyLabel = styled(Text.M)`
+const Label = styled(Text.M)`
   flex: 1;
   font-weight: 400;
   color: ${props => props.textColor || '#000'};
   padding-horizontal: 20px;
 `;
 
-const PropertyValue = styled(Text.M)`
+const Value = styled(Text.M)`
   flex: 1;
   font-weight: 500;
   color: ${props => props.textColor || '#000'};
@@ -42,14 +42,14 @@ const SpotProperties = ({ spot, lineColor }) => {
   ) || {};
 
   return (
-    <PropertyContainer>
+    <Container>
       {Object.keys(properties).map(key => (
-        <PropertyRow lineColor={lineColor} key={key}>
-          <PropertyLabel>{key}</PropertyLabel>
-          <PropertyValue>{properties[key]}</PropertyValue>
-        </PropertyRow>
+        <Row lineColor={lineColor} key={key}>
+          <Label>{key}</Label>
+          <Value>{properties[key]}</Value>
+        </Row>
       ))}
-    </PropertyContainer>
+    </Container>
   );
 };
 

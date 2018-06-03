@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
-const gameFragment = gql`
-  fragment gameFragment on GameType {
+const gameDetailsFragment = gql`
+  fragment gameDetailsFragment on GameType {
     uuid
     name
     start_time
@@ -9,6 +9,7 @@ const gameFragment = gql`
     is_featured
     show_remaining
     capacity
+    description
     sport {
       uuid
       category
@@ -38,15 +39,21 @@ const gameFragment = gql`
         lng
       }
     }
+    organizer {
+      uuid
+      first_name
+      last_name
+    }
     attendees {
       uuid
       status
-      #user {
-      #  uuid
-      #  name
-      #}
+      user {
+        uuid
+        first_name
+        last_name
+      }
     }
   }
 `;
 
-export default gameFragment;
+export default gameDetailsFragment;
