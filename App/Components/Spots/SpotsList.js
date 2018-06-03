@@ -4,7 +4,6 @@ import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
-// import { cardList } from './Styles/CardStyles';
 import NothingFound from '../NothingFound';
 import I18n from '../../I18n';
 
@@ -39,7 +38,6 @@ const SpotsList = ({
       <CardContainer
         key={spot.uuid}
         onPress={() => { onCardPress(spot.uuid); }}
-        // style={cardList.cardContainer}
       >
         {React.createElement(cardComponent, { spot })}
       </CardContainer>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import { MenuProvider } from 'react-native-popup-menu';
+import { View } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
@@ -12,50 +12,19 @@ import Card from '../../Components/Games/GameListCard';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-/* const CardContainer = (props) => {
-  const { style, onPress, ...otherProps } = props;
-  return (
-    <TouchableOpacity onPress={onPress} style={style}>
-      <GameListCard {...otherProps} />
-    </TouchableOpacity>
-  );
-}; */
-
-const Container = styled(MenuProvider)`
+const Container = styled(View)`
   flex: 1;
-  /* padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 32px; */
   padding: 8px;
   background-color: ${Colors.white};
 `;
-
-/* const GameListCardContainer = styled(CardContainer)`
-  margin-bottom: 8px;
-`; */
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
-/**
- * @summary Get the min / max date for month `month`. Past months will change to
- * future months
- */
-/* const getMonthRange = (month) => {
-  const currentMonth = new Date().getMonth();
-  const currentYear = new Date().getFullYear();
-  return {
-    minDate: new Date(month < currentMonth ? currentYear + 1 : currentYear, month, 0),
-    maxDate: new Date(month < currentMonth ? currentYear + 1 : currentYear, month + 1, 0),
-  };
-}; */
+const curatedGames = games => (games ? games.filter(game => game.spot) : []);
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class GamesListScreen extends React.Component {
-  /* state = {
-    month: new Date().getMonth(),
-  } */
-
   handleCardPress = (gameId) => {
     this.props.navigation.navigate('GameDetailsScreen', {
       uuid: gameId,
@@ -63,17 +32,10 @@ class GamesListScreen extends React.Component {
   }
 
   render() {
-    // const monthRange = getMonthRange(this.state.month);
-
     return (
       <Query
         query={GET_GAMES_LIST}
-        variables={{
-          offset: 0,
-          limit: 20,
-          // minStartTime: monthRange.minDate,
-          // maxStartTime: monthRange.maxDate,
-        }}
+        variables={{ offset: 0, limit: 20 }}
         fetchPolicy="cache-and-network"
       >
         {({
@@ -88,12 +50,12 @@ class GamesListScreen extends React.Component {
           const loadMore = () => {
             fetchMore({
               variables: {
-                offset: data.games.length,
+                offset: curatedGames(data.games).length,
               },
               updateQuery: (prev, { fetchMoreResult }) => {
                 if (!fetchMoreResult) return prev;
                 return Object.assign({}, prev, {
-                  games: [...prev.games, ...fetchMoreResult.games],
+                  games: [...curatedGames(prev.games), ...curatedGames(fetchMoreResult.games)],
                 });
               },
             });
@@ -101,13 +63,8 @@ class GamesListScreen extends React.Component {
 
           return (
             <Container>
-              {/* <MonthSelector
-                  style={{ marginBottom: 16 }}
-                  month={this.state.month}
-                  onChange={month => this.setState({ month })}
-                /> */}
               <GamesList
-                games={(data && data.games) || []}
+                games={(data && curatedGames(data.games)) || []}
                 cardComponent={Card}
                 onCardPress={this.handleCardPress}
                 // FlatList props

@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, View, TouchableOpacity } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
+import styled from 'styled-components';
 import gameFragment from '../../../GraphQL/Games/Fragments/game';
-// import { cardList } from './Styles/CardStyles';
 import NothingFound from '../../NothingFound';
 import I18n from '../../../I18n';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const CardContainer = styled(TouchableOpacity)`
+  margin: 8px 0;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const GamesList = ({
   games,
   cardComponent,
@@ -14,25 +23,22 @@ const GamesList = ({
   style,
   ...rest
 }) => (
-  <View style={[cardList.container, style, { flex: 1 }]}>
-    <FlatList
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ flexGrow: 1 }}
-      data={games}
-      ListEmptyComponent={<NothingFound icon="cancel" text={I18n.t('No games found')} />}
-      renderItem={({ item: game }) => (
-        <TouchableOpacity
-          key={game.uuid}
-          onPress={() => { onCardPress(game.uuid); }}
-          style={{ marginBottom: '8px' }}
-        >
-          {React.createElement(cardComponent, { game })}
-        </TouchableOpacity>
-      )}
-      keyExtractor={item => item.uuid}
-      {...rest}
-    />
-  </View>
+  <FlatList
+    showsVerticalScrollIndicator={false}
+    contentContainerStyle={{ flexGrow: 1 }}
+    data={games}
+    ListEmptyComponent={<NothingFound icon="cancel" text={I18n.t('No games found')} />}
+    renderItem={({ item: game }) => (
+      <CardContainer
+        key={game.uuid}
+        onPress={() => { onCardPress(game.uuid); }}
+      >
+        {React.createElement(cardComponent, { game })}
+      </CardContainer>
+    )}
+    keyExtractor={item => item.uuid}
+    {...rest}
+  />
 );
 
 GamesList.propTypes = {
@@ -49,7 +55,6 @@ GamesList.defaultProps = {
 };
 
 export default GamesList;
-
 
 
 /*

@@ -41,10 +41,10 @@ const gameFragment = gql`
     attendees {
       uuid
       status
-      user {
-        uuid
-        name
-      }
+      #user {
+      #  uuid
+      #  name
+      #}
     }
   }
 `;
