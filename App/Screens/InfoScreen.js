@@ -93,9 +93,4 @@ class InfoScreen extends React.Component {
   }
 }
 
-InfoScreen.navigationOptions = {
-  title: I18n.t('Profile Edit'),
-  header: () => null,
-};
-
 export default InfoScreen;

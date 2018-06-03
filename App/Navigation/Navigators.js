@@ -139,9 +139,9 @@ export const InfoNav = StackNavigator(
   {
     InfoScreen: {
       screen: InfoScreen,
-      navigationOptions: {
-        title: I18n.t('Info'),
-      },
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Info')} />,
+      }),
     },
   },
   {
@@ -153,9 +153,9 @@ const LoggedInProfileNav = StackNavigator(
   {
     ProfileDetailsScreen: {
       screen: ProfileDetailsScreen,
-      navigationOptions: {
-        header: null,
-      },
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
+      }),
     },
     ProfileEditScreen: {
       screen: ProfileEditScreen,
@@ -179,7 +179,19 @@ const LoggedInProfileNav = StackNavigator(
 export const ProfileNav = SwitchNavigator(
   {
     ProfileSignupScreen: {
-      screen: ProfileSignupScreen,
+      screen: StackNavigator(
+        {
+          profileScreen: {
+            screen: ProfileSignupScreen,
+            navigationOptions: () => ({
+              headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
+            }),
+          },
+        },
+        {
+          initialRouteName: 'profileScreen',
+        },
+      ),
     },
     LoggedInProfileNav: {
       screen: LoggedInProfileNav,
