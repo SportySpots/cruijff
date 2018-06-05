@@ -13,6 +13,7 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   height: ${windowHeight - 80}; /* windowHeight - headerHeight */
+  padding-top: 10;
   background-color: ${Colors.white};
 `;
 
@@ -32,14 +33,16 @@ const ChildrenContainer = styled.View`
   width: ${windowWidth};
 `;
 
-const LogoHeaderBackground = ({ children }) => (
+const LogoHeaderBackground = ({ hideLogo, children }) => (
   <Container>
-    <LogoContainer>
-      <Logo scale={1} />
-      <LogoText bold>
-        SPORTYSPOTS
-      </LogoText>
-    </LogoContainer>
+    {!hideLogo && (
+      <LogoContainer>
+        <Logo scale={1} />
+        <LogoText bold>
+          SPORTYSPOTS
+        </LogoText>
+      </LogoContainer>
+    )}
     <ChildrenContainer>
       {children}
     </ChildrenContainer>
@@ -47,7 +50,12 @@ const LogoHeaderBackground = ({ children }) => (
 );
 
 LogoHeaderBackground.propTypes = {
+  hideLogo: PropTypes.bool,
   children: PropTypes.any.isRequired,
+};
+
+LogoHeaderBackground.defaultProps = {
+  hideLogo: false,
 };
 
 export default LogoHeaderBackground;

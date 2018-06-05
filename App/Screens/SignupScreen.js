@@ -87,7 +87,7 @@ export class _Signup extends Component {
   render() {
     return (
       <KeyboardAwareScrollView ref={ref => {this.scroll = ref}}>
-        <LogoHeaderBackground>
+        <LogoHeaderBackground hideLogo>
           <Form>
             <FieldSet>
               <BlackText>{I18n.t('First name')}</BlackText>

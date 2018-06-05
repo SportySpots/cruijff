@@ -99,7 +99,7 @@ class LoginScreen extends Component {
   render() {
     return (
       <KeyboardAwareScrollView>
-        <LogoHeaderBackground>
+        <LogoHeaderBackground hideLogo>
           <Form>
             <FieldSet>
               <BlackText>{I18n.t('E-mail')}</BlackText>
