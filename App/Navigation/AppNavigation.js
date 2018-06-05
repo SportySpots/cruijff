@@ -15,6 +15,7 @@ import SignupScreen from '../Screens/SignupScreen';
 import OnboardingScreen from '../Components/Onboarding';
 import AskLocation from '../Screens/AskLocationScreen';
 import StackBackHeader from './StackBackHeader';
+import DebugScreen from '../Screens/DebugScreen';
 
 export const MainTabsNav = TabNavigator(
   {
@@ -48,6 +49,7 @@ const RootNav = SwitchNavigator(
     OnboardingScreen: { screen: OnboardingScreen },
     SplashScreen: { screen: SplashScreen },
     MainNav: { screen: MainNav },
+    DebugNav: { screen: DebugScreen },
   },
   {
     // Default config for all screens

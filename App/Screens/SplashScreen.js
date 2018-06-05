@@ -79,7 +79,7 @@ export class _SplashScreen extends React.Component {
         </LogoContainer>
         <TextContainer>
           <SplashLabel>
-            {I18n.t('Ontdek sportlocaties en activiteiten bij jou in de buurt')}
+            {I18n.t('Discover sport locations and activities near you')}
           </SplashLabel>
         </TextContainer>
         {this.props.user.initialized ? (
