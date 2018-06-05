@@ -24,6 +24,7 @@ project.xcworkspace
 
 # Android Releases
 android/app/release
+android/app/debug
 
 # Android/IntelliJ
 #
