@@ -27,8 +27,15 @@ class DebugScreen extends React.Component {
         <ScrollView>
           { log.map((item, idx) => {
             const { logTime, ...args } = item;
-            // eslint-disable-next-line react/no-array-index-key
-            return <Line key={idx}><Text.S>{logTime} {JSON.stringify(args)}</Text.S></Line>;
+            return (
+              // eslint-disable-next-line react/no-array-index-key
+              <Line key={idx}>
+                <Text.S selectable>{logTime}</Text.S>
+                {Object.keys(args).map(innerIdx => (
+                  <Text.S key={innerIdx} selectable>{JSON.stringify(args[innerIdx])}</Text.S>
+                ))}
+              </Line>
+            );
           }) }
         </ScrollView>
       </Container>
