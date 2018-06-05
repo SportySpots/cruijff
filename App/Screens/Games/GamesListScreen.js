@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { View } from 'react-native';
+import { uniqBy } from 'ramda';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
@@ -26,7 +27,9 @@ const Container = styled(View)`
  * components.
  */
 const curatedGames = games => (
-  games && games.length > 0 ? games.filter(game => game.spot) : []
+  games && games.length > 0
+    ? uniqBy(({ uuid }) => (uuid), games.filter(game => game.spot))
+    : []
 );
 //------------------------------------------------------------------------------
 // COMPONENT:
