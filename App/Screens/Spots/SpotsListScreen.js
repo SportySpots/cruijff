@@ -66,7 +66,7 @@ class SpotsListScreen extends React.Component {
                 onRefresh={refetch}
                 refreshing={loading}
                 onEndReached={loadMore}
-                onEndReachedThreshold={1}
+                onEndReachedThreshold={0.1}
               />
             </Container>
           );
