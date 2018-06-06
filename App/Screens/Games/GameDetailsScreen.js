@@ -61,7 +61,7 @@ class GameComponent extends Component {
 
   onShare = (game) => {
     const url = `https://${config.deeplinkHost}/games/${game.uuid}`;
-    const message = `${I18n.t('You have been invited to a SportySpots game:')}: ${url}`;
+    const message = `${I18n.t('You have been invited to a SportySpots game:')} ${url}`;
     Share.share(
       {
         message,
