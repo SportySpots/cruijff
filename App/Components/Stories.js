@@ -36,7 +36,7 @@ import PropertyCircle from './PropertyCircle';
 import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import LoginScreen from '../Screens/LoginScreen';
-import FilterScreen from '../Screens/Filters';
+import FilterScreen from '../Screens/FilterScreen';
 import NothingFound from './NothingFound';
 
 const dummyNavigator = {
