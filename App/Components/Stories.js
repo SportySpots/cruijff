@@ -37,6 +37,7 @@ import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import FilterScreen from '../Screens/Filters';
+import InfoScreen from '../Screens/InfoScreen';
 import NothingFound from './NothingFound';
 
 const dummyNavigator = {
@@ -171,4 +172,8 @@ storiesOf('NothingFound').add('Default', () => (
 
 storiesOf('FilterScreen').add('Default', () => (
   <FilterScreen navigation={dummyNavigator} />
+));
+
+storiesOf('InfoScreen').add('Default', () => (
+  <InfoScreen />
 ));

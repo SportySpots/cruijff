@@ -48,7 +48,7 @@ const LogoHeaderBackground = ({ children }) => (
       {/* <View style={style.skew} /> */}
       <View style={style.logoContainer}>
         <Logo scale={1} />
-        <Text.L style={style.logoText}>
+        <Text.L bold>
           SPORTYSPOTS
         </Text.L>
       </View>
