@@ -105,7 +105,7 @@ const GameListCard = ({ game }) => {
             </WhiteSM>
             {game.capacity && game.capacity > 0 && [
               <WhiteSM key="dot">
-                ·&nbsp;
+                &nbsp;·&nbsp;
               </WhiteSM>,
               <OrangeSM key="capacity">
                 {game.capacity} {I18n.t('people')}

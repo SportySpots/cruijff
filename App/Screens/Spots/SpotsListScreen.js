@@ -45,7 +45,7 @@ class SpotsListScreen extends React.Component {
           const loadMore = () => {
             fetchMore({
               variables: {
-                offset: data.spots.length,
+                offset: (data && data.spots && data.spots.length) || 0,
               },
               updateQuery: (prev, { fetchMoreResult }) => {
                 if (!fetchMoreResult) return prev;
