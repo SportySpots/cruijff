@@ -59,10 +59,16 @@ const SliderFilter = () => (
     <FilterDescription>Basdasdsda da sd asd</FilterDescription>
     <Slider />
   </RowVertical>
-)
+);
 
 
 class FilterScreen extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      maxDistance: 10,
+    };
+  }
   render() {
     return (
       <Container>
