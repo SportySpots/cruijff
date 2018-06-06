@@ -388,7 +388,7 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     marginBottom: 32,
-    fontSize: 48,
+    /* fontSize: 48, */
   },
   text: {
     color: Colors.white,
