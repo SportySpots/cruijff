@@ -47,24 +47,24 @@ class GamesListScreen extends React.Component {
         query={GET_GAMES_LIST}
         variables={{
           offset: 0,
-          limit: 20,
+          limit: 100,
           ordering: 'start_time',
         }}
-        fetchPolicy="cache-and-network"
+        // fetchPolicy="cache-and-network"
       >
         {({
           loading,
           error,
           data,
           refetch,
-          fetchMore,
+          // fetchMore,
         }) => {
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
-          const loadMore = () => {
+          /* const loadMore = () => {
             fetchMore({
               variables: {
-                offset: data.games.length,
+                offset: (data && data.games && data.games.length) || 0,
               },
               updateQuery: (prev, { fetchMoreResult }) => {
                 if (!fetchMoreResult) return prev;
@@ -73,7 +73,7 @@ class GamesListScreen extends React.Component {
                 });
               },
             });
-          };
+          }; */
 
           return (
             <Container>
@@ -84,8 +84,8 @@ class GamesListScreen extends React.Component {
                 // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
-                onEndReached={loadMore}
-                onEndReachedThreshold={0.1}
+                // onEndReached={loadMore}
+                onEndReachedThreshold={0}
               />
             </Container>
           );
