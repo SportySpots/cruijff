@@ -1,4 +1,123 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { client } from '../../GraphQL/index';
+import spotFiltersActions from '../../Redux/SpotFiltersRedux';
+import GET_SPORTS from '../../GraphQL/Sports/Queries/GET_SPORTS';
+import SpotsFilter from '../../Components/Spots/SpotsFilter';
+
+class SpotsFilterScreen extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loaded: false,
+      sports: [],
+    };
+    this.init();
+  }
+
+  init = async () => {
+    console.log('***INIT');
+    const result = await client.query({ query: GET_SPORTS });
+    this.setState({ loaded: true, sports: result.data.sports });
+  }
+
+  render() {
+    const { maxDistance, setMaxDistance, toggleSport } = this.props;
+    const { loaded, sports } = this.state;
+    console.log(
+      '*****sports',
+      'maxDistance', maxDistance,
+      'setMaxDistance', setMaxDistance,
+      'toggleSport', toggleSport,
+      'loaded', loaded,
+      // 'sports', sports,
+    );
+
+    if (!loaded) {
+      return null;
+    }
+
+    return (
+      <SpotsFilter
+        maxDistance={maxDistance}
+        sports={sports}
+        setMaxDistance={setMaxDistance}
+        toggleSport={(v) => {
+          console.log('****VALUE', v);
+          toggleSport(v);
+        }}
+      />
+    );
+  }
+}
+
+SpotsFilterScreen.propTypes = {
+  maxDistance: PropTypes.number.isRequired,
+  setMaxDistance: PropTypes.func.isRequired,
+  toggleSport: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => state.spotFilters;
+const mapDispatchToProps = {
+  setMaxDistance: spotFiltersActions.setMaxDistance,
+  toggleSport: spotFiltersActions.toggleSport,
+};
+
+const withRedux = connect(mapStateToProps, mapDispatchToProps);
+export default withRedux(SpotsFilterScreen);
+
+/*
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Query } from 'react-apollo';
+import { connect } from 'react-redux';
+import spotFiltersActions from '../../Redux/SpotFiltersRedux';
+import GET_SPORTS from '../../GraphQL/Sports/Queries/GET_SPORTS';
+import Text from '../../Components/Text';
+import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
+import SpotsFilter from '../../Components/Spots/SpotsFilter';
+
+const SpotsFilterScreen = ({
+  maxDistance,
+  setMaxDistance,
+  toggleSport,
+}) => (
+  <Query query={GET_SPORTS}>
+    {({ loading, error, data }) => {
+      if (loading) return <CenteredActivityIndicator />;
+      if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
+
+      return (
+        <SpotsFilter
+          maxDistance={maxDistance}
+          sports={(data && data.sports) || []}
+          setMaxDistance={setMaxDistance}
+          toggleSport={toggleSport}
+        />
+      );
+    }}
+  </Query>
+);
+
+SpotsFilterScreen.propTypes = {
+  maxDistance: PropTypes.number.isRequired,
+  setMaxDistance: PropTypes.func.isRequired,
+  toggleSport: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => state.spotFilters;
+const mapDispatchToProps = {
+  setMaxDistance: spotFiltersActions.setMaxDistance,
+  toggleSport: spotFiltersActions.toggleSport,
+};
+
+const withRedux = connect(mapStateToProps, mapDispatchToProps);
+export default withRedux(SpotsFilterScreen);
+*/
+
+/*
+import React from 'react';
 import { Switch } from 'react-native';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
@@ -164,3 +283,4 @@ const mapDispatchToProps = {
 
 const withRedux = connect(mapStateToProps, mapDispatchToProps);
 export default withRedux(SpotsFilterScreen);
+*/
