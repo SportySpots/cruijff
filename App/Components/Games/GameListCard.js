@@ -101,11 +101,16 @@ const GameListCard = ({ game }) => {
           <Bottom>
             <WhiteSM>
               {moment.utc(game.start_time).format('H:mm')}&nbsp;-&nbsp;
-              {moment.utc(game.end_time).format('H:mm')} · {I18n.t(game.sport.category)} ·&nbsp;
+              {moment.utc(game.end_time).format('H:mm')} · {I18n.t(game.sport.category)}
             </WhiteSM>
-            <OrangeSM>
-              {game.capacity} {I18n.t('people')}
-            </OrangeSM>
+            {game.capacity && game.capacity > 0 && [
+              <WhiteSM key="dot">
+                ·&nbsp;
+              </WhiteSM>,
+              <OrangeSM key="capacity">
+                {game.capacity} {I18n.t('people')}
+              </OrangeSM>,
+            ]}
           </Bottom>
         </Overlay>
       </Right>
