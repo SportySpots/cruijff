@@ -26,7 +26,7 @@ export default class Created extends Component {
   };
 
   get link() {
-    return `https://${config.deeplinkHost}/${this.props.navigation.state.params.uuid}`;
+    return `https://${config.deeplinkHost}/games/${this.props.navigation.state.params.uuid}`;
   }
 
   onCopy = () => {
