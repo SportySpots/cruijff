@@ -23,10 +23,14 @@ const FilterGroup = styled.View`
   padding-horizontal: 16px;
 `;
 
-const Filter = styled.View`
+const Row = styled.View`
   flex-direction: row;
-  align-items: center;
   margin-vertical: 8px;
+`;
+
+const RowVertical = Row.extend`
+  flex-direction: column;
+  flex: 1;
 `;
 
 const Left = styled.View`
@@ -38,7 +42,7 @@ const Right = styled.View`
 `;
 
 const SwitchFilter = () => (
-  <Filter>
+  <Row>
     <Left>
       <FilterLabel>bladiebla</FilterLabel>
       <FilterDescription>Basdasdsda da sd asd</FilterDescription>
@@ -46,10 +50,16 @@ const SwitchFilter = () => (
     <Right>
       <Switch />
     </Right>
-  </Filter>
+  </Row>
 );
 
-// const SliderFilter
+const SliderFilter = () => (
+  <RowVertical>
+    <FilterLabel>bladiebla</FilterLabel>
+    <FilterDescription>Basdasdsda da sd asd</FilterDescription>
+    <Slider />
+  </RowVertical>
+)
 
 
 class FilterScreen extends React.Component {
@@ -57,7 +67,7 @@ class FilterScreen extends React.Component {
     return (
       <Container>
         <FilterGroup>
-          <Slider/>
+          <SliderFilter />
         </FilterGroup>
         <FilterGroup>
           <SwitchFilter />
