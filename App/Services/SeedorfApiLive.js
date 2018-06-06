@@ -20,6 +20,7 @@ const create = () => {
     headers: {
       'Cache-Control': 'no-cache',
       vary: '',
+      cookie: null,
     },
     timeout: 10000,
   });
@@ -97,6 +98,7 @@ const create = () => {
         game(uuid: $uuid) {
           sport
         }
+      }
     `;
     client.writeQuery({
       query: q,
