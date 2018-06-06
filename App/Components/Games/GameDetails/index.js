@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
-import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
-import moment from 'moment';
+/* import React from 'react';
 import PropTypes from 'prop-types';
+import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
+import { propType } from 'graphql-anywhere';
+import moment from 'moment';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import I18n from '../../I18n/index';
-import Colors from '../../Themes/Colors';
-import API from '../../Services/SeedorfApi';
-import Text from '../../Components/Text';
-import ImageSwiper from '../../Components/ImageSwiper';
-import UserCircle from '../../Components/UserCircle';
-import PropertyCircle from '../../Components/PropertyCircle';
-import themeImages from '../../Themes/Images';
-import DefaultButton from '../../Components/DefaultButton';
-import PropTypeDefinitions from '../../PropTypesDefinitions';
-import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
-import withQuery from '../../GraphQL/withQuery';
-import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
-import config from '../../config';
+import I18n from '../../../I18n/index';
+import Colors from '../../../Themes/Colors';
+import API from '../../../Services/SeedorfApi';
+import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
+import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import Text from '../../Text';
+import ImageSwiper from '../../ImageSwiper';
+import UserCircle from '../../UserCircle';
+import PropertyCircle from '../../PropertyCircle';
+import themeImages from '../../../Themes/Images';
+import DefaultButton from '../../DefaultButton';
+import PropTypeDefinitions from '../../../PropTypesDefinitions';
+import withQuery from '../../../GraphQL/withQuery';
+import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
+import config from '../../../config';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -26,7 +28,7 @@ const RSVP_STATUSES = {
 };
 
 const SpotOpenImage = () => (
-  <Image source={themeImages.spotOpenCircle} style={{ width: 42, height: 42, marginRight: 4 }} />
+  <Image source={themeImages.spotOpenCircle} style={{ width: 42, height: 42 }} />
 );
 
 const mapMax = (maxNum, data, fn, fnElse) => {
@@ -37,15 +39,7 @@ const mapMax = (maxNum, data, fn, fnElse) => {
   return returnArr;
 };
 
-class GameComponent extends Component {
-  static propTypes = {
-    data: PropTypes.any.isRequired,
-    style: PropTypes.any,
-    navigation: PropTypeDefinitions.navigation,
-    user: PropTypes.object,
-    refetch: PropTypes.func,
-  };
-
+class GameDetails extends React.PureComponent {
   // constructor(props) {
   //   super(props);
   //   this.state = {
@@ -61,7 +55,7 @@ class GameComponent extends Component {
 
   onShare = (game) => {
     const url = `https://${config.deeplinkHost}/games/${game.uuid}`;
-    const message = `${I18n.t('You have been invited to a SportySpots game:')} ${url}`;
+    const message = `${I18n.t('You have been invited to a SportySpots game:')}: ${url}`;
     Share.share(
       {
         message,
@@ -139,7 +133,6 @@ class GameComponent extends Component {
           <DefaultButton
             style={{ flex: 1, marginLeft: -10 }}
             bgColor={status === RSVP_STATUSES.ATTENDING ? Colors.white : Colors.primaryGreen}
-            borderColor={status === RSVP_STATUSES.ATTENDING ? Colors.black : Colors.primaryGreen}
             textColor={status === RSVP_STATUSES.ATTENDING ? Colors.black : Colors.white}
             text={I18n.t(status === RSVP_STATUSES.ATTENDING ? "I'm not attending" : "I'm attending")}
             onPress={() => {
@@ -180,7 +173,7 @@ class GameComponent extends Component {
 
     const nOpenSpots = Math.max(0, game.capacity - attendingUsers.length);
     return (
-      <ScrollView style={{ ...this.props.style, backgroundColor: Colors.white }}>
+      <ScrollView style={this.props.style}>
         <SwiperContainer>
           <ImageSwiper images={images} />
         </SwiperContainer>
@@ -220,17 +213,12 @@ class GameComponent extends Component {
             <BlockLabel>{I18n.t('Attending')}</BlockLabel>
             <TouchableOpacity onPress={this.openPlayerList}>
               <HorizontalView>
-                <HorizontalView style={{ flex: 1 }}>
-                  {mapMax(
-                    7,
-                    attendingUsers,
-                    user => <UserCircle key={user.uuid} user={user} style={{ marginRight: 4 }} />,
-                    () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 6}`} />,
-                  )}
-                </HorizontalView>
-                <ChevronContainer>
-                  <MaterialIcon name="chevron-right" size={30} color={Colors.black} />
-                </ChevronContainer>
+                {mapMax(
+                  7,
+                  attendingUsers,
+                  user => <UserCircle key={user.uuid} user={user} style={{ marginRight: 4 }} />,
+                  () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 6}`} />,
+                )}
               </HorizontalView>
             </TouchableOpacity>
           </Block>
@@ -271,8 +259,8 @@ class GameComponent extends Component {
     );
   }
 }
-
-const GameDetailsScreen = connect(state => ({ user: state.user }))(
+*/
+/* const GameDetailsScreen = connect(state => ({ user: state.user }))(
   (props) => {
     const Contents = withQuery(GET_GAME_DETAILS)(GameComponent);
     return (
@@ -282,17 +270,20 @@ const GameDetailsScreen = connect(state => ({ user: state.user }))(
       />
     );
   },
-);
+); */
+/*
+GameDetails.propTypes = {
+  game: propType(gameDetailsFragment).isRequired,
+  style: PropTypes.any,
+  navigation: PropTypeDefinitions.navigation,
+  user: PropTypes.object,
+  refetch: PropTypes.func,
+};
 
-export default GameDetailsScreen;
+export default GameDetails;
 
 const HorizontalView = styled.View`
   flex-direction: row;
-`;
-
-const ChevronContainer = styled(HorizontalView)`
-  justify-content: center;
-  align-items: center;
 `;
 
 const SwiperContainer = styled.View`
@@ -328,7 +319,7 @@ const Time = styled(HorizontalView)`
 const BlockLabel = styled(Text.M)`
   margin-bottom: 8px;
 `;
-
+*/
 
 /*
 import React, { Component } from 'react';
@@ -348,7 +339,7 @@ import PropertyCircle from '../../Components/PropertyCircle';
 import themeImages from '../../Themes/Images';
 import DefaultButton from '../../Components/DefaultButton';
 import PropTypeDefinitions from '../../PropTypesDefinitions';
-import { GET_GAME_DETAILS } from '../../GraphQL/queries';
+import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import withQuery from '../../GraphQL/withQuery';
 import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
 import config from '../../config';

@@ -19,6 +19,8 @@
   "Boules": "Jeu de boules",
   "find": "Spots",
   "join": "Meedoen",
+  "info": "Info",
+  "Info": "Info",
   "Plan a game": "Plan een potje",
   "plan a game": "plan een potje",
   "profile": "Profiel",
@@ -62,11 +64,11 @@
   "join-a-game": "Ontdek en doe mee",
   "plan-a-game": "Plan een potje",
   "onboarding-1":
-    "Hoi! Leuk dat je meedoet met wat de grootste sportclub ter wereld gaat worden. Veel plezier!",
+    "Leuk dat je meedoet met SportySpots. Veel plezier met sporten!",
   "onboarding-2":
-    "Ontdek alle SportySpots bij jou in de buurt. Druk op de 'meedoen' om potjes sport te vinden die bij jou in de buurt worden georganiseerd.",
+    "Ontdek sportplekken en activiteiten bij jou in de de buurt.",
   "onboarding-3":
-    "Druk op de 'Plan een potje' knop om je vrienden of andere leden uit te nodigen voor jouw favorite sport.",
+    "Plan je favoriete sport op de perfecte plek met je vrienden of andere sporters.",
 
   "E-mail": "E-mail",
   "Password": "Wachtwoord",
@@ -104,11 +106,27 @@
   "Terms and conditions": "Algemene voorwaarden",
   "games": "potjes",
   "Games": "Potjes",
+  "Find a game": "Zoek een spel",
   "You have been invited to a SportySptos game": "Je bent uitgenodigd voor een potje via SportySpots",
 
   "Spot details": "Spot overzicht",
   "No spots found": "Geen spots gevonden...",
   "No games found": "Geen potjes gevonden...",
 
-  "Wrong username or password": "Geen geldige e-mail of wachtwoord"
+  "Wrong username or password": "Geen geldige e-mail of wachtwoord",
+
+  "I'm attending": "Ik doe mee",
+  "Player list": "Deelnemers",
+  "Signed up at": "Aangemeld op",
+  "Profile": "Profiel",
+
+  "Hi again!": "Leuk je weer te zien!",
+
+  "people": "personen",
+
+  "Discover sport locations and activities near you": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
+
+  "capacity": "capaciteit",
+
+  "You have been invited to a SportySpots game:": "Je bent uitgenodigd om mee te doen met een potje op SportySpots:"
 }

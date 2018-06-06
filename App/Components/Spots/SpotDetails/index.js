@@ -34,7 +34,11 @@ const SpotDetails = ({ spot, userId }) => ( // eslint-disable-line
 
 SpotDetails.propTypes = {
   spot: propType(spotDetailsFragment).isRequired,
-  userId: PropTypes.string.isRequired,
+  userId: PropTypes.string,
+};
+
+SpotDetails.defaultProps = {
+  userId: null,
 };
 
 export default SpotDetails;

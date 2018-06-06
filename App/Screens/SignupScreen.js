@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import { findNodeHandle, TextInput } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -79,10 +79,15 @@ export class _Signup extends Component {
     );
   }
 
+  scrollAndFocusRef = (refName) => {
+    this[refName].root.focus();
+    this.scroll.scrollToFocusedInput(findNodeHandle(this[refName]));
+  }
+
   render() {
     return (
-      <KeyboardAwareScrollView>
-        <LogoHeaderBackground>
+      <KeyboardAwareScrollView ref={ref => {this.scroll = ref}}>
+        <LogoHeaderBackground hideLogo>
           <Form>
             <FieldSet>
               <BlackText>{I18n.t('First name')}</BlackText>
@@ -90,13 +95,18 @@ export class _Signup extends Component {
                 onChangeText={val => this.setState({ first_name: val })}
                 editable={!this.requestIsPending}
                 autoFocus
+                blurOnSubmit={false}
+                onSubmitEditing={() => this.scrollAndFocusRef('lastNameField')}
               />
             </FieldSet>
             <FieldSet>
               <BlackText>{I18n.t('Last name')}</BlackText>
               <Input
+                ref={(ref) => { this.lastNameField = ref; }}
                 onChangeText={val => this.setState({ last_name: val })}
                 editable={!this.requestIsPending}
+                blurOnSubmit={false}
+                onSubmitEditing={() => this.scrollAndFocusRef('emailField')}
               />
             </FieldSet>
             <FieldSet>
@@ -110,9 +120,13 @@ export class _Signup extends Component {
                   </Error>
                 )}
               <Input
+                ref={(ref) => { this.emailField = ref; }}
                 keyboardType="email-address"
                 onChangeText={val => this.setState({ email: val })}
                 editable={!this.requestIsPending}
+                autoCapitalize="none"
+                blurOnSubmit={false}
+                onSubmitEditing={() => this.scrollAndFocusRef('passwordField')}
               />
             </FieldSet>
             <FieldSet>
@@ -122,6 +136,7 @@ export class _Signup extends Component {
                   <Error>{I18n.t('Password needs to be at least 8 characters')}</Error>
                 )}
               <Input
+                ref={(ref) => { this.passwordField = ref; }}
                 secureTextEntry
                 onChangeText={val => this.setState({ password: val })}
                 editable={!this.requestIsPending}

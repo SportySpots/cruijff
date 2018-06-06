@@ -26,7 +26,7 @@ export default class Created extends Component {
   };
 
   get link() {
-    return `https://${config.deeplinkHost}/${this.props.navigation.state.params.uuid}`;
+    return `https://${config.deeplinkHost}/games/${this.props.navigation.state.params.uuid}`;
   }
 
   onCopy = () => {
@@ -34,7 +34,7 @@ export default class Created extends Component {
   };
 
   onShare = () => {
-    const message = `${I18n.t('You have been invited to a SportySpots game:')}: ${this.link}`;
+    const message = `${I18n.t('You have been invited to a SportySpots game:')} ${this.link}`;
     Share.share(
       {
         message,

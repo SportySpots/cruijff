@@ -1,9 +1,9 @@
 import React from 'react';
 import { StackNavigator, SwitchNavigator } from 'react-navigation';
-import { View } from 'react-native';
+// import { View } from 'react-native';
 import I18n from '../I18n';
-import Text from '../Components/Text';
-import StackBackHeader from '../Components/StackBackHeader';
+// import Text from '../Components/Text';
+import StackBackHeader from './StackBackHeader';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
 import InfoScreen from '../Screens/InfoScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
@@ -14,12 +14,13 @@ import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen';
 // import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
 import planWrapper from '../Containers/Plan/planWrapper';
 import Game from '../Screens/Games/GameDetailsScreen';
-import GamesList from '../Screens/Games/GameListScreen';
+import GamesListScreen from '../Screens/Games/GamesListScreen';
 import Created from '../Screens/Plan/CreatedScreen';
 import Description from '../Screens/Plan/DescriptionScreen';
 import PlayerList from '../Screens/Games/PlayerListScreen';
 import PickSpot from '../Screens/Plan/PickSpotScreen';
 import SportAndTime from '../Screens/Plan/SportAndTimeScreen';
+import DefaultHeader from './DefaultHeader';
 
 export const PlanGameNav = StackNavigator(
   {
@@ -50,7 +51,7 @@ export const GameSearchNav = StackNavigator(
       screen: Game,
       navigationOptions({ navigation }) {
         return {
-          header: () => (
+          headerLeft: () => (
             <StackBackHeader
               title={I18n.t('Game details')}
               onPress={() => { navigation.goBack(null); }}
@@ -60,16 +61,16 @@ export const GameSearchNav = StackNavigator(
       },
     },
     GameListScreen: {
-      screen: GamesList,
-      navigationOptions: {
-        header: null,
-      },
+      screen: GamesListScreen,
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Find a game')} />,
+      }),
     },
     GamePlayerScreen: {
       screen: PlayerList,
       navigationOptions({ navigation }) {
         return {
-          header: () => (
+          headerLeft: () => (
             <StackBackHeader
               title={I18n.t('Player list')}
               onPress={() => { navigation.goBack(null); }}
@@ -90,7 +91,7 @@ export const SpotSearchNav = StackNavigator(
       screen: SpotDetailsScreen,
       navigationOptions({ navigation }) {
         return {
-          header: () => (
+          headerLeft: () => (
             <StackBackHeader
               title={I18n.t('Spot details')}
               onPress={() => { navigation.goBack(null); }}
@@ -118,21 +119,15 @@ export const SpotSearchNav = StackNavigator(
     }, */
     SpotsListScreen: {
       screen: SpotsListScreen,
-      navigationOptions({ navigation }) { // eslint-disable-line
-        return {
-          headerLeft: (
-            <View style={{ marginLeft: 16 }}>
-              <Text.M>{I18n.t('Find a spot')}</Text.M>
-            </View>
-          ),
-          /* headerRight: (
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Find a spot')} />,
+        /* headerRight: (
             <SpotsHeaderBtn
               icon="location-on"
               onPress={() => { navigation.navigate('SpotsMapScreen'); }}
             />
-          ), */
-        };
-      },
+        ), */
+      }),
     },
   },
   {
@@ -144,9 +139,9 @@ export const InfoNav = StackNavigator(
   {
     InfoScreen: {
       screen: InfoScreen,
-      navigationOptions: {
-        title: I18n.t('Info'),
-      },
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Info')} />,
+      }),
     },
   },
   {
@@ -158,15 +153,15 @@ const LoggedInProfileNav = StackNavigator(
   {
     ProfileDetailsScreen: {
       screen: ProfileDetailsScreen,
-      navigationOptions: {
-        header: null,
-      },
+      navigationOptions: () => ({
+        headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
+      }),
     },
     ProfileEditScreen: {
       screen: ProfileEditScreen,
       navigationOptions({ navigation }) {
         return {
-          header: () => (
+          headerLeft: () => (
             <StackBackHeader
               title={I18n.t('Profile Edit')}
               onPress={() => { navigation.goBack(null); }}
@@ -184,7 +179,19 @@ const LoggedInProfileNav = StackNavigator(
 export const ProfileNav = SwitchNavigator(
   {
     ProfileSignupScreen: {
-      screen: ProfileSignupScreen,
+      screen: StackNavigator(
+        {
+          profileScreen: {
+            screen: ProfileSignupScreen,
+            navigationOptions: () => ({
+              headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
+            }),
+          },
+        },
+        {
+          initialRouteName: 'profileScreen',
+        },
+      ),
     },
     LoggedInProfileNav: {
       screen: LoggedInProfileNav,

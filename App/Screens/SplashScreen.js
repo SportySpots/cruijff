@@ -11,23 +11,21 @@ import I18n from '../I18n/index';
 import Colors from '../Themes/Colors';
 
 const LogoContainer = styled.View`
-  flex: 2;
+  flex: 1;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  padding-top: 30px;
 `;
 
 const TextContainer = styled.View`
-  flex: 2;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-bottom: 20px;
 `;
 
 const ButtonsContainer = styled.View`
-  flex: 3;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
 `;
@@ -81,7 +79,7 @@ export class _SplashScreen extends React.Component {
         </LogoContainer>
         <TextContainer>
           <SplashLabel>
-            {I18n.t('Ontdek sportlocaties en activiteiten bij jou in de buurt')}
+            {I18n.t('Discover sport locations and activities near you')}
           </SplashLabel>
         </TextContainer>
         {this.props.user.initialized ? (

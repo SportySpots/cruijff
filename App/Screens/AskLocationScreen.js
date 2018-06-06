@@ -60,7 +60,7 @@ export default connect(null, { updateLocation: locationActions.updateLocation })
         </Container>
         <Footer>
           <View>
-            <WhiteText>{I18n.t('share-your-location')}</WhiteText>
+            {/* <WhiteText>{I18n.t('share-your-location')}</WhiteText> */}
           </View>
           <HorizontalView>
             <TouchableHighlight onPress={() => this.ask()}>

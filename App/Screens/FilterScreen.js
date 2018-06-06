@@ -3,6 +3,7 @@ import { Switch } from 'react-native';
 import styled from 'styled-components';
 import Text from '../Components/Text';
 import Colors from '../Themes/Colors';
+import Slider from '../Components/Slider';
 
 const Container = styled.ScrollView`
   flex: 1;
@@ -48,11 +49,16 @@ const SwitchFilter = () => (
   </Filter>
 );
 
+// const SliderFilter
+
 
 class FilterScreen extends React.Component {
   render() {
     return (
       <Container>
+        <FilterGroup>
+          <Slider/>
+        </FilterGroup>
         <FilterGroup>
           <SwitchFilter />
           <SwitchFilter />

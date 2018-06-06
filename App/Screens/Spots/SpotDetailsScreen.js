@@ -9,6 +9,7 @@ import SpotDetails from '../../Components/Spots/SpotDetails';
 
 const SpotDetailsScreen = ({ navigation, userId }) => (
   <Query
+    fetchPolicy="cache-and-network"
     query={GET_SPOT_DETAILS}
     variables={{
       uuid: navigation.state.params.uuid,
@@ -34,7 +35,11 @@ SpotDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  userId: PropTypes.string.isRequired,
+  userId: PropTypes.string,
+};
+
+SpotDetailsScreen.defaultProps = {
+  userId: null,
 };
 
 const withRedux = connect(state => ({ userId: state.user.uuid }));

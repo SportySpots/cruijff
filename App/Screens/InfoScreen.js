@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Linking } from 'react-native';
+import { TouchableOpacity, Linking, TouchableWithoutFeedback } from 'react-native';
 import codePush from 'react-native-code-push';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -10,6 +10,7 @@ import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 import Text from '../Components/Text';
 import Colors from '../Themes/Colors';
 
+import { navigation as navigationPropType } from '../PropTypesDefinitions/navigation';
 
 const Row = styled.View`
   height: 64px;
@@ -66,12 +67,16 @@ Link.propTypes = {
 };
 
 class InfoScreen extends React.Component {
+  static propTypes = {
+    navigation: navigationPropType,
+  }
   constructor(props) {
     super(props);
     this.state = {
       label: '?',
       version: '?',
       description: '?',
+      versionTaps: 0,
     };
   }
 
@@ -85,12 +90,32 @@ class InfoScreen extends React.Component {
     }).catch(() => null);
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.versionTapTimer);
+  }
+
+  versionPress() {
+    /* go to DebugNav after 10 presses */
+    this.setState({ versionTaps: this.state.versionTaps + 1 });
+    if (!this.versionTapTimer) {
+      this.versionTapTimer = setTimeout(() => {
+        this.setState({ versionTaps: 0 });
+        this.versionTapTimer = null;
+      }, 5000);
+    }
+    if (this.state.versionTaps === 10) {
+      this.props.navigation.navigate('DebugNav');
+    }
+  }
+
   render() {
     return (
       <LogoHeaderBackground>
-        <VersionContainer>
-          <Text.M>{this.state.version} {this.state.label} {this.state.description}</Text.M>
-        </VersionContainer>
+        <TouchableWithoutFeedback onPress={() => this.versionPress()}>
+          <VersionContainer>
+            <Text.M>{this.state.version} {this.state.label} {this.state.description}</Text.M>
+          </VersionContainer>
+        </TouchableWithoutFeedback>
         <Container>
           <Link first text={I18n.t('Privacy info')} href="https://www.sportyspots.com/privacy.html" icon="perm-identity" />
           <Link text={I18n.t('Terms and conditions')} href="https://www.sportyspots.com/terms.html" icon="info" />
@@ -99,10 +124,5 @@ class InfoScreen extends React.Component {
     );
   }
 }
-
-InfoScreen.navigationOptions = {
-  title: I18n.t('Profile Edit'),
-  header: () => null,
-};
 
 export default InfoScreen;

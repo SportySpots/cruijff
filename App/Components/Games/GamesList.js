@@ -1,4 +1,64 @@
-import gql from 'graphql-tag';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FlatList, TouchableOpacity } from 'react-native';
+import { propType } from 'graphql-anywhere';
+import styled from 'styled-components';
+import I18n from '../../I18n';
+import gameFragment from '../../GraphQL/Games/Fragments/game';
+import NothingFound from '../NothingFound';
+
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const CardContainer = styled(TouchableOpacity)`
+  margin: 8px 0;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const GamesList = ({
+  games,
+  cardComponent,
+  onCardPress,
+  style,
+  ...rest
+}) => (
+  <FlatList
+    showsVerticalScrollIndicator={false}
+    contentContainerStyle={{ flexGrow: 1 }}
+    data={games}
+    ListEmptyComponent={<NothingFound icon="calendar-plus" text={I18n.t('No games found')} />}
+    renderItem={({ item: game }) => (
+      <CardContainer
+        key={game.uuid}
+        onPress={() => { onCardPress(game.uuid); }}
+        activeOpacity={1}
+      >
+        {React.createElement(cardComponent, { game })}
+      </CardContainer>
+    )}
+    keyExtractor={item => item.uuid}
+    {...rest}
+  />
+);
+
+GamesList.propTypes = {
+  games: PropTypes.arrayOf(propType(gameFragment)),
+  cardComponent: PropTypes.func.isRequired,
+  onCardPress: PropTypes.func,
+  style: PropTypes.object,
+};
+
+GamesList.defaultProps = {
+  games: [],
+  onCardPress: () => {},
+  style: {},
+};
+
+export default GamesList;
+
+
+/*
 import React, { Component } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { MenuProvider } from 'react-native-popup-menu';
@@ -8,6 +68,7 @@ import MonthSelector from '../../Components/Games/MonthSelector';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
+import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import NothingFound from '../../Components/NothingFound';
 // import { Query } from 'react-apollo';
 // import Text from '../../Components/Text';
@@ -23,9 +84,10 @@ const CardContainer = (props) => {
 
 const Container = styled(MenuProvider)`
   flex: 1;
-  padding-left: 8px;
+  /* padding-left: 8px;
   padding-right: 8px;
-  padding-top: 32px;
+  padding-top: 32px; //
+  padding: 8px;
   background-color: ${Colors.white};
 `;
 
@@ -33,7 +95,7 @@ const GameListCardContainer = styled(CardContainer)`
   margin-bottom: 8px;
 `;
 
-/* Get the min / max date for month `month`. Past months will change to future months */
+/* Get the min / max date for month `month`. Past months will change to future months //
 const getMonthRange = (month) => {
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();
@@ -96,56 +158,4 @@ export default class GameList extends Component {
     );
   }
 }
-
-export const GET_GAMES_LIST = gql`
-  #  query games($minStartTime: String!, $maxStartTime: String!) {
-  query games {
-    games {
-      #      maxStartTime: $maxStartTime #      minStartTime: $minStartTime #      orderBy: "startTime" #      isListed: true
-      uuid
-      name
-      start_time
-      end_time
-      is_featured
-      show_remaining
-      capacity
-      sport {
-        uuid
-        category
-      }
-      spot {
-        uuid
-        name
-        images {
-          uuid
-          image
-        }
-        amenities {
-          uuid
-          sport {
-            uuid
-            category
-          }
-          data
-        }
-        sports {
-          uuid
-          category
-        }
-        address {
-          uuid
-          lat
-          lng
-        }
-      }
-      attendees {
-        uuid
-        status
-        user {
-          uuid
-          name
-        }
-      }
-    }
-  }
-`;
+*/

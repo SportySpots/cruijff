@@ -4,9 +4,10 @@ import { Query } from 'react-apollo';
 import { View } from 'react-native';
 import { WithApolloMockProvider } from '../../GraphQL';
 import Game from '../../Screens/Games/GameDetailsScreen';
-import GamesList, { GET_GAMES_LIST } from '../../Screens/Games/GameListScreen';
+import GamesList from '../../Screens/Games/GamesListScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
 import GameListCard from './GameListCard';
+import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
 
 
 const dummyNavigator = {

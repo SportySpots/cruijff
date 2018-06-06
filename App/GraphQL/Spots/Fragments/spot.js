@@ -17,7 +17,7 @@ const spotFragment = gql`
       uuid
       category
     }
-    spot_games {
+    games {
       uuid
     }
   }

@@ -10,6 +10,7 @@ import Text from '../../Components/Text';
 import UserCircle from '../../Components/UserCircle';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
+import { navigation as navigationPropType } from '../../PropTypesDefinitions/navigation';
 
 export const BottomNav = ({ screens }) =>
   React.createElement(new TabNavigator(screens, {
@@ -31,6 +32,10 @@ export const BottomNav = ({ screens }) =>
     initialRouteName: 'ATTENDING',
   }));
 
+BottomNav.propTypes = {
+  screens: PropTypes.object,
+};
+
 const statuses = {
   ATTENDING: {
     label: I18n.t('attending'),
@@ -45,15 +50,15 @@ const statuses = {
 
 const UserRow = ({ attendee }) => {
   const { user } = attendee;
-
+  console.log(attendee);
   return (
     <UserRowContainer>
       <UserCircle user={user} />
       <UserRowRight>
-        <Text.M>{user.name}</Text.M>
+        <Text.M>{user.first_name} {user.last_name}</Text.M>
         <Text.S>
           {I18n.t('Signed up at')}:{' '}
-          {moment(this.props.attendee.createdAt).format('d MMMM YYYY HH:mm')}
+          {moment(attendee.createdAt).format('d MMMM YYYY HH:mm')}
         </Text.S>
       </UserRowRight>
     </UserRowContainer>
@@ -90,21 +95,18 @@ export const GET_GAME_USERS_LIST = gql`
         created_at
         user {
           uuid
-          name
-          profile {
-            uuid
-            year_of_birth
-          }
+          first_name
+          last_name
         }
       }
     }
   }
 `;
 
-const UserList = () => (
+const UserList = ({navigation}) => (
   <Query
     query={GET_GAME_USERS_LIST}
-    variables={{ uuid: this.props.navigation.state.params.uuid }}
+    variables={{ uuid: navigation.state.params.uuid }}
   >
     {({ loading, error, data }) => {
       if (loading) return <Text>Loading...</Text>;
@@ -133,5 +135,9 @@ const UserList = () => (
     }}
   </Query>
 );
+
+UserList.propTypes = {
+  navigation: navigationPropType,
+};
 
 export default UserList;

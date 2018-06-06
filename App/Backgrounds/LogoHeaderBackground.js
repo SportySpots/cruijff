@@ -1,5 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Dimensions } from 'react-native';
+import styled from 'styled-components';
+import Logo from '../Components/Logo';
+import Text from '../Components/Text';
+import Colors from '../Themes/Colors';
+
+const { height: windowHeight, width: windowWidth } = Dimensions.get('window');
+
+const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: ${windowHeight - 80}; /* windowHeight - headerHeight */
+  padding-top: 10;
+  background-color: ${Colors.white};
+`;
+
+const LogoContainer = styled.View`
+  margin-top: 16;
+  align-items: center;
+  justify-content: center;
+`;
+
+const LogoText = styled(Text.L)`
+  margin-top: 8;
+  color: ${Colors.black};
+`;
+
+const ChildrenContainer = styled.View`
+  flex: 1;
+  width: ${windowWidth};
+`;
+
+const LogoHeaderBackground = ({ hideLogo, children }) => (
+  <Container>
+    {!hideLogo && (
+      <LogoContainer>
+        <Logo scale={1} />
+        <LogoText bold>
+          SPORTYSPOTS
+        </LogoText>
+      </LogoContainer>
+    )}
+    <ChildrenContainer>
+      {children}
+    </ChildrenContainer>
+  </Container>
+);
+
+LogoHeaderBackground.propTypes = {
+  hideLogo: PropTypes.bool,
+  children: PropTypes.any.isRequired,
+};
+
+LogoHeaderBackground.defaultProps = {
+  hideLogo: false,
+};
+
+export default LogoHeaderBackground;
+
+/*
+import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import styled from 'styled-components';
 import Logo from '../Components/Logo';
@@ -45,10 +108,10 @@ const style = StyleSheet.create({
 const LogoHeaderBackground = ({ children }) => (
   <View style={{ height: windowHeight, backgroundColor: Colors.white }}>
     <AbsoluteFull>
-      {/* <View style={style.skew} /> */}
+      {/* <View style={style.skew} /> //}
       <View style={style.logoContainer}>
         <Logo scale={1} />
-        <Text.L bold>
+        <Text.L bold style={style.logoText}>
           SPORTYSPOTS
         </Text.L>
       </View>
@@ -62,3 +125,4 @@ LogoHeaderBackground.propTypes = {
 };
 
 export default LogoHeaderBackground;
+*/

@@ -10,11 +10,11 @@ import { header } from './Styles/CardStyles';
 const Spacer = () => <Text style={header.spacer}>·</Text>;
 
 const Title = styled(Text.M)`
-  font-size: 19px;
+  font-size: 22px;
 `;
 
 const Subtitle = styled(Text.S)`
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 const Header = ({ spot, ...props }) => (
@@ -26,11 +26,11 @@ const Header = ({ spot, ...props }) => (
       <Subtitle>{Int18n.t(spot.sports[0].category)}</Subtitle>
       {false && <Spacer />}
       {false && <Text.S>5 km</Text.S>}
-      {spot.spot_games &&
-        spot.spot_games.length > 0 && [
+      {spot.games &&
+        spot.games.length > 0 && [
           <Spacer key={1} />,
           <Subtitle key={2} style={header.plannedGamesCount}>
-            {spot.spot_games.length} {Int18n.t('games')}
+            {spot.games.length} {Int18n.t('games')}
           </Subtitle>,
         ]}
     </View>
@@ -44,7 +44,7 @@ Header.propTypes = {
     sports: PropTypes.arrayOf(PropTypes.shape({
       category: PropTypes.string.isRequired,
     })),
-    spot_games: PropTypes.arrayOf(PropTypes.object),
+    games: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
 };
 

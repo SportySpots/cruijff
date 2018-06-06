@@ -56,6 +56,7 @@
 		BB29C9B3498D48DCA73BEC4A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F19892BEBCE478DBC78F0E8 /* Foundation.ttf */; };
 		C53418F820B7015400B83EC1 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C53418F520B7013B00B83EC1 /* libRCTLinking.a */; };
 		C540905120B35AF700B2F4D7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C540905020B35AF700B2F4D7 /* libz.tbd */; };
+		C546E6ED20C7FBD600D989CD /* libRNCookieManagerIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C546E6E320C7F86000D989CD /* libRNCookieManagerIOS.a */; };
 		C56E8098208750E300C8ABD1 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C56E8091208750C300C8ABD1 /* libReactNativePermissions.a */; };
 		C59849B020B4D62E007E4149 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F220A420B364A80061201B /* libRNSVG.a */; };
 		C59849E220B4D71C007E4149 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C540902120B35A5800B2F4D7 /* libCodePush.a */; };
@@ -320,6 +321,13 @@
 			remoteGlobalIDString = E72EC1401F7ABB5A0001BC90;
 			remoteInfo = "RNDeviceInfo-tvOS";
 		};
+		C546E6E220C7F86000D989CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C546E6B420C7F86000D989CD /* RNCookieManagerIOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1BD725DA1CF77A8B005DBD79;
+			remoteInfo = RNCookieManagerIOS;
+		};
 		C56E8090208750C300C8ABD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C56E8065208750C300C8ABD1 /* ReactNativePermissions.xcodeproj */;
@@ -505,6 +513,7 @@
 		C53418EF20B7013B00B83EC1 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		C540901820B35A5800B2F4D7 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		C540905020B35AF700B2F4D7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C546E6B420C7F86000D989CD /* RNCookieManagerIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCookieManagerIOS.xcodeproj; path = "../node_modules/react-native-cookies/ios/RNCookieManagerIOS.xcodeproj"; sourceTree = "<group>"; };
 		C547091720B4AF0C0069EC5A /* SportySpots.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SportySpots.entitlements; path = SportySpots/SportySpots.entitlements; sourceTree = "<group>"; };
 		C56E8065208750C300C8ABD1 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 		C59ABE7B202DA778008B5166 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
@@ -521,6 +530,7 @@
 		EFFC41EC9B14458DB43E07D2 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		F03AB387D5A8411F966D4201 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		F087B83ED2F24222B62ACD69 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
+		F7A899C896CE4378AB8300CB /* libRNCookieManagerIOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCookieManagerIOS.a; sourceTree = "<group>"; };
 		FDB3554EE8114D4CBC6CCD8E /* Rajdhani-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-SemiBold.ttf"; path = "../assets/fonts/Rajdhani-SemiBold.ttf"; sourceTree = "<group>"; };
 		FF410FCE334F4F1C8D5DFA53 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		FF8E819A99FB46408274FB74 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
@@ -539,6 +549,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C546E6ED20C7FBD600D989CD /* libRNCookieManagerIOS.a in Frameworks */,
 				C59849E220B4D71C007E4149 /* libCodePush.a in Frameworks */,
 				C59849B020B4D62E007E4149 /* libRNSVG.a in Frameworks */,
 				C56E8098208750E300C8ABD1 /* libReactNativePermissions.a in Frameworks */,
@@ -710,6 +721,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C546E6B420C7F86000D989CD /* RNCookieManagerIOS.xcodeproj */,
 				C53418EF20B7013B00B83EC1 /* RCTLinking.xcodeproj */,
 				C5F2207120B364A70061201B /* RNSVG.xcodeproj */,
 				C540901820B35A5800B2F4D7 /* CodePush.xcodeproj */,
@@ -831,6 +843,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C546E6B520C7F86000D989CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C546E6E320C7F86000D989CD /* libRNCookieManagerIOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C56E8066208750C300C8ABD1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +882,7 @@
 				AC0D08C180694CA883B5D27D /* libAppCenterReactNativeCrashes.a */,
 				42A5C79E86D344DEAFCA4291 /* libReactNativeConfig.a */,
 				72FB75055F304EBBBA298559 /* libRCTFBSDK.a */,
+				F7A899C896CE4378AB8300CB /* libRNCookieManagerIOS.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1099,6 +1120,10 @@
 				{
 					ProductGroup = C56E8066208750C300C8ABD1 /* Products */;
 					ProjectRef = C56E8065208750C300C8ABD1 /* ReactNativePermissions.xcodeproj */;
+				},
+				{
+					ProductGroup = C546E6B520C7F86000D989CD /* Products */;
+					ProjectRef = C546E6B420C7F86000D989CD /* RNCookieManagerIOS.xcodeproj */;
 				},
 				{
 					ProductGroup = C5CD164C2017BE0E000C7202 /* Products */;
@@ -1375,6 +1400,13 @@
 			remoteRef = C542E08E20B5D0A40013FDD6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C546E6E320C7F86000D989CD /* libRNCookieManagerIOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCookieManagerIOS.a;
+			remoteRef = C546E6E220C7F86000D989CD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C56E8091208750C300C8ABD1 /* libReactNativePermissions.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1628,12 +1660,14 @@
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios",
+					"$(SRCROOT)/../node_modules/react-native-cookies/ios/RNCookieManagerIOS",
 				);
 				INFOPLIST_FILE = SportySpotsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1671,12 +1705,14 @@
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios",
+					"$(SRCROOT)/../node_modules/react-native-cookies/ios/RNCookieManagerIOS",
 				);
 				INFOPLIST_FILE = SportySpotsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1726,6 +1762,7 @@
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios",
+					"$(SRCROOT)/../node_modules/react-native-cookies/ios/RNCookieManagerIOS/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/react-native/Libraries/**",
 				);
@@ -1774,6 +1811,7 @@
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios",
+					"$(SRCROOT)/../node_modules/react-native-cookies/ios/RNCookieManagerIOS/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/react-native/Libraries/**",
 				);

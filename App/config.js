@@ -18,14 +18,25 @@ const settings = {
   deeplinkHost: Config.DEEPLINK_HOST,
 };
 
+export const log = [];
+
 if (__DEV__) {
   // If ReactNative's yellow box warnings are too much, it is possible to turn
   // it off, but the healthier approach is to fix the warnings.  =)
   console.disableYellowBox = false;
-  settings.seedorfRestUrl = 'https://training.sportyspots.com/api';
-  settings.seedorfGraphQLUrl = 'https://training.sportyspots.com/graphql';
+  // settings.seedorfRestUrl = 'https://training.sportyspots.com/api';
+  // settings.seedorfGraphQLUrl = 'https://training.sportyspots.com/graphql';
   // settings.seedorfRestUrl = 'http://localhost:8000/api';
   // settings.seedorfGraphQLUrl = 'http://localhost:8000/graphql';
+} else {
+  const bootTime = new Date();
+  const oldConsoleLog = console.log;
+  console.log = (...args) => {
+    oldConsoleLog(...args);
+    log.push({ logTime: (new Date() - bootTime) / 1000, ...args });
+  };
 }
+
+console.log('settings', settings);
 
 export default settings;

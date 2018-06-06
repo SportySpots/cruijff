@@ -1,9 +1,11 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce';
+import CookieManager from 'react-native-cookies';
 import gql from 'graphql-tag';
 import moment from 'moment';
 import { client } from '../GraphQL';
 import config from '../config';
+
 
 // our "constructor"
 const create = () => {
@@ -17,13 +19,13 @@ const create = () => {
     baseURL: config.seedorfRestUrl,
     headers: {
       'Cache-Control': 'no-cache',
-      Cookie: '',
       vary: '',
+      cookie: null,
     },
     timeout: 10000,
   });
 
-  api.addMonitor(console.log);
+  // api.addMonitor(console.log);
 
   // ------
   // STEP 2
@@ -96,6 +98,7 @@ const create = () => {
         game(uuid: $uuid) {
           sport
         }
+      }
     `;
     client.writeQuery({
       query: q,
@@ -178,7 +181,17 @@ const create = () => {
     verifyToken,
     setRSVPStatus,
     updateRSVPStatus,
-    setToken: token => api.setHeader('Authorization', `JWT ${token}`),
+    setToken: (token) => {
+      if (token) {
+        api.setHeader('Authorization', `JWT ${token}`);
+      } else {
+        api.deleteHeader('Authorization');
+        CookieManager.clearAll()
+          .then((res) => {
+            console.log('CookieManager.clearAll =>', res);
+          });
+      }
+    },
   };
 };
 
