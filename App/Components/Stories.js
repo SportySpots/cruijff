@@ -36,8 +36,9 @@ import PropertyCircle from './PropertyCircle';
 import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import LoginScreen from '../Screens/LoginScreen';
-import FilterScreen from '../Screens/FilterScreen';
+import FilterScreen from '../Screens/Spots/SpotsFilterScreen';
 import NothingFound from './NothingFound';
+import {WithApolloMockProvider} from '../GraphQL';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -47,6 +48,10 @@ const store = createStore(state => state, {
   user: {
     uuid: 1234,
     initialized: true,
+  },
+  spotFilters: {
+    maxDistance: 2.0,
+    sports: {},
   },
 });
 
@@ -170,5 +175,9 @@ storiesOf('NothingFound').add('Default', () => (
 ));
 
 storiesOf('FilterScreen').add('Default', () => (
-  <FilterScreen navigation={dummyNavigator} />
+  <Provider store={store}>
+    <WithApolloMockProvider>
+      <FilterScreen navigation={dummyNavigator} />
+    </WithApolloMockProvider>
+  </Provider>
 ));

@@ -11,7 +11,7 @@ import ProfileEditScreen from '../Screens/Profile/ProfileEditScreen';
 import SpotsListScreen from '../Screens/Spots/SpotsListScreen';
 import SpotDetailsScreen from '../Screens/Spots/SpotDetailsScreen';
 // import SpotsMapScreen from '../Screens/Spots/SpotsMapScreen';
-// import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
+import SpotsHeaderBtn from '../Components/Spots/HeaderBtn';
 import planWrapper from '../Containers/Plan/planWrapper';
 import Game from '../Screens/Games/GameDetailsScreen';
 import GamesListScreen from '../Screens/Games/GamesListScreen';
@@ -21,6 +21,7 @@ import PlayerList from '../Screens/Games/PlayerListScreen';
 import PickSpot from '../Screens/Plan/PickSpotScreen';
 import SportAndTime from '../Screens/Plan/SportAndTimeScreen';
 import DefaultHeader from './DefaultHeader';
+import SpotFilterScreen from '../Screens/Spots/SpotsFilterScreen';
 
 export const PlanGameNav = StackNavigator(
   {
@@ -119,15 +120,28 @@ export const SpotSearchNav = StackNavigator(
     }, */
     SpotsListScreen: {
       screen: SpotsListScreen,
-      navigationOptions: () => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <DefaultHeader title={I18n.t('Find a spot')} />,
-        /* headerRight: (
-            <SpotsHeaderBtn
-              icon="location-on"
-              onPress={() => { navigation.navigate('SpotsMapScreen'); }}
-            />
-        ), */
+        headerRight: (
+          <SpotsHeaderBtn
+            icon="filter-list"
+            onPress={() => { navigation.navigate('SpotsFilterScreen'); }}
+          />
+        ),
       }),
+    },
+    SpotsFilterScreen: {
+      screen: SpotFilterScreen,
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: () => (
+            <StackBackHeader
+              title={I18n.t('Spot filters')}
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
+      },
     },
   },
   {
