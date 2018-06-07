@@ -55,7 +55,7 @@ const SportModal = ({ visible, onSelect }) => {
         category
       }
     }
-  `)(({ data }) => console.log(data) || (
+  `)(({ data }) => (
     <ModalContainer>
       <ModalInnerContainer>
         <Text.L>{I18n.t('Choose sport')}</Text.L>
