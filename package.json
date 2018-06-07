@@ -54,6 +54,7 @@
     "appcenter-crashes": "^1.1.0",
     "buffer": "^5.1.0",
     "format-json": "^1.0.3",
+    "geolib": "^2.0.24",
     "graphql": "0.13.2",
     "graphql-anywhere": "4.1.10",
     "graphql-tag": "2.8.0",
