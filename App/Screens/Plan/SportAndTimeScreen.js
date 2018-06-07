@@ -348,7 +348,7 @@ export default class SportAndTime extends Component {
               <TextInput
                 keyboardType="numeric"
                 underlineColorAndroid={Colors.white}
-                style={{ fontSize: 24, marginLeft: 8 }}
+                style={{ flex: 0.20, fontSize: 24, marginLeft: 8 }}
                 defaultValue={this.state.game.capacity}
                 onChangeText={val => this.setState({ capacityField: val })}
                 onBlur={this.setCapacity}
