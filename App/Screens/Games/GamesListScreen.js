@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { View } from 'react-native';
 import { uniqBy } from 'ramda';
+import moment from 'moment';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
@@ -49,6 +50,7 @@ class GamesListScreen extends React.Component {
           offset: 0,
           limit: 100,
           ordering: 'start_time',
+          start_time__gte: moment.utc(new Date()).startOf('day').toISOString(),
         }}
         fetchPolicy="cache-and-network"
       >
