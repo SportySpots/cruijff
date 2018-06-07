@@ -52,9 +52,10 @@ const SportModal = ({ visible, onSelect }) => {
       sports {
         uuid
         name
+        category
       }
     }
-  `)(({ data }) => (
+  `)(({ data }) => console.log(data) || (
     <ModalContainer>
       <ModalInnerContainer>
         <Text.L>{I18n.t('Choose sport')}</Text.L>
@@ -188,6 +189,7 @@ export default class SportAndTime extends Component {
     this.props.navigation.navigate('pickSpot', {
       uuid: this.gameUUID,
       sportUUID: this.state.game.sport.uuid,
+      sportCategory: this.state.game.sport.category,
     });
   };
 
