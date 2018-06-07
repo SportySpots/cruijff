@@ -43,9 +43,6 @@ const statuses = {
   DECLINED: {
     label: I18n.t('declined'),
   },
-  INVITED: {
-    label: I18n.t('invited'),
-  },
 };
 
 const UserRow = ({ attendee }) => {
