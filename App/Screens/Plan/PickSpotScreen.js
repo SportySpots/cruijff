@@ -40,10 +40,7 @@ class PickSpotComponent extends Component {
   };
 
   render() {
-    const spots = this.props.data.spots.filter((spot) => {
-      const sportUUIDs = spot.sports.map(sport => sport.uuid);
-      return (sportUUIDs.indexOf(this.props.navigation.state.params.sportUUID) !== -1);
-    });
+    const spots = this.props.data.spots;
     return (
       <View style={style.container}>
         <View style={[style.cardListContainer, this.props.style]}>
