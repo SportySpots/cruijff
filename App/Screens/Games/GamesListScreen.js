@@ -50,7 +50,7 @@ class GamesListScreen extends React.Component {
           offset: 0,
           limit: 100,
           ordering: 'start_time',
-          start_time__gte: moment.utc(new Date()).startOf('day').toISOString(),
+          start_time__gte: moment.utc(new Date()).startOf('day'),
         }}
         fetchPolicy="cache-and-network"
       >
