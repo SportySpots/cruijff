@@ -73,7 +73,7 @@ export default (props) => {
     variables={{
       limit: 1000,
       offset: 0,
-      sport: props.navigation.state.params.sportCategory,
+      sport: props.navigation.state.params.sportCategory.toLowerCase(),
     }}
   />);
 };
