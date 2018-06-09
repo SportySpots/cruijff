@@ -10012,9 +10012,9 @@ react-native-modal@3.1.0:
     prop-types "15.5.10"
     react-native-animatable "^1.2.3"
 
-react-native-permissions@^1.1.1:
+"react-native-permissions@https://github.com/SportySpots/react-native-permissions.git":
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-1.1.1.tgz#4876004681ff8556454613d85249b01baff9b35b"
+  resolved "https://github.com/SportySpots/react-native-permissions.git#484e0c6d924f56f6ae47dd287f6474ddda305fa3"
 
 react-native-popup-menu@^0.12.2:
   version "0.12.6"
