@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch } from 'react-native';
 import styled from 'styled-components';
+import Colors from '../../../Themes/Colors';
 import { FilterLabel, FilterDescription, Row } from './style';
 
 //------------------------------------------------------------------------------
@@ -18,7 +19,10 @@ const Right = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SwitchFilter = ({
-  label, description, value, onChange,
+  label,
+  description,
+  value,
+  onChange,
 }) => (
   <Row>
     <Left>
@@ -26,7 +30,11 @@ const SwitchFilter = ({
       <FilterDescription>{description}</FilterDescription>
     </Left>
     <Right>
-      <Switch value={value} onValueChange={() => onChange(!value)} />
+      <Switch
+        value={value}
+        onValueChange={() => onChange(!value)}
+        thumbTintColor={value ? Colors.primaryGreen : Colors.lightGray}
+      />
     </Right>
   </Row>
 );

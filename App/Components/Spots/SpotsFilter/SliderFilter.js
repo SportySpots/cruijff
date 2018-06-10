@@ -7,7 +7,12 @@ import { FilterLabel, FilterDescription, RowVertical } from './style';
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SliderFilter = ({
-  max, min, value, onChange, label, description,
+  max,
+  min,
+  value,
+  onChange,
+  label,
+  description,
 }) => (
   <RowVertical>
     <FilterLabel>{label}</FilterLabel>

@@ -38,7 +38,7 @@ const SpotsFilter = ({
       min={0.0}
       onChange={(value) => { onSliderChange(value); }}
       label={I18n.t('Distance')}
-      description={`max distance: ${maxDistance.toFixed(1)}km`}
+      description={`${I18n.t('max distance')}: ${maxDistance.toFixed(1)}km`}
     />
   </Block>,
   <Divider key="divider-slider" />,
