@@ -28,7 +28,6 @@ const headerTitleStyle = {
   textAlign: 'center',
 };
 
-
 export const PlanGameNav = StackNavigator(
   {
     sportTime: {
@@ -138,27 +137,21 @@ export const SpotSearchNav = StackNavigator(
             onPress={() => { navigation.navigate('SpotsFilterScreen'); }}
           />
         ),
-      /* navigationOptions: () => ({
-        headerTitle: I18n.t('Find a spot'),
-        // headerLeft: <DefaultHeader title={I18n.t('Find a spot')} />,
-        headerRight: (
-            <SpotsHeaderBtn
-              icon="location-on"
-              onPress={() => { navigation.navigate('SpotsMapScreen'); }}
-            />
-        ), */
       }),
     },
     SpotsFilterScreen: {
       screen: SpotFilterScreen,
-      navigationOptions: ({ navigation }) => ({
-        headerLeft: () => (
-          <StackBackHeader
-            title={I18n.t('Spot filters')}
-            onPress={() => { navigation.goBack(null); }}
-          />
-        ),
-      }),
+      navigationOptions({ navigation }) {
+        return {
+          headerTitle: I18n.t('Spot filters'),
+          headerTitleStyle,
+          headerLeft: (
+            <StackBackHeader
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
+      },
     },
   },
   {

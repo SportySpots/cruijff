@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
 import spotFiltersActions from '../../Redux/SpotFiltersRedux';
 import { client } from '../../GraphQL/index';
 import GET_SPORTS from '../../GraphQL/Sports/Queries/GET_SPORTS';
+import DefaultButton from '../../Components/DefaultButton';
 import SpotsFilter from '../../Components/Spots/SpotsFilter';
 
 //------------------------------------------------------------------------------
@@ -26,6 +28,7 @@ class SpotsFilterScreen extends React.PureComponent {
       sports: [],
       selectedSportIds: [], // list of selected sport ids
       loaded: false,
+      disabled: false,
     };
     this.init();
   }
@@ -61,7 +64,9 @@ class SpotsFilterScreen extends React.PureComponent {
   }
 
   handleSubmit = () => {
+    this.setState({ disabled: true });
     // TODO: store data into redux store using: setMaxDistance and toggleSport
+    this.setState({ disabled: false });
   }
 
   render() {
@@ -70,13 +75,13 @@ class SpotsFilterScreen extends React.PureComponent {
       sports,
       selectedSportIds,
       loaded,
+      disabled,
     } = this.state;
 
     if (!loaded) {
       return null;
     }
 
-    // TODO: pass sports and selectedSportIds
     return (
       <Container>
         <SpotsFilter
@@ -87,6 +92,13 @@ class SpotsFilterScreen extends React.PureComponent {
           sports={sports}
           selectedSportIds={selectedSportIds}
           onSportSwitch={this.handleSportSwitch}
+        />
+        <DefaultButton
+          // bgColor={this.loginButtonIsDisabled ? 'grey' : Colors.actionYellow}
+          textColor={Colors.white}
+          text={I18n.t('Save')}
+          disabled={disabled}
+          onPress={this.handleSubmit}
         />
       </Container>
     );
