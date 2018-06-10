@@ -10,43 +10,61 @@ class SpotsFilterScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      loaded: false,
       sports: [],
+      selectedSportIds: [], // list of selected sport ids
+      loaded: false,
     };
     this.init();
   }
 
   init = async () => {
-    console.log('***INIT');
     const result = await client.query({ query: GET_SPORTS });
-    this.setState({ loaded: true, sports: result.data.sports });
+    const { sports } = result.data;
+    this.setState({
+      sports,
+      // By default, set all sports as 'selected'
+      selectedSportIds: sports.map(({ uuid }) => (uuid)),
+      loaded: true,
+    });
+  }
+
+  handleSportSwitch = (sportId) => {
+    this.setState((prevState) => {
+      // Check whether or not sportId is already in the list of selected sports.
+      const index = prevState.selectedSportIds.indexOf(sportId);
+
+      // If yes, remove it from the list; otherwise, add it.
+      return {
+        selectedSportIds: index !== -1 ? [
+          ...prevState.selectedSportIds.slice(0, index),
+          ...prevState.selectedSportIds.slice(index + 1),
+        ] : [...prevState.selectedSportIds, sportId],
+      };
+    });
+  }
+
+  handleSubmit = () => {
+    // TODO: store data into redux store
   }
 
   render() {
-    const { maxDistance, setMaxDistance, toggleSport } = this.props;
-    const { loaded, sports } = this.state;
-    console.log(
-      '*****sports',
-      'maxDistance', maxDistance,
-      'setMaxDistance', setMaxDistance,
-      'toggleSport', toggleSport,
-      'loaded', loaded,
-      // 'sports', sports,
-    );
+    const { maxDistance, setMaxDistance } = this.props;
+    const { sports, selectedSportIds, loaded } = this.state;
 
     if (!loaded) {
       return null;
     }
 
+    // TODO: pass sports and selectedSportIds
     return (
       <SpotsFilter
+        // SliderFilter props
         maxDistance={maxDistance}
-        sports={sports}
         setMaxDistance={setMaxDistance}
-        toggleSport={(v) => {
-          console.log('****VALUE', v);
-          toggleSport(v);
-        }}
+        // SwitchFilter props
+        sports={sports}
+        selectedSportIds={selectedSportIds}
+        onSportSwitch={this.handleSportSwitch}
       />
     );
   }

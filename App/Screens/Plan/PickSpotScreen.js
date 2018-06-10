@@ -7,7 +7,7 @@ import CardSmall from '../../Components/Spots/SpotListCardSmall';
 import Text from '../../Components/Text';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
-import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
+import { GET_SPOTS_FOR_SPORT } from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import api from '../../Services/SeedorfApi';
 
 const CardContainer = (props) => {
@@ -40,10 +40,7 @@ class PickSpotComponent extends Component {
   };
 
   render() {
-    const spots = this.props.data.spots.filter((spot) => {
-      const sportUUIDs = spot.sports.map(sport => sport.uuid);
-      return (sportUUIDs.indexOf(this.props.navigation.state.params.sportUUID) !== -1);
-    });
+    const spots = this.props.data.spots;
     return (
       <View style={style.container}>
         <View style={[style.cardListContainer, this.props.style]}>
@@ -68,7 +65,18 @@ class PickSpotComponent extends Component {
   }
 }
 
-export default withQuery(GET_SPOTS)(PickSpotComponent);
+
+export default (props) => {
+  const Comp = withQuery(GET_SPOTS_FOR_SPORT)(PickSpotComponent);
+  return (<Comp
+    {...props}
+    variables={{
+      limit: 1000,
+      offset: 0,
+      sport: props.navigation.state.params.sportCategory.toLowerCase(),
+    }}
+  />);
+};
 
 const style = StyleSheet.create({
   cardListContainer: {
@@ -77,5 +85,6 @@ const style = StyleSheet.create({
   },
   container: {
     flex: 1,
+    paddingTop: 16,
   },
 });
