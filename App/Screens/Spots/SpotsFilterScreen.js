@@ -23,10 +23,14 @@ const Container = styled.ScrollView`
 class SpotsFilterScreen extends React.PureComponent {
   constructor(props) {
     super(props);
+
+    // Get data from redux
+    const { maxDistance, selectedSportIds } = props;
+
     this.state = {
-      maxDistance: props.maxDistance || 3,
+      maxDistance: maxDistance || 3,
       sports: [],
-      selectedSportIds: [], // list of selected sport ids
+      selectedSportIds: selectedSportIds || [], // list of selected sport ids
       loaded: false,
       disabled: false,
     };
@@ -39,7 +43,7 @@ class SpotsFilterScreen extends React.PureComponent {
     this.setState({
       sports,
       // By default, set all sports as 'selected'
-      selectedSportIds: sports.map(({ uuid }) => (uuid)),
+      // selectedSportIds: sports.map(({ uuid }) => (uuid)),
       loaded: true,
     });
   }
@@ -64,8 +68,15 @@ class SpotsFilterScreen extends React.PureComponent {
   }
 
   handleSubmit = () => {
+    const { setMaxDistance, setSports } = this.props;
+    const { maxDistance, selectedSportIds } = this.state;
+
     this.setState({ disabled: true });
-    // TODO: store data into redux store using: setMaxDistance and toggleSport
+
+    // Save data into redux store.
+    setMaxDistance(maxDistance);
+    setSports(selectedSportIds);
+
     this.setState({ disabled: false });
   }
 
@@ -77,6 +88,8 @@ class SpotsFilterScreen extends React.PureComponent {
       loaded,
       disabled,
     } = this.state;
+
+    console.log('********this.props', this.props);
 
     if (!loaded) {
       return null;
@@ -107,14 +120,15 @@ class SpotsFilterScreen extends React.PureComponent {
 
 SpotsFilterScreen.propTypes = {
   maxDistance: PropTypes.number.isRequired,
+  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   setMaxDistance: PropTypes.func.isRequired,
-  toggleSport: PropTypes.func.isRequired,
+  setSports: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => state.spotFilters;
 const mapDispatchToProps = {
   setMaxDistance: spotFiltersActions.setMaxDistance,
-  toggleSport: spotFiltersActions.toggleSport,
+  setSports: spotFiltersActions.setSports,
 };
 
 const withRedux = connect(mapStateToProps, mapDispatchToProps);
