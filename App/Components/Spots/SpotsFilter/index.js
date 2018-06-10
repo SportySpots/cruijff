@@ -12,54 +12,53 @@ import SwitchFilter from './SwitchFilter';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.ScrollView`
-  flex: 1;
+const Block = styled.View`
+  padding: 16px;
 `;
 //------------------------------------------------------------------------------
-const FilterGroup = styled.View`
-  border-top-width: 1px;
-  border-top-color: ${Colors.gray};
-  padding-horizontal: 16px;
+const Divider = styled.View`
+  flex: 1;
+  border-bottom-width: 1px;
+  border-bottom-color: ${Colors.lightGray};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SpotsFilter = ({
   maxDistance,
-  setMaxDistance,
+  onSliderChange,
   sports,
   selectedSportIds,
   onSportSwitch,
-}) => (
-  <Container>
-    <FilterGroup>
-      <SliderFilter
-        value={maxDistance}
-        max={20.0}
-        min={0.0}
-        onChange={(value) => { setMaxDistance(value); }}
-        label={I18n.t('Distance')}
-        description={`max distance: ${maxDistance.toFixed(1)}km`}
+}) => [
+  <Block key="slider">
+    <SliderFilter
+      value={maxDistance}
+      max={20.0}
+      min={0.0}
+      onChange={(value) => { onSliderChange(value); }}
+      label={I18n.t('Distance')}
+      description={`max distance: ${maxDistance.toFixed(1)}km`}
+    />
+  </Block>,
+  <Divider key="divider-slider" />,
+  <Block key="switch">
+    <FilterLabel>Sports</FilterLabel>
+    {sports.map(sport => (
+      <SwitchFilter
+        key={sport.uuid}
+        description={sport.name}
+        value={selectedSportIds.indexOf(sport.uuid) !== -1}
+        onChange={() => { onSportSwitch(sport.uuid); }}
       />
-    </FilterGroup>
-    <FilterGroup>
-      <FilterLabel>Sports</FilterLabel>
-      {sports.map(sport => (
-        <SwitchFilter
-          key={sport.uuid}
-          description={sport.name}
-          // value={typeof sports[sport.uuid] === 'undefined' ? true : sports[sport.uuid]}
-          value={selectedSportIds.indexOf(sport.uuid) !== -1}
-          onChange={() => { onSportSwitch(sport.uuid); }}
-        />
-      ))}
-    </FilterGroup>
-  </Container>
-);
+    ))}
+  </Block>,
+  <Divider key="divider-switch" />,
+];
 
 SpotsFilter.propTypes = {
   maxDistance: PropTypes.number,
-  setMaxDistance: PropTypes.func,
+  onSliderChange: PropTypes.func,
   sports: PropTypes.arrayOf(propType(sportFragment)),
   selectedSportIds: PropTypes.arrayOf(PropTypes.string),
   onSportSwitch: PropTypes.func,
@@ -69,7 +68,7 @@ SpotsFilter.defaultProps = {
   maxDistance: 3,
   sports: [],
   selectedSportIds: [],
-  setMaxDistance: () => {},
+  onSliderChange: () => {},
   onSportSwitch: () => {},
 };
 

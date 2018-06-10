@@ -1,15 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { client } from '../../GraphQL/index';
+import styled from 'styled-components';
+import Colors from '../../Themes/Colors';
 import spotFiltersActions from '../../Redux/SpotFiltersRedux';
+import { client } from '../../GraphQL/index';
 import GET_SPORTS from '../../GraphQL/Sports/Queries/GET_SPORTS';
 import SpotsFilter from '../../Components/Spots/SpotsFilter';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.ScrollView`
+  flex: 1;
+  background-color: ${Colors.white}
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 class SpotsFilterScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      maxDistance: props.maxDistance || 3,
       sports: [],
       selectedSportIds: [], // list of selected sport ids
       loaded: false,
@@ -28,6 +41,10 @@ class SpotsFilterScreen extends React.PureComponent {
     });
   }
 
+  handleSliderChange = (maxDistance) => {
+    this.setState({ maxDistance });
+  }
+
   handleSportSwitch = (sportId) => {
     this.setState((prevState) => {
       // Check whether or not sportId is already in the list of selected sports.
@@ -44,12 +61,16 @@ class SpotsFilterScreen extends React.PureComponent {
   }
 
   handleSubmit = () => {
-    // TODO: store data into redux store
+    // TODO: store data into redux store using: setMaxDistance and toggleSport
   }
 
   render() {
-    const { maxDistance, setMaxDistance } = this.props;
-    const { sports, selectedSportIds, loaded } = this.state;
+    const {
+      maxDistance,
+      sports,
+      selectedSportIds,
+      loaded,
+    } = this.state;
 
     if (!loaded) {
       return null;
@@ -57,15 +78,17 @@ class SpotsFilterScreen extends React.PureComponent {
 
     // TODO: pass sports and selectedSportIds
     return (
-      <SpotsFilter
-        // SliderFilter props
-        maxDistance={maxDistance}
-        setMaxDistance={setMaxDistance}
-        // SwitchFilter props
-        sports={sports}
-        selectedSportIds={selectedSportIds}
-        onSportSwitch={this.handleSportSwitch}
-      />
+      <Container>
+        <SpotsFilter
+          // SliderFilter props
+          maxDistance={maxDistance}
+          onSliderChange={this.handleSliderChange}
+          // SwitchFilter props
+          sports={sports}
+          selectedSportIds={selectedSportIds}
+          onSportSwitch={this.handleSportSwitch}
+        />
+      </Container>
     );
   }
 }
