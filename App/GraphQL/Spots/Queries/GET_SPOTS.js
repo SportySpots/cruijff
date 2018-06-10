@@ -2,8 +2,8 @@ import gql from 'graphql-tag';
 import spotFragment from '../Fragments/spot';
 
 const GET_SPOTS = gql`
-  query spots($limit: Int, $offset: Int) {
-    spots(limit: $limit, offset: $offset) {
+  query spots($limit: Int, $offset: Int, $sports__uuid: UUID) {
+    spots(limit: $limit, offset: $offset, sports__uuid: $sports__uuid) {
       ...spotFragment
     }
   }

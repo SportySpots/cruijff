@@ -68,7 +68,7 @@ class SpotsFilterScreen extends React.PureComponent {
   }
 
   handleSubmit = () => {
-    const { setMaxDistance, setSports } = this.props;
+    const { navigation, setMaxDistance, setSports } = this.props;
     const { maxDistance, selectedSportIds } = this.state;
 
     this.setState({ disabled: true });
@@ -76,6 +76,9 @@ class SpotsFilterScreen extends React.PureComponent {
     // Save data into redux store.
     setMaxDistance(maxDistance);
     setSports(selectedSportIds);
+
+    // Go back to spots screen
+    navigation.goBack(null);
 
     this.setState({ disabled: false });
   }
@@ -88,8 +91,6 @@ class SpotsFilterScreen extends React.PureComponent {
       loaded,
       disabled,
     } = this.state;
-
-    console.log('********this.props', this.props);
 
     if (!loaded) {
       return null;
@@ -107,7 +108,7 @@ class SpotsFilterScreen extends React.PureComponent {
           onSportSwitch={this.handleSportSwitch}
         />
         <DefaultButton
-          // bgColor={this.loginButtonIsDisabled ? 'grey' : Colors.actionYellow}
+          bgColor={this.disabled ? Colors.gray : Colors.actionYellow}
           textColor={Colors.white}
           text={I18n.t('Save')}
           disabled={disabled}
@@ -119,6 +120,9 @@ class SpotsFilterScreen extends React.PureComponent {
 }
 
 SpotsFilterScreen.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
   maxDistance: PropTypes.number.isRequired,
   selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   setMaxDistance: PropTypes.func.isRequired,
@@ -130,8 +134,8 @@ const mapDispatchToProps = {
   setMaxDistance: spotFiltersActions.setMaxDistance,
   setSports: spotFiltersActions.setSports,
 };
-
 const withRedux = connect(mapStateToProps, mapDispatchToProps);
+
 export default withRedux(SpotsFilterScreen);
 
 /*

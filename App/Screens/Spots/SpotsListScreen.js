@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
+import { connect } from 'react-redux';
 import geolib from 'geolib';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
@@ -75,12 +76,17 @@ class SpotsListScreen extends React.Component {
   }
 
   render() {
+    const { maxDistance, selectedSportIds } = this.props;
     const { coords } = this.state;
 
     return (
       <Query
         query={GET_SPOTS}
-        variables={{ offset: 0, limit: 20 }}
+        variables={{
+          offset: 0,
+          limit: 20,
+          sports__uuid: selectedSportIds[0],
+        }}
         fetchPolicy="cache-and-network"
       >
         {({
@@ -139,6 +145,11 @@ SpotsListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  maxDistance: PropTypes.number.isRequired,
+  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default SpotsListScreen;
+const mapStateToProps = state => state.spotFilters;
+const withRedux = connect(mapStateToProps, null);
+
+export default withRedux(SpotsListScreen);
