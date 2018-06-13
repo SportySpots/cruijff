@@ -116,6 +116,11 @@ const create = () => {
       uuid: spotUUID,
     });
 
+  const setGameStatus = ({ gameUUID, status }) =>
+    api.patch(`/games/${gameUUID}/`, {
+      status: status.toLowerCase(),
+    });
+
   const setGameTimes = ({ gameUUID, startTime, endTime }) =>
     api.put(`/games/${gameUUID}/`, {
       start_time: startTime,
@@ -174,6 +179,7 @@ const create = () => {
     setGameSpot,
     setGameTimes,
     setGameDescription,
+    setGameStatus,
     signup,
     login,
     updateUser,
