@@ -92,6 +92,18 @@ export const GameSearchNav = StackNavigator(
 
 export const SpotSearchNav = StackNavigator(
   {
+    GameDetailsScreen: {
+      screen: Game,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('Game details'),
+        headerTitleStyle,
+        headerLeft: (
+          <StackBackHeader
+            onPress={() => { navigation.goBack(null); }}
+          />
+        ),
+      }),
+    },
     SpotDetailsScreen: {
       screen: SpotDetailsScreen,
       navigationOptions: ({ navigation }) => ({
