@@ -10,15 +10,21 @@ import Header from '../../../Components/Spots/Header';
 // import SpotRating from './SpotRating';
 import SpotImages from './SpotImages';
 import SpotProperties from './SpotProperties';
+import SpotGames from './SpotGames';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
 const Container = styled(ScrollView)`
   background-color: ${Colors.white};
 `;
-
+//------------------------------------------------------------------------------
 const Block = styled.View`
   padding: 16px;
 `;
-
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const SpotDetails = ({ spot, userId }) => ( // eslint-disable-line
   <Container>
     <SpotImages spot={spot} />
@@ -28,7 +34,7 @@ const SpotDetails = ({ spot, userId }) => ( // eslint-disable-line
     {/* <SpotRating spot={spot} userId={userId} /> */}
     <SpotMapWithLinkFallback spot={spot} />
     <SpotProperties spot={spot} />
-    <Block style={{ height: 100 }} />
+    <SpotGames spot={spot} />
   </Container>
 );
 

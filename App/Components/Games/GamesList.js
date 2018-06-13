@@ -18,6 +18,7 @@ const CardContainer = styled(TouchableOpacity)`
 //------------------------------------------------------------------------------
 const GamesList = ({
   games,
+  withEmptyComponent,
   cardComponent,
   onCardPress,
   style,
@@ -27,7 +28,9 @@ const GamesList = ({
     showsVerticalScrollIndicator={false}
     contentContainerStyle={{ flexGrow: 1 }}
     data={games}
-    ListEmptyComponent={<NothingFound icon="calendar-plus" text={I18n.t('No games found')} />}
+    ListEmptyComponent={withEmptyComponent && (
+      <NothingFound icon="calendar-plus" text={I18n.t('No games found')} />
+    )}
     renderItem={({ item: game }) => (
       <CardContainer
         key={game.uuid}
@@ -44,6 +47,7 @@ const GamesList = ({
 
 GamesList.propTypes = {
   games: PropTypes.arrayOf(propType(gameFragment)),
+  withEmptyComponent: PropTypes.bool,
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
   style: PropTypes.object,
@@ -51,6 +55,7 @@ GamesList.propTypes = {
 
 GamesList.defaultProps = {
   games: [],
+  withEmptyComponent: true,
   onCardPress: () => {},
   style: {},
 };
