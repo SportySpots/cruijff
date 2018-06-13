@@ -19,6 +19,7 @@ import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import withQuery from '../../GraphQL/withQuery';
 import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
 import config from '../../config';
+import GameProperties from '../../Components/Games/GameProperties';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -184,22 +185,9 @@ class GameComponent extends Component {
         <SwiperContainer>
           <ImageSwiper images={images} />
         </SwiperContainer>
-        <BlockHeader>
-          <HeaderLeft>
-            <Text.M>{spot.name}</Text.M>
-            <HeaderLeftDetails>
-              <Text.SM>{moment(game.start_time).format('D MMM')}</Text.SM>
-              <Time>
-                <MaterialIcon name="access-time" style={{ paddingRight: 4 }} />
-                <Text.SM>
-                  {moment(game.start_time).format('HH')} - {moment(game.end_time).format('HH')}
-                </Text.SM>
-              </Time>
-              <Text.SM>{I18n.t(game.sport.category)}</Text.SM>
-            </HeaderLeftDetails>
-          </HeaderLeft>
-          <HeaderRight />
-        </BlockHeader>
+        <Block>
+          <GameProperties game={game} />
+        </Block>
         <SpotMapWithLinkFallback spot={spot} />
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
