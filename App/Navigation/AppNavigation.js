@@ -71,9 +71,13 @@ export default StackNavigator(
       screen: LoginScreen,
       navigationOptions({ navigation }) {
         return {
+          headerTitle: I18n.t('Hi again!'),
+          headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: 'center',
+          },
           headerLeft: (
             <StackBackHeader
-              title={I18n.t('Hi again!')}
               onPress={() => { navigation.goBack(null); }}
             />
           ),
@@ -84,9 +88,13 @@ export default StackNavigator(
       screen: SignupScreen,
       navigationOptions({ navigation }) {
         return {
+          headerTitle: I18n.t('Sign up'),
+          headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: 'center',
+          },
           headerLeft: (
             <StackBackHeader
-              title={I18n.t('Sign up')}
               onPress={() => { navigation.goBack(null); }}
             />
           ),

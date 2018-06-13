@@ -2,8 +2,18 @@ import gql from 'graphql-tag';
 import gameFragment from '../Fragments/game';
 
 const GET_GAMES_LIST = gql`
-  query games($limit: Int, $offset: Int, $ordering: String) {
-    games(limit: $limit, offset: $offset, ordering: $ordering) {
+  query games(
+    $limit: Int,
+    $offset: Int,
+    $ordering: String,
+    $start_time__gte: DateTime,
+  ) {
+    games(
+      limit: $limit,
+      offset: $offset,
+      ordering: $ordering,
+      start_time__gte: $start_time__gte,
+    ) {
       ...gameFragment
     }
   }
@@ -11,6 +21,7 @@ const GET_GAMES_LIST = gql`
 `;
 
 export default GET_GAMES_LIST;
+
 
 /*
 export const GET_GAMES_LIST = gql`

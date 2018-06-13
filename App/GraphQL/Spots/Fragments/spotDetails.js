@@ -10,10 +10,10 @@ const spotDetailsFragment = gql`
     }
     amenities {
       uuid
-      sport {
-        uuid
-        category
-      }
+      #sport {
+      #  uuid
+      #  category
+      #}
       data
     }
     sports {

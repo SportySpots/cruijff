@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { View } from 'react-native';
 import { uniqBy } from 'ramda';
+import moment from 'moment';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
@@ -47,8 +48,9 @@ class GamesListScreen extends React.Component {
         query={GET_GAMES_LIST}
         variables={{
           offset: 0,
-          limit: 20,
+          limit: 100,
           ordering: 'start_time',
+          start_time__gte: moment.utc(new Date()).startOf('day'),
         }}
         fetchPolicy="cache-and-network"
       >
@@ -57,14 +59,14 @@ class GamesListScreen extends React.Component {
           error,
           data,
           refetch,
-          fetchMore,
+          // fetchMore,
         }) => {
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
-          const loadMore = () => {
+          /* const loadMore = () => {
             fetchMore({
               variables: {
-                offset: data.games.length,
+                offset: (data && data.games && data.games.length) || 0,
               },
               updateQuery: (prev, { fetchMoreResult }) => {
                 if (!fetchMoreResult) return prev;
@@ -73,7 +75,7 @@ class GamesListScreen extends React.Component {
                 });
               },
             });
-          };
+          }; */
 
           return (
             <Container>
@@ -84,8 +86,8 @@ class GamesListScreen extends React.Component {
                 // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
-                onEndReached={loadMore}
-                onEndReachedThreshold={1}
+                // onEndReached={loadMore}
+                // onEndReachedThreshold={0}
               />
             </Container>
           );

@@ -52,6 +52,7 @@ const SportModal = ({ visible, onSelect }) => {
       sports {
         uuid
         name
+        category
       }
     }
   `)(({ data }) => (
@@ -188,6 +189,7 @@ export default class SportAndTime extends Component {
     this.props.navigation.navigate('pickSpot', {
       uuid: this.gameUUID,
       sportUUID: this.state.game.sport.uuid,
+      sportCategory: this.state.game.sport.category,
     });
   };
 
@@ -348,7 +350,7 @@ export default class SportAndTime extends Component {
               <TextInput
                 keyboardType="numeric"
                 underlineColorAndroid={Colors.white}
-                style={{ fontSize: 24, marginLeft: 8 }}
+                style={{ flex: 0.20, fontSize: 24, marginLeft: 8 }}
                 defaultValue={this.state.game.capacity}
                 onChangeText={val => this.setState({ capacityField: val })}
                 onBlur={this.setCapacity}
@@ -379,6 +381,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.primaryGreen,
     flex: 1,
+    paddingTop: 16,
   },
   horizontal: {
     flexDirection: 'row',
@@ -388,7 +391,7 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     marginBottom: 32,
-    fontSize: 48,
+    /* fontSize: 48, */
   },
   text: {
     color: Colors.white,
