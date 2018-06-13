@@ -6,7 +6,7 @@ import android.app.Application;
 
 //import com.facebook.CallbackManager;
 import com.facebook.react.ReactApplication;
-import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
+import com.psykar.cookiemanager.CookieManagerPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -20,7 +20,7 @@ import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyti
 import com.microsoft.appcenter.reactnative.appcenter.AppCenterReactNativePackage;
 import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
-import com.airbnb.android.react.maps.MapsPackage;
+//import com.airbnb.android.react.maps.MapsPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -46,7 +46,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactNativeOneSignalPackage(),
+            new CookieManagerPackage(),
             new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
             new SvgPackage(),
             new ReactNativeConfigPackage(),
@@ -55,8 +55,8 @@ public class MainApplication extends Application implements ReactApplication {
             new AppCenterReactNativePackage(MainApplication.this),
             new ReactNativeI18n(),
             new VectorIconsPackage(),
-            new RNDeviceInfo(),
-            new MapsPackage()
+            new RNDeviceInfo()
+//            new MapsPackage()
       );
     }
 

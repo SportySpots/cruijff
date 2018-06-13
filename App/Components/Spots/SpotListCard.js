@@ -15,6 +15,7 @@ export default class SpotListCard extends Component {
 
   /* forward setNativeProps to the root (View) so that Card can be used as Touchable */
   setNativeProps = (nativeProps) => {
+    // eslint-disable-next-line no-underscore-dangle
     this._root.setNativeProps(nativeProps);
   };
 

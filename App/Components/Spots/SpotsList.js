@@ -1,55 +1,61 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, View, TouchableOpacity } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
+import styled from 'styled-components';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
-import { cardList } from '../Spots/Styles/CardStyles';
+import NothingFound from '../NothingFound';
+import I18n from '../../I18n';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const CardContainer = styled(TouchableOpacity)`
+  margin: 8px;
+  border-radius: 8px;
+  /* shadow-offset: { width: 0, height: 2 }; */
+  shadow-radius: 2px;
+  shadow-color: black;
+  shadow-opacity: 0.3;
+  elevation: 2;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const SpotsList = ({
-  data,
   spots,
   cardComponent,
   onCardPress,
   style,
-  refetch,
-  loading,
+  ...rest
 }) => (
-  <View style={[cardList.container, style]}>
-    <FlatList
-      onRefresh={() => console.log('refetch') || refetch()}
-      showsVerticalScrollIndicator={false}
-      data={data && data.spots ? data.spots : spots}
-      refreshing={loading}
-      renderItem={({ item: spot }) => (
-        <TouchableOpacity
-          key={spot.uuid}
-          onPress={() => {
-            onCardPress(spot.uuid);
-          }}
-          style={cardList.cardContainer}
-        >
-          {React.createElement(cardComponent, { spot })}
-        </TouchableOpacity>
-      )}
-      keyExtractor={item => item.uuid}
-    />
-  </View>
+  <FlatList
+    showsVerticalScrollIndicator={false}
+    contentContainerStyle={{ flexGrow: 1 }}
+    data={spots}
+    ListEmptyComponent={<NothingFound icon="map-marker" text={I18n.t('No spots found')} />}
+    renderItem={({ item: spot }) => (
+      <CardContainer
+        key={spot.uuid}
+        onPress={() => { onCardPress(spot.uuid); }}
+        activeOpacity={1}
+      >
+        {React.createElement(cardComponent, { spot })}
+      </CardContainer>
+    )}
+    keyExtractor={item => item.uuid}
+    {...rest}
+  />
 );
 
 SpotsList.propTypes = {
-  data: PropTypes.shape({
-    spots: PropTypes.arrayOf(propType(spotFragment)),
-  }),
-  loading: PropTypes.bool,
-  refetch: PropTypes.func.isRequired,
   spots: PropTypes.arrayOf(propType(spotFragment)),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
-  style: PropTypes.object, // eslint-disable-line
+  style: PropTypes.object,
 };
 
 SpotsList.defaultProps = {
-  data: {},
   spots: [],
   onCardPress: () => {},
   style: {},

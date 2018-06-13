@@ -1365,7 +1365,7 @@
           },
           {
             "name": "description",
-            "description": "",
+            "description": "Description of the game.",
             "args": [],
             "type": {
               "kind": "NON_NULL",

@@ -17,7 +17,7 @@
 #import <React/RCTRootView.h>
 #import "ReactNativeConfig.h"
 
-@import GoogleMaps;
+#import "RCTLinkingManager.h"
 
 @implementation AppDelegate
 
@@ -44,9 +44,6 @@
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
-  NSString *googleMapsApiKey = [ReactNativeConfig envFor:@"GOOGLE_MAPS_IOS_API_KEY"];
-  [GMSServices provideAPIKey:googleMapsApiKey];
-
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
@@ -54,5 +51,14 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
+ restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
+{
+ return [RCTLinkingManager application:application
+                  continueUserActivity:userActivity
+                    restorationHandler:restorationHandler];
+}
+
 
 @end

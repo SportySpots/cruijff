@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import { findNodeHandle, TextInput, Linking, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -11,6 +11,19 @@ import I18n from '../I18n/index';
 import userActions, { STATUS } from '../Redux/UserRedux';
 import api from '../Services/SeedorfApi';
 import Colors from '../Themes/Colors';
+
+const Link = ({ text, href }) => (
+  <TouchableOpacity onPress={() => Linking.openURL(href)}>
+    <View>
+      <Text.M style={{ color: Colors.actionYellow }}>{text}</Text.M>
+    </View>
+  </TouchableOpacity>
+);
+
+Link.propTypes = {
+  text: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+};
 
 export class _Signup extends Component {
   static propTypes = {
@@ -79,23 +92,34 @@ export class _Signup extends Component {
     );
   }
 
+  scrollAndFocusRef = (refName) => {
+    this[refName].root.focus();
+    this.scroll.scrollToFocusedInput(findNodeHandle(this[refName]));
+  }
+
   render() {
     return (
-      <KeyboardAwareScrollView>
-        <LogoHeaderBackground>
+      <KeyboardAwareScrollView ref={ref => {this.scroll = ref}}>
+        <LogoHeaderBackground hideLogo>
           <Form>
             <FieldSet>
               <BlackText>{I18n.t('First name')}</BlackText>
               <Input
                 onChangeText={val => this.setState({ first_name: val })}
                 editable={!this.requestIsPending}
+                autoFocus
+                blurOnSubmit={false}
+                onSubmitEditing={() => this.scrollAndFocusRef('lastNameField')}
               />
             </FieldSet>
             <FieldSet>
               <BlackText>{I18n.t('Last name')}</BlackText>
               <Input
+                ref={(ref) => { this.lastNameField = ref; }}
                 onChangeText={val => this.setState({ last_name: val })}
                 editable={!this.requestIsPending}
+                blurOnSubmit={false}
+                onSubmitEditing={() => this.scrollAndFocusRef('emailField')}
               />
             </FieldSet>
             <FieldSet>
@@ -109,8 +133,13 @@ export class _Signup extends Component {
                   </Error>
                 )}
               <Input
+                ref={(ref) => { this.emailField = ref; }}
+                keyboardType="email-address"
                 onChangeText={val => this.setState({ email: val })}
                 editable={!this.requestIsPending}
+                autoCapitalize="none"
+                blurOnSubmit={false}
+                onSubmitEditing={() => this.scrollAndFocusRef('passwordField')}
               />
             </FieldSet>
             <FieldSet>
@@ -120,10 +149,16 @@ export class _Signup extends Component {
                   <Error>{I18n.t('Password needs to be at least 8 characters')}</Error>
                 )}
               <Input
+                ref={(ref) => { this.passwordField = ref; }}
+                secureTextEntry
                 onChangeText={val => this.setState({ password: val })}
                 editable={!this.requestIsPending}
               />
             </FieldSet>
+            <TermsContainer>
+              <Text.M>{I18n.t('By signing up, you are agreeing to the')} </Text.M>
+              <Link text={I18n.t('Terms and conditions')} href="https://www.sportyspots.com/terms.html" />
+            </TermsContainer>
             <DefaultButton
               bgColor={this.signupButtonIsDisabled ? 'grey' : Colors.actionYellow}
               textColor={Colors.white}
@@ -151,13 +186,18 @@ const Error = styled(Text)`
 `;
 const Input = styled(TextInput)`
   color: black;
+  font-size: 16px;
 `;
 
 const Form = styled.View`
   width: 100%;
-  padding-horizontal: 16;
+  padding-horizontal: 16px;
 `;
 
 const BlackText = styled(Text)`
   color: ${Colors.black};
+`;
+
+const TermsContainer = styled.View`
+  margin-vertical: 16px;
 `;

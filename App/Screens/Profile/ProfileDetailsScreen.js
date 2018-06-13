@@ -67,7 +67,7 @@ export class ProfileDetailsScreenComponent extends React.PureComponent {
       <View style={styles.editMenu}>
         <Menu name="popup">
           <MenuTrigger menuName="popup">
-            <Icon size={24} name="more-vert" />
+            <Icon size={32} name="more-vert" />
           </MenuTrigger>
           <MenuOptions>
             <MenuOption onSelect={() => this.props.navigation.navigate('ProfileEditScreen')}>
@@ -170,8 +170,8 @@ const styles = StyleSheet.create({
   },
   editMenu: {
     position: 'absolute',
-    right: 8,
-    top: 8,
+    right: 16,
+    top: 16,
   },
   bottomNavContainer: {
     flex: 1,

@@ -12,7 +12,31 @@ import userActions, { STATUS } from '../Redux/UserRedux';
 import api from '../Services/SeedorfApi';
 import Colors from '../Themes/Colors';
 
-export class _LoginScreen extends Component {
+const FieldSet = styled.View`
+  margin-top: 16px;
+`;
+
+const Error = styled(Text)`
+  color: red;
+`;
+
+const Input = styled(TextInput)`
+  font-size: 16px;
+  margin-vertical: 8px;
+  padding-vertical: 8px;
+  color: black;
+`;
+
+const Form = styled.View`
+  width: 100%;
+  padding-horizontal: 16;
+`;
+
+const BlackText = styled(Text)`
+  color: ${Colors.black};
+`;
+
+class LoginScreen extends Component {
   static propTypes = {
     onPress: PropTypes.func,
     text: PropTypes.string,
@@ -75,19 +99,25 @@ export class _LoginScreen extends Component {
   render() {
     return (
       <KeyboardAwareScrollView>
-        <LogoHeaderBackground>
+        <LogoHeaderBackground hideLogo>
           <Form>
             <FieldSet>
               <BlackText>{I18n.t('E-mail')}</BlackText>
               <Input
+                keyboardType="email-address"
                 onChangeText={val => this.setState({ email: val })}
                 editable={!this.requestIsPending}
+                autoFocus
+                autoCapitalize="none"
+                blurOnSubmit={false}
+                onSubmitEditing={() => { this.passwordField.root.focus(); }}
               />
             </FieldSet>
             <FieldSet>
               <BlackText>{I18n.t('Password')}</BlackText>
               {this.hasError && <Error>{I18n.t('Wrong username or password')}</Error>}
               <Input
+                ref={(ref) => { this.passwordField = ref; }}
                 secureTextEntry
                 onChangeText={val => this.setState({ password: val })}
                 editable={!this.requestIsPending}
@@ -107,26 +137,8 @@ export class _LoginScreen extends Component {
   }
 }
 
-const LoginScreen = connect(state => ({ user: state.user }), {
+const withRedux = connect(state => ({ user: state.user }), {
   setToken: userActions.setToken,
-})(_LoginScreen);
-export default LoginScreen;
+});
 
-const FieldSet = styled.View`
-  margin-top: 8px;
-`;
-const Error = styled(Text)`
-  color: red;
-`;
-const Input = styled(TextInput)`
-  color: black;
-`;
-
-const Form = styled.View`
-  width: 100%;
-  padding-horizontal: 16;
-`;
-
-const BlackText = styled(Text)`
-  color: ${Colors.black};
-`;
+export default withRedux(LoginScreen);

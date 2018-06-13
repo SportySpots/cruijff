@@ -7,6 +7,8 @@ import Footer from '../../Components/DarkFooter/index';
 import Text from '../../Components/Text';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
+import config from '../../config';
+import api from '../../Services/SeedorfApi';
 
 export default class Created extends Component {
   static propTypes = {
@@ -25,7 +27,7 @@ export default class Created extends Component {
   };
 
   get link() {
-    return `https://www.sportyspots.com/games/${this.props.navigation.state.params.uuid}`;
+    return `https://${config.deeplinkHost}/games/${this.props.navigation.state.params.uuid}`;
   }
 
   onCopy = () => {
@@ -33,17 +35,24 @@ export default class Created extends Component {
   };
 
   onShare = () => {
+    const message = `${I18n.t('You have been invited to a SportySpots game:')} ${this.link}`;
     Share.share(
       {
-        message: 'You have been invited',
-        url: this.link,
+        message,
         title: 'Sportyspots',
       },
       {
-        dialogTitle: I18n.t('invite'),
+        dialogTitle: I18n.t('share'),
       },
     );
   };
+
+  componentDidMount() {
+    api.setGameStatus({
+      gameUUID: this.props.navigation.state.params.uuid,
+      status: 'planned',
+    });
+  }
 
   render() {
     return (

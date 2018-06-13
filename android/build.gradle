@@ -17,11 +17,10 @@ allprojects {
     repositories {
         configurations.all {
             resolutionStrategy {
-                force "com.google.android.gms:play-services-gcm:11.8.0"
+                force "com.google.android.gms:play-services-gcm:12.0.1"
             }
         }
         mavenLocal()
-        jcenter()
         mavenCentral()
         maven{
             url 'https://maven.google.com'
@@ -30,5 +29,6 @@ allprojects {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
+        jcenter()
     }
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import NavBar from './NavBar';
-import NavBarButton from './NavBarButton';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 import './ScreenSlider/Stories';
 import './Spots/Stories';
@@ -13,6 +13,8 @@ import './DarkFooter/Stories';
 import './Games/Stories';
 import '../Backgrounds/Stories';
 
+import NavBar from './NavBar';
+import NavBarButton from './NavBarButton';
 import Onboarding from './Onboarding';
 import ImageSwiper from './ImageSwiper';
 import BackButton from './BackButton';
@@ -34,8 +36,9 @@ import PropertyCircle from './PropertyCircle';
 import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import LoginScreen from '../Screens/LoginScreen';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import InfoScreen from '../Screens/InfoScreen';
+import FilterScreen from '../Screens/FilterScreen';
+import NothingFound from './NothingFound';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -92,7 +95,7 @@ storiesOf('ImageSwiper').add('Default', () => (
   <ImageSwiper
     images={[
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A',
-      'http://via.placeholder.com/350x150',
+      'https://via.placeholder.com/350x150',
     ]}
   />
 ));
@@ -109,7 +112,7 @@ storiesOf('NavBar')
     </Provider>
   ))
   .add('NavBarButton', () => (
-    <NavBarButton icon={{ set: MaterialIcon, name: 'settings' }} buttonText="test" />
+    <NavBarButton icon={{ set: MaterialIcon, name: 'info' }} buttonText="test" />
   ))
   .add('At bottom', () => (
     <Provider store={store}>
@@ -159,4 +162,18 @@ storiesOf('LoginScreen').add('Default', () => (
   <Provider store={store}>
     <LoginScreen navigation={dummyNavigator} />
   </Provider>
+));
+storiesOf('NothingFound').add('Default', () => (
+  <NothingFound
+    icon="map-marker"
+    text="Oops, nothing found"
+  />
+));
+
+storiesOf('FilterScreen').add('Default', () => (
+  <FilterScreen navigation={dummyNavigator} />
+));
+
+storiesOf('InfoScreen').add('Default', () => (
+  <InfoScreen />
 ));

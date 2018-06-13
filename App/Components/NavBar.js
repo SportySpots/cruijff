@@ -29,11 +29,14 @@ const buttons = [
     },
   },
   {
-    buttonText: 'plan-a-game',
+    buttonText: 'Organize',
     async onPress() {
       // called with this = NavBar component
       if (!this.props.user.claims.uuid) {
-        this.props.navigation.navigate('ProfileTab');
+        const activeRoute = this.props.navigation.state.routes[this.props.navigation.state.index];
+        if (activeRoute.routeName !== 'ProfileTab') {
+          this.props.navigation.navigate('ProfileTab');
+        }
         return;
       }
 
@@ -61,11 +64,11 @@ const buttons = [
     },
   },
   {
-    buttonText: 'settings',
-    navigate: 'SettingsTab',
+    buttonText: 'info',
+    navigate: 'InfoTab',
     icon: {
       set: MaterialIcon,
-      name: 'settings',
+      name: 'info',
     },
   },
 ];
@@ -106,7 +109,10 @@ export class _NavBar extends React.Component {
     if (button.onPress) {
       button.onPress.call(this);
     } else {
-      this.props.navigation.navigate({ routeName: button.navigate });
+      const activeRoute = this.props.navigation.state.routes[this.props.navigation.state.index];
+      if (activeRoute.routeName !== button.navigate) {
+        this.props.navigation.navigate({ routeName: button.navigate });
+      }
     }
   };
 

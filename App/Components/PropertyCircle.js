@@ -5,7 +5,7 @@ import { Text, View, StyleSheet } from 'react-native';
 
 const PropertyCircle = ({ text }) => (
   <View style={style.circle}>
-    <Text style={style.text}>{JSON.stringify(text).toUpperCase()}</Text>
+    <Text style={style.text}>{text}</Text>
   </View>
 );
 

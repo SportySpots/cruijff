@@ -1,9 +1,10 @@
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
+import React from 'react';
 import {
   GameSearchNav,
   PlanGameNav,
   ProfileNav,
-  SettingsNav,
+  InfoNav,
   SpotSearchNav,
 } from './Navigators';
 import I18n from '../I18n';
@@ -13,13 +14,15 @@ import LoginScreen from '../Screens/LoginScreen';
 import SignupScreen from '../Screens/SignupScreen';
 import OnboardingScreen from '../Components/Onboarding';
 import AskLocation from '../Screens/AskLocationScreen';
+import StackBackHeader from './StackBackHeader';
+import DebugScreen from '../Screens/DebugScreen';
 
 export const MainTabsNav = TabNavigator(
   {
     SpotSearchTab: { screen: SpotSearchNav },
     GameSearchTab: { screen: GameSearchNav },
     ProfileTab: { screen: ProfileNav },
-    SettingsTab: { screen: SettingsNav },
+    InfoTab: { screen: InfoNav },
   },
   {
     tabBarComponent: NavBar,
@@ -46,6 +49,7 @@ const RootNav = SwitchNavigator(
     OnboardingScreen: { screen: OnboardingScreen },
     SplashScreen: { screen: SplashScreen },
     MainNav: { screen: MainNav },
+    DebugNav: { screen: DebugScreen },
   },
   {
     // Default config for all screens
@@ -65,14 +69,36 @@ export default StackNavigator(
     },
     LoginScreen: {
       screen: LoginScreen,
-      navigationOptions: {
-        title: I18n.t('login'),
+      navigationOptions({ navigation }) {
+        return {
+          headerTitle: I18n.t('Hi again!'),
+          headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: 'center',
+          },
+          headerLeft: (
+            <StackBackHeader
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
       },
     },
     SignupScreen: {
       screen: SignupScreen,
-      navigationOptions: {
-        title: I18n.t('Sign up'),
+      navigationOptions({ navigation }) {
+        return {
+          headerTitle: I18n.t('Sign up'),
+          headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: 'center',
+          },
+          headerLeft: (
+            <StackBackHeader
+              onPress={() => { navigation.goBack(null); }}
+            />
+          ),
+        };
       },
     },
   },

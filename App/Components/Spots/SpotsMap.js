@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import { TouchableOpacity, Dimensions } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+// import MapView, { Marker } from 'react-native-maps';
 import Swiper from 'react-native-swiper';
 import Colors from '../../Themes/Colors';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
@@ -134,24 +134,24 @@ class SpotsMap extends React.PureComponent {
 
     return (
       <Relative style={{ flex: 1 }}>
-        <MapView
-          style={{ flex: 1 }}
-          region={region}
-          moveOnMarkerPress={false}
-          onRegionChangeComplete={this.handleRegionChange}
-        >
-          {spots.map((spot, index) => (
-            <Marker
-              key={spot.uuid}
-              tracksViewChanges={false}
-              coordinate={getSpotLocation(spot)}
-              pinColor={Colors[currentSpot === index ? 'primaryGreen' : 'black']}
-              onPress={() => {
-                this.handleMarkerPess(index);
-              }}
-            />
-          ))}
-        </MapView>
+        {/*<MapView*/}
+          {/*style={{ flex: 1 }}*/}
+          {/*region={region}*/}
+          {/*moveOnMarkerPress={false}*/}
+          {/*onRegionChangeComplete={this.handleRegionChange}*/}
+        {/*>*/}
+          {/*{spots.map((spot, index) => (*/}
+            {/*<Marker*/}
+              {/*key={spot.uuid}*/}
+              {/*tracksViewChanges={false}*/}
+              {/*coordinate={getSpotLocation(spot)}*/}
+              {/*pinColor={Colors[currentSpot === index ? 'primaryGreen' : 'black']}*/}
+              {/*onPress={() => {*/}
+                {/*this.handleMarkerPess(index);*/}
+              {/*}}*/}
+            {/*/>*/}
+          {/*))}*/}
+        {/*</MapView>*/}
         <Absolute>
           <Swiper
             ref="swiper" // eslint-disable-line
