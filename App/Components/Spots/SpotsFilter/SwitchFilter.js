@@ -24,7 +24,7 @@ const SwitchFilter = ({
   value,
   onChange,
 }) => (
-  <Row>
+  <Row style={{ height: 56 }}>
     <Left>
       <FilterLabel>{label}</FilterLabel>
       <FilterDescription>{description}</FilterDescription>

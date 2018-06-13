@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n/index';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
-import { FilterLabel } from './style';
 import SliderFilter from './SliderFilter';
 import SwitchFilter from './SwitchFilter';
 
@@ -27,8 +26,10 @@ const Divider = styled.View`
 const SpotsFilter = ({
   maxDistance,
   onSliderChange,
+  filterBySports,
   sports,
   selectedSportIds,
+  onSportFilterSwitch,
   onSportSwitch,
 }) => [
   <Block key="slider">
@@ -37,37 +38,51 @@ const SpotsFilter = ({
       max={20.0}
       min={0.0}
       onChange={(value) => { onSliderChange(value); }}
-      label={I18n.t('Distance')}
-      description={`${I18n.t('max distance')}: ${maxDistance.toFixed(1)}km`}
+      label={I18n.t('Location')}
+      description={`${I18n.t('Shows spots inside')}: ${maxDistance.toFixed(1)}km`}
     />
   </Block>,
-  <Divider key="divider" />,
-  <Block key="switch">
-    <FilterLabel>Sports</FilterLabel>
-    {sports.map(sport => (
-      <SwitchFilter
-        key={sport.id}
-        description={sport.name}
-        value={selectedSportIds.indexOf(sport.id) !== -1}
-        onChange={() => { onSportSwitch(sport.id); }}
-      />
-    ))}
+  <Divider key="divider-slider" />,
+  <Block key="sport-filter" style={{ height: 86 }}>
+    <SwitchFilter
+      label="Alle sporten"
+      description="Filter op type sport"
+      value={filterBySports}
+      onChange={onSportFilterSwitch}
+    />
   </Block>,
+  <Divider key="divider-sport-filter" />,
+  filterBySports && (
+    <Block key="switch">
+      {sports.map(sport => (
+        <SwitchFilter
+          key={sport.id}
+          label={sport.name}
+          value={selectedSportIds.indexOf(sport.id) !== -1}
+          onChange={() => { onSportSwitch(sport.id); }}
+        />
+      ))}
+    </Block>
+  ),
 ];
 
 SpotsFilter.propTypes = {
   maxDistance: PropTypes.number,
   onSliderChange: PropTypes.func,
+  filterBySports: PropTypes.bool,
   sports: PropTypes.arrayOf(propType(sportFragment)),
   selectedSportIds: PropTypes.arrayOf(PropTypes.string),
+  onSportFilterSwitch: PropTypes.func,
   onSportSwitch: PropTypes.func,
 };
 
 SpotsFilter.defaultProps = {
   maxDistance: 3,
+  filterBySports: false,
   sports: [],
   selectedSportIds: [],
   onSliderChange: () => {},
+  onSportFilterSwitch: () => {},
   onSportSwitch: () => {},
 };
 

@@ -5,6 +5,7 @@ import Immutable from 'seamless-immutable';
 
 const { Types, Creators } = createActions(
   {
+    setSportFilter: ['filterBySports'],
     setSports: ['selectedSportIds'],
     setMaxDistance: ['maxDistance'],
   },
@@ -26,17 +27,20 @@ for (let i = 1; i <= nSports; i += 1) {
 
 export const INITIAL_STATE = Immutable({
   maxDistance: 2.0,
+  filterBySports: false,
   selectedSportIds: allSportIds,
 });
 
 /* ------------- Reducers ------------- */
 
-export const setSports = (state, { selectedSportIds }) => state.merge({ selectedSportIds });
 export const setMaxDistance = (state, { maxDistance }) => state.merge({ maxDistance });
+export const setSportFilter = (state, { filterBySports }) => state.merge({ filterBySports });
+export const setSports = (state, { selectedSportIds }) => state.merge({ selectedSportIds });
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SET_SPORTS]: setSports,
   [Types.SET_MAX_DISTANCE]: setMaxDistance,
+  [Types.SET_SPORT_FILTER]: setSportFilter,
+  [Types.SET_SPORTS]: setSports,
 });

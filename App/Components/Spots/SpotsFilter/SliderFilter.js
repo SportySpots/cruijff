@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Slider from '../../../Components/Slider';
 import { FilterLabel, FilterDescription, RowVertical } from './style';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Spacer = styled.View`
+  height: 15px;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -14,9 +21,10 @@ const SliderFilter = ({
   label,
   description,
 }) => (
-  <RowVertical>
+  <RowVertical style={{ height: 110 }}>
     <FilterLabel>{label}</FilterLabel>
     <FilterDescription>{description}</FilterDescription>
+    <Spacer />
     <Slider
       value={(value / (max - min))}
       onChange={val => onChange(val * (max - min))}

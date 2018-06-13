@@ -20,7 +20,7 @@ const Container = styled.ScrollView`
 //------------------------------------------------------------------------------
 
 const ButtonContainer = styled.View`
-  height: 95px;
+  height: 88px;
   background-color: ${Colors.white}
   border-top-width: 0.5px;
   border-color: ${Colors.lightGray}
@@ -33,10 +33,11 @@ class SpotsFilterScreen extends React.PureComponent {
     super(props);
 
     // Get data from redux
-    const { maxDistance, selectedSportIds } = props;
+    const { maxDistance, filterBySports, selectedSportIds } = props;
 
     this.state = {
       maxDistance: maxDistance || 3,
+      filterBySports: filterBySports || false,
       sports: [],
       selectedSportIds: selectedSportIds || [], // list of selected sport ids
       loaded: false,
@@ -74,13 +75,24 @@ class SpotsFilterScreen extends React.PureComponent {
   }
 
   handleSubmit = () => {
-    const { navigation, setMaxDistance, setSports } = this.props;
-    const { maxDistance, selectedSportIds } = this.state;
+    const {
+      navigation,
+      setMaxDistance,
+      setSportFilter,
+      setSports,
+    } = this.props;
+
+    const {
+      maxDistance,
+      filterBySports,
+      selectedSportIds,
+    } = this.state;
 
     this.setState({ disabled: true });
 
     // Save data into redux store.
     setMaxDistance(maxDistance);
+    setSportFilter(filterBySports);
     setSports(selectedSportIds);
 
     // Go back to spots screen
@@ -92,6 +104,7 @@ class SpotsFilterScreen extends React.PureComponent {
   render() {
     const {
       maxDistance,
+      filterBySports,
       sports,
       selectedSportIds,
       loaded,
@@ -102,6 +115,8 @@ class SpotsFilterScreen extends React.PureComponent {
       return null;
     }
 
+    console.log('filterBySports', filterBySports);
+
     return [
       <Container key="filters">
         <SpotsFilter
@@ -109,8 +124,12 @@ class SpotsFilterScreen extends React.PureComponent {
           maxDistance={maxDistance}
           onSliderChange={this.handleSliderChange}
           // SwitchFilter props
+          filterBySports={filterBySports}
           sports={sports}
           selectedSportIds={selectedSportIds}
+          onSportFilterSwitch={(value) => {
+            this.setState({ filterBySports: value });
+          }}
           onSportSwitch={this.handleSportSwitch}
         />
       </Container>,
@@ -132,14 +151,17 @@ SpotsFilterScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
   }).isRequired,
   maxDistance: PropTypes.number.isRequired,
+  filterBySports: PropTypes.bool.isRequired,
   selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   setMaxDistance: PropTypes.func.isRequired,
+  setSportFilter: PropTypes.func.isRequired,
   setSports: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => state.spotFilters;
 const mapDispatchToProps = {
   setMaxDistance: spotFiltersActions.setMaxDistance,
+  setSportFilter: spotFiltersActions.setSportFilter,
   setSports: spotFiltersActions.setSports,
 };
 const withRedux = connect(mapStateToProps, mapDispatchToProps);
