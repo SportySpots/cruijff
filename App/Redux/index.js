@@ -7,6 +7,7 @@ export const reducers = combineReducers({
   location: require('./LocationRedux').reducer,
   plan: require('./PlanGameRedux').reducer,
   user: require('./UserRedux').reducer,
+  spotFilters: require('./SpotFiltersRedux').reducer,
 });
 
 export let reduxStore = null;
