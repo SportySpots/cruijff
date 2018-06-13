@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import gameFragment from '../../Games/Fragments/game';
 
 const spotDetailsFragment = gql`
   fragment spotDetailsFragment on SpotType {
@@ -25,7 +26,11 @@ const spotDetailsFragment = gql`
       lat
       lng
     }
+    games {
+      ...gameFragment
+    }
   }
+  ${gameFragment}
 `;
 
 export default spotDetailsFragment;
