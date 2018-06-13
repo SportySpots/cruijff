@@ -32,7 +32,7 @@ const SpotsFilter = ({
   onSportFilterSwitch,
   onSportSwitch,
 }) => [
-  <Block key="slider">
+  <Block key="slider" style={{ height: 144 }}>
     <SliderFilter
       value={maxDistance}
       max={20.0}
@@ -43,7 +43,7 @@ const SpotsFilter = ({
     />
   </Block>,
   <Divider key="divider-slider" />,
-  <Block key="sport-filter" style={{ height: 86 }}>
+  <Block key="sport-filter" style={{ height: 82 }}>
     <SwitchFilter
       label="Alle sporten"
       description="Filter op type sport"
@@ -52,18 +52,16 @@ const SpotsFilter = ({
     />
   </Block>,
   <Divider key="divider-sport-filter" />,
-  filterBySports && (
-    <Block key="switch">
-      {sports.map(sport => (
-        <SwitchFilter
-          key={sport.id}
-          label={sport.name}
-          value={selectedSportIds.indexOf(sport.id) !== -1}
-          onChange={() => { onSportSwitch(sport.id); }}
-        />
-      ))}
-    </Block>
-  ),
+  <Block key="switch" style={{ flex: 1 }}>
+    {filterBySports && sports.map(sport => (
+      <SwitchFilter
+        key={sport.id}
+        label={sport.name}
+        value={selectedSportIds.indexOf(sport.id) !== -1}
+        onChange={() => { onSportSwitch(sport.id); }}
+      />
+    ))}
+  </Block>,
 ];
 
 SpotsFilter.propTypes = {

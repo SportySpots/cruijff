@@ -115,8 +115,6 @@ class SpotsFilterScreen extends React.PureComponent {
       return null;
     }
 
-    console.log('filterBySports', filterBySports);
-
     return [
       <Container key="filters">
         <SpotsFilter
