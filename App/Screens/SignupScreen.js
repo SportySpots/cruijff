@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { findNodeHandle, TextInput } from 'react-native';
+import { findNodeHandle, TextInput, Linking, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -11,6 +11,19 @@ import I18n from '../I18n/index';
 import userActions, { STATUS } from '../Redux/UserRedux';
 import api from '../Services/SeedorfApi';
 import Colors from '../Themes/Colors';
+
+const Link = ({ text, href }) => (
+  <TouchableOpacity onPress={() => Linking.openURL(href)}>
+    <View>
+      <Text.M style={{ color: Colors.actionYellow }}>{text}</Text.M>
+    </View>
+  </TouchableOpacity>
+);
+
+Link.propTypes = {
+  text: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+};
 
 export class _Signup extends Component {
   static propTypes = {
@@ -142,6 +155,10 @@ export class _Signup extends Component {
                 editable={!this.requestIsPending}
               />
             </FieldSet>
+            <TermsContainer>
+              <Text.M>{I18n.t('By signing up, you are agreeing to the')} </Text.M>
+              <Link text={I18n.t('Terms and conditions')} href="https://www.sportyspots.com/terms.html" />
+            </TermsContainer>
             <DefaultButton
               bgColor={this.signupButtonIsDisabled ? 'grey' : Colors.actionYellow}
               textColor={Colors.white}
@@ -174,9 +191,13 @@ const Input = styled(TextInput)`
 
 const Form = styled.View`
   width: 100%;
-  padding-horizontal: 16;
+  padding-horizontal: 16px;
 `;
 
 const BlackText = styled(Text)`
   color: ${Colors.black};
+`;
+
+const TermsContainer = styled.View`
+  margin-vertical: 16px;
 `;

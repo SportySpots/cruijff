@@ -18,13 +18,13 @@ const Container = styled.View`
 `;
 
 const LogoContainer = styled.View`
-  margin-top: 16;
+  margin-top: 16px;
   align-items: center;
   justify-content: center;
 `;
 
 const LogoText = styled(Text.L)`
-  margin-top: 8;
+  margin-top: 16px;
   color: ${Colors.black};
 `;
 

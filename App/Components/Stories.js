@@ -37,8 +37,9 @@ import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import FilterScreen from '../Screens/Spots/SpotsFilterScreen';
+import InfoScreen from '../Screens/InfoScreen';
 import NothingFound from './NothingFound';
-import {WithApolloMockProvider} from '../GraphQL';
+import { WithApolloMockProvider } from '../GraphQL';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -180,4 +181,8 @@ storiesOf('FilterScreen').add('Default', () => (
       <FilterScreen navigation={dummyNavigator} />
     </WithApolloMockProvider>
   </Provider>
+));
+
+storiesOf('InfoScreen').add('Default', () => (
+  <InfoScreen />
 ));

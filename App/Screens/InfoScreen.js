@@ -13,26 +13,31 @@ import Colors from '../Themes/Colors';
 import { navigation as navigationPropType } from '../PropTypesDefinitions/navigation';
 
 const Row = styled.View`
-  height: 42px;
-  padding-vertical: 8px;
-
-  border-bottom-width: 1px;
-  border-bottom-color: ${Colors.gray};
+  height: 64px;
+  padding-vertical: 16px;
   flex-direction: row;
-`;
+  border-top-width: ${props => props.first ? '1px' : '0px'};
+  border-top-color: ${Colors.shade};
+  border-bottom-width: 1px;
+  border-bottom-color: ${Colors.shade};
+  margin-horizontal: 16px;
+  `;
 
 const LeftContainer = styled.View`
   flex: 1;
   margin-horizontal: 8px;
+  justify-content: center;
 `;
 
 const RightContainer = styled.View`
   width: 32px;
+  margin-horizontal: 8px;
+  justify-content: center;
 `;
 
 const Container = styled.View`
   flex: 1;
-  margin-top: 48px;
+  margin-top: 56px;
 `;
 
 const VersionContainer = styled.View`
@@ -40,8 +45,8 @@ const VersionContainer = styled.View`
   justify-content: center;
 `;
 
-const Link = ({ text, href, icon }) => (
-  <Row>
+const Link = ({ text, href, icon, first }) => (
+  <Row first={first}>
     <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} onPress={() => Linking.openURL(href)}>
       <LeftContainer>
         <Text.M>{text}</Text.M>
@@ -54,6 +59,7 @@ const Link = ({ text, href, icon }) => (
 );
 
 Link.propTypes = {
+  first: PropTypes.bool,
   text: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   icon: PropTypes.any,
@@ -106,11 +112,11 @@ class InfoScreen extends React.Component {
       <LogoHeaderBackground>
         <TouchableWithoutFeedback onPress={() => this.versionPress()}>
           <VersionContainer>
-            <Text.S>{this.state.version} {this.state.label} {this.state.description}</Text.S>
+            <Text.M>{this.state.version} {this.state.label} {this.state.description}</Text.M>
           </VersionContainer>
         </TouchableWithoutFeedback>
         <Container>
-          <Link text={I18n.t('Privacy info')} href="https://www.sportyspots.com/privacy.html" icon="perm-identity" />
+          <Link first text={I18n.t('Privacy info')} href="https://www.sportyspots.com/privacy.html" icon="perm-identity" />
           <Link text={I18n.t('Terms and conditions')} href="https://www.sportyspots.com/terms.html" icon="info" />
         </Container>
       </LogoHeaderBackground>
