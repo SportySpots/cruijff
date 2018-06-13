@@ -85,7 +85,7 @@ class SpotsListScreen extends React.Component {
         variables={{
           offset: 0,
           limit: 20,
-          sports__uuid: selectedSportIds[0],
+          sports__ids: selectedSportIds,
         }}
         fetchPolicy="cache-and-network"
       >
