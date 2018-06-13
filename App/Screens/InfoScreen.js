@@ -21,7 +21,6 @@ const Row = styled.View`
   border-bottom-width: 1px;
   border-bottom-color: ${Colors.shade};
   margin-horizontal: 16px;
-  
   `;
 
 const LeftContainer = styled.View`

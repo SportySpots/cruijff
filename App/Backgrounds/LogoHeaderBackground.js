@@ -24,7 +24,7 @@ const LogoContainer = styled.View`
 `;
 
 const LogoText = styled(Text.L)`
-  margin-top: 16;
+  margin-top: 16px;
   color: ${Colors.black};
 `;
 
