@@ -59,6 +59,15 @@ class SpotsFilterScreen extends React.PureComponent {
     this.setState({ maxDistance });
   }
 
+  handleSportsFilterSwitch = (filterBySports) => {
+    this.setState({
+      filterBySports,
+      selectedSportIds: filterBySports
+        ? this.state.sports.map(({ id }) => (id))
+        : [],
+    });
+  }
+
   handleSportSwitch = (sportId) => {
     this.setState((prevState) => {
       // Check whether or not sportId is already in the list of selected sports.
@@ -66,6 +75,9 @@ class SpotsFilterScreen extends React.PureComponent {
 
       // If yes, remove it from the list; otherwise, add it.
       return {
+        filterBySports: (!prevState.filterBySports && index === -1)
+          ? true
+          : prevState.filterBySports,
         selectedSportIds: index !== -1 ? [
           ...prevState.selectedSportIds.slice(0, index),
           ...prevState.selectedSportIds.slice(index + 1),
@@ -125,9 +137,7 @@ class SpotsFilterScreen extends React.PureComponent {
           filterBySports={filterBySports}
           sports={sports}
           selectedSportIds={selectedSportIds}
-          onSportFilterSwitch={(value) => {
-            this.setState({ filterBySports: value });
-          }}
+          onSportsFilterSwitch={this.handleSportsFilterSwitch}
           onSportSwitch={this.handleSportSwitch}
         />
       </Container>,

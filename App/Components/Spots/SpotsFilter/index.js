@@ -29,7 +29,7 @@ const SpotsFilter = ({
   filterBySports,
   sports,
   selectedSportIds,
-  onSportFilterSwitch,
+  onSportsFilterSwitch,
   onSportSwitch,
 }) => [
   <Block key="slider" style={{ height: 144 }}>
@@ -48,12 +48,12 @@ const SpotsFilter = ({
       label="Alle sporten"
       description="Filter op type sport"
       value={filterBySports}
-      onChange={onSportFilterSwitch}
+      onChange={onSportsFilterSwitch}
     />
   </Block>,
   <Divider key="divider-sport-filter" />,
   <Block key="switch" style={{ flex: 1 }}>
-    {filterBySports && sports.map(sport => (
+    {sports.map(sport => (
       <SwitchFilter
         key={sport.id}
         label={sport.name}
@@ -70,7 +70,7 @@ SpotsFilter.propTypes = {
   filterBySports: PropTypes.bool,
   sports: PropTypes.arrayOf(propType(sportFragment)),
   selectedSportIds: PropTypes.arrayOf(PropTypes.string),
-  onSportFilterSwitch: PropTypes.func,
+  onSportsFilterSwitch: PropTypes.func,
   onSportSwitch: PropTypes.func,
 };
 
@@ -80,7 +80,7 @@ SpotsFilter.defaultProps = {
   sports: [],
   selectedSportIds: [],
   onSliderChange: () => {},
-  onSportFilterSwitch: () => {},
+  onSportsFilterSwitch: () => {},
   onSportSwitch: () => {},
 };
 
