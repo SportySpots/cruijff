@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { FlatList, Keyboard, Modal, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import {Alert, FlatList, Keyboard, Modal, StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import DateTimePicker from 'react-native-modal-datetime-picker';
@@ -180,8 +180,15 @@ export default class SportAndTime extends Component {
 
   onBack = () => {
     Keyboard.dismiss();
-    // https://github.com/react-navigation/react-navigation/issues/697#issuecomment-309359044
-    this.props.navigation.goBack(null);
+
+    Alert.alert(
+      I18n.t('Confirm'),
+      I18n.t('Are you sure you want to cancel this game?'),
+      [
+        { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
+        { text: I18n.t('Yes'), onPress: () => { this.props.navigation.goBack(null); } },
+      ],
+    );
   };
 
   onNext = () => {
@@ -346,8 +353,9 @@ export default class SportAndTime extends Component {
               />
             </View>
             <View style={styles.horizontal}>
-              <Text.M style={styles.text}>{I18n.t('capacity')}</Text.M>
+              <Text.M style={styles.text}>{I18n.t('with')}</Text.M>
               <TextInput
+                ref={ref => this.capacityField = ref }
                 keyboardType="numeric"
                 underlineColorAndroid={Colors.white}
                 style={{ flex: 0.20, fontSize: 24, marginLeft: 8 }}
@@ -355,7 +363,7 @@ export default class SportAndTime extends Component {
                 onChangeText={val => this.setState({ capacityField: val })}
                 onBlur={this.setCapacity}
               />
-              <Icon size={24} name="keyboard-arrow-down" />
+              <Text.M style={styles.text}> {I18n.t('people')}</Text.M>
             </View>
           </View>
         </KeyboardAwareScrollView>
@@ -381,7 +389,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.primaryGreen,
     flex: 1,
-    paddingTop: 16,
+    paddingTop: 48,
   },
   horizontal: {
     flexDirection: 'row',
