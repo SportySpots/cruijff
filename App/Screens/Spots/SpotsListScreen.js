@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
+import { connect } from 'react-redux';
 import geolib from 'geolib';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
@@ -15,7 +16,7 @@ import Card from '../../Components/Spots/SpotListCard';
 const Container = styled.View`
   flex: 1;
   padding: 0 8px;
-  background-color: ${Colors.bgGrey};
+  background-color: ${Colors.white};
 `;
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -75,12 +76,17 @@ class SpotsListScreen extends React.Component {
   }
 
   render() {
+    const { maxDistance, filterBySports, selectedSportIds } = this.props;
     const { coords } = this.state;
+
+    // Set query variables
+    const variables = { offset: 0, limit: 20 };
+    if (filterBySports) { variables.sports__ids = selectedSportIds; }
 
     return (
       <Query
         query={GET_SPOTS}
-        variables={{ offset: 0, limit: 20 }}
+        variables={variables}
         fetchPolicy="cache-and-network"
       >
         {({
@@ -139,6 +145,12 @@ SpotsListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  maxDistance: PropTypes.number.isRequired,
+  filterBySports: PropTypes.bool.isRequired,
+  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default SpotsListScreen;
+const mapStateToProps = state => state.spotFilters;
+const withRedux = connect(mapStateToProps, null);
+
+export default withRedux(SpotsListScreen);
