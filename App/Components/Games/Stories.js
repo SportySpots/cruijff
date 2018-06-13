@@ -35,7 +35,7 @@ const game = {
     first_name: 'Tom',
     last_name: 'Klaver',
   },
-  attendees: []
+  attendees: [],
 };
 
 storiesOf('Games')
