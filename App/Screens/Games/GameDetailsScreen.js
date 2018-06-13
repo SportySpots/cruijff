@@ -20,6 +20,9 @@ import withQuery from '../../GraphQL/withQuery';
 import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
 import config from '../../config';
 import GameProperties from '../../Components/Games/GameProperties';
+import { Query } from 'react-apollo';
+import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
+import NothingFound from '../../Components/NothingFound';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -116,9 +119,9 @@ class GameComponent extends Component {
               bgColor={Colors.primaryGreen}
               textColor={Colors.white}
               text={I18n.t("I'm attending")}
-              onPress={() => !this.props.user.uuid ?
+              onPress={() => (!this.props.user.uuid ?
                 this.props.navigation.navigate('ProfileTab') :
-                this.setRSVPStatus(RSVP_STATUSES.ATTENDING)
+                this.setRSVPStatus(RSVP_STATUSES.ATTENDING))
               }
             />
             <DefaultButton
@@ -126,9 +129,9 @@ class GameComponent extends Component {
               bgColor={Colors.red}
               textColor={Colors.white}
               text={I18n.t("I'm not attending")}
-              onPress={() => !this.props.user.uuid ?
+              onPress={() => (!this.props.user.uuid ?
                 this.props.navigation.navigate('ProfileTab') :
-                this.setRSVPStatus(RSVP_STATUSES.DECLINED)}
+                this.setRSVPStatus(RSVP_STATUSES.DECLINED))}
             />
           </HorizontalView>
         </Block>
@@ -191,17 +194,15 @@ class GameComponent extends Component {
         <SpotMapWithLinkFallback spot={spot} />
         <Block>
           <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
-          <TouchableOpacity onPress={this.openPlayerList}>
-            <HorizontalView>
-              <UserCircle user={game.organizer} style={{ marginRight: 16 }} />
-              <View style={{ flex: 1 }}>
-                <Text.SM>
-                  {game.organizer.first_name} {game.organizer.last_name} -{' '}
-                  {game.description || ''}
-                </Text.SM>
-              </View>
-            </HorizontalView>
-          </TouchableOpacity>
+          <HorizontalView>
+            <UserCircle user={game.organizer} style={{ marginRight: 16 }} />
+            <View style={{ flex: 1 }}>
+              <Text.SM>
+                {game.organizer.first_name} {game.organizer.last_name} -{' '}
+                {game.description || ''}
+              </Text.SM>
+            </View>
+          </HorizontalView>
         </Block>
         {attendingUsers.length > 0 && (
           <Block>
@@ -261,17 +262,18 @@ class GameComponent extends Component {
 }
 
 const GameDetailsScreen = connect(state => ({ user: state.user }))(
-  (props) => {
-    const Contents = withQuery(GET_GAME_DETAILS)(GameComponent);
-    return (
-      <Contents
-        {...props}
-        variables={{ uuid: props.navigation.state.params.uuid }}
-      />
-    );
-  },
+  props => (
+    <Query query={GET_GAME_DETAILS} variables={{ uuid: props.navigation.state.params.uuid }}>
+      {({
+          loading, error, data, refetch,
+        }) => {
+        if (loading) return <CenteredActivityIndicator />;
+        if (error) return <NothingFound icon="calendar-plus" text={I18n.t('Game not found')} />;
+        return <GameComponent {...props} loading={loading} error={error} data={data} refetch={refetch} />;
+      }}
+    </Query>
+  ),
 );
-
 export default GameDetailsScreen;
 
 const HorizontalView = styled.View`
