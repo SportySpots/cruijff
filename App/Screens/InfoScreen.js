@@ -118,6 +118,7 @@ class InfoScreen extends React.Component {
         <Container>
           <Link first text={I18n.t('Privacy info')} href="https://www.sportyspots.com/privacy.html" icon="perm-identity" />
           <Link text={I18n.t('Terms and conditions')} href="https://www.sportyspots.com/terms.html" icon="info" />
+          <Link text={I18n.t('Help us to improve the app')} href="https://goo.gl/forms/3oc4XPVkQtXMSKK33" icon="phone-iphone" />
         </Container>
       </LogoHeaderBackground>
     );
