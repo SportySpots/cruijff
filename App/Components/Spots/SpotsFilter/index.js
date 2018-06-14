@@ -26,7 +26,7 @@ const Divider = styled.View`
 const SpotsFilter = ({
   maxDistance,
   onSliderChange,
-  filterBySports,
+  allSports,
   sports,
   selectedSportIds,
   onSportsFilterSwitch,
@@ -47,7 +47,7 @@ const SpotsFilter = ({
     <SwitchFilter
       label="Alle sporten"
       description="Filter op type sport"
-      value={filterBySports}
+      value={allSports}
       onChange={onSportsFilterSwitch}
     />
   </Block>,
@@ -67,7 +67,7 @@ const SpotsFilter = ({
 SpotsFilter.propTypes = {
   maxDistance: PropTypes.number,
   onSliderChange: PropTypes.func,
-  filterBySports: PropTypes.bool,
+  allSports: PropTypes.bool,
   sports: PropTypes.arrayOf(propType(sportFragment)),
   selectedSportIds: PropTypes.arrayOf(PropTypes.string),
   onSportsFilterSwitch: PropTypes.func,
@@ -76,7 +76,7 @@ SpotsFilter.propTypes = {
 
 SpotsFilter.defaultProps = {
   maxDistance: 3,
-  filterBySports: false,
+  allSports: false,
   sports: [],
   selectedSportIds: [],
   onSliderChange: () => {},

@@ -76,12 +76,12 @@ class SpotsListScreen extends React.Component {
   }
 
   render() {
-    const { maxDistance, filterBySports, selectedSportIds } = this.props;
+    const { maxDistance, allSports, selectedSportIds } = this.props;
     const { coords } = this.state;
 
     // Set query variables
     const variables = { offset: 0, limit: 20 };
-    if (filterBySports) { variables.sports__ids = selectedSportIds; }
+    if (!allSports) { variables.sports__ids = selectedSportIds; }
 
     return (
       <Query
@@ -146,7 +146,7 @@ SpotsListScreen.propTypes = {
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   maxDistance: PropTypes.number.isRequired,
-  filterBySports: PropTypes.bool.isRequired,
+  allSports: PropTypes.bool.isRequired,
   selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
