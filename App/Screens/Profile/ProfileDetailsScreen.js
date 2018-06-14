@@ -1,3 +1,116 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
+import styled from 'styled-components/native';
+import Colors from '../../Themes/Colors';
+import userActions from '../../Redux/UserRedux';
+import GET_USER_DETAILS from '../../GraphQL/Users/Queries/GET_USER_DETAILS';
+import Text from '../../Components/Text';
+
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+
+class ProfileDetailsScreen extends React.PureComponent {
+
+  render() {
+    const { user } = this.props;
+
+    return (
+      <Query
+        query={GET_USER_DETAILS}
+        variables={{ uuid: user.uuid }}
+      >
+        {({ loading, error, data }) => {
+          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
+
+          return (
+            <Container>
+              {/* <GamesList
+                games={(data && data.games && curatedGames(data.games)) || []}
+                cardComponent={Card}
+                onCardPress={this.handleCardPress}
+                // FlatList props
+                onRefresh={refetch}
+                refreshing={loading}
+                // onEndReached={loadMore}
+                // onEndReachedThreshold={0}
+              /> */}
+            </Container>
+          );
+        }}
+      </Query>
+    );
+  }
+}
+
+const dispatchToProps = { logout: userActions.logout };
+const mapStateToProps = ({ user }) => ({ user });
+const withRedux = connect(mapStateToProps, dispatchToProps);
+
+export default withRedux(ProfileDetailsScreen);
+
+/* export const GET_USER_DETAILS = gql`
+  query user($uuid: UUID) {
+    user(uuid: $uuid) {
+      uuid
+      first_name
+      last_name
+      #      profile {
+      #        year_of_birth
+      #      }
+    }
+  }
+`; */
+
+const styles = StyleSheet.create({
+  image: {
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+  },
+  center: {
+    alignItems: 'center',
+  },
+  outerContainer: {
+    flex: 1,
+    paddingTop: 24,
+    backgroundColor: Colors.white,
+  },
+  ageTypeContainer: {
+    flexDirection: 'row',
+    marginHorizontal: 16,
+  },
+  ageContainer: {
+    flex: 2,
+  },
+  type: {
+    flex: 4,
+  },
+  editMenu: {
+    position: 'absolute',
+    right: 16,
+    top: 16,
+  },
+  bottomNavContainer: {
+    flex: 1,
+    borderTopWidth: 2,
+    borderTopColor: Colors.bgGrey,
+    backgroundColor: Colors.bgGrey,
+  },
+});
+
+const NameContainer = styled(Text.L)`
+  margin: 16px;
+`;
+
+/*
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -184,3 +297,4 @@ const styles = StyleSheet.create({
 const NameContainer = styled(Text.L)`
   margin: 16px;
 `;
+*/
