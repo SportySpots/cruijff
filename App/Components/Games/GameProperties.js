@@ -47,6 +47,7 @@ const GamePropertyRow = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-vertical: 4px;
 `;
 const GamePropertyLabel = styled(Text.M)`
   flex: 1;
