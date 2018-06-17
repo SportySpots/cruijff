@@ -80,7 +80,11 @@ class SpotsListScreen extends React.Component {
     const { coords } = this.state;
 
     // Set query variables
-    const variables = { offset: 0, limit: 20 };
+    const variables = {
+      offset: 0,
+      limit: 20,
+      distance: `${parseInt(1000 * maxDistance, 10)}:52.3727729:4.9055008`,
+    };
     if (!allSports) { variables.sports__ids = selectedSportIds; }
 
     return (
@@ -116,6 +120,8 @@ class SpotsListScreen extends React.Component {
             <Container>
               <SpotsList
                 spots={(
+                  selectedSportIds &&
+                  selectedSportIds.length > 0 &&
                   data &&
                   data.spots &&
                   data.spots.map((spot) => {

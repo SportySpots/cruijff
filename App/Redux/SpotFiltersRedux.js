@@ -26,7 +26,7 @@ for (let i = 1; i < N; i += 1) {
 }
 
 export const INITIAL_STATE = Immutable({
-  maxDistance: 2.0,
+  maxDistance: 4,
   allSports: true,
   selectedSportIds: allSportIds,
 });
