@@ -33,12 +33,12 @@ class SpotsFilterScreen extends React.PureComponent {
     super(props);
 
     // Get data from redux
-    const { maxDistance, filterBySports, selectedSportIds } = props;
+    const { maxDistance, allSports, selectedSportIds } = props;
 
     this.state = {
       maxDistance: maxDistance || 3,
-      filterBySports: filterBySports || false,
       sports: [],
+      allSports: allSports || false,
       selectedSportIds: selectedSportIds || [], // list of selected sport ids
       loaded: false,
       disabled: false,
@@ -59,10 +59,10 @@ class SpotsFilterScreen extends React.PureComponent {
     this.setState({ maxDistance });
   }
 
-  handleSportsFilterSwitch = (filterBySports) => {
+  handleSportsFilterSwitch = (allSports) => {
     this.setState({
-      filterBySports,
-      selectedSportIds: filterBySports
+      allSports,
+      selectedSportIds: allSports
         ? this.state.sports.map(({ id }) => (id))
         : [],
     });
@@ -75,13 +75,14 @@ class SpotsFilterScreen extends React.PureComponent {
 
       // If yes, remove it from the list; otherwise, add it.
       return {
-        filterBySports: (!prevState.filterBySports && index === -1)
-          ? true
-          : prevState.filterBySports,
         selectedSportIds: index !== -1 ? [
           ...prevState.selectedSportIds.slice(0, index),
           ...prevState.selectedSportIds.slice(index + 1),
         ] : [...prevState.selectedSportIds, sportId],
+        // Finally, update allSports switch
+        allSports: (prevState.allSports && index !== -1)
+          ? false
+          : prevState.allSports,
       };
     });
   }
@@ -90,13 +91,13 @@ class SpotsFilterScreen extends React.PureComponent {
     const {
       navigation,
       setMaxDistance,
-      setSportFilter,
+      setAllSports,
       setSports,
     } = this.props;
 
     const {
       maxDistance,
-      filterBySports,
+      allSports,
       selectedSportIds,
     } = this.state;
 
@@ -104,7 +105,7 @@ class SpotsFilterScreen extends React.PureComponent {
 
     // Save data into redux store.
     setMaxDistance(maxDistance);
-    setSportFilter(filterBySports);
+    setAllSports(allSports);
     setSports(selectedSportIds);
 
     // Go back to spots screen
@@ -116,7 +117,7 @@ class SpotsFilterScreen extends React.PureComponent {
   render() {
     const {
       maxDistance,
-      filterBySports,
+      allSports,
       sports,
       selectedSportIds,
       loaded,
@@ -134,7 +135,7 @@ class SpotsFilterScreen extends React.PureComponent {
           maxDistance={maxDistance}
           onSliderChange={this.handleSliderChange}
           // SwitchFilter props
-          filterBySports={filterBySports}
+          allSports={allSports}
           sports={sports}
           selectedSportIds={selectedSportIds}
           onSportsFilterSwitch={this.handleSportsFilterSwitch}
@@ -159,17 +160,17 @@ SpotsFilterScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
   }).isRequired,
   maxDistance: PropTypes.number.isRequired,
-  filterBySports: PropTypes.bool.isRequired,
+  allSports: PropTypes.bool.isRequired,
   selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   setMaxDistance: PropTypes.func.isRequired,
-  setSportFilter: PropTypes.func.isRequired,
+  setAllSports: PropTypes.func.isRequired,
   setSports: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => state.spotFilters;
 const mapDispatchToProps = {
   setMaxDistance: spotFiltersActions.setMaxDistance,
-  setSportFilter: spotFiltersActions.setSportFilter,
+  setAllSports: spotFiltersActions.setAllSports,
   setSports: spotFiltersActions.setSports,
 };
 const withRedux = connect(mapStateToProps, mapDispatchToProps);

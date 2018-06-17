@@ -76,12 +76,16 @@ class SpotsListScreen extends React.Component {
   }
 
   render() {
-    const { maxDistance, filterBySports, selectedSportIds } = this.props;
+    const { maxDistance, allSports, selectedSportIds } = this.props;
     const { coords } = this.state;
 
     // Set query variables
-    const variables = { offset: 0, limit: 20 };
-    if (filterBySports) { variables.sports__ids = selectedSportIds; }
+    const variables = {
+      offset: 0,
+      limit: 20,
+      distance: `${parseInt(1000 * maxDistance, 10)}:52.3727729:4.9055008`,
+    };
+    if (!allSports) { variables.sports__ids = selectedSportIds; }
 
     return (
       <Query
@@ -116,6 +120,8 @@ class SpotsListScreen extends React.Component {
             <Container>
               <SpotsList
                 spots={(
+                  selectedSportIds &&
+                  selectedSportIds.length > 0 &&
                   data &&
                   data.spots &&
                   data.spots.map((spot) => {
@@ -146,7 +152,7 @@ SpotsListScreen.propTypes = {
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   maxDistance: PropTypes.number.isRequired,
-  filterBySports: PropTypes.bool.isRequired,
+  allSports: PropTypes.bool.isRequired,
   selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
