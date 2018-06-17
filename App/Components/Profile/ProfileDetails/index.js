@@ -35,12 +35,6 @@ const styles = StyleSheet.create({
   type: {
     flex: 4,
   },
-  bottomNavContainer: {
-    flex: 1,
-    borderTopWidth: 2,
-    borderTopColor: Colors.bgGrey,
-    backgroundColor: Colors.bgGrey,
-  },
 });
 //------------------------------------------------------------------------------
 const Outer = styled.View`
@@ -51,6 +45,13 @@ const Outer = styled.View`
 //------------------------------------------------------------------------------
 const NameContainer = styled(Text.L)`
   margin: 16px;
+`;
+//------------------------------------------------------------------------------
+const TabsContainer = styled.View`
+  flex: 1;
+  border-top-width: 2;
+  border-top-color: ${Colors.bgGrey};
+  background-color: ${Colors.bgGrey};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -83,9 +84,10 @@ const ProfileDetails = ({ user, onEdit, onLogout }) => (
             <Slider disabled value={0.5} onChange={console.log} />
           </View> */}
       </View>
-      <View style={styles.bottomNavContainer}>
+      <TabsContainer>
+        {/* TODO: pass user as a prop and use UserSpots and UserGames comps */}
         <Tabs style={{ flex: 1 }} />
-      </View>
+      </TabsContainer>
     </Outer>
   </MenuProvider>
 );
