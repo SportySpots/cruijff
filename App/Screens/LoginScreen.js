@@ -13,7 +13,7 @@ import api from '../Services/SeedorfApi';
 import Colors from '../Themes/Colors';
 
 const FieldSet = styled.View`
-  margin-top: 8px;
+  margin-top: 16px;
 `;
 
 const Error = styled(Text)`

@@ -7,8 +7,9 @@ import CardSmall from '../../Components/Spots/SpotListCardSmall';
 import Text from '../../Components/Text';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
-import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
+import { GET_SPOTS_FOR_SPORT } from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import api from '../../Services/SeedorfApi';
+import NothingFound from '../../Components/NothingFound';
 
 const CardContainer = (props) => {
   const { onPress, ...otherProps } = props;
@@ -40,22 +41,28 @@ class PickSpotComponent extends Component {
   };
 
   render() {
-    const spots = this.props.data.spots.filter((spot) => {
-      const sportUUIDs = spot.sports.map(sport => sport.uuid);
-      return (sportUUIDs.indexOf(this.props.navigation.state.params.sportUUID) !== -1);
-    });
+    const spots = this.props.data.spots;
+
+    let Contents = (
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={spots}
+        renderItem={({ item }) => (
+          <CardContainer spot={item} onPress={() => this.selectSpot(item)} />
+        )}
+        keyExtractor={item => item.uuid}
+      />
+    );
+
+    if (!spots || spots.length === 0) {
+      Contents = <NothingFound icon="map-marker" text={I18n.t('No spots found')} />;
+    }
+
     return (
       <View style={style.container}>
         <View style={[style.cardListContainer, this.props.style]}>
           <Text.L>{I18n.t('Pick a spot')}</Text.L>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={spots}
-            renderItem={({ item }) => (
-              <CardContainer spot={item} onPress={() => this.selectSpot(item)} />
-            )}
-            keyExtractor={item => item.uuid}
-          />
+          {Contents}
         </View>
         <Footer
           currentPage={1}
@@ -68,7 +75,18 @@ class PickSpotComponent extends Component {
   }
 }
 
-export default withQuery(GET_SPOTS)(PickSpotComponent);
+
+export default (props) => {
+  const Comp = withQuery(GET_SPOTS_FOR_SPORT)(PickSpotComponent);
+  return (<Comp
+    {...props}
+    variables={{
+      limit: 1000,
+      offset: 0,
+      sport: props.navigation.state.params.sportCategory.toLowerCase(),
+    }}
+  />);
+};
 
 const style = StyleSheet.create({
   cardListContainer: {
@@ -77,5 +95,6 @@ const style = StyleSheet.create({
   },
   container: {
     flex: 1,
+    paddingTop: 16,
   },
 });

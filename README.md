@@ -9,6 +9,7 @@ Android: [![Build status](https://build.appcenter.ms/v0.1/apps/a040d989-6713-458
 ## Get started
 
 ### Prerequisites
+
 * Node (Version: v8.9.4)
 * Yarn (Version: 1.3.2)
 * NPM (Version: 5.6.0)
@@ -17,19 +18,22 @@ Android: [![Build status](https://build.appcenter.ms/v0.1/apps/a040d989-6713-458
 ### Local Development
 
 #### Setup
+
 ```bash
-$ nvm use
-$ yarn reset
+nvm use
+yarn reset
 ```
 
 #### Run App
+
 ```bash
-$ yarn run react-native run-ios
+yarn run react-native run-ios
 ```
 
 #### Run Storybook
+
 ```bash
-$ yarn run storybook
+yarn run storybook
 ```
 
 
@@ -65,14 +69,14 @@ The linting rules are from JS Standard and React-Standard.  [Regular JS errors c
 This project uses [react-native-config](https://github.com/luggit/react-native-config) to expose config variables to your javascript code in React Native. You can store API keys
 and other sensitive information in a `.env` file:
 
-```
+```env
 API_URL=https://myapi.com
 GOOGLE_MAPS_ANDROID_API_KEY=abcdefgh
 ```
 
 and access them from React Native like so:
 
-```
+```js
 import Secrets from 'react-native-config'
 
 Secrets.API_URL  // 'https://myapi.com'
@@ -81,15 +85,18 @@ Secrets.GOOGLE_MAPS_ANDROID_API_KEY  // 'abcdefgh'
 
 Generate release key
 [React Native Official Release Documentation](http://facebook.github.io/react-native/docs/signed-apk-android.html#content)
-```
+
+```bash
 keytool -genkey -v -keystore sportyspots-release-key.keystore -alias sportyspots-release-key-alias -keyalg RSA -keysize 2048 -validity 20000
 ```
+
 Place sportyspots-release-key.keystore in android/app directory
 
 Create a gradle.properties file in ~/.gradle/
 
 Add the following to gradle.properties file
-```
+
+```env
 SPORTYSPOTS_RELEASE_STORE_FILE=sportyspots-release-key.keystore
 SPORTYSPOTS_RELEASE_KEY_ALIAS=sportyspots-release-key-alias
 SPORTYSPOTS_RELEASE_STORE_PASSWORD=******
@@ -99,31 +106,37 @@ SPORTYSPOTS_RELEASE_KEY_PASSWORD=******
 The `.env` file is ignored by git keeping those secrets out of your repo.
 
 ### Get started
+
 1. Copy .env.example to .env
 2. Add your config variables
 3. Follow instructions at [https://github.com/luggit/react-native-config#setup](https://github.com/luggit/react-native-config#setup)
 4. Done!
 
 ### Git Crypt
+
 [Git Crypt](https://github.com/AGWA/git-crypt)
 
 [Github Reference - Associate Email with GPG Key](https://help.github.com/articles/associating-an-email-with-your-gpg-key/)
 List your keys
+
 ```bash
 gpg --list-secret-keys --keyid-format LONG
 ```
 
 Git crypt export symmetric key
+
 ```bash
-$ git-crypt export-key /path/to/key/symmetric_binary_key.key
+git-crypt export-key /path/to/key/symmetric_binary_key.key
 ```
 
 Convert binary key to base64 encoded string
+
 ```bash
-$ openssl base64 -A -in symmetric_binary_key.key -out symmetric_base64.key
+openssl base64 -A -in symmetric_binary_key.key -out symmetric_base64.key
 ```
 
 Convery base64 key to binary key
+
 ```bash
-$ openssl base64 -d -A -in symmetric_base64_key.key -out symmetric_binary_key.key
+openssl base64 -d -A -in symmetric_base64_key.key -out symmetric_binary_key.key
 ```

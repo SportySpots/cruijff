@@ -23,9 +23,9 @@ const Header = ({ spot, ...props }) => (
     <View style={header.belowName}>
       {false && <Rating rating={spot.rating || 4} />}
       {false && <Spacer />}
-      <Subtitle>{Int18n.t(spot.sports[0].category)}</Subtitle>
-      {false && <Spacer />}
-      {false && <Text.S>5 km</Text.S>}
+      <Subtitle>{spot.sports.map(sport => Int18n.t(sport.category)).join(', ')}</Subtitle>
+      {spot.distance && <Spacer />}
+      {spot.distance && <Subtitle>{spot.distance} km</Subtitle>}
       {spot.games &&
         spot.games.length > 0 && [
           <Spacer key={1} />,
@@ -45,6 +45,7 @@ Header.propTypes = {
       category: PropTypes.string.isRequired,
     })),
     games: PropTypes.arrayOf(PropTypes.object),
+    distance: PropTypes.number,
   }).isRequired,
 };
 

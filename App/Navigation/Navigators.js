@@ -20,8 +20,13 @@ import Description from '../Screens/Plan/DescriptionScreen';
 import PlayerList from '../Screens/Games/PlayerListScreen';
 import PickSpot from '../Screens/Plan/PickSpotScreen';
 import SportAndTime from '../Screens/Plan/SportAndTimeScreen';
-import DefaultHeader from './DefaultHeader';
+// import DefaultHeader from './DefaultHeader';
 import SpotFilterScreen from '../Screens/Spots/SpotsFilterScreen';
+
+const headerTitleStyle = {
+  alignSelf: 'center',
+  textAlign: 'center',
+};
 
 export const PlanGameNav = StackNavigator(
   {
@@ -50,35 +55,34 @@ export const GameSearchNav = StackNavigator(
   {
     GameDetailsScreen: {
       screen: Game,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: () => (
-            <StackBackHeader
-              title={I18n.t('Game details')}
-              onPress={() => { navigation.goBack(null); }}
-            />
-          ),
-        };
-      },
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('Game details'),
+        headerTitleStyle,
+        headerLeft: (
+          <StackBackHeader
+            onPress={() => { navigation.goBack(null); }}
+          />
+        ),
+      }),
     },
     GameListScreen: {
       screen: GamesListScreen,
       navigationOptions: () => ({
-        headerLeft: <DefaultHeader title={I18n.t('Find a game')} />,
+        // headerLeft: <DefaultHeader title={I18n.t('Find a game')} />,
+        headerTitle: I18n.t('Find a game'),
       }),
     },
     GamePlayerScreen: {
       screen: PlayerList,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: () => (
-            <StackBackHeader
-              title={I18n.t('Player list')}
-              onPress={() => { navigation.goBack(null); }}
-            />
-          ),
-        };
-      },
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('Player list'),
+        headerTitleStyle,
+        headerLeft: (
+          <StackBackHeader
+            onPress={() => { navigation.goBack(null); }}
+          />
+        ),
+      }),
     },
   },
   {
@@ -88,18 +92,29 @@ export const GameSearchNav = StackNavigator(
 
 export const SpotSearchNav = StackNavigator(
   {
+    GameDetailsScreen: {
+      screen: Game,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('Game details'),
+        headerTitleStyle,
+        headerLeft: (
+          <StackBackHeader
+            onPress={() => { navigation.goBack(null); }}
+          />
+        ),
+      }),
+    },
     SpotDetailsScreen: {
       screen: SpotDetailsScreen,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: () => (
-            <StackBackHeader
-              title={I18n.t('Spot details')}
-              onPress={() => { navigation.goBack(null); }}
-            />
-          ),
-        };
-      },
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('Spot details'),
+        headerTitleStyle,
+        headerLeft: (
+          <StackBackHeader
+            onPress={() => { navigation.goBack(null); }}
+          />
+        ),
+      }),
     },
     /* SpotsMapScreen: {
       screen: SpotsMapScreen,
@@ -121,7 +136,8 @@ export const SpotSearchNav = StackNavigator(
     SpotsListScreen: {
       screen: SpotsListScreen,
       navigationOptions: ({ navigation }) => ({
-        headerLeft: <DefaultHeader title={I18n.t('Find a spot')} />,
+        headerTitle: I18n.t('Find a spot'),
+        headerTitleStyle,
         headerRight: (
           <SpotsHeaderBtn
             icon="filter-list"
@@ -132,16 +148,17 @@ export const SpotSearchNav = StackNavigator(
     },
     SpotsFilterScreen: {
       screen: SpotFilterScreen,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: () => (
-            <StackBackHeader
-              title={I18n.t('Spot filters')}
-              onPress={() => { navigation.goBack(null); }}
-            />
-          ),
-        };
-      },
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('Filter spots'),
+        headerTitleStyle,
+        headerLeft: null,
+        headerRight: (
+          <SpotsHeaderBtn
+            icon="close"
+            onPress={() => { navigation.goBack(null); }}
+          />
+        ),
+      }),
     },
   },
   {
@@ -154,7 +171,8 @@ export const InfoNav = StackNavigator(
     InfoScreen: {
       screen: InfoScreen,
       navigationOptions: () => ({
-        headerLeft: <DefaultHeader title={I18n.t('Info')} />,
+        headerTitle: I18n.t('Info'),
+        // headerLeft: <DefaultHeader title={I18n.t('Info')} />,
       }),
     },
   },
@@ -168,21 +186,21 @@ const LoggedInProfileNav = StackNavigator(
     ProfileDetailsScreen: {
       screen: ProfileDetailsScreen,
       navigationOptions: () => ({
-        headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
+        headerTitle: I18n.t('Profile'),
+        // headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
       }),
     },
     ProfileEditScreen: {
       screen: ProfileEditScreen,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: () => (
-            <StackBackHeader
-              title={I18n.t('Profile Edit')}
-              onPress={() => { navigation.goBack(null); }}
-            />
-          ),
-        };
-      },
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('Profile Edit'),
+        headerTitleStyle,
+        headerLeft: (
+          <StackBackHeader
+            onPress={() => { navigation.goBack(null); }}
+          />
+        ),
+      }),
     },
   },
   {
@@ -198,7 +216,8 @@ export const ProfileNav = SwitchNavigator(
           profileScreen: {
             screen: ProfileSignupScreen,
             navigationOptions: () => ({
-              headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
+              headerTitle: I18n.t('Profile'),
+              // headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
             }),
           },
         },

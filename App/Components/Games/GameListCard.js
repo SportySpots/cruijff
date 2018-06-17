@@ -79,8 +79,8 @@ const GameListCard = ({ game }) => {
   return (
     <Container>
       <Left>
-        <Text.L>{moment.utc(game.start_time).format('D')}</Text.L>
-        <Text.M>{moment.utc(game.end_time).format('MMM')}</Text.M>
+        <Text.L>{moment(game.start_time).format('D')}</Text.L>
+        <Text.M>{moment(game.end_time).format('MMM')}</Text.M>
       </Left>
       <Right>
         <SpotImageContainer>
@@ -96,16 +96,21 @@ const GameListCard = ({ game }) => {
         <Overlay>
           <Top>
             <MaterialIcon color={Colors.white} name="flag" />
-            <Title>{game.spot.name}</Title>
+            <Title>{game.name || game.spot.name }</Title>
           </Top>
           <Bottom>
             <WhiteSM>
-              {moment.utc(game.start_time).format('H:mm')}&nbsp;-&nbsp;
-              {moment.utc(game.end_time).format('H:mm')} · {I18n.t(game.sport.category)} ·&nbsp;
+              {moment(game.start_time).format('H:mm')}&nbsp;-&nbsp;
+              {moment(game.end_time).format('H:mm')} · {I18n.t(game.sport.category)}
             </WhiteSM>
-            <OrangeSM>
-              {game.capacity} {I18n.t('people')}
-            </OrangeSM>
+            {game.capacity && game.capacity > 0 && [
+              <WhiteSM key="dot">
+                &nbsp;·&nbsp;
+              </WhiteSM>,
+              <OrangeSM key="capacity">
+                {game.capacity} {I18n.t('people')}
+              </OrangeSM>,
+            ]}
           </Bottom>
         </Overlay>
       </Right>

@@ -29,7 +29,7 @@ const buttons = [
     },
   },
   {
-    buttonText: 'plan-a-game',
+    buttonText: 'Organize',
     async onPress() {
       // called with this = NavBar component
       if (!this.props.user.claims.uuid) {

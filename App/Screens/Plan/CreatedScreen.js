@@ -8,6 +8,7 @@ import Text from '../../Components/Text';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
 import config from '../../config';
+import api from '../../Services/SeedorfApi';
 
 export default class Created extends Component {
   static propTypes = {
@@ -45,6 +46,13 @@ export default class Created extends Component {
       },
     );
   };
+
+  componentDidMount() {
+    api.setGameStatus({
+      gameUUID: this.props.navigation.state.params.uuid,
+      status: 'planned',
+    });
+  }
 
   render() {
     return (
