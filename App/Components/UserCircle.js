@@ -1,8 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Colors from '../Themes/Colors';
-import { View, StyleSheet } from 'react-native';
 import Text from './Text';
 
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
 const userToInitials = (user) => {
   // const splitName = user.name.split(' ')
   // if (splitName.length > 1) {
@@ -15,28 +19,47 @@ const userToInitials = (user) => {
   }
   return '?';
 };
-
-const UserCircle = ({ user, style }) => (
-  <View style={[styles.circle, style]}>
-    <Text.M style={styles.text}>{userToInitials(user)}</Text.M>
-  </View>
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Circle = styled.View`
+  width: ${props => props.size};
+  height: ${props => props.size};
+  border-radius: 40;
+  background-color: ${Colors.primaryGreen};
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+//------------------------------------------------------------------------------
+const Initials = styled(Text.M)`
+  padding: 4px;
+  text-align: center;
+  color: ${Colors.white};
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const UserCircle = ({ user, size, style }) => (
+  <Circle size={size} style={style}>
+    <Initials>
+      {userToInitials(user)}
+    </Initials>
+  </Circle>
 );
 
-export default UserCircle;
+UserCircle.propTypes = {
+  user: PropTypes.shape({
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+  }).isRequired,
+  size: PropTypes.number,
+  style: PropTypes.object,
+};
 
-const styles = StyleSheet.create({
-  circle: {
-    width: 40,
-    height: 40,
-    borderRadius: 40,
-    backgroundColor: Colors.primaryGreen,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: Colors.white,
-    padding: 4,
-    textAlign: 'center',
-  },
-});
+UserCircle.defaultProps = {
+  size: 40,
+  style: {},
+};
+
+export default UserCircle;

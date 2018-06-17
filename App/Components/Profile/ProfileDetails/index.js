@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import { StyleSheet, View } from 'react-native';
 import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components/native';
-import Slider from '../../Slider';
-import Text from '../../Text';
-import UserCircle from '../../UserCircle';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
+import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
+// import Slider from '../../Slider';
+import Text from '../../Text';
+import UserCircle from '../../UserCircle';
 import Tabs from './Tabs';
 import EditMenu from './EditMenu';
 
@@ -15,11 +17,6 @@ import EditMenu from './EditMenu';
 // STYLES:
 //------------------------------------------------------------------------------
 const styles = StyleSheet.create({
-  image: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-  },
   center: {
     alignItems: 'center',
   },
@@ -38,11 +35,6 @@ const styles = StyleSheet.create({
   type: {
     flex: 4,
   },
-  editMenu: {
-    position: 'absolute',
-    right: 16,
-    top: 16,
-  },
   bottomNavContainer: {
     flex: 1,
     borderTopWidth: 2,
@@ -50,7 +42,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.bgGrey,
   },
 });
-
+//------------------------------------------------------------------------------
+const Outer = styled.View`
+  flex: 1;
+  paddingTop: 24;
+  backgroundColor: ${Colors.white};
+`;
+//------------------------------------------------------------------------------
 const NameContainer = styled(Text.L)`
   margin: 16px;
 `;
@@ -59,47 +57,41 @@ const NameContainer = styled(Text.L)`
 //------------------------------------------------------------------------------
 const ProfileDetails = ({ user, onEdit, onLogout }) => (
   <MenuProvider>
-    <View style={styles.outerContainer}>
+    <Outer>
       <EditMenu
         onEdit={onEdit}
         onLogout={onLogout}
       />
       <View style={styles.center}>
-        <UserCircle user={user} />
+        <UserCircle
+          size={75}
+          user={user}
+        />
         <NameContainer>
           {user.first_name} {user.last_name}
         </NameContainer>
       </View>
       <View style={styles.ageTypeContainer}>
-        {this.props.user.profile && (
+        {user.profile && (
           <View style={styles.ageContainer}>
             <Text>{I18n.t('Age')}</Text>
-            <Text.L>{this.props.user.profile.year_of_birth}</Text.L>
+            {/* <Text.L>{user.profile.year_of_birth}</Text.L> */}
           </View>
         )}
-        {false && (
-          <View style={styles.type}>
+        {/* <View style={styles.type}>
             <Text>{I18n.t('Style')}</Text>
             <Slider disabled value={0.5} onChange={console.log} />
-          </View>
-        )}
+          </View> */}
       </View>
-      {false && (
-        <View style={styles.bottomNavContainer}>
-          <Tabs style={{ flex: 1 }} />
-        </View>
-      )}
-    </View>
+      <View style={styles.bottomNavContainer}>
+        <Tabs style={{ flex: 1 }} />
+      </View>
+    </Outer>
   </MenuProvider>
 );
 
 ProfileDetails.propTypes = {
-  user: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    age: PropTypes.number,
-    level: PropTypes.number,
-  }),
+  user: propType(userDetailsFragment).isRequired,
   onEdit: PropTypes.func,
   onLogout: PropTypes.func,
 };

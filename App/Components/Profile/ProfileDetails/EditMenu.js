@@ -11,9 +11,9 @@ import Text from '../../Text';
 // STYLES:
 //------------------------------------------------------------------------------
 const Container = styled.View`
-  position: absolute,
-  right: 16px,
-  top: 16px,
+  position: absolute;
+  right: 16px;
+  top: 16px;
 `;
 //------------------------------------------------------------------------------
 const Danger = styled(Text.M)`

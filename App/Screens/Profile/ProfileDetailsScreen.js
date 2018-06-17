@@ -1,23 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View } from 'react-native';
+import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import Colors from '../../Themes/Colors';
 import userActions from '../../Redux/UserRedux';
 import GET_USER_DETAILS from '../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Text from '../../Components/Text';
+import ProfileDetails from '../../Components/Profile/ProfileDetails';
+import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-
-
+const Container = styled(View)`
+  flex: 1;
+  background-color: ${Colors.white};
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 
 class ProfileDetailsScreen extends React.PureComponent {
+  handleLogout = () => {
+    const { logout, navigation } = this.props;
+    // TODO: reset store
+    logout();
+    navigation.navigate('SplashScreen');
+  }
+
+  handleEdit = () => {
+    const { navigation } = this.props;
+    navigation.navigate('ProfileEditScreen');
+  }
 
   render() {
     const { user } = this.props;
@@ -28,20 +44,16 @@ class ProfileDetailsScreen extends React.PureComponent {
         variables={{ uuid: user.uuid }}
       >
         {({ loading, error, data }) => {
+          if (loading) return <CenteredActivityIndicator />;
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
           return (
             <Container>
-              {/* <GamesList
-                games={(data && data.games && curatedGames(data.games)) || []}
-                cardComponent={Card}
-                onCardPress={this.handleCardPress}
-                // FlatList props
-                onRefresh={refetch}
-                refreshing={loading}
-                // onEndReached={loadMore}
-                // onEndReachedThreshold={0}
-              /> */}
+              <ProfileDetails
+                user={(data && data.user) || null}
+                onEdit={this.handleEdit}
+                onLogout={this.handleLogout}
+              />
             </Container>
           );
         }}
@@ -49,6 +61,16 @@ class ProfileDetailsScreen extends React.PureComponent {
     );
   }
 }
+
+ProfileDetailsScreen.propTypes = {
+  user: PropTypes.shape({
+    uuid: PropTypes.string.isRequired,
+  }).isRequired,
+  logout: PropTypes.func.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 const dispatchToProps = { logout: userActions.logout };
 const mapStateToProps = ({ user }) => ({ user });
