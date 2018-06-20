@@ -85,8 +85,10 @@ const ProfileDetails = ({ user, onEdit, onLogout }) => (
           </View> */}
       </View>
       <TabsContainer>
-        {/* TODO: pass user as a prop and use UserSpots and UserGames comps */}
-        <Tabs style={{ flex: 1 }} />
+        <Tabs
+          user={user}
+          style={{ flex: 1 }}
+        />
       </TabsContainer>
     </Outer>
   </MenuProvider>
