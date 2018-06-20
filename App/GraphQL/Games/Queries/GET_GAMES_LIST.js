@@ -13,6 +13,7 @@ const GET_GAMES_LIST = gql`
       offset: $offset,
       ordering: $ordering,
       start_time__gte: $start_time__gte,
+      status: "planned"
     ) {
       ...gameFragment
     }
