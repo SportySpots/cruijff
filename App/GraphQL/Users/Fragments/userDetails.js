@@ -13,9 +13,6 @@ const userDetailsFragment = gql`
         ...spotFragment
       }
     }
-    # profile {
-    #   year_of_birth
-    # }
   }
   ${spotFragment}
 `;
