@@ -56,7 +56,7 @@
     "format-json": "^1.0.3",
     "geolib": "^2.0.24",
     "graphql": "0.13.2",
-    "graphql-anywhere": "4.1.10",
+    "graphql-anywhere": "4.1.11",
     "graphql-tag": "2.8.0",
     "identity-obj-proxy": "^3.0.0",
     "moment": "^2.22.0",
