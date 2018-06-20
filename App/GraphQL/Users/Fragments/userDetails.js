@@ -9,6 +9,7 @@ const userDetailsFragment = gql`
     profile {
       uuid
       id
+      year_of_birth
       spots {
         ...spotFragment
       }

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { StyleSheet, View } from 'react-native';
 import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n/index';
@@ -16,35 +15,31 @@ import EditMenu from './EditMenu';
 //------------------------------------------------------------------------------
 // STYLES:
 //------------------------------------------------------------------------------
-const styles = StyleSheet.create({
-  center: {
-    alignItems: 'center',
-  },
-  outerContainer: {
-    flex: 1,
-    paddingTop: 24,
-    backgroundColor: Colors.white,
-  },
-  ageTypeContainer: {
-    flexDirection: 'row',
-    marginHorizontal: 16,
-  },
-  ageContainer: {
-    flex: 2,
-  },
-  type: {
-    flex: 4,
-  },
-});
-//------------------------------------------------------------------------------
 const Outer = styled.View`
   flex: 1;
-  paddingTop: 24;
-  backgroundColor: ${Colors.white};
+  padding-top: 24;
+  background-color: ${Colors.white};
 `;
 //------------------------------------------------------------------------------
-const NameContainer = styled(Text.L)`
+const Avatar = styled.View`
+  align-items: center;
+`;
+//------------------------------------------------------------------------------
+const Name = styled(Text.L)`
   margin: 16px;
+`;
+//------------------------------------------------------------------------------
+const Profile = styled.View`
+  flex-direction: row;
+  margin: 0 16px;
+`;
+//------------------------------------------------------------------------------
+const Age = styled.View`
+  flex: 2;
+`;
+//------------------------------------------------------------------------------
+const Competitiveness = styled.View`
+  flex: 4;
 `;
 //------------------------------------------------------------------------------
 const TabsContainer = styled.View`
@@ -59,36 +54,25 @@ const TabsContainer = styled.View`
 const ProfileDetails = ({ user, onEdit, onLogout }) => (
   <MenuProvider>
     <Outer>
-      <EditMenu
-        onEdit={onEdit}
-        onLogout={onLogout}
-      />
-      <View style={styles.center}>
-        <UserCircle
-          size={75}
-          user={user}
-        />
-        <NameContainer>
-          {user.first_name} {user.last_name}
-        </NameContainer>
-      </View>
-      <View style={styles.ageTypeContainer}>
-        {user.profile && (
-          <View style={styles.ageContainer}>
+      <EditMenu onEdit={onEdit} onLogout={onLogout} />
+      <Avatar>
+        <UserCircle user={user} size={75} />
+        <Name>{user.first_name} {user.last_name}</Name>
+      </Avatar>
+      {user.profile && (
+        <Profile>
+          <Age>
             <Text>{I18n.t('Age')}</Text>
             {/* <Text.L>{user.profile.year_of_birth}</Text.L> */}
-          </View>
-        )}
-        {/* <View style={styles.type}>
+          </Age>
+          <Competitiveness>
             <Text>{I18n.t('Style')}</Text>
-            <Slider disabled value={0.5} onChange={console.log} />
-          </View> */}
-      </View>
+            {/* <Slider disabled value={0.5} onChange={console.log} /> */}
+          </Competitiveness>
+        </Profile>
+      )}
       <TabsContainer>
-        <Tabs
-          user={user}
-          style={{ flex: 1 }}
-        />
+        <Tabs user={user} style={{ flex: 1 }} />
       </TabsContainer>
     </Outer>
   </MenuProvider>
@@ -106,33 +90,3 @@ ProfileDetails.defaultProps = {
 };
 
 export default ProfileDetails;
-
-/* const dispatchToProps = {
-  logout: userActions.logout,
-};
-
-const mapStateToProps = state => ({
-  user: state.user,
-});
-
-const ProfileDetailsScreen = connect(mapStateToProps, dispatchToProps)((props) => {
-  const Contents = withQuery(GET_USER_DETAILS)(ProfileDetailsScreenComponent);
-  return <Contents {...props} variables={{ uuid: props.user.uuid }} />;
-});
-export default ProfileDetailsScreen;
-
-export const GET_USER_DETAILS = gql`
-  query user($uuid: UUID) {
-    user(uuid: $uuid) {
-      uuid
-      first_name
-      last_name
-      #      profile {
-      #        year_of_birth
-      #      }
-    }
-  }
-`;
-
-
-*/

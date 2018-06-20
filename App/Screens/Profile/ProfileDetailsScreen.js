@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
@@ -46,11 +46,12 @@ class ProfileDetailsScreen extends React.PureComponent {
         {({ loading, error, data }) => {
           if (loading) return <CenteredActivityIndicator />;
           if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
+          if (!data || !data.user) { return null; }
 
           return (
             <Container>
               <ProfileDetails
-                user={(data && data.user) || null}
+                user={data.user}
                 onEdit={this.handleEdit}
                 onLogout={this.handleLogout}
               />
@@ -78,59 +79,6 @@ const withRedux = connect(mapStateToProps, dispatchToProps);
 
 export default withRedux(ProfileDetailsScreen);
 
-/* export const GET_USER_DETAILS = gql`
-  query user($uuid: UUID) {
-    user(uuid: $uuid) {
-      uuid
-      first_name
-      last_name
-      #      profile {
-      #        year_of_birth
-      #      }
-    }
-  }
-`; */
-
-const styles = StyleSheet.create({
-  image: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-  },
-  center: {
-    alignItems: 'center',
-  },
-  outerContainer: {
-    flex: 1,
-    paddingTop: 24,
-    backgroundColor: Colors.white,
-  },
-  ageTypeContainer: {
-    flexDirection: 'row',
-    marginHorizontal: 16,
-  },
-  ageContainer: {
-    flex: 2,
-  },
-  type: {
-    flex: 4,
-  },
-  editMenu: {
-    position: 'absolute',
-    right: 16,
-    top: 16,
-  },
-  bottomNavContainer: {
-    flex: 1,
-    borderTopWidth: 2,
-    borderTopColor: Colors.bgGrey,
-    backgroundColor: Colors.bgGrey,
-  },
-});
-
-const NameContainer = styled(Text.L)`
-  margin: 16px;
-`;
 
 /*
 import gql from 'graphql-tag';
