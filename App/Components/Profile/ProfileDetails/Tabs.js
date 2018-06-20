@@ -1,11 +1,10 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
 import { TabBarTop, TabNavigator } from 'react-navigation';
-import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
-import Text from '../../Text';
 import UserSpots from './UserSpots';
+import UserGames from './UserGames';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -16,7 +15,7 @@ const Tabs = ({ user }) => (
       screen: () => <UserSpots user={user} />,
     },
     games: {
-      screen: () => <Text>{I18n.t('Games')}</Text>,
+      screen: () => <UserGames user={user} />,
     },
   }, {
     tabBarComponent: TabBarTop,
