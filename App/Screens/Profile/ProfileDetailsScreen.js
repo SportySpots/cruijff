@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
 import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
@@ -14,14 +13,13 @@ import CenteredActivityIndicator from '../../Components/CenteredActivityIndicato
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled(View)`
+const Container = styled.View`
   flex: 1;
   background-color: ${Colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-
 class ProfileDetailsScreen extends React.PureComponent {
   handleLogout = () => {
     const { logout, navigation } = this.props;
