@@ -21,6 +21,12 @@ const Outer = styled.View`
   background-color: ${Colors.white};
 `;
 //------------------------------------------------------------------------------
+const MenuContainer = styled.View`
+  position: absolute;
+  right: 16px;
+  top: 16px;
+`;
+//------------------------------------------------------------------------------
 const Avatar = styled.View`
   align-items: center;
 `;
@@ -54,7 +60,9 @@ const TabsContainer = styled.View`
 const ProfileDetails = ({ user, onEdit, onLogout }) => (
   <MenuProvider>
     <Outer>
-      <EditMenu onEdit={onEdit} onLogout={onLogout} />
+      <MenuContainer>
+        <EditMenu onEdit={onEdit} onLogout={onLogout} />
+      </MenuContainer>
       <Avatar>
         <UserCircle user={user} size={75} />
         <Name>{user.first_name} {user.last_name}</Name>

@@ -10,12 +10,6 @@ import Text from '../../Text';
 //------------------------------------------------------------------------------
 // STYLES:
 //------------------------------------------------------------------------------
-const Container = styled.View`
-  position: absolute;
-  right: 16px;
-  top: 16px;
-`;
-//------------------------------------------------------------------------------
 const Danger = styled(Text.M)`
   color: ${Colors.red};
 `;
@@ -23,22 +17,20 @@ const Danger = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const EditMenu = ({ onEdit, onLogout }) => (
-  <Container>
-    <Menu name="popup">
-      <MenuTrigger menuName="popup">
-        <Icon size={32} name="more-vert" />
-      </MenuTrigger>
-      <MenuOptions>
-        <MenuOption onSelect={onEdit}>
-          <Text.M>{I18n.t('Edit')}</Text.M>
-        </MenuOption>
-        <MenuOption disabled />
-        <MenuOption onSelect={onLogout}>
-          <Danger>{I18n.t('Log out')}</Danger>
-        </MenuOption>
-      </MenuOptions>
-    </Menu>
-  </Container>
+  <Menu name="popup">
+    <MenuTrigger menuName="popup">
+      <Icon size={32} name="more-vert" />
+    </MenuTrigger>
+    <MenuOptions>
+      <MenuOption onSelect={onEdit}>
+        <Text.M>{I18n.t('Edit')}</Text.M>
+      </MenuOption>
+      <MenuOption disabled />
+      <MenuOption onSelect={onLogout}>
+        <Danger>{I18n.t('Log out')}</Danger>
+      </MenuOption>
+    </MenuOptions>
+  </Menu>
 );
 
 EditMenu.propTypes = {
