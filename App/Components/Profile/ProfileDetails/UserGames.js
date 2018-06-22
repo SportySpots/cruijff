@@ -12,7 +12,7 @@ import Card from '../../Games/GameListCard';
 // COMPONENT:
 //------------------------------------------------------------------------------
 const UserGames = ({ user }) => {
-  console.log('****USERRRRR', user);
+  // TODO: use GET_USER_GAMES query
   return (
     <GamesList
       games={(

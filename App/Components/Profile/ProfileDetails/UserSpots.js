@@ -12,7 +12,7 @@ import Card from '../../Spots/SpotListCard';
 // COMPONENT:
 //------------------------------------------------------------------------------
 const UserSpots = ({ user }) => {
-  console.log('****USERRRRR', user);
+  // TODO: use GET_USER_SPOTS query
   return (
     <SpotsList
       spots={(

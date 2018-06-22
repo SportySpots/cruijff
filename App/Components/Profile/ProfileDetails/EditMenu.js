@@ -8,7 +8,7 @@ import Colors from '../../../Themes/Colors';
 import Text from '../../Text';
 
 //------------------------------------------------------------------------------
-// STYLES:
+// STYLE:
 //------------------------------------------------------------------------------
 const Danger = styled(Text.M)`
   color: ${Colors.red};
