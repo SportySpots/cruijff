@@ -1,8 +1,7 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import moment from 'moment';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { connect } from 'react-redux';
 import {
   Alert,
   FlatList,
@@ -466,7 +465,4 @@ SportAndTime.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(SportAndTime);
+export default SportAndTime;

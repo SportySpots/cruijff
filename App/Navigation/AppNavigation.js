@@ -1,11 +1,11 @@
 import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
 import React from 'react';
 import {
+  SpotSearchNav,
   GameSearchNav,
   PlanGameNav,
   ProfileNav,
   InfoNav,
-  SpotSearchNav,
 } from './Navigators';
 import I18n from '../I18n';
 import NavBar from '../Components/Common/NavBar';
