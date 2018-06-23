@@ -16,7 +16,7 @@ import Card from '../../Components/Spots/SpotListCard';
 const Container = styled.View`
   flex: 1;
   padding: 0 8px;
-  background-color: ${Colors.white};
+  background-color: ${Colors.lightGray};
 `;
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -53,25 +53,27 @@ class SpotsListScreen extends React.Component {
       maximumAge: 100000,
     };
 
+    let position;
     try {
-      const position = await getCurrentPosition(options);
-      const coordsSet = (
-        position &&
-        position.coords &&
-        position.coords.latitude &&
-        position.coords.latitude
-      );
-      if (!coordsSet) { return; }
-      const { latitude, longitude } = position.coords;
-      this.setState({ coords: { latitude, longitude } });
+      position = await getCurrentPosition(options);
     } catch (exc) {
       console.log("Oops, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
     }
+
+    const coordsSet = (
+      position &&
+      position.coords &&
+      position.coords.latitude &&
+      position.coords.latitude
+    );
+    if (!coordsSet) { return; }
+    const { latitude, longitude } = position.coords;
+    this.setState({ coords: { latitude, longitude } });
   }
 
-  handleCardPress = (spotId) => {
+  handleCardPress = (spotUuid) => {
     this.props.navigation.navigate('SpotDetailsScreen', {
-      uuid: spotId,
+      uuid: spotUuid,
     });
   }
 
@@ -83,7 +85,7 @@ class SpotsListScreen extends React.Component {
     const variables = {
       offset: 0,
       limit: 20,
-      distance: `${parseInt(1000 * maxDistance, 10)}:52.3727729:4.9055008`,
+      distance: `${parseInt(1000 * maxDistance, 10)}:52.3727729:4.9055008`, // TODO: use current user location
     };
     if (!allSports) { variables.sports__ids = selectedSportIds; }
 
