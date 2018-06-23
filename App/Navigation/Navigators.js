@@ -1,9 +1,10 @@
 import React from 'react';
-import { StackNavigator, SwitchNavigator } from 'react-navigation';
+import { StackNavigator, SwitchNavigator, View, Text } from 'react-navigation';
 // import { View } from 'react-native';
 import I18n from '../I18n';
 // import Text from '../Components/Text';
 import StackBackHeader from './StackBackHeader';
+import LoggedInRoute from './LoggedInRoute';
 import ProfileSignupScreen from '../Screens/Profile/ProfileSignupScreen';
 import InfoScreen from '../Screens/InfoScreen';
 import ProfileDetailsScreen from '../Screens/Profile/ProfileDetailsScreen';
@@ -181,6 +182,73 @@ export const InfoNav = StackNavigator(
   },
 );
 
+export const ProfileNav = StackNavigator(
+  {
+    ProfileDetailsScreen: {
+      screen: () => (
+        <LoggedInRoute
+          curUser={null}
+          component={ProfileDetailsScreen}
+          overlay={ProfileSignupScreen}
+        />
+      ),
+      navigationOptions: () => ({
+        headerTitle: I18n.t('Profile'),
+        // headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
+      }),
+    },
+    ProfileEditScreen: {
+      screen: () => (
+        <LoggedInRoute
+          curUser={null}
+          component={ProfileEditScreen}
+          overlay={ProfileSignupScreen}
+        />
+      ),
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: I18n.t('Profile Edit'),
+        headerTitleStyle,
+        headerLeft: (
+          <StackBackHeader
+            onPress={() => { navigation.goBack(null); }}
+          />
+        ),
+      }),
+    },
+  },
+  {
+    initialRouteName: 'ProfileDetailsScreen',
+  },
+);
+
+/* export const ProfileNav = SwitchNavigator(
+  {
+    ProfileSignupScreen: {
+      screen: StackNavigator(
+        {
+          profileScreen: {
+            screen: ProfileSignupScreen,
+            navigationOptions: () => ({
+              headerTitle: I18n.t('Profile'),
+              // headerLeft: <DefaultHeader title={I18n.t('Profile')} />,
+            }),
+          },
+        },
+        {
+          initialRouteName: 'profileScreen',
+        },
+      ),
+    },
+    LoggedInProfileNav: {
+      screen: LoggedInProfileNav,
+    },
+  },
+  {
+    initialRouteName: 'ProfileSignupScreen',
+  },
+); */
+
+/*
 const LoggedInProfileNav = StackNavigator(
   {
     ProfileDetailsScreen: {
@@ -234,3 +302,4 @@ export const ProfileNav = SwitchNavigator(
     initialRouteName: 'ProfileSignupScreen',
   },
 );
+*/
