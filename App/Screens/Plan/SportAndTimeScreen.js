@@ -1,8 +1,18 @@
 import gql from 'graphql-tag';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import {Alert, FlatList, Keyboard, Modal, StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import { connect } from 'react-redux';
+import {
+  Alert,
+  FlatList,
+  Keyboard,
+  Modal,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import DateTimePicker from 'react-native-modal-datetime-picker';
@@ -121,10 +131,7 @@ const dateStringToTimeString = (dateString) => {
   );
 };
 
-export default class SportAndTime extends Component {
-  static propTypes = {
-    navigation: PropTypes.any, // Plan flow navigation
-  };
+class SportAndTime extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -137,15 +144,31 @@ export default class SportAndTime extends Component {
       capacityField: '',
       game: null,
     };
-    this.refreshGame();
+  }
+
+  /**
+    * @summary Create new game
+    */
+  async componentWillMount() {
+    const { user } = this.props;
+
+    const username = (
+      user &&
+      user.claims &&
+      user.claims.username
+    ) || '';
+
+    try {
+      const result = await api.createGame({ name: `${username}'s game` });
+      this.gameUUID = result.data.uuid;
+      this.refreshGame();
+    } catch (exc) {
+      console.log(exc);
+    }
   }
 
   shouldComponentUpdate() {
     return true;
-  }
-
-  get gameUUID() {
-    return this.props.navigation.state.params.uuid;
   }
 
   refreshGame = async () => {
@@ -430,3 +453,20 @@ const styles = StyleSheet.create({
     padding: 8,
   },
 });
+
+SportAndTime.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+  user: PropTypes.shape({
+    claims: PropTypes.shape({
+      username: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};
+
+const mapStateToProps = ({ user }) => ({ user });
+const withRedux = connect(mapStateToProps, null);
+
+export default withRedux(SportAndTime);

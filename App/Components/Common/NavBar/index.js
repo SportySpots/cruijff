@@ -38,7 +38,8 @@ const buttons = [{
   id: 'organize',
   main: true,
   label: 'Organize',
-  route: 'PlanGameNav',
+  // route: 'PlanGameNav',
+  route: 'PlanScreen',
   icon: {
     set: MaterialCommunityIcon,
     name: 'calendar-plus',
