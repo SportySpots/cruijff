@@ -1,8 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import Text from './Text';
-import Colors from '../Themes/Colors';
+import Text from '../../Text';
+import Colors from '../../../Themes/Colors';
 
 export default class NavBarButton extends React.Component {
   static propTypes = {

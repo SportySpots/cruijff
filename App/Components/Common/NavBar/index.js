@@ -1,4 +1,150 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Keyboard } from 'react-native';
+import styled from 'styled-components';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import I18n from '../../../I18n';
+import Colors from '../../../Themes/Colors';
+import NavBarButton from './NavBarButton';
+
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  height: 56;
+  margin-top: -8px;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: ${Colors.transparent};
+`;
+//------------------------------------------------------------------------------
+const Button = styled.View`
+  flex: ${props => (props.main ? 11 : 9)};
+  height: ${props => (props.main ? 56 : 48)};
+  border-top-left-radius: ${props => (props.main ? 8 : 0)};
+  border-top-right-radius: ${props => (props.main ? 8 : 0)};
+`;
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const buttons = [{
+  id: 'find',
+  buttonText: 'find',
+  route: 'SpotSearchTab',
+  icon: {
+    set: MaterialIcon,
+    name: 'search',
+  },
+}, {
+  id: 'join',
+  buttonText: 'join',
+  route: 'GameSearchTab',
+  icon: {
+    set: MaterialIcon,
+    name: 'person-add',
+  },
+}, {
+  id: 'organize',
+  main: true,
+  buttonText: 'Organize',
+  route: 'PlanGameNav',
+  icon: {
+    set: MaterialCommunityIcon,
+    name: 'calendar-plus',
+  },
+}, {
+  id: 'profile',
+  buttonText: 'profile',
+  route: 'ProfileTab',
+  icon: {
+    set: MaterialIcon,
+    name: 'account-circle',
+  },
+}, {
+  id: 'info',
+  buttonText: 'info',
+  route: 'InfoTab',
+  icon: {
+    set: MaterialIcon,
+    name: 'info',
+  },
+}];
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+class NavBar extends React.Component {
+  state = {
+    keyboardActive: false,
+  }
+
+  componentWillMount() {
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this.handleKeyboard({ active: true }));
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.handleKeyboard({ active: false }));
+  }
+
+  componentWillUnmount() {
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
+  }
+
+  handleKeyboard = ({ active }) => {
+    this.setState({ keyboardActive: active });
+  };
+
+  get curRoute() {
+    const { navigation } = this.props;
+    return navigation.state.routes[navigation.state.index].routeName;
+  }
+
+  handleButtonPress = (button) => {
+    const { navigation } = this.props;
+    // Handle native button
+    if (button.onPress) {
+      button.onPress.call(this);
+    // Handle custom button
+    } else if (this.curRoute !== button.route) {
+      navigation.navigate({ routeName: button.route });
+    }
+  };
+
+  render() {
+    const { keyboardActive } = this.state;
+
+    if (keyboardActive) {
+      return null;
+    }
+
+    return (
+      <Container>
+        {buttons.map(button => (
+          <Button key={button.id} main={!!button.main}>
+            <NavBarButton
+              onPress={() => { this.handleButtonPress(button); }}
+              icon={button.icon}
+              buttonText={I18n.t(button.buttonText)}
+              active={this.curRoute === button.route}
+              main={!!button.main}
+            />
+          </Button>
+        ))}
+      </Container>
+    );
+  }
+}
+
+NavBar.propTypes = {
+  navigation: PropTypes.shape({
+    state: PropTypes.object.isRequired,
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default NavBar;
+
+/*
+import React from 'react';
 import I18n from '../I18n';
 import { View, Keyboard, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
@@ -168,3 +314,5 @@ const navbarStyle = StyleSheet.create({
     borderTopRightRadius: 8,
   },
 });
+
+*/

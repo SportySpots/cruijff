@@ -8,7 +8,7 @@ import {
   SpotSearchNav,
 } from './Navigators';
 import I18n from '../I18n';
-import NavBar from '../Components/NavBar';
+import NavBar from '../Components/Common/NavBar';
 import SplashScreen from '../Screens/SplashScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import SignupScreen from '../Screens/SignupScreen';
