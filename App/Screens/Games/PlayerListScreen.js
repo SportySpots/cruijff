@@ -100,7 +100,7 @@ export const GET_GAME_USERS_LIST = gql`
   }
 `;
 
-const UserList = ({navigation}) => (
+const UserList = ({ navigation }) => (
   <Query
     query={GET_GAME_USERS_LIST}
     variables={{ uuid: navigation.state.params.uuid }}
