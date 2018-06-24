@@ -22,7 +22,7 @@ const GameSearchNav = StackNavigator({
       ),
     }),
   },
-  GameListScreen: {
+  GamesListScreen: {
     screen: GamesListScreen,
     navigationOptions: () => ({
       headerTitle: I18n.t('Find a game'),
@@ -41,7 +41,7 @@ const GameSearchNav = StackNavigator({
     }),
   },
 }, {
-  initialRouteName: 'GameListScreen',
+  initialRouteName: 'GamesListScreen',
 });
 
 export default GameSearchNav;
