@@ -90,6 +90,9 @@ class NavBar extends React.Component {
   handlePress = (btn) => {
     const { navigation } = this.props;
     if (this.curRoute !== btn.route) {
+      // Clear stack.
+      navigation.popToTop();
+      // Jump to the requested route.
       navigation.navigate({ routeName: btn.route });
     }
   };
