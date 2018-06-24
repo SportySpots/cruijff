@@ -1,30 +1,15 @@
-import React, { Component } from 'react';
-import { Alert, Image, ScrollView, Share, TouchableOpacity, View } from 'react-native';
-import moment from 'moment';
+import React from 'react';
 import PropTypes from 'prop-types';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
-import I18n from '../../I18n/index';
-import Colors from '../../Themes/Colors';
-import API from '../../Services/SeedorfApi';
-import Text from '../../Components/Text';
-import ImageSwiper from '../../Components/ImageSwiper';
-import UserCircle from '../../Components/UserCircle';
-import PropertyCircle from '../../Components/PropertyCircle';
-import themeImages from '../../Themes/Images';
-import DefaultButton from '../../Components/DefaultButton';
-import PropTypeDefinitions from '../../PropTypesDefinitions';
-import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
-import withQuery from '../../GraphQL/withQuery';
-import SpotMapWithLinkFallback from '../../Components/Spots/SpotMapWithLinkFallback';
-import config from '../../config';
-import GameProperties from '../../Components/Games/GameProperties';
 import { Query } from 'react-apollo';
+// import styled from 'styled-components';
+import I18n from '../../I18n/index';
+import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
 import NothingFound from '../../Components/NothingFound';
+import GameDetails from '../../Components/Games/GameDetails';
 
-const RSVP_STATUSES = {
+/* const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
   DECLINED: 'DECLINED',
 };
@@ -259,24 +244,86 @@ class GameComponent extends Component {
       </ScrollView>
     );
   }
+} */
+
+class GameDetailsScreen extends React.PureComponent {
+  get gameUUID() {
+    const { navigation } = this.props;
+    return navigation.state.params.uuid;
+  }
+
+  handleAttendeesClick = () => {
+    const { navigation } = this.props;
+    navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
+  }
+
+  onRSPVBtnPress = (status) => {
+
+  }
+
+  render() {
+    const { user } = this.props;
+
+    return (
+      <Query
+        query={GET_GAME_DETAILS}
+        variables={{ uuid: this.gameUUID }}
+      >
+        {({
+          loading,
+          error,
+          data,
+          refetch,
+        }) => {
+          if (loading) { return <CenteredActivityIndicator />; }
+          if (error || !data || !data.game) {
+            return (
+              <NothingFound
+                icon="calendar-plus"
+                text={I18n.t('Game not found')}
+              />
+            );
+          }
+
+          return (
+            <GameDetails
+              user={user}
+              game={data.game}
+              onAttendeesPress={this.handleAttendeesClick}
+              onRSPVBtnPress={(status) => {
+                refetch();
+                this.handleRSPVBtnPress(status);
+              }}
+            />
+          );
+        }}
+      </Query>
+    );
+  }
 }
 
-const GameDetailsScreen = connect(state => ({ user: state.user }))(
-  props => (
-    <Query query={GET_GAME_DETAILS} variables={{ uuid: props.navigation.state.params.uuid }}>
-      {({
-          loading, error, data, refetch,
-        }) => {
-        if (loading) return <CenteredActivityIndicator />;
-        if (error) return <NothingFound icon="calendar-plus" text={I18n.t('Game not found')} />;
-        return <GameComponent {...props} loading={loading} error={error} data={data} refetch={refetch} />;
-      }}
-    </Query>
-  ),
-);
-export default GameDetailsScreen;
+GameDetailsScreen.propTypes = {
+  navigation: PropTypes.shape({
+    state: PropTypes.shape({
+      params: PropTypes.shape({
+        uuid: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+  user: PropTypes.object,
+};
 
-const HorizontalView = styled.View`
+GameDetailsScreen.defaultProps = {
+  user: null,
+};
+
+// Redux integration
+const mapStateToProps = ({ user }) => ({ user });
+const withRedux = connect(mapStateToProps, null);
+
+export default withRedux(GameDetailsScreen);
+
+/* const HorizontalView = styled.View`
   flex-direction: row;
 `;
 
@@ -317,7 +364,7 @@ const Time = styled(HorizontalView)`
 
 const BlockLabel = styled(Text.M)`
   margin-bottom: 8px;
-`;
+`; */
 
 
 /*

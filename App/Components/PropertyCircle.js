@@ -1,31 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Colors from '../Themes/Colors';
-import Fonts from '../Themes/Fonts';
-import { Text, View, StyleSheet } from 'react-native';
+import Text from './Text';
 
-const PropertyCircle = ({ text }) => (
-  <View style={style.circle}>
-    <Text style={style.text}>{text}</Text>
-  </View>
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Circle = styled.View`
+  width: ${props => props.size};
+  height: ${props => props.size};
+  border-radius: ${props => props.size};
+  background-color: ${Colors.primaryGreen};
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+//------------------------------------------------------------------------------
+const Content = styled(Text.S)`
+  color: ${Colors.white};
+  font-size: 12px;
+  padding: 4px;
+  text-align: center;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const PropertyCircle = ({ text, size, style }) => (
+  <Circle size={size} style={style}>
+    <Content>{text}</Content>
+  </Circle>
 );
 
-export default PropertyCircle;
+PropertyCircle.propTypes = {
+  text: PropTypes.string,
+  size: PropTypes.number,
+  style: PropTypes.object,
+};
 
-const style = StyleSheet.create({
-  circle: {
-    width: 40,
-    height: 40,
-    borderRadius: 40,
-    backgroundColor: Colors.primaryGreen,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    ...Fonts.style.S,
-    color: Colors.white,
-    fontSize: 12,
-    padding: 4,
-    textAlign: 'center',
-  },
-});
+PropertyCircle.defaultProps = {
+  text: '',
+  size: 40,
+  style: {},
+};
+
+export default PropertyCircle;
