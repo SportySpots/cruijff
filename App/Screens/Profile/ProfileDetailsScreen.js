@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
+import { Query, compose } from 'react-apollo';
+import { withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import Colors from '../../Themes/Colors';
@@ -71,8 +72,14 @@ ProfileDetailsScreen.propTypes = {
   }).isRequired,
 };
 
+// Redux integration
 const dispatchToProps = { logout: userActions.logout };
 const mapStateToProps = ({ user }) => ({ user });
 const withRedux = connect(mapStateToProps, dispatchToProps);
 
-export default withRedux(ProfileDetailsScreen);
+const enhance = compose(
+  withNavigation,
+  withRedux,
+);
+
+export default enhance(ProfileDetailsScreen);

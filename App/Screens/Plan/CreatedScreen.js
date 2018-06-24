@@ -94,8 +94,16 @@ export default class Created extends Component {
           showBack={false}
           buttonNextText={I18n.t('done')}
           onNext={() => {
+            // Clear stack
             this.props.navigation.popToTop();
+            // Go back to main tabs navigation
             this.props.navigation.goBack(null);
+            // Go to games list screen
+            this.props.navigation.navigate('GamesListScreen');
+            // Finally go to recently created game
+            this.props.navigation.navigate('GameDetailsScreen', {
+              uuid: this.props.navigation.state.params.uuid,
+            });
           }}
         />
       </View>
