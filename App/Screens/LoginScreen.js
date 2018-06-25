@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
+import ReactTimeout from 'react-timeout';
 import styled from 'styled-components';
 import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 import DefaultButton from '../Components/DefaultButton';
@@ -44,6 +45,8 @@ class LoginScreen extends Component {
     navigation: PropTypes.object,
     setToken: PropTypes.func,
     user: PropTypes.object,
+    setTimeout: PropTypes.func.isRequired,
+    clearTimeout: PropTypes.func.isRequired,
   };
 
   constructor() {
@@ -70,7 +73,11 @@ class LoginScreen extends Component {
       });
     } else {
       this.props.setToken(result.data.token);
-      this.props.navigation.goBack(null);
+      // Delay redirect to avoid flickering screen
+      this.props.setTimeout(() => {
+        this.props.navigation.popToTop();
+        this.props.clearTimeout();
+      }, 100);
     }
   };
 
@@ -141,4 +148,4 @@ const withRedux = connect(state => ({ user: state.user }), {
   setToken: userActions.setToken,
 });
 
-export default withRedux(LoginScreen);
+export default ReactTimeout(withRedux(LoginScreen));

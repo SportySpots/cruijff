@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { findNodeHandle, TextInput, Linking, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
+import ReactTimeout from 'react-timeout';
 import styled from 'styled-components';
 import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 import DefaultButton from '../Components/DefaultButton';
@@ -33,6 +34,8 @@ export class _Signup extends Component {
     navigation: PropTypes.object,
     setToken: PropTypes.func,
     user: PropTypes.object,
+    setTimeout: PropTypes.func.isRequired,
+    clearTimeout: PropTypes.func.isRequired,
   };
 
   constructor() {
@@ -62,8 +65,12 @@ export class _Signup extends Component {
         error: result.data,
       });
     } else {
-      this.props.navigation.popToTop();
       this.props.setToken(result.data.token);
+      // Delay redirect to avoid flickering screen
+      this.props.setTimeout(() => {
+        this.props.navigation.popToTop();
+        this.props.clearTimeout();
+      }, 100);
     }
   };
 
@@ -176,7 +183,7 @@ export class _Signup extends Component {
 const Signup = connect(state => ({ user: state.user }), {
   setToken: userActions.setToken,
 })(_Signup);
-export default Signup;
+export default ReactTimeout(Signup);
 
 const FieldSet = styled.View`
   margin-top: 8px;
