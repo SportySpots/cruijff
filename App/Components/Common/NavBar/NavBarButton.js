@@ -63,7 +63,7 @@ NavBarButton.propTypes = {
   icon: PropTypes.shape({
     set: PropTypes.any,
     name: PropTypes.string,
-  }),
+  }).isRequired,
   active: PropTypes.bool,
   main: PropTypes.bool,
   onPress: PropTypes.func,
@@ -71,7 +71,6 @@ NavBarButton.propTypes = {
 
 NavBarButton.defaultProps = {
   btnLabel: '',
-  icon: {},
   active: false,
   main: false,
   onPress: () => {},
