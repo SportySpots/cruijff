@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// UTILS:
+// AUX FUNCTIONS:
 //------------------------------------------------------------------------------
 export const getAttendees = game => (
   (game && game.attendees)
@@ -14,3 +14,4 @@ export const mapMax = (maxNum, data, fn, fnElse) => {
   returnArr.push(fnElse());
   return returnArr;
 };
+//------------------------------------------------------------------------------

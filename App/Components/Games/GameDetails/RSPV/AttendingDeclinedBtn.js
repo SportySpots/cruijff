@@ -4,6 +4,9 @@ import I18n from '../../../../I18n/index';
 import Colors from '../../../../Themes/Colors';
 import DefaultButton from '../../../../Components/DefaultButton';
 
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const AttendingDeclinedBtn = ({ isAttending, onDeclined, onAttending }) => (
   <DefaultButton
     style={{ flex: 1, marginLeft: -10 }}
@@ -20,7 +23,6 @@ AttendingDeclinedBtn.propTypes = {
   onAttending: PropTypes.func,
   onDeclined: PropTypes.func,
 };
-
 
 AttendingDeclinedBtn.defaultProps = {
   isAttending: false,

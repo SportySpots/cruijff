@@ -10,35 +10,42 @@ import SportAndTime from '../../Screens/Plan/SportAndTimeScreen';
 
 const PlanGameNav = StackNavigator({
   sportTime: {
-    screen: () => (
+    screen: ({ navigation }) => (
       <LoggedInRoute
         component={planWrapper(SportAndTime)}
         overlay={ProfileSignupScreen}
         closable
+        onClose={() => { navigation.goBack(null); }}
       />
     ),
   },
   pickSpot: {
-    screen: () => (
+    screen: ({ navigation }) => (
       <LoggedInRoute
         component={planWrapper(PickSpot)}
         overlay={ProfileSignupScreen}
+        closable
+        onClose={() => { navigation.goBack(null); }}
       />
     ),
   },
   description: {
-    screen: () => (
+    screen: ({ navigation }) => (
       <LoggedInRoute
         component={planWrapper(Description)}
         overlay={ProfileSignupScreen}
+        closable
+        onClose={() => { navigation.goBack(null); }}
       />
     ),
   },
   created: {
-    screen: () => (
+    screen: ({ navigation }) => (
       <LoggedInRoute
         component={planWrapper(Created)}
         overlay={ProfileSignupScreen}
+        closable
+        onClose={() => { navigation.goBack(null); }}
       />
     ),
   },

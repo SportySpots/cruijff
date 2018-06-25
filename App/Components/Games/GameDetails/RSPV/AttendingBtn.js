@@ -4,6 +4,9 @@ import I18n from '../../../../I18n/index';
 import Colors from '../../../../Themes/Colors';
 import DefaultButton from '../../../../Components/DefaultButton';
 
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const AttendingBtn = ({ onPress }) => (
   <DefaultButton
     style={{ flex: 1, marginLeft: -10 }}

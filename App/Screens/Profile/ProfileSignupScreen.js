@@ -40,11 +40,10 @@ const LinkLabel = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: ideally we should pass onClose instead of () => { navigation.goBack(null); }
 const ProfileSignupScreen = ({ closable, onClose, navigation }) => [
   closable && (
     <CloseBtnContainer key="close-btn">
-      <TouchableOpacity onPress={() => { navigation.goBack(null); }}>
+      <TouchableOpacity onPress={onClose}>
         <Icon name="close" size={24} color="black" />
       </TouchableOpacity>
     </CloseBtnContainer>

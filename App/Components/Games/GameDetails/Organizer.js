@@ -19,7 +19,7 @@ const Organizer = ({ game }) => {
         style={{ marginRight: 16 }}
       />
       <View style={{ flex: 1 }}>
-        <Text.SM>
+        <Text.SM style={{ paddingTop: 11 }}>
           {organizer.first_name} {organizer.last_name} -{' '}
           {description || ''}
         </Text.SM>
