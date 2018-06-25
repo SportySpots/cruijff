@@ -71,10 +71,7 @@ NavBarButton.propTypes = {
 
 NavBarButton.defaultProps = {
   btnLabel: '',
-  icon: PropTypes.shape({
-    set: PropTypes.any,
-    name: PropTypes.string,
-  }),
+  icon: {},
   active: false,
   main: false,
   onPress: () => {},
