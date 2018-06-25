@@ -90,7 +90,7 @@
   "First name": "Voornaam",
   "Last name": "Achternaam",
 
-  "Open spots": "Open spots",
+  "Open spots": "Open plekken",
   "I'm not attending": "Ik doe niet mee",
   "Game details": "Speloverzicht",
   "Edit": "Wijzigen",
@@ -144,6 +144,7 @@
   "Are you sure you want to cancel this game?": "Weet je zeker dat je dit spel wilt annuleren?",
 
   "Game not found": "Spel niet gevonden",
-  "Help us to improve the app": "Help ons de app te verbeteren"
+  "Help us to improve the app": "Help ons de app te verbeteren",
+  "Do you join?": "Doe je mee?"
 
 }

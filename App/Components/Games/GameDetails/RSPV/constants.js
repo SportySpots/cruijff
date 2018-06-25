@@ -1,4 +1,0 @@
-export const RSVP_STATUSES = {
-  ATTENDING: 'ATTENDING',
-  DECLINED: 'DECLINED',
-};

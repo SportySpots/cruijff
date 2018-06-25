@@ -1,24 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { TouchableOpacity } from 'react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { Image, TouchableOpacity } from 'react-native';
 import I18n from '../../../I18n/index';
-import Colors from '../../../Themes/Colors';
+import themeImages from '../../../Themes/Images';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import UserCircle from '../../../Components/UserCircle';
 import PropertyCircle from '../../../Components/PropertyCircle';
 import { getAttendees, mapMax } from './utils';
-import { BlockLabel, HorizontalView, ChevronContainer } from './style';
+import { BlockLabel, HorizontalView } from './style';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
-const userCircle = user => (
-  <UserCircle
-    key={user.uuid}
-    user={user}
-    style={{ marginRight: 4 }}
+const openSpotCircle = (_, i) => (
+  <Image
+    key={i}
+    source={themeImages.spotOpenCircle}
+    style={{ width: 42, height: 42, marginRight: 4 }}
   />
 );
 //------------------------------------------------------------------------------
@@ -31,50 +29,44 @@ const restCircle = text => () => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Attendees = ({ game, maxLength, onAttendeesPress }) => {
-  const attendees = getAttendees(game);
-
-  if (attendees.length === 0) {
+const OpenSpots = ({ game, maxLength, onOpenSpotsPress }) => {
+  if (!game.capacity) {
     return null;
   }
 
+  const attendees = getAttendees(game);
+  const nOpenSpots = Math.max(0, game.capacity - attendees.length);
+
   return [
     <BlockLabel key="label">
-      {I18n.t('Attending')}
+      {I18n.t('Open spots')}
     </BlockLabel>,
     <TouchableOpacity
-      key="attendees"
-      onPress={onAttendeesPress}
+      key="open-spots"
+      onPress={onOpenSpotsPress}
     >
       <HorizontalView>
         <HorizontalView style={{ flex: 1 }}>
           {mapMax(
             maxLength,
-            attendees,
-            userCircle,
-            restCircle(`+${attendees.length - (maxLength - 1)}`),
+            [...Array(nOpenSpots)],
+            openSpotCircle,
+            restCircle(`+${nOpenSpots - (maxLength - 1)}`),
           )}
         </HorizontalView>
-        <ChevronContainer>
-          <MaterialIcon
-            name="chevron-right"
-            size={30}
-            color={Colors.black}
-          />
-        </ChevronContainer>
       </HorizontalView>
     </TouchableOpacity>,
   ];
 };
 
-Attendees.propTypes = {
+OpenSpots.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
   maxLength: PropTypes.number.isRequired,
-  onAttendeesPress: PropTypes.func,
+  onOpenSpotsPress: PropTypes.func,
 };
 
-Attendees.defaultProps = {
-  onAttendeesPress: () => {},
+OpenSpots.defaultProps = {
+  onOpenSpotsPress: () => {},
 };
 
-export default Attendees;
+export default OpenSpots;

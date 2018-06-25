@@ -8,7 +8,7 @@ import Colors from '../../../Themes/Colors';
 import SpotMapWithLinkFallback from '../../../Components/Spots/SpotMapWithLinkFallback';
 import Header from '../../../Components/Spots/Header';
 // import SpotRating from './SpotRating';
-import SpotImages from './SpotImages';
+import SpotImages from '../SpotImages';
 import SpotProperties from './SpotProperties';
 import SpotGames from './SpotGames';
 

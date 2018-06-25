@@ -1,9 +1,8 @@
 import React from 'react';
-import { propType } from 'graphql-anywhere';
+import PropTypes from 'prop-types';
 import Config from 'react-native-config';
 import styled from 'styled-components';
-import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
-import ImageSwiper from '../../../Components/ImageSwiper';
+import ImageSwiper from '../ImageSwiper';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -41,7 +40,9 @@ const SpotImages = ({ spot }) => {
 };
 
 SpotImages.propTypes = {
-  spot: propType(spotDetailsFragment).isRequired,
+  spot: PropTypes.shape({
+    images: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
 };
 
 export default SpotImages;
