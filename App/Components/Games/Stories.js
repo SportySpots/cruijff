@@ -7,6 +7,7 @@ import Game from '../../Screens/Games/GameDetailsScreen';
 import GamesList from '../../Screens/Games/GamesListScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
 import GameListCard from './GameListCard';
+import GameProperties from './GameProperties';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
 
 const dummyNavigator = {
@@ -14,6 +15,26 @@ const dummyNavigator = {
   state: {
     params: { uuid: 1 },
   },
+};
+
+const game = {
+  uuid: '6b7588e0-0c95-4797-94ea-51b03e1eedbf',
+  name: "Sez's game",
+  start_time: '2018-05-24T16:00:00+00:00',
+  end_time: '2018-05-24T04:00:00+00:00',
+  is_featured: false,
+  show_remaining: true,
+  capacity: 8,
+  description: 'The description',
+  sport: {
+    category: 'BEACH_VOLLEYBALL',
+  },
+  spot: null,
+  organizer: {
+    first_name: 'Tom',
+    last_name: 'Klaver',
+  },
+  attendees: [],
 };
 
 storiesOf('Games')
@@ -50,4 +71,5 @@ storiesOf('Games')
         />
       </WithApolloMockProvider>
     </View>
-  ));
+  ))
+  .add('GameProperties', () => <GameProperties game={game} />);

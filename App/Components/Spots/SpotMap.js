@@ -1,15 +1,14 @@
 import React from 'react';
 import { Platform, Dimensions } from 'react-native';
-// import { propType } from 'graphql-anywhere';
-import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import Secrets from 'react-native-config';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import GoogleStaticMap from 'react-native-google-static-map';
 import { showLocation } from 'react-native-map-link';
-// import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../Themes/Colors';
 import RoundButton from '../RoundButton';
+import spotMapFragment from '../../GraphQL/Spots/Fragments/spotMap';
 
 // -----------------------------------------------------------------------------
 // CONSTANTS:
@@ -66,22 +65,23 @@ const handleLocationBtnPress = ({ latLng, title = '' }) => {
 };
 // -----------------------------------------------------------------------------
 const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
+  if (!('geolocation' in navigator)) {
+    console.log('Geolocation is not available');
+    return;
+  }
+
   // Get user's position from navigator
-  let position;
   const options = {
     enableHighAccuracy: true,
     timeout: 1000,
     maximumAge: 100000,
   };
 
-  if ('geolocation' in navigator) {
-    try {
-      position = await getCurrentPosition(options);
-    } catch (exc) {
-      console.log("Oops, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
-    }
-  } else {
-    console.log('Geolocation is not available');
+  let position;
+  try {
+    position = await getCurrentPosition(options);
+  } catch (exc) {
+    console.log("Oops, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
   }
 
   // Show directions FROM the user's current position (if available) TO the
@@ -148,7 +148,7 @@ const SpotMap = ({ spot }) => {
 };
 
 SpotMap.propTypes = {
-  spot: PropTypes.any.isRequired,
+  spot: propType(spotMapFragment).isRequired,
 };
 
 export default SpotMap;

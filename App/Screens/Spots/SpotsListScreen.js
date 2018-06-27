@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
+import { connect } from 'react-redux';
 import geolib from 'geolib';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
@@ -15,7 +16,7 @@ import Card from '../../Components/Spots/SpotListCard';
 const Container = styled.View`
   flex: 1;
   padding: 0 8px;
-  background-color: ${Colors.bgGrey};
+  background-color: ${Colors.lightGray};
 `;
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -52,35 +53,46 @@ class SpotsListScreen extends React.Component {
       maximumAge: 100000,
     };
 
+    let position;
     try {
-      const position = await getCurrentPosition(options);
-      const coordsSet = (
-        position &&
-        position.coords &&
-        position.coords.latitude &&
-        position.coords.latitude
-      );
-      if (!coordsSet) { return; }
-      const { latitude, longitude } = position.coords;
-      this.setState({ coords: { latitude, longitude } });
+      position = await getCurrentPosition(options);
     } catch (exc) {
       console.log("Oops, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
     }
+
+    const coordsSet = (
+      position &&
+      position.coords &&
+      position.coords.latitude &&
+      position.coords.latitude
+    );
+    if (!coordsSet) { return; }
+    const { latitude, longitude } = position.coords;
+    this.setState({ coords: { latitude, longitude } });
   }
 
-  handleCardPress = (spotId) => {
+  handleCardPress = (spotUuid) => {
     this.props.navigation.navigate('SpotDetailsScreen', {
-      uuid: spotId,
+      uuid: spotUuid,
     });
   }
 
   render() {
+    const { maxDistance, allSports, selectedSportIds } = this.props;
     const { coords } = this.state;
+
+    // Set query variables
+    const variables = {
+      offset: 0,
+      limit: 20,
+      distance: `${parseInt(1000 * maxDistance, 10)}:52.3727729:4.9055008`, // TODO: use current user location
+    };
+    if (!allSports) { variables.sports__ids = selectedSportIds; }
 
     return (
       <Query
         query={GET_SPOTS}
-        variables={{ offset: 0, limit: 20 }}
+        variables={variables}
         fetchPolicy="cache-and-network"
       >
         {({
@@ -110,6 +122,8 @@ class SpotsListScreen extends React.Component {
             <Container>
               <SpotsList
                 spots={(
+                  selectedSportIds &&
+                  selectedSportIds.length > 0 &&
                   data &&
                   data.spots &&
                   data.spots.map((spot) => {
@@ -139,6 +153,12 @@ SpotsListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  maxDistance: PropTypes.number.isRequired,
+  allSports: PropTypes.bool.isRequired,
+  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default SpotsListScreen;
+const mapStateToProps = state => state.spotFilters;
+const withRedux = connect(mapStateToProps, null);
+
+export default withRedux(SpotsListScreen);

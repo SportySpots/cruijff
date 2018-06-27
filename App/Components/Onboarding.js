@@ -1,8 +1,9 @@
 import React from 'react';
-import ScreenSlider from './ScreenSlider/index';
-import OnboardingScreen from '../Screens/OnboardingScreen';
+import PropTypes from 'prop-types';
 import I18n from '../I18n';
 import Images from '../Themes/Images';
+import ScreenSlider from './ScreenSlider/index';
+import OnboardingScreen from '../Screens/OnboardingScreen';
 
 const data = [
   {
@@ -22,17 +23,20 @@ const data = [
   },
 ];
 
-export default class Onboarding extends React.Component {
-  render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <ScreenSlider
-        data={data}
-        style={{ flex: 1 }}
-        renderItem={({ item }) => <OnboardingScreen {...item} />}
-        footerText={(item, index) => I18n.t(index < data.length - 1 ? 'continue' : 'lets go')}
-        onDone={() => navigate('LocationPermissionScreen')}
-      />
-    );
-  }
-}
+const Onboarding = ({ navigation }) => (
+  <ScreenSlider
+    data={data}
+    style={{ flex: 1 }}
+    renderItem={({ item }) => <OnboardingScreen {...item} />}
+    footerText={(item, index) => I18n.t(index < data.length - 1 ? 'continue' : 'lets go')}
+    onDone={() => navigation.navigate('LocationPermissionScreen')}
+  />
+);
+
+Onboarding.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default Onboarding;

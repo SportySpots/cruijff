@@ -16,7 +16,7 @@ export function* locationSaga(api) {
           lat: result.coords.latitude,
           lng: result.coords.longitude,
         }));
-      }, console.warn);
+      }, console.log);
     }
   });
   yield put(locationActions.updateLocation());

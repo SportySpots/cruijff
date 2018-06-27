@@ -9,6 +9,7 @@ import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
 import { GET_SPOTS_FOR_SPORT } from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import api from '../../Services/SeedorfApi';
+import NothingFound from '../../Components/NothingFound';
 
 const CardContainer = (props) => {
   const { onPress, ...otherProps } = props;
@@ -41,18 +42,27 @@ class PickSpotComponent extends Component {
 
   render() {
     const spots = this.props.data.spots;
+
+    let Contents = (
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={spots}
+        renderItem={({ item }) => (
+          <CardContainer spot={item} onPress={() => this.selectSpot(item)} />
+        )}
+        keyExtractor={item => item.uuid}
+      />
+    );
+
+    if (!spots || spots.length === 0) {
+      Contents = <NothingFound icon="map-marker" text={I18n.t('No spots found')} />;
+    }
+
     return (
       <View style={style.container}>
         <View style={[style.cardListContainer, this.props.style]}>
           <Text.L>{I18n.t('Pick a spot')}</Text.L>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={spots}
-            renderItem={({ item }) => (
-              <CardContainer spot={item} onPress={() => this.selectSpot(item)} />
-            )}
-            keyExtractor={item => item.uuid}
-          />
+          {Contents}
         </View>
         <Footer
           currentPage={1}

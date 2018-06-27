@@ -23,7 +23,7 @@ const Header = ({ spot, ...props }) => (
     <View style={header.belowName}>
       {false && <Rating rating={spot.rating || 4} />}
       {false && <Spacer />}
-      <Subtitle>{Int18n.t(spot.sports[0].category)}</Subtitle>
+      <Subtitle>{spot.sports.map(sport => Int18n.t(sport.category)).join(', ')}</Subtitle>
       {spot.distance && <Spacer />}
       {spot.distance && <Subtitle>{spot.distance} km</Subtitle>}
       {spot.games &&
