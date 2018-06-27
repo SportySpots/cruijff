@@ -5,7 +5,7 @@ import Text from '../Components/Text';
 import FieldBackground from './FieldBackground';
 import LogoHeaderBackground from './LogoHeaderBackground';
 
-storiesOf('Backgrounds')
+storiesOf('Backgrounds', module)
   .add('LogoHeader', () => (
     <LogoHeaderBackground>
       <Text>contents</Text>

@@ -6,7 +6,7 @@ import ScreenSlider from './index';
 const data = [1, 2, 3];
 const colors = ['#f00', '#f00', '#0f0', '#00f'];
 
-storiesOf('Screenslider').add('ScreenSlider', () => (
+storiesOf('Screenslider', module).add('ScreenSlider', () => (
   <ScreenSlider
     data={data}
     style={{ flex: 1 }}

@@ -14,7 +14,7 @@ const gameDetails = {
   date: null,
 };
 
-storiesOf('Plan')
+storiesOf('Plan', module)
   .add('Step 1: Sport/time', () => (
     <WithApolloMockProvider>
       <View style={{ flex: 1 }}>

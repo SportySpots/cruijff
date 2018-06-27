@@ -36,7 +36,7 @@ const store = createStore(state => state, {
   },
 });
 
-storiesOf('Spots')
+storiesOf('Spots', module)
   .add('SpotListCard', () => (
     <WithApolloMockProvider>
       <Query query={GET_SPOTS}>

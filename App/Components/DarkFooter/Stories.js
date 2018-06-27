@@ -20,7 +20,7 @@ class Wrapper extends React.Component {
   }
 }
 
-storiesOf('DarkFooter').add('Default', () => (
+storiesOf('DarkFooter', module).add('Default', () => (
   <View style={{ flex: 1 }}>
     <Wrapper />
   </View>

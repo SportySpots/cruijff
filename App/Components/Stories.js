@@ -39,7 +39,6 @@ import LoginScreen from '../Screens/LoginScreen';
 import FilterScreen from '../Screens/Spots/SpotsFilterScreen';
 import InfoScreen from '../Screens/InfoScreen';
 import NothingFound from './NothingFound';
-import ActivityCard from './ActivityCard';
 import { WithApolloMockProvider } from '../GraphQL';
 
 const dummyNavigator = {
@@ -57,10 +56,10 @@ const store = createStore(state => state, {
   },
 });
 
-storiesOf('Logo')
+storiesOf('Logo', module)
   .add('Default', () => <Logo />);
 
-storiesOf('Basic components')
+storiesOf('Basic components', module)
   .add('BackButton', () => (
     <View style={{ flex: 1, backgroundColor: 'green' }}>
       <BackButton text="back" />
@@ -82,7 +81,7 @@ storiesOf('Basic components')
     </View>
   ));
 
-storiesOf('Text')
+storiesOf('Text', module)
   .add('All sizes', () => (
     <View style={{ flex: 1, marginLeft: 20 }}>
       <Text>Default size</Text>
@@ -96,9 +95,9 @@ storiesOf('Text')
   .add('Medium text', () => <Text.M>Medium size</Text.M>)
   .add('Large text', () => <Text.L>Large size</Text.L>);
 
-storiesOf('Onboarding').add('Default', () => <Onboarding navigation={dummyNavigator} />);
+storiesOf('Onboarding', module).add('Default', () => <Onboarding navigation={dummyNavigator} />);
 
-storiesOf('ImageSwiper').add('Default', () => (
+storiesOf('ImageSwiper', module).add('Default', () => (
   <ImageSwiper
     images={[
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A',
@@ -112,7 +111,7 @@ const dummyReduxNav = {
   index: 0,
 };
 
-storiesOf('NavBar')
+storiesOf('NavBar', module)
   .add('Default', () => (
     <Provider store={store}>
       <NavBar nav={dummyReduxNav} navigate={() => null} />
@@ -130,24 +129,24 @@ storiesOf('NavBar')
     </Provider>
   ));
 
-storiesOf('NavDots').add('Default', () => <NavDots count={5} active={3} />);
+storiesOf('NavDots', module).add('Default', () => <NavDots count={5} active={3} />);
 
-storiesOf('Rating')
+storiesOf('Rating', module)
   .add('1', () => <Rating rating={1} />)
   .add('3', () => <Rating rating={3} />)
   .add('4.5', () => <Rating rating={4.5} />);
 
-storiesOf('RatingBig')
+storiesOf('RatingBig', module)
   .add('1', () => <RatingBig rating={1} />)
   .add('3', () => <RatingBig rating={3} />)
   .add('4.5', () => <RatingBig rating={4.5} />);
 
-storiesOf('Slider').add('Default', () => <Slider value={0.75} />);
-storiesOf('SplashScreen').add('Default', () => (
+storiesOf('Slider', module).add('Default', () => <Slider value={0.75} />);
+storiesOf('SplashScreen', module).add('Default', () => (
   <SplashScreen user={{ initialized: true }} navigation={dummyNavigator} />
 ));
 
-storiesOf('PropertyCircle').add('Propertycircle', () => (
+storiesOf('PropertyCircle', module).add('Propertycircle', () => (
   <View>
     {['blablabla', 'ASD GDS ASD DAS', 'as asdasdasdsadassadas', '+4', 'HMMMM'].map((text, idx) => (
       <PropertyCircle text={text} key={idx} />
@@ -155,36 +154,31 @@ storiesOf('PropertyCircle').add('Propertycircle', () => (
   </View>
 ));
 
-storiesOf('ActivityCard')
-.add('ActivityCard', () => (
-  <View>
-    <ActivityCard />
-  </View>
-))
+
 
 const users = require('../Fixtures/users');
 
-storiesOf('UserCircle').add('UserCircle', () => (
+storiesOf('UserCircle', module).add('UserCircle', () => (
   <View>{users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}</View>
 ));
-storiesOf('SignupScreen').add('Default', () => (
+storiesOf('SignupScreen', module).add('Default', () => (
   <Provider store={store}>
     <SignupScreen navigation={dummyNavigator} />
   </Provider>
 ));
-storiesOf('LoginScreen').add('Default', () => (
+storiesOf('LoginScreen', module).add('Default', () => (
   <Provider store={store}>
     <LoginScreen navigation={dummyNavigator} />
   </Provider>
 ));
-storiesOf('NothingFound').add('Default', () => (
+storiesOf('NothingFound', module).add('Default', () => (
   <NothingFound
     icon="map-marker"
     text="Oops, nothing found"
   />
 ));
 
-storiesOf('FilterScreen').add('Default', () => (
+storiesOf('FilterScreen', module).add('Default', () => (
   <Provider store={store}>
     <WithApolloMockProvider>
       <FilterScreen navigation={dummyNavigator} />
@@ -192,6 +186,6 @@ storiesOf('FilterScreen').add('Default', () => (
   </Provider>
 ));
 
-storiesOf('InfoScreen').add('Default', () => (
+storiesOf('InfoScreen', module).add('Default', () => (
   <InfoScreen />
 ));

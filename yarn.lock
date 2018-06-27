@@ -100,11 +100,11 @@
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/@sheerun/eslint-config-standard/-/eslint-config-standard-10.2.1.tgz#7d73397369c396b3625cab6ec313f6d4208300ef"
 
-"@storybook/addon-actions@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.4.5.tgz#ba0d0c0c74357c0852e0b890b404214975df40a8"
+"@storybook/addon-actions@3.4.8", "@storybook/addon-actions@^3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.4.8.tgz#557bae7c7cc60be9d5199ff972b028de8b574f92"
   dependencies:
-    "@storybook/components" "3.4.5"
+    "@storybook/components" "3.4.8"
     babel-runtime "^6.26.0"
     deep-equal "^1.0.1"
     glamor "^2.20.40"
@@ -115,21 +115,21 @@
     react-inspector "^2.2.2"
     uuid "^3.2.1"
 
-"@storybook/addon-links@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-3.4.5.tgz#c885dae976f5084faa0ae026755f2d6068da034f"
+"@storybook/addon-links@3.4.8", "@storybook/addon-links@^3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-3.4.8.tgz#303e2e37c8abf1861accc95dd9c5f9274bf528ad"
   dependencies:
-    "@storybook/components" "3.4.5"
+    "@storybook/components" "3.4.8"
     babel-runtime "^6.26.0"
     global "^4.3.2"
     prop-types "^15.6.1"
 
-"@storybook/addon-storyshots@^3.2.16":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.4.5.tgz#e67b57657f76a024a40b21862281952410118283"
+"@storybook/addon-storyshots@^3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.4.8.tgz#53e8bd697ca26c5880233d6e63690937e10cf183"
   dependencies:
-    "@storybook/channels" "3.4.5"
-    "@storybook/node-logger" "3.4.5"
+    "@storybook/channels" "3.4.8"
+    "@storybook/node-logger" "3.4.8"
     babel-runtime "^6.26.0"
     glob "^7.1.2"
     global "^4.3.2"
@@ -138,50 +138,50 @@
     puppeteer "^1.2.0"
     read-pkg-up "^3.0.0"
 
-"@storybook/addons@3.4.5", "@storybook/addons@^3.2.16":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.4.5.tgz#8dd6eb93ae26b4498a9b1e2b890316944efa41da"
+"@storybook/addons@3.4.8", "@storybook/addons@^3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.4.8.tgz#ff1142d8f0963dd28b7c6f88dc9d3be170ac6600"
 
-"@storybook/channel-postmessage@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-3.4.5.tgz#8c7de674847dec2a154947e0b99e54a2618c79cb"
+"@storybook/channel-postmessage@3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-3.4.8.tgz#4df9b315f6ceff07f33334a633f24c7b81a3ac28"
   dependencies:
-    "@storybook/channels" "3.4.5"
+    "@storybook/channels" "3.4.8"
     global "^4.3.2"
     json-stringify-safe "^5.0.1"
 
-"@storybook/channel-websocket@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/channel-websocket/-/channel-websocket-3.4.5.tgz#193779bb04b5887adbdf4b7496b96497b9eb1205"
+"@storybook/channel-websocket@3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/channel-websocket/-/channel-websocket-3.4.8.tgz#18611927ab8bd61bcc8319bdbe9009420cdf2e73"
   dependencies:
-    "@storybook/channels" "3.4.5"
+    "@storybook/channels" "3.4.8"
     global "^4.3.2"
 
-"@storybook/channels@3.4.5", "@storybook/channels@^3.2.16":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.4.5.tgz#cb8e3798cdcbed0b7037e634fb029cdd758c73a8"
+"@storybook/channels@3.4.8", "@storybook/channels@^3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.4.8.tgz#df0aff0d20a9597402e76caa7e5ddb088ede3591"
 
-"@storybook/client-logger@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-3.4.5.tgz#aca45699b14d6663c694ab3253d46bc257f8783e"
+"@storybook/client-logger@3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-3.4.8.tgz#82d6e1c2cb3e37184cc597a933f64b38fb61b88b"
 
-"@storybook/components@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-3.4.5.tgz#02653ba562e3678eab3adbc31b012eae4fbe61dc"
+"@storybook/components@3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-3.4.8.tgz#45934d9a25374e68152826a162e61b9732871eaf"
   dependencies:
     glamor "^2.20.40"
     glamorous "^4.12.1"
     prop-types "^15.6.1"
 
-"@storybook/core@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-3.4.5.tgz#a34a498eace85d29a12559a895c420f5ae54b0b7"
+"@storybook/core@3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-3.4.8.tgz#a7f077175081b9e957cd3b04442c01606271fd2d"
   dependencies:
-    "@storybook/addons" "3.4.5"
-    "@storybook/channel-postmessage" "3.4.5"
-    "@storybook/client-logger" "3.4.5"
-    "@storybook/node-logger" "3.4.5"
-    "@storybook/ui" "3.4.5"
+    "@storybook/addons" "3.4.8"
+    "@storybook/channel-postmessage" "3.4.8"
+    "@storybook/client-logger" "3.4.8"
+    "@storybook/node-logger" "3.4.8"
+    "@storybook/ui" "3.4.8"
     autoprefixer "^7.2.6"
     babel-runtime "^6.26.0"
     chalk "^2.3.2"
@@ -213,9 +213,9 @@
     "@storybook/react-simple-di" "^1.2.1"
     babel-runtime "6.x.x"
 
-"@storybook/node-logger@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-3.4.5.tgz#d08c082b0d4a573736f25c2e0eea261b30183962"
+"@storybook/node-logger@3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-3.4.8.tgz#8f8abcd51920545c7458385b0b30199ae48ad78a"
   dependencies:
     npmlog "^4.1.2"
 
@@ -236,16 +236,16 @@
     lodash.pick "^4.4.0"
     shallowequal "^0.2.2"
 
-"@storybook/react-native@^3.2.16":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-3.4.5.tgz#cdd859ae26dbb87f648060d1ad21902f5e9232bd"
+"@storybook/react-native@^3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-3.4.8.tgz#e2f32602bb0bc6c892aec306b6dc3c1111534ac5"
   dependencies:
-    "@storybook/addon-actions" "3.4.5"
-    "@storybook/addon-links" "3.4.5"
-    "@storybook/addons" "3.4.5"
-    "@storybook/channel-websocket" "3.4.5"
-    "@storybook/core" "3.4.5"
-    "@storybook/ui" "3.4.5"
+    "@storybook/addon-actions" "3.4.8"
+    "@storybook/addon-links" "3.4.8"
+    "@storybook/addons" "3.4.8"
+    "@storybook/channel-websocket" "3.4.8"
+    "@storybook/core" "3.4.8"
+    "@storybook/ui" "3.4.8"
     babel-loader "^7.1.4"
     babel-plugin-macros "^2.2.0"
     babel-plugin-syntax-async-functions "^6.13.0"
@@ -296,11 +296,11 @@
   dependencies:
     babel-runtime "^6.5.0"
 
-"@storybook/ui@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-3.4.5.tgz#b11e97590b5e09b2d1452c0a4b84567780ec3390"
+"@storybook/ui@3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-3.4.8.tgz#73245f02a714cc3de0bb1b62261ec64b6d0d65ae"
   dependencies:
-    "@storybook/components" "3.4.5"
+    "@storybook/components" "3.4.8"
     "@storybook/mantra-core" "^1.7.2"
     "@storybook/podda" "^1.2.3"
     "@storybook/react-komposer" "^2.0.3"
@@ -9996,9 +9996,9 @@ react-native-swiper@^1.5.13:
   dependencies:
     prop-types "^15.6.0"
 
-react-native-vector-icons@4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.3.0.tgz#49eab845fbcde6354cb3dbcb62c1abd1f6abc866"
+react-native-vector-icons@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#e4014311ffa6de397d914ffc31b7097a874cc8d5"
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.5.10"

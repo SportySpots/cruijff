@@ -21,7 +21,7 @@ const store = createStore(state => state, {
   },
 });
 
-storiesOf('Profile')
+storiesOf('Profile', module)
   .add('Detail', () => (
     <WithApolloMockProvider>
       <View style={{ flex: 1 }}>
