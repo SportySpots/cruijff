@@ -9,7 +9,6 @@ import PlayerList from '../../Screens/Games/PlayerListScreen';
 import GameListCard from './GameListCard';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
 
-
 const dummyNavigator = {
   navigate: () => null,
   state: {

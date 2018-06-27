@@ -39,6 +39,7 @@ import LoginScreen from '../Screens/LoginScreen';
 import InfoScreen from '../Screens/InfoScreen';
 import FilterScreen from '../Screens/FilterScreen';
 import NothingFound from './NothingFound';
+import ActivityCard from './ActivityCard';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -51,7 +52,8 @@ const store = createStore(state => state, {
   },
 });
 
-storiesOf('Logo').add('Default', () => <Logo />);
+storiesOf('Logo')
+  .add('Default', () => <Logo />);
 
 storiesOf('Basic components')
   .add('BackButton', () => (
@@ -147,6 +149,13 @@ storiesOf('PropertyCircle').add('Propertycircle', () => (
     ))}
   </View>
 ));
+
+storiesOf('ActivityCard')
+.add('ActivityCard', () => (
+  <View>
+    <ActivityCard />
+  </View>
+))
 
 const users = require('../Fixtures/users');
 
