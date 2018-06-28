@@ -89,6 +89,7 @@ class NavBar extends React.Component {
 
   handlePress = (btn) => {
     const { navigation } = this.props;
+    // TODO: clear stack navigator isn't working!
     if (this.curRoute !== btn.route) {
       // Clear stack.
       navigation.popToTop();
