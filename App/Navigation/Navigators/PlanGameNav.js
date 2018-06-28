@@ -1,14 +1,61 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
+import I18n from '../../I18n';
+import StackBackHeader from '../StackBackHeader';
 import LoggedInRoute from '../LoggedInRoute';
 import planWrapper from '../../Containers/Plan/planWrapper';
+import LoginScreen from '../../Screens/LoginScreen';
+import SignupScreen from '../../Screens/SignupScreen';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import Created from '../../Screens/Plan/CreatedScreen';
 import Description from '../../Screens/Plan/DescriptionScreen';
 import PickSpot from '../../Screens/Plan/PickSpotScreen';
 import SportAndTime from '../../Screens/Plan/SportAndTimeScreen';
+import style from './style';
+
+const { headerTitleStyle } = style;
 
 const PlanGameNav = StackNavigator({
+  LoginScreen: {
+    screen: ({ navigation }) => (
+      <LoginScreen
+        navigation={navigation}
+        onSuccessHook={() => {
+          // Reset navigation after success login
+          navigation.popToTop();
+        }}
+      />
+    ),
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Hi again!'),
+      headerTitleStyle,
+      headerLeft: (
+        <StackBackHeader
+          onPress={() => { navigation.goBack(null); }}
+        />
+      ),
+    }),
+  },
+  SignupScreen: {
+    screen: ({ navigation }) => (
+      <SignupScreen
+        navigation={navigation}
+        onSuccessHook={() => {
+          // Reset navigation after success signup
+          navigation.popToTop();
+        }}
+      />
+    ),
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Sign up'),
+      headerTitleStyle,
+      headerLeft: (
+        <StackBackHeader
+          onPress={() => { navigation.goBack(null); }}
+        />
+      ),
+    }),
+  },
   sportTime: {
     screen: ({ navigation }) => (
       <LoggedInRoute
@@ -18,6 +65,9 @@ const PlanGameNav = StackNavigator({
         onClose={() => { navigation.goBack(null); }}
       />
     ),
+    navigationOptions: {
+      header: null,
+    },
   },
   pickSpot: {
     screen: ({ navigation }) => (
@@ -28,6 +78,9 @@ const PlanGameNav = StackNavigator({
         onClose={() => { navigation.goBack(null); }}
       />
     ),
+    navigationOptions: {
+      header: null,
+    },
   },
   description: {
     screen: ({ navigation }) => (
@@ -38,6 +91,9 @@ const PlanGameNav = StackNavigator({
         onClose={() => { navigation.goBack(null); }}
       />
     ),
+    navigationOptions: {
+      header: null,
+    },
   },
   created: {
     screen: ({ navigation }) => (
@@ -48,11 +104,14 @@ const PlanGameNav = StackNavigator({
         onClose={() => { navigation.goBack(null); }}
       />
     ),
+    navigationOptions: {
+      header: null,
+    },
   },
 }, {
   tabBarComponent: () => null,
   animationEnabled: true,
-  headerMode: 'none',
+  // headerMode: 'none',
   initialRouteName: 'sportTime',
 });
 

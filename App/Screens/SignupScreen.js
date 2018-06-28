@@ -27,27 +27,13 @@ Link.propTypes = {
 };
 
 export class _Signup extends Component {
-  static propTypes = {
-    onPress: PropTypes.func,
-    text: PropTypes.string,
-    children: PropTypes.string,
-    navigation: PropTypes.object,
-    setToken: PropTypes.func,
-    user: PropTypes.object,
-    setTimeout: PropTypes.func.isRequired,
-    clearTimeout: PropTypes.func.isRequired,
-  };
-
-  constructor() {
-    super();
-    this.state = {
-      requestStatus: STATUS.IDLE,
-      error: null,
-      first_name: '',
-      last_name: '',
-      email: '',
-      password: '',
-    };
+  state = {
+    requestStatus: STATUS.IDLE,
+    error: null,
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
   }
 
   signupRequest = async () => {
@@ -66,9 +52,11 @@ export class _Signup extends Component {
       });
     } else {
       this.props.setToken(result.data.token);
+      // TODO: use saga to call onSuccessHook right after setToken is done
       // Delay redirect to avoid flickering screen
       this.props.setTimeout(() => {
-        this.props.navigation.popToTop();
+        // Pass event up to parent component
+        this.props.onSuccessHook();
         this.props.clearTimeout();
       }, 100);
     }
@@ -179,6 +167,22 @@ export class _Signup extends Component {
     );
   }
 }
+
+_Signup.propTypes = {
+  onPress: PropTypes.func,
+  text: PropTypes.string,
+  children: PropTypes.string,
+  navigation: PropTypes.object,
+  setToken: PropTypes.func,
+  user: PropTypes.object,
+  setTimeout: PropTypes.func.isRequired,
+  clearTimeout: PropTypes.func.isRequired,
+  onSuccessHook: PropTypes.func,
+};
+
+_Signup.defaultProps = {
+  onSuccessHook: () => {},
+};
 
 const Signup = connect(state => ({ user: state.user }), {
   setToken: userActions.setToken,

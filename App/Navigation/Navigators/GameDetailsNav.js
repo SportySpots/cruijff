@@ -2,24 +2,25 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
-import LoggedInRoute from '../LoggedInRoute';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
+import Game from '../../Screens/Games/GameDetailsScreen';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
-import ProfileDetailsScreen from '../../Screens/Profile/ProfileDetailsScreen';
-import ProfileEditScreen from '../../Screens/Profile/ProfileEditScreen';
+import PlayerList from '../../Screens/Games/PlayerListScreen';
 import style from './style';
 
 const { headerTitleStyle } = style;
 
-const ProfileNav = StackNavigator({
+const GameDetailsNav = StackNavigator({
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoginScreen
         navigation={navigation}
         onSuccessHook={() => {
-          // Reset navigation after success login
-          navigation.popToTop();
+          // After success login, go back 2 screen:
+          // --> ProfileSignupScreen
+          // --> GameDetailsScreen
+          navigation.pop(2);
         }}
       />
     ),
@@ -38,8 +39,10 @@ const ProfileNav = StackNavigator({
       <SignupScreen
         navigation={navigation}
         onSuccessHook={() => {
-          // Reset navigation after success signup
-          navigation.popToTop();
+          // After success signup, go back 2 screen:
+          // --> ProfileSignupScreen
+          // --> GameDetailsScreen
+          navigation.pop(2);
         }}
       />
     ),
@@ -53,15 +56,10 @@ const ProfileNav = StackNavigator({
       ),
     }),
   },
-  ProfileEditScreen: {
-    screen: () => (
-      <LoggedInRoute
-        component={ProfileEditScreen}
-        overlay={ProfileSignupScreen}
-      />
-    ),
+  ProfileSignupScreen: {
+    screen: ProfileSignupScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Profile Edit'),
+      headerTitle: I18n.t('Game details'),
       headerTitleStyle,
       headerLeft: (
         <StackBackHeader
@@ -70,19 +68,32 @@ const ProfileNav = StackNavigator({
       ),
     }),
   },
-  ProfileDetailsScreen: {
-    screen: () => (
-      <LoggedInRoute
-        component={ProfileDetailsScreen}
-        overlay={ProfileSignupScreen}
-      />
-    ),
-    navigationOptions: () => ({
-      headerTitle: I18n.t('Profile'),
+  GamePlayerScreen: {
+    screen: PlayerList,
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Player list'),
+      headerTitleStyle,
+      headerLeft: (
+        <StackBackHeader
+          onPress={() => { navigation.goBack(null); }}
+        />
+      ),
+    }),
+  },
+  GameDetailsScreen: {
+    screen: Game,
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Game details'),
+      headerTitleStyle,
+      headerLeft: (
+        <StackBackHeader
+          onPress={() => { navigation.goBack(null); }}
+        />
+      ),
     }),
   },
 }, {
-  initialRouteName: 'ProfileDetailsScreen',
+  initialRouteName: 'GameDetailsScreen',
 });
 
-export default ProfileNav;
+export default GameDetailsNav;
