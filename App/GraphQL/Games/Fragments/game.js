@@ -13,6 +13,11 @@ const gameFragment = gql`
       uuid
       category
     }
+    organizer {
+      uuid
+      first_name
+      last_name
+    }
     spot {
       uuid
       name
@@ -41,10 +46,10 @@ const gameFragment = gql`
     attendees {
       uuid
       status
-      #user {
-      #  uuid
-      #  name
-      #}
+      user {
+        uuid
+        name
+      }
     }
   }
 `;

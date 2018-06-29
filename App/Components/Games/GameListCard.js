@@ -1,126 +1,185 @@
-import moment from 'moment';
-import PropTypes from 'prop-types';
 import React from 'react';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import CommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components';
-import I18n from '../../I18n';
+import Config from 'react-native-config/index';
+import moment from 'moment';
+
 import Colors from '../../Themes/Colors';
 import Text from '../Text';
+import UserCircle from '../UserCircle';
+import I18n from '../../I18n';
+import Fonts from '../../Themes/Fonts';
+import PropertyCircle from '../PropertyCircle';
+import CappedList from '../CappedList';
+
+class GameListCard extends React.Component {
+  getImageUrl = (image) => {
+    if (image.startsWith('http')) {
+      return image;
+    }
+    return Config.SEEDORF_HOST + image;
+  }
+
+  render() {
+    const game = this.props.game;
+    const spot = game.spot;
+    const image = spot.images.length > 0
+      ? this.getImageUrl(spot.images[0].image)
+      : 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/game-placeholder.png';
+    const attendingUsers = game.attendees
+      ? game.attendees
+        .filter(rsvp => rsvp.status === 'ATTENDING')
+        .map(rsvp => rsvp.user)
+      : [];
+
+    const formattedStartTime = moment(game.start_time).format('D-MM HH:mm');
+
+    return (
+      <GameListCardContainer>
+        <Top>
+          <UserCircle user={game.organizer} />
+          <TopText>
+            <Text.M>{game.organizer.first_name} {game.organizer.last_name}</Text.M>
+            <Spacer />
+            <Text.M>{I18n.t(game.sport.category)}</Text.M>
+          </TopText>
+        </Top>
+        <Bottom>
+          <ImageContainer>
+            <Img source={{ uri: image }} />
+            <ImgOverlay />
+          </ImageContainer>
+          <BottomContainer>
+            <Title>{game.name}</Title>
+            <HorizontalView>
+              <IonIcon style={{ marginRight: 8 }} name="ios-time" color={Colors.white} size={24} />
+              <SmallText style={{ marginRight: 16 }}>{formattedStartTime}</SmallText>
+              <CommunityIcon style={{ marginRight: 8 }} name="map-marker" color={Colors.white} size={24} />
+              <SmallText>{spot.name}</SmallText>
+            </HorizontalView>
+            <Attendees>
+              <HorizontalView style={{ flex: 1 }}>
+                <CappedList
+                  max={7}
+                  data={attendingUsers}
+                  keyExtractor={user => user.uuid}
+                  component={user => <UserCircle user={user} style={{ marginRight: 8 }} />}
+                  capComponent={({ data }) => <PropertyCircle text={`+${data.length}`} />}
+                />
+              </HorizontalView>
+            </Attendees>
+          </BottomContainer>
+        </Bottom>
+      </GameListCardContainer>
+    );
+  }
+}
+
+GameListCard.propTypes = {
+  game: PropTypes.object,
+};
+
+export default GameListCard;
+
+const Spacer = () => (
+  <SpacerContainer>
+    <Text.M>·</Text.M>
+  </SpacerContainer>
+);
+
+const SpacerContainer = styled.View`
+  margin-horizontal: 8px;
+`;
+
+const TopText = styled.View`
+  margin-left: 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
 
 const HorizontalView = styled.View`
   flex-direction: row;
+  align-items: center;
+  
 `;
 
-const Container = styled(HorizontalView)`
-  height: 100px;
-`;
-
-const Left = styled.View`
-  flex: 1;
-  padding-left: 8px;
-`;
-
-const Right = styled.View`
-  flex: 5;
-`;
-const SpotImage = styled.Image`
-  height: 100px;
-  width: 100%;
+const GameListCardContainer = styled.View`
+  display: flex;
+  height: 232px;
+  border-width: 1px;
+  border-color: ${Colors.black54};
   border-radius: 8px;
-`;
-
-const SpotImageContainer = styled.View`
-  border-radius: 8px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-`;
-
-const Overlay = styled.View`
-  justify-content: space-between;
-  flex: 1;
 `;
 
 const Top = styled.View`
-  padding-left: 8px;
-  height: 25px;
+  padding-horizontal: 16px;
+  flex: 1;
   flex-direction: row;
   align-items: center;
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+`;
+
+const Bottom = styled.View`
+  flex: 3;
+  display: flex;
+  background-color: green;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+
+const BottomContainer = styled.View`
+  flex: 1;
+  margin-horizontal: 16px;
+  margin-vertical: 16px;
+`;
+
+const ImageContainer = styled.View`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+
+const Img = styled.Image`
+  flex: 1;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+
+const ImgOverlay = styled.View`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: .5;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+
+const SmallText = styled(Text.S)`
+  color: ${Colors.white};
 `;
 
 const Title = styled(Text.M)`
   color: ${Colors.white};
-  margin-left: 8px;
+  font-family: ${Fonts.type.emphasis};
+  font-size: 22px;
+  margin-bottom: 8px;
 `;
 
-const WhiteSM = styled(Text.SM)`
-  color: ${Colors.white};
-`;
-
-const OrangeSM = styled(Text.SM)`
-  color: ${Colors.actionYellow};
-`;
-
-const Bottom = styled.View`
-  height: 35px;
-  padding-left: 8px;
-  background-color: ${Colors.greenSemi};
+const Attendees = styled.View`
+  flex: 1;
+  padding-top: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  flex-direction: row;
-  align-items: center;
 `;
 
-const GameListCard = ({ game }) => {
-  const { spot } = game;
-
-  return (
-    <Container>
-      <Left>
-        <Text.L>{moment(game.start_time).format('D')}</Text.L>
-        <Text.M>{moment(game.end_time).format('MMM')}</Text.M>
-      </Left>
-      <Right>
-        <SpotImageContainer>
-          <SpotImage
-            source={{
-              uri:
-                spot.images && spot.images.length > 0
-                  ? spot.images[0].image
-                  : 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png',
-            }}
-          />
-        </SpotImageContainer>
-        <Overlay>
-          <Top>
-            <MaterialIcon color={Colors.white} name="flag" />
-            <Title>{game.name || game.spot.name }</Title>
-          </Top>
-          <Bottom>
-            <WhiteSM>
-              {moment(game.start_time).format('H:mm')}&nbsp;-&nbsp;
-              {moment(game.end_time).format('H:mm')} · {I18n.t(game.sport.category)}
-            </WhiteSM>
-            {game.capacity && game.capacity > 0 && [
-              <WhiteSM key="dot">
-                &nbsp;·&nbsp;
-              </WhiteSM>,
-              <OrangeSM key="capacity">
-                {game.capacity} {I18n.t('people')}
-              </OrangeSM>,
-            ]}
-          </Bottom>
-        </Overlay>
-      </Right>
-    </Container>
-  );
-};
-
-GameListCard.propTypes = {
-  game: PropTypes.object,
-  // style: ViewPropTypes.style,
-};
-
-export default GameListCard;
