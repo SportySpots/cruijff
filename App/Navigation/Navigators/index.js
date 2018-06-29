@@ -1,3 +1,4 @@
+export { default as SplashNav } from './SplashNav';
 export { default as SpotSearchNav } from './SpotSearchNav';
 export { default as GameSearchNav } from './GameSearchNav';
 export { default as PlanGameNav } from './PlanGameNav';

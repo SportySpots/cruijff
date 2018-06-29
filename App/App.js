@@ -25,7 +25,7 @@ class App extends Component {
         if (url) {
           // Alert.alert('GET INIT URL','initial url  ' + url)
           const uuid = url.replace(`https://${config.deeplinkHost}/games/`, '');
-          this.router._navigation.navigate('GameDetailsScreen', {
+          this.router._navigation.navigate('GameDetailsScreen', { // eslint-disable-line no-underscore-dangle
             uuid,
           });
         }
@@ -45,7 +45,7 @@ class App extends Component {
     // this handles the use case where the app is running in the background
     // and is activated by the listener...
     const uuid = event.url.replace(`https://${config.deeplinkHost}/games/`, '');
-    this.router._navigation.navigate('GameDetailsScreen', {
+    this.router._navigation.navigate('GameDetailsScreen', { // eslint-disable-line no-underscore-dangle
       uuid,
     });
   }

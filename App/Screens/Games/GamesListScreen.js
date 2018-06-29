@@ -42,15 +42,18 @@ class GamesListScreen extends React.Component {
   }
 
   render() {
+    // Set query variables
+    const variables = {
+      offset: 0,
+      limit: 100,
+      ordering: 'start_time',
+      start_time__gte: moment(new Date()).startOf('day'),
+    };
+
     return (
       <Query
         query={GET_GAMES_LIST}
-        variables={{
-          offset: 0,
-          limit: 100,
-          ordering: 'start_time',
-          start_time__gte: moment(new Date()).startOf('day'),
-        }}
+        variables={variables}
         fetchPolicy="cache-and-network"
       >
         {({

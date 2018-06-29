@@ -59,7 +59,7 @@ class LoginScreen extends React.Component {
       });
     } else {
       this.props.setToken(result.data.token);
-      // TODO: use saga to call onSuccessHook right after setToken is done
+      // TODO: use sagas to call onSuccessHook right after setToken is done
       // Delay redirect to avoid flickering screen
       this.props.setTimeout(() => {
         // Pass event up to parent component
@@ -70,6 +70,7 @@ class LoginScreen extends React.Component {
   };
 
   componentWillMount() {
+    console.log('***********LOGIN WILL MOUNT');
     if (this.props.user.uuid) {
       this.props.navigation.navigate('MainNav');
     }
