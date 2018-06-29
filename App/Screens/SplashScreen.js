@@ -90,6 +90,7 @@ export class _SplashScreen extends React.Component {
               bgColor={Colors.actionYellow}
               textColor="white"
               activeOpacity={0.8}
+              accessibilityLabel="Start Discovering"
             />
             {!this.props.user.uuid && (
               <TouchableOpacity onPress={() => navigate('LoginScreen')}>

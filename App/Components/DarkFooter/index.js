@@ -60,6 +60,7 @@ export default class DarkFooter extends React.Component {
             style={style.nextButton}
             onPress={this.onNext}
             disabled={this.props.disableNext}
+            accessibilityLabel="next"
           />
         )}
       </View>

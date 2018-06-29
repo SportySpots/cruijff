@@ -69,3 +69,6 @@ buck-out/
 
 # vscode
 .vscode
+
+# test key generator for appium tests
+test-key.keystore
