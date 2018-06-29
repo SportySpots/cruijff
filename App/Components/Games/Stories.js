@@ -7,7 +7,6 @@ import { WithApolloMockProvider } from '../../GraphQL';
 import GameListCard from './GameListCard';
 import GameProperties from './GameProperties';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
-import ActivityCard from './ActivityCard';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -73,23 +72,9 @@ const game = {
 };
 
 storiesOf('Games', module)
-  .add('Game list card', () => (
-    <View style={{ marginHorizontal: 16 }}>
-      <WithApolloMockProvider>
-        <Query query={GET_GAMES_LIST}>
-          {({ loading, error, data }) =>
-            (loading || error ? null : (
-              <GameListCard game={data.games[0]} navigation={dummyNavigator} />
-            ))
-          }
-        </Query>
-      </WithApolloMockProvider>
-    </View>
-  ))
-
   .add('GameProperties', () => <GameProperties game={game} />)
-  .add('ActivityCard', () => (
+  .add('GameListCard', () => (
     <View>
-      <ActivityCard game={game} />
+      <GameListCard game={game} />
     </View>
   ));
