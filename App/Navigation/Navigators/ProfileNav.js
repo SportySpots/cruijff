@@ -10,47 +10,51 @@ import ProfileDetailsScreen from '../../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../../Screens/Profile/ProfileEditScreen';
 import style from './style';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
 const { headerTitleStyle } = style;
-
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+const handleSuccessAuth = (navigation) => {
+  // Reset navigation after successful auth
+  navigation.popToTop();
+};
+//------------------------------------------------------------------------------
+const backBtn = navigation => (
+  <StackBackHeader
+    onPress={() => { navigation.goBack(null); }}
+  />
+);
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const ProfileNav = StackNavigator({
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoginScreen
         navigation={navigation}
-        onSuccessHook={() => {
-          // Reset navigation after success login
-          navigation.popToTop();
-        }}
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Hi again!'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   SignupScreen: {
     screen: ({ navigation }) => (
       <SignupScreen
         navigation={navigation}
-        onSuccessHook={() => {
-          // Reset navigation after success signup
-          navigation.popToTop();
-        }}
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Sign up'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   ProfileEditScreen: {
@@ -63,11 +67,7 @@ const ProfileNav = StackNavigator({
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Profile Edit'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   ProfileDetailsScreen: {

@@ -70,7 +70,6 @@ class LoginScreen extends React.Component {
   };
 
   componentWillMount() {
-    console.log('***********LOGIN WILL MOUNT');
     if (this.props.user.uuid) {
       this.props.navigation.navigate('MainNav');
     }
@@ -137,7 +136,9 @@ LoginScreen.propTypes = {
   onPress: PropTypes.func,
   text: PropTypes.string,
   children: PropTypes.string,
-  navigation: PropTypes.object,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
   setToken: PropTypes.func,
   user: PropTypes.object,
   setTimeout: PropTypes.func.isRequired,

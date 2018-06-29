@@ -7,45 +7,51 @@ import SignupScreen from '../../Screens/SignupScreen';
 import SplashScreen from '../../Screens/SplashScreen';
 import style from './style';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
 const { headerTitleStyle } = style;
-
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+const handleSuccessAuth = (navigation) => {
+  // After successful auth, go back to splash screen
+  navigation.goBack(null);
+};
+//------------------------------------------------------------------------------
+const backBtn = navigation => (
+  <StackBackHeader
+    onPress={() => { navigation.goBack(null); }}
+  />
+);
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const SplashNav = StackNavigator({
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoginScreen
-        onSuccessHook={() => {
-          // After success login, go back to splash screen
-          navigation.goBack(null);
-        }}
+        navigation={navigation}
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Hi again!'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   SignupScreen: {
     screen: ({ navigation }) => (
       <SignupScreen
-        onSuccessHook={() => {
-          // After success signup, go back to splash screen
-          navigation.goBack(null);
-        }}
+        navigation={navigation}
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Sign up'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   SplashScreen: {

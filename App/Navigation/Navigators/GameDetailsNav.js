@@ -9,51 +9,52 @@ import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
 import style from './style';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
 const { headerTitleStyle } = style;
-
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+const handleSuccessAuth = (navigation) => {
+  // After successful auth, go back 2 screens:
+  // --> ProfileSignupScreen --> GameDetailsScreen
+  navigation.pop(2);
+};
+//------------------------------------------------------------------------------
+const backBtn = navigation => (
+  <StackBackHeader
+    onPress={() => { navigation.goBack(null); }}
+  />
+);
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const GameDetailsNav = StackNavigator({
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoginScreen
         navigation={navigation}
-        onSuccessHook={() => {
-          // After success login, go back 2 screen:
-          // --> ProfileSignupScreen
-          // --> GameDetailsScreen
-          navigation.pop(2);
-        }}
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Hi again!'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   SignupScreen: {
     screen: ({ navigation }) => (
       <SignupScreen
         navigation={navigation}
-        onSuccessHook={() => {
-          // After success signup, go back 2 screen:
-          // --> ProfileSignupScreen
-          // --> GameDetailsScreen
-          navigation.pop(2);
-        }}
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Sign up'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   ProfileSignupScreen: {
@@ -61,11 +62,7 @@ const GameDetailsNav = StackNavigator({
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Game details'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   GamePlayerScreen: {
@@ -73,11 +70,7 @@ const GameDetailsNav = StackNavigator({
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Player list'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   GameDetailsScreen: {
@@ -85,11 +78,7 @@ const GameDetailsNav = StackNavigator({
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Game details'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
 }, {

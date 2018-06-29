@@ -9,8 +9,21 @@ import GameDetailsNav from './GameDetailsNav';
 import SpotFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
 import style from './style';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
 const { headerTitleStyle } = style;
-
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+const backBtn = navigation => (
+  <StackBackHeader
+    onPress={() => { navigation.goBack(null); }}
+  />
+);
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const SpotSearchNav = StackNavigator({
   GameDetailsScreen: {
     screen: GameDetailsNav,
@@ -23,11 +36,7 @@ const SpotSearchNav = StackNavigator({
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Spot details'),
       headerTitleStyle,
-      headerLeft: (
-        <StackBackHeader
-          onPress={() => { navigation.goBack(null); }}
-        />
-      ),
+      headerLeft: backBtn(navigation),
     }),
   },
   SpotsFilterScreen: {

@@ -172,7 +172,9 @@ _Signup.propTypes = {
   onPress: PropTypes.func,
   text: PropTypes.string,
   children: PropTypes.string,
-  navigation: PropTypes.object,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
   setToken: PropTypes.func,
   user: PropTypes.object,
   setTimeout: PropTypes.func.isRequired,

@@ -3,6 +3,9 @@ import I18n from '../../I18n';
 import GameDetailsNav from './GameDetailsNav';
 import GamesListScreen from '../../Screens/Games/GamesListScreen';
 
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const GameSearchNav = StackNavigator({
   GameDetailsScreen: {
     screen: GameDetailsNav,
