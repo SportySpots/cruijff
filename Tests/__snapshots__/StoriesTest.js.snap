@@ -629,6 +629,104 @@ exports[`Storyshots Backgrounds LogoHeader 1`] = `
 </View>
 `;
 
+exports[`Storyshots Basic components BackButton 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 24,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "#000",
+                "fontFamily": "Rajdhani-SemiBold",
+                "fontSize": 32,
+                "lineHeight": NaN,
+              },
+              Object {
+                "color": "#fff",
+              },
+            ],
+          ]
+        }
+      >
+        BACK
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`Storyshots Basic components Check 1`] = `
 <View
   style={
@@ -941,6 +1039,142 @@ exports[`Storyshots Basic components FlatButton 1`] = `
       textColor={undefined}
     >
       SUBMIT
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Storyshots Basic components MapsButton 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(255,255,255,.2)",
+          "borderRadius": 50,
+          "display": "flex",
+          "height": 40,
+          "justifyContent": "center",
+          "shadowColor": "#000",
+          "shadowOpacity": 0.2,
+          "width": 40,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#009f36",
+            "fontSize": 24,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Storyshots Basic components RouteButton 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(255,255,255,.2)",
+          "borderRadius": 50,
+          "display": "flex",
+          "height": 40,
+          "justifyContent": "center",
+          "shadowColor": "#000",
+          "shadowOpacity": 0.2,
+          "width": 40,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#009f36",
+            "fontSize": 24,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
     </Text>
   </View>
 </View>
@@ -1342,24 +1576,14 @@ exports[`Storyshots DarkFooter Default 1`] = `
 </View>
 `;
 
-exports[`Storyshots Games GameListCard 1`] = `
+exports[`Storyshots Games ActivityCard 1`] = `
 <View>
   <View
     style={
       Array [
         Object {
-          "borderRadius": 8,
           "display": "flex",
-          "elevation": 2,
           "height": 232,
-          "marginHorizontal": 4,
-          "marginVertical": 4,
-          "shadowColor": "#BDBDBD",
-          "shadowOffset": Object {
-            "height": 1,
-            "width": 1,
-          },
-          "shadowOpacity": 0.8,
         },
         undefined,
       ]
@@ -1369,10 +1593,190 @@ exports[`Storyshots Games GameListCard 1`] = `
       style={
         Array [
           Object {
-            "borderRadius": 8,
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderTopLeftRadius": 8,
+            "borderTopRightRadius": 8,
+            "flexBasis": 0,
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "paddingHorizontal": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        size={40}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#009f36",
+              "borderRadius": 40,
+              "flexDirection": "column",
+              "height": 40,
+              "justifyContent": "center",
+              "width": 40,
+            },
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          innerRef={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": NaN,
+                },
+                Array [
+                  Object {
+                    "color": "#fff",
+                    "paddingBottom": 4,
+                    "paddingLeft": 4,
+                    "paddingRight": 4,
+                    "paddingTop": 4,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          TK
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "marginLeft": 16,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": NaN,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Tom
+
+          Klaver
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "marginHorizontal": 8,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            ·
+          </Text>
+        </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": NaN,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          BEACH_VOLLEYBALL
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "green",
+            "borderBottomLeftRadius": 8,
+            "borderBottomRightRadius": 8,
             "display": "flex",
-            "height": 232,
-            "overflow": "hidden",
+            "flexBasis": 0,
+            "flexGrow": 3,
+            "flexShrink": 1,
           },
           undefined,
         ]
@@ -1382,208 +1786,47 @@ exports[`Storyshots Games GameListCard 1`] = `
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "white",
-              "borderTopLeftRadius": 8,
-              "borderTopRightRadius": 8,
-              "flexBasis": 0,
-              "flexDirection": "row",
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "paddingHorizontal": 16,
-            },
-            undefined,
-          ]
-        }
-      >
-        <View
-          size={40}
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#009f36",
-                "borderRadius": 40,
-                "flexDirection": "column",
-                "height": 40,
-                "justifyContent": "center",
-                "width": 40,
-              },
-              Object {},
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            innerRef={[Function]}
-            size={40}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "Rajdhani-SemiBold",
-                    "fontSize": 18,
-                    "lineHeight": NaN,
-                  },
-                  Array [
-                    Object {
-                      "color": "#fff",
-                      "fontSize": 18,
-                      "paddingBottom": 4,
-                      "paddingLeft": 4,
-                      "paddingRight": 4,
-                      "paddingTop": 4,
-                      "textAlign": "center",
-                    },
-                    undefined,
-                  ],
-                ],
-              ]
-            }
-          >
-            TK
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "marginLeft": 16,
-              },
-              undefined,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "Rajdhani-SemiBold",
-                    "fontSize": 18,
-                    "lineHeight": NaN,
-                  },
-                  undefined,
-                ],
-              ]
-            }
-          >
-            Tom
-             
-            Klaver
-          </Text>
-          <View
-            style={
-              Array [
-                Object {
-                  "marginHorizontal": 8,
-                },
-                undefined,
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "Rajdhani-SemiBold",
-                      "fontSize": 18,
-                      "lineHeight": NaN,
-                    },
-                    Object {
-                      "color": "#BDBDBD",
-                    },
-                  ],
-                ]
-              }
-            >
-              ·
-            </Text>
-          </View>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "Rajdhani-SemiBold",
-                    "fontSize": 18,
-                    "lineHeight": NaN,
-                  },
-                  undefined,
-                ],
-              ]
-            }
-          >
-            BEACH_VOLLEYBALL
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "green",
               "borderBottomLeftRadius": 8,
               "borderBottomRightRadius": 8,
-              "display": "flex",
-              "flexBasis": 0,
-              "flexGrow": 3,
-              "flexShrink": 1,
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
             },
             undefined,
           ]
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "uri": "https://s3.amazonaws.com/sportyspots-prd/spots/dea377b2-cff8-49ae-97ea-475d22a3a477/images/Paramariboplein.jpg",
+            }
+          }
           style={
             Array [
               Object {
                 "borderBottomLeftRadius": 8,
                 "borderBottomRightRadius": 8,
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "black",
+                "borderBottomLeftRadius": 8,
+                "borderBottomRightRadius": 8,
                 "bottom": 0,
                 "left": 0,
+                "opacity": 0.5,
                 "position": "absolute",
                 "right": 0,
                 "top": 0,
@@ -1591,60 +1834,91 @@ exports[`Storyshots Games GameListCard 1`] = `
               undefined,
             ]
           }
-        >
-          <Image
-            source={
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "marginHorizontal": 16,
+              "marginVertical": 16,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          innerRef={[Function]}
+          style={
+            Array [
               Object {
-                "uri": "https://s3.amazonaws.com/sportyspots-prd/spots/dea377b2-cff8-49ae-97ea-475d22a3a477/images/Paramariboplein.jpg",
-              }
-            }
-            style={
+                "backgroundColor": "transparent",
+              },
               Array [
                 Object {
-                  "borderBottomLeftRadius": 8,
-                  "borderBottomRightRadius": 8,
-                  "flexBasis": 0,
-                  "flexGrow": 1,
-                  "flexShrink": 1,
+                  "backgroundColor": "transparent",
                 },
-                undefined,
-              ]
-            }
-          />
-          <View
-            style={
-              Array [
                 Object {
-                  "backgroundColor": "black",
-                  "borderBottomLeftRadius": 8,
-                  "borderBottomRightRadius": 8,
-                  "bottom": 0,
-                  "left": 0,
-                  "opacity": 0.5,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": NaN,
                 },
-                undefined,
-              ]
-            }
-          />
-        </View>
+                Array [
+                  Object {
+                    "color": "#fff",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 22,
+                    "marginBottom": 8,
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          Sez's dgsldkgj lksdjgklsdjg sdg game
+        </Text>
         <View
           style={
             Array [
               Object {
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-                "marginHorizontal": 16,
-                "marginVertical": 16,
+                "alignItems": "center",
+                "flexDirection": "row",
               },
               undefined,
             ]
           }
         >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#fff",
+                  "fontSize": 24,
+                },
+                Object {
+                  "marginRight": 8,
+                },
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
           <Text
             accessible={true}
             allowFontScaling={true}
@@ -1661,16 +1935,70 @@ exports[`Storyshots Games GameListCard 1`] = `
                   },
                   Object {
                     "color": "#000",
-                    "fontFamily": "Rajdhani-SemiBold",
-                    "fontSize": 18,
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 12,
                     "lineHeight": NaN,
                   },
                   Array [
                     Object {
                       "color": "#fff",
-                      "fontFamily": "Rajdhani-SemiBold",
-                      "fontSize": 22,
-                      "marginBottom": 8,
+                    },
+                    Object {
+                      "marginRight": 16,
+                    },
+                  ],
+                ],
+              ]
+            }
+          >
+            2018-05-24T16:00:00+00:00
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#fff",
+                  "fontSize": 24,
+                },
+                Object {
+                  "marginRight": 8,
+                },
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 12,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
                     },
                     undefined,
                   ],
@@ -1678,8 +2006,24 @@ exports[`Storyshots Games GameListCard 1`] = `
               ]
             }
           >
-            Sez's dgsldkgj lksdjgklsdjg sdg game
+            Oosterpark
           </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomLeftRadius": 8,
+                "borderBottomRightRadius": 8,
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "paddingTop": 8,
+              },
+              undefined,
+            ]
+          }
+        >
           <View
             style={
               Array [
@@ -1687,325 +2031,182 @@ exports[`Storyshots Games GameListCard 1`] = `
                   "alignItems": "center",
                   "flexDirection": "row",
                 },
-                undefined,
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 24,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                    "marginRight": 8,
-                  },
-                  Object {
-                    "fontFamily": "Ionicons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              innerRef={[Function]}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "Rajdhani-Regular",
-                      "fontSize": 16,
-                      "lineHeight": NaN,
-                    },
-                    Array [
-                      Object {
-                        "color": "#fff",
-                      },
-                      Object {
-                        "marginRight": 16,
-                      },
-                    ],
-                  ],
-                ]
-              }
-            >
-              24-05 16:00
-            </Text>
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 24,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                    "marginRight": 8,
-                  },
-                  Object {
-                    "fontFamily": "Material Design Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              innerRef={[Function]}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "Rajdhani-Regular",
-                      "fontSize": 16,
-                      "lineHeight": NaN,
-                    },
-                    Array [
-                      Object {
-                        "color": "#fff",
-                      },
-                      undefined,
-                    ],
-                  ],
-                ]
-              }
-            >
-              Oosterpark
-            </Text>
-          </View>
-          <View
-            style={
-              Array [
                 Object {
-                  "borderBottomLeftRadius": 8,
-                  "borderBottomRightRadius": 8,
-                  "paddingTop": 16,
+                  "flex": 1,
                 },
-                undefined,
               ]
             }
           >
             <View
+              size={40}
               style={
                 Array [
                   Object {
                     "alignItems": "center",
-                    "flexDirection": "row",
+                    "backgroundColor": "#009f36",
+                    "borderRadius": 40,
+                    "flexDirection": "column",
+                    "height": 40,
+                    "justifyContent": "center",
+                    "width": 40,
                   },
-                  undefined,
+                  Object {
+                    "marginRight": 8,
+                  },
                 ]
               }
             >
-              <View
-                size={40}
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                innerRef={[Function]}
                 style={
                   Array [
                     Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#009f36",
-                      "borderRadius": 40,
-                      "flexDirection": "column",
-                      "height": 40,
-                      "justifyContent": "center",
-                      "width": 40,
+                      "backgroundColor": "transparent",
                     },
-                    Object {
-                      "marginRight": 8,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  innerRef={[Function]}
-                  size={40}
-                  style={
                     Array [
                       Object {
                         "backgroundColor": "transparent",
                       },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "lineHeight": NaN,
+                      },
                       Array [
                         Object {
-                          "backgroundColor": "transparent",
+                          "color": "#fff",
+                          "paddingBottom": 4,
+                          "paddingLeft": 4,
+                          "paddingRight": 4,
+                          "paddingTop": 4,
+                          "textAlign": "center",
                         },
-                        Object {
-                          "color": "#000",
-                          "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 18,
-                          "lineHeight": NaN,
-                        },
-                        Array [
-                          Object {
-                            "color": "#fff",
-                            "fontSize": 18,
-                            "paddingBottom": 4,
-                            "paddingLeft": 4,
-                            "paddingRight": 4,
-                            "paddingTop": 4,
-                            "textAlign": "center",
-                          },
-                          undefined,
-                        ],
+                        undefined,
                       ],
-                    ]
-                  }
-                >
-                  RT
-                </Text>
-              </View>
-              <View
-                size={40}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#009f36",
-                      "borderRadius": 40,
-                      "flexDirection": "column",
-                      "height": 40,
-                      "justifyContent": "center",
-                      "width": 40,
-                    },
-                    Object {
-                      "marginRight": 8,
-                    },
+                    ],
                   ]
                 }
               >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  innerRef={[Function]}
-                  size={40}
-                  style={
+                RT
+              </Text>
+            </View>
+            <View
+              size={40}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#009f36",
+                    "borderRadius": 40,
+                    "flexDirection": "column",
+                    "height": 40,
+                    "justifyContent": "center",
+                    "width": 40,
+                  },
+                  Object {
+                    "marginRight": 8,
+                  },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                innerRef={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
                     Array [
                       Object {
                         "backgroundColor": "transparent",
                       },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "lineHeight": NaN,
+                      },
                       Array [
                         Object {
-                          "backgroundColor": "transparent",
+                          "color": "#fff",
+                          "paddingBottom": 4,
+                          "paddingLeft": 4,
+                          "paddingRight": 4,
+                          "paddingTop": 4,
+                          "textAlign": "center",
                         },
-                        Object {
-                          "color": "#000",
-                          "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 18,
-                          "lineHeight": NaN,
-                        },
-                        Array [
-                          Object {
-                            "color": "#fff",
-                            "fontSize": 18,
-                            "paddingBottom": 4,
-                            "paddingLeft": 4,
-                            "paddingRight": 4,
-                            "paddingTop": 4,
-                            "textAlign": "center",
-                          },
-                          undefined,
-                        ],
+                        undefined,
                       ],
-                    ]
-                  }
-                >
-                  RT
-                </Text>
-              </View>
-              <View
-                size={40}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#009f36",
-                      "borderRadius": 40,
-                      "flexDirection": "column",
-                      "height": 40,
-                      "justifyContent": "center",
-                      "width": 40,
-                    },
-                    Object {
-                      "marginRight": 8,
-                    },
+                    ],
                   ]
                 }
               >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  innerRef={[Function]}
-                  size={40}
-                  style={
+                RT
+              </Text>
+            </View>
+            <View
+              size={40}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#009f36",
+                    "borderRadius": 40,
+                    "flexDirection": "column",
+                    "height": 40,
+                    "justifyContent": "center",
+                    "width": 40,
+                  },
+                  Object {
+                    "marginRight": 8,
+                  },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                innerRef={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
                     Array [
                       Object {
                         "backgroundColor": "transparent",
                       },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "lineHeight": NaN,
+                      },
                       Array [
                         Object {
-                          "backgroundColor": "transparent",
+                          "color": "#fff",
+                          "paddingBottom": 4,
+                          "paddingLeft": 4,
+                          "paddingRight": 4,
+                          "paddingTop": 4,
+                          "textAlign": "center",
                         },
-                        Object {
-                          "color": "#000",
-                          "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 18,
-                          "lineHeight": NaN,
-                        },
-                        Array [
-                          Object {
-                            "color": "#fff",
-                            "fontSize": 18,
-                            "paddingBottom": 4,
-                            "paddingLeft": 4,
-                            "paddingRight": 4,
-                            "paddingTop": 4,
-                            "textAlign": "center",
-                          },
-                          undefined,
-                        ],
+                        undefined,
                       ],
-                    ]
-                  }
-                >
-                  RT
-                </Text>
-              </View>
+                    ],
+                  ]
+                }
+              >
+                RT
+              </Text>
             </View>
           </View>
         </View>
@@ -2013,6 +2214,16 @@ exports[`Storyshots Games GameListCard 1`] = `
     </View>
   </View>
 </View>
+`;
+
+exports[`Storyshots Games Game list card 1`] = `
+<View
+  style={
+    Object {
+      "marginHorizontal": 16,
+    }
+  }
+/>
 `;
 
 exports[`Storyshots Games GameProperties 1`] = `
@@ -2032,7 +2243,7 @@ exports[`Storyshots Games GameProperties 1`] = `
       Array [
         Object {
           "display": "flex",
-          "marginBottom": 8,
+          "marginBottom": 16,
         },
         undefined,
       ]
@@ -2122,8 +2333,8 @@ exports[`Storyshots Games GameProperties 1`] = `
             },
             Object {
               "color": "#000",
-              "fontFamily": "Rajdhani-Regular",
-              "fontSize": 16,
+              "fontFamily": "Rajdhani-SemiBold",
+              "fontSize": 18,
               "lineHeight": NaN,
             },
             Array [
@@ -2132,6 +2343,7 @@ exports[`Storyshots Games GameProperties 1`] = `
                 "flexBasis": 0,
                 "flexGrow": 1,
                 "flexShrink": 1,
+                "fontSize": 15,
                 "paddingHorizontal": 20,
               },
               undefined,
@@ -2193,8 +2405,8 @@ exports[`Storyshots Games GameProperties 1`] = `
             },
             Object {
               "color": "#000",
-              "fontFamily": "Rajdhani-Regular",
-              "fontSize": 16,
+              "fontFamily": "Rajdhani-SemiBold",
+              "fontSize": 18,
               "lineHeight": NaN,
             },
             Array [
@@ -2203,6 +2415,7 @@ exports[`Storyshots Games GameProperties 1`] = `
                 "flexBasis": 0,
                 "flexGrow": 1,
                 "flexShrink": 1,
+                "fontSize": 15,
                 "paddingHorizontal": 20,
               },
               undefined,
@@ -2212,7 +2425,7 @@ exports[`Storyshots Games GameProperties 1`] = `
       }
     >
       16:00
-       - 
+       -
       04:00
     </Text>
   </View>
@@ -2266,8 +2479,8 @@ exports[`Storyshots Games GameProperties 1`] = `
             },
             Object {
               "color": "#000",
-              "fontFamily": "Rajdhani-Regular",
-              "fontSize": 16,
+              "fontFamily": "Rajdhani-SemiBold",
+              "fontSize": 18,
               "lineHeight": NaN,
             },
             Array [
@@ -2276,6 +2489,7 @@ exports[`Storyshots Games GameProperties 1`] = `
                 "flexBasis": 0,
                 "flexGrow": 1,
                 "flexShrink": 1,
+                "fontSize": 15,
                 "paddingHorizontal": 20,
               },
               undefined,
@@ -2286,103 +2500,6 @@ exports[`Storyshots Games GameProperties 1`] = `
     >
       BEACH_VOLLEYBALL
     </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "row",
-          "marginVertical": 4,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "flexDirection": "row",
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#BDBDBD",
-              "fontSize": 22,
-            },
-            undefined,
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        innerRef={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 16,
-                "lineHeight": NaN,
-              },
-              Array [
-                Object {
-                  "color": "#000",
-                  "flexBasis": 0,
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "paddingHorizontal": 20,
-                },
-                undefined,
-              ],
-            ],
-          ]
-        }
-      >
-        Oosterpark
-      </Text>
-    </View>
   </View>
 </View>
 `;
@@ -3030,14 +3147,550 @@ exports[`Storyshots NavBar At bottom 1`] = `
   />
   <View
     style={
-      Array [
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "rgba(0,0,0,0)",
+        "flexDirection": "row",
+        "height": 56,
+        "marginTop": -8,
+        "position": "relative",
+      }
+    }
+  >
+    <View
+      style={
         Object {
-          "alignItems": "flex-end",
-          "flexDirection": "row",
+          "flex": 9,
           "height": 48,
-        },
-        undefined,
-      ]
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "borderTopColor": "#e6e6e6",
+            "borderTopWidth": 0.5,
+            "flex": 1,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+              },
+              false,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 12,
+                    "lineHeight": NaN,
+                  },
+                  Object {
+                    "color": "rgba(0,0,0,0.34)",
+                  },
+                ],
+              ]
+            }
+          >
+            find
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 9,
+          "height": 48,
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "borderTopColor": "#e6e6e6",
+            "borderTopWidth": 0.5,
+            "flex": 1,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+              },
+              false,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 12,
+                    "lineHeight": NaN,
+                  },
+                  Object {
+                    "color": "rgba(0,0,0,0.34)",
+                  },
+                ],
+              ]
+            }
+          >
+            join
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flex": 11,
+          "height": 56,
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "borderTopColor": "#e6e6e6",
+            "borderTopWidth": 0,
+            "flex": 1,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+              },
+              Object {
+                "backgroundColor": "#009f36",
+                "borderTopLeftRadius": 8,
+                "borderTopRightRadius": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#fff",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 12,
+                    "lineHeight": NaN,
+                  },
+                  Object {
+                    "color": "#fff",
+                  },
+                ],
+              ]
+            }
+          >
+            Organize
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 9,
+          "height": 48,
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "borderTopColor": "#e6e6e6",
+            "borderTopWidth": 0.5,
+            "flex": 1,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+              },
+              false,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 12,
+                    "lineHeight": NaN,
+                  },
+                  Object {
+                    "color": "rgba(0,0,0,0.34)",
+                  },
+                ],
+              ]
+            }
+          >
+            profile
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 9,
+          "height": 48,
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "borderTopColor": "#e6e6e6",
+            "borderTopWidth": 0.5,
+            "flex": 1,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+              },
+              false,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 12,
+                    "lineHeight": NaN,
+                  },
+                  Object {
+                    "color": "rgba(0,0,0,0.34)",
+                  },
+                ],
+              ]
+            }
+          >
+            info
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Storyshots NavBar Default 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "flex-end",
+      "backgroundColor": "rgba(0,0,0,0)",
+      "flexDirection": "row",
+      "height": 56,
+      "marginTop": -8,
+      "position": "relative",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 9,
+        "height": 48,
+      }
     }
   >
     <View
@@ -3058,15 +3711,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#fff",
           "borderTopColor": "#e6e6e6",
-          "borderTopLeftRadius": 0,
-          "borderTopRightRadius": 0,
           "borderTopWidth": 0.5,
-          "flexBasis": 0,
-          "flexGrow": 9,
-          "flexShrink": 1,
-          "height": 48,
+          "flex": 1,
           "opacity": 1,
         }
       }
@@ -3078,13 +3725,12 @@ exports[`Storyshots NavBar At bottom 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "flexBasis": 0,
+              "backgroundColor": "#fff",
+              "flex": 1,
               "flexDirection": "column",
-              "flexGrow": 1,
-              "flexShrink": 1,
               "justifyContent": "center",
             },
-            undefined,
+            false,
           ]
         }
       >
@@ -3112,9 +3758,7 @@ exports[`Storyshots NavBar At bottom 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
-          color="rgba(0,0,0,0.34)"
           ellipsizeMode="tail"
-          innerRef={[Function]}
           style={
             Array [
               Object {
@@ -3130,12 +3774,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
                   "fontSize": 12,
                   "lineHeight": NaN,
                 },
-                Array [
-                  Object {
-                    "color": "rgba(0,0,0,0.34)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                },
               ],
             ]
           }
@@ -3144,6 +3785,15 @@ exports[`Storyshots NavBar At bottom 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 9,
+        "height": 48,
+      }
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -3162,15 +3812,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#fff",
           "borderTopColor": "#e6e6e6",
-          "borderTopLeftRadius": 0,
-          "borderTopRightRadius": 0,
           "borderTopWidth": 0.5,
-          "flexBasis": 0,
-          "flexGrow": 9,
-          "flexShrink": 1,
-          "height": 48,
+          "flex": 1,
           "opacity": 1,
         }
       }
@@ -3182,13 +3826,12 @@ exports[`Storyshots NavBar At bottom 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "flexBasis": 0,
+              "backgroundColor": "#fff",
+              "flex": 1,
               "flexDirection": "column",
-              "flexGrow": 1,
-              "flexShrink": 1,
               "justifyContent": "center",
             },
-            undefined,
+            false,
           ]
         }
       >
@@ -3211,14 +3854,12 @@ exports[`Storyshots NavBar At bottom 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
           allowFontScaling={true}
-          color="rgba(0,0,0,0.34)"
           ellipsizeMode="tail"
-          innerRef={[Function]}
           style={
             Array [
               Object {
@@ -3234,12 +3875,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
                   "fontSize": 12,
                   "lineHeight": NaN,
                 },
-                Array [
-                  Object {
-                    "color": "rgba(0,0,0,0.34)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                },
               ],
             ]
           }
@@ -3248,6 +3886,17 @@ exports[`Storyshots NavBar At bottom 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderTopLeftRadius": 8,
+        "borderTopRightRadius": 8,
+        "flex": 11,
+        "height": 56,
+      }
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -3266,15 +3915,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#009f36",
-          "borderTopColor": "rgba(0,0,0,0)",
-          "borderTopLeftRadius": 8,
-          "borderTopRightRadius": 8,
+          "borderTopColor": "#e6e6e6",
           "borderTopWidth": 0,
-          "flexBasis": 0,
-          "flexGrow": 10,
-          "flexShrink": 1,
-          "height": 56,
+          "flex": 1,
           "opacity": 1,
         }
       }
@@ -3286,13 +3929,16 @@ exports[`Storyshots NavBar At bottom 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "flexBasis": 0,
+              "backgroundColor": "#fff",
+              "flex": 1,
               "flexDirection": "column",
-              "flexGrow": 1,
-              "flexShrink": 1,
               "justifyContent": "center",
             },
-            undefined,
+            Object {
+              "backgroundColor": "#009f36",
+              "borderTopLeftRadius": 8,
+              "borderTopRightRadius": 8,
+            },
           ]
         }
       >
@@ -3315,14 +3961,12 @@ exports[`Storyshots NavBar At bottom 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
           allowFontScaling={true}
-          color="#fff"
           ellipsizeMode="tail"
-          innerRef={[Function]}
           style={
             Array [
               Object {
@@ -3338,12 +3982,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
                   "fontSize": 12,
                   "lineHeight": NaN,
                 },
-                Array [
-                  Object {
-                    "color": "#fff",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "color": "#fff",
+                },
               ],
             ]
           }
@@ -3352,6 +3993,15 @@ exports[`Storyshots NavBar At bottom 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 9,
+        "height": 48,
+      }
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -3370,15 +4020,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#fff",
           "borderTopColor": "#e6e6e6",
-          "borderTopLeftRadius": 0,
-          "borderTopRightRadius": 0,
           "borderTopWidth": 0.5,
-          "flexBasis": 0,
-          "flexGrow": 9,
-          "flexShrink": 1,
-          "height": 48,
+          "flex": 1,
           "opacity": 1,
         }
       }
@@ -3390,13 +4034,12 @@ exports[`Storyshots NavBar At bottom 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "flexBasis": 0,
+              "backgroundColor": "#fff",
+              "flex": 1,
               "flexDirection": "column",
-              "flexGrow": 1,
-              "flexShrink": 1,
               "justifyContent": "center",
             },
-            undefined,
+            false,
           ]
         }
       >
@@ -3424,9 +4067,7 @@ exports[`Storyshots NavBar At bottom 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
-          color="rgba(0,0,0,0.34)"
           ellipsizeMode="tail"
-          innerRef={[Function]}
           style={
             Array [
               Object {
@@ -3442,12 +4083,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
                   "fontSize": 12,
                   "lineHeight": NaN,
                 },
-                Array [
-                  Object {
-                    "color": "rgba(0,0,0,0.34)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                },
               ],
             ]
           }
@@ -3456,6 +4094,15 @@ exports[`Storyshots NavBar At bottom 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 9,
+        "height": 48,
+      }
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -3474,15 +4121,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#fff",
           "borderTopColor": "#e6e6e6",
-          "borderTopLeftRadius": 0,
-          "borderTopRightRadius": 0,
           "borderTopWidth": 0.5,
-          "flexBasis": 0,
-          "flexGrow": 9,
-          "flexShrink": 1,
-          "height": 48,
+          "flex": 1,
           "opacity": 1,
         }
       }
@@ -3494,13 +4135,12 @@ exports[`Storyshots NavBar At bottom 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "flexBasis": 0,
+              "backgroundColor": "#fff",
+              "flex": 1,
               "flexDirection": "column",
-              "flexGrow": 1,
-              "flexShrink": 1,
               "justifyContent": "center",
             },
-            undefined,
+            false,
           ]
         }
       >
@@ -3528,9 +4168,7 @@ exports[`Storyshots NavBar At bottom 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
-          color="rgba(0,0,0,0.34)"
           ellipsizeMode="tail"
-          innerRef={[Function]}
           style={
             Array [
               Object {
@@ -3546,12 +4184,9 @@ exports[`Storyshots NavBar At bottom 1`] = `
                   "fontSize": 12,
                   "lineHeight": NaN,
                 },
-                Array [
-                  Object {
-                    "color": "rgba(0,0,0,0.34)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                },
               ],
             ]
           }
@@ -3559,542 +4194,6 @@ exports[`Storyshots NavBar At bottom 1`] = `
           info
         </Text>
       </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`Storyshots NavBar Default 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "flex-end",
-        "flexDirection": "row",
-        "height": 48,
-      },
-      undefined,
-    ]
-  }
->
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#fff",
-        "borderTopColor": "#e6e6e6",
-        "borderTopLeftRadius": 0,
-        "borderTopRightRadius": 0,
-        "borderTopWidth": 0.5,
-        "flexBasis": 0,
-        "flexGrow": 9,
-        "flexShrink": 1,
-        "height": 48,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexBasis": 0,
-            "flexDirection": "column",
-            "flexGrow": 1,
-            "flexShrink": 1,
-            "justifyContent": "center",
-          },
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "rgba(0,0,0,0.34)",
-              "fontSize": 24,
-            },
-            undefined,
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        color="rgba(0,0,0,0.34)"
-        ellipsizeMode="tail"
-        innerRef={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": NaN,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                },
-                undefined,
-              ],
-            ],
-          ]
-        }
-      >
-        find
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#fff",
-        "borderTopColor": "#e6e6e6",
-        "borderTopLeftRadius": 0,
-        "borderTopRightRadius": 0,
-        "borderTopWidth": 0.5,
-        "flexBasis": 0,
-        "flexGrow": 9,
-        "flexShrink": 1,
-        "height": 48,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexBasis": 0,
-            "flexDirection": "column",
-            "flexGrow": 1,
-            "flexShrink": 1,
-            "justifyContent": "center",
-          },
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "rgba(0,0,0,0.34)",
-              "fontSize": 24,
-            },
-            undefined,
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        color="rgba(0,0,0,0.34)"
-        ellipsizeMode="tail"
-        innerRef={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": NaN,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                },
-                undefined,
-              ],
-            ],
-          ]
-        }
-      >
-        join
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#009f36",
-        "borderTopColor": "rgba(0,0,0,0)",
-        "borderTopLeftRadius": 8,
-        "borderTopRightRadius": 8,
-        "borderTopWidth": 0,
-        "flexBasis": 0,
-        "flexGrow": 10,
-        "flexShrink": 1,
-        "height": 56,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexBasis": 0,
-            "flexDirection": "column",
-            "flexGrow": 1,
-            "flexShrink": 1,
-            "justifyContent": "center",
-          },
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#fff",
-              "fontSize": 24,
-            },
-            undefined,
-            Object {
-              "fontFamily": "Material Design Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        color="#fff"
-        ellipsizeMode="tail"
-        innerRef={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": NaN,
-              },
-              Array [
-                Object {
-                  "color": "#fff",
-                },
-                undefined,
-              ],
-            ],
-          ]
-        }
-      >
-        Organize
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#fff",
-        "borderTopColor": "#e6e6e6",
-        "borderTopLeftRadius": 0,
-        "borderTopRightRadius": 0,
-        "borderTopWidth": 0.5,
-        "flexBasis": 0,
-        "flexGrow": 9,
-        "flexShrink": 1,
-        "height": 48,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexBasis": 0,
-            "flexDirection": "column",
-            "flexGrow": 1,
-            "flexShrink": 1,
-            "justifyContent": "center",
-          },
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "rgba(0,0,0,0.34)",
-              "fontSize": 24,
-            },
-            undefined,
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        color="rgba(0,0,0,0.34)"
-        ellipsizeMode="tail"
-        innerRef={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": NaN,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                },
-                undefined,
-              ],
-            ],
-          ]
-        }
-      >
-        profile
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#fff",
-        "borderTopColor": "#e6e6e6",
-        "borderTopLeftRadius": 0,
-        "borderTopRightRadius": 0,
-        "borderTopWidth": 0.5,
-        "flexBasis": 0,
-        "flexGrow": 9,
-        "flexShrink": 1,
-        "height": 48,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexBasis": 0,
-            "flexDirection": "column",
-            "flexGrow": 1,
-            "flexShrink": 1,
-            "justifyContent": "center",
-          },
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "rgba(0,0,0,0.34)",
-              "fontSize": 24,
-            },
-            undefined,
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        color="rgba(0,0,0,0.34)"
-        ellipsizeMode="tail"
-        innerRef={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": NaN,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                },
-                undefined,
-              ],
-            ],
-          ]
-        }
-      >
-        info
-      </Text>
     </View>
   </View>
 </View>
@@ -4119,15 +4218,9 @@ exports[`Storyshots NavBar NavBarButton 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "backgroundColor": "#fff",
       "borderTopColor": "#e6e6e6",
-      "borderTopLeftRadius": 0,
-      "borderTopRightRadius": 0,
       "borderTopWidth": 0.5,
-      "flexBasis": 0,
-      "flexGrow": 9,
-      "flexShrink": 1,
-      "height": 48,
+      "flex": 1,
       "opacity": 1,
     }
   }
@@ -4139,13 +4232,12 @@ exports[`Storyshots NavBar NavBarButton 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "flexBasis": 0,
+          "backgroundColor": "#fff",
+          "flex": 1,
           "flexDirection": "column",
-          "flexGrow": 1,
-          "flexShrink": 1,
           "justifyContent": "center",
         },
-        undefined,
+        false,
       ]
     }
   >
@@ -4173,9 +4265,7 @@ exports[`Storyshots NavBar NavBarButton 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      color="rgba(0,0,0,0.34)"
       ellipsizeMode="tail"
-      innerRef={[Function]}
       style={
         Array [
           Object {
@@ -4191,17 +4281,14 @@ exports[`Storyshots NavBar NavBarButton 1`] = `
               "fontSize": 12,
               "lineHeight": NaN,
             },
-            Array [
-              Object {
-                "color": "rgba(0,0,0,0.34)",
-              },
-              undefined,
-            ],
+            Object {
+              "color": "rgba(0,0,0,0.34)",
+            },
           ],
         ]
       }
     >
-      
+      test
     </Text>
   </View>
 </View>
@@ -4529,7 +4616,7 @@ exports[`Storyshots Onboarding Default 1`] = `
                     }
                   }
                 >
-                  Thanks for joining the yet to become biggest free sportclub in the world. 
+                  Thanks for joining the yet to become biggest free sportclub in the world.
  Happy sporting!
                 </Text>
               </View>
@@ -5019,7 +5106,6 @@ exports[`Storyshots Plan Step 3: Description 1`] = `
             }
           }
           underlineColorAndroid="#fff"
-          value=""
         />
       </View>
     </RCTScrollView>
@@ -5846,536 +5932,156 @@ exports[`Storyshots Profile Login 1`] = `
       "flex": 1,
     }
   }
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flexBasis": 0,
-          "flexGrow": 1,
-          "flexShrink": 1,
-          "justifyContent": "center",
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-          },
-          undefined,
-        ]
-      }
-    >
-      <Image
-        source={undefined}
-      />
-      <View
-        style={
-          Object {
-            "height": 32,
-          }
-        }
-      />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 32,
-                "lineHeight": NaN,
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        Sign up
-        !
-      </Text>
-      <View
-        style={
-          Object {
-            "height": 32,
-          }
-        }
-      />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 18,
-                "lineHeight": NaN,
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        Sign up and start sporting
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignSelf": "stretch",
-          },
-          undefined,
-        ]
-      }
-    >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          bgColor="#f5a623"
-          borderColor={null}
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#f5a623",
-                "borderColor": "#f5a623",
-                "borderRadius": 4,
-                "borderStyle": "solid",
-                "borderWidth": 1,
-                "display": "flex",
-                "height": 56,
-                "justifyContent": "center",
-                "marginBottom": 16,
-                "marginLeft": 16,
-                "marginRight": 16,
-                "marginTop": 16,
-              },
-              undefined,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            innerRef={[Function]}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "Rajdhani-SemiBold",
-                    "fontSize": 18,
-                    "lineHeight": NaN,
-                  },
-                  Array [
-                    Object {
-                      "color": "#fff",
-                      "fontWeight": "500",
-                    },
-                    undefined,
-                  ],
-                ],
-              ]
-            }
-            textColor="#fff"
-          >
-            Register
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        innerRef={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 18,
-                "lineHeight": NaN,
-              },
-              Array [
-                Object {
-                  "textAlign": "center",
-                  "textDecorationLine": "underline",
-                },
-                undefined,
-              ],
-            ],
-          ]
-        }
-      >
-        Already signed up? Log in
-      </Text>
-    </View>
-  </View>
-</View>
+/>
 `;
 
 exports[`Storyshots PropertyCircle Propertycircle 1`] = `
 <View>
   <View
-    size={40}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#009f36",
-          "borderRadius": 40,
-          "flexDirection": "column",
-          "height": 40,
-          "justifyContent": "center",
-          "width": 40,
-        },
-        Object {},
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#009f36",
+        "borderRadius": 40,
+        "flexDirection": "column",
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
     }
   >
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      innerRef={[Function]}
       style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "color": "#000",
-              "fontFamily": "Rajdhani-Regular",
-              "fontSize": 12,
-              "lineHeight": NaN,
-            },
-            Array [
-              Object {
-                "color": "#fff",
-                "fontSize": 12,
-                "paddingBottom": 4,
-                "paddingLeft": 4,
-                "paddingRight": 4,
-                "paddingTop": 4,
-                "textAlign": "center",
-              },
-              undefined,
-            ],
-          ],
-        ]
+        Object {
+          "color": "#fff",
+          "fontFamily": "Rajdhani-Regular",
+          "fontSize": 12,
+          "padding": 4,
+          "textAlign": "center",
+        }
       }
     >
       blablabla
     </Text>
   </View>
   <View
-    size={40}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#009f36",
-          "borderRadius": 40,
-          "flexDirection": "column",
-          "height": 40,
-          "justifyContent": "center",
-          "width": 40,
-        },
-        Object {},
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#009f36",
+        "borderRadius": 40,
+        "flexDirection": "column",
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
     }
   >
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      innerRef={[Function]}
       style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "color": "#000",
-              "fontFamily": "Rajdhani-Regular",
-              "fontSize": 12,
-              "lineHeight": NaN,
-            },
-            Array [
-              Object {
-                "color": "#fff",
-                "fontSize": 12,
-                "paddingBottom": 4,
-                "paddingLeft": 4,
-                "paddingRight": 4,
-                "paddingTop": 4,
-                "textAlign": "center",
-              },
-              undefined,
-            ],
-          ],
-        ]
+        Object {
+          "color": "#fff",
+          "fontFamily": "Rajdhani-Regular",
+          "fontSize": 12,
+          "padding": 4,
+          "textAlign": "center",
+        }
       }
     >
       ASD GDS ASD DAS
     </Text>
   </View>
   <View
-    size={40}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#009f36",
-          "borderRadius": 40,
-          "flexDirection": "column",
-          "height": 40,
-          "justifyContent": "center",
-          "width": 40,
-        },
-        Object {},
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#009f36",
+        "borderRadius": 40,
+        "flexDirection": "column",
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
     }
   >
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      innerRef={[Function]}
       style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "color": "#000",
-              "fontFamily": "Rajdhani-Regular",
-              "fontSize": 12,
-              "lineHeight": NaN,
-            },
-            Array [
-              Object {
-                "color": "#fff",
-                "fontSize": 12,
-                "paddingBottom": 4,
-                "paddingLeft": 4,
-                "paddingRight": 4,
-                "paddingTop": 4,
-                "textAlign": "center",
-              },
-              undefined,
-            ],
-          ],
-        ]
+        Object {
+          "color": "#fff",
+          "fontFamily": "Rajdhani-Regular",
+          "fontSize": 12,
+          "padding": 4,
+          "textAlign": "center",
+        }
       }
     >
       as asdasdasdsadassadas
     </Text>
   </View>
   <View
-    size={40}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#009f36",
-          "borderRadius": 40,
-          "flexDirection": "column",
-          "height": 40,
-          "justifyContent": "center",
-          "width": 40,
-        },
-        Object {},
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#009f36",
+        "borderRadius": 40,
+        "flexDirection": "column",
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
     }
   >
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      innerRef={[Function]}
       style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "color": "#000",
-              "fontFamily": "Rajdhani-Regular",
-              "fontSize": 12,
-              "lineHeight": NaN,
-            },
-            Array [
-              Object {
-                "color": "#fff",
-                "fontSize": 12,
-                "paddingBottom": 4,
-                "paddingLeft": 4,
-                "paddingRight": 4,
-                "paddingTop": 4,
-                "textAlign": "center",
-              },
-              undefined,
-            ],
-          ],
-        ]
+        Object {
+          "color": "#fff",
+          "fontFamily": "Rajdhani-Regular",
+          "fontSize": 12,
+          "padding": 4,
+          "textAlign": "center",
+        }
       }
     >
       +4
     </Text>
   </View>
   <View
-    size={40}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#009f36",
-          "borderRadius": 40,
-          "flexDirection": "column",
-          "height": 40,
-          "justifyContent": "center",
-          "width": 40,
-        },
-        Object {},
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#009f36",
+        "borderRadius": 40,
+        "flexDirection": "column",
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
     }
   >
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      innerRef={[Function]}
       style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "color": "#000",
-              "fontFamily": "Rajdhani-Regular",
-              "fontSize": 12,
-              "lineHeight": NaN,
-            },
-            Array [
-              Object {
-                "color": "#fff",
-                "fontSize": 12,
-                "paddingBottom": 4,
-                "paddingLeft": 4,
-                "paddingRight": 4,
-                "paddingTop": 4,
-                "textAlign": "center",
-              },
-              undefined,
-            ],
-          ],
-        ]
+        Object {
+          "color": "#fff",
+          "fontFamily": "Rajdhani-Regular",
+          "fontSize": 12,
+          "padding": 4,
+          "textAlign": "center",
+        }
       }
     >
       HMMMM
@@ -6493,7 +6199,6 @@ exports[`Storyshots Rating 1 1`] = `
             "color": "#000",
             "fontFamily": "Rajdhani-Regular",
             "fontSize": 12,
-            "lineHeight": 18,
             "marginLeft": 8,
           },
         ],
@@ -6619,7 +6324,6 @@ exports[`Storyshots Rating 3 1`] = `
             "color": "#000",
             "fontFamily": "Rajdhani-Regular",
             "fontSize": 12,
-            "lineHeight": 18,
             "marginLeft": 8,
           },
         ],
@@ -6747,7 +6451,6 @@ exports[`Storyshots Rating 4.5 1`] = `
             "color": "#000",
             "fontFamily": "Rajdhani-Regular",
             "fontSize": 12,
-            "lineHeight": 18,
             "marginLeft": 8,
           },
         ],
@@ -8122,9 +7825,9 @@ exports[`Storyshots Screens InfoScreen 1`] = `
         }
       >
         ?
-         
+
         ?
-         
+
         ?
       </Text>
     </View>
@@ -9476,13 +9179,13 @@ exports[`Storyshots Screens SpotsListScreen 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#F5F5F5",
+        "backgroundColor": "#e6e6e6",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
         "paddingBottom": 0,
-        "paddingLeft": 4,
-        "paddingRight": 4,
+        "paddingLeft": 8,
+        "paddingRight": 8,
         "paddingTop": 0,
       },
       undefined,
@@ -9614,38 +9317,6 @@ exports[`Storyshots Screens SpotsListScreen 1`] = `
 </View>
 `;
 
-exports[`Storyshots Screens.Games CancelGameScreen 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flexBasis": 0,
-          "flexGrow": 1,
-          "flexShrink": 1,
-          "justifyContent": "center",
-        },
-        undefined,
-      ]
-    }
-  >
-    <ActivityIndicator
-      animating={true}
-      color="#009f36"
-      hidesWhenStopped={true}
-      size="large"
-    />
-  </View>
-</View>
-`;
-
 exports[`Storyshots Screens.Games GameDetailsScreen 1`] = `
 <View
   style={
@@ -9675,13 +9346,13 @@ exports[`Storyshots Screens.Games GamesListScreen 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#F5F5F5",
+        "backgroundColor": "#fff",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
         "paddingBottom": 0,
-        "paddingLeft": 4,
-        "paddingRight": 4,
+        "paddingLeft": 8,
+        "paddingRight": 8,
         "paddingTop": 0,
       },
       undefined,
@@ -10474,7 +10145,7 @@ exports[`Storyshots SignupScreen Default 1`] = `
               }
             >
               By signing up, you are agreeing to the
-               
+
             </Text>
             <View
               accessibilityComponentType={undefined}
@@ -10922,7 +10593,6 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       innerRef={[Function]}
-      size={40}
       style={
         Array [
           Object {
@@ -10941,7 +10611,6 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
             Array [
               Object {
                 "color": "#fff",
-                "fontSize": 18,
                 "paddingBottom": 4,
                 "paddingLeft": 4,
                 "paddingRight": 4,
@@ -10979,7 +10648,6 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       innerRef={[Function]}
-      size={40}
       style={
         Array [
           Object {
@@ -10998,7 +10666,6 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
             Array [
               Object {
                 "color": "#fff",
-                "fontSize": 18,
                 "paddingBottom": 4,
                 "paddingLeft": 4,
                 "paddingRight": 4,
@@ -11036,7 +10703,6 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       innerRef={[Function]}
-      size={40}
       style={
         Array [
           Object {
@@ -11055,7 +10721,6 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
             Array [
               Object {
                 "color": "#fff",
-                "fontSize": 18,
                 "paddingBottom": 4,
                 "paddingLeft": 4,
                 "paddingRight": 4,
