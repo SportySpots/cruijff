@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
 import { View } from 'react-native';
 import { uniqBy } from 'ramda';
 import moment from 'moment';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
-import Text from '../../Components/Text';
 import GamesList from '../../Components/Games/GamesList';
 import Card from '../../Components/Games/GameListCard';
+import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -44,7 +43,7 @@ class GamesListScreen extends React.Component {
 
   render() {
     return (
-      <Query
+      <QueryCatchErrors
         query={GET_GAMES_LIST}
         variables={{
           offset: 0,
@@ -56,13 +55,10 @@ class GamesListScreen extends React.Component {
       >
         {({
           loading,
-          error,
           data,
           refetch,
           // fetchMore,
-        }) => {
-          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
-
+        }) =>
           /* const loadMore = () => {
             fetchMore({
               variables: {
@@ -77,22 +73,20 @@ class GamesListScreen extends React.Component {
             });
           }; */
 
-          return (
-            <Container>
-              <GamesList
-                games={(data && data.games && curatedGames(data.games)) || []}
-                cardComponent={Card}
-                onCardPress={this.handleCardPress}
+           (
+             <Container>
+               <GamesList
+                 games={(data && data.games && curatedGames(data.games)) || []}
+                 cardComponent={Card}
+                 onCardPress={this.handleCardPress}
                 // FlatList props
-                onRefresh={refetch}
-                refreshing={loading}
-                // onEndReached={loadMore}
-                // onEndReachedThreshold={0}
-              />
-            </Container>
-          );
-        }}
-      </Query>
+                 onRefresh={refetch}
+                 refreshing={loading}
+               />
+             </Container>
+          )
+        }
+      </QueryCatchErrors>
     );
   }
 }

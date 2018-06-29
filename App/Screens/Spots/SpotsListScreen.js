@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
 import geolib from 'geolib';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
 import SpotsList from '../../Components/Spots/SpotsList';
 import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
-import Text from '../../Components/Text';
 import Card from '../../Components/Spots/SpotListCard';
+import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -90,20 +89,17 @@ class SpotsListScreen extends React.Component {
     if (!allSports) { variables.sports__ids = selectedSportIds; }
 
     return (
-      <Query
+      <QueryCatchErrors
         query={GET_SPOTS}
         variables={variables}
         fetchPolicy="cache-and-network"
       >
-        {({
+        { ({
           loading,
-          error,
           data,
           refetch,
           fetchMore,
         }) => {
-          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
-
           const loadMore = () => {
             fetchMore({
               variables: {
@@ -144,7 +140,7 @@ class SpotsListScreen extends React.Component {
             </Container>
           );
         }}
-      </Query>
+      </QueryCatchErrors>
     );
   }
 }

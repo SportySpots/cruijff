@@ -12,6 +12,7 @@ const Container = styled.View`
 
 const NotFoundText = styled(Text.L)`
   color: #ccc;
+  text-align: center;
 `;
 
 const NothingFound = ({ icon, text }) => (
