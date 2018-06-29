@@ -6,14 +6,14 @@ const GET_SPOTS = gql`
     $limit: Int,
     $offset: Int,
     $sports__ids: [ID],
-    $distance: String,
+#    $distance: String,
   ) {
     spots(
       is_verified: true,
       limit: $limit,
       offset: $offset,
       sports__ids: $sports__ids,
-      distance: $distance,
+#      distance: $distance,
     ) {
       ...spotFragment
     }

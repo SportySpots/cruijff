@@ -23,6 +23,7 @@ import GameProperties from '../../Components/Games/GameProperties';
 import { Query } from 'react-apollo';
 import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
 import NothingFound from '../../Components/NothingFound';
+import CappedList from '../../Components/CappedList';
 
 const RSVP_STATUSES = {
   ATTENDING: 'ATTENDING',
@@ -32,14 +33,6 @@ const RSVP_STATUSES = {
 const SpotOpenImage = () => (
   <Image source={themeImages.spotOpenCircle} style={{ width: 42, height: 42, marginRight: 4 }} />
 );
-
-const mapMax = (maxNum, data, fn, fnElse) => {
-  if (maxNum >= data.length) return data.map(fn);
-
-  const returnArr = data.slice(0, maxNum - 1).map(fn);
-  returnArr.push(fnElse());
-  return returnArr;
-};
 
 class GameComponent extends Component {
   static propTypes = {
@@ -210,12 +203,13 @@ class GameComponent extends Component {
             <TouchableOpacity onPress={this.openPlayerList}>
               <HorizontalView>
                 <HorizontalView style={{ flex: 1 }}>
-                  {mapMax(
-                    7,
-                    attendingUsers,
-                    user => <UserCircle key={user.uuid} user={user} style={{ marginRight: 4 }} />,
-                    () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 6}`} />,
-                  )}
+                  <CappedList
+                    max={7}
+                    data={attendingUsers}
+                    keyExtractor={user => user.uuid}
+                    component={user => <UserCircle user={user} style={{ marginRight: 4 }} />}
+                    capComponent={({ data }) => <PropertyCircle text={`+${data.length}`} />}
+                  />
                 </HorizontalView>
                 <ChevronContainer>
                   <MaterialIcon name="chevron-right" size={30} color={Colors.black} />
@@ -229,12 +223,12 @@ class GameComponent extends Component {
             <BlockLabel>{I18n.t('Open spots')}</BlockLabel>
             <TouchableOpacity onPress={this.openPlayerList}>
               <HorizontalView>
-                {mapMax(
-                  7,
-                  [...Array(nOpenSpots)],
-                  (_, i) => <SpotOpenImage key={i} />,
-                  () => <PropertyCircle key="extra" text={`+${nOpenSpots - 6}`} />,
-                )}
+                <CappedList
+                  max={7}
+                  data={[...Array(nOpenSpots)]}
+                  component={SpotOpenImage}
+                  capComponent={({ data }) => <PropertyCircle text={`+${data.length}`} />}
+                />
               </HorizontalView>
             </TouchableOpacity>
           </Block>
