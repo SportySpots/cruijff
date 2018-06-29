@@ -1,11 +1,15 @@
 {
   "parser": "babel-eslint",
   "extends": "airbnb",
+  "env": {
+    "jest": true
+  },
   "rules": {
     "global-require": 0,
     "import/prefer-default-export": 0,
     "import/no-named-as-default-member": 0,
     "no-named-as-default": 0,
+    "no-param-reassign": 0,
     "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
     "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": 0,

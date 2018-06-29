@@ -3,23 +3,15 @@ import PropTypes from 'prop-types';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import CommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components';
+import Config from 'react-native-config/index';
+
 import Colors from '../../Themes/Colors';
 import Text from '../Text';
 import UserCircle from '../UserCircle';
 import I18n from '../../I18n';
-import Config from 'react-native-config/index';
-import { cardSmall } from '../Spots/Styles/CardStyles';
-import { Image } from 'react-native';
 import Fonts from '../../Themes/Fonts';
 import PropertyCircle from '../PropertyCircle';
-
-const mapMax = (maxNum, data, fn, fnElse) => {
-  if (maxNum >= data.length) return data.map(fn);
-
-  const returnArr = data.slice(0, maxNum - 1).map(fn);
-  returnArr.push(fnElse());
-  return returnArr;
-};
+import CappedList from '../CappedList';
 
 class ActivityCard extends React.Component {
   getImageUrl = (image) => {
@@ -67,12 +59,13 @@ class ActivityCard extends React.Component {
             </HorizontalView>
             <Attendees>
               <HorizontalView style={{ flex: 1 }}>
-                {mapMax(
-                  7,
-                  attendingUsers,
-                  user => <UserCircle key={user.uuid} user={user} style={{ marginRight: 8 }} />,
-                  () => <PropertyCircle key="extra" text={`+${attendingUsers.length - 6}`} />,
-                )}
+                <CappedList
+                  max={7}
+                  data={attendingUsers}
+                  keyExtractor={user => user.uuid}
+                  component={user => <UserCircle user={user} style={{ marginRight: 8 }} />}
+                  capComponent={({ data }) => <PropertyCircle text={`+${data.length}`} />}
+                />
               </HorizontalView>
             </Attendees>
           </BottomContainer>
@@ -84,7 +77,6 @@ class ActivityCard extends React.Component {
 
 ActivityCard.propTypes = {
   game: PropTypes.object,
-  // style: ViewPropTypes.style,
 };
 
 export default ActivityCard;
@@ -183,13 +175,5 @@ const Attendees = styled.View`
   padding-top: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-`;
-
-const WhiteSM = styled(Text.SM)`
-  color: ${Colors.white};
-`;
-
-const OrangeSM = styled(Text.SM)`
-  color: ${Colors.actionYellow};
 `;
 
