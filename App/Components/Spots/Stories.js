@@ -1,11 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import { WithApolloMockProvider } from '../../GraphQL';
-import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
-import SpotsListScreen from '../../Screens/Spots/SpotsListScreen';
 import GET_SPOT_DETAILS from '../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import SpotListCard from './SpotListCard';
@@ -20,21 +17,6 @@ const dummyNavigator = {
   },
 };
 
-const spotProperties = {
-  Sport: 'Voetbal',
-  Locatie: 'Plantsoen',
-  Oppervlakte: '759m2',
-  Ondergrond: 'Beton',
-  Omheining: 'Open',
-  Verlichting: 'Ja',
-};
-
-const store = createStore(state => state, {
-  user: {
-    uuid: 1234,
-    initialized: true,
-  },
-});
 
 storiesOf('Spots', module)
   .add('SpotListCard', () => (
@@ -59,19 +41,18 @@ storiesOf('Spots', module)
       </Query>
     </WithApolloMockProvider>
   ))
-  .add('SpotsListScreen', () => (
+
+  .add('SpotProperties', () => (
     <WithApolloMockProvider>
-      <SpotsListScreen navigation={dummyNavigator} />
+      <Query query={GET_SPOT_DETAILS}>
+        {({ loading, error, data }) =>
+          (loading || error ? null : (
+            <SpotProperties spot={data.spots[0]} navigation={dummyNavigator} />
+          ))
+        }
+      </Query>
     </WithApolloMockProvider>
   ))
-  .add('SpotDetailsScreen', () => (
-    <Provider store={store}>
-      <WithApolloMockProvider>
-        <SpotDetailsScreen uuid={1} navigation={dummyNavigator} />
-      </WithApolloMockProvider>
-    </Provider>
-  ))
-  .add('SpotProperties', () => <SpotProperties properties={spotProperties} />)
   .add('SpotMap', () => (
     <WithApolloMockProvider>
       <Query query={GET_SPOT_DETAILS} variables={{ uuid: dummyNavigator.state.params.spotId }}>

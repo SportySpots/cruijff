@@ -25,7 +25,11 @@ storiesOf('Plan', module)
   .add('Step 2: Pick spot', () => (
     <WithApolloMockProvider>
       <View style={{ flex: 1 }}>
-        <PickSpot gameDetails={gameDetails} setGameDetailField={() => null} />
+        <PickSpot
+          gameDetails={gameDetails}
+          setGameDetailField={() => null}
+          navigation={{ state: { params: { sportCategory: 'TENNIS' } } }}
+        />
       </View>
     </WithApolloMockProvider>
   ))

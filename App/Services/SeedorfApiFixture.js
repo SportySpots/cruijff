@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { find, propEq } from 'ramda';
 
 export default {
@@ -20,7 +21,7 @@ export default {
     const sportsData = require('../Fixtures/sports.json');
     const spotsData = require('../Fixtures/spots.json');
     const rsvpStatusData = require('../Fixtures/rsvpStatus.json');
-    const game = JSON.parse(JSON.stringify(gamesData.find(game => game.id === id)));
+    const game = JSON.parse(JSON.stringify(gamesData.find(g => g.id === id)));
     game.organizer = usersData.find(user => user.id === game.organizer);
     game.sport = sportsData.find(sport => sport.id === game.sport);
     game.spot = spotsData.find(spot => spot.id === game.spot);
@@ -60,4 +61,8 @@ export default {
     ok: true,
   }),
   setToken: token => null,
+
+  setGameStatus: ({ gameUUID, status }) => ({
+    ok: true,
+  }),
 };

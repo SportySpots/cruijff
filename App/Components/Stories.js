@@ -1,17 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
-import './ScreenSlider/Stories';
-import './Spots/Stories';
-import '../Screens/Plan/Stories';
-import '../Screens/Profile/Stories';
-import './DarkFooter/Stories';
-import './Games/Stories';
-import '../Backgrounds/Stories';
 
 import NavBar from './NavBar';
 import NavBarButton from './NavBarButton';
@@ -29,17 +22,12 @@ import Text from './Text';
 import Logo from './Logo';
 import NavDots from './NavDots';
 import Slider from './Slider';
-import { _SplashScreen as SplashScreen } from '../Screens/SplashScreen';
 import Rating from './Rating';
 import RatingBig from './RatingBig';
 import PropertyCircle from './PropertyCircle';
 import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
-import LoginScreen from '../Screens/LoginScreen';
-import FilterScreen from '../Screens/Spots/SpotsFilterScreen';
-import InfoScreen from '../Screens/InfoScreen';
 import NothingFound from './NothingFound';
-import { WithApolloMockProvider } from '../GraphQL';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -142,9 +130,7 @@ storiesOf('RatingBig', module)
   .add('4.5', () => <RatingBig rating={4.5} />);
 
 storiesOf('Slider', module).add('Default', () => <Slider value={0.75} />);
-storiesOf('SplashScreen', module).add('Default', () => (
-  <SplashScreen user={{ initialized: true }} navigation={dummyNavigator} />
-));
+
 
 storiesOf('PropertyCircle', module).add('Propertycircle', () => (
   <View>
@@ -153,8 +139,6 @@ storiesOf('PropertyCircle', module).add('Propertycircle', () => (
     ))}
   </View>
 ));
-
-
 
 const users = require('../Fixtures/users');
 
@@ -166,26 +150,10 @@ storiesOf('SignupScreen', module).add('Default', () => (
     <SignupScreen navigation={dummyNavigator} />
   </Provider>
 ));
-storiesOf('LoginScreen', module).add('Default', () => (
-  <Provider store={store}>
-    <LoginScreen navigation={dummyNavigator} />
-  </Provider>
-));
+
 storiesOf('NothingFound', module).add('Default', () => (
   <NothingFound
     icon="map-marker"
     text="Oops, nothing found"
   />
-));
-
-storiesOf('FilterScreen', module).add('Default', () => (
-  <Provider store={store}>
-    <WithApolloMockProvider>
-      <FilterScreen navigation={dummyNavigator} />
-    </WithApolloMockProvider>
-  </Provider>
-));
-
-storiesOf('InfoScreen', module).add('Default', () => (
-  <InfoScreen />
 ));

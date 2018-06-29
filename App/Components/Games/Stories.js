@@ -3,9 +3,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { View } from 'react-native';
 import { WithApolloMockProvider } from '../../GraphQL';
-import Game from '../../Screens/Games/GameDetailsScreen';
-import GamesList from '../../Screens/Games/GamesListScreen';
-import PlayerList from '../../Screens/Games/PlayerListScreen';
+
 import GameListCard from './GameListCard';
 import GameProperties from './GameProperties';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
@@ -75,11 +73,6 @@ const game = {
 };
 
 storiesOf('Games', module)
-  .add('Game details', () => (
-    <WithApolloMockProvider>
-      <Game navigation={dummyNavigator} />
-    </WithApolloMockProvider>
-  ))
   .add('Game list card', () => (
     <View style={{ marginHorizontal: 16 }}>
       <WithApolloMockProvider>
@@ -93,22 +86,7 @@ storiesOf('Games', module)
       </WithApolloMockProvider>
     </View>
   ))
-  .add('Games list', () => (
-    <WithApolloMockProvider>
-      <GamesList navigation={dummyNavigator} />
-    </WithApolloMockProvider>
-  ))
-  .add('Player list', () => (
-    <View style={{ flex: 1 }}>
-      <WithApolloMockProvider>
-        <PlayerList
-          navigation={{
-            state: { params: { uuid: 'cdfa268a-e809-43be-a659-bd2310737baa' } },
-          }}
-        />
-      </WithApolloMockProvider>
-    </View>
-  ))
+
   .add('GameProperties', () => <GameProperties game={game} />)
   .add('ActivityCard', () => (
     <View>

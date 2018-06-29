@@ -80,13 +80,15 @@ class InfoScreen extends React.Component {
   }
 
   componentDidMount() {
-    codePush.getUpdateMetadata().then((metadata) => {
-      this.setState({
-        label: metadata.label,
-        version: metadata.appVersion,
-        description: metadata.description,
-      });
-    }).catch(() => null);
+    if (codePush) {
+      codePush.getUpdateMetadata().then((metadata) => {
+        this.setState({
+          label: metadata.label,
+          version: metadata.appVersion,
+          description: metadata.description,
+        });
+      }).catch(() => null);
+    }
   }
 
   componentWillUnmount() {
