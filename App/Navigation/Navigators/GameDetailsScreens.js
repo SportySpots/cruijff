@@ -1,5 +1,4 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/LoginScreen';
@@ -30,7 +29,7 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameDetailsNav = StackNavigator({
+const GameDetailsScreens = {
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoginScreen
@@ -81,8 +80,6 @@ const GameDetailsNav = StackNavigator({
       headerLeft: backBtn(navigation),
     }),
   },
-}, {
-  initialRouteName: 'GameDetailsScreen',
-});
+};
 
-export default GameDetailsNav;
+export default GameDetailsScreens;

@@ -1,18 +1,13 @@
 import { StackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
-import GameDetailsNav from './GameDetailsNav';
+import GameDetailsScreens from './GameDetailsScreens';
 import GamesListScreen from '../../Screens/Games/GamesListScreen';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const GameSearchNav = StackNavigator({
-  GameDetailsScreen: {
-    screen: GameDetailsNav,
-    navigationOptions: {
-      header: null,
-    },
-  },
+  ...GameDetailsScreens,
   GamesListScreen: {
     screen: GamesListScreen,
     navigationOptions: () => ({

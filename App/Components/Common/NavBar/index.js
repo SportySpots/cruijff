@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -89,9 +90,8 @@ class NavBar extends React.Component {
 
   handlePress = (btn) => {
     const { navigation } = this.props;
-    // TODO: clear stack navigator isn't working!
     if (this.curRoute !== btn.route) {
-      // Clear stack.
+      // Go back to the begining of the stack
       navigation.popToTop();
       // Jump to the requested route.
       navigation.navigate({ routeName: btn.route });
@@ -126,6 +126,8 @@ NavBar.propTypes = {
   navigation: PropTypes.shape({
     state: PropTypes.object.isRequired,
     navigate: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    popToTop: PropTypes.func.isRequired,
   }).isRequired,
 };
 

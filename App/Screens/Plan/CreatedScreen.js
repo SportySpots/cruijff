@@ -96,13 +96,13 @@ export default class Created extends Component {
           buttonNextText={I18n.t('done')}
           onNext={() => {
             const uuid = this.props.navigation.state.params.uuid;
-            // Clear stack
+            // Go back to the begining of the stack
             this.props.navigation.popToTop();
             // Go back to main tabs navigation
             this.props.navigation.goBack(null);
             // Go to games list screen
             this.props.navigation.navigate('GamesListScreen');
-            // Reset stack
+            // Reset stack (otherwise we'll get a back arrow for some wired reason :S)
             this.props.navigation.dispatch(new NavigationActions.reset({
               index: 0,
               actions: [

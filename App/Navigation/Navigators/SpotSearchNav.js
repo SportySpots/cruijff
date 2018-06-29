@@ -5,7 +5,7 @@ import StackBackHeader from '../StackBackHeader';
 import SpotsListScreen from '../../Screens/Spots/SpotsListScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import SpotsHeaderBtn from '../../Components/Spots/HeaderBtn';
-import GameDetailsNav from './GameDetailsNav';
+import GameDetailsScreens from './GameDetailsScreens';
 import SpotFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
 import style from './style';
 
@@ -25,12 +25,7 @@ const backBtn = navigation => (
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SpotSearchNav = StackNavigator({
-  GameDetailsScreen: {
-    screen: GameDetailsNav,
-    navigationOptions: {
-      header: null,
-    },
-  },
+  ...GameDetailsScreens,
   SpotDetailsScreen: {
     screen: SpotDetailsScreen,
     navigationOptions: ({ navigation }) => ({
