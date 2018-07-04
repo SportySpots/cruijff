@@ -1,25 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Colors from '../../../Themes/Colors';
 
-export const card = StyleSheet.create({
-  container: {
-    height: 240,
-  },
-  image: {
-    flex: 3,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
-  },
-  bottom: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: Colors.white,
-    padding: 16,
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
-  },
-});
-
 export const cardSmall = StyleSheet.create({
   container: {
     height: 64,

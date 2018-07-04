@@ -2,10 +2,10 @@
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Image, View } from 'react-native';
+import styled from 'styled-components';
 import Config from 'react-native-config';
 import Header from './Header';
-import { card } from './Styles/CardStyles';
+import Colors from '../../Themes/Colors';
 
 export default class SpotListCard extends Component {
   static propTypes = {
@@ -39,10 +39,31 @@ export default class SpotListCard extends Component {
         : 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png';
 
     return (
-      <View style={[card.container, this.props.style]}>
-        <Image style={card.image} source={{ uri: image }} />
-        <Header spot={spot} style={card.bottom} />
-      </View>
+      <CardContainer style={this.props.style}>
+        <Img source={{ uri: image }} />
+        <StyledHeader spot={spot} />
+      </CardContainer>
     );
   }
 }
+
+const CardContainer = styled.View`
+  height: 240px;
+  border-radius: 8px;
+  overflow: hidden;
+`;
+
+const Img = styled.Image`
+  flex: 3;
+  borderTopLeftRadius: 8;
+  borderTopRightRadius: 8;
+`;
+
+const StyledHeader = styled(Header)`
+  flex: 1;
+  flex-direction: column;
+  background-color: ${Colors.white};
+  padding: 16px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
