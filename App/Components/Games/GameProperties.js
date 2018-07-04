@@ -30,7 +30,7 @@ export default GameProperties;
 
 const TitleContainer = styled.View`
   display: flex;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 `;
 
 const GameTitle = styled(Text.M)`
@@ -49,9 +49,8 @@ const GamePropertyRow = styled.View`
   align-items: center;
   margin-vertical: 4px;
 `;
-const GamePropertyLabel = styled(Text.M)`
+const GamePropertyLabel = styled(Text.SM)`
   flex: 1;
-  font-size: 15px;
   color: ${props => props.textColor || '#000'};
   padding-horizontal: 20px;
 `;

@@ -13,48 +13,6 @@ import Tabs from './Tabs';
 import EditMenu from './EditMenu';
 
 //------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Outer = styled.View`
-  flex: 1;
-  padding-top: 24;
-  background-color: ${Colors.white};
-`;
-//------------------------------------------------------------------------------
-const MenuContainer = styled.View`
-  position: absolute;
-  right: 16px;
-  top: 16px;
-`;
-//------------------------------------------------------------------------------
-const Avatar = styled.View`
-  align-items: center;
-`;
-//------------------------------------------------------------------------------
-const Name = styled(Text.L)`
-  margin: 16px;
-`;
-//------------------------------------------------------------------------------
-const Profile = styled.View`
-  flex-direction: row;
-  margin: 0 16px;
-`;
-//------------------------------------------------------------------------------
-const Age = styled.View`
-  flex: 2;
-`;
-//------------------------------------------------------------------------------
-const Competitiveness = styled.View`
-  flex: 4;
-`;
-//------------------------------------------------------------------------------
-const TabsContainer = styled.View`
-  flex: 1;
-  border-top-width: 2;
-  border-top-color: ${Colors.bgGrey};
-  background-color: ${Colors.bgGrey};
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ProfileDetails = ({ user, onEdit, onLogout }) => (
@@ -98,3 +56,48 @@ ProfileDetails.defaultProps = {
 };
 
 export default ProfileDetails;
+
+
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Outer = styled.View`
+  flex: 1;
+  padding-top: 24;
+  background-color: ${Colors.white};
+`;
+//------------------------------------------------------------------------------
+const MenuContainer = styled.View`
+  position: absolute;
+  right: 16px;
+  top: 16px;
+`;
+//------------------------------------------------------------------------------
+const Avatar = styled.View`
+  align-items: center;
+  margin-bottom: 16px;
+`;
+//------------------------------------------------------------------------------
+const Name = styled(Text.L)`
+  margin: 16px;
+`;
+//------------------------------------------------------------------------------
+const Profile = styled.View`
+  flex-direction: row;
+  margin: 0 16px;
+`;
+//------------------------------------------------------------------------------
+const Age = styled.View`
+  flex: 2;
+`;
+//------------------------------------------------------------------------------
+const Competitiveness = styled.View`
+  flex: 4;
+`;
+//------------------------------------------------------------------------------
+const TabsContainer = styled.View`
+  flex: 1;
+  border-top-width: 2;
+  border-top-color: ${Colors.bgGrey};
+  background-color: ${Colors.bgGrey};
+`;
