@@ -98,15 +98,10 @@ storiesOf('ImageSwiper', module).add('Default', () => (
   />
 ));
 
-const dummyReduxNav = {
-  routes: [{ routeName: 'SpotSearchTab' }],
-  index: 0,
-};
-
 storiesOf('NavBar', module)
   .add('Default', () => (
     <Provider store={store}>
-      <NavBar nav={dummyReduxNav} navigation={dummyNavigator} />
+      <NavBar navigation={dummyNavigator} />
     </Provider>
   ))
   .add('NavBarButton', () => (
@@ -116,7 +111,7 @@ storiesOf('NavBar', module)
     <Provider store={store}>
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1, backgroundColor: 'white' }} />
-        <NavBar nav={dummyReduxNav} navigation={dummyNavigator} />
+        <NavBar navigation={dummyNavigator} />
       </View>
     </Provider>
   ));
