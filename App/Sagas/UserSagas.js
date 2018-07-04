@@ -17,9 +17,6 @@ export function* setToken(api, action) {
     yield put(userActions.setClaims(claims));
     yield put(userActions.setUuid(claims.uuid));
     yield call(AsyncStorage.setItem, 'TOKEN', action.token);
-    if (action.cb && typeof action.cb === 'function') {
-      yield call(action.cb);
-    }
   } catch (e) {
     yield put(userActions.logout());
   }

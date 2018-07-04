@@ -37,9 +37,9 @@ const ProfileDetails = ({ user, onEdit, onLogout }) => (
           </Competitiveness>
         </Profile>
       )}
-      <TabsContainer>
+      { false && <TabsContainer>
         <Tabs user={user} style={{ flex: 1 }} />
-      </TabsContainer>
+      </TabsContainer> }
     </Outer>
   </MenuProvider>
 );

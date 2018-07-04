@@ -35,6 +35,25 @@ export class _Signup extends Component {
     password: '',
   }
 
+  componentWillReceiveProps(nextProps) {
+    const userWasLoggedOut = (
+      !this.props.user ||
+      !this.props.user.uuid ||
+      !this.props.user.uuid.length === 0
+    );
+
+    const userIsLoggedIn = (
+      nextProps.user &&
+      nextProps.user.uuid &&
+      nextProps.user.uuid.length > 0
+    );
+
+    // Right after the user is logged in, fire success auth callback
+    if (userWasLoggedOut && userIsLoggedIn) {
+      this.props.onSuccessHook();
+    }
+  }
+
   signupRequest = async () => {
     this.setState({ requestStatus: STATUS.PENDING });
     const result = await api.signup({
@@ -50,11 +69,8 @@ export class _Signup extends Component {
         error: result.data,
       });
     } else {
-      // Delay success callback after setToken is done
-      this.props.setToken(
-        result.data.token,
-        this.props.onSuccessHook,
-      );
+      // See componentWillReceiveProps where we fired the onSuccessHook callback
+      this.props.setToken(result.data.token);
     }
   };
 
@@ -172,7 +188,9 @@ _Signup.propTypes = {
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   setToken: PropTypes.func,
-  user: PropTypes.object,
+  user: PropTypes.shape({
+    uuid: PropTypes.string,
+  }).isRequired,
   onSuccessHook: PropTypes.func,
 };
 

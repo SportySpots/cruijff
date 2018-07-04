@@ -1652,6 +1652,7 @@ exports[`Storyshots Games GameListCard 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
             innerRef={[Function]}
+            size={40}
             style={
               Array [
                 Object {
@@ -1670,6 +1671,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                   Array [
                     Object {
                       "color": "#fff",
+                      "fontSize": 18,
                       "paddingBottom": 4,
                       "paddingLeft": 4,
                       "paddingRight": 4,
@@ -2085,6 +2087,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                   allowFontScaling={true}
                   ellipsizeMode="tail"
                   innerRef={[Function]}
+                  size={40}
                   style={
                     Array [
                       Object {
@@ -2103,6 +2106,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                         Array [
                           Object {
                             "color": "#fff",
+                            "fontSize": 18,
                             "paddingBottom": 4,
                             "paddingLeft": 4,
                             "paddingRight": 4,
@@ -2142,6 +2146,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                   allowFontScaling={true}
                   ellipsizeMode="tail"
                   innerRef={[Function]}
+                  size={40}
                   style={
                     Array [
                       Object {
@@ -2160,6 +2165,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                         Array [
                           Object {
                             "color": "#fff",
+                            "fontSize": 18,
                             "paddingBottom": 4,
                             "paddingLeft": 4,
                             "paddingRight": 4,
@@ -2199,6 +2205,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                   allowFontScaling={true}
                   ellipsizeMode="tail"
                   innerRef={[Function]}
+                  size={40}
                   style={
                     Array [
                       Object {
@@ -2217,6 +2224,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                         Array [
                           Object {
                             "color": "#fff",
+                            "fontSize": 18,
                             "paddingBottom": 4,
                             "paddingLeft": 4,
                             "paddingRight": 4,
@@ -2258,7 +2266,7 @@ exports[`Storyshots Games GameProperties 1`] = `
       Array [
         Object {
           "display": "flex",
-          "marginBottom": 16,
+          "marginBottom": 8,
         },
         undefined,
       ]
@@ -2348,8 +2356,8 @@ exports[`Storyshots Games GameProperties 1`] = `
             },
             Object {
               "color": "#000",
-              "fontFamily": "Rajdhani-SemiBold",
-              "fontSize": 18,
+              "fontFamily": "Rajdhani-Regular",
+              "fontSize": 16,
               "lineHeight": NaN,
             },
             Array [
@@ -2358,7 +2366,6 @@ exports[`Storyshots Games GameProperties 1`] = `
                 "flexBasis": 0,
                 "flexGrow": 1,
                 "flexShrink": 1,
-                "fontSize": 15,
                 "paddingHorizontal": 20,
               },
               undefined,
@@ -2420,8 +2427,8 @@ exports[`Storyshots Games GameProperties 1`] = `
             },
             Object {
               "color": "#000",
-              "fontFamily": "Rajdhani-SemiBold",
-              "fontSize": 18,
+              "fontFamily": "Rajdhani-Regular",
+              "fontSize": 16,
               "lineHeight": NaN,
             },
             Array [
@@ -2430,7 +2437,6 @@ exports[`Storyshots Games GameProperties 1`] = `
                 "flexBasis": 0,
                 "flexGrow": 1,
                 "flexShrink": 1,
-                "fontSize": 15,
                 "paddingHorizontal": 20,
               },
               undefined,
@@ -2494,8 +2500,8 @@ exports[`Storyshots Games GameProperties 1`] = `
             },
             Object {
               "color": "#000",
-              "fontFamily": "Rajdhani-SemiBold",
-              "fontSize": 18,
+              "fontFamily": "Rajdhani-Regular",
+              "fontSize": 16,
               "lineHeight": NaN,
             },
             Array [
@@ -2504,7 +2510,6 @@ exports[`Storyshots Games GameProperties 1`] = `
                 "flexBasis": 0,
                 "flexGrow": 1,
                 "flexShrink": 1,
-                "fontSize": 15,
                 "paddingHorizontal": 20,
               },
               undefined,
@@ -2515,6 +2520,103 @@ exports[`Storyshots Games GameProperties 1`] = `
     >
       BEACH_VOLLEYBALL
     </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+          "marginVertical": 4,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#BDBDBD",
+              "fontSize": 22,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        innerRef={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "#000",
+                "fontFamily": "Rajdhani-Regular",
+                "fontSize": 16,
+                "lineHeight": NaN,
+              },
+              Array [
+                Object {
+                  "color": "#000",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "paddingHorizontal": 20,
+                },
+                undefined,
+              ],
+            ],
+          ]
+        }
+      >
+        Oosterpark
+      </Text>
+    </View>
   </View>
 </View>
 `;
@@ -9607,6 +9709,7 @@ exports[`Storyshots Screens SpotsListScreen 1`] = `
   style={
     Array [
       Object {
+        "backgroundColor": "#F5F5F5",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
@@ -9773,7 +9876,7 @@ exports[`Storyshots Screens.Games GamesListScreen 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#fff",
+        "backgroundColor": "#F5F5F5",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
@@ -11020,6 +11123,7 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       innerRef={[Function]}
+      size={40}
       style={
         Array [
           Object {
@@ -11038,6 +11142,7 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
             Array [
               Object {
                 "color": "#fff",
+                "fontSize": 18,
                 "paddingBottom": 4,
                 "paddingLeft": 4,
                 "paddingRight": 4,
@@ -11075,6 +11180,7 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       innerRef={[Function]}
+      size={40}
       style={
         Array [
           Object {
@@ -11093,6 +11199,7 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
             Array [
               Object {
                 "color": "#fff",
+                "fontSize": 18,
                 "paddingBottom": 4,
                 "paddingLeft": 4,
                 "paddingRight": 4,
@@ -11130,6 +11237,7 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       innerRef={[Function]}
+      size={40}
       style={
         Array [
           Object {
@@ -11148,6 +11256,7 @@ exports[`Storyshots UserCircle UserCircle 1`] = `
             Array [
               Object {
                 "color": "#fff",
+                "fontSize": 18,
                 "paddingBottom": 4,
                 "paddingLeft": 4,
                 "paddingRight": 4,

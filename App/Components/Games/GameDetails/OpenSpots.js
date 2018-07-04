@@ -30,7 +30,7 @@ const restCircle = text => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const OpenSpots = ({ game, maxLength, onOpenSpotsPress }) => {
+const OpenSpots = ({ game, maxLength }) => {
   if (!game.capacity) {
     return null;
   }
@@ -42,32 +42,25 @@ const OpenSpots = ({ game, maxLength, onOpenSpotsPress }) => {
     <BlockLabel key="label">
       {I18n.t('Open spots')}
     </BlockLabel>,
-    <TouchableOpacity
-      key="open-spots"
-      onPress={onOpenSpotsPress}
-    >
-      <HorizontalView>
-        <HorizontalView style={{ flex: 1 }}>
-          <CappedList
-            max={maxLength}
-            data={[...Array(nOpenSpots)]}
-            component={openSpotCircle}
-            capComponent={({ data }) => restCircle('+' + data.length)}
-          />
-        </HorizontalView>
+    <HorizontalView>
+      <HorizontalView style={{ flex: 1 }}>
+        <CappedList
+          max={maxLength}
+          data={[...Array(nOpenSpots)]}
+          component={openSpotCircle}
+          capComponent={({ data }) => restCircle(`+${data.length}`)}
+        />
       </HorizontalView>
-    </TouchableOpacity>,
+    </HorizontalView>,
   ];
 };
 
 OpenSpots.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
   maxLength: PropTypes.number.isRequired,
-  onOpenSpotsPress: PropTypes.func,
 };
 
 OpenSpots.defaultProps = {
-  onOpenSpotsPress: () => {},
 };
 
 export default OpenSpots;
