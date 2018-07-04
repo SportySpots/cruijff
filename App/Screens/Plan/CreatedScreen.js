@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Clipboard, Share, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Checkbox from '../../Components/Checkbox';
 import Footer from '../../Components/DarkFooter/index';
@@ -94,8 +95,26 @@ export default class Created extends Component {
           showBack={false}
           buttonNextText={I18n.t('done')}
           onNext={() => {
+            const uuid = this.props.navigation.state.params.uuid;
+            // Go back to the begining of the stack
             this.props.navigation.popToTop();
+            // Go back to main tabs navigation
             this.props.navigation.goBack(null);
+            // Go to games list screen
+            this.props.navigation.navigate('GamesListScreen');
+            // Reset stack (otherwise we'll get a back arrow for some wired reason :S)
+            this.props.navigation.dispatch(new NavigationActions.reset({
+              index: 0,
+              actions: [
+                NavigationActions.navigate({
+                  routeName: 'GamesListScreen',
+                }),
+              ],
+            }));
+            // Finally go to recently created game
+            this.props.navigation.navigate('GameDetailsScreen', {
+              uuid,
+            });
           }}
         />
       </View>

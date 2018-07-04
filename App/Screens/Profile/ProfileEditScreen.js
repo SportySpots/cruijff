@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
+import { Query, compose } from 'react-apollo';
+import { withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import GET_USER_DETAILS from '../../GraphQL/Users/Queries/GET_USER_DETAILS';
@@ -59,7 +60,13 @@ ProfileEditScreen.propTypes = {
   }).isRequired,
 };
 
+// Redux integration
 const mapStateToProps = ({ user }) => ({ user });
 const withRedux = connect(mapStateToProps);
 
-export default withRedux(ProfileEditScreen);
+const enhance = compose(
+  withNavigation,
+  withRedux,
+);
+
+export default enhance(ProfileEditScreen);

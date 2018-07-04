@@ -16,7 +16,7 @@ const Row = styled.View`
   height: 64px;
   padding-vertical: 16px;
   flex-direction: row;
-  border-top-width: ${props => props.first ? '1px' : '0px'};
+  border-top-width: ${props => (props.first ? '1px' : '0px')};
   border-top-color: ${Colors.shade};
   border-bottom-width: 1px;
   border-bottom-color: ${Colors.shade};
