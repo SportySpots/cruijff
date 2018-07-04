@@ -46,7 +46,7 @@ export default Header;
 
 const Spacer = () => (
   <SpacerContainer>
-    <Text.SM style={{color: Colors.shade}}>·</Text.SM>
+    <Text.SM style={{ color: Colors.shade }}>·</Text.SM>
   </SpacerContainer>
 );
 
