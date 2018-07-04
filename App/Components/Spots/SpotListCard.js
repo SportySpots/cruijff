@@ -43,7 +43,7 @@ export default class SpotListCard extends Component {
         <Img source={{ uri: image }} />
         <StyledHeader spot={spot} />
       </CardContainer>
-    );
+    );x
   }
 }
 
@@ -55,8 +55,8 @@ const CardContainer = styled.View`
 
 const Img = styled.Image`
   flex: 3;
-  borderTopLeftRadius: 8;
-  borderTopRightRadius: 8;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 `;
 
 const StyledHeader = styled(Header)`
