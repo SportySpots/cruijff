@@ -24,7 +24,6 @@ const GameDetails = ({
   game,
   user,
   onAttendeesPress,
-  onOpenSpotsPress,
   rspvBeforeHook,
   rspvSuccessHook,
   navigation,
@@ -55,7 +54,6 @@ const GameDetails = ({
     <OpenSpots
       game={game}
       maxLength={ATTENDEES_TO_SHOW}
-      onOpenSpotsPress={onOpenSpotsPress}
     />
   </Block>,
   <Block key="rspv">
@@ -84,7 +82,6 @@ GameDetails.propTypes = {
   }).isRequired,
   game: propType(gameDetailsFragment).isRequired,
   onAttendeesPress: PropTypes.func,
-  onOpenSpotsPress: PropTypes.func,
   rspvBeforeHook: PropTypes.func,
   rspvSuccessHook: PropTypes.func,
   navigation: PropTypes.any,
@@ -92,7 +89,6 @@ GameDetails.propTypes = {
 
 GameDetails.defaultProps = {
   onAttendeesPress: () => {},
-  onOpenSpotsPress: () => {},
   rspvBeforeHook: () => {},
   rspvSuccessHook: () => {},
 };
