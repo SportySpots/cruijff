@@ -6,16 +6,8 @@ import Int18n from '../../I18n';
 import Rating from '../Rating';
 import Text from '../Text';
 import { header } from './Styles/CardStyles';
+import Colors from '../../Themes/Colors';
 
-const Spacer = () => <Text style={header.spacer}>·</Text>;
-
-const Title = styled(Text.M)`
-  font-size: 22px;
-`;
-
-const Subtitle = styled(Text.S)`
-  font-size: 16px;
-`;
 
 const Header = ({ spot, ...props }) => (
   <View {...props}>
@@ -50,3 +42,21 @@ Header.propTypes = {
 };
 
 export default Header;
+
+
+const Spacer = () => (
+  <SpacerContainer>
+    <Text.SM style={{color: Colors.shade}}>·</Text.SM>
+  </SpacerContainer>
+);
+
+const SpacerContainer = styled.View`
+  margin-horizontal: 4px;
+`;
+
+const Title = styled(Text.M)`
+  font-size: 22px;
+`;
+
+const Subtitle = styled(Text.SM)`
+`;
