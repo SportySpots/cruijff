@@ -6,8 +6,8 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import NavBar from './NavBar';
-import NavBarButton from './NavBarButton';
+import NavBar from './Common/NavBar';
+import NavBarButton from './Common/NavBar/NavBarButton';
 import Onboarding from './Onboarding';
 import ImageSwiper from './ImageSwiper';
 import BackButton from './BackButton';

@@ -43,7 +43,7 @@ export default class SpotListCard extends Component {
         <Img source={{ uri: image }} />
         <StyledHeader spot={spot} />
       </CardContainer>
-    );x
+    );
   }
 }
 
