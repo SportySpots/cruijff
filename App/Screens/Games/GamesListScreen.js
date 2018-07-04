@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
 import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../Components/Games/GamesList';
-import Card from '../../Components/Games/GameListCard';
+import GameListCard from '../../Components/Games/GameListCard';
 import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
 
 //------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ class GamesListScreen extends React.Component {
              <Container>
                <GamesList
                  games={(data && data.games && curatedGames(data.games)) || []}
-                 cardComponent={Card}
+                 cardComponent={GameListCard}
                  onCardPress={this.handleCardPress}
                 // FlatList props
                  onRefresh={refetch}

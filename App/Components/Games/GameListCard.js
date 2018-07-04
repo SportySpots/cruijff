@@ -54,9 +54,9 @@ class GameListCard extends React.Component {
           <BottomContainer>
             <Title>{game.name}</Title>
             <HorizontalView>
-              <IonIcon style={{ marginRight: 8 }} name="ios-time" color={Colors.white} size={24} />
+              <IonIcon style={{ marginRight: 8, backgroundColor: 'transparent' }} name="ios-time" color={Colors.white} size={24} />
               <SmallText style={{ marginRight: 16 }}>{formattedStartTime}</SmallText>
-              <CommunityIcon style={{ marginRight: 8 }} name="map-marker" color={Colors.white} size={24} />
+              <CommunityIcon style={{ marginRight: 8, backgroundColor: 'transparent'}} name="map-marker" color={Colors.white} size={24} />
               <SmallText>{spot.name}</SmallText>
             </HorizontalView>
             <Attendees>
@@ -111,6 +111,7 @@ const GameListCardContainer = styled.View`
   border-width: 1px;
   border-color: ${Colors.black54};
   border-radius: 8px;
+  overflow: hidden;
 `;
 
 const Top = styled.View`
