@@ -7,6 +7,9 @@ import Text from '../../Components/Text';
 import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
 import SpotDetails from '../../Components/Spots/SpotDetails';
 
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const SpotDetailsScreen = ({ navigation, userId }) => (
   <Query
     fetchPolicy="cache-and-network"
@@ -21,7 +24,10 @@ const SpotDetailsScreen = ({ navigation, userId }) => (
       if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
 
       return (
-        <SpotDetails spot={data.spot} userId={userId} />
+        <SpotDetails
+          spot={data.spot}
+          userId={userId}
+        />
       );
     }}
   </Query>

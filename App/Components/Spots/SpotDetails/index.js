@@ -16,7 +16,7 @@ import SpotGames from './SpotGames';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled(ScrollView)`
-  background-color: ${Colors.white};
+  background-color: ${Colors.concrete};
 `;
 //------------------------------------------------------------------------------
 const Block = styled.View`
