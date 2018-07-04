@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { TextInput } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
-import ReactTimeout from 'react-timeout';
 import styled from 'styled-components';
 import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 import DefaultButton from '../Components/DefaultButton';
@@ -58,14 +57,11 @@ class LoginScreen extends React.Component {
         error: result.data,
       });
     } else {
-      this.props.setToken(result.data.token);
-      // TODO: use sagas to call onSuccessHook right after setToken is done
-      // Delay redirect to avoid flickering screen
-      this.props.setTimeout(() => {
-        // Pass event up to parent component
-        this.props.onSuccessHook();
-        this.props.clearTimeout();
-      }, 100);
+      // Delay success callback after setToken is done
+      this.props.setToken(
+        result.data.token,
+        this.props.onSuccessHook,
+      );
     }
   };
 
@@ -141,8 +137,6 @@ LoginScreen.propTypes = {
   }).isRequired,
   setToken: PropTypes.func,
   user: PropTypes.object,
-  setTimeout: PropTypes.func.isRequired,
-  clearTimeout: PropTypes.func.isRequired,
   onSuccessHook: PropTypes.func,
 };
 
@@ -150,11 +144,12 @@ LoginScreen.defaultProps = {
   onSuccessHook: () => {},
 };
 
-const withRedux = connect(state => ({ user: state.user }), {
-  setToken: userActions.setToken,
-});
+const withRedux = connect(
+  state => ({ user: state.user }),
+  { setToken: userActions.setToken },
+);
 
-export default ReactTimeout(withRedux(LoginScreen));
+export default withRedux(LoginScreen);
 
 /*
 import PropTypes from 'prop-types';

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { findNodeHandle, TextInput, Linking, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
-import ReactTimeout from 'react-timeout';
 import styled from 'styled-components';
 import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 import DefaultButton from '../Components/DefaultButton';
@@ -51,14 +50,11 @@ export class _Signup extends Component {
         error: result.data,
       });
     } else {
-      this.props.setToken(result.data.token);
-      // TODO: use saga to call onSuccessHook right after setToken is done
-      // Delay redirect to avoid flickering screen
-      this.props.setTimeout(() => {
-        // Pass event up to parent component
-        this.props.onSuccessHook();
-        this.props.clearTimeout();
-      }, 100);
+      // Delay success callback after setToken is done
+      this.props.setToken(
+        result.data.token,
+        this.props.onSuccessHook,
+      );
     }
   };
 
@@ -177,8 +173,6 @@ _Signup.propTypes = {
   }).isRequired,
   setToken: PropTypes.func,
   user: PropTypes.object,
-  setTimeout: PropTypes.func.isRequired,
-  clearTimeout: PropTypes.func.isRequired,
   onSuccessHook: PropTypes.func,
 };
 
@@ -189,7 +183,7 @@ _Signup.defaultProps = {
 const Signup = connect(state => ({ user: state.user }), {
   setToken: userActions.setToken,
 })(_Signup);
-export default ReactTimeout(Signup);
+export default Signup;
 
 const FieldSet = styled.View`
   margin-top: 8px;
