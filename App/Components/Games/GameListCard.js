@@ -148,7 +148,7 @@ const Bottom = styled.View`
 
 const BottomContainer = styled.View`
   flex: 1;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-horizontal: 16px;
   margin-vertical: 16px;
 `;
