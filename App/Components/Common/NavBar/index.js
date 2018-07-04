@@ -70,8 +70,8 @@ class NavBar extends React.Component {
   }
 
   componentWillMount() {
-    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this.handleKeyboard({ active: true }));
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.handleKeyboard({ active: false }));
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => this.handleKeyboard({ active: true }));
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => this.handleKeyboard({ active: false }));
   }
 
   componentWillUnmount() {
