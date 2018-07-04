@@ -11,7 +11,7 @@ import NothingFound from '../NothingFound';
 // STYLE:
 //------------------------------------------------------------------------------
 const CardContainer = styled(TouchableOpacity)`
-  margin: 8px 0;
+  margin-vertical: 4px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
