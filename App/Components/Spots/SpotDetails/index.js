@@ -16,11 +16,11 @@ import SpotGames from './SpotGames';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled(ScrollView)`
-  background-color: ${Colors.white};
+  background-color: ${Colors.concrete};
 `;
 //------------------------------------------------------------------------------
 const Block = styled.View`
-  padding: 16px;
+  padding: 8px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
