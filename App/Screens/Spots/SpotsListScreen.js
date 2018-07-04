@@ -14,8 +14,7 @@ import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   flex: 1;
-  padding: 0 8px;
-  background-color: ${Colors.lightGray};
+  padding: 0 4px;
 `;
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:

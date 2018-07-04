@@ -37,7 +37,8 @@ class GameListCard extends React.Component {
     const formattedStartTime = moment(game.start_time).format('D-MM HH:mm');
 
     return (
-      <GameListCardContainer>
+      <OuterContainer>
+      <InnerContainer>
         <Top>
           <UserCircle user={game.organizer} />
           <TopText>
@@ -73,7 +74,8 @@ class GameListCard extends React.Component {
             }
           </BottomContainer>
         </Bottom>
-      </GameListCardContainer>
+      </InnerContainer>
+      </OuterContainer>
     );
   }
 }
@@ -86,7 +88,7 @@ export default GameListCard;
 
 const Spacer = () => (
   <SpacerContainer>
-    <Text.M>·</Text.M>
+    <Text.M style={{color: Colors.shade}}>·</Text.M>
   </SpacerContainer>
 );
 
@@ -105,11 +107,20 @@ const HorizontalView = styled.View`
   align-items: center;
 `;
 
-const GameListCardContainer = styled.View`
+const OuterContainer = styled.View`
   display: flex;
   height: 232px;
-  border-width: 1px;
-  border-color: ${Colors.black54};
+  border-radius: 8px;
+  shadow-offset: 1px 1px;
+  shadow-color: ${Colors.shade};
+  shadow-opacity: 0.8;
+  margin-horizontal: 4px;
+`;
+
+
+const InnerContainer = styled.View`
+  display: flex;
+  height: 232px;
   border-radius: 8px;
   overflow: hidden;
 `;
@@ -167,7 +178,7 @@ const ImgOverlay = styled.View`
   border-bottom-right-radius: 8px;
 `;
 
-const SmallText = styled(Text.S)`
+const SmallText = styled(Text.SM)`
   color: ${Colors.white};
 `;
 

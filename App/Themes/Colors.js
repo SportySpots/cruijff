@@ -7,7 +7,6 @@ const colors = {
   black: '#000',
   gray: '#777',
   lightGray: '#e6e6e6',
-  shade: '#BDBDBD',
 
   primaryGreen: '#009f36',
   secondaryGreen: '#005537',
@@ -21,6 +20,16 @@ const colors = {
   bgGrey: '#f6f6f9',
   darkGreen: '#2F553C',
   red: '#ff0000',
+
+  night: '#000',
+  dusk: '#333',
+  shade: '#BDBDBD',
+  concrete: '#F5F5F5',
+  chalk: 'fff',
+  grass: '#009f36',
+  grassDark: '#005537',
+  notify: '#f5a623',
+  negative: '#E0301E',
 };
 
 export default colors;

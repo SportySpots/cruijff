@@ -18,11 +18,11 @@
   "Beach_volleyball": "Beachvolleybal",
   "Boules": "Jeu de boules",
   "find": "Spots",
-  "join": "Meedoen",
+  "join": "Activiteiten",
   "info": "Info",
   "Info": "Info",
-  "Plan a game": "Plan een potje",
-  "plan a game": "plan een potje",
+  "Plan a game": "Plan een activiteit",
+  "plan a game": "plan een activiteit",
   "profile": "Profiel",
   "settings": "Instellingen",
 
@@ -37,7 +37,7 @@
   "Choose sport": "Kies sport",
   "Pick a spot": "Kies een locatie",
   "Describe the game": "Omschrijving",
-  "Game created": "Spel gemaakt",
+  "Game created": "Activiteit aangemaakt",
   "Share": "Delen",
   "Copy": "Kopiëren",
   "This event is invite-only": "Alleen op uitnodiging",
@@ -54,7 +54,7 @@
   "attending": "aanwezig",
   "declined": "afwezig",
   "invited": "uitgenodigd",
-  "Game Details": "Speloverzicht",
+  "Game Details": "Activiteitoverzicht",
   "Players": "Spelers",
   "spot-details": "Spotoverzicht",
   "Profile Edit": "Profiel aanpassen",
@@ -100,18 +100,18 @@
   "Yes": "Ja",
   "Save": "Opslaan",
   "Log out": "Uitloggen",
-  "Find a spot": "Zoek een spot",
+  "Find a spot": "Vind een spot",
   "Enter a valid e-mail address": "Ongeldig e-mail adres, of deze is al in gebruik",
   "Privacy info": "Privacy informatie",
   "Terms and conditions": "Algemene voorwaarden",
-  "games": "potjes",
-  "Games": "Potjes",
-  "Find a game": "Zoek een spel",
+  "games": "activiteiten",
+  "Games": "Activiteiten",
+  "Find a game": "Vind een activiteit",
   "You have been invited to a SportySptos game": "Je bent uitgenodigd voor een potje via SportySpots",
 
   "Spot details": "Spot overzicht",
   "No spots found": "Geen spots gevonden...",
-  "No games found": "Geen potjes gevonden...",
+  "No games found": "Geen activiteiten gevonden...",
 
   "Wrong username or password": "Geen geldige e-mail of wachtwoord",
 
@@ -126,7 +126,7 @@
 
   "Discover sport locations and activities near you": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
 
-  "capacity": "capaciteit",
+  "capacity": "personen",
 
   "You have been invited to a SportySpots game:": "Je bent uitgenodigd om mee te doen met een potje op SportySpots:",
 
@@ -141,7 +141,7 @@
 
   "with": "met",
 
-  "Are you sure you want to cancel this game?": "Weet je zeker dat je dit spel wilt annuleren?",
+  "Are you sure you want to cancel this game?": "Weet je zeker dat je deze activiteit wilt annuleren?",
 
   "Game not found": "Spel niet gevonden",
   "Help us to improve the app": "Help ons de app te verbeteren",

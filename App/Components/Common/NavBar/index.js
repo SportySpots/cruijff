@@ -33,7 +33,7 @@ const buttons = [{
   route: 'GameSearchTab',
   icon: {
     set: MaterialIcon,
-    name: 'person-add',
+    name: 'flag',
   },
 }, {
   id: 'organize',
@@ -42,7 +42,7 @@ const buttons = [{
   route: 'PlanScreen',
   icon: {
     set: MaterialCommunityIcon,
-    name: 'calendar-plus',
+    name: 'plus-box',
   },
 }, {
   id: 'profile',

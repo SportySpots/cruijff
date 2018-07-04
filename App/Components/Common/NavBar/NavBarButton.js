@@ -9,7 +9,7 @@ import Colors from '../../../Themes/Colors';
 // STYLE:
 //------------------------------------------------------------------------------
 const Button = styled(TouchableOpacity)`
-  flex: ${props => (props.main ? 11 : 9)};
+  flex: ${props => (props.main ? 10 : 9)};
   height: ${props => (props.main ? 56 : 48)};
   border-top-width: ${props => (props.main ? 0 : StyleSheet.hairlineWidth)};
   border-top-color: ${props => (props.main ? Colors.transparent : Colors.lightGray)};

@@ -11,13 +11,7 @@ import I18n from '../../I18n';
 // STYLE:
 //------------------------------------------------------------------------------
 const CardContainer = styled(TouchableOpacity)`
-  margin: 8px;
-  border-radius: 8px;
-  /* shadow-offset: { width: 0, height: 2 }; */
-  shadow-radius: 2px;
-  shadow-color: black;
-  shadow-opacity: 0.3;
-  elevation: 2;
+  margin-vertical: 8px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

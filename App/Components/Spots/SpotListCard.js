@@ -39,15 +39,29 @@ export default class SpotListCard extends Component {
         : 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/Images/spot-placeholder.png';
 
     return (
-      <CardContainer style={this.props.style}>
-        <Img source={{ uri: image }} />
-        <StyledHeader spot={spot} />
-      </CardContainer>
+      <OuterContainer>
+        <InnerContainer>
+          <Img source={{ uri: image }} />
+          <StyledHeader spot={spot} />
+        </InnerContainer>
+      </OuterContainer>
     );
   }
 }
 
-const CardContainer = styled.View`
+const OuterContainer = styled.View`
+  display: flex;
+  height: 240px;
+  border-radius: 8px;
+  shadow-offset: 1px 1px;
+  shadow-color: ${Colors.shade};
+  shadow-opacity: 0.8;
+  margin-horizontal: 4px;
+  elevation: 2;
+`;
+
+const InnerContainer = styled.View`
+  display: flex;
   height: 240px;
   border-radius: 8px;
   overflow: hidden;

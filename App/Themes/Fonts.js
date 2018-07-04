@@ -14,7 +14,7 @@ const size = {
   h5: 20,
   h6: 19,
   input: 18,
-  regular: 17,
+  regular: 16,
   medium: 14,
   small: 12,
   tiny: 8.5,
@@ -30,16 +30,17 @@ const style = {
   M: {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 18,
-    lineHeight: 18,
+    lineHeight: 27,
   },
   SM: {
     fontFamily: 'Rajdhani-Regular',
     fontSize: 16,
-    lineHeight: 16,
+    lineHeight: 24,
   },
   S: {
     fontFamily: 'Rajdhani-Regular',
     fontSize: 12,
+    lineHeight: 18,
   },
 };
 
