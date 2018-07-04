@@ -14,8 +14,7 @@ const { Types, Creators } = createActions(
   {
     setUuid: ['uuid'],
     setClaims: ['claims'],
-    // setToken: ['token'],
-    setToken: ['token', 'cb'],
+    setToken: ['token'],
     setInitialized: ['initialized'],
     logout: null,
   },
@@ -38,7 +37,7 @@ export const INITIAL_STATE = Immutable({
 
 export const logout = state => INITIAL_STATE.merge({ initialized: true });
 
-export const setToken = (state, action) => state.merge({ token: action.token, cb: action.cb });
+export const setToken = (state, action) => state.merge({ token: action.token });
 export const setUUID = (state, action) => state.merge({ uuid: action.uuid });
 export const setClaims = (state, action) => state.merge({ claims: action.claims });
 export const setInitialized = (state, action) => state.merge({ initialized: action.initialized });
