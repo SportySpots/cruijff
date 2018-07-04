@@ -48,7 +48,8 @@ const gameFragment = gql`
       status
       user {
         uuid
-        name
+        first_name
+        last_name
       }
     }
   }
