@@ -38,43 +38,44 @@ class GameListCard extends React.Component {
 
     return (
       <OuterContainer>
-      <InnerContainer>
-        <Top>
-          <UserCircle user={game.organizer} />
-          <TopText>
-            <Text.M>{game.organizer.first_name} {game.organizer.last_name}</Text.M>
-            <Spacer />
-            <Text.M>{I18n.t(game.sport.category)}</Text.M>
-          </TopText>
-        </Top>
-        <Bottom>
-          <ImageContainer>
-            <Img source={{ uri: image }} />
-            <ImgOverlay />
-          </ImageContainer>
-          <BottomContainer>
-            <Title>{game.name}</Title>
-            <HorizontalView>
-              <IonIcon style={{ marginRight: 8, backgroundColor: 'transparent' }} name="ios-time" color={Colors.white} size={24} />
-              <SmallText style={{ marginRight: 16 }}>{formattedStartTime}</SmallText>
-              <CommunityIcon style={{ marginRight: 8, backgroundColor: 'transparent'}} name="map-marker" color={Colors.white} size={24} />
-              <SmallText>{spot.name}</SmallText>
-            </HorizontalView>
-            { attendingUsers.length > 0 && <Attendees>
+        <InnerContainer>
+          <Top>
+            <UserCircle user={game.organizer} />
+            <TopText>
+              <Text.M>{game.organizer.first_name} {game.organizer.last_name}</Text.M>
+              <Spacer />
+              <Text.M>{I18n.t(game.sport.category)}</Text.M>
+            </TopText>
+          </Top>
+          <Bottom>
+            <ImageContainer>
+              <Img source={{ uri: image }} />
+              <ImgOverlay />
+            </ImageContainer>
+            <BottomContainer>
+              <Title>{game.name}</Title>
               <HorizontalView>
-                <CappedList
-                  max={7}
-                  data={attendingUsers}
-                  keyExtractor={user => user.uuid}
-                  component={user => <UserCircle user={user} style={{ marginRight: 8 }} />}
-                  capComponent={({ data }) => <PropertyCircle text={`+${data.length}`} />}
-                />
+                <IonIcon style={{ marginRight: 8, backgroundColor: 'transparent' }} name="ios-time" color={Colors.white} size={24} />
+                <SmallText style={{ marginRight: 16 }}>{formattedStartTime}</SmallText>
+                <CommunityIcon style={{ marginRight: 8, backgroundColor: 'transparent'}} name="map-marker" color={Colors.white} size={24} />
+                <SmallText>{spot.name}</SmallText>
               </HorizontalView>
-            </Attendees>
-            }
-          </BottomContainer>
-        </Bottom>
-      </InnerContainer>
+              { attendingUsers.length > 0 && (
+                <Attendees>
+                  <HorizontalView>
+                    <CappedList
+                      max={7}
+                      data={attendingUsers}
+                      keyExtractor={user => user.uuid}
+                      component={user => <UserCircle user={user} style={{ marginRight: 8 }} />}
+                      capComponent={({ data }) => <PropertyCircle text={`+${data.length}`} />}
+                    />
+                  </HorizontalView>
+                </Attendees>
+              ) }
+            </BottomContainer>
+          </Bottom>
+        </InnerContainer>
       </OuterContainer>
     );
   }
@@ -114,6 +115,8 @@ const OuterContainer = styled.View`
   shadow-offset: 1px 1px;
   shadow-color: ${Colors.shade};
   shadow-opacity: 0.8;
+  elevation: 2;
+  margin-vertical: 4px;
   margin-horizontal: 4px;
 `;
 

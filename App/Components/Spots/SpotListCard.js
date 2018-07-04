@@ -57,6 +57,7 @@ const OuterContainer = styled.View`
   shadow-color: ${Colors.shade};
   shadow-opacity: 0.8;
   margin-horizontal: 4px;
+  margin-vertical: 4px;
   elevation: 2;
 `;
 

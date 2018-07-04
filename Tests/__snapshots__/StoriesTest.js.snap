@@ -1582,12 +1582,18 @@ exports[`Storyshots Games GameListCard 1`] = `
     style={
       Array [
         Object {
-          "borderColor": "rgba(0,0,0,0.34)",
           "borderRadius": 8,
-          "borderWidth": 1,
           "display": "flex",
+          "elevation": 2,
           "height": 232,
-          "overflow": "hidden",
+          "marginHorizontal": 4,
+          "marginVertical": 4,
+          "shadowColor": "#BDBDBD",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 1,
+          },
+          "shadowOpacity": 0.8,
         },
         undefined,
       ]
@@ -1597,120 +1603,95 @@ exports[`Storyshots Games GameListCard 1`] = `
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "white",
-            "borderTopLeftRadius": 8,
-            "borderTopRightRadius": 8,
-            "flexBasis": 0,
-            "flexDirection": "row",
-            "flexGrow": 1,
-            "flexShrink": 1,
-            "paddingHorizontal": 16,
+            "borderRadius": 8,
+            "display": "flex",
+            "height": 232,
+            "overflow": "hidden",
           },
           undefined,
         ]
       }
     >
       <View
-        size={40}
         style={
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#009f36",
-              "borderRadius": 40,
-              "flexDirection": "column",
-              "height": 40,
-              "justifyContent": "center",
-              "width": 40,
-            },
-            Object {},
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          innerRef={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
-                },
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "paddingBottom": 4,
-                    "paddingLeft": 4,
-                    "paddingRight": 4,
-                    "paddingTop": 4,
-                    "textAlign": "center",
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          TK
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
+              "backgroundColor": "white",
+              "borderTopLeftRadius": 8,
+              "borderTopRightRadius": 8,
+              "flexBasis": 0,
               "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginLeft": 16,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingHorizontal": 16,
             },
             undefined,
           ]
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
+          size={40}
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "alignItems": "center",
+                "backgroundColor": "#009f36",
+                "borderRadius": 40,
+                "flexDirection": "column",
+                "height": 40,
+                "justifyContent": "center",
+                "width": 40,
               },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
               Array [
                 Object {
                   "backgroundColor": "transparent",
                 },
-                Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
-                },
-                undefined,
-              ],
-            ]
-          }
-        >
-          Tom
-           
-          Klaver
-        </Text>
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "paddingBottom": 4,
+                      "paddingLeft": 4,
+                      "paddingRight": 4,
+                      "paddingTop": 4,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            TK
+          </Text>
+        </View>
         <View
           style={
             Array [
               Object {
-                "marginHorizontal": 8,
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "marginLeft": 16,
               },
               undefined,
             ]
@@ -1740,98 +1721,101 @@ exports[`Storyshots Games GameListCard 1`] = `
               ]
             }
           >
-            ·
+            Tom
+             
+            Klaver
           </Text>
-        </View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
+          <View
+            style={
+              Array [
+                Object {
+                  "marginHorizontal": 8,
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Object {
+                      "color": "#BDBDBD",
+                    },
+                  ],
+                ]
+              }
+            >
+              ·
+            </Text>
+          </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
               Array [
                 Object {
                   "backgroundColor": "transparent",
                 },
-                Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
-                },
-                undefined,
-              ],
-            ]
-          }
-        >
-          BEACH_VOLLEYBALL
-        </Text>
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            BEACH_VOLLEYBALL
+          </Text>
+        </View>
       </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "green",
-            "borderBottomLeftRadius": 8,
-            "borderBottomRightRadius": 8,
-            "display": "flex",
-            "flexBasis": 0,
-            "flexGrow": 3,
-            "flexShrink": 1,
-          },
-          undefined,
-        ]
-      }
-    >
       <View
         style={
           Array [
             Object {
+              "backgroundColor": "green",
               "borderBottomLeftRadius": 8,
               "borderBottomRightRadius": 8,
-              "bottom": 0,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
+              "display": "flex",
+              "flexBasis": 0,
+              "flexGrow": 3,
+              "flexShrink": 1,
             },
             undefined,
           ]
         }
       >
-        <Image
-          source={
-            Object {
-              "uri": "https://s3.amazonaws.com/sportyspots-prd/spots/dea377b2-cff8-49ae-97ea-475d22a3a477/images/Paramariboplein.jpg",
-            }
-          }
-          style={
-            Array [
-              Object {
-                "borderBottomLeftRadius": 8,
-                "borderBottomRightRadius": 8,
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "flexShrink": 1,
-              },
-              undefined,
-            ]
-          }
-        />
         <View
           style={
             Array [
               Object {
-                "backgroundColor": "black",
                 "borderBottomLeftRadius": 8,
                 "borderBottomRightRadius": 8,
                 "bottom": 0,
                 "left": 0,
-                "opacity": 0.5,
                 "position": "absolute",
                 "right": 0,
                 "top": 0,
@@ -1839,63 +1823,55 @@ exports[`Storyshots Games GameListCard 1`] = `
               undefined,
             ]
           }
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "flexBasis": 0,
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "marginHorizontal": 16,
-              "marginVertical": 16,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          innerRef={[Function]}
-          style={
-            Array [
+        >
+          <Image
+            source={
               Object {
-                "backgroundColor": "transparent",
-              },
+                "uri": "https://s3.amazonaws.com/sportyspots-prd/spots/dea377b2-cff8-49ae-97ea-475d22a3a477/images/Paramariboplein.jpg",
+              }
+            }
+            style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
+                  "borderBottomLeftRadius": 8,
+                  "borderBottomRightRadius": 8,
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
                 },
+                undefined,
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
                 Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
+                  "backgroundColor": "black",
+                  "borderBottomLeftRadius": 8,
+                  "borderBottomRightRadius": 8,
+                  "bottom": 0,
+                  "left": 0,
+                  "opacity": 0.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
                 },
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontFamily": "Rajdhani-SemiBold",
-                    "fontSize": 22,
-                    "marginBottom": 8,
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          Sez's dgsldkgj lksdjgklsdjg sdg game
-        </Text>
+                undefined,
+              ]
+            }
+          />
+        </View>
         <View
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "flexDirection": "row",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "space-between",
+                "marginHorizontal": 16,
+                "marginVertical": 16,
               },
               undefined,
             ]
@@ -1903,30 +1879,6 @@ exports[`Storyshots Games GameListCard 1`] = `
         >
           <Text
             accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#fff",
-                  "fontSize": 24,
-                },
-                Object {
-                  "backgroundColor": "transparent",
-                  "marginRight": 8,
-                },
-                Object {
-                  "fontFamily": "Ionicons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             innerRef={[Function]}
@@ -1941,71 +1893,16 @@ exports[`Storyshots Games GameListCard 1`] = `
                   },
                   Object {
                     "color": "#000",
-                    "fontFamily": "Rajdhani-Regular",
-                    "fontSize": 12,
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
                     "lineHeight": NaN,
                   },
                   Array [
                     Object {
                       "color": "#fff",
-                    },
-                    Object {
-                      "marginRight": 16,
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            24-05 16:00
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#fff",
-                  "fontSize": 24,
-                },
-                Object {
-                  "backgroundColor": "transparent",
-                  "marginRight": 8,
-                },
-                Object {
-                  "fontFamily": "Material Design Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            innerRef={[Function]}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "Rajdhani-Regular",
-                    "fontSize": 12,
-                    "lineHeight": NaN,
-                  },
-                  Array [
-                    Object {
-                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 22,
+                      "marginBottom": 8,
                     },
                     undefined,
                   ],
@@ -2013,24 +1910,8 @@ exports[`Storyshots Games GameListCard 1`] = `
               ]
             }
           >
-            Oosterpark
+            Sez's dgsldkgj lksdjgklsdjg sdg game
           </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomLeftRadius": 8,
-                "borderBottomRightRadius": 8,
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "paddingTop": 8,
-              },
-              undefined,
-            ]
-          }
-        >
           <View
             style={
               Array [
@@ -2038,182 +1919,319 @@ exports[`Storyshots Games GameListCard 1`] = `
                   "alignItems": "center",
                   "flexDirection": "row",
                 },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#fff",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginRight": 8,
+                  },
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              innerRef={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 16,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                      },
+                      Object {
+                        "marginRight": 16,
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              24-05 16:00
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#fff",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "marginRight": 8,
+                  },
+                  Object {
+                    "fontFamily": "Material Design Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              innerRef={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 16,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                      },
+                      undefined,
+                    ],
+                  ],
+                ]
+              }
+            >
+              Oosterpark
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
                 Object {
-                  "flex": 1,
+                  "borderBottomLeftRadius": 8,
+                  "borderBottomRightRadius": 8,
+                  "paddingTop": 8,
                 },
+                undefined,
               ]
             }
           >
             <View
-              size={40}
               style={
                 Array [
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "#009f36",
-                    "borderRadius": 40,
-                    "flexDirection": "column",
-                    "height": 40,
-                    "justifyContent": "center",
-                    "width": 40,
+                    "flexDirection": "row",
                   },
-                  Object {
-                    "marginRight": 8,
-                  },
+                  undefined,
                 ]
               }
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                innerRef={[Function]}
+              <View
+                size={40}
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "transparent",
+                      "alignItems": "center",
+                      "backgroundColor": "#009f36",
+                      "borderRadius": 40,
+                      "flexDirection": "column",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "width": 40,
                     },
+                    Object {
+                      "marginRight": 8,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  innerRef={[Function]}
+                  style={
                     Array [
                       Object {
                         "backgroundColor": "transparent",
                       },
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "Rajdhani-SemiBold",
-                        "fontSize": 18,
-                        "lineHeight": NaN,
-                      },
                       Array [
                         Object {
-                          "color": "#fff",
-                          "paddingBottom": 4,
-                          "paddingLeft": 4,
-                          "paddingRight": 4,
-                          "paddingTop": 4,
-                          "textAlign": "center",
+                          "backgroundColor": "transparent",
                         },
-                        undefined,
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": NaN,
+                        },
+                        Array [
+                          Object {
+                            "color": "#fff",
+                            "paddingBottom": 4,
+                            "paddingLeft": 4,
+                            "paddingRight": 4,
+                            "paddingTop": 4,
+                            "textAlign": "center",
+                          },
+                          undefined,
+                        ],
                       ],
-                    ],
-                  ]
-                }
-              >
-                RT
-              </Text>
-            </View>
-            <View
-              size={40}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#009f36",
-                    "borderRadius": 40,
-                    "flexDirection": "column",
-                    "height": 40,
-                    "justifyContent": "center",
-                    "width": 40,
-                  },
-                  Object {
-                    "marginRight": 8,
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                innerRef={[Function]}
+                    ]
+                  }
+                >
+                  RT
+                </Text>
+              </View>
+              <View
+                size={40}
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "transparent",
+                      "alignItems": "center",
+                      "backgroundColor": "#009f36",
+                      "borderRadius": 40,
+                      "flexDirection": "column",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "width": 40,
                     },
+                    Object {
+                      "marginRight": 8,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  innerRef={[Function]}
+                  style={
                     Array [
                       Object {
                         "backgroundColor": "transparent",
                       },
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "Rajdhani-SemiBold",
-                        "fontSize": 18,
-                        "lineHeight": NaN,
-                      },
                       Array [
                         Object {
-                          "color": "#fff",
-                          "paddingBottom": 4,
-                          "paddingLeft": 4,
-                          "paddingRight": 4,
-                          "paddingTop": 4,
-                          "textAlign": "center",
+                          "backgroundColor": "transparent",
                         },
-                        undefined,
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": NaN,
+                        },
+                        Array [
+                          Object {
+                            "color": "#fff",
+                            "paddingBottom": 4,
+                            "paddingLeft": 4,
+                            "paddingRight": 4,
+                            "paddingTop": 4,
+                            "textAlign": "center",
+                          },
+                          undefined,
+                        ],
                       ],
-                    ],
-                  ]
-                }
-              >
-                RT
-              </Text>
-            </View>
-            <View
-              size={40}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#009f36",
-                    "borderRadius": 40,
-                    "flexDirection": "column",
-                    "height": 40,
-                    "justifyContent": "center",
-                    "width": 40,
-                  },
-                  Object {
-                    "marginRight": 8,
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                innerRef={[Function]}
+                    ]
+                  }
+                >
+                  RT
+                </Text>
+              </View>
+              <View
+                size={40}
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "transparent",
+                      "alignItems": "center",
+                      "backgroundColor": "#009f36",
+                      "borderRadius": 40,
+                      "flexDirection": "column",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "width": 40,
                     },
+                    Object {
+                      "marginRight": 8,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  innerRef={[Function]}
+                  style={
                     Array [
                       Object {
                         "backgroundColor": "transparent",
                       },
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "Rajdhani-SemiBold",
-                        "fontSize": 18,
-                        "lineHeight": NaN,
-                      },
                       Array [
                         Object {
-                          "color": "#fff",
-                          "paddingBottom": 4,
-                          "paddingLeft": 4,
-                          "paddingRight": 4,
-                          "paddingTop": 4,
-                          "textAlign": "center",
+                          "backgroundColor": "transparent",
                         },
-                        undefined,
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": NaN,
+                        },
+                        Array [
+                          Object {
+                            "color": "#fff",
+                            "paddingBottom": 4,
+                            "paddingLeft": 4,
+                            "paddingRight": 4,
+                            "paddingTop": 4,
+                            "textAlign": "center",
+                          },
+                          undefined,
+                        ],
                       ],
-                    ],
-                  ]
-                }
-              >
-                RT
-              </Text>
+                    ]
+                  }
+                >
+                  RT
+                </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -3325,7 +3343,7 @@ exports[`Storyshots NavBar At bottom 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -3386,7 +3404,7 @@ exports[`Storyshots NavBar At bottom 1`] = `
           "borderTopRightRadius": 8,
           "borderTopWidth": 0,
           "flexBasis": 0,
-          "flexGrow": 11,
+          "flexGrow": 10,
           "flexShrink": 1,
           "height": 56,
           "opacity": 1,
@@ -3429,7 +3447,7 @@ exports[`Storyshots NavBar At bottom 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -3862,7 +3880,7 @@ exports[`Storyshots NavBar Default 1`] = `
           ]
         }
       >
-        
+        
       </Text>
       <Text
         accessible={true}
@@ -3923,7 +3941,7 @@ exports[`Storyshots NavBar Default 1`] = `
         "borderTopRightRadius": 8,
         "borderTopWidth": 0,
         "flexBasis": 0,
-        "flexGrow": 11,
+        "flexGrow": 10,
         "flexShrink": 1,
         "height": 56,
         "opacity": 1,
@@ -3966,7 +3984,7 @@ exports[`Storyshots NavBar Default 1`] = `
           ]
         }
       >
-        
+        
       </Text>
       <Text
         accessible={true}
@@ -6606,6 +6624,7 @@ exports[`Storyshots Rating 1 1`] = `
             "color": "#000",
             "fontFamily": "Rajdhani-Regular",
             "fontSize": 12,
+            "lineHeight": 18,
             "marginLeft": 8,
           },
         ],
@@ -6731,6 +6750,7 @@ exports[`Storyshots Rating 3 1`] = `
             "color": "#000",
             "fontFamily": "Rajdhani-Regular",
             "fontSize": 12,
+            "lineHeight": 18,
             "marginLeft": 8,
           },
         ],
@@ -6858,6 +6878,7 @@ exports[`Storyshots Rating 4.5 1`] = `
             "color": "#000",
             "fontFamily": "Rajdhani-Regular",
             "fontSize": 12,
+            "lineHeight": 18,
             "marginLeft": 8,
           },
         ],
@@ -9586,13 +9607,12 @@ exports[`Storyshots Screens SpotsListScreen 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#e6e6e6",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
         "paddingBottom": 0,
-        "paddingLeft": 8,
-        "paddingRight": 8,
+        "paddingLeft": 4,
+        "paddingRight": 4,
         "paddingTop": 0,
       },
       undefined,
@@ -9758,8 +9778,8 @@ exports[`Storyshots Screens.Games GamesListScreen 1`] = `
         "flexGrow": 1,
         "flexShrink": 1,
         "paddingBottom": 0,
-        "paddingLeft": 8,
-        "paddingRight": 8,
+        "paddingLeft": 4,
+        "paddingRight": 4,
         "paddingTop": 0,
       },
       undefined,

@@ -11,7 +11,7 @@ import I18n from '../../I18n';
 // STYLE:
 //------------------------------------------------------------------------------
 const CardContainer = styled(TouchableOpacity)`
-  margin-vertical: 8px;
+  margin-vertical: 4px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
