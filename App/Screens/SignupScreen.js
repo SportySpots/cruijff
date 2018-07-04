@@ -39,7 +39,7 @@ export class _Signup extends Component {
     const userWasLoggedOut = (
       !this.props.user ||
       !this.props.user.uuid ||
-      !this.props.user.uuid.length === 0
+      this.props.user.uuid.length === 0
     );
 
     const userIsLoggedIn = (
