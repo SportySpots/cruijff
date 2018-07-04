@@ -14,7 +14,7 @@ import Card from '../../Games/GameListCard';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   min-height: 100px;
-  padding: 16px;
+  padding: 8px;
 `;
 //------------------------------------------------------------------------------
 const Title = styled(Text.M)`
