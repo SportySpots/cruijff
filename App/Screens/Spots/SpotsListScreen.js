@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { uniqBy } from 'ramda';
 import geolib from 'geolib';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
@@ -29,6 +30,15 @@ const getCurrentPosition = (options = {}) =>
   new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(resolve, reject, options);
   });
+//------------------------------------------------------------------------------
+/**
+ * @summary Make sure spots are unique.
+ */
+const curatedSpots = spots => (
+  spots && spots.length > 0
+    ? uniqBy(({ uuid }) => (uuid), spots)
+    : []
+);
 //------------------------------------------------------------------------------
 const rounded = number => (Math.round(number * 10) / 10);
 //------------------------------------------------------------------------------
@@ -122,7 +132,7 @@ class SpotsListScreen extends React.Component {
                   selectedSportIds.length > 0 &&
                   data &&
                   data.spots &&
-                  data.spots.map((spot) => {
+                  curatedSpots(data.spots).map((spot) => {
                     if (!coords || !spot.address) { return spot; }
                     const latLng = getSpotLocation(spot);
                     const distance = rounded(geolib.getDistance(coords, latLng) / 1000);
