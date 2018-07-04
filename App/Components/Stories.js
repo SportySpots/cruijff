@@ -31,6 +31,10 @@ import NothingFound from './NothingFound';
 
 const dummyNavigator = {
   navigate: () => null,
+  state: {
+    index: 0,
+    routes: [{ routeName: 'test' }],
+  },
 };
 
 const store = createStore(state => state, {
@@ -102,7 +106,7 @@ const dummyReduxNav = {
 storiesOf('NavBar', module)
   .add('Default', () => (
     <Provider store={store}>
-      <NavBar nav={dummyReduxNav} navigate={() => null} />
+      <NavBar nav={dummyReduxNav} navigation={dummyNavigator} />
     </Provider>
   ))
   .add('NavBarButton', () => (
@@ -112,7 +116,7 @@ storiesOf('NavBar', module)
     <Provider store={store}>
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1, backgroundColor: 'white' }} />
-        <NavBar nav={dummyReduxNav} navigate={() => null} />
+        <NavBar nav={dummyReduxNav} navigation={dummyNavigator} />
       </View>
     </Provider>
   ));
