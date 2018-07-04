@@ -9,17 +9,7 @@ import Text from '../../Text';
 import GamesList from '../../Games/GamesList';
 import Card from '../../Games/GameListCard';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Container = styled.View`
-  min-height: 100px;
-  padding: 8px;
-`;
-//------------------------------------------------------------------------------
-const Title = styled(Text.M)`
-  font-size: 22px;
-`;
+
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -39,13 +29,16 @@ class SpotGames extends React.PureComponent {
         {games && games.length > 0 && (
           <Title>{I18n.t('Games')}</Title>
         )}
-        <GamesList
-          games={games || []}
-          withEmptyComponent={false}
-          cardComponent={Card}
-          onCardPress={this.handleCardPress}
-        />
+        <GamesContainer>
+          <GamesList
+            games={games || []}
+            withEmptyComponent={false}
+            cardComponent={Card}
+            onCardPress={this.handleCardPress}
+          />
+        </GamesContainer>
       </Container>
+      
     );
   }
 }
@@ -58,3 +51,20 @@ SpotGames.propTypes = {
 };
 
 export default withNavigation(SpotGames);
+
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  min-height: 100px;
+`;
+//------------------------------------------------------------------------------
+const Title = styled(Text.M)`
+  font-size: 22px;
+  padding-horizontal: 16px;
+  margin-top: 16px;
+`;
+
+const GamesContainer = styled.View`
+  padding-horizontal: 8px;
+`;
