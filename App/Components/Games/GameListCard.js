@@ -59,8 +59,8 @@ class GameListCard extends React.Component {
               <CommunityIcon style={{ marginRight: 8, backgroundColor: 'transparent'}} name="map-marker" color={Colors.white} size={24} />
               <SmallText>{spot.name}</SmallText>
             </HorizontalView>
-            <Attendees>
-              <HorizontalView style={{ flex: 1 }}>
+            { attendingUsers.length > 0 && <Attendees>
+              <HorizontalView>
                 <CappedList
                   max={7}
                   data={attendingUsers}
@@ -70,6 +70,7 @@ class GameListCard extends React.Component {
                 />
               </HorizontalView>
             </Attendees>
+            }
           </BottomContainer>
         </Bottom>
       </GameListCardContainer>
@@ -102,7 +103,6 @@ const TopText = styled.View`
 const HorizontalView = styled.View`
   flex-direction: row;
   align-items: center;
-  
 `;
 
 const GameListCardContainer = styled.View`
@@ -134,6 +134,7 @@ const Bottom = styled.View`
 
 const BottomContainer = styled.View`
   flex: 1;
+  justify-content: space-between;
   margin-horizontal: 16px;
   margin-vertical: 16px;
 `;
@@ -178,9 +179,11 @@ const Title = styled(Text.M)`
 `;
 
 const Attendees = styled.View`
-  flex: 1;
   padding-top: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
 
+const NoUsersSpacer = styled.View`
+  height: 50px;
+`;

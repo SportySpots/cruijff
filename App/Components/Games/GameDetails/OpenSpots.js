@@ -21,7 +21,7 @@ const openSpotCircle = (_, i) => (
   />
 );
 //------------------------------------------------------------------------------
-const restCircle = text => () => (
+const restCircle = text => (
   <PropertyCircle
     key="extra"
     text={text}
@@ -52,7 +52,7 @@ const OpenSpots = ({ game, maxLength, onOpenSpotsPress }) => {
             max={maxLength}
             data={[...Array(nOpenSpots)]}
             component={openSpotCircle}
-            capComponent={({ data }) => restCircle(data.length)}
+            capComponent={({ data }) => restCircle('+' + data.length)}
           />
         </HorizontalView>
       </HorizontalView>
