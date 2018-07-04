@@ -19,6 +19,7 @@ const spotFragment = gql`
     }
     games {
       uuid
+      start_time
     }
   }
 `;

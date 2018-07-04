@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { withNavigation } from 'react-navigation';
+import moment from 'moment';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
@@ -9,7 +10,19 @@ import Text from '../../Text';
 import GamesList from '../../Games/GamesList';
 import Card from '../../Games/GameListCard';
 
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+/**
+ * @summary (This is a hack) filter passed games.
+ */
+const curatedGames = (games) => {
+  const today = moment(new Date()).startOf('day').toISOString();
 
+  return games && games.length > 0
+    ? games.filter(game => game.start_time > today)
+    : [];
+};
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -26,19 +39,19 @@ class SpotGames extends React.PureComponent {
 
     return (
       <Container>
-        {games && games.length > 0 && (
+        {games && curatedGames(games).length > 0 && (
           <Title>{I18n.t('Games')}</Title>
         )}
         <GamesContainer>
           <GamesList
-            games={games || []}
+            games={(games && curatedGames(games)) || []}
             withEmptyComponent={false}
             cardComponent={Card}
             onCardPress={this.handleCardPress}
           />
         </GamesContainer>
       </Container>
-      
+
     );
   }
 }
@@ -64,7 +77,7 @@ const Title = styled(Text.M)`
   padding-horizontal: 16px;
   margin-top: 16px;
 `;
-
+//------------------------------------------------------------------------------
 const GamesContainer = styled.View`
   padding-horizontal: 8px;
 `;

@@ -47,7 +47,7 @@ const statuses = {
 
 const UserRow = ({ attendee }) => {
   const { user } = attendee;
-  console.log(attendee);
+
   return (
     <UserRowContainer>
       <UserCircle user={user} />

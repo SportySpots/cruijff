@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
-import { View } from 'react-native';
+// import { Query } from 'react-apollo';
+// import { View } from 'react-native';
 import { uniqBy } from 'ramda';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -23,9 +23,9 @@ const Container = styled.View`
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
 /**
- * @summary (This is a hack) for some reason some of the games have no spot
- * associated to them, so we filter them in order to avoid errors in the child
- * components.
+ * @summary (This is a hack) some of the games have no spot associated to them.
+ * This is caused when the user visits the create game screen (an empty game is
+ * created by default) and leaves without finishing the process.
  */
 const curatedGames = games => (
   games && games.length > 0
