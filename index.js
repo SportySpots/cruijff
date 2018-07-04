@@ -8,3 +8,4 @@ Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 };
 
 AppRegistry.registerComponent('SportySpots', () => App);
+

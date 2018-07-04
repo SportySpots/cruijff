@@ -149,5 +149,10 @@
 
   "Oops, something went wrong": "Oeps, er is iets mis gegaan",
 
-  "Activities": "Activiteiten"
+  "Activities": "Activiteiten",
+
+  "Filter on type of sport" : "Filter op type sport",
+  "All sports": "Alle sporten",
+
+  "Other": "Overig"
 }

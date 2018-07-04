@@ -45,8 +45,8 @@ const SpotsFilter = ({
   <Divider key="divider-slider" />,
   <Block key="sport-filter" style={{ height: 82 }}>
     <SwitchFilter
-      label="Alle sporten"
-      description="Filter op type sport"
+      label={I18n.t('All sports')}
+      description={I18n.t('Filter on type of sport')}
       value={allSports}
       onChange={onSportsFilterSwitch}
     />
@@ -56,7 +56,7 @@ const SpotsFilter = ({
     {sports.map(sport => (
       <SwitchFilter
         key={sport.id}
-        label={sport.name}
+        label={I18n.t(sport.name)}
         value={selectedSportIds.indexOf(sport.id) !== -1}
         onChange={() => { onSportSwitch(sport.id); }}
       />
