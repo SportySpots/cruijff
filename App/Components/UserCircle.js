@@ -30,6 +30,7 @@ const Circle = styled.View`
 `;
 //------------------------------------------------------------------------------
 const Initials = styled(Text.M)`
+  font-size: ${props => props.size * (18 / 40)}px;
   padding: 4px;
   text-align: center;
   color: ${Colors.white};
@@ -39,7 +40,7 @@ const Initials = styled(Text.M)`
 //------------------------------------------------------------------------------
 const UserCircle = ({ user, size, style }) => (
   <Circle size={size} style={style}>
-    <Initials>
+    <Initials size={size}>
       {userToInitials(user)}
     </Initials>
   </Circle>

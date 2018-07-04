@@ -5,6 +5,7 @@ import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import UserSpots from './UserSpots';
 import UserGames from './UserGames';
+import I18n from '../../../I18n';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -16,6 +17,9 @@ const Tabs = ({ user }) => (
     },
     games: {
       screen: () => <UserGames user={user} />,
+      navigationOptions: {
+        tabBarLabel: I18n.t('Activities'),
+      }
     },
   }, {
     tabBarComponent: TabBarTop,
