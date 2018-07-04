@@ -148,7 +148,7 @@ const Bottom = styled.View`
 
 const BottomContainer = styled.View`
   flex: 1;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-horizontal: 16px;
   margin-vertical: 16px;
 `;
@@ -198,6 +198,3 @@ const Attendees = styled.View`
   border-bottom-right-radius: 8px;
 `;
 
-const NoUsersSpacer = styled.View`
-  height: 50px;
-`;

@@ -5,9 +5,9 @@ import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
 import Game from '../../Screens/Games/GameDetailsScreen';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
+import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
 import style from './style';
-
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
@@ -30,6 +30,14 @@ const backBtn = navigation => (
 // COMPONENT:
 //------------------------------------------------------------------------------
 const GameDetailsScreens = {
+  SpotDetailsScreen: {
+    screen: SpotDetailsScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Spot details'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
+  },
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoginScreen

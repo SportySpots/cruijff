@@ -27,13 +27,14 @@ const GameDetails = ({
   onOpenSpotsPress,
   rspvBeforeHook,
   rspvSuccessHook,
+  navigation,
 }) => [
   <SpotImages
     key="spot-img"
     spot={game.spot}
   />,
   <Block key="game-props">
-    <GameProperties game={game} />
+    <GameProperties game={game} navigation={navigation} />
   </Block>,
   <SpotMapWithLinkFallback
     key="spot-map"
@@ -86,6 +87,7 @@ GameDetails.propTypes = {
   onOpenSpotsPress: PropTypes.func,
   rspvBeforeHook: PropTypes.func,
   rspvSuccessHook: PropTypes.func,
+  navigation: PropTypes.any,
 };
 
 GameDetails.defaultProps = {

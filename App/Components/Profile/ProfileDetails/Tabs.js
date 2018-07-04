@@ -19,7 +19,7 @@ const Tabs = ({ user }) => (
       screen: () => <UserGames user={user} />,
       navigationOptions: {
         tabBarLabel: I18n.t('Activities'),
-      }
+      },
     },
   }, {
     tabBarComponent: TabBarTop,

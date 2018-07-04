@@ -68,6 +68,7 @@ class GameDetailsScreen extends React.PureComponent {
           return (
             <Container>
               <GameDetails
+                navigation={this.props.navigation}
                 user={user}
                 game={data.game}
                 onAttendeesPress={this.handleAttendeesClick}
