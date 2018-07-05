@@ -7,6 +7,7 @@ import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'react-redux';
 
 import { StatusBar, Linking } from 'react-native';
+import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components';
 
 import { createClient, createMockClient } from './GraphQL/index';
@@ -75,11 +76,13 @@ class App extends Component {
     return (
       <ApolloProvider client={this.client}>
         <Provider store={this.store}>
-          <AppRootView>
-            <StatusBar barStyle="light-content" />
-            <ConnectionCheck />
-            <AppNavigation ref={(ref) => { this.router = ref; }} initialRouteName="RootNav" />
-          </AppRootView>
+          <MenuProvider>
+            <AppRootView>
+              <StatusBar barStyle="light-content" />
+              <ConnectionCheck />
+              <AppNavigation ref={(ref) => { this.router = ref; }} initialRouteName="RootNav" />
+            </AppRootView>
+          </MenuProvider>
         </Provider>
       </ApolloProvider>
     );
