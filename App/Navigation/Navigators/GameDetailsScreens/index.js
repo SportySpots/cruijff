@@ -1,13 +1,15 @@
 import React from 'react';
-import I18n from '../../I18n';
-import StackBackHeader from '../StackBackHeader';
-import LoginScreen from '../../Screens/LoginScreen';
-import SignupScreen from '../../Screens/SignupScreen';
-import Game from '../../Screens/Games/GameDetailsScreen';
-import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
-import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
-import PlayerList from '../../Screens/Games/PlayerListScreen';
-import style from './style';
+import I18n from '../../../I18n';
+import StackBackHeader from '../../StackBackHeader';
+import LoginScreen from '../../../Screens/LoginScreen';
+import SignupScreen from '../../../Screens/SignupScreen';
+import Game from '../../../Screens/Games/GameDetailsScreen';
+import ProfileSignupScreen from '../../../Screens/Profile/ProfileSignupScreen';
+import SpotDetailsScreen from '../../../Screens/Spots/SpotDetailsScreen';
+import PlayerList from '../../../Screens/Games/PlayerListScreen';
+import style from '../style';
+import AdminMenu from './AdminMenu';
+
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
@@ -86,6 +88,13 @@ const GameDetailsScreens = {
       headerTitle: I18n.t('Game details'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
+      // TODO: only display menu if user is organizer
+      headerRight: (
+        <AdminMenu
+          onEdit={() => {}}
+          onDelete={() => {}}
+        />
+      ),
     }),
   },
 };
