@@ -4,6 +4,7 @@ const gameDetailsFragment = gql`
   fragment gameDetailsFragment on GameType {
     uuid
     name
+    status
     start_time
     end_time
     is_featured

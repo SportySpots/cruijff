@@ -27,54 +27,57 @@ const GameDetails = ({
   rspvBeforeHook,
   rspvSuccessHook,
   navigation,
-}) => [
-  <SpotImages
-    key="spot-img"
-    spot={game.spot}
-  />,
-  <Block key="game-props">
-    <GameProperties game={game} navigation={navigation} />
-  </Block>,
-  <SpotMapWithLinkFallback
-    key="spot-map"
-    spot={game.spot}
-  />,
-  <Block key="organizer">
-    <BlockLabel key="label">{I18n.t('Organizer')}</BlockLabel>
-    <Organizer game={game} />
-  </Block>,
-  <Block key="attendees">
-    <Attendees
-      game={game}
-      maxLength={ATTENDEES_TO_SHOW}
-      onAttendeesPress={onAttendeesPress}
-    />
-  </Block>,
-  <Block key="open-spots">
-    <OpenSpots
-      game={game}
-      maxLength={ATTENDEES_TO_SHOW}
-    />
-  </Block>,
-  <Block key="rspv">
-    <BlockLabel key="label">{I18n.t('Do you join?')}</BlockLabel>
-    <HorizontalView style={{ width: '100%' }}>
-      <RSPV
+}) => {
+  console.log('game.status', game && game.status);
+  return [
+    <SpotImages
+      key="spot-img"
+      spot={game.spot}
+    />,
+    <Block key="game-props">
+      <GameProperties game={game} navigation={navigation} />
+    </Block>,
+    <SpotMapWithLinkFallback
+      key="spot-map"
+      spot={game.spot}
+    />,
+    <Block key="organizer">
+      <BlockLabel key="label">{I18n.t('Organizer')}</BlockLabel>
+      <Organizer game={game} />
+    </Block>,
+    <Block key="attendees">
+      <Attendees
         game={game}
-        user={user}
-        onBeforeHook={rspvBeforeHook}
-        onSuccessHook={rspvSuccessHook}
+        maxLength={ATTENDEES_TO_SHOW}
+        onAttendeesPress={onAttendeesPress}
       />
-    </HorizontalView>
-  </Block>,
-  <Block key="share">
-    <BlockLabel>{I18n.t('Share with friends')}</BlockLabel>
-    <ShareGame
-      game={game}
-      size={55}
-    />
-  </Block>,
-];
+    </Block>,
+    <Block key="open-spots">
+      <OpenSpots
+        game={game}
+        maxLength={ATTENDEES_TO_SHOW}
+      />
+    </Block>,
+    <Block key="rspv">
+      <BlockLabel key="label">{I18n.t('Do you join?')}</BlockLabel>
+      <HorizontalView style={{ width: '100%' }}>
+        <RSPV
+          game={game}
+          user={user}
+          onBeforeHook={rspvBeforeHook}
+          onSuccessHook={rspvSuccessHook}
+        />
+      </HorizontalView>
+    </Block>,
+    <Block key="share">
+      <BlockLabel>{I18n.t('Share with friends')}</BlockLabel>
+      <ShareGame
+        game={game}
+        size={55}
+      />
+    </Block>,
+  ];
+};
 
 GameDetails.propTypes = {
   user: PropTypes.shape({
