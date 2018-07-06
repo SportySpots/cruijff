@@ -139,6 +139,9 @@ const create = () => {
       capacity,
     });
 
+  const deleteGame = ({ gameUUID }) =>
+    api.delete(`/games/${gameUUID}`);
+
   const setRSVPStatus = ({ gameUUID, status }) =>
     api.post(`/games/${gameUUID}/rsvps/`, {
       status: status.toLowerCase(),
@@ -180,6 +183,7 @@ const create = () => {
     setGameTimes,
     setGameDescription,
     setGameStatus,
+    deleteGame,
     signup,
     login,
     updateUser,

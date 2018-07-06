@@ -6,6 +6,7 @@ export default {
     ok: true,
     data: require('../Fixtures/games.json'),
   }),
+
   getAllSpots: () => {
     const spotsData = require('../Fixtures/spots.json');
     const newWestSpots = [289, 288, 287, 286, 512, 300, 311, 291, 292, 294, 295, 298, 75, 77, 74];
@@ -43,23 +44,33 @@ export default {
       data: spot,
     };
   },
+
   createGame: game => ({
     ok: true,
     data: { ...game, uuid: 'random-uuid' },
   }),
+
+  deleteGame: gameUuid => ({
+    ok: true,
+    data: { uuid: 'random-uuid' },
+  }),
+
   submitRating: (spotUuid, userUuid, rating) => ({
     ok: true,
     data: {},
   }),
+
   signup: () => ({
     ok: true,
     data: {
       token: '12345',
     },
   }),
+
   verifyToken: token => ({
     ok: true,
   }),
+
   setToken: token => null,
 
   setGameStatus: ({ gameUUID, status }) => ({
