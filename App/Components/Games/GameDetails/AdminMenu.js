@@ -36,14 +36,14 @@ class AdminMenu extends React.PureComponent {
     navigation.navigate('sportTime', { uuid: this.gameUUID });
   }
 
-  handleDelete = async () => {
+  handleCancel = async () => {
     const { navigation } = this.props;
 
     try {
-      const result = await api.deleteGame({ gameUUID: this.gameUUID });
+      const result = await api.setGameStatus({ gameUUID: this.gameUUID, status: 'Canceled' });
       console.log(result);
 
-      // After successful delete, take user to...
+      // After successful cancel, take user to...
       if (result.ok) {
         navigation.goBack(null);
       }
@@ -52,15 +52,15 @@ class AdminMenu extends React.PureComponent {
     }
   }
 
-  confirmDelete = () => {
+  confirmCancel = () => {
     Keyboard.dismiss();
 
     Alert.alert(
       I18n.t('Confirm'),
-      I18n.t('Are you sure you want to delete this game?'),
+      I18n.t('Are you sure you want to cancel this game?'),
       [
         { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
-        { text: I18n.t('Yes'), onPress: this.handleDelete },
+        { text: I18n.t('Yes'), onPress: this.handleCancel },
       ],
     );
   }
@@ -79,8 +79,8 @@ class AdminMenu extends React.PureComponent {
             <Text.M>{I18n.t('Edit')}</Text.M>
           </MenuOption>
           <MenuOption disabled />
-          <MenuOption onSelect={this.confirmDelete}>
-            <Danger>{I18n.t('Delete')}</Danger>
+          <MenuOption onSelect={this.confirmCancel}>
+            <Danger>{I18n.t('Cancel')}</Danger>
           </MenuOption>
         </MenuOptions>
       </Menu>
