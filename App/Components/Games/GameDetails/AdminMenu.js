@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Alert, Keyboard } from 'react-native';
 import { Menu, MenuTrigger, MenuOptions, MenuOption } from 'react-native-popup-menu';
+import { Query } from 'react-apollo';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components/native';
 import api from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import Text from '../../../Components/Text';
+import GET_GAME_ORGANIZER from '../../../GraphQL/Games/Queries/GET_GAME_ORGANIZER';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -66,29 +69,59 @@ class AdminMenu extends React.PureComponent {
   }
 
   render() {
-    // TODO: only display menu if user is organizer
+    const { user } = this.props;
+
     return (
-      <Menu name="game-admin">
-        <MenuTrigger menuName="game-admin">
-          <TriggerContainer>
-            <Icon size={32} name="more-vert" />
-          </TriggerContainer>
-        </MenuTrigger>
-        <MenuOptions>
-          <MenuOption onSelect={this.handleEdit}>
-            <Text.M>{I18n.t('Edit')}</Text.M>
-          </MenuOption>
-          <MenuOption disabled />
-          <MenuOption onSelect={this.confirmCancel}>
-            <Danger>{I18n.t('Cancel')}</Danger>
-          </MenuOption>
-        </MenuOptions>
-      </Menu>
+      <Query
+        query={GET_GAME_ORGANIZER}
+        variables={{ uuid: this.gameUUID }}
+      >
+        {({ loading, error, data }) => {
+          if (loading || error || !data || !data.game) {
+            return null;
+          }
+
+          // Only display menu if user is the organizer of the activity
+          const isOrganizer = (
+            user &&
+            user.uuid &&
+            data.game.organizer &&
+            data.game.organizer.uuid &&
+            user.uuid === data.game.organizer.uuid
+          );
+
+          if (!isOrganizer) {
+            return null;
+          }
+
+          return (
+            <Menu name="game-admin">
+              <MenuTrigger menuName="game-admin">
+                <TriggerContainer>
+                  <Icon size={32} name="more-vert" />
+                </TriggerContainer>
+              </MenuTrigger>
+              <MenuOptions>
+                <MenuOption onSelect={this.handleEdit}>
+                  <Text.M>{I18n.t('Edit')}</Text.M>
+                </MenuOption>
+                <MenuOption disabled />
+                <MenuOption onSelect={this.confirmCancel}>
+                  <Danger>{I18n.t('Cancel')}</Danger>
+                </MenuOption>
+              </MenuOptions>
+            </Menu>
+          );
+        }}
+      </Query>
     );
   }
 }
 
 AdminMenu.propTypes = {
+  user: PropTypes.shape({
+    uuid: PropTypes.string,
+  }),
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -99,4 +132,11 @@ AdminMenu.propTypes = {
   }).isRequired,
 };
 
-export default AdminMenu;
+AdminMenu.defaultProps = {
+  user: null,
+};
+
+const mapStateToProps = ({ user }) => ({ user });
+const withRedux = connect(mapStateToProps, null);
+
+export default withRedux(AdminMenu);
