@@ -35,6 +35,11 @@ const mocks = {
     d.setDate(d.getDate() + faker.random.number(30));
     return d;
   },
+  CustomDateTime: () => {
+    const d = new Date();
+    d.setDate(d.getDate() + faker.random.number(30));
+    return d;
+  },
   UUID: faker.random.uuid,
 };
 
