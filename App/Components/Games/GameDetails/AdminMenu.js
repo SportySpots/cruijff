@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Alert, Keyboard } from 'react-native';
 import { Menu, MenuTrigger, MenuOptions, MenuOption } from 'react-native-popup-menu';
 import { Query } from 'react-apollo';
+import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components/native';
 import api from '../../../Services/SeedorfApi';
@@ -33,10 +34,8 @@ class AdminMenu extends React.PureComponent {
 
   handleEdit = () => {
     const { navigation } = this.props;
-
     Keyboard.dismiss();
-    // TODO: clear stack, then go to plan game page
-    navigation.navigate('sportTime', { uuid: this.gameUUID });
+    navigation.navigate('PlanScreen', { uuid: this.gameUUID });
   }
 
   handleCancel = async () => {
@@ -129,6 +128,9 @@ AdminMenu.propTypes = {
       }).isRequired,
     }).isRequired,
     navigate: PropTypes.func.isRequired,
+    popToTop: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
   }).isRequired,
 };
 
