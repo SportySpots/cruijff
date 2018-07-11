@@ -14,16 +14,20 @@ const mocks = {
     ][faker.random.number(1)],
   }),
   SportType: () => ({
+    uuid: faker.random.uuid,
     name: () => faker.lorem.words(2),
   }),
   SpotType: () => ({
+    uuid: faker.random.uuid,
     name: () => faker.lorem.words(2),
     capacity: () => faker.random.number(20),
   }),
   GameType: () => ({
+    uuid: faker.random.uuid,
     attendees: () => new MockList([1, 20]),
   }),
   UserType: () => ({
+    uuid: faker.random.uuid,
     name: () => faker.lorem.words(2),
   }),
   JSONString: () => ({

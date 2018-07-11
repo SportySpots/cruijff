@@ -1871,7 +1871,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                 "flexBasis": 0,
                 "flexGrow": 1,
                 "flexShrink": 1,
-                "justifyContent": "space-between",
+                "justifyContent": "flex-end",
                 "marginHorizontal": 16,
                 "marginVertical": 16,
               },
@@ -2046,7 +2046,7 @@ exports[`Storyshots Games GameListCard 1`] = `
                 Object {
                   "borderBottomLeftRadius": 8,
                   "borderBottomRightRadius": 8,
-                  "paddingTop": 8,
+                  "paddingTop": 16,
                 },
                 undefined,
               ]

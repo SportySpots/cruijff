@@ -27,7 +27,7 @@ class RSPV extends React.PureComponent {
     const { game, user } = this.props;
 
     for (const attendee of game.attendees) {
-      if (attendee.user.uuid === user.uuid) {
+      if (user && attendee.user.uuid === user.uuid) {
         return attendee;
       }
     }
