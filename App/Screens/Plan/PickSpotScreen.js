@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
 import { FlatList, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { cardList } from '../../Components/Spots/Styles/CardStyles';
 import Footer from '../../Components/DarkFooter/index';
 import CardSmall from '../../Components/Spots/SpotListCardSmall';
 import Text from '../../Components/Common/Text';
+import { client } from '../../GraphQL/index';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
 import { GET_SPOTS_FOR_SPORT } from '../../GraphQL/Spots/Queries/GET_SPOTS';
@@ -20,6 +22,14 @@ const CardContainer = (props) => {
   );
 };
 
+CardContainer.propTypes = {
+  onPress: PropTypes.func,
+};
+
+CardContainer.defaultProps = {
+  onPress: () => {},
+};
+
 class PickSpotComponent extends Component {
   static propTypes = {
     navigation: PropTypes.object,
@@ -28,19 +38,57 @@ class PickSpotComponent extends Component {
     }),
   };
 
+  state = {
+    selectedSpotUuid: '',
+  }
+
+  async componentWillMount() {
+    try {
+      const result = await client.query({
+        query: gql`
+          {
+            game(uuid: "${this.props.navigation.state.params.uuid}") {
+              uuid
+              spot {
+                uuid
+              }
+            }
+          }
+        `,
+      });
+
+      const selectedSpotUuid = (
+        result &&
+        result.data &&
+        result.data.game &&
+        result.data.game.spot &&
+        result.data.game.spot.uuid
+      ) || '';
+
+      this.setState({ selectedSpotUuid });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   selectSpot = async (item) => {
     const result = await api.setGameSpot({
       gameUUID: this.props.navigation.state.params.uuid,
       spotUUID: item.uuid,
     });
     if (result.ok) {
-      this.props.navigation.navigate('description', {
-        uuid: this.props.navigation.state.params.uuid,
-      });
+      this.setState({ selectedSpotUuid: item.uuid });
     }
   };
 
+  handleNext = () => {
+    this.props.navigation.navigate('description', {
+      uuid: this.props.navigation.state.params.uuid,
+    });
+  }
+
   render() {
+    const { selectedSpotUuid } = this.state;
     const spots = this.props.data.spots;
 
     let Contents = (
@@ -48,7 +96,10 @@ class PickSpotComponent extends Component {
         showsVerticalScrollIndicator={false}
         data={spots}
         renderItem={({ item }) => (
-          <CardContainer spot={item} onPress={() => this.selectSpot(item)} />
+          <CardContainer
+            spot={item}
+            onPress={() => this.selectSpot(item)}
+          />
         )}
         keyExtractor={item => item.uuid}
       />
@@ -67,7 +118,8 @@ class PickSpotComponent extends Component {
         <Footer
           currentPage={1}
           numPages={4}
-          disableNext
+          disableNext={!selectedSpotUuid || selectedSpotUuid.length === 0}
+          onNext={this.handleNext}
           onBack={() => this.props.navigation.goBack()}
         />
       </View>

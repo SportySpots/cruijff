@@ -195,7 +195,7 @@ class SportAndTime extends React.Component {
               uuid
               start_time
               end_time
-              sport { uuid, name }
+              sport { uuid, name, category }
               capacity
             }
           }
