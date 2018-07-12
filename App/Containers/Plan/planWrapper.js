@@ -1,4 +1,4 @@
-import { withNavigation, NavigationActions } from 'react-navigation';
+/* import { withNavigation, NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { compose } from 'react-apollo';
 import planGameAction from '../../Redux/PlanGameRedux';
@@ -23,3 +23,4 @@ const enhance = compose(
 );
 
 export default enhance;
+*/
