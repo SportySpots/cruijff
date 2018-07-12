@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
+// import { propType } from 'graphql-anywhere';
 import { StackNavigator } from 'react-navigation';
-import userDetailsFragment from '../../GraphQL/Users/Fragments/userDetails';
+// import userDetailsFragment from '../../GraphQL/Users/Fragments/userDetails';
 import SportAndTime from './SportAndTime';
 import PickSpot from './PickSpot';
 import Description from './Description';
@@ -32,7 +32,7 @@ const FormScreens = props => (
 );
 
 FormScreens.propTypes = {
-  user: propType(userDetailsFragment).isRequired, // eslint-disable-line
+  // user: propType(userDetailsFragment).isRequired, // eslint-disable-line
   onChange: PropTypes.func, // eslint-disable-line
 };
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import { FlatList } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../../../Themes/Colors';
+import sportFragment from '../../../../../GraphQL/Sports/Fragments/sport';
 import SportCard from './SportCard';
 
 //------------------------------------------------------------------------------
@@ -31,13 +33,7 @@ const SportsList = ({ sports, onSelect }) => (
 );
 
 SportsList.propTypes = {
-  sports: PropTypes.arrayOf(
-    PropTypes.shape({
-      uuid: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-    }).isRequired,
-  ),
+  sports: PropTypes.arrayOf(propType(sportFragment).isRequired),
   onSelect: PropTypes.func,
 };
 

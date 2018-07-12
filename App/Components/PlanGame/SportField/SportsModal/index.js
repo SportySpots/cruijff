@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-native';
+import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import Text from '../../../../Components/Text';
 import I18n from '../../../../I18n/index';
 import Colors from '../../../../Themes/Colors';
+import GET_SPORTS from '../../../../GraphQL/Sports/Queries/GET_SPORTS';
+import Text from '../../../../Components/Text';
+import CenteredActivityIndicator from '../../../../Components/CenteredActivityIndicator';
 import SportsList from './SportsList';
 
 //------------------------------------------------------------------------------
@@ -25,39 +28,40 @@ const Inner = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SportsModal = ({ sports, visible, onSelect }) => (
-  <Modal
-    visible={visible}
-    animationType="fade"
-    onRequestClose={() => onSelect(null)}
-    transparent
-  >
-    <Outer>
-      <Inner>
-        <Text.L>{I18n.t('Choose sport')}</Text.L>
-        <SportsList
-          sports={sports}
-          onSelect={onSelect}
-        />
-      </Inner>
-    </Outer>
-  </Modal>
+const SportsModal = ({ visible, onSelect }) => (
+  <Query query={GET_SPORTS}>
+    {({ loading, error, data }) => {
+      if (loading) { return <CenteredActivityIndicator />; }
+      if (error || !data) { return null; }
+
+      return (
+        <Modal
+          visible={visible}
+          animationType="fade"
+          onRequestClose={() => onSelect(null)}
+          transparent
+        >
+          <Outer>
+            <Inner>
+              <Text.L>{I18n.t('Choose sport')}</Text.L>
+              <SportsList
+                sports={data.sports || []}
+                onSelect={onSelect}
+              />
+            </Inner>
+          </Outer>
+        </Modal>
+      );
+    }}
+  </Query>
 );
 
 SportsModal.propTypes = {
-  sports: PropTypes.arrayOf(
-    PropTypes.shape({
-      uuid: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-    }).isRequired,
-  ),
   visible: PropTypes.bool,
   onSelect: PropTypes.func,
 };
 
 SportsModal.defaultProps = {
-  sports: [],
   visible: false,
   onSelect: () => {},
 };

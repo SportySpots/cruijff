@@ -28,6 +28,7 @@ const Field = ({ value, onPress }) => (
   </TouchableOpacity>
 );
 
+export default Field;
 
 const styles = StyleSheet.create({
   outerContainer: {

@@ -19,15 +19,14 @@ class SportField extends React.Component {
     this.setState({ isVisible: false });
   }
 
-  handleSelect = () => {
+  handleSelect = (sport) => {
     const { onChange } = this.props;
-
     // Pass event up to parent component
-
+    onChange(sport);
   }
 
   render() {
-    const { sport, sports } = this.props;
+    const { sport } = this.props;
     const { isVisible } = this.state;
 
     return [
@@ -38,7 +37,6 @@ class SportField extends React.Component {
       />,
       <SportsModal
         key="modal"
-        sports={sports}
         visible={isVisible}
         onSelect={this.handleSelect}
       />,
@@ -50,13 +48,6 @@ SportField.propTypes = {
   sport: PropTypes.shape({
     name: PropTypes.string.isRequired,
   }).isRequired,
-  sports: PropTypes.arrayOf(
-    PropTypes.shape({
-      uuid: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-    }).isRequired,
-  ),
   onChange: PropTypes.func,
 };
 

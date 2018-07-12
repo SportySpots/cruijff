@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import gql from 'graphql-tag';
 import { Alert, Keyboard } from 'react-native';
 import { withNavigation, NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -27,7 +26,6 @@ const Outer = styled.View`
 const Inner = styled.View`
   flex: 1;
 `;
-
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -144,6 +142,7 @@ class PlanGameScreen extends React.Component {
       <Outer>
         <Inner>
           <FormScreens
+            {...this.state} // TODO: pick only required fields
             user={user}
             onChange={this.handleChange}
           />

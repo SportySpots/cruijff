@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
+import sportFragment from '../../../../../GraphQL/Sports/Fragments/sport';
 import Text from '../../../../../Components/Text';
 import I18n from '../../../../../I18n/index';
 
@@ -24,11 +26,7 @@ const SportCard = ({ sport, onSelect }) => (
 );
 
 SportCard.propTypes = {
-  sport: PropTypes.shape({
-    uuid: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-  }).isRequired,
+  sport: propType(sportFragment).isRequired,
   onSelect: PropTypes.func,
 };
 
