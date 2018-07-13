@@ -1,35 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, StyleSheet } from 'react-native';
+// import {  StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-// import styled from 'styled-components';
-import Text from '../../Components/Text';
-import I18n from '../../I18n/index';
+import styled from 'styled-components';
+import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
 import SportField from './SportField';
+import { Title, Label, Horizontal } from './style';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  flex: 1;
+  background-color: ${Colors.primaryGreen};
+  padding-top: 48px;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const SportAndTime = ({
   sport,
   onChange,
 }) => (
-  <View style={styles.container}>
+  <Container>
     <KeyboardAwareScrollView>
-      <Text.L style={styles.title}>{I18n.t('Plan a game')}</Text.L>
-      <View style={[styles.horizontal, { flex: 1, flexWrap: 'wrap' }]}>
-        <Text.M style={styles.text}>{I18n.t('I want to play')}</Text.M>
-        {/* <Field
-          value={
-            this.state.game.sport ? I18n.t(this.state.game.sport.name) : I18n.t('Select')
-          }
-          onPress={() => this.openModal('sport')}
-        /> */}
+      <Title>{I18n.t('Plan a game')}</Title>
+      <Horizontal>
+        <Label>{I18n.t('I want to play')}</Label>
         <SportField
           sport={sport}
           onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
         />
-      </View>
+      </Horizontal>
     </KeyboardAwareScrollView>
-  </View>
+  </Container>
 );
 
 SportAndTime.propTypes = {
@@ -46,7 +51,7 @@ SportAndTime.defaultProps = {
 
 export default SportAndTime;
 
-const styles = StyleSheet.create({
+/* const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
     height: '100%',
@@ -64,7 +69,7 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     marginBottom: 32,
-    /* fontSize: 48, */
+    /* fontSize: 48, /
   },
   text: {
     color: Colors.white,
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
     margin: 36,
     padding: 8,
   },
-});
+}); */
 
 
 
