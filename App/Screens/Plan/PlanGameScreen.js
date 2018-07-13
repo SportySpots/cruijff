@@ -4,6 +4,7 @@ import { Alert, Keyboard } from 'react-native';
 import { withNavigation, NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { compose } from 'react-apollo';
+import moment from 'moment';
 import styled from 'styled-components';
 import { client } from '../../GraphQL';
 import GET_GAME_PLAN from '../../GraphQL/Games/Queries/GET_GAME_PLAN';
@@ -26,6 +27,19 @@ const Outer = styled.View`
 const Inner = styled.View`
   flex: 1;
 `;
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+const dateStringToTimeString = (dateString) => {
+  const date = new Date(dateString);
+  return (
+    `${(date.getHours() < 10 ? '0' : '') +
+    date.getHours()
+    }:${
+      date.getMinutes() < 10 ? '0' : ''
+    }${date.getMinutes()}`
+  );
+};
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -64,7 +78,7 @@ class PlanGameScreen extends React.Component {
     );
 
     if (gameUUID && gameUUID.length > 0) {
-      // this.gameUUID = gameUUID;
+      this.gameUUID = gameUUID;
       this.queryGame(gameUUID);
       return;
     }
@@ -79,7 +93,7 @@ class PlanGameScreen extends React.Component {
 
     try {
       const result = await api.createGame({ name: `${username}'s game` });
-      // this.gameUUID = result.data.uuid;
+      this.gameUUID = result.data.uuid;
       // this.setState({ uuid: result.data.uuid });
       this.queryGame(result.data.uuid);
     } catch (exc) {
@@ -99,16 +113,86 @@ class PlanGameScreen extends React.Component {
     }
   }
 
+  setDate = async (date) => {
+    const { start_time, end_time } = this.state;
+    const startTime = moment(`${date}T${moment(start_time).format('HH:mm:ss')}`).toISOString();
+    const endTime = moment(`${date}T${moment(end_time).format('HH:mm:ss')}`).toISOString();
+    /* const result = await api.setGameTimes({
+      gameUUID: this.gameUUID,
+      startTime,
+      endTime,
+    }); */
+    // if (result.ok) {
+    this.setState(
+      { start_time: startTime, end_time: endTime },
+      () => { console.log(this.state); },
+    );
+    // }
+  };
+
+  setStartTime = async (date) => {
+    const { start_time } = this.state;
+    console.log(
+      'date', date,
+      'start_time', start_time,
+    );
+    const timeString = `${dateStringToTimeString(date)}:00`;
+    const startTime = moment(`${moment(start_time).format('YYYY-MM-DD')}T${timeString}`).toISOString();
+    /* const result = await api.setGameTimes({
+      gameUUID: this.gameUUID,
+      startTime,
+      endTime: this.state.game.end_time,
+    }); */
+    // if (result.ok) {
+    this.setState(
+      { start_time: startTime },
+      () => { console.log(this.state); },
+    );
+    // }
+  };
+
+  setEndTime = async (date) => {
+    const { end_time } = this.state;
+    const timeString = `${dateStringToTimeString(date)}:00`;
+    const endTime = moment(`${moment(end_time).format('YYYY-MM-DD')}T${timeString}`).toISOString();
+    /* const result = await api.setGameTimes({
+      gameUUID: this.gameUUID,
+      endTime,
+      startTime: this.state.game.start_time,
+    }); */
+    // if (result.ok) {
+    this.setState(
+      { end_time: endTime },
+      () => { console.log(this.state); },
+    );
+    // }
+  };
+
   handleChange = ({ fieldName, value }) => {
     if (!fieldName || !value) {
       return;
     }
-    this.setState(
-      { [fieldName]: value },
-      () => { console.log(this.state); },
-    );
 
     // TODO: call api for the given fieldName
+    switch (fieldName) {
+      case 'sport':
+        this.setState(
+          { [fieldName]: value },
+          () => { console.log(this.state); },
+        );
+        break;
+      case 'date':
+        this.setDate(value);
+        break;
+      case 'startTime':
+        this.setStartTime(value);
+        break;
+      case 'endTime':
+        this.setEndTime(value);
+        break;
+      default:
+        throw new Error(404, 'Unknown fieldName');
+    }
   }
 
   handleBack = () => {

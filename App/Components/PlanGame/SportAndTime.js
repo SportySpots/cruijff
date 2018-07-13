@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
@@ -8,6 +9,7 @@ import Colors from '../../Themes/Colors';
 import sportFragment from '../../GraphQL/Sports/Fragments/sport';
 import SportField from './SportField';
 import DateField from './DateField';
+import TimeField from './TimeField';
 import { Title, Label, FormField } from './style';
 
 //------------------------------------------------------------------------------
@@ -24,6 +26,7 @@ const Container = styled.View`
 const SportAndTime = ({
   sport,
   start_time,
+  end_time,
   onChange,
 }) => (
   <Container>
@@ -40,7 +43,19 @@ const SportAndTime = ({
         <Label>{I18n.t('on')}</Label>
         <DateField
           value={start_time}
-          onChange={(value) => { onChange({ fieldName: 'start_time', value }); }}
+          onChange={(value) => { onChange({ fieldName: 'date', value }); }}
+        />
+      </FormField>
+      <FormField>
+        <Label>{I18n.t('from')}</Label>
+        <TimeField
+          value={start_time}
+          onChange={(value) => { onChange({ fieldName: 'startTime', value }); }}
+        />
+        <Label>{I18n.t('to')}</Label>
+        <TimeField
+          value={end_time}
+          onChange={(value) => { onChange({ fieldName: 'endTime', value }); }}
         />
       </FormField>
     </KeyboardAwareScrollView>
@@ -50,12 +65,14 @@ const SportAndTime = ({
 SportAndTime.propTypes = {
   sport: propType(sportFragment),
   start_time: PropTypes.string,
+  end_time: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 SportAndTime.defaultProps = {
   sport: null,
   start_time: '',
+  end_time: '',
   onChange: () => {},
 };
 
