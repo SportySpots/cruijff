@@ -32,8 +32,6 @@ class DateField extends React.PureComponent {
     const { value } = this.props;
     const { isVisible } = this.state;
 
-    console.log('DateField.value', value);
-
     return [
       <Field
         key="field"

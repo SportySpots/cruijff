@@ -25,30 +25,27 @@ const SportAndTime = ({
   sport,
   start_time,
   onChange,
-}) => {
-  console.log('SportAndTime start_time', start_time);
-  return (
-    <Container>
-      <KeyboardAwareScrollView>
-        <Title>{I18n.t('Plan a game')}</Title>
-        <FormField>
-          <Label>{I18n.t('I want to play')}</Label>
-          <SportField
-            value={(sport && sport.name) || ''}
-            onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
-          />
-        </FormField>
-        <FormField>
-          <Label>{I18n.t('on')}</Label>
-          <DateField
-            value={start_time}
-            onChange={(value) => { onChange({ fieldName: 'start_time', value }); }}
-          />
-        </FormField>
-      </KeyboardAwareScrollView>
-    </Container>
-  );
-};
+}) => (
+  <Container>
+    <KeyboardAwareScrollView>
+      <Title>{I18n.t('Plan a game')}</Title>
+      <FormField>
+        <Label>{I18n.t('I want to play')}</Label>
+        <SportField
+          value={(sport && sport.name) || ''}
+          onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
+        />
+      </FormField>
+      <FormField>
+        <Label>{I18n.t('on')}</Label>
+        <DateField
+          value={start_time}
+          onChange={(value) => { onChange({ fieldName: 'start_time', value }); }}
+        />
+      </FormField>
+    </KeyboardAwareScrollView>
+  </Container>
+);
 
 SportAndTime.propTypes = {
   sport: propType(sportFragment),
