@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import {  StyleSheet } from 'react-native';
+import { propType } from 'graphql-anywhere';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components';
 import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
+import sportFragment from '../../GraphQL/Sports/Fragments/sport';
 import SportField from './SportField';
 import { Title, Label, Horizontal } from './style';
 
@@ -38,14 +39,12 @@ const SportAndTime = ({
 );
 
 SportAndTime.propTypes = {
-  sport: PropTypes.shape({
-    name: PropTypes.string,
-  }),
+  sport: propType(sportFragment),
   onChange: PropTypes.func,
 };
 
 SportAndTime.defaultProps = {
-  sport: {},
+  sport: null,
   onChange: () => {},
 };
 

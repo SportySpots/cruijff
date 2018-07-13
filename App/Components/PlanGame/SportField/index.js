@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import I18n from '../../../I18n/index';
+import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Field from '../Field';
 import SportsModal from './SportsModal';
 
@@ -47,9 +49,7 @@ class SportField extends React.PureComponent {
 }
 
 SportField.propTypes = {
-  sport: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }),
+  sport: propType(sportFragment),
   onChange: PropTypes.func,
 };
 
