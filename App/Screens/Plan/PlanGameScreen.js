@@ -173,9 +173,16 @@ class PlanGameScreen extends React.Component {
       return;
     }
 
+    console.log(
+      '\n\nhandleChange',
+      'fieldName', fieldName,
+      'value', value,
+    );
+
     // TODO: call api for the given fieldName
     switch (fieldName) {
       case 'sport':
+      case 'capacity':
         this.setState(
           { [fieldName]: value },
           () => { console.log(this.state); },
