@@ -27,8 +27,7 @@ const SportsList = ({ sports, onSelect }) => (
       />
     )}
     data={sports}
-    ItemSeparatorComponent={() => (<Separator />)}
-    // or {Separator}
+    ItemSeparatorComponent={Separator}
   />
 );
 

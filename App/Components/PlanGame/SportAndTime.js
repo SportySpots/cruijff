@@ -25,7 +25,7 @@ const SportAndTime = ({
         /> */}
         <SportField
           sport={sport}
-          onChange={onChange}
+          onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
         />
       </View>
     </KeyboardAwareScrollView>

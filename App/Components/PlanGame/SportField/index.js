@@ -7,15 +7,16 @@ import SportsModal from './SportsModal';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class SportField extends React.Component {
+class SportField extends React.PureComponent {
   state = {
     isVisible: false, // wheter or not the modal is visible
   }
 
-  openModal() {
+  openModal = () => {
     this.setState({ isVisible: true });
   }
-  closeModal() {
+
+  closeModal = () => {
     this.setState({ isVisible: false });
   }
 
@@ -23,6 +24,7 @@ class SportField extends React.Component {
     const { onChange } = this.props;
     // Pass event up to parent component
     onChange(sport);
+    this.closeModal();
   }
 
   render() {
@@ -47,11 +49,12 @@ class SportField extends React.Component {
 SportField.propTypes = {
   sport: PropTypes.shape({
     name: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   onChange: PropTypes.func,
 };
 
 SportField.defaultProps = {
+  sport: null,
   onChange: () => {},
 };
 

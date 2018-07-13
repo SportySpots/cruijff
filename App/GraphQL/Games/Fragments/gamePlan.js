@@ -8,6 +8,7 @@ const gamePlanFragment = gql`
     capacity
     sport {
       uuid
+      id
       name
       category
     }

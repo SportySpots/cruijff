@@ -5,6 +5,7 @@ const sportFragment = gql`
     uuid
     id
     name
+    category
   }
 `;
 

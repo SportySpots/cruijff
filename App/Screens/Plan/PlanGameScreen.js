@@ -42,6 +42,8 @@ class PlanGameScreen extends React.Component {
     description: '',
     sport: {
       uuid: '',
+      id: '',
+      name: '',
       category: '',
     },
     spot: {
@@ -98,7 +100,15 @@ class PlanGameScreen extends React.Component {
   }
 
   handleChange = ({ fieldName, value }) => {
+    if (!fieldName || !value) {
+      return;
+    }
+    this.setState(
+      { [fieldName]: value },
+      () => { console.log(this.state); },
+    );
 
+    // TODO: call api for the given fieldName
   }
 
   handleBack = () => {
@@ -142,7 +152,7 @@ class PlanGameScreen extends React.Component {
       <Outer>
         <Inner>
           <FormScreens
-            {...this.state} // TODO: pick only required fields
+            {...this.state} // TODO: pick only required fields or use state = { curPage, game }
             user={user}
             onChange={this.handleChange}
           />
