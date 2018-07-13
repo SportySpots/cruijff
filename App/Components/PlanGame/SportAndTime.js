@@ -7,7 +7,8 @@ import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
 import sportFragment from '../../GraphQL/Sports/Fragments/sport';
 import SportField from './SportField';
-import { Title, Label, Horizontal } from './style';
+import DateField from './DateField';
+import { Title, Label, FormField } from './style';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -22,29 +23,42 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 const SportAndTime = ({
   sport,
+  start_time,
   onChange,
-}) => (
-  <Container>
-    <KeyboardAwareScrollView>
-      <Title>{I18n.t('Plan a game')}</Title>
-      <Horizontal>
-        <Label>{I18n.t('I want to play')}</Label>
-        <SportField
-          sport={sport}
-          onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
-        />
-      </Horizontal>
-    </KeyboardAwareScrollView>
-  </Container>
-);
+}) => {
+  console.log('SportAndTime start_time', start_time);
+  return (
+    <Container>
+      <KeyboardAwareScrollView>
+        <Title>{I18n.t('Plan a game')}</Title>
+        <FormField>
+          <Label>{I18n.t('I want to play')}</Label>
+          <SportField
+            value={(sport && sport.name) || ''}
+            onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
+          />
+        </FormField>
+        <FormField>
+          <Label>{I18n.t('on')}</Label>
+          <DateField
+            value={start_time}
+            onChange={(value) => { onChange({ fieldName: 'start_time', value }); }}
+          />
+        </FormField>
+      </KeyboardAwareScrollView>
+    </Container>
+  );
+};
 
 SportAndTime.propTypes = {
   sport: propType(sportFragment),
+  start_time: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 SportAndTime.defaultProps = {
   sport: null,
+  start_time: '',
   onChange: () => {},
 };
 

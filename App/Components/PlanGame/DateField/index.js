@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
+import moment from 'moment';
 import I18n from '../../../I18n/index';
-import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Field from '../Field';
-import SportsModal from './SportsModal';
+import DateModal from './DateModal';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class SportField extends React.PureComponent {
+class DateField extends React.PureComponent {
   state = {
     isVisible: false, // wheter or not the modal is visible
   }
@@ -22,10 +21,10 @@ class SportField extends React.PureComponent {
     this.setState({ isVisible: false });
   }
 
-  handleSelect = (sport) => {
+  handleSelect = (date) => {
     const { onChange } = this.props;
     // Pass event up to parent component
-    onChange(sport);
+    onChange(date);
     this.closeModal();
   }
 
@@ -33,13 +32,15 @@ class SportField extends React.PureComponent {
     const { value } = this.props;
     const { isVisible } = this.state;
 
+    console.log('DateField.value', value);
+
     return [
       <Field
         key="field"
-        value={value ? I18n.t(value) : I18n.t('Select')}
+        value={value ? moment(value).format('DD-MM') : I18n.t('Select')}
         onPress={this.openModal}
       />,
-      <SportsModal
+      <DateModal
         key="modal"
         visible={isVisible}
         onSelect={this.handleSelect}
@@ -48,14 +49,14 @@ class SportField extends React.PureComponent {
   }
 }
 
-SportField.propTypes = {
+DateField.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 };
 
-SportField.defaultProps = {
+DateField.defaultProps = {
   value: '',
   onChange: () => {},
 };
 
-export default SportField;
+export default DateField;

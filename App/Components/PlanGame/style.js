@@ -12,10 +12,23 @@ export const Label = styled(Text.M)`
   font-size: 24px;
 `;
 
-export const Horizontal = styled.View`
+export const FormField = styled.View`
   flex-direction: row;
   align-items: center;
   margin-vertical: 16px;
   /* flex: 1;
   flex-wrap: wrap; */
+`;
+
+export const ModalOuter = styled.View`
+  flex: 1;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+`;
+
+export const ModalInner = styled.View`
+  flex: 1;
+  background-color: ${Colors.white};
+  margin: 36px;
+  padding: 8px;
 `;
