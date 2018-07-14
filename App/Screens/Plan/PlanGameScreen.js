@@ -217,22 +217,74 @@ class PlanGameScreen extends React.Component {
 
   handleNext = () => {
     Keyboard.dismiss();
-    this.props.navigation.navigate('pickSpot', {
+    console.log('handleNext!!!!1');
+
+    const { navigation } = this.props;
+    const { curPage, uuid } = this.state;
+
+    switch (curPage) {
+      case 0: // 'sportTime'
+        console.log('PICK SPOT');
+        console.log('navigation', navigation);
+        // navigation.popToTop();
+        // navigation.replace('sportTime');
+        navigation.replace('pickSpot');
+        break;
+      case 1: // 'pickSpot'
+        console.log('DESCRIPTION');
+        navigation.navigate('description');
+        break;
+      case 2: // 'description'
+        navigation.navigate('created');
+        break;
+      case 3: // 'created'
+        // Go back to the begining of the stack
+        navigation.popToTop();
+        // Go back to main tabs navigation
+        navigation.goBack(null);
+        // Go to games list screen
+        navigation.navigate('GamesListScreen');
+        // Reset stack (otherwise we'll get a back arrow for some wired reason :S)
+        navigation.dispatch(new NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({
+              routeName: 'GamesListScreen',
+            }),
+          ],
+        }));
+        // Finally go to recently created game
+        navigation.navigate('GameDetailsScreen', { uuid });
+        break;
+      default:
+        throw new Error(404, 'Unknown page');
+    }
+    /* this.props.navigation.navigate('pickSpot', {
       uuid: this.gameUUID,
       sportUUID: this.state.game.sport.uuid,
       sportCategory: this.state.game.sport.category,
-    });
+    }); */
   }
 
   get disableNext() {
-    // TODO:
-    // curPage = 0 --> !this.state.game.start_time || !this.state.game.end_time || !this.state.game.sport
-    return true;
+    const {
+      curPage,
+      sport,
+      start_time,
+      end_time,
+    } = this.state;
+
+    switch (curPage) {
+      case 0:
+        return !start_time || !end_time || !sport;
+      default:
+        return true;
+    }
   }
 
   render() {
     const { user } = this.props;
-    const { uuid } = this.state;
+    const { curPage, uuid } = this.state;
 
     // Wait for game to be set before showing form
     if (!uuid || uuid.length === 0) {
@@ -246,11 +298,12 @@ class PlanGameScreen extends React.Component {
             {...this.state} // TODO: pick only required fields or use state = { curPage, game }
             user={user}
             onChange={this.handleChange}
+            navigation={this.props.navigation}
           />
         </Inner>
         <Footer
           numPages={4}
-          currentPage={0}
+          currentPage={curPage}
           onBack={this.handleBack}
           onNext={this.handleNext}
           disableNext={this.disableNext}
