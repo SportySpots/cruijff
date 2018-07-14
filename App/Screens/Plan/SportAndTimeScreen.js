@@ -149,8 +149,24 @@ class SportAndTime extends React.Component {
     * @summary Create new game
     */
   async componentWillMount() {
-    const { user } = this.props;
+    const { user, navigation } = this.props;
 
+    // In case gameUUID is already set, it means we are editing and existing
+    // activity
+    const gameUUID = (
+      navigation.state &&
+      navigation.state.params &&
+      navigation.state.params.uuid
+    );
+
+    if (gameUUID && gameUUID.length > 0) {
+      this.gameUUID = gameUUID;
+      this.refreshGame();
+      return;
+    }
+
+    // In case gameUUID is NOT set, this means the user is trying to create a
+    // new activity
     const username = (
       user &&
       user.claims &&
@@ -176,9 +192,10 @@ class SportAndTime extends React.Component {
         query: gql`
           {
             game(uuid: "${this.gameUUID}") {
+              uuid
               start_time
               end_time
-              sport { uuid, name }
+              sport { uuid, name, category }
               capacity
             }
           }

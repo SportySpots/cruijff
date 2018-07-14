@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import gql from 'graphql-tag';
 import { Keyboard, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import Footer from '../../Components/DarkFooter/index';
 import Text from '../../Components/Text';
 import I18n from '../../I18n/index';
 import api from '../../Services/SeedorfApi';
 import Colors from '../../Themes/Colors';
-
+import { client } from '../../GraphQL/index';
 
 export default class Description extends Component {
   static propTypes = {
@@ -16,6 +17,37 @@ export default class Description extends Component {
     super(props);
     this.state = { description: '' };
   }
+
+  async componentWillMount() {
+    try {
+      const result = await client.query({
+        query: gql`
+          {
+            game(uuid: "${this.props.navigation.state.params.uuid}") {
+              uuid
+              description
+            }
+          }
+        `,
+      });
+
+      console.log('result', result);
+
+      const description = (
+        result &&
+        result.data &&
+        result.data.game &&
+        result.data.game.description
+      ) || '';
+
+      this.setState({ description });
+
+      console.log('description', description);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   componentDidMount() {
     this._input && this._input.focus();
   }
@@ -39,6 +71,8 @@ export default class Description extends Component {
   };
 
   render() {
+    const { description } = this.state;
+
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
@@ -51,9 +85,8 @@ export default class Description extends Component {
             selectionColor={Colors.white}
             underlineColorAndroid={Colors.white}
             onChangeText={text => this.setState({ description: text })}
-            ref={(elm) => {
-              this._input = elm;
-            }}
+            ref={(elm) => { this._input = elm; }}
+            value={description}
           />
         </ScrollView>
         <Footer

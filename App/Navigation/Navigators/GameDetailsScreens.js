@@ -3,11 +3,13 @@ import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
-import Game from '../../Screens/Games/GameDetailsScreen';
+import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
+import AdminMenu from '../../Components/Games/GameDetails/AdminMenu';
 import style from './style';
+
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
@@ -81,11 +83,12 @@ const GameDetailsScreens = {
     }),
   },
   GameDetailsScreen: {
-    screen: Game,
+    screen: GameDetailsScreen,
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Game details'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
+      headerRight: <AdminMenu navigation={navigation} />,
     }),
   },
 };
