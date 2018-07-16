@@ -42,15 +42,13 @@ const OpenSpots = ({ game, maxLength }) => {
     <BlockLabel key="label">
       {I18n.t('Open spots')}
     </BlockLabel>,
-    <HorizontalView>
-      <HorizontalView style={{ flex: 1 }}>
-        <CappedList
-          max={maxLength}
-          data={[...Array(nOpenSpots)]}
-          component={openSpotCircle}
-          capComponent={({ data }) => restCircle(`+${data.length}`)}
-        />
-      </HorizontalView>
+    <HorizontalView key="open-spots">
+      <CappedList
+        max={maxLength}
+        data={[...Array(nOpenSpots)]}
+        component={openSpotCircle}
+        capComponent={({ data }) => restCircle(`+${data.length}`)}
+      />
     </HorizontalView>,
   ];
 };
