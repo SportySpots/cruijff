@@ -42,10 +42,14 @@ class AdminMenu extends React.PureComponent {
     const { navigation } = this.props;
 
     try {
-      const result = await api.setGameStatus({ gameUUID: this.gameUUID, status: 'Canceled' });
-      console.log(result);
+      const result = await api.setGameStatus({
+        gameUUID: this.gameUUID,
+        status: 'Canceled',
+      });
+      // TODO: refetch
 
-      // After successful cancel, take user to...
+      // After successful cancel, take user back to wherever he was
+      // TODO: remove this after cancel banner is implemented
       if (result.ok) {
         navigation.goBack(null);
       }
@@ -74,6 +78,7 @@ class AdminMenu extends React.PureComponent {
       <Query
         query={GET_GAME_ORGANIZER}
         variables={{ uuid: this.gameUUID }}
+        fetchPolicy="network-only"
       >
         {({ loading, error, data }) => {
           if (loading || error || !data || !data.game) {
