@@ -306,13 +306,21 @@ class SportAndTime extends React.Component {
   };
 
   setCapacity = async () => {
-    const result = await api.setGameCapacity({
-      gameUUID: this.gameUUID,
-      capacity: this.state.capacityField,
-    });
+    const { capacityField } = this.state;
+
+    let result;
+    try {
+      result = await api.setGameCapacity({
+        gameUUID: this.gameUUID,
+        capacity: capacityField,
+      });
+    } catch (exc) {
+      console.log(exc);
+    }
+
     if (result.ok) {
       this.setState({
-        game: { ...this.state.game, capacity: this.state.capacityField },
+        game: { ...this.state.game, capacity: capacityField },
       });
     }
   };

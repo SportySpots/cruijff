@@ -48,6 +48,7 @@ class GameDetailsScreen extends React.PureComponent {
       <Query
         query={GET_GAME_DETAILS}
         variables={{ uuid: this.gameUUID }}
+        fetchPolicy="network-only"
       >
         {({
           loading,
