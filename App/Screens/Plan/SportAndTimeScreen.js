@@ -318,20 +318,23 @@ class SportAndTime extends React.Component {
   };
 
   render() {
-    if (!this.state.game) {
+    const { game } = this.state;
+
+    if (!game) {
       return null;
     }
+
     return (
       <View style={styles.container}>
         <KeyboardAwareScrollView>
           <View style={{ paddingHorizontal: 16 }}>
             <SportModal
               visible={this.state.modals.sport}
-              value={this.state.game.sport}
+              value={game.sport}
               onSelect={this.setSport}
             />
             <DateModal
-              game={this.state.game}
+              game={game}
               visible={this.state.modals.date}
               onSelect={this.setDate}
             />
@@ -339,8 +342,8 @@ class SportAndTime extends React.Component {
               mode="time"
               isVisible={this.state.modals.timeStart}
               date={
-                this.state.game.timeStart
-                  ? timeStringToDate(this.state.game.start_time)
+                game.timeStart
+                  ? timeStringToDate(game.start_time)
                   : timeStringToDate('12:00')
               }
               onConfirm={this.setStartTime}
@@ -352,8 +355,8 @@ class SportAndTime extends React.Component {
               mode="time"
               isVisible={this.state.modals.timeEnd}
               date={
-                this.state.game.timeEnd
-                  ? timeStringToDate(this.state.game.end_time)
+                game.timeEnd
+                  ? timeStringToDate(game.end_time)
                   : timeStringToDate('12:00')
               }
               onConfirm={this.setEndTime}
@@ -367,7 +370,7 @@ class SportAndTime extends React.Component {
               <Text.M style={styles.text}>{I18n.t('I want to play')}</Text.M>
               <Field
                 value={
-                  this.state.game.sport ? I18n.t(this.state.game.sport.name) : I18n.t('Select')
+                  game.sport ? I18n.t(game.sport.name) : I18n.t('Select')
                 }
                 onPress={() => this.openModal('sport')}
               />
@@ -375,19 +378,19 @@ class SportAndTime extends React.Component {
             <View style={styles.horizontal}>
               <Text.M style={styles.text}>{I18n.t('on')}</Text.M>
               <Field
-                value={moment(this.state.game.start_time).format('DD-MM') || I18n.t('Select')}
+                value={moment(game.start_time).format('DD-MM') || I18n.t('Select')}
                 onPress={() => this.openModal('date')}
               />
             </View>
             <View style={styles.horizontal}>
               <Text.M style={styles.text}>{I18n.t('from')}</Text.M>
               <Field
-                value={moment(this.state.game.start_time).format('HH:mm') || I18n.t('Select')}
+                value={moment(game.start_time).format('HH:mm') || I18n.t('Select')}
                 onPress={() => this.openModal('timeStart')}
               />
               <Text.M style={styles.text}>{I18n.t('to')}</Text.M>
               <Field
-                value={moment(this.state.game.end_time).format('HH:mm') || I18n.t('Select')}
+                value={moment(game.end_time).format('HH:mm') || I18n.t('Select')}
                 onPress={() => this.openModal('timeEnd')}
               />
             </View>
@@ -398,7 +401,7 @@ class SportAndTime extends React.Component {
                 keyboardType="numeric"
                 underlineColorAndroid={Colors.white}
                 style={{ flex: 0.20, fontSize: 24, marginLeft: 8 }}
-                defaultValue={this.state.game.capacity}
+                defaultValue={(game.capacity && game.capacity.toString()) || ''}
                 onChangeText={val => this.setState({ capacityField: val })}
                 onBlur={this.setCapacity}
               />
@@ -412,7 +415,7 @@ class SportAndTime extends React.Component {
           onBack={this.onBack}
           onNext={this.onNext}
           disableNext={
-            !this.state.game.start_time || !this.state.game.end_time || !this.state.game.sport
+            !game.start_time || !game.end_time || !game.sport
           }
         />
       </View>
