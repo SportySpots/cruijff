@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 const gameFragment = gql`
   fragment gameFragment on GameType {
     uuid
+    status
     name
     start_time
     end_time
