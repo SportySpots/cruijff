@@ -20,7 +20,7 @@ const curatedGames = (games) => {
   const today = moment(new Date()).startOf('day').toISOString();
 
   return games && games.length > 0
-    ? games.filter(game => game.start_time > today)
+    ? games.filter(game => game.start_time > today && game.status !== 'DRAFT')
     : [];
 };
 //------------------------------------------------------------------------------

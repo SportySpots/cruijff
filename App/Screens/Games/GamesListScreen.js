@@ -29,7 +29,7 @@ const Container = styled.View`
  */
 const curatedGames = games => (
   games && games.length > 0
-    ? uniqBy(({ uuid }) => (uuid), games.filter(game => game.spot))
+    ? uniqBy(({ uuid }) => (uuid), games.filter(game => game.status !== 'DRAFT'))
     : []
 );
 //------------------------------------------------------------------------------
