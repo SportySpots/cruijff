@@ -20,7 +20,7 @@ import Text from './Common/Text';
 import Logo from './Common/Logo';
 import NavDots from './Common/NavDots';
 import Slider from './Slider';
-import Rating from './Rating';
+import Rating from './Common/Rating';
 import RatingBig from './RatingBig';
 import PropertyCircle from './Common/PropertyCircle';
 import UserCircle from './UserCircle';

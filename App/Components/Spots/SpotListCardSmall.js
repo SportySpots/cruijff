@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Config from 'react-native-config/index';
 import { Image, View } from 'react-native';
-import Rating from '../Rating';
+import Rating from '../Common/Rating';
 import Text from '../Common/Text';
 import { cardSmall } from './Styles/CardStyles';
 
