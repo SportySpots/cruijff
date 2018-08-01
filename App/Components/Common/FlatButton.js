@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
-import Colors from '../Themes/Colors';
-import Text from './Common/Text';
+import Colors from '../../Themes/Colors';
+import Text from './Text';
 
 const FlatButton = ({
   bgColor,

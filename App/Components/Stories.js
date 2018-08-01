@@ -12,7 +12,7 @@ import Onboarding from './Onboarding';
 import ImageSwiper from './ImageSwiper';
 import DefaultButton from './Common/DefaultButton';
 import SecondaryButton from './SecondaryButton';
-import FlatButton from './FlatButton';
+import FlatButton from './Common/FlatButton';
 import RouteButton from './RouteButton';
 import MapsButton from './MapsButton';
 import Checkbox from './Common/Checkbox';
