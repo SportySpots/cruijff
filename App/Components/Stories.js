@@ -18,7 +18,7 @@ import Check from './Common/Check';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
 import NavDots from './Common/NavDots';
-import Slider from './Slider';
+import Slider from './Common/Slider';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
 import PropertyCircle from './Common/PropertyCircle';
