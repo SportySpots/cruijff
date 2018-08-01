@@ -10,7 +10,7 @@ import Colors from '../../Themes/Colors';
 import Fonts from '../../Themes/Fonts';
 import UserCircle from '../UserCircle';
 import I18n from '../../I18n';
-import PropertyCircle from '../PropertyCircle';
+import PropertyCircle from '../Common/PropertyCircle';
 import Text from '../Common/Text';
 import CappedList from '../Common/CappedList';
 

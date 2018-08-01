@@ -5,7 +5,7 @@ import { Image } from 'react-native';
 import I18n from '../../../I18n/index';
 import themeImages from '../../../Themes/Images';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import PropertyCircle from '../../../Components/PropertyCircle';
+import PropertyCircle from '../../../Components/Common/PropertyCircle';
 import { getAttendees } from './utils';
 import { BlockLabel, HorizontalView } from './style';
 import CappedList from '../../Common/CappedList';

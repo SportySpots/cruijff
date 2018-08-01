@@ -7,7 +7,7 @@ import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import UserCircle from '../../../Components/UserCircle';
-import PropertyCircle from '../../../Components/PropertyCircle';
+import PropertyCircle from '../../../Components/Common/PropertyCircle';
 import { getAttendees, mapMax } from './utils';
 import { BlockLabel, HorizontalView, ChevronContainer } from './style';
 
