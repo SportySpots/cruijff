@@ -10,7 +10,6 @@ import NavBar from './Common/NavBar';
 import NavBarButton from './Common/NavBar/NavBarButton';
 import Onboarding from './Onboarding';
 import ImageSwiper from './ImageSwiper';
-import BackButton from './BackButton';
 import DefaultButton from './DefaultButton';
 import SecondaryButton from './SecondaryButton';
 import FlatButton from './FlatButton';
@@ -52,11 +51,6 @@ storiesOf('Logo', module)
   .add('Default', () => <Logo />);
 
 storiesOf('Basic components', module)
-  .add('BackButton', () => (
-    <View style={{ flex: 1, backgroundColor: 'green' }}>
-      <BackButton text="back" />
-    </View>
-  ))
   .add('RouteButton', () => <RouteButton />)
   .add('MapsButton', () => <MapsButton />)
   .add('DefaultButton', () => <DefaultButton text="Press me please" />)
