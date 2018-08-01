@@ -12,7 +12,7 @@ import styled from 'styled-components';
 import { createClient, createMockClient } from './GraphQL/index';
 import createStore from './Redux';
 
-import ConnectionCheck from './Components/ConnectionCheck';
+import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation from './Navigation/AppNavigation';
 import Colors from './Themes/Colors';
 import config from './config';

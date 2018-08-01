@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, NetInfo } from 'react-native';
-import I18n from '../I18n';
+import I18n from '../../I18n';
 
 class ConnectionCheck extends React.Component {
   state = {
