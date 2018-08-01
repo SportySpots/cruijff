@@ -12,7 +12,7 @@ import UserCircle from '../UserCircle';
 import I18n from '../../I18n';
 import Fonts from '../../Themes/Fonts';
 import PropertyCircle from '../PropertyCircle';
-import CappedList from '../CappedList';
+import CappedList from '../Common/CappedList';
 
 class GameListCard extends React.Component {
   getImageUrl = (image) => {
@@ -197,4 +197,3 @@ const Attendees = styled.View`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
-
