@@ -16,7 +16,7 @@ import FlatButton from './FlatButton';
 import RouteButton from './RouteButton';
 import MapsButton from './MapsButton';
 import Checkbox from './Checkbox';
-import Check from './Check';
+import Check from './Common/Check';
 import Text from './Text';
 import Logo from './Logo';
 import NavDots from './NavDots';
