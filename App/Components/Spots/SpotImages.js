@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Config from 'react-native-config';
 import styled from 'styled-components';
-import ImageSwiper from '../ImageSwiper';
+import ImageSwiper from '../Common/ImageSwiper';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:

@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import NavBar from './Common/NavBar';
 import NavBarButton from './Common/NavBar/NavBarButton';
 import Onboarding from './Onboarding';
-import ImageSwiper from './ImageSwiper';
+import ImageSwiper from './Common/ImageSwiper';
 import DefaultButton from './Common/DefaultButton';
 import SecondaryButton from './SecondaryButton';
 import FlatButton from './Common/FlatButton';
