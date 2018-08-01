@@ -9,7 +9,7 @@ import userActions from '../../Redux/UserRedux';
 import GET_USER_DETAILS from '../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Text from '../../Components/Text';
 import ProfileDetails from '../../Components/Profile/ProfileDetails';
-import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
+import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
 
 //------------------------------------------------------------------------------
 // STYLE:

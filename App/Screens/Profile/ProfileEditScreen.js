@@ -8,7 +8,7 @@ import GET_USER_DETAILS from '../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Text from '../../Components/Text';
 import Colors from '../../Themes/Colors';
 import ProfileEdit from '../../Components/Profile/ProfileEdit';
-import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
+import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
 
 //------------------------------------------------------------------------------
 // STYLE:

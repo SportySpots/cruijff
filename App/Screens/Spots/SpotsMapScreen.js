@@ -5,7 +5,7 @@ import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import Text from '../../Components/Text';
 import Card from '../../Components/Spots/SpotListCardSmall';
 import SpotsMapWithListFallback from '../../Components/Spots/SpotsMapWithListFallback';
-import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
+import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
 
 // TODO: handle no spots were found case --> probably handle this on SpotsMap
 // and SpotsList components
