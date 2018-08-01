@@ -11,7 +11,7 @@ import NavBarButton from './Common/NavBar/NavBarButton';
 import Onboarding from './Onboarding';
 import ImageSwiper from './Common/ImageSwiper';
 import DefaultButton from './Common/DefaultButton';
-import SecondaryButton from './SecondaryButton';
+import SecondaryButton from './Common/SecondaryButton';
 import FlatButton from './Common/FlatButton';
 import Checkbox from './Common/Checkbox';
 import Check from './Common/Check';
