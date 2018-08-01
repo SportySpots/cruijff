@@ -18,7 +18,7 @@ import MapsButton from './MapsButton';
 import Checkbox from './Common/Checkbox';
 import Check from './Common/Check';
 import Text from './Common/Text';
-import Logo from './Logo';
+import Logo from './Common/Logo';
 import NavDots from './NavDots';
 import Slider from './Slider';
 import Rating from './Rating';

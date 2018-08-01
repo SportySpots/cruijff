@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components';
-import Logo from '../Components/Logo';
+import Logo from '../Components/Common/Logo';
 import Text from '../Components/Common/Text';
 import Colors from '../Themes/Colors';
 
