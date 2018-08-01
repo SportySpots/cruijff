@@ -15,7 +15,7 @@ import SecondaryButton from './SecondaryButton';
 import FlatButton from './FlatButton';
 import RouteButton from './RouteButton';
 import MapsButton from './MapsButton';
-import Checkbox from './Checkbox';
+import Checkbox from './Common/Checkbox';
 import Check from './Common/Check';
 import Text from './Text';
 import Logo from './Logo';
