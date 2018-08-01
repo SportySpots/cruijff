@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import Colors from '../Themes/Colors';
+import Colors from '../../../Themes/Colors';
 
 const Container = styled.View`
   display: flex;
