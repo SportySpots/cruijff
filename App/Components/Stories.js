@@ -22,7 +22,7 @@ import Slider from './Common/Slider';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
 import PropertyCircle from './Common/PropertyCircle';
-import UserCircle from './UserCircle';
+import UserCircle from './Common/UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import NothingFound from './Common/NothingFound';
 

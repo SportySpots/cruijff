@@ -8,7 +8,7 @@ import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 // import Slider from '../../Slider';
 import Text from '../../Common/Text';
-import UserCircle from '../../UserCircle';
+import UserCircle from '../../Common/UserCircle';
 // import Tabs from './Tabs';
 import EditMenu from './EditMenu';
 

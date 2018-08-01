@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
-import UserCircle from '../../UserCircle';
+import UserCircle from '../../Common/UserCircle';
 import ProfileUpdate from './ProfileUpdate';
 
 //------------------------------------------------------------------------------
