@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Text from '../Text';
 import Colors from '../../Themes/Colors';
+import Text from '../Common/Text';
 
 export default class Button extends React.Component {
   static propTypes = {

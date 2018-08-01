@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { propType } from 'graphql-anywhere';
-import Text from '../../../Components/Text';
+import Text from '../../../Components/Common/Text';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import UserCircle from '../../../Components/UserCircle';
 import { HorizontalView } from './style';

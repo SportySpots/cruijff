@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import styled from 'styled-components';
-import Text from '../../Text';
 import Colors from '../../../Themes/Colors';
+import Text from '../Text';
 
 //------------------------------------------------------------------------------
 // STYLE:

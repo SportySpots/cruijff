@@ -6,7 +6,7 @@ import { Query } from 'react-apollo';
 import { ScrollView, View } from 'react-native';
 import { TabBarTop, TabNavigator } from 'react-navigation';
 import styled from 'styled-components';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import UserCircle from '../../Components/UserCircle';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';

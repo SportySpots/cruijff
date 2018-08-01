@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
-import Text from './Text';
 import Colors from '../Themes/Colors';
 import Fonts from '../Themes/Fonts';
+import Text from './Common/Text';
 
 export default class Rating extends React.Component {
   static propTypes = {

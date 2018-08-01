@@ -3,9 +3,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components/native';
 import moment from 'moment';
 import { TouchableOpacity } from 'react-native';
-import Text from '../Text';
 import Colors from '../../Themes/Colors';
 import I18n from '../../I18n';
+import Text from '../Common/Text';
 
 const GameProperties = ({ game, navigation }) => (
   <GamePropertyContainer>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import Card from '../../Components/Spots/SpotListCardSmall';
 import SpotsMapWithListFallback from '../../Components/Spots/SpotsMapWithListFallback';
 import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';

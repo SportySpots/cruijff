@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { ScrollView } from 'react-native';
 
-import Text from '../Components/Text';
-import DefaultButton from '../Components/DefaultButton';
+import Text from '../Components/Common/Text';
+import DefaultButton from '../Components/Common/DefaultButton';
 import { navigation as navigationPropType } from '../PropTypesDefinitions/navigation';
 
 import { log } from '../config';

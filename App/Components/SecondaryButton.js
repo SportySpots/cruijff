@@ -1,9 +1,8 @@
 import React from 'react';
-import Fonts from '../Themes/Fonts';
-import Text from './Text';
 import { TouchableOpacity } from 'react-native';
-import Colors from '../Themes/Colors';
 import styled from 'styled-components/native';
+import Colors from '../Themes/Colors';
+import Text from './Common/Text';
 
 const SecondaryButton = ({
   borderColor, textColor, text, ...props

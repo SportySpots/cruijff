@@ -7,9 +7,9 @@ import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 // import Slider from '../../Slider';
-import Text from '../../Text';
+import Text from '../../Common/Text';
 import UserCircle from '../../UserCircle';
-import Tabs from './Tabs';
+// import Tabs from './Tabs';
 import EditMenu from './EditMenu';
 
 //------------------------------------------------------------------------------
@@ -37,9 +37,9 @@ const ProfileDetails = ({ user, onEdit, onLogout }) => (
           </Competitiveness>
         </Profile>
       )}
-      { false && <TabsContainer>
+      {/* <TabsContainer>
         <Tabs user={user} style={{ flex: 1 }} />
-      </TabsContainer> }
+      </TabsContainer> */}
     </Outer>
   </MenuProvider>
 );
@@ -95,9 +95,9 @@ const Competitiveness = styled.View`
   flex: 4;
 `;
 //------------------------------------------------------------------------------
-const TabsContainer = styled.View`
+/* const TabsContainer = styled.View`
   flex: 1;
   border-top-width: 2;
   border-top-color: ${Colors.bgGrey};
   background-color: ${Colors.bgGrey};
-`;
+`; */

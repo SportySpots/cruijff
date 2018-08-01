@@ -5,10 +5,9 @@ import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 import I18n from '../I18n';
-import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
-
-import Text from '../Components/Text';
 import Colors from '../Themes/Colors';
+import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
+import Text from '../Components/Common/Text';
 
 import { navigation as navigationPropType } from '../PropTypesDefinitions/navigation';
 
@@ -45,7 +44,12 @@ const VersionContainer = styled.View`
   justify-content: center;
 `;
 
-const Link = ({ text, href, icon, first }) => (
+const Link = ({
+  text,
+  href,
+  icon,
+  first,
+}) => (
   <Row first={first}>
     <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} onPress={() => Linking.openURL(href)}>
       <LeftContainer>

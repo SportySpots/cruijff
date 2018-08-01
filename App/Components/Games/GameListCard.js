@@ -7,11 +7,11 @@ import Config from 'react-native-config/index';
 import moment from 'moment';
 
 import Colors from '../../Themes/Colors';
-import Text from '../Text';
+import Fonts from '../../Themes/Fonts';
 import UserCircle from '../UserCircle';
 import I18n from '../../I18n';
-import Fonts from '../../Themes/Fonts';
 import PropertyCircle from '../PropertyCircle';
+import Text from '../Common/Text';
 import CappedList from '../Common/CappedList';
 
 class GameListCard extends React.Component {

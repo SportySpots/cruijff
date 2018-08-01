@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
-import Text from '../../Text';
+import Text from '../../Common/Text';
 
 //------------------------------------------------------------------------------
 // STYLE:

@@ -7,7 +7,7 @@ import styled from 'styled-components/native';
 import Colors from '../../Themes/Colors';
 import userActions from '../../Redux/UserRedux';
 import GET_USER_DETAILS from '../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import ProfileDetails from '../../Components/Profile/ProfileDetails';
 import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
 

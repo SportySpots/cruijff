@@ -1,12 +1,15 @@
 import React from 'react';
-import Fonts from '../Themes/Fonts';
-import Text from './Text';
+import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import Colors from '../Themes/Colors';
 import styled from 'styled-components/native';
+import Colors from '../Themes/Colors';
+import Text from './Common/Text';
 
 const FlatButton = ({
-  bgColor, textColor, text, ...props
+  bgColor,
+  textColor,
+  text,
+  ...props
 }) => (
   <TouchableOpacity {...props}>
     <ButtonContainer bgColor={bgColor}>
@@ -14,6 +17,12 @@ const FlatButton = ({
     </ButtonContainer>
   </TouchableOpacity>
 );
+
+FlatButton.propTypes = {
+  bgColor: PropTypes.string,
+  textColor: PropTypes.string,
+  text: PropTypes.string,
+};
 
 export default FlatButton;
 

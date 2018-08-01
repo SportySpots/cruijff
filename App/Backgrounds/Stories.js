@@ -1,7 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import Text from '../Components/Text';
+import Text from '../Components/Common/Text';
 import FieldBackground from './FieldBackground';
 import LogoHeaderBackground from './LogoHeaderBackground';
 

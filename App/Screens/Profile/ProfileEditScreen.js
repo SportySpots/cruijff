@@ -5,7 +5,7 @@ import { withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import GET_USER_DETAILS from '../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import Colors from '../../Themes/Colors';
 import ProfileEdit from '../../Components/Profile/ProfileEdit';
 import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';

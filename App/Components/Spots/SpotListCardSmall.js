@@ -1,11 +1,11 @@
 /* Card component, this is the Card that is used in a list of many Cards */
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Config from 'react-native-config/index';
 import { Image, View } from 'react-native';
 import Rating from '../Rating';
-import Text from '../Text';
+import Text from '../Common/Text';
 import { cardSmall } from './Styles/CardStyles';
-import Config from 'react-native-config/index';
 
 const Spacer = () => <Text style={{ marginLeft: 8, marginRight: 8 }}>·</Text>;
 

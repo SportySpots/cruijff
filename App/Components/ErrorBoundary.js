@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from './Text';
+import Text from './Common/Text';
 
 // See: https://reactjs.org/docs/error-boundaries.html
 class ErrorBoundary extends React.Component {
@@ -23,6 +23,10 @@ class ErrorBoundary extends React.Component {
 
 ErrorBoundary.propTypes = {
   fallbackComponent: PropTypes.func,
+  children: PropTypes.oneOf([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
 };
 
 ErrorBoundary.defaultProps = {
