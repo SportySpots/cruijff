@@ -18,7 +18,7 @@ import Checkbox from './Common/Checkbox';
 import Check from './Common/Check';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
-import NavDots from './NavDots';
+import NavDots from './Common/NavDots';
 import Slider from './Slider';
 import Rating from './Rating';
 import RatingBig from './RatingBig';
