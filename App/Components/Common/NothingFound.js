@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components';
-import Text from './Common/Text';
+import Text from './Text';
 
 const Container = styled.View`
   height: 100%;

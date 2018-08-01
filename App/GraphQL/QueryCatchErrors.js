@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 import Analytics from 'appcenter-analytics';
 import PropTypes from 'prop-types';
 import I18n from '../I18n';
-import NothingFound from '../Components/NothingFound';
+import NothingFound from '../Components/Common/NothingFound';
 
 export const QueryCatchErrors = (props) => {
   const {

@@ -5,7 +5,7 @@ import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import I18n from '../../I18n';
 import gameFragment from '../../GraphQL/Games/Fragments/game';
-import NothingFound from '../NothingFound';
+import NothingFound from '../Common/NothingFound';
 
 //------------------------------------------------------------------------------
 // STYLE:

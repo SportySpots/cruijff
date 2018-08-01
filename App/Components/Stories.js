@@ -25,7 +25,7 @@ import RatingBig from './RatingBig';
 import PropertyCircle from './PropertyCircle';
 import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
-import NothingFound from './NothingFound';
+import NothingFound from './Common/NothingFound';
 
 const dummyNavigator = {
   navigate: () => null,
