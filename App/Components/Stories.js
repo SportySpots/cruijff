@@ -14,7 +14,6 @@ import DefaultButton from './Common/DefaultButton';
 import SecondaryButton from './SecondaryButton';
 import FlatButton from './Common/FlatButton';
 import RouteButton from './RouteButton';
-import MapsButton from './MapsButton';
 import Checkbox from './Common/Checkbox';
 import Check from './Common/Check';
 import Text from './Common/Text';
@@ -52,7 +51,6 @@ storiesOf('Logo', module)
 
 storiesOf('Basic components', module)
   .add('RouteButton', () => <RouteButton />)
-  .add('MapsButton', () => <MapsButton />)
   .add('DefaultButton', () => <DefaultButton text="Press me please" />)
   .add('SecondaryButton', () => <SecondaryButton text="Press me please" />)
   .add('FlatButton', () => <FlatButton text="SUBMIT" />)
