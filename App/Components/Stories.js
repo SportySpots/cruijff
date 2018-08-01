@@ -21,7 +21,7 @@ import Logo from './Common/Logo';
 import NavDots from './Common/NavDots';
 import Slider from './Slider';
 import Rating from './Common/Rating';
-import RatingBig from './RatingBig';
+import RatingBig from './Common/RatingBig';
 import PropertyCircle from './Common/PropertyCircle';
 import UserCircle from './UserCircle';
 import SignupScreen from '../Screens/SignupScreen';

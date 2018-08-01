@@ -7,7 +7,7 @@ import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
 import FlatButton from '../../../Components/Common/FlatButton';
-import RatingBig from '../../../Components/RatingBig';
+import RatingBig from '../../../Components/Common/RatingBig';
 import Text from '../../../Components/Common/Text';
 
 //------------------------------------------------------------------------------
