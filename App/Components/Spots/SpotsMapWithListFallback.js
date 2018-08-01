@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorBoundary from '../ErrorBoundary';
+import ErrorBoundary from '../Common/ErrorBoundary';
 import SpotsList from './SpotsList';
 import SpotsMap from './SpotsMap';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from './Common/Text';
+import Text from './Text';
 
 // See: https://reactjs.org/docs/error-boundaries.html
 class ErrorBoundary extends React.Component {
