@@ -34,9 +34,10 @@
     "lint": "eslint App/**/*.js",
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs eslint",
     "precommit": "lint-staged",
+    "prestorybook": "rnstl",
     "reset": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && yarn cache clean && yarn install",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "storybook": "storybook start -p 7007",
+    "storybook": "yarn prestorybook && storybook start -p 7007",
     "test:coverage": "TZ=\"UTC\" jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
     "test:updateSnapshot": "TZ=\"UTC\" jest --updateSnapshot",
     "test:watch": "TZ=\"UTC\" jest --watch",
@@ -141,6 +142,7 @@
     "react-devtools": "^3.1.0",
     "react-dom": "16.0.0",
     "react-native-cli": "2.0.1",
+    "react-native-storybook-loader": "^1.8.0",
     "react-test-renderer": "16.0.0",
     "reactotron-react-native": "^1.13.2",
     "reactotron-redux": "^1.13.0",
@@ -168,7 +170,13 @@
     ],
     "preset": "react-native"
   },
-  "config": {},
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": ["./App"],
+      "pattern": "**/Stories.js",
+      "outputFile": "./storybook/storyLoader.js"
+    }
+  },
   "lint-staged": {
     "#App/**/*.{js,json,css,md}": [
       "eslint",
