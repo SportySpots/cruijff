@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
@@ -16,32 +15,30 @@ import EditMenu from './EditMenu';
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ProfileDetails = ({ user, onEdit, onLogout }) => (
-  <MenuProvider>
-    <Outer>
-      <MenuContainer>
-        <EditMenu onEdit={onEdit} onLogout={onLogout} />
-      </MenuContainer>
-      <Avatar>
-        <UserCircle user={user} size={75} />
-        <Name>{user.first_name} {user.last_name}</Name>
-      </Avatar>
-      {user.profile && (
-        <Profile>
-          <Age>
-            <Text>{I18n.t('Age')}</Text>
-            {/* <Text.L>{user.profile.year_of_birth}</Text.L> */}
-          </Age>
-          <Competitiveness>
-            <Text>{I18n.t('Style')}</Text>
-            {/* <Slider disabled value={0.5} onChange={console.log} /> */}
-          </Competitiveness>
-        </Profile>
-      )}
-      { false && <TabsContainer>
-        <Tabs user={user} style={{ flex: 1 }} />
-      </TabsContainer> }
-    </Outer>
-  </MenuProvider>
+  <Outer>
+    <MenuContainer>
+      <EditMenu onEdit={onEdit} onLogout={onLogout} />
+    </MenuContainer>
+    <Avatar>
+      <UserCircle user={user} size={75} />
+      <Name>{user.first_name} {user.last_name}</Name>
+    </Avatar>
+    {user.profile && (
+      <Profile>
+        <Age>
+          <Text>{I18n.t('Age')}</Text>
+          {/* <Text.L>{user.profile.year_of_birth}</Text.L> */}
+        </Age>
+        <Competitiveness>
+          <Text>{I18n.t('Style')}</Text>
+          {/* <Slider disabled value={0.5} onChange={console.log} /> */}
+        </Competitiveness>
+      </Profile>
+    )}
+    { false && <TabsContainer>
+      <Tabs user={user} style={{ flex: 1 }} />
+    </TabsContainer> }
+  </Outer>
 );
 
 ProfileDetails.propTypes = {
@@ -56,7 +53,6 @@ ProfileDetails.defaultProps = {
 };
 
 export default ProfileDetails;
-
 
 //------------------------------------------------------------------------------
 // STYLE:
