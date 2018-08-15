@@ -312,7 +312,7 @@ class SportAndTime extends React.Component {
     try {
       result = await api.setGameCapacity({
         gameUUID: this.gameUUID,
-        capacity: capacityField,
+        capacity: capacityField || null,
       });
     } catch (exc) {
       console.log(exc);

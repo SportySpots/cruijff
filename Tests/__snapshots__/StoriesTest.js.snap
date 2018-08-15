@@ -5253,6 +5253,7 @@ exports[`Storyshots Plan Step 3: Description 1`] = `
             }
           }
           underlineColorAndroid="#fff"
+          value=""
         />
       </View>
     </RCTScrollView>
