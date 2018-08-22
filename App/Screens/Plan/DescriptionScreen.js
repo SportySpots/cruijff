@@ -3,7 +3,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { Keyboard, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import Footer from '../../Components/DarkFooter/index';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import I18n from '../../I18n/index';
 import { client } from '../../GraphQL/index';
 import api from '../../Services/SeedorfApi';

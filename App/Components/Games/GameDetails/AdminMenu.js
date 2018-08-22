@@ -4,13 +4,12 @@ import { connect } from 'react-redux';
 import { Alert, Keyboard } from 'react-native';
 import { Menu, MenuTrigger, MenuOptions, MenuOption } from 'react-native-popup-menu';
 import { Query } from 'react-apollo';
-import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components/native';
 import api from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
-import Text from '../../../Components/Text';
+import Text from '../../../Components/Common/Text';
 import GET_GAME_ORGANIZER from '../../../GraphQL/Games/Queries/GET_GAME_ORGANIZER';
 
 //------------------------------------------------------------------------------
