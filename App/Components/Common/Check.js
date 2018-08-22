@@ -1,8 +1,8 @@
 import React from 'react';
-import Colors from '../Themes/Colors';
-import styled from 'styled-components';
+import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import styled from 'styled-components';
+import Colors from '../../Themes/Colors';
 
 const Check = props => (
   <TouchableOpacity {...props}>

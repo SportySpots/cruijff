@@ -6,8 +6,8 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import UserCircle from '../../../Components/UserCircle';
-import PropertyCircle from '../../../Components/PropertyCircle';
+import UserCircle from '../../../Components/Common/UserCircle';
+import PropertyCircle from '../../../Components/Common/PropertyCircle';
 import { getAttendees, mapMax } from './utils';
 import { BlockLabel, HorizontalView, ChevronContainer } from './style';
 

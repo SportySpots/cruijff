@@ -18,7 +18,7 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import Footer from '../../Components/DarkFooter/index';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import { client } from '../../GraphQL/index';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';

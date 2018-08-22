@@ -6,7 +6,7 @@ import moment from 'moment';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
-import Text from '../../Text';
+import Text from '../../Common/Text';
 import GamesList from '../../Games/GamesList';
 import Card from '../../Games/GameListCard';
 

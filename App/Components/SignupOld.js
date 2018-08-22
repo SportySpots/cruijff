@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet, TextInput, ScrollView } from 'react-native';
 import Colors from '../Themes/Colors';
 import Logo from './Logo';
-import Text from './Text';
+import Text from './Common/Text';
 import I18n from '../I18n';
 import BigButton from './BigButton';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -90,3 +90,4 @@ const style = StyleSheet.create({
     color: Colors.black,
   },
 });
+*/

@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Swiper from 'react-native-swiper';
 import { Image, ViewPropTypes } from 'react-native';
-import PropTypes from 'prop-types';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

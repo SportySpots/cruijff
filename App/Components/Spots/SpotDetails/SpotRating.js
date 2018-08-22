@@ -3,21 +3,26 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import api from '../../../Services/SeedorfApi';
-import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
-import FlatButton from '../../../Components/FlatButton';
-import RatingBig from '../../../Components/RatingBig';
-import Text from '../../../Components/Text';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
+import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
+import FlatButton from '../../../Components/Common/FlatButton';
+import RatingBig from '../../../Components/Common/RatingBig';
+import Text from '../../../Components/Common/Text';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
 const HorizontalView = styled.View`
   flex-direction: row;
 `;
-
+//------------------------------------------------------------------------------
 const Block = styled.View`
   padding: 16px;
 `;
-
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 class SpotRating extends React.PureComponent {
   state = {
     rating: 0,

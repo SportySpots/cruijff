@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
 import styled from 'styled-components';
-import Colors from '../Themes/Colors';
+import Colors from '../../Themes/Colors';
 
 const CenteredActivityIndicator = () => (
   <Centered>

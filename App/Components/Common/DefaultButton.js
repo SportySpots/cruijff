@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
+import Colors from '../../Themes/Colors';
 import Text from './Text';
-import Colors from '../Themes/Colors';
 
 const ButtonContainer = styled.View`
   display: flex;

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Keyboard, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import Footer from '../../Components/DarkFooter/index';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import I18n from '../../I18n/index';
 import api from '../../Services/SeedorfApi';
 import Colors from '../../Themes/Colors';

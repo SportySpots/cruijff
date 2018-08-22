@@ -7,7 +7,7 @@ import Colors from '../../Themes/Colors';
 import spotFiltersActions from '../../Redux/SpotFiltersRedux';
 import { client } from '../../GraphQL/index';
 import GET_SPORTS from '../../GraphQL/Sports/Queries/GET_SPORTS';
-import DefaultButton from '../../Components/DefaultButton';
+import DefaultButton from '../../Components/Common/DefaultButton';
 import SpotsFilter from '../../Components/Spots/SpotsFilter';
 
 //------------------------------------------------------------------------------

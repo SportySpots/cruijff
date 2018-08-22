@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import I18n from '../../I18n';
 import Fonts from '../../Themes/Fonts';
-import PropertyCircle from '../PropertyCircle';
-import Text from '../Text';
+import PropertyCircle from '../Common/PropertyCircle';
+import Text from '../Common/Text';
 
 const Amenities = ({ amenities }) =>
   console.log(amenities) || (

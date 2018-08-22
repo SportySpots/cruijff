@@ -5,7 +5,7 @@ import { showLocation } from 'react-native-map-link';
 import I18n from '../../I18n';
 import spotFragment from '../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../Themes/Colors';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 
 // -----------------------------------------------------------------------------
 // STYLE:

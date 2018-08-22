@@ -4,8 +4,8 @@ import { Image, TouchableOpacity, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import DefaultButton from '../../Components/DefaultButton';
-import Text from '../../Components/Text';
+import DefaultButton from '../../Components/Common/DefaultButton';
+import Text from '../../Components/Common/Text';
 import I18n from '../../I18n/index';
 import images from '../../Themes/Images';
 

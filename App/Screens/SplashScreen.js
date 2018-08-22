@@ -4,9 +4,9 @@ import { ActivityIndicator, AsyncStorage, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import FieldBackground from '../Backgrounds/FieldBackground';
-import DefaultButton from '../Components/DefaultButton';
-import Logo from '../Components/Logo';
-import Text from '../Components/Text';
+import DefaultButton from '../Components/Common/DefaultButton';
+import Logo from '../Components/Common/Logo';
+import Text from '../Components/Common/Text';
 import I18n from '../I18n/index';
 import Colors from '../Themes/Colors';
 

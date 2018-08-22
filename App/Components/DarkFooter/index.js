@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
 import Fonts from '../../Themes/Fonts';
-import NavDots from '../NavDots';
+import NavDots from '../Common/NavDots';
 import Button from './Button';
 
 export default class DarkFooter extends React.Component {

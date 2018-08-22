@@ -23,6 +23,10 @@ class ErrorBoundary extends React.Component {
 
 ErrorBoundary.propTypes = {
   fallbackComponent: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
 };
 
 ErrorBoundary.defaultProps = {

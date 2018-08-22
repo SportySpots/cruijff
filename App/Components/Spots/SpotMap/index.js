@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import GoogleStaticMap from 'react-native-google-static-map';
 import { showLocation } from 'react-native-map-link';
-import Colors from '../../Themes/Colors';
-import RoundButton from '../RoundButton';
-import spotMapFragment from '../../GraphQL/Spots/Fragments/spotMap';
+import Colors from '../../../Themes/Colors';
+import spotMapFragment from '../../../GraphQL/Spots/Fragments/spotMap';
+import RoundButton from './RoundButton';
 
 // -----------------------------------------------------------------------------
 // CONSTANTS:

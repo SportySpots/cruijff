@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated, PanResponder, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import Colors from '../Themes/Colors';
+import Colors from '../../Themes/Colors';
 
 const handleSize = 25;
 

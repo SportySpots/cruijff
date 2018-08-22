@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import { Clipboard, Share, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Checkbox from '../../Components/Checkbox';
-import Footer from '../../Components/DarkFooter/index';
-import Text from '../../Components/Text';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
 import config from '../../config';
 import api from '../../Services/SeedorfApi';
+import Checkbox from '../../Components/Common/Checkbox';
+import Footer from '../../Components/DarkFooter/index';
+import Text from '../../Components/Common/Text';
 
 export default class Created extends Component {
   static propTypes = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Query } from 'react-apollo';
-import Text from '../Components/Text';
-import CenteredActivityIndicator from '../Components/CenteredActivityIndicator';
+import Text from '../Components/Common/Text';
+import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 
 const withQuery = query => Component => props => (
   <Query query={query} variables={props.variables}>

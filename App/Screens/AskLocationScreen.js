@@ -9,7 +9,7 @@ import I18n from '../I18n/index';
 import locationActions from '../Redux/LocationRedux';
 import Colors from '../Themes/Colors';
 import Fonts from '../Themes/Fonts';
-import Text from '../Components/Text';
+import Text from '../Components/Common/Text';
 import PropTypesDefinitions from '../PropTypesDefinitions';
 
 export default connect(null, { updateLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
@@ -91,7 +91,7 @@ const ImageContainer = styled.View`
 `;
 
 const TextContainer = styled.View`
-  flex: 1; 
+  flex: 1;
 `;
 
 const Title = styled(Text.L)`
@@ -130,5 +130,3 @@ const ButtonText = styled(Text.M)`
   color: ${Colors.actionYellow};
   margin-horizontal: 10px;
 `;
-
-

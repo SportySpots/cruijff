@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import GET_SPOT_DETAILS from '../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
-import Text from '../../Components/Text';
-import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
+import Text from '../../Components/Common/Text';
+import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
 import SpotDetails from '../../Components/Spots/SpotDetails';
 
 //------------------------------------------------------------------------------

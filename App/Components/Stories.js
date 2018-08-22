@@ -9,25 +9,22 @@ import { Provider } from 'react-redux';
 import NavBar from './Common/NavBar';
 import NavBarButton from './Common/NavBar/NavBarButton';
 import Onboarding from './Onboarding';
-import ImageSwiper from './ImageSwiper';
-import BackButton from './BackButton';
-import DefaultButton from './DefaultButton';
-import SecondaryButton from './SecondaryButton';
-import FlatButton from './FlatButton';
-import RouteButton from './RouteButton';
-import MapsButton from './MapsButton';
-import Checkbox from './Checkbox';
-import Check from './Check';
-import Text from './Text';
-import Logo from './Logo';
-import NavDots from './NavDots';
-import Slider from './Slider';
-import Rating from './Rating';
-import RatingBig from './RatingBig';
-import PropertyCircle from './PropertyCircle';
-import UserCircle from './UserCircle';
+import ImageSwiper from './Common/ImageSwiper';
+import DefaultButton from './Common/DefaultButton';
+import SecondaryButton from './Common/SecondaryButton';
+import FlatButton from './Common/FlatButton';
+import Checkbox from './Common/Checkbox';
+import Check from './Common/Check';
+import Text from './Common/Text';
+import Logo from './Common/Logo';
+import NavDots from './Common/NavDots';
+import Slider from './Common/Slider';
+import Rating from './Common/Rating';
+import RatingBig from './Common/RatingBig';
+import PropertyCircle from './Common/PropertyCircle';
+import UserCircle from './Common/UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
-import NothingFound from './NothingFound';
+import NothingFound from './Common/NothingFound';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -52,13 +49,6 @@ storiesOf('Logo', module)
   .add('Default', () => <Logo />);
 
 storiesOf('Basic components', module)
-  .add('BackButton', () => (
-    <View style={{ flex: 1, backgroundColor: 'green' }}>
-      <BackButton text="back" />
-    </View>
-  ))
-  .add('RouteButton', () => <RouteButton />)
-  .add('MapsButton', () => <MapsButton />)
   .add('DefaultButton', () => <DefaultButton text="Press me please" />)
   .add('SecondaryButton', () => <SecondaryButton text="Press me please" />)
   .add('FlatButton', () => <FlatButton text="SUBMIT" />)

@@ -7,8 +7,8 @@ import styled from 'styled-components';
 import I18n from '../../I18n/index';
 import Colors from '../../Themes/Colors';
 import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
-import CenteredActivityIndicator from '../../Components/CenteredActivityIndicator';
-import NothingFound from '../../Components/NothingFound';
+import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
+import NothingFound from '../../Components/Common/NothingFound';
 import GameDetails from '../../Components/Games/GameDetails';
 
 //------------------------------------------------------------------------------

@@ -4,13 +4,16 @@ import { propType } from 'graphql-anywhere';
 import styled from 'styled-components/native';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
 import Colors from '../../../Themes/Colors';
-import Text from '../../Text';
+import Text from '../../Common/Text';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
 const Container = styled.View`
   display: flex;
   flex-direction: column;
 `;
-
+//------------------------------------------------------------------------------
 const Row = styled.View`
   display: flex;
   padding: 8px;
@@ -19,20 +22,22 @@ const Row = styled.View`
   border-bottom-color: ${props => props.lineColor}
   border-bottom-width: 1px;
 `;
-
+//------------------------------------------------------------------------------
 const Label = styled(Text.M)`
   flex: 1;
   font-weight: 400;
   color: ${props => props.textColor || '#000'};
   padding-horizontal: 20px;
 `;
-
+//------------------------------------------------------------------------------
 const Value = styled(Text.M)`
   flex: 1;
   font-weight: 500;
   color: ${props => props.textColor || '#000'};
 `;
-
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const SpotProperties = ({ spot, lineColor }) => {
   const properties = (
     spot.amenities &&

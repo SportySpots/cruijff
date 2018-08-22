@@ -4,8 +4,8 @@ import { View } from 'react-native';
 import moment from 'moment';
 import styled from 'styled-components/native';
 import Int18n from '../../I18n';
-import Rating from '../Rating';
-import Text from '../Text';
+import Rating from '../Common/Rating';
+import Text from '../Common/Text';
 import { header } from './Styles/CardStyles';
 import Colors from '../../Themes/Colors';
 

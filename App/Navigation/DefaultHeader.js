@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import Text from '../Components/Text';
+import Text from '../Components/Common/Text';
 import Colors from '../Themes/Colors';
 
 const DefaultHeader = ({ title }) => (

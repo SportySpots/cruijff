@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Slider from '../../../Components/Slider';
+import Slider from '../../../Components/Common/Slider';
 import { FilterLabel, FilterDescription, RowVertical } from './style';
 
 //------------------------------------------------------------------------------

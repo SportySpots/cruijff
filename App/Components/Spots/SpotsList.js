@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
-import spotFragment from '../../GraphQL/Spots/Fragments/spot';
-import NothingFound from '../NothingFound';
 import I18n from '../../I18n';
+import spotFragment from '../../GraphQL/Spots/Fragments/spot';
+import NothingFound from '../Common/NothingFound';
 
 //------------------------------------------------------------------------------
 // STYLE:

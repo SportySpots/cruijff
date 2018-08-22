@@ -4,12 +4,12 @@ import { FlatList, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { cardList } from '../../Components/Spots/Styles/CardStyles';
 import Footer from '../../Components/DarkFooter/index';
 import CardSmall from '../../Components/Spots/SpotListCardSmall';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
 import { GET_SPOTS_FOR_SPORT } from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import api from '../../Services/SeedorfApi';
-import NothingFound from '../../Components/NothingFound';
+import NothingFound from '../../Components/Common/NothingFound';
 
 const CardContainer = (props) => {
   const { onPress, ...otherProps } = props;

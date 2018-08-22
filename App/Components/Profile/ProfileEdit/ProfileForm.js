@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 // import Slider from '../../Slider';
-import Text from '../../Text';
-import DefaultButton from '../../DefaultButton';
+import Text from '../../Common/Text';
+import DefaultButton from '../../Common/DefaultButton';
 
 //------------------------------------------------------------------------------
 // STYLE:
