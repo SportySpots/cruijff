@@ -1,25 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n/index';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
+import Block from '../../Common/Block';
+import Divider from '../../Common/Divider';
 import SliderFilter from './SliderFilter';
 import SwitchFilter from './SwitchFilter';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Block = styled.View`
-  padding: 16px;
-`;
-//------------------------------------------------------------------------------
-const Divider = styled.View`
-  flex: 1;
-  border-bottom-width: 1px;
-  border-bottom-color: ${Colors.lightGray};
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -32,7 +20,7 @@ const SpotsFilter = ({
   onSportsFilterSwitch,
   onSportSwitch,
 }) => [
-  <Block key="slider" style={{ height: 144 }}>
+  <Block key="slider" height={144}>
     <SliderFilter
       value={maxDistance}
       max={20.0}
@@ -43,7 +31,7 @@ const SpotsFilter = ({
     />
   </Block>,
   <Divider key="divider-slider" />,
-  <Block key="sport-filter" style={{ height: 82 }}>
+  <Block key="sport-filter" height={82}>
     <SwitchFilter
       label={I18n.t('All sports')}
       description={I18n.t('Filter on type of sport')}
@@ -52,7 +40,7 @@ const SpotsFilter = ({
     />
   </Block>,
   <Divider key="divider-sport-filter" />,
-  <Block key="switch" style={{ flex: 1 }}>
+  <Block key="switch">
     {sports.map(sport => (
       <SwitchFilter
         key={sport.id}
