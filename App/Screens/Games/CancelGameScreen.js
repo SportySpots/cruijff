@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
+import { Alert } from 'react-native';
 import styled from 'styled-components';
 import api from '../../Services/SeedorfApi';
 import I18n from '../../I18n';
@@ -10,18 +10,31 @@ import Colors from '../../Themes/Colors';
 import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
 import NothingFound from '../../Components/Common/NothingFound';
+import DefaultButton from '../../Components/Common/DefaultButton';
 import CancelGame from '../../Components/Games/CancelGame';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled(ScrollView)`
-  background-color: ${Colors.white};
+const Container = styled.ScrollView`
+  flex: 1;
+  background-color: ${Colors.white}
+`;
+//------------------------------------------------------------------------------
+const ButtonContainer = styled.View`
+  height: 88px;
+  background-color: ${Colors.white}
+  border-top-width: 0.5px;
+  border-color: ${Colors.lightGray}
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class CancelGameScreen extends React.PureComponent {
+  state = {
+    disabled: false,
+  }
+
   get gameUUID() {
     const { navigation } = this.props;
     return navigation.state.params.uuid;
@@ -32,8 +45,10 @@ class CancelGameScreen extends React.PureComponent {
     navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
   }
 
-  handleCancel = async () => {
-    const { navigation } = this.props;
+  handleSubmit = async () => {
+    // const { navigation } = this.props;
+
+    this.setState({ disabled: true });
 
     try {
       const result = await api.setGameStatus({
@@ -45,15 +60,26 @@ class CancelGameScreen extends React.PureComponent {
       // After successful cancel, take user back to wherever he was
       // TODO: remove this after cancel banner is implemented
       if (result.ok) {
-        navigation.goBack(null);
+        Alert.alert(
+          I18n.t('Activity cancelled successfully'),
+          /* I18n.t('Are you sure you want to stop attending?'),
+          [
+            { text: I18n.t('No'), onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+            { text: I18n.t('Yes'), onPress: () => this.setRSVPStatus(RSVP_STATUSES.DECLINED) },
+          ], */
+        );
+        // navigation.goBack(null);
       }
     } catch (exc) {
       console.log(exc);
     }
+
+    this.setState({ disabled: false });
   }
 
   render() {
     const { user } = this.props;
+    const { disabled } = this.state;
 
     return (
       <Query
@@ -78,8 +104,8 @@ class CancelGameScreen extends React.PureComponent {
           }
 
           // TODO: do not pass navigation down, pass callback instead
-          return (
-            <Container>
+          return [
+            <Container key="form">
               <CancelGame
                 navigation={this.props.navigation}
                 user={user}
@@ -88,8 +114,17 @@ class CancelGameScreen extends React.PureComponent {
                 rspvBeforeHook={this.handleRSVPBefore}
                 rspvSuccessHook={refetch}
               />
-            </Container>
-          );
+            </Container>,
+            <ButtonContainer key="button">
+              <DefaultButton
+                bgColor={this.disabled ? Colors.gray : Colors.red}
+                textColor={Colors.white}
+                text={I18n.t('Cancel this activity')}
+                disabled={disabled}
+                onPress={this.handleSubmit}
+              />
+            </ButtonContainer>,
+          ];
         }}
       </Query>
     );

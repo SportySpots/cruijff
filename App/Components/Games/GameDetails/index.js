@@ -11,7 +11,8 @@ import Attendees from '../Attendees';
 import OpenSpots from '../OpenSpot';
 import RSPV from '../RSPV';
 import ShareGame from '../ShareGame';
-import { Block, BlockLabel, HorizontalView } from '../style';
+import Block from '../../Common/Block';
+import { BlockLabel, HorizontalView } from '../style';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

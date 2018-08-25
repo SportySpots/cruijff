@@ -18,14 +18,6 @@ export const SwiperContainer = styled.View`
   width: 100%;
 `;
 //------------------------------------------------------------------------------
-export const Block = styled.View`
-  padding: 16px;
-`;
-//------------------------------------------------------------------------------
-export const BlockHeader = styled(Block)`
-  flex-direction: row;
-`;
-//------------------------------------------------------------------------------
 export const HeaderLeft = styled.View`
   flex: 4;
 `;

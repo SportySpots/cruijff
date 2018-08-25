@@ -66,7 +66,7 @@ const GameDetailsScreens = {
   CancelGameScreen: {
     screen: CancelGameScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Cancel Activity'),
+      headerTitle: I18n.t('Cancel activity'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

@@ -18,7 +18,6 @@ const Container = styled.ScrollView`
   background-color: ${Colors.white}
 `;
 //------------------------------------------------------------------------------
-
 const ButtonContainer = styled.View`
   height: 88px;
   background-color: ${Colors.white}

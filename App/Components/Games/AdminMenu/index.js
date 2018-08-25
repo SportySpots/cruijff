@@ -82,7 +82,7 @@ class AdminMenu extends React.PureComponent {
                 </MenuOption>
                 <MenuOption disabled /> */}
                 <MenuOption onSelect={this.handleCancel}>
-                  <Text.M>{I18n.t('Cancel Activity')}</Text.M>
+                  <Text.M>{I18n.t('Cancel activity')}</Text.M>
                 </MenuOption>
               </MenuOptions>
             </Menu>
