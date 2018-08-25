@@ -8,12 +8,8 @@ import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
 import AdminMenu from '../../Components/Games/GameDetails/AdminMenu';
-import style from './style';
+import { headerTitleStyle } from './style';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const { headerTitleStyle } = style;
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------

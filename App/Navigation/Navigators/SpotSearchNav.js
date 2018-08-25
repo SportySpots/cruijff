@@ -7,12 +7,8 @@ import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import SpotsHeaderBtn from '../../Components/Spots/HeaderBtn';
 import GameDetailsScreens from './GameDetailsScreens';
 import SpotFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
-import style from './style';
+import { headerTitleStyle } from './style';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const { headerTitleStyle } = style;
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------

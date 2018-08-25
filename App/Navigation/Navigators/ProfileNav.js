@@ -8,12 +8,8 @@ import SignupScreen from '../../Screens/SignupScreen';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import ProfileDetailsScreen from '../../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../../Screens/Profile/ProfileEditScreen';
-import style from './style';
+import { headerTitleStyle } from './style';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const { headerTitleStyle } = style;
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------

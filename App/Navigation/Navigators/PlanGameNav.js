@@ -11,12 +11,8 @@ import Created from '../../Screens/Plan/CreatedScreen';
 import Description from '../../Screens/Plan/DescriptionScreen';
 import PickSpot from '../../Screens/Plan/PickSpotScreen';
 import SportAndTime from '../../Screens/Plan/SportAndTimeScreen';
-import style from './style';
+import { headerTitleStyle } from './style';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const { headerTitleStyle } = style;
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------

@@ -5,12 +5,8 @@ import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
 import SplashScreen from '../../Screens/SplashScreen';
-import style from './style';
+import { headerTitleStyle } from './style';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const { headerTitleStyle } = style;
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
