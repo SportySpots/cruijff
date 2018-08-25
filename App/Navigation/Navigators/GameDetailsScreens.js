@@ -4,10 +4,11 @@ import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
 import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
+import CancelGameScreen from '../../Screens/Games/CancelGameScreen';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
-import AdminMenu from '../../Components/Games/GameDetails/AdminMenu';
+import AdminMenu from '../../Components/Games/AdminMenu';
 import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
@@ -58,6 +59,14 @@ const GameDetailsScreens = {
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Sign up'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
+  },
+  CancelGameScreen: {
+    screen: CancelGameScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Cancel Activity'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

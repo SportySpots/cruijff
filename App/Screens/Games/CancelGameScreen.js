@@ -4,12 +4,13 @@ import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import I18n from '../../I18n/index';
+import api from '../../Services/SeedorfApi';
+import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
 import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
 import NothingFound from '../../Components/Common/NothingFound';
-import GameDetails from '../../Components/Games/GameDetails';
+import CancelGame from '../../Components/Games/CancelGame';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -20,29 +21,34 @@ const Container = styled(ScrollView)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class GameDetailsScreen extends React.PureComponent {
+class CancelGameScreen extends React.PureComponent {
   get gameUUID() {
     const { navigation } = this.props;
     return navigation.state.params.uuid;
   }
 
-  handleSpotPress = ({ spotUuid }) => {
-    const { navigation } = this.props;
-    navigation.navigate('SpotDetailsScreen', { uuid: spotUuid });
-  }
-
-  handleAttendeesPress = () => {
+  handleAttendeesClick = () => {
     const { navigation } = this.props;
     navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
   }
 
-  handleRSVPBefore = () => {
-    const { user, navigation } = this.props;
+  handleCancel = async () => {
+    const { navigation } = this.props;
 
-    if (!user || !user.uuid) {
-      navigation.navigate('ProfileSignupScreen');
-      // Throw error in order to interrupt rspv normal flow
-      throw new Error(401, 'User not authorized!');
+    try {
+      const result = await api.setGameStatus({
+        gameUUID: this.gameUUID,
+        status: 'Canceled',
+      });
+      // TODO: refetch
+
+      // After successful cancel, take user back to wherever he was
+      // TODO: remove this after cancel banner is implemented
+      if (result.ok) {
+        navigation.goBack(null);
+      }
+    } catch (exc) {
+      console.log(exc);
     }
   }
 
@@ -71,13 +77,14 @@ class GameDetailsScreen extends React.PureComponent {
             );
           }
 
+          // TODO: do not pass navigation down, pass callback instead
           return (
             <Container>
-              <GameDetails
+              <CancelGame
+                navigation={this.props.navigation}
                 user={user}
                 game={data.game}
-                onSpotPress={this.handleSpotPress}
-                onAttendessPress={this.handleAttendeesPress}
+                onAttendeesPress={this.handleAttendeesClick}
                 rspvBeforeHook={this.handleRSVPBefore}
                 rspvSuccessHook={refetch}
               />
@@ -89,7 +96,7 @@ class GameDetailsScreen extends React.PureComponent {
   }
 }
 
-GameDetailsScreen.propTypes = {
+CancelGameScreen.propTypes = {
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -100,7 +107,7 @@ GameDetailsScreen.propTypes = {
   user: PropTypes.object,
 };
 
-GameDetailsScreen.defaultProps = {
+CancelGameScreen.defaultProps = {
   user: null,
 };
 
@@ -108,4 +115,4 @@ GameDetailsScreen.defaultProps = {
 const mapStateToProps = ({ user }) => ({ user });
 const withRedux = connect(mapStateToProps, null);
 
-export default withRedux(GameDetailsScreen);
+export default withRedux(CancelGameScreen);

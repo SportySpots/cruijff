@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { Image } from 'react-native';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import themeImages from '../../../Themes/Images';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import PropertyCircle from '../../../Components/Common/PropertyCircle';
-import { getAttendees } from './utils';
-import { BlockLabel, HorizontalView } from './style';
+import PropertyCircle from '../../Common/PropertyCircle';
+import { getAttendees } from '../utils';
+import { BlockLabel, HorizontalView } from '../style';
 import CappedList from '../../Common/CappedList';
 
 //------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ const OpenSpots = ({ game, maxLength }) => {
     <BlockLabel key="label">
       {I18n.t('Open spots')}
     </BlockLabel>,
-    <HorizontalView key="open-spots">
+    <HorizontalView key="spots">
       <CappedList
         max={maxLength}
         data={[...Array(nOpenSpots)]}
@@ -55,10 +55,11 @@ const OpenSpots = ({ game, maxLength }) => {
 
 OpenSpots.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
-  maxLength: PropTypes.number.isRequired,
+  maxLength: PropTypes.number,
 };
 
 OpenSpots.defaultProps = {
+  maxLength: 7,
 };
 
 export default OpenSpots;

@@ -65,7 +65,7 @@
     "prop-types": "15.6.0",
     "querystringify": "1.0.0",
     "ramda": "^0.25.0",
-    "react": "16.0.0",
+    "react": "^16.4.2",
     "react-apollo": "2.1.3",
     "react-native": "0.50.4",
     "react-native-animatable": "^1.2.4",
@@ -172,7 +172,9 @@
   },
   "config": {
     "react-native-storybook-loader": {
-      "searchDir": ["./App"],
+      "searchDir": [
+        "./App"
+      ],
       "pattern": "**/Stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }

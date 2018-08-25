@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import I18n from '../../../../I18n/index';
-import Colors from '../../../../Themes/Colors';
-import DefaultButton from '../../../../Components/Common/DefaultButton';
+import I18n from '../../../I18n/index';
+import Colors from '../../../Themes/Colors';
+import DefaultButton from '../../../Components/Common/DefaultButton';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
