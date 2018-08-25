@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Keyboard } from 'react-native';
+// import { Keyboard } from 'react-native';
 import { Menu, MenuTrigger, MenuOptions, MenuOption } from 'react-native-popup-menu';
 import { Query } from 'react-apollo';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
+// import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
 import GET_GAME_ORGANIZER from '../../../GraphQL/Games/Queries/GET_GAME_ORGANIZER';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Danger = styled(Text.M)`
+/* const Danger = styled(Text.M)`
   color: ${Colors.red};
-`;
+`; */
 //------------------------------------------------------------------------------
 const TriggerContainer = styled.View`
   padding-right: 8px;
@@ -32,13 +32,13 @@ class AdminMenu extends React.PureComponent {
 
   handleEdit = () => {
     const { navigation } = this.props;
-    Keyboard.dismiss();
+    // Keyboard.dismiss();
     navigation.navigate('PlanScreen', { uuid: this.gameUUID });
   }
 
   handleCancel = () => {
     const { navigation } = this.props;
-    Keyboard.dismiss();
+    // Keyboard.dismiss();
     navigation.navigate('CancelGameScreen', { uuid: this.gameUUID });
   }
 
@@ -82,7 +82,7 @@ class AdminMenu extends React.PureComponent {
                 </MenuOption>
                 <MenuOption disabled /> */}
                 <MenuOption onSelect={this.handleCancel}>
-                  <Danger>{I18n.t('Cancel Activity')}</Danger>
+                  <Text.M>{I18n.t('Cancel Activity')}</Text.M>
                 </MenuOption>
               </MenuOptions>
             </Menu>
