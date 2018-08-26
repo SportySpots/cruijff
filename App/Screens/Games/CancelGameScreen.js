@@ -32,6 +32,7 @@ const ButtonContainer = styled.View`
 //------------------------------------------------------------------------------
 class CancelGameScreen extends React.PureComponent {
   state = {
+    cancelMsg: '',
     disabled: false,
   }
 
@@ -50,12 +51,18 @@ class CancelGameScreen extends React.PureComponent {
     navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
   }
 
+  handleCancelMsgChange = (cancelMsg) => {
+    this.setState({ cancelMsg });
+  }
+
   handleSubmit = async () => {
     // const { navigation } = this.props;
+    const { cancelMsg } = this.state;
 
     this.setState({ disabled: true });
 
     try {
+      // TODO: pass cancelMsg to api.cancelGame
       const result = await api.setGameStatus({
         gameUUID: this.gameUUID,
         status: 'Canceled',
@@ -84,7 +91,7 @@ class CancelGameScreen extends React.PureComponent {
 
   render() {
     const { user } = this.props;
-    const { disabled } = this.state;
+    const { cancelMsg, disabled } = this.state;
 
     return (
       <Query
@@ -115,8 +122,10 @@ class CancelGameScreen extends React.PureComponent {
             <Container key="form">
               <CancelGame
                 game={data.game}
+                cancelMsg={cancelMsg}
                 // onSpotPress={this.handleSpotPress}
                 onAttendeesPress={this.handleAttendeesPress}
+                onCancelMsgChange={this.handleCancelMsgChange}
               />
             </Container>,
             <ButtonContainer key="button">

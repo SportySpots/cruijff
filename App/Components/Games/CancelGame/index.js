@@ -5,6 +5,7 @@ import I18n from '../../../I18n/index';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import GameProperties from '../GameProperties';
 import Attendees from '../Attendees';
+import CancelMsg from '../CancelMsg';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
 
@@ -13,8 +14,10 @@ import Divider from '../../Common/Divider';
 //------------------------------------------------------------------------------
 const CancelGame = ({
   game,
+  cancelMsg,
   onSpotPress,
   onAttendeesPress,
+  onCancelMsgChange,
 }) => [
   <Block key="game-properties">
     <GameProperties game={game} onSpotPress={onSpotPress} />
@@ -26,17 +29,27 @@ const CancelGame = ({
       onAttendeesPress={onAttendeesPress}
     />
   </Block>,
+  <Block key="cancel-msg">
+    <CancelMsg
+      value={cancelMsg}
+      onChangeText={onCancelMsgChange}
+    />
+  </Block>,
 ];
 
 CancelGame.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
+  cancelMsg: PropTypes.string,
   onSpotPress: PropTypes.func,
   onAttendeesPress: PropTypes.func,
+  onCancelMsgChange: PropTypes.func,
 };
 
 CancelGame.defaultProps = {
+  cancelMsg: '',
   onSpotPress: () => {},
   onAttendeesPress: () => {},
+  onCancelMsgChange: () => {},
 };
 
 export default CancelGame;
