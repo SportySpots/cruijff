@@ -8,8 +8,9 @@ import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import UserCircle from '../../../Components/Common/UserCircle';
 import PropertyCircle from '../../../Components/Common/PropertyCircle';
+import Label from '../../../Components/Common/Label';
 import { getAttendees, mapMax } from '../utils';
-import { BlockLabel, HorizontalView, ChevronContainer } from '../style';
+import { HorizontalView, ChevronContainer } from '../style';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -39,9 +40,9 @@ const Attendees = ({ game, maxLength, onAttendeesPress }) => {
   }
 
   return [
-    <BlockLabel key="label">
+    <Label key="label">
       {I18n.t('Attending')}
-    </BlockLabel>,
+    </Label>,
     <TouchableOpacity
       key="attendees"
       onPress={onAttendeesPress}

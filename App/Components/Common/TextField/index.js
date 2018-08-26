@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { TextInput } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
+import FieldSet from '../FieldSet';
+import Label from '../Label';
 import Text from '../Text';
 
 //------------------------------------------------------------------------------
@@ -13,35 +15,57 @@ const Flex = styled.View`
   align-items: flex-end;
 `;
 //------------------------------------------------------------------------------
+const Error = styled(Text)`
+  color: red;
+`;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const TextField = ({ whiteColor, displayCounter, ...rest }) => [
-  <TextInput
-    key="text-input"
-    placeholderTextColor={whiteColor ? Colors.white : Colors.black}
-    selectionColor={whiteColor ? Colors.white : Colors.black}
-    underlineColorAndroid={whiteColor ? Colors.white : Colors.black}
-    {...rest}
-  />,
-  <Flex key="counter">
-    {!!(displayCounter && rest.maxLength) && (
-      <Text style={{ color: whiteColor ? Colors.white : Colors.black }}>
-        {(rest.value && rest.value.length) || 0} / {rest.maxLength}
-      </Text>
-    )}
-  </Flex>,
-];
+// TODO: on error, errorMsg, TextInput and Label fields should be red
+const TextField = ({
+  label,
+  hasError,
+  errorMsg,
+  whiteColor,
+  displayCounter,
+  ...rest
+}) => (
+  <FieldSet>
+    <Label whiteColor={whiteColor}>
+      {label}
+    </Label>
+    {hasError && <Error>{errorMsg}</Error>}
+    <TextInput
+      placeholderTextColor={whiteColor ? Colors.white : Colors.black}
+      selectionColor={whiteColor ? Colors.white : Colors.black}
+      underlineColorAndroid={whiteColor ? Colors.white : Colors.black}
+      {...rest}
+    />
+    <Flex>
+      {!!(displayCounter && rest.maxLength) && (
+        <Text style={{ color: whiteColor ? Colors.white : Colors.black }}>
+          {(rest.value && rest.value.length) || 0} / {rest.maxLength}
+        </Text>
+      )}
+    </Flex>
+  </FieldSet>
+);
 
 TextField.propTypes = {
+  label: PropTypes.string,
+  hasError: PropTypes.bool,
+  errorMsg: PropTypes.string,
   whiteColor: PropTypes.bool,
   displayCounter: PropTypes.bool,
-  // Same props as native TextInput
+  // Plus all props from native TextInput
 };
 
 TextField.defaultProps = {
+  label: '',
+  hasError: false,
+  errorMsg: '',
   whiteColor: false,
   displayCounter: false,
-  // Same props as native TextInput
 };
 
 export default TextField;

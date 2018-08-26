@@ -8,6 +8,7 @@ import Attendees from '../Attendees';
 import CancelMsg from '../CancelMsg';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
+import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -18,24 +19,31 @@ const CancelGame = ({
   onSpotPress,
   onAttendeesPress,
   onCancelMsgChange,
-}) => [
-  <Block key="game-properties">
-    <GameProperties game={game} onSpotPress={onSpotPress} />
-  </Block>,
-  <Divider key="divider-game-properties" />,
-  <Block key="game-attendees">
-    <Attendees
-      game={game}
-      onAttendeesPress={onAttendeesPress}
-    />
-  </Block>,
-  <Block key="cancel-msg">
-    <CancelMsg
-      value={cancelMsg}
-      onChangeText={onCancelMsgChange}
-    />
-  </Block>,
-];
+}) => {
+  const withAttendees = getAttendees(game).length > 0;
+
+  return [
+    <Block key="game-properties">
+      <GameProperties game={game} onSpotPress={onSpotPress} />
+    </Block>,
+    withAttendees && [
+      <Divider key="divider-game-attendees" />,
+      <Block key="game-attendees">
+        <Attendees
+          game={game}
+          onAttendeesPress={onAttendeesPress}
+        />
+      </Block>,
+      <Divider key="divider-cancel-msg" />,
+      <Block key="cancel-msg">
+        <CancelMsg
+          value={cancelMsg}
+          onChangeText={onCancelMsgChange}
+        />
+      </Block>,
+    ],
+  ];
+};
 
 CancelGame.propTypes = {
   game: propType(gameDetailsFragment).isRequired,

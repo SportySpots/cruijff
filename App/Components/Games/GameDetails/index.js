@@ -12,7 +12,8 @@ import OpenSpots from '../OpenSpot';
 import RSPV from '../RSPV';
 import ShareGame from '../ShareGame';
 import Block from '../../Common/Block';
-import { BlockLabel, HorizontalView } from '../style';
+import Label from '../../Common/Label';
+import { HorizontalView } from '../style';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -31,7 +32,7 @@ const GameDetails = ({
   </Block>,
   <SpotMapWithLinkFallback key="spot-map" spot={game.spot} />,
   <Block key="game-organizer">
-    <BlockLabel>{I18n.t('Organizer')}</BlockLabel>
+    <Label>{I18n.t('Organizer')}</Label>
     <Organizer game={game} />
   </Block>,
   <Block key="game-attendees">
@@ -44,7 +45,7 @@ const GameDetails = ({
     <OpenSpots game={game} />
   </Block>,
   <Block key="rspv">
-    <BlockLabel>{I18n.t('Do you join?')}</BlockLabel>
+    <Label>{I18n.t('Do you join?')}</Label>
     <HorizontalView style={{ width: '100%' }}>
       <RSPV
         game={game}
@@ -55,7 +56,7 @@ const GameDetails = ({
     </HorizontalView>
   </Block>,
   <Block key="share">
-    <BlockLabel>{I18n.t('Share with friends')}</BlockLabel>
+    <Label>{I18n.t('Share with friends')}</Label>
     <ShareGame
       game={game}
       size={55}

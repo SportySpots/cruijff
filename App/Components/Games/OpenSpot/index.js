@@ -6,9 +6,10 @@ import I18n from '../../../I18n';
 import themeImages from '../../../Themes/Images';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import PropertyCircle from '../../Common/PropertyCircle';
-import { getAttendees } from '../utils';
-import { BlockLabel, HorizontalView } from '../style';
 import CappedList from '../../Common/CappedList';
+import Label from '../../Common/Label';
+import { getAttendees } from '../utils';
+import { HorizontalView } from '../style';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -39,9 +40,9 @@ const OpenSpots = ({ game, maxLength }) => {
   const nOpenSpots = Math.max(0, game.capacity - attendees.length);
 
   return [
-    <BlockLabel key="label">
+    <Label key="label">
       {I18n.t('Open spots')}
-    </BlockLabel>,
+    </Label>,
     <HorizontalView key="spots">
       <CappedList
         max={maxLength}

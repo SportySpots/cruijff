@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Text from '../Common/Text';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -33,9 +32,5 @@ export const HeaderLeftDetails = styled(HorizontalView)`
 //------------------------------------------------------------------------------
 export const Time = styled(HorizontalView)`
   align-items: center;
-`;
-//------------------------------------------------------------------------------
-export const BlockLabel = styled(Text.M)`
-  margin-bottom: 8px;
 `;
 //------------------------------------------------------------------------------
