@@ -50,7 +50,7 @@ class AdminMenu extends React.PureComponent {
         fetchPolicy="network-only"
       >
         {({ loading, error, data }) => {
-          if (loading || error || !data || !data.game) {
+          if (loading || error || !data || !data.game || data.game.status === 'CANCELED') {
             return null;
           }
 

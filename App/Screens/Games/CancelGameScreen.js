@@ -94,13 +94,8 @@ class CancelGameScreen extends React.PureComponent {
       >
         {({ loading, error, data }) => {
           if (loading) { return <CenteredActivityIndicator />; }
-          if (error || !data || !data.game) {
-            return (
-              <NothingFound
-                icon="calendar-plus"
-                text={I18n.t('Game not found')}
-              />
-            );
+          if (error || !data || !data.game || data.game.status === 'CANCELED') {
+            return null;
           }
 
           // Only display cancel form if user is the organizer of the activity
