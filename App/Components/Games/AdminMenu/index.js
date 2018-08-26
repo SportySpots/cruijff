@@ -32,13 +32,11 @@ class AdminMenu extends React.PureComponent {
 
   handleEdit = () => {
     const { navigation } = this.props;
-    // Keyboard.dismiss();
     navigation.navigate('PlanScreen', { uuid: this.gameUUID });
   }
 
   handleCancel = () => {
     const { navigation } = this.props;
-    // Keyboard.dismiss();
     navigation.navigate('CancelGameScreen', { uuid: this.gameUUID });
   }
 

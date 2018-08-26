@@ -40,7 +40,12 @@ class CancelGameScreen extends React.PureComponent {
     return navigation.state.params.uuid;
   }
 
-  handleAttendeesClick = () => {
+  /* handleSpotPress = ({ spotUuid }) => {
+    const { navigation } = this.props;
+    navigation.navigate('SpotDetailsScreen', { uuid: spotUuid });
+  } */
+
+  handleAttendeesPress = () => {
     const { navigation } = this.props;
     navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
   }
@@ -87,12 +92,7 @@ class CancelGameScreen extends React.PureComponent {
         variables={{ uuid: this.gameUUID }}
         fetchPolicy="network-only"
       >
-        {({
-          loading,
-          error,
-          data,
-          refetch,
-        }) => {
+        {({ loading, error, data }) => {
           if (loading) { return <CenteredActivityIndicator />; }
           if (error || !data || !data.game) {
             return (
@@ -103,16 +103,25 @@ class CancelGameScreen extends React.PureComponent {
             );
           }
 
-          // TODO: do not pass navigation down, pass callback instead
+          // Only display cancel form if user is the organizer of the activity
+          const isOrganizer = (
+            user &&
+            user.uuid &&
+            data.game.organizer &&
+            data.game.organizer.uuid &&
+            user.uuid === data.game.organizer.uuid
+          );
+
+          if (!isOrganizer) {
+            return null;
+          }
+
           return [
             <Container key="form">
               <CancelGame
-                navigation={this.props.navigation}
-                user={user}
                 game={data.game}
-                onAttendeesPress={this.handleAttendeesClick}
-                rspvBeforeHook={this.handleRSVPBefore}
-                rspvSuccessHook={refetch}
+                // onSpotPress={this.handleSpotPress}
+                onAttendeesPress={this.handleAttendeesPress}
               />
             </Container>,
             <ButtonContainer key="button">
