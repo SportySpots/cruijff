@@ -9,17 +9,14 @@ import TextField from '../../Common/TextField';
 const CancelMsg = ({
   value,
   onChangeText,
-  hasError,
-  errorMsg,
+  error,
 }) => (
   <TextField
     value={value}
     onChangeText={onChangeText}
-    maxLength={120}
+    characterRestriction={120}
     label={I18n.t('Cancellation reason')}
-    hasError={hasError}
-    errorMsg={errorMsg}
-    displayCounter
+    error={error}
     multiline
   />
 );
@@ -27,15 +24,13 @@ const CancelMsg = ({
 CancelMsg.propTypes = {
   value: PropTypes.string,
   onChangeText: PropTypes.func,
-  hasError: PropTypes.bool,
-  errorMsg: PropTypes.string,
+  error: PropTypes.string,
 };
 
 CancelMsg.defaultProps = {
   value: '',
   onChangeText: () => {},
-  hasError: false,
-  errorMsg: '',
+  error: '',
 };
 
 export default CancelMsg;

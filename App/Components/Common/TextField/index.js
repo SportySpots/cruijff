@@ -1,5 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TextField as TextFieldMUI } from 'react-native-material-textfield';
+import Fonts from '../../../Themes/Fonts';
+import Colors from '../../../Themes/Colors';
+
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const TextField = ({
+  whiteColor,
+  ...rest
+}) => (
+  <TextFieldMUI
+    labelFontSize={Fonts.style.M.fontSize}
+    labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
+    // errorColor={Colors.red}
+    error="Ohh"
+    animationDuration={150}
+    baseColor={whiteColor ? Colors.white : Colors.black}
+    tintColor={Colors.primaryGreen}
+    {...rest}
+  />
+);
+
+TextField.propTypes = {
+  whiteColor: PropTypes.bool,
+  // Plus all props from react-native-material-textfield
+};
+
+TextField.defaultProps = {
+  whiteColor: false,
+};
+
+export default TextField;
+
+/*
+import React from 'react';
+import PropTypes from 'prop-types';
 import { TextInput } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
@@ -69,3 +106,5 @@ TextField.defaultProps = {
 };
 
 export default TextField;
+
+*/

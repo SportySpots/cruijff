@@ -8,9 +8,9 @@ import { Image, ViewPropTypes } from 'react-native';
 //------------------------------------------------------------------------------
 const ImageSwiper = ({ images, style }) => (
   <Swiper style={{ flex: 1, ...style }}>
-    {images.map((src, index) => (
+    {images.map(src => (
       <Image
-        key={index}
+        key={src}
         style={{ flex: 1 }}
         source={{ uri: src }}
       />

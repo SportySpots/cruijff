@@ -9969,6 +9969,12 @@ react-native-map-link@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/react-native-map-link/-/react-native-map-link-1.1.3.tgz#73526ea4e6c5fe7369a813037d03fe7b0e460838"
 
+react-native-material-textfield@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/react-native-material-textfield/-/react-native-material-textfield-0.12.0.tgz#3fba19d76ab89f67052c81e082152fc243d82a3f"
+  dependencies:
+    prop-types "^15.5.9"
+
 react-native-modal-datetime-picker@^4.13.0:
   version "4.13.0"
   resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-4.13.0.tgz#bcf9f62c691befb133bf6fd6e5d6189d397608ef"

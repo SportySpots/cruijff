@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
-import Text from '../../Components/Text';
+import Text from '../Common/Text';
 import Colors from '../../Themes/Colors';
 
 //------------------------------------------------------------------------------
