@@ -102,8 +102,6 @@ class CancelGameScreen extends React.PureComponent {
           if (error || !data || !data.game || data.game.status === 'CANCELED') {
             return null;
           }
-          console.log(data.game.organizer.uuid);
-
 
           // Only display cancel form if user is the organizer of the activity
           const isOrganizer = (
