@@ -26,10 +26,15 @@ const colors = {
   shade: '#BDBDBD',
   concrete: '#F5F5F5',
   chalk: 'fff',
-  grass: '#009f36',
+  grass: '#009f36', // rgb(0, 159, 54)
+  grassTint: 'rgba(0, 159, 54, 0.2)',
   grassDark: '#005537',
-  notify: '#f5a623',
-  negative: '#E0301E',
+  notify: '#f5a623', // rgb(245, 166, 35)
+  notifyTint: 'rgba(245, 166, 35, 0.2)',
+  negative: '#E0301E', // rgb(224, 48, 30)
+  negativeTint: 'rgba(224, 48, 30, 0.2)',
+  info: '#019AE8', // rgb(1, 154, 232)
+  infoTint: 'rgba(1, 154, 232, 0.2)',
 };
 
 export default colors;

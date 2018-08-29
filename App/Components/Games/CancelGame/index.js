@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import I18n from '../../../I18n/index';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import GameProperties from '../GameProperties';
 import Attendees from '../Attendees';
 import CancelMsg from '../CancelMsg';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
+import AlertMsg from '../../Common/AlertMsg';
 import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
@@ -39,6 +39,13 @@ const CancelGame = ({
         <CancelMsg
           value={cancelMsg}
           onChangeText={onCancelMsgChange}
+        />
+      </Block>,
+      <Divider key="divider-alert-warning" />,
+      <Block key="alert-warning">
+        <AlertMsg
+          value="Be careful!"
+          status="success"
         />
       </Block>,
     ],
