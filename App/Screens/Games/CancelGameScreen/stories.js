@@ -9,26 +9,15 @@ import CancelGameScreen from '.';
 
 import { WithApolloMockProvider } from '../../../GraphQL';
 
-
 const store = createStore(state => state, {
   user: {
+    /* the following uuid is not random, but it is in fact the uuid of the game
+       organizer when the first game mock is generated (fixed random seed). This is
+       so that the cancel game shows at all.
+    */
     uuid: 'f0db3473-9fde-42c0-a107-d9c9758f1926',
   },
 });
-
-// const dummyNavigator = {
-//   navigate: () => null,
-//   state: {
-//     params: { uuid: 1 },
-//   },
-// };
-//
-// const store = createStore(state => state, {
-//   spotFilters: {
-//     maxDistance: 2.0,
-//     sports: {},
-//   },
-// });
 
 storiesOf('Screens.Games', module)
   .add('CancelGameScreen', () => (
