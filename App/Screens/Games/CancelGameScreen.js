@@ -102,6 +102,7 @@ class CancelGameScreen extends React.PureComponent {
         {({ loading, error, data }) => {
           if (loading) { return <CenteredActivityIndicator />; }
           if (error || !data || !data.game || data.game.status === 'CANCELED') {
+           console.log(error,data);
             return null;
           }
 

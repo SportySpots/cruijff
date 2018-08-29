@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { View } from 'react-native';
 
+import CancelGameScreen from '../../Screens/Games/CancelGameScreen';
 import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
 import GamesListScreen from '../../Screens/Games/GamesListScreen';
 import PlayerListScreen from '../../Screens/Games/PlayerListScreen';
@@ -23,6 +24,18 @@ const store = createStore(state => state, {
     sports: {},
   },
 });
+
+storiesOf('Screens.Games', module)
+  .add('CancelGameScreen', () => (
+    <Provider store={store}>
+      <WithApolloMockProvider>
+        <CancelGameScreen navigation={{
+            state: { params: { uuid: 'cdfa268a-e809-43be-a659-bd2310737baa' } },
+          }} 
+          />
+      </WithApolloMockProvider>
+    </Provider>
+  ));
 
 storiesOf('Screens.Games', module)
   .add('GameDetailsScreen', () => (
