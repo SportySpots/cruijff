@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import { Alert } from 'react-native';
 import styled from 'styled-components';
-import api from '../../Services/SeedorfApi';
-import I18n from '../../I18n';
-import Colors from '../../Themes/Colors';
-import GET_GAME_DETAILS from '../../GraphQL/Games/Queries/GET_GAME_DETAILS';
-import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
-import NothingFound from '../../Components/Common/NothingFound';
-import DefaultButton from '../../Components/Common/DefaultButton';
-import CancelGame from '../../Components/Games/CancelGame';
+import api from '../../../Services/SeedorfApi';
+import I18n from '../../../I18n/index';
+import Colors from '../../../Themes/Colors';
+import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
+import NothingFound from '../../../Components/Common/NothingFound';
+import DefaultButton from '../../../Components/Common/DefaultButton';
+import CancelGame from '../../../Components/Games/CancelGame/index';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -92,7 +92,6 @@ class CancelGameScreen extends React.PureComponent {
   render() {
     const { user } = this.props;
     const { cancelMsg, disabled } = this.state;
-
     return (
       <Query
         query={GET_GAME_DETAILS}
@@ -104,6 +103,8 @@ class CancelGameScreen extends React.PureComponent {
           if (error || !data || !data.game || data.game.status === 'CANCELED') {
             return null;
           }
+          console.log(data.game.organizer.uuid);
+
 
           // Only display cancel form if user is the organizer of the activity
           const isOrganizer = (

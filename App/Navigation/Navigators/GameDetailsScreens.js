@@ -4,7 +4,7 @@ import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
 import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
-import CancelGameScreen from '../../Screens/Games/CancelGameScreen';
+import CancelGameScreen from '../../Screens/Games/CancelGameScreen/index';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import PlayerList from '../../Screens/Games/PlayerListScreen';
