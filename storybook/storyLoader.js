@@ -13,6 +13,7 @@ function loadStories() {
   require('../App/Components/ScreenSlider/Stories');
   require('../App/Components/Spots/Stories');
   require('../App/Components/Stories');
+  require('../App/Screens/Games/CancelGameScreen/stories');
   require('../App/Screens/Games/Stories');
   require('../App/Screens/Plan/Stories');
   require('../App/Screens/Profile/Stories');
@@ -29,6 +30,7 @@ const stories = [
   '../App/Components/ScreenSlider/Stories',
   '../App/Components/Spots/Stories',
   '../App/Components/Stories',
+  '../App/Screens/Games/CancelGameScreen/stories',
   '../App/Screens/Games/Stories',
   '../App/Screens/Plan/Stories',
   '../App/Screens/Profile/Stories',

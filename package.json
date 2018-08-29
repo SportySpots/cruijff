@@ -176,7 +176,7 @@
       "searchDir": [
         "./App"
       ],
-      "pattern": "**/[sS]tories.js",
+      "pattern": "**/[Ss]tories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
   },

@@ -12,7 +12,6 @@ import getPalette from './utils';
 const Container = styled.View`
   display: flex;
   flex-direction: row;
-  color: ${({ color }) => (color)};
   background-color: ${({ bgColor }) => (bgColor)};
   padding: 16px;
   border-radius: 4px;
@@ -37,7 +36,7 @@ const AlertMsg = ({ status, value }) => {
   const { iconName, fontColor, bgColor } = palette;
 
   return (
-    <Container bgColor={bgColor} color={fontColor} >
+    <Container bgColor={bgColor}>
       <Left>
         <Icon
           name={iconName}

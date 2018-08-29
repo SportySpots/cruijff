@@ -18,6 +18,7 @@ const CancelMsg = ({
     label={I18n.t('Cancellation reason')}
     error={error}
     multiline
+    placeholder={I18n.t('Write here why the activity does not continue')}
   />
 );
 

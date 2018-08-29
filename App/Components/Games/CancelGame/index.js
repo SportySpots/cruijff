@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import GameProperties from '../GameProperties';
 import Attendees from '../Attendees';
@@ -44,8 +45,8 @@ const CancelGame = ({
       <Divider key="divider-alert-warning" />,
       <Block key="alert-warning">
         <AlertMsg
-          value="Be careful!"
-          status="success"
+          value={`${I18n.t('All attendees will receive an email update with your reason for cancellation')}.`}
+          status="warning"
         />
       </Block>,
     ],

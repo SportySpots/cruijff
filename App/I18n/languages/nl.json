@@ -158,5 +158,7 @@
   "Other": "Overig",
   "Cancel activity": "Annuleer activiteit",
   "Cancel this activity": "Annuleer deze activiteit",
-  "Cancellation reason": "Rede van annuleren"
+  "Cancellation reason": "Reden van annuleren",
+  "All attendees will receive an email update with your reason for cancellation": "Alle aanwezigen ontvangen een update per mail met jouw reden van annuleren",
+  "Write here why the activity does not continue": "Schrijf hier waarom de activiteit niet doorgaat"
 }

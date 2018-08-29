@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { MockList } from 'graphql-tools/dist/index';
 import faker from 'faker';
 
