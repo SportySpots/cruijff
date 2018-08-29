@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import I18n from '../../../I18n/index';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import GameProperties from '../GameProperties';
 import Attendees from '../Attendees';

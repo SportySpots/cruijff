@@ -9614,6 +9614,38 @@ exports[`Storyshots Screens SpotsListScreen 1`] = `
 </View>
 `;
 
+exports[`Storyshots Screens.Games CancelGameScreen 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+        undefined,
+      ]
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#009f36"
+      hidesWhenStopped={true}
+      size="large"
+    />
+  </View>
+</View>
+`;
+
 exports[`Storyshots Screens.Games GameDetailsScreen 1`] = `
 <View
   style={

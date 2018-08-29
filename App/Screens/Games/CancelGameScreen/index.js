@@ -9,9 +9,8 @@ import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import NothingFound from '../../../Components/Common/NothingFound';
 import DefaultButton from '../../../Components/Common/DefaultButton';
-import CancelGame from '../../../Components/Games/CancelGame/index';
+import CancelGame from '../../../Components/Games/CancelGame';
 
 //------------------------------------------------------------------------------
 // STYLE:
