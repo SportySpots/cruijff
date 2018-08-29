@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { View } from 'react-native';
 import renderer from 'react-test-renderer';
