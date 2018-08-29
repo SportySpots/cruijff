@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
@@ -5,6 +6,7 @@ import { Provider } from 'react-redux';
 import CancelGameScreen from '.';
 import { navigation, store } from './mocks';
 import { WithApolloMockProvider } from '../../../GraphQL';
+import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 
 describe('CancelGameScreen', () => {
   it('renders', () => {
@@ -17,12 +19,10 @@ describe('CancelGameScreen', () => {
         </WithApolloMockProvider>
       </Provider>,
     );
-    // const tree = WrappedScreen.toTree().rendered;
+    const Screen = WrappedScreen.root.findByType(CancelGameScreen);
+    expect(Screen.instance.props).toHaveProperty('navigation', navigation);
 
-    const Screen = WrappedScreen.root.findByType(CancelGameScreen).instance;
-
-    expect(Screen.props).toHaveProperty('navigation', navigation);
-    // expect(tree[0].type).toBe(Comp);
-    // expect(tree[0].props).toEqual({ num: 1 });
+    const activityIndicator = Screen.findByType(CenteredActivityIndicator);
+    expect(activityIndicator).not.toBeNull();
   });
 });
