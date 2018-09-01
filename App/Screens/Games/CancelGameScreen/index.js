@@ -11,6 +11,7 @@ import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import DefaultButton from '../../../Components/Common/DefaultButton';
 import CancelGame from '../../../Components/Games/CancelGame';
+import CancelGameConfirmationModal from '../../../Components/Games/CancelGameConfirmationModal';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -33,12 +34,21 @@ class CancelGameScreen extends React.PureComponent {
   state = {
     cancelMsg: '',
     disabled: false,
+    visible: false, // whether or not the modal is visible
   }
 
   get gameUUID() {
     const { navigation } = this.props;
     return navigation.state.params.uuid;
   }
+
+  open = () => {
+    this.setState(() => ({ visible: true }));
+  };
+
+  close = () => {
+    this.setState(() => ({ visible: false }));
+  };
 
   /* handleSpotPress = ({ spotUuid }) => {
     const { navigation } = this.props;
@@ -55,7 +65,7 @@ class CancelGameScreen extends React.PureComponent {
   }
 
   handleSubmit = async () => {
-    // const { navigation } = this.props;
+    const { navigation } = this.props;
     const { cancelMsg } = this.state;
 
     this.setState({ disabled: true });
@@ -68,18 +78,13 @@ class CancelGameScreen extends React.PureComponent {
       });
       // TODO: refetch
 
-      // After successful cancel, take user back to wherever he was
-      // TODO: remove this after cancel banner is implemented
       if (result.ok) {
-        Alert.alert(
-          I18n.t('Activity cancelled successfully'),
-          /* I18n.t('Are you sure you want to stop attending?'),
-          [
-            { text: I18n.t('No'), onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-            { text: I18n.t('Yes'), onPress: () => this.setRSVPStatus(RSVP_STATUSES.DECLINED) },
-          ], */
-        );
-        // navigation.goBack(null);
+        this.open();
+        const handle = setTimeout(() => {
+          this.close();
+          clearTimeout(handle);
+          navigation.goBack(null);
+        }, 3000);
       }
     } catch (exc) {
       console.log(exc);
@@ -90,7 +95,8 @@ class CancelGameScreen extends React.PureComponent {
 
   render() {
     const { user } = this.props;
-    const { cancelMsg, disabled } = this.state;
+    const { cancelMsg, disabled, visible } = this.state;
+
     return (
       <Query
         query={GET_GAME_DETAILS}
@@ -135,6 +141,11 @@ class CancelGameScreen extends React.PureComponent {
                 onPress={this.handleSubmit}
               />
             </ButtonContainer>,
+            <CancelGameConfirmationModal
+              key="modal"
+              visible={visible}
+              onClose={this.close}
+            />,
           ];
         }}
       </Query>

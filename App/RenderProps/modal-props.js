@@ -10,12 +10,10 @@ class ModalProps extends React.PureComponent {
   };
 
   open = () => {
-    console.log('OPEN!');
     this.setState(() => ({ visible: true }));
   };
 
   close = () => {
-    console.log('CLOSE!');
     this.setState(() => ({ visible: false }));
   };
 
