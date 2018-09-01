@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import AlertMsg from '.';
+import AlertMsg from './index';
 
 const text = 'This is an alert component!';
 

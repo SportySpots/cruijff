@@ -18,7 +18,7 @@ const timeStringToDate = (timeString) => {
 //------------------------------------------------------------------------------
 class TimeField extends React.PureComponent {
   state = {
-    isVisible: false, // wheter or not the modal is visible
+    isVisible: false, // whether or not the modal is visible
   }
 
   openModal = () => {
