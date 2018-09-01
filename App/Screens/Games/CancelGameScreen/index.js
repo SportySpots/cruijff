@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
-import { Alert } from 'react-native';
 import styled from 'styled-components';
 import api from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n/index';
@@ -42,18 +41,13 @@ class CancelGameScreen extends React.PureComponent {
     return navigation.state.params.uuid;
   }
 
-  open = () => {
+  openModal = () => {
     this.setState(() => ({ visible: true }));
   };
 
-  close = () => {
+  closeModal = () => {
     this.setState(() => ({ visible: false }));
   };
-
-  /* handleSpotPress = ({ spotUuid }) => {
-    const { navigation } = this.props;
-    navigation.navigate('SpotDetailsScreen', { uuid: spotUuid });
-  } */
 
   handleAttendeesPress = () => {
     const { navigation } = this.props;
@@ -79,9 +73,9 @@ class CancelGameScreen extends React.PureComponent {
       // TODO: refetch
 
       if (result.ok) {
-        this.open();
+        this.openModal();
         const handle = setTimeout(() => {
-          this.close();
+          this.closeModal();
           clearTimeout(handle);
           navigation.goBack(null);
         }, 3000);
@@ -127,7 +121,6 @@ class CancelGameScreen extends React.PureComponent {
               <CancelGame
                 game={data.game}
                 cancelMsg={cancelMsg}
-                // onSpotPress={this.handleSpotPress}
                 onAttendeesPress={this.handleAttendeesPress}
                 onCancelMsgChange={this.handleCancelMsgChange}
               />
@@ -144,7 +137,7 @@ class CancelGameScreen extends React.PureComponent {
             <CancelGameConfirmationModal
               key="modal"
               visible={visible}
-              onClose={this.close}
+              onClose={this.closeModal}
             />,
           ];
         }}
