@@ -16,6 +16,7 @@ function loadStories() {
   require('../App/Components/Games/Attendees/stories');
   require('../App/Components/Games/CancelGameConfirmationModal/stories');
   require('../App/Components/Games/ClickableAttendees/stories');
+  require('../App/Components/Games/GameCanceledFlag/stories');
   require('../App/Components/Games/GameListCard/stories');
   require('../App/Components/Games/Organizer/stories');
   require('../App/Components/Games/OrganizerAndDescription/stories');
@@ -43,6 +44,7 @@ const stories = [
   '../App/Components/Games/Attendees/stories',
   '../App/Components/Games/CancelGameConfirmationModal/stories',
   '../App/Components/Games/ClickableAttendees/stories',
+  '../App/Components/Games/GameCanceledFlag/stories',
   '../App/Components/Games/GameListCard/stories',
   '../App/Components/Games/Organizer/stories',
   '../App/Components/Games/OrganizerAndDescription/stories',
