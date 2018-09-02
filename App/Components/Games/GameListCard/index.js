@@ -16,6 +16,17 @@ import Attendees from '../Attendees';
 import { HorizontalView } from '../style';
 import getImageUrl from './utils';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const iconStyle = {
+  marginRight: 8,
+  backgroundColor: 'transparent',
+};
+
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 const GameListCard = ({ game }) => {
   const { spot } = game;
   const image = spot.images.length > 0
@@ -43,7 +54,7 @@ const GameListCard = ({ game }) => {
             <Title>{game.name}</Title>
             <HorizontalView>
               <IonIcon
-                style={{ marginRight: 8, backgroundColor: 'transparent' }}
+                style={iconStyle}
                 name="ios-time"
                 color={Colors.white}
                 size={24}
@@ -52,7 +63,7 @@ const GameListCard = ({ game }) => {
                 {formattedStartTime}
               </SmallText>
               <CommunityIcon
-                style={{ marginRight: 8, backgroundColor: 'transparent' }}
+                style={iconStyle}
                 name="map-marker"
                 color={Colors.white}
                 size={24}
