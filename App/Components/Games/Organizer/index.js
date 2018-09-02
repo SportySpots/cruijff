@@ -1,35 +1,44 @@
 import React from 'react';
-import { View } from 'react-native';
-import { propType } from 'graphql-anywhere';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Fonts from '../../../Themes/Fonts';
 import Text from '../../Common/Text';
-import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import UserCircle from '../../Common/UserCircle';
 import { HorizontalView } from '../style';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Organizer = ({ game }) => {
-  const { organizer, description } = game;
+const Spacer = styled.View`
+  width: 8px;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const Organizer = ({ organizer, textSize }) => {
+  const TextSize = Text[textSize];
 
   return (
     <HorizontalView>
-      <UserCircle
-        user={organizer}
-        style={{ marginRight: 16 }}
-      />
-      <View style={{ flex: 1 }}>
-        <Text.SM style={{ paddingTop: 11 }}>
-          {organizer.first_name} {organizer.last_name} -{' '}
-          {description || ''}
-        </Text.SM>
-      </View>
+      <UserCircle user={organizer} />
+      <Spacer />
+      <TextSize>
+        {organizer.first_name} {organizer.last_name}
+      </TextSize>
     </HorizontalView>
   );
 };
 
 Organizer.propTypes = {
-  game: propType(gameDetailsFragment).isRequired,
+  organizer: PropTypes.shape({
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+  }).isRequired,
+  textSize: PropTypes.oneOf(Object.keys(Fonts.style)),
+};
+
+Organizer.defaultProps = {
+  textSize: 'SM',
 };
 
 export default Organizer;

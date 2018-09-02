@@ -4,7 +4,9 @@ import styled from 'styled-components';
 // STYLE:
 //------------------------------------------------------------------------------
 export const HorizontalView = styled.View`
+  display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 //------------------------------------------------------------------------------
 export const ChevronContainer = styled(HorizontalView)`

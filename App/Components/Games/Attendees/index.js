@@ -1,16 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { TouchableOpacity } from 'react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import I18n from '../../../I18n/index';
-import Colors from '../../../Themes/Colors';
+import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
+import UserCircle from '../../Common/UserCircle';
+import PropertyCircle from '../../Common/PropertyCircle';
+import CappedList from '../../Common/CappedList';
+import { getAttendees } from '../utils';
+import { HorizontalView } from '../style';
+
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const Attendees = ({ game, maxLength }) => {
+  const attendees = getAttendees(game);
+
+  if (attendees.length === 0) {
+    return null;
+  }
+
+  return (
+    <HorizontalView style={{ flex: 1 }}>
+      <CappedList
+        max={maxLength}
+        data={attendees}
+        keyExtractor={user => user.uuid}
+        component={user => <UserCircle user={user} style={{ marginRight: 8 }} />}
+        capComponent={({ data }) => <PropertyCircle text={`+${data.length}`} />}
+      />
+    </HorizontalView>
+  );
+};
+
+Attendees.propTypes = {
+  game: propType(gameDetailsFragment).isRequired,
+  maxLength: PropTypes.number,
+};
+
+Attendees.defaultProps = {
+  maxLength: 7,
+};
+
+export default Attendees;
+
+/*
+<CappedList
+max={7}
+data={attendingUsers}
+keyExtractor={user => user.uuid}
+component={user => <UserCircle user={user} style={{ marginRight: 8 }} />}
+capComponent={({ data }) => <PropertyCircle text={`+${data.length}`} />}
+/>
+*/
+
+/*
+import React from 'react';
+import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import UserCircle from '../../../Components/Common/UserCircle';
 import PropertyCircle from '../../../Components/Common/PropertyCircle';
-import Label from '../../../Components/Common/Label';
 import { getAttendees, mapMax } from '../utils';
-import { HorizontalView, ChevronContainer } from '../style';
+import { HorizontalView } from '../style';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -32,51 +82,33 @@ const restCircle = text => () => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Attendees = ({ game, maxLength, onAttendeesPress }) => {
+const Attendees = ({ game, maxLength }) => {
   const attendees = getAttendees(game);
 
   if (attendees.length === 0) {
     return null;
   }
 
-  return [
-    <Label key="label">
-      {I18n.t('Attending')}
-    </Label>,
-    <TouchableOpacity
-      key="attendees"
-      onPress={onAttendeesPress}
-    >
-      <HorizontalView>
-        <HorizontalView style={{ flex: 1 }}>
-          {mapMax(
-            maxLength,
-            attendees,
-            userCircle,
-            restCircle(`+${attendees.length - (maxLength - 1)}`),
-          )}
-        </HorizontalView>
-        <ChevronContainer>
-          <MaterialIcon
-            name="chevron-right"
-            size={30}
-            color={Colors.black}
-          />
-        </ChevronContainer>
-      </HorizontalView>
-    </TouchableOpacity>,
-  ];
+  return (
+    <HorizontalView style={{ flex: 1 }}>
+      {mapMax(
+        maxLength,
+        attendees,
+        userCircle,
+        restCircle(`+${attendees.length - (maxLength - 1)}`),
+      )}
+    </HorizontalView>
+  );
 };
 
 Attendees.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
   maxLength: PropTypes.number,
-  onAttendeesPress: PropTypes.func,
 };
 
 Attendees.defaultProps = {
   maxLength: 7,
-  onAttendeesPress: () => {},
 };
 
 export default Attendees;
+*/

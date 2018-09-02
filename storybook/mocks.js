@@ -1,21 +1,6 @@
-import { storiesOf } from '@storybook/react-native';
-import React from 'react';
-// import { Query } from 'react-apollo';
-// import { View } from 'react-native';
-// import { WithApolloMockProvider } from '../../GraphQL';
+const Mocks = {};
 
-// import GameListCard from './GamesList/GameCard';
-import GameProperties from './GameProperties';
-// import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
-
-/* const dummyNavigator = {
-  navigate: () => null,
-  state: {
-    params: { uuid: 1 },
-  },
-}; */
-
-const game = {
+Mocks.game = {
   uuid: '6b7588e0-0c95-4797-94ea-51b03e1eedbf',
   name: "Sez's dgsldkgj lksdjgklsdjg sdg game",
   start_time: '2018-05-24T16:00:00+00:00',
@@ -24,6 +9,7 @@ const game = {
   show_remaining: true,
   capacity: 8,
   description: 'The description',
+  status: 'PLANNED',
   sport: {
     category: 'BEACH_VOLLEYBALL',
   },
@@ -50,6 +36,7 @@ const game = {
     {
       status: 'ATTENDING',
       user: {
+        uuid: '1',
         first_name: 'Rolf',
         last_name: 'Thijsen',
       },
@@ -57,6 +44,7 @@ const game = {
     {
       status: 'ATTENDING',
       user: {
+        uuid: '2',
         first_name: 'Rolf',
         last_name: 'Thijsen',
       },
@@ -64,6 +52,7 @@ const game = {
     {
       status: 'OTHER_STATUS',
       user: {
+        uuid: '3',
         first_name: 'Tom',
         last_name: 'Klaver',
       },
@@ -71,10 +60,4 @@ const game = {
   ],
 };
 
-storiesOf('Games', module)
-  .add('GameProperties', () => <GameProperties game={game} />);
-  /* .add('GameListCard', () => (
-    <View>
-      <GameListCard game={game} />
-    </View>
-  )); */
+export default Mocks;

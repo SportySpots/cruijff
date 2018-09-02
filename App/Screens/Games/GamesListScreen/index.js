@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import { uniqBy } from 'ramda';
 import moment from 'moment';
 import styled from 'styled-components';
-import Colors from '../../Themes/Colors';
-import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
-import GamesList from '../../Components/Games/GamesList';
-import GameListCard from '../../Components/Games/GameListCard';
-import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
+import Colors from '../../../Themes/Colors';
+import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
+import GamesList from '../../../Components/Games/GamesList';
+import GameListCard from '../../../Components/Games/GameListCard';
+import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 
 //------------------------------------------------------------------------------
 // STYLE:

@@ -4,7 +4,7 @@ import AlertMsg from './index';
 
 const text = 'This is an alert component!';
 
-storiesOf('AlertMsg', module)
+storiesOf('Common.AlertMsg', module)
   .add('AlertMsg success', () => (
     <AlertMsg status="success" value={text} />
   ))

@@ -4,10 +4,11 @@ import { propType } from 'graphql-anywhere';
 import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import GameProperties from '../GameProperties';
-import Attendees from '../Attendees';
+import ClickableAttendees from '../ClickableAttendees';
 import CancelMsg from '../CancelMsg';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
+import Label from '../../Common/Label';
 import AlertMsg from '../../Common/AlertMsg';
 import { getAttendees } from '../utils';
 
@@ -30,7 +31,8 @@ const CancelGame = ({
     withAttendees && [
       <Divider key="divider-game-attendees" />,
       <Block key="game-attendees">
-        <Attendees
+        <Label>{I18n.t('Attending')}</Label>
+        <ClickableAttendees
           game={game}
           onAttendeesPress={onAttendeesPress}
         />

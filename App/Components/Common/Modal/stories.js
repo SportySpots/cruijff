@@ -27,6 +27,6 @@ const Container = () => (
   </ModalProps>
 );
 
-storiesOf('Modal', module)
+storiesOf('Common.Modal', module)
   .add('Modal', () => <Container />);
 
