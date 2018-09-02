@@ -13,15 +13,16 @@ import DotSpacer from '../../Common/DotSpacer';
 import Spacer from '../../Common/Spacer';
 import Organizer from '../Organizer';
 import Attendees from '../Attendees';
+import GameCanceledFlag from '../GameCanceledFlag';
 import { HorizontalView } from '../style';
 import getImageUrl from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const OuterContainer = styled.View`
+const Outer = styled.View`
   display: flex;
-  height: 232px;
+  height: 270px; /* height: 232px; */
   border-radius: 8px;
   shadow-offset: 1px 1px;
   shadow-color: ${Colors.shade};
@@ -31,9 +32,9 @@ const OuterContainer = styled.View`
   margin-horizontal: 4px;
 `;
 //------------------------------------------------------------------------------
-const InnerContainer = styled.View`
+const Inner = styled.View`
   display: flex;
-  height: 232px;
+  height: 270px; /* height: 232px; */
   border-radius: 8px;
   overflow: hidden;
 `;
@@ -60,8 +61,7 @@ const Bottom = styled.View`
 const BottomContainer = styled.View`
   flex: 1;
   justify-content: flex-end;
-  margin-horizontal: 16px;
-  margin-vertical: 16px;
+  padding: 16px;
 `;
 //------------------------------------------------------------------------------
 const ImageContainer = styled.View`
@@ -80,7 +80,7 @@ const Img = styled.Image`
   border-bottom-right-radius: 8px;
 `;
 //------------------------------------------------------------------------------
-const ImgOverlay = styled.View`
+const Overlay = styled.View`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -113,8 +113,8 @@ const GameListCard = ({ game }) => {
   const formattedStartTime = moment(game.start_time).format('D-MM HH:mm');
 
   return (
-    <OuterContainer>
-      <InnerContainer>
+    <Outer>
+      <Inner>
         <Top>
           <Organizer organizer={game.organizer} textSize="M" />
           <DotSpacer />
@@ -125,8 +125,12 @@ const GameListCard = ({ game }) => {
         <Bottom>
           <ImageContainer>
             <Img source={{ uri: image }} />
-            <ImgOverlay />
+            <Overlay />
           </ImageContainer>
+          {game.status === 'CANCELED' && [
+            <Spacer key="top-spacer" size="L" />,
+            <GameCanceledFlag />,
+          ]}
           <BottomContainer>
             <Title>{game.name}</Title>
             <Spacer size="M" />
@@ -155,8 +159,8 @@ const GameListCard = ({ game }) => {
             <Attendees game={game} />
           </BottomContainer>
         </Bottom>
-      </InnerContainer>
-    </OuterContainer>
+      </Inner>
+    </Outer>
   );
 };
 

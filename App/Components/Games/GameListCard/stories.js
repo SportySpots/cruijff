@@ -9,4 +9,11 @@ storiesOf('Games.GameListCard', module)
     <View>
       <GameListCard game={Mocks.game} />
     </View>
+  ))
+  .add('GameListCard CANCELED', () => (
+    <View>
+      <GameListCard
+        game={Object.assign({}, Mocks.game, { status: 'CANCELED' })}
+      />
+    </View>
   ));
