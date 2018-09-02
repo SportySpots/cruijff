@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import Mocks from '../../../../storybook/mocks';
 import GameListCard from './index';
 
-storiesOf('GameListCard', module)
+storiesOf('Games.GameListCard', module)
   .add('GameListCard', () => (
     <View>
       <GameListCard game={Mocks.game} />

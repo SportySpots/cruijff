@@ -5,7 +5,7 @@ import Organizer from './index';
 
 const { organizer } = Mocks.game;
 
-storiesOf('Organizer', module)
+storiesOf('Games.Organizer', module)
   .add('Organizer S textSize', () => (
     <Organizer
       organizer={organizer}

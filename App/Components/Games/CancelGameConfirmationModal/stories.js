@@ -52,7 +52,7 @@ const ContainerWithTimeout = () => (
   </ModalProps>
 );
 
-storiesOf('CancelGameConfirmationModal', module)
+storiesOf('Games.CancelGameConfirmationModal', module)
   .add('CancelGameConfirmationModal', () => <Container />)
   .add('CancelGameConfirmationModal with timeOut', () => <ContainerWithTimeout />);
 

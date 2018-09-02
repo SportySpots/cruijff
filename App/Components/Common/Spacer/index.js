@@ -10,6 +10,7 @@ const StyledView = styled.View`
   background-color: transparent;
   width: ${({ direction, pixels }) => (direction === 'row' ? `${pixels}px` : 'auto')};
   height: ${({ direction, pixels }) => (direction === 'column' ? `${pixels}px` : 'auto')};
+  /* border: 1px solid green; */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
