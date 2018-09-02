@@ -9,6 +9,7 @@ function loadStories() {
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/DotSpacer/stories');
   require('../App/Components/Common/Modal/stories');
+  require('../App/Components/Common/Spacer/stories');
   require('../App/Components/Common/TextField/stories');
   require('../App/Components/Common/UserCircle/stories');
   require('../App/Components/DarkFooter/Stories');
@@ -35,6 +36,7 @@ const stories = [
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/DotSpacer/stories',
   '../App/Components/Common/Modal/stories',
+  '../App/Components/Common/Spacer/stories',
   '../App/Components/Common/TextField/stories',
   '../App/Components/Common/UserCircle/stories',
   '../App/Components/DarkFooter/Stories',
