@@ -11,11 +11,11 @@ import I18n from '../../../I18n';
 import Text from '../../Common/Text';
 import DotSpacer from '../../Common/DotSpacer';
 import Spacer from '../../Common/Spacer';
+import BackgroundImage from '../../Spots/BackgroundImage';
 import Organizer from '../Organizer';
 import Attendees from '../Attendees';
 import GameCanceledFlag from '../GameCanceledFlag';
 import { HorizontalView } from '../style';
-import getImageUrl from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -51,38 +51,10 @@ const Bottom = styled.View`
   border-bottom-right-radius: 8px;
 `;
 //------------------------------------------------------------------------------
-const BottomContainer = styled.View`
+const Container = styled.View`
   flex: 1;
   justify-content: flex-end;
   padding: 16px;
-`;
-//------------------------------------------------------------------------------
-const ImageContainer = styled.View`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-`;
-//------------------------------------------------------------------------------
-const Img = styled.Image`
-  flex: 1;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-`;
-//------------------------------------------------------------------------------
-const Overlay = styled.View`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: black;
-  opacity: .5;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
 `;
 //------------------------------------------------------------------------------
 const SmallText = styled(Text.SM)`
@@ -98,33 +70,35 @@ const Title = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const GameListCard = ({ game }) => {
-  const { spot } = game;
-  const image = spot.images.length > 0
-    ? getImageUrl(spot.images[0].image)
-    : 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/game-placeholder.png';
+  const {
+    spot,
+    start_time: startTime,
+    status,
+    organizer,
+    sport,
+    name,
+  } = game;
 
-  const formattedStartTime = moment(game.start_time).format('D-MM HH:mm');
+  const isCanceled = status === 'CANCELED';
+  const formattedStartTime = moment(startTime).format('D-MM HH:mm');
 
   return (
-    <Outer height={game.status === 'CANCELED' ? '270px' : '232px'}>
+    <Outer height={isCanceled ? '270px' : '232px'}>
       <Top>
-        <Organizer organizer={game.organizer} textSize="M" />
+        <Organizer organizer={organizer} textSize="M" />
         <DotSpacer />
         <Text.M>
-          {I18n.t(game.sport.category)}
+          {I18n.t(sport.category)}
         </Text.M>
       </Top>
       <Bottom>
-        <ImageContainer>
-          <Img source={{ uri: image }} />
-          <Overlay />
-        </ImageContainer>
-        {game.status === 'CANCELED' && [
+        <BackgroundImage spot={spot} />
+        {isCanceled && [
           <Spacer key="top-spacer" size="L" />,
           <GameCanceledFlag />,
         ]}
-        <BottomContainer>
-          <Title>{game.name}</Title>
+        <Container>
+          <Title>{name}</Title>
           <Spacer size="M" />
           <HorizontalView>
             <IonIcon
@@ -149,7 +123,7 @@ const GameListCard = ({ game }) => {
           </HorizontalView>
           <Spacer size="L" />
           <Attendees game={game} />
-        </BottomContainer>
+        </Container>
       </Bottom>
     </Outer>
   );
