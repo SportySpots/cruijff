@@ -2,7 +2,7 @@ const Mocks = {};
 
 Mocks.game = {
   uuid: '6b7588e0-0c95-4797-94ea-51b03e1eedbf',
-  name: "Sez's dgsldkgj lksdjgklsdjg sdg game",
+  name: "Sez's dgsldkgj lksdjgklsdjg sdg ferferf erferferf erfefrref regrtgr rtgretgrt rgtregtrtg rtgrgt game",
   start_time: '2018-05-24T16:00:00+00:00',
   end_time: '2018-05-24T04:00:00+00:00',
   is_featured: false,
