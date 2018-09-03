@@ -22,7 +22,7 @@ import getImageUrl from './utils';
 //------------------------------------------------------------------------------
 const Outer = styled.View`
   display: flex;
-  height: 270px; /* height: 232px; */
+  height: ${({ height }) => (height)};
   border-radius: 8px;
   shadow-offset: 1px 1px;
   shadow-color: ${Colors.shade};
@@ -32,16 +32,9 @@ const Outer = styled.View`
   margin-horizontal: 4px;
 `;
 //------------------------------------------------------------------------------
-const Inner = styled.View`
-  display: flex;
-  height: 270px; /* height: 232px; */
-  border-radius: 8px;
-  overflow: hidden;
-`;
-//------------------------------------------------------------------------------
 const Top = styled.View`
+  height: 58px;
   padding-horizontal: 16px;
-  flex: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -51,7 +44,7 @@ const Top = styled.View`
 `;
 //------------------------------------------------------------------------------
 const Bottom = styled.View`
-  flex: 3;
+  flex: 1;
   display: flex;
   background-color: green;
   border-bottom-left-radius: 8px;
@@ -113,53 +106,51 @@ const GameListCard = ({ game }) => {
   const formattedStartTime = moment(game.start_time).format('D-MM HH:mm');
 
   return (
-    <Outer>
-      <Inner>
-        <Top>
-          <Organizer organizer={game.organizer} textSize="M" />
-          <DotSpacer />
-          <Text.M>
-            {I18n.t(game.sport.category)}
-          </Text.M>
-        </Top>
-        <Bottom>
-          <ImageContainer>
-            <Img source={{ uri: image }} />
-            <Overlay />
-          </ImageContainer>
-          {game.status === 'CANCELED' && [
-            <Spacer key="top-spacer" size="L" />,
-            <GameCanceledFlag />,
-          ]}
-          <BottomContainer>
-            <Title>{game.name}</Title>
-            <Spacer size="M" />
-            <HorizontalView>
-              <IonIcon
-                name="ios-time"
-                color={Colors.white}
-                size={24}
-              />
-              <Spacer direction="row" size="M" />
-              <SmallText>
-                {formattedStartTime}
-              </SmallText>
-              <Spacer direction="row" size="L" />
-              <CommunityIcon
-                name="map-marker"
-                color={Colors.white}
-                size={24}
-              />
-              <Spacer direction="row" size="M" />
-              <SmallText>
-                {spot.name}
-              </SmallText>
-            </HorizontalView>
-            <Spacer size="L" />
-            <Attendees game={game} />
-          </BottomContainer>
-        </Bottom>
-      </Inner>
+    <Outer height={game.status === 'CANCELED' ? '270px' : '232px'}>
+      <Top>
+        <Organizer organizer={game.organizer} textSize="M" />
+        <DotSpacer />
+        <Text.M>
+          {I18n.t(game.sport.category)}
+        </Text.M>
+      </Top>
+      <Bottom>
+        <ImageContainer>
+          <Img source={{ uri: image }} />
+          <Overlay />
+        </ImageContainer>
+        {game.status === 'CANCELED' && [
+          <Spacer key="top-spacer" size="L" />,
+          <GameCanceledFlag />,
+        ]}
+        <BottomContainer>
+          <Title>{game.name}</Title>
+          <Spacer size="M" />
+          <HorizontalView>
+            <IonIcon
+              name="ios-time"
+              color={Colors.white}
+              size={24}
+            />
+            <Spacer direction="row" size="M" />
+            <SmallText>
+              {formattedStartTime}
+            </SmallText>
+            <Spacer direction="row" size="L" />
+            <CommunityIcon
+              name="map-marker"
+              color={Colors.white}
+              size={24}
+            />
+            <Spacer direction="row" size="M" />
+            <SmallText>
+              {spot.name}
+            </SmallText>
+          </HorizontalView>
+          <Spacer size="L" />
+          <Attendees game={game} />
+        </BottomContainer>
+      </Bottom>
     </Outer>
   );
 };
