@@ -17,13 +17,52 @@ import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation from './Navigation/AppNavigation';
 import Colors from './Themes/Colors';
 import config from './config';
+import scopedEval from './scopedEval';
+
+const ref = { ref: null };
+export { ref };
 
 class App extends Component {
   constructor() {
     super();
+    ref.ref = React.createRef();
     this.store = createStore();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
     this.state = { hasInitialized: false };
+
+    if (config.testBuild) {
+      try {
+        console.warn('running a test image. not good if in production');
+        console.log('config', config);
+
+        // eslint-disable-next-line no-undef
+        const ws = new WebSocket(config.testHostUrl);
+
+        ws.onopen = () => {
+          // connection opened
+          // ws.send('hi'); // send a message
+        };
+
+        ws.onmessage = (e) => {
+          // a message was received
+          console.log(e.data);
+          console.log(scopedEval(e.data));
+          ws.send(JSON.stringify(scopedEval(e.data)));
+        };
+
+        ws.onerror = (e) => {
+          // an error occurred
+          console.log(e.message);
+        };
+
+        ws.onclose = (e) => {
+          // connection closed
+          console.log(e.code, e.reason);
+        };
+      } catch (e) {
+        console.log(e);
+      }
+    }
   }
 
   componentDidMount() {
@@ -74,7 +113,7 @@ class App extends Component {
       return null;
     }
     return (
-      <ApolloProvider client={this.client}>
+      <ApolloProvider ref={(r) => { ref.ref = r; }} client={this.client}>
         <Provider store={this.store}>
           <MenuProvider>
             <AppRootView>
