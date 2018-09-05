@@ -46,7 +46,9 @@ class CancelGameScreen extends React.PureComponent {
   };
 
   closeModal = () => {
+    const { navigation } = this.props;
     this.setState(() => ({ visible: false }));
+    navigation.goBack(null);
   };
 
   handleAttendeesPress = () => {
@@ -59,7 +61,6 @@ class CancelGameScreen extends React.PureComponent {
   }
 
   handleSubmit = async () => {
-    const { navigation } = this.props;
     const { cancelMsg } = this.state;
 
     this.setState({ disabled: true });
@@ -74,11 +75,6 @@ class CancelGameScreen extends React.PureComponent {
 
       if (result.ok) {
         this.openModal();
-        const handle = setTimeout(() => {
-          this.closeModal();
-          clearTimeout(handle);
-          navigation.goBack(null);
-        }, 3000);
       }
     } catch (exc) {
       console.log(exc);
