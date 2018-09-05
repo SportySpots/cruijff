@@ -77,7 +77,7 @@ class GameDetailsScreen extends React.PureComponent {
                 user={user}
                 game={data.game}
                 onSpotPress={this.handleSpotPress}
-                onAttendessPress={this.handleAttendeesPress}
+                onAttendeesPress={this.handleAttendeesPress}
                 rspvBeforeHook={this.handleRSVPBefore}
                 rspvSuccessHook={refetch}
               />
