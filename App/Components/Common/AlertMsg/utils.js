@@ -12,7 +12,7 @@ const getPalette = (status) => {
       return {
         fontColor: Colors.negative,
         bgColor: Colors.negativeTint,
-        iconName: 'alert',
+        iconName: 'alert-circle',
       };
     case 'warning':
       return {

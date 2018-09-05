@@ -13,6 +13,7 @@ import RSPV from '../RSPV';
 import ShareGame from '../ShareGame';
 import Block from '../../Common/Block';
 import Label from '../../Common/Label';
+import AlertMsg from '../../Common/AlertMsg';
 import { HorizontalView } from '../style';
 import { getAttendees } from '../utils';
 
@@ -27,10 +28,19 @@ const GameDetails = ({
   rspvBeforeHook,
   rspvSuccessHook,
 }) => {
+  const isCanceled = game.status === 'CANCELED';
   const withAttendees = getAttendees(game).length > 0;
 
   return [
     <SpotImages key="spot-images" spot={game.spot} />,
+    isCanceled && (
+      <Block key="alert-warning">
+        <AlertMsg
+          value={`${I18n.t('This activity is canceled')}.`}
+          status="error"
+        />
+      </Block>
+    ),
     <Block key="game-properties">
       <GameProperties game={game} onSpotPress={onSpotPress} />
     </Block>,
@@ -54,17 +64,19 @@ const GameDetails = ({
     <Block key="open-spots">
       <OpenSpots game={game} />
     </Block>,
-    <Block key="rspv">
-      <Label>{I18n.t('Do you join?')}</Label>
-      <HorizontalView style={{ width: '100%' }}>
-        <RSPV
-          game={game}
-          user={user}
-          onBeforeHook={rspvBeforeHook}
-          onSuccessHook={rspvSuccessHook}
-        />
-      </HorizontalView>
-    </Block>,
+    !isCanceled && (
+      <Block key="rspv">
+        <Label>{I18n.t('Do you join?')}</Label>
+        <HorizontalView style={{ width: '100%' }}>
+          <RSPV
+            game={game}
+            user={user}
+            onBeforeHook={rspvBeforeHook}
+            onSuccessHook={rspvSuccessHook}
+          />
+        </HorizontalView>
+      </Block>
+    ),
     <Block key="share">
       <Label>{I18n.t('Share with friends')}</Label>
       <ShareGame
@@ -84,7 +96,6 @@ GameDetails.propTypes = {
   onAttendeesPress: PropTypes.func,
   rspvBeforeHook: PropTypes.func,
   rspvSuccessHook: PropTypes.func,
-  navigation: PropTypes.any,
 };
 
 GameDetails.defaultProps = {

@@ -54,7 +54,7 @@ const AlertMsg = ({ status, value }) => {
 };
 
 AlertMsg.propTypes = {
-  status: PropTypes.oneOf(['success', 'error', 'warning', 'info']),
+  status: PropTypes.oneOf(['success', 'error', 'warning', 'info']).isRequired,
   value: PropTypes.string,
 };
 
