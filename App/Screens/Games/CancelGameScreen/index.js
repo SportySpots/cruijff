@@ -29,6 +29,7 @@ const ButtonContainer = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: re-write this using render-props
 class CancelGameScreen extends React.PureComponent {
   state = {
     cancelMsg: '',

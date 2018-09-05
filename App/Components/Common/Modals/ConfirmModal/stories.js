@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
-import ModalProps from '../../../RenderProps/modal-props';
-import Modal from './index';
+import ModalProps from '../../../../RenderProps/modal-props';
+import ConfirmModal from './index';
 
 const Container = () => (
   <ModalProps>
@@ -16,17 +16,18 @@ const Container = () => (
             Open
           </Text>
         </TouchableOpacity>
-        <Modal
+        <ConfirmModal
           visible={visible}
           onClose={close}
+          okBtnLabel="Ok"
+          onOk={close}
         >
           <Text>I&apos;m the child component</Text>
-        </Modal>
+        </ConfirmModal>
       </View>
     )}
   </ModalProps>
 );
 
-storiesOf('Common.Modal', module)
-  .add('Modal', () => <Container />);
-
+storiesOf('Common.ConfirmModal', module)
+  .add('ConfirmModal', () => <Container />);

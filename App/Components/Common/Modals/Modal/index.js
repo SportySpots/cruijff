@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal as NativeModal } from 'react-native';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import Colors from '../../../../Themes/Colors';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -14,14 +14,10 @@ const Overlay = styled.TouchableOpacity`
   background-color: rgba(0, 0, 0, 0.8);
 `;
 //------------------------------------------------------------------------------
-const Flex = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${Colors.white};
+const Container = styled.View`
   margin: 48px;
-  padding: 32px;
-  border-radius: 8px;
+  border-radius: 4px;
+  background-color: ${Colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -39,9 +35,9 @@ const Modal = ({
     {...rest}
   >
     <Overlay onPress={closable && onClose}>
-      <Flex>
+      <Container>
         {children}
-      </Flex>
+      </Container>
     </Overlay>
   </NativeModal>
 );

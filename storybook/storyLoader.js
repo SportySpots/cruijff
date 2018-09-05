@@ -8,7 +8,9 @@ function loadStories() {
   require('../App/Backgrounds/Stories');
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/DotSpacer/stories');
-  require('../App/Components/Common/Modal/stories');
+  require('../App/Components/Common/Modals/ConfirmModal/stories');
+  require('../App/Components/Common/Modals/Modal/stories');
+  require('../App/Components/Common/RaisedButton/stories');
   require('../App/Components/Common/Spacer/stories');
   require('../App/Components/Common/TextField/stories');
   require('../App/Components/Common/UserCircle/stories');
@@ -36,7 +38,9 @@ const stories = [
   '../App/Backgrounds/Stories',
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/DotSpacer/stories',
-  '../App/Components/Common/Modal/stories',
+  '../App/Components/Common/Modals/ConfirmModal/stories',
+  '../App/Components/Common/Modals/Modal/stories',
+  '../App/Components/Common/RaisedButton/stories',
   '../App/Components/Common/Spacer/stories',
   '../App/Components/Common/TextField/stories',
   '../App/Components/Common/UserCircle/stories',
