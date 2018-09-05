@@ -6,6 +6,7 @@ import Colors from '../../Themes/Colors';
 import Fonts from '../../Themes/Fonts';
 import NavDots from '../Common/NavDots';
 import Button from './Button';
+import {addGlobalRef} from '../../globalRefs';
 
 export default class DarkFooter extends React.Component {
   static propTypes = {
@@ -41,6 +42,7 @@ export default class DarkFooter extends React.Component {
       <View style={style.container}>
         {this.props.showBack && (
           <Button
+            ref={addGlobalRef('footerBackButton')}
             text={this.props.buttonBackText}
             style={style.backButton}
             onPress={this.onBack}
@@ -56,11 +58,11 @@ export default class DarkFooter extends React.Component {
         />
         {this.props.showNext && (
           <Button
+            ref={addGlobalRef('footerNextButton')}
             text={this.props.buttonNextText}
             style={style.nextButton}
             onPress={this.onNext}
             disabled={this.props.disableNext}
-            accessibilityLabel="next"
           />
         )}
       </View>

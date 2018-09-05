@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import NavBar from './Common/NavBar';
 import NavBarButton from './Common/NavBar/NavBarButton';
-import Onboarding from './Onboarding';
+import OnboardingScreen from '../Screens/OnboardingScreen';
 import ImageSwiper from './Common/ImageSwiper';
 import DefaultButton from './Common/DefaultButton';
 import SecondaryButton from './Common/SecondaryButton';
@@ -77,7 +77,7 @@ storiesOf('Text', module)
   .add('Medium text', () => <Text.M>Medium size</Text.M>)
   .add('Large text', () => <Text.L>Large size</Text.L>);
 
-storiesOf('Onboarding', module).add('Default', () => <Onboarding navigation={dummyNavigator} />);
+storiesOf('Onboarding', module).add('Default', () => <OnboardingScreen navigation={dummyNavigator} />);
 
 storiesOf('ImageSwiper', module).add('Default', () => (
   <ImageSwiper

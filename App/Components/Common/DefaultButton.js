@@ -21,23 +21,25 @@ const ButtonLabel = styled(Text.M)`
   color: ${props => props.textColor};
 `;
 
-const DefaultButton = ({
-  bgColor,
-  borderColor,
-  textColor,
-  text,
-  disabled,
-  ...props
-}) => {
-  const RootComponent = disabled ? View : TouchableOpacity;
-  return (
-    <RootComponent {...props}>
-      <ButtonContainer bgColor={bgColor} borderColor={borderColor}>
-        <ButtonLabel textColor={textColor}>{text}</ButtonLabel>
-      </ButtonContainer>
-    </RootComponent>
-  );
-};
+class DefaultButton extends React.Component {
+  render() {
+    const {
+      bgColor,
+      borderColor,
+      textColor,
+      text,
+      disabled,
+    } = this.props;
+    const RootComponent = disabled ? View : TouchableOpacity;
+    return (
+      <RootComponent {...this.props}>
+        <ButtonContainer bgColor={bgColor} borderColor={borderColor}>
+          <ButtonLabel textColor={textColor}>{text}</ButtonLabel>
+        </ButtonContainer>
+      </RootComponent>
+    );
+  }
+}
 
 DefaultButton.propTypes = {
   bgColor: PropTypes.string,

@@ -9,6 +9,7 @@ import Logo from '../Components/Common/Logo';
 import Text from '../Components/Common/Text';
 import I18n from '../I18n/index';
 import Colors from '../Themes/Colors';
+import globalRefs, { addGlobalRef } from '../globalRefs';
 
 const LogoContainer = styled.View`
   flex: 1;
@@ -48,6 +49,7 @@ export class _SplashScreen extends React.Component {
     this.state = { firstRun: null };
   }
   async componentDidMount() {
+    globalRefs.SplashScreen = this;
     const firstRun = !await AsyncStorage.getItem('firstRunDone');
     await AsyncStorage.setItem('firstRunDone', 'true');
     this.setState({ firstRun });
@@ -85,6 +87,7 @@ export class _SplashScreen extends React.Component {
         {this.props.user.initialized ? (
           <ButtonsContainer>
             <DefaultButton
+              id="startDiscoveringButton"
               onPress={() => navigate(this.state.firstRun ? 'OnboardingScreen' : 'MainNav')}
               text={I18n.t('Start discovering')}
               bgColor={Colors.actionYellow}

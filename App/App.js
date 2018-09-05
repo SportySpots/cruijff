@@ -18,14 +18,11 @@ import AppNavigation from './Navigation/AppNavigation';
 import Colors from './Themes/Colors';
 import config from './config';
 import scopedEval from './scopedEval';
+import globalRefs, { addGlobalRef } from './globalRefs';
 
-const ref = { ref: null };
-export { ref };
-
-class App extends Component {
+export class App extends Component {
   constructor() {
     super();
-    ref.ref = React.createRef();
     this.store = createStore();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
     this.state = { hasInitialized: false };
@@ -45,9 +42,19 @@ class App extends Component {
 
         ws.onmessage = (e) => {
           // a message was received
-          console.log(e.data);
-          console.log(scopedEval(e.data));
-          ws.send(JSON.stringify(scopedEval(e.data)));
+          console.log('ws data', e.data);
+          // console.log(scopedEval(e.data));
+          const result = scopedEval(e.data);
+          console.log(result);
+          try {
+            ws.send(JSON.stringify(result));
+          } catch (err) {
+            ws.send(JSON.stringify({
+              hasError: false,
+              response: 'cannot jsonify',
+              error: null,
+            }));
+          }
         };
 
         ws.onerror = (e) => {
@@ -113,13 +120,17 @@ class App extends Component {
       return null;
     }
     return (
-      <ApolloProvider ref={(r) => { ref.ref = r; }} client={this.client}>
+      <ApolloProvider
+        id="apollo"
+        ref={addGlobalRef('apolloProvider')}
+        client={this.client}
+      >
         <Provider store={this.store}>
           <MenuProvider>
             <AppRootView>
               <StatusBar barStyle="light-content" />
               <ConnectionCheck />
-              <AppNavigation ref={(ref) => { this.router = ref; }} initialRouteName="RootNav" />
+              <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
             </AppRootView>
           </MenuProvider>
         </Provider>

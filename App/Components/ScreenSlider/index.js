@@ -29,6 +29,11 @@ export default class ScreenSlider extends Component {
     };
   }
 
+  // componentDidMount() {
+  //   super.componentDidMount();
+  //
+  // }
+
   onIndexChanged = (index) => {
     this.setState({ currentPage: index });
   };
