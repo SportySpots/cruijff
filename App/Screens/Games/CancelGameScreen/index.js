@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
@@ -8,7 +9,7 @@ import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import DefaultButton from '../../../Components/Common/DefaultButton';
+import RaisedButton from '../../../Components/Common/RaisedButton';
 import CancelGame from '../../../Components/Games/CancelGame';
 import CancelGameConfirmationModal from '../../../Components/Games/CancelGameConfirmationModal';
 
@@ -21,10 +22,13 @@ const Container = styled.ScrollView`
 `;
 //------------------------------------------------------------------------------
 const ButtonContainer = styled.View`
+  display: flex;
+  justify-content: center;
   height: 88px;
   background-color: ${Colors.white}
   border-top-width: 0.5px;
   border-color: ${Colors.lightGray}
+  padding-horizontal: 16px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -61,10 +65,8 @@ class CancelGameScreen extends React.PureComponent {
     this.setState({ cancelMsg });
   }
 
-  handleSubmit = async () => {
+  handleCancel = async () => {
     const { cancelMsg } = this.state;
-
-    this.setState({ disabled: true });
 
     try {
       // TODO: pass cancelMsg to api.cancelGame
@@ -82,6 +84,27 @@ class CancelGameScreen extends React.PureComponent {
     }
 
     this.setState({ disabled: false });
+  }
+
+  handleSubmit = () => {
+    this.setState({ disabled: true });
+
+
+    Alert.alert(
+      I18n.t('Confirm'),
+      I18n.t('Are you sure you want to cancel this game?'),
+      [
+        {
+          text: I18n.t('No'),
+          onPress: () => { this.setState({ disabled: false }); },
+          style: 'cancel',
+        },
+        {
+          text: I18n.t('Yes'),
+          onPress: this.handleCancel,
+        },
+      ],
+    );
   }
 
   render() {
@@ -123,10 +146,9 @@ class CancelGameScreen extends React.PureComponent {
               />
             </Container>,
             <ButtonContainer key="button">
-              <DefaultButton
-                bgColor={this.disabled ? Colors.gray : Colors.negative}
-                textColor={Colors.white}
-                text={I18n.t('Cancel this activity')}
+              <RaisedButton
+                status="warning"
+                label={I18n.t('Cancel this activity')}
                 disabled={disabled}
                 onPress={this.handleSubmit}
               />
