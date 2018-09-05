@@ -21,6 +21,9 @@ storiesOf('Common.RaisedButton', module)
   .add('RaisedButton ghost', () => (
     <RaisedButton status="ghost" label="label" />
   ))
+  .add('RaisedButton ghost disabled', () => (
+    <RaisedButton status="ghost" disabled label="label" />
+  ))
   .add('RaisedButton disabled', () => (
     <RaisedButton disabled label="label" />
   ))
@@ -32,15 +35,3 @@ storiesOf('Common.RaisedButton', module)
       width={120}
     />
   ));
-  /* .add('RaisedButton default fixedWidth 120', () => (
-    <RaisedButton label="label" width={120} />
-  ))
-  .add('RaisedButton default size S', () => (
-    <RaisedButton label="label" size="S" />
-  ))
-  .add('RaisedButton default size L', () => (
-    <RaisedButton label="label" size="L" />
-  ))
-  .add('RaisedButton default size S fixedWidth 120', () => (
-    <RaisedButton label="label" size="S" width={120} />
-  )); */

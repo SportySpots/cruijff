@@ -15,7 +15,7 @@ export const getPalette = (status) => {
     case 'secondary':
       return {
         fontColor: Colors.white,
-        bgColor: Colors.lightGray,
+        bgColor: Colors.gray,
       };
     case 'warning':
       return {

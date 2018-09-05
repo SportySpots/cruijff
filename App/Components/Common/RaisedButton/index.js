@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 import Fonts from '../../../Themes/Fonts';
-// import Colors from '../../../Themes/Colors';
+import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import { getPalette, getPixelsFromSize } from './utils';
 
@@ -14,13 +14,12 @@ const Container = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ bgColor }) => (bgColor)};
+  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.lightGray : bgColor)};
   height: ${({ size }) => (getPixelsFromSize(size).height)};
   width: ${({ width }) => (width || '100%')};
   min-width: 80px;
   border-radius: ${({ size }) => (getPixelsFromSize(size).borderRadius)};
-  border-width: 1;
-  border-color: ${({ bgColor }) => (bgColor)};
+  border: 1px solid ${({ disabled, bgColor }) => (disabled ? Colors.lightGray : bgColor)};
   shadow-color: #000;
   shadow-offset: {width: 2, height: 2};
   shadow-opacity: 0.2;
@@ -28,7 +27,7 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 const Label = styled(Text)`
   font-size: ${Fonts.style.M.fontSize};
-  color: ${({ fontColor }) => (fontColor)};
+  color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
   font-weight: 500;
 `;
 //------------------------------------------------------------------------------
@@ -53,8 +52,13 @@ const RaisedButton = ({
         size={size}
         bgColor={bgColor}
         width={width}
+        disabled={disabled}
       >
-        <Label size={size} fontColor={fontColor}>
+        <Label
+          size={size}
+          fontColor={fontColor}
+          disabled={disabled}
+        >
           {label}
         </Label>
       </Container>
