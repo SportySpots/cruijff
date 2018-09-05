@@ -9,12 +9,16 @@ class ModalProps extends React.PureComponent {
     visible: false,
   };
 
-  open = () => {
+  openModal = (cb) => {
     this.setState(() => ({ visible: true }));
+    // Allow other components to extend openModal default functionality
+    if (cb && typeof cb === 'function') { cb(); }
   };
 
-  close = () => {
+  closeModal = (cb) => {
     this.setState(() => ({ visible: false }));
+    // Allow other components to extend closeModal default functionality
+    if (cb && typeof cb === 'function') { cb(); }
   };
 
   render() {
@@ -24,8 +28,8 @@ class ModalProps extends React.PureComponent {
     // Public API
     const api = {
       visible,
-      open: this.open,
-      close: this.close,
+      openModal: this.openModal,
+      closeModal: this.closeModal,
     };
 
     return children(api);
@@ -33,7 +37,10 @@ class ModalProps extends React.PureComponent {
 }
 
 ModalProps.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
 };
 
 export default ModalProps;
@@ -43,6 +50,6 @@ export default ModalProps;
 //------------------------------------------------------------------------------
 export const modalPropTypes = {
   visible: PropTypes.bool.isRequired,
-  open: PropTypes.func.isRequired,
-  close: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };

@@ -1,73 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import I18n from '../../../I18n';
+import api from '../../../Services/SeedorfApi';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import GameProperties from '../GameProperties';
-import ClickableAttendees from '../ClickableAttendees';
-import CancelMsg from '../CancelMsg';
-import Block from '../../Common/Block';
-import Divider from '../../Common/Divider';
-import Label from '../../Common/Label';
-import AlertMsg from '../../Common/AlertMsg';
-import { getAttendees } from '../utils';
+import CancelGameForm from '../CancelGameForm';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const CancelGame = ({
-  game,
-  cancelMsg,
-  onSpotPress,
-  onAttendeesPress,
-  onCancelMsgChange,
-}) => {
-  const withAttendees = getAttendees(game).length > 0;
+class CancelGame extends React.PureComponent {
+  handleSuccess = async ({ cancelMsg }) => {
+    console.log('CANCEL_MSG', cancelMsg);
+    const { game, onSuccessHook, onServerErrorHook } = this.props;
 
-  return [
-    <Block key="game-properties">
-      <GameProperties game={game} onSpotPress={onSpotPress} />
-    </Block>,
-    withAttendees && [
-      <Divider key="divider-game-attendees" />,
-      <Block key="game-attendees">
-        <Label>{I18n.t('Attending')}</Label>
-        <ClickableAttendees
-          game={game}
-          onAttendeesPress={onAttendeesPress}
-        />
-      </Block>,
-      <Divider key="divider-cancel-msg" />,
-      <Block key="cancel-msg">
-        <CancelMsg
-          value={cancelMsg}
-          onChangeText={onCancelMsgChange}
-        />
-      </Block>,
-      <Divider key="divider-alert-warning" />,
-      <Block key="alert-warning">
-        <AlertMsg
-          value={`${I18n.t('All attendees will receive an email update with your reason for cancellation')}.`}
-          status="warning"
-        />
-      </Block>,
-    ],
-  ];
-};
+    try {
+      // TODO: pass cancelMsg to api.cancelGame
+      const result = await api.setGameStatus({
+        gameUUID: game.uuid,
+        status: 'Canceled',
+      });
+
+      console.log('RESULT', result);
+
+      if (result.ok) {
+        // Pass event up to parent component
+        onSuccessHook();
+      } else {
+        onServerErrorHook({ message: 'Error on setGameStatus' });
+      }
+    } catch (exc) {
+      console.log(exc);
+      onServerErrorHook(exc);
+    }
+  }
+
+  render() {
+    const { onServerErrorHook, ...rest } = this.props;
+
+    return (
+      <CancelGameForm
+        {...rest}
+        // Overwrite on onSuccessHook
+        onSuccessHook={this.handleSuccess}
+      />
+    );
+  }
+}
 
 CancelGame.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
-  cancelMsg: PropTypes.string,
-  onSpotPress: PropTypes.func,
-  onAttendeesPress: PropTypes.func,
-  onCancelMsgChange: PropTypes.func,
-};
-
-CancelGame.defaultProps = {
-  cancelMsg: '',
-  onSpotPress: () => {},
-  onAttendeesPress: () => {},
-  onCancelMsgChange: () => {},
+  disabled: PropTypes.bool.isRequired,
+  onBeforeHook: PropTypes.func.isRequired,
+  onClientErrorHook: PropTypes.func.isRequired,
+  onServerErrorHook: PropTypes.func.isRequired,
+  onSuccessHook: PropTypes.func.isRequired,
+  onAttendeesPress: PropTypes.func.isRequired,
 };
 
 export default CancelGame;
