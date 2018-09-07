@@ -24,12 +24,12 @@ const MAX_CHARS = 120;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.ScrollView`
+const Top = styled.ScrollView`
   flex: 1;
   background-color: ${Colors.white}
 `;
 //------------------------------------------------------------------------------
-const ButtonContainer = styled.View`
+const Bottom = styled.View`
   display: flex;
   justify-content: center;
   height: 88px;
@@ -142,7 +142,7 @@ class CancelGameForm extends React.PureComponent {
     const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg');
 
     return [
-      <Container key="form">
+      <Top key="top">
         <Block>
           <GameProperties game={game} />
         </Block>
@@ -172,15 +172,15 @@ class CancelGameForm extends React.PureComponent {
             />
           </Block>,
         ]}
-      </Container>,
-      <ButtonContainer key="button">
+      </Top>,
+      <Bottom key="bottom">
         <RaisedButton
           status="warning"
           label={I18n.t('Cancel this activity')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />
-      </ButtonContainer>,
+      </Bottom>,
     ];
   }
 }
