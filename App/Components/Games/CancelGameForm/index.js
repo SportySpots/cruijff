@@ -82,9 +82,8 @@ class CancelGameForm extends React.PureComponent {
   handleSubmit = () => {
     const { onBeforeHook, onClientErrorHook, onSuccessHook } = this.props;
 
-    // Run before logic if provided and return on error. For instance, this
-    // will set the 'disabled' value in render props to 'true' so that the user
-    // cannot re-submit the form
+    // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
+    // value to 'true' so that the user cannot re-submit the form
     try {
       onBeforeHook();
     } catch (exc) {
@@ -103,10 +102,9 @@ class CancelGameForm extends React.PureComponent {
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
       this.setState({ errors });
-      // Pass event up to parent component. Among other things the 'disabled'
-      // value in render props will be set back to 'false' so that the user
-      // can re-submit the form
-      onClientErrorHook(errors);
+      // Pass event up to parent component. onClientErrorHook will set 'disabled'
+      // value back to 'false' so that the user can re-submit the form
+      onClientErrorHook();
       return;
     }
 
@@ -118,19 +116,17 @@ class CancelGameForm extends React.PureComponent {
         {
           text: I18n.t('No'),
           onPress: () => {
-            // Pass event up to parent component. Among other things the 'disabled'
-            // value in render props will be set back to 'false' so that the user
-            // can re-submit the form
-            onClientErrorHook(null);
+            // Pass event up to parent component. onClientErrorHook will set 'disabled'
+            // value back to 'false' so that the user can re-submit the form
+            onClientErrorHook();
           },
           style: 'cancel',
         },
         {
           text: I18n.t('Yes'),
           onPress: () => {
-            // Pass event up to parent component. Among other things the 'disabled'
-            // value in render props will be set back to 'false' so that the user
-            // can re-submit the form
+            // Pass event up to parent component. onSuccessHook 'disabled'
+            // value back to 'false' so that the user can re-submit the form
             onSuccessHook({ cancelMsg });
           },
         },

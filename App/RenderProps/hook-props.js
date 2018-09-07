@@ -15,9 +15,8 @@ class HookProps extends React.PureComponent {
     if (cb && typeof cb === 'function') { cb(); }
   }
 
-  handleClientError = (err) => { // eslint-disable-line no-unused-vars
+  handleClientError = () => {
     const { disabledProps } = this.props;
-    // console.log(err);
     disabledProps.enableBtn();
   }
 
