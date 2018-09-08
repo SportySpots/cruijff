@@ -7,14 +7,10 @@ import Colors from '../../../Themes/Colors';
 import Text from '../../../Components/Common/Text';
 import Spacer from '../../../Components/Common/Spacer';
 import Block from '../../../Components/Common/Block';
+import getSpotLocation from './utils';
 
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:
-// -----------------------------------------------------------------------------
-const getSpotLocation = spot => ({
-  latitude: spot && spot.address && spot.address.lat,
-  longitude: spot && spot.address && spot.address.lng,
-});
 // -----------------------------------------------------------------------------
 const handleLocationBtnPress = ({ latLng, title = '' }) => {
   showLocation({
