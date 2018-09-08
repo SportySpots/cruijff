@@ -16,8 +16,8 @@ export const Row = styled.View`
   margin-vertical: 8px;
 `;
 //------------------------------------------------------------------------------
-export const RowVertical = Row.extend`
+/* export const RowVertical = Row.extend`
   flex-direction: column;
   flex: 1;
-`;
+`; */
 //------------------------------------------------------------------------------

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Switch } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
-import Text from '../../Common/Text';
-import { FilterDescription, Row } from './style';
+import Text from '../Text';
+import { FilterDescription, Row } from '../../Spots/SpotsFilter/style';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -19,7 +19,7 @@ const Right = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SwitchFilter = ({
+const SwitchWithText = ({
   label,
   description,
   value,
@@ -40,17 +40,17 @@ const SwitchFilter = ({
   </Row>
 );
 
-SwitchFilter.propTypes = {
+SwitchWithText.propTypes = {
   value: PropTypes.bool.isRequired,
   onChange: PropTypes.func,
   label: PropTypes.string,
   description: PropTypes.string,
 };
 
-SwitchFilter.defaultProps = {
+SwitchWithText.defaultProps = {
   onChange: () => {},
   label: '',
   description: '',
 };
 
-export default SwitchFilter;
+export default SwitchWithText;

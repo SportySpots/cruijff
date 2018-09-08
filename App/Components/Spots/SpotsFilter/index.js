@@ -6,7 +6,7 @@ import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
 import SliderWithText from '../../Common/SliderWithText';
-import SwitchFilter from './SwitchFilter';
+import SwitchWithText from '../../Common/SwitchWithText';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -42,7 +42,7 @@ const SpotsFilter = ({
   <Divider key="divider-sport-filter" />,
   <Block key="switch">
     {sports.map(sport => (
-      <SwitchFilter
+      <SwitchWithText
         key={sport.id}
         label={I18n.t(sport.name)}
         value={selectedSportIds.indexOf(sport.id) !== -1}
