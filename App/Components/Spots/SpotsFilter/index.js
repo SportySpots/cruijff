@@ -5,7 +5,7 @@ import I18n from '../../../I18n/index';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
-import SliderFilter from './SliderFilter';
+import SliderWithText from '../../Common/SliderWithText';
 import SwitchFilter from './SwitchFilter';
 
 //------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ const SpotsFilter = ({
   onSportSwitch,
 }) => [
   <Block key="slider" height={144}>
-    <SliderFilter
+    <SliderWithText
       value={maxDistance}
       max={20.0}
       min={0.0}

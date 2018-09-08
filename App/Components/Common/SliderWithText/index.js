@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Slider from '../../../Components/Common/Slider';
-import { FilterLabel, FilterDescription, RowVertical } from './style';
+import Slider from '../Slider';
+import Spacer from '../Spacer';
+import { FilterLabel, FilterDescription, RowVertical } from '../../Spots/SpotsFilter/style';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Spacer = styled.View`
-  height: 15px;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SliderFilter = ({
+const SliderWithText = ({
   max,
   min,
   value,
@@ -21,10 +15,10 @@ const SliderFilter = ({
   label,
   description,
 }) => (
-  <RowVertical style={{ height: 110 }}>
+  <RowVertical>
     <FilterLabel>{label}</FilterLabel>
     <FilterDescription>{description}</FilterDescription>
-    <Spacer />
+    <Spacer direction="column" size="L" />
     <Slider
       value={(value / (max - min))}
       onChange={val => onChange(val * (max - min))}
@@ -32,7 +26,7 @@ const SliderFilter = ({
   </RowVertical>
 );
 
-SliderFilter.propTypes = {
+SliderWithText.propTypes = {
   max: PropTypes.number,
   min: PropTypes.number,
   value: PropTypes.number.isRequired,
@@ -41,7 +35,7 @@ SliderFilter.propTypes = {
   description: PropTypes.string,
 };
 
-SliderFilter.defaultProps = {
+SliderWithText.defaultProps = {
   max: 20,
   min: 1,
   onChange: () => {},
@@ -49,4 +43,4 @@ SliderFilter.defaultProps = {
   description: '',
 };
 
-export default SliderFilter;
+export default SliderWithText;
