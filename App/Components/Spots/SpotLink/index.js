@@ -1,22 +1,13 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
 import { showLocation } from 'react-native-map-link';
-import I18n from '../../I18n';
-import spotFragment from '../../GraphQL/Spots/Fragments/spot';
-import Colors from '../../Themes/Colors';
-import Text from '../../Components/Common/Text';
+import I18n from '../../../I18n';
+import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
+import Colors from '../../../Themes/Colors';
+import Text from '../../../Components/Common/Text';
+import Spacer from '../../../Components/Common/Spacer';
+import Block from '../../../Components/Common/Block';
 
-// -----------------------------------------------------------------------------
-// STYLE:
-// -----------------------------------------------------------------------------
-const Block = styled.View`
-  padding: 16px;
-`;
-// -----------------------------------------------------------------------------
-const Spacer = styled.View`
-  height: 7;
-`;
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:
 // -----------------------------------------------------------------------------
@@ -61,7 +52,7 @@ const SpotLink = ({ spot }) => {
   return (
     <Block>
       <Text.M>{I18n.t("Oops! The map couldn't be loaded :(")}</Text.M>
-      <Spacer />
+      <Spacer direction="column" size="M" />
       <Text>
         {I18n.t('Click')} {link}{' '}
         {I18n.t("to see the spot's location on Google Maps")}

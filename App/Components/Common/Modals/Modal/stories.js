@@ -6,17 +6,17 @@ import Modal from './index';
 
 const Container = () => (
   <ModalProps>
-    {({ visible, open, close }) => (
+    {({ visible, openModal, closeModal }) => (
       <View>
         <TouchableOpacity
-          onPress={open}
+          onPress={openModal}
           style={{ backgroundColor: 'red' }}
         >
           <Text style={{ textAlign: 'center' }}>
             Open
           </Text>
         </TouchableOpacity>
-        <Modal visible={visible} onClose={close}>
+        <Modal visible={visible} onClose={closeModal}>
           <Text>I&apos;m the child component</Text>
         </Modal>
       </View>

@@ -6,10 +6,10 @@ import ConfirmModal from './index';
 
 const Container = () => (
   <ModalProps>
-    {({ visible, open, close }) => (
+    {({ visible, openModal, closeModal }) => (
       <View>
         <TouchableOpacity
-          onPress={open}
+          onPress={openModal}
           style={{ backgroundColor: 'red' }}
         >
           <Text style={{ textAlign: 'center' }}>
@@ -18,9 +18,9 @@ const Container = () => (
         </TouchableOpacity>
         <ConfirmModal
           visible={visible}
-          onClose={close}
+          onClose={closeModal}
           okBtnLabel="Ok"
-          onOk={close}
+          onOk={closeModal}
         >
           <Text>I&apos;m the child component</Text>
         </ConfirmModal>

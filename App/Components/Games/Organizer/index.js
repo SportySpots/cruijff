@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Fonts from '../../../Themes/Fonts';
 import Text from '../../Common/Text';
 import UserCircle from '../../Common/UserCircle';
+import Spacer from '../../Common/Spacer';
 import { HorizontalView } from '../style';
 
-//------------------------------------------------------------------------------
-// COMPONENT:
-//------------------------------------------------------------------------------
-const Spacer = styled.View`
-  width: 8px;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -21,7 +15,7 @@ const Organizer = ({ organizer, textSize }) => {
   return (
     <HorizontalView>
       <UserCircle user={organizer} />
-      <Spacer />
+      <Spacer direction="row" size="M" />
       <TextSize>
         {organizer.first_name} {organizer.last_name}
       </TextSize>

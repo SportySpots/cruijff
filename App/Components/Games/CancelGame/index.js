@@ -10,7 +10,6 @@ import CancelGameForm from '../CancelGameForm';
 //------------------------------------------------------------------------------
 class CancelGame extends React.PureComponent {
   handleSuccess = async ({ cancelMsg }) => {
-    console.log('CANCEL_MSG', cancelMsg);
     const { game, onSuccessHook, onServerErrorHook } = this.props;
 
     try {
@@ -19,8 +18,6 @@ class CancelGame extends React.PureComponent {
         gameUUID: game.uuid,
         status: 'Canceled',
       });
-
-      console.log('RESULT', result);
 
       if (result.ok) {
         // Pass event up to parent component

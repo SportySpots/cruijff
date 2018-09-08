@@ -6,10 +6,10 @@ import CancelGameConfirmationModal from './index';
 
 const Container = () => (
   <ModalProps>
-    {({ visible, open, close }) => (
+    {({ visible, openModal, closeModal }) => (
       <View>
         <TouchableOpacity
-          onPress={open}
+          onPress={openModal}
           style={{ backgroundColor: 'red' }}
         >
           <Text style={{ textAlign: 'center' }}>
@@ -18,7 +18,7 @@ const Container = () => (
         </TouchableOpacity>
         <CancelGameConfirmationModal
           visible={visible}
-          onClose={close}
+          onClose={closeModal}
         />
       </View>
     )}
@@ -27,13 +27,13 @@ const Container = () => (
 
 const ContainerWithTimeout = () => (
   <ModalProps>
-    {({ visible, open, close }) => (
+    {({ visible, openModal, closeModal }) => (
       <View>
         <TouchableOpacity
           onPress={() => {
-            open();
+            openModal();
             const handle = setTimeout(() => {
-              close();
+              closeModal();
               clearTimeout(handle);
             }, 2000);
           }}
