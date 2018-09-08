@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Slider from '../Slider';
 import Spacer from '../Spacer';
-import { FilterLabel, FilterDescription, RowVertical } from '../../Spots/SpotsFilter/style';
+import Text from '../Text';
+import { FilterDescription } from '../../Spots/SpotsFilter/style';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  flex: 1; /* full height */
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -15,15 +23,15 @@ const SliderWithText = ({
   label,
   description,
 }) => (
-  <RowVertical>
-    <FilterLabel>{label}</FilterLabel>
+  <Container>
+    <Text.M>{label}</Text.M>
     <FilterDescription>{description}</FilterDescription>
     <Spacer direction="column" size="L" />
     <Slider
       value={(value / (max - min))}
       onChange={val => onChange(val * (max - min))}
     />
-  </RowVertical>
+  </Container>
 );
 
 SliderWithText.propTypes = {

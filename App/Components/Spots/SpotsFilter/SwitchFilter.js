@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Switch } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
-import { FilterLabel, FilterDescription, Row } from './style';
+import Text from '../../Common/Text';
+import { FilterDescription, Row } from './style';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -26,7 +27,7 @@ const SwitchFilter = ({
 }) => (
   <Row style={{ height: 56 }}>
     <Left>
-      <FilterLabel>{label}</FilterLabel>
+      <Text.M>{label}</Text.M>
       <FilterDescription>{description}</FilterDescription>
     </Left>
     <Right>

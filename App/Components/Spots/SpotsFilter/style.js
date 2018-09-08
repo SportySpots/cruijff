@@ -3,9 +3,9 @@ import Colors from '../../../Themes/Colors';
 import Text from '../../../Components/Common/Text';
 
 //------------------------------------------------------------------------------
-export const FilterLabel = styled(Text.M)`
+/* export const FilterLabel = styled(Text.M)`
 
-`;
+`; */
 //------------------------------------------------------------------------------
 export const FilterDescription = styled(Text.SM)`
   color: ${Colors.gray};
