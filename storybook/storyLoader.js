@@ -15,6 +15,7 @@ function loadStories() {
   require('../App/Components/Common/Row/stories');
   require('../App/Components/Common/SliderWithText/stories');
   require('../App/Components/Common/Spacer/stories');
+  require('../App/Components/Common/SwitchWithText/stories');
   require('../App/Components/Common/TextField/stories');
   require('../App/Components/Common/UserCircle/stories');
   require('../App/Components/DarkFooter/Stories');
@@ -51,6 +52,7 @@ const stories = [
   '../App/Components/Common/Row/stories',
   '../App/Components/Common/SliderWithText/stories',
   '../App/Components/Common/Spacer/stories',
+  '../App/Components/Common/SwitchWithText/stories',
   '../App/Components/Common/TextField/stories',
   '../App/Components/Common/UserCircle/stories',
   '../App/Components/DarkFooter/Stories',

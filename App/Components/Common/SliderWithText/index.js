@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Colors from '../../../Themes/Colors';
 import Slider from '../Slider';
 import Spacer from '../Spacer';
 import Text from '../Text';
-import { FilterDescription } from '../../Spots/SpotsFilter/style';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -15,6 +15,8 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: replace Text.SM style={{ color: Colors.gray }} with Text.SM.gray
+// (or something along those lines)
 const SliderWithText = ({
   max,
   min,
@@ -25,7 +27,9 @@ const SliderWithText = ({
 }) => (
   <Container>
     <Text.M>{label}</Text.M>
-    <FilterDescription>{description}</FilterDescription>
+    <Text.SM style={{ color: Colors.gray }}>
+      {description}
+    </Text.SM>
     <Spacer direction="column" size="L" />
     <Slider
       value={(value / (max - min))}

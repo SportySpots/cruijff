@@ -5,6 +5,7 @@ import I18n from '../../../I18n/index';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
+import Spacer from '../../Common/Spacer';
 import SliderWithText from '../../Common/SliderWithText';
 import SwitchWithText from '../../Common/SwitchWithText';
 
@@ -32,7 +33,7 @@ const SpotsFilter = ({
   </Block>,
   <Divider key="divider-slider" />,
   <Block key="sport-filter">
-    <SwitchFilter
+    <SwitchWithText
       label={I18n.t('All sports')}
       description={I18n.t('Filter on type of sport')}
       value={allSports}
@@ -41,14 +42,19 @@ const SpotsFilter = ({
   </Block>,
   <Divider key="divider-sport-filter" />,
   <Block key="switch">
-    {sports.map(sport => (
+    {sports.map(sport => [
       <SwitchWithText
         key={sport.id}
         label={I18n.t(sport.name)}
         value={selectedSportIds.indexOf(sport.id) !== -1}
         onChange={() => { onSportSwitch(sport.id); }}
-      />
-    ))}
+      />,
+      <Spacer
+        key={`spacer-${sport.id}`}
+        direction="column"
+        size="XL"
+      />,
+    ])}
   </Block>,
 ];
 

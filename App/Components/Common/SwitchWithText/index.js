@@ -4,39 +4,39 @@ import { Switch } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
-import { FilterDescription, Row } from '../../Spots/SpotsFilter/style';
+import Row from '../Row';
+import Spacer from '../Spacer';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Left = styled.View`
-  flex: 1;
-`;
-//------------------------------------------------------------------------------
-const Right = styled.View`
-  width: 48px;
+  flex: 1; /* full width */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: replace Text.SM style={{ color: Colors.gray }} with Text.SM.gray
+// (or something along those lines)
 const SwitchWithText = ({
   label,
   description,
   value,
   onChange,
 }) => (
-  <Row style={{ height: 56 }}>
+  <Row>
     <Left>
       <Text.M>{label}</Text.M>
-      <FilterDescription>{description}</FilterDescription>
+      <Text.SM style={{ color: Colors.gray }}>
+        {description}
+      </Text.SM>
     </Left>
-    <Right>
-      <Switch
-        value={value}
-        onValueChange={() => onChange(!value)}
-        thumbTintColor={value ? Colors.primaryGreen : Colors.lightGray}
-      />
-    </Right>
+    <Spacer direction="row" size="M" />
+    <Switch
+      value={value}
+      onValueChange={() => onChange(!value)}
+      thumbTintColor={value ? Colors.primaryGreen : Colors.lightGray}
+    />
   </Row>
 );
 
