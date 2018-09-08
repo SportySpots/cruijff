@@ -102,7 +102,7 @@ const GameListCard = ({ game }) => {
         <BackgroundImage spot={spot} />
         {isCanceled && [
           <Spacer key="top-spacer" size="L" />,
-          <GameCanceledFlag />,
+          <GameCanceledFlag key="cancel-flag" />,
         ]}
         <Container>
           <Overflow>

@@ -1431,6 +1431,130 @@ exports[`Storyshots Common.AlertMsg AlertMsg warning 1`] = `
 </View>
 `;
 
+exports[`Storyshots Common.Block Block 1`] = `
+<View
+  bgColor="rgba(0,0,0,0)"
+  height={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "rgba(0,0,0,0)",
+        "height": "auto",
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    I'm inside a Block :)
+  </Text>
+</View>
+`;
+
+exports[`Storyshots Common.Block Block 100px fixed height 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderColor": "black",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    bgColor="rgba(0,0,0,0)"
+    height={100}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "rgba(0,0,0,0)",
+          "height": 100,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 16,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      I'm inside a Block :)
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      with fixed height
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Storyshots Common.Block Block 100px fixed height bgColor gray 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderColor": "black",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    bgColor="#777"
+    height={100}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#777",
+          "height": 100,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 16,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      I'm inside a Block :)
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      with fixed height
+    </Text>
+  </View>
+</View>
+`;
+
 exports[`Storyshots Common.ConfirmModal ConfirmModal 1`] = `
 <View>
   <View
@@ -1663,14 +1787,50 @@ exports[`Storyshots Common.ConfirmModal ConfirmModal 1`] = `
 </View>
 `;
 
+exports[`Storyshots Common.Divider Divider 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Above Divider
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#e6e6e6",
+          "borderBottomWidth": 1,
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+        },
+        undefined,
+      ]
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Below Divider
+  </Text>
+</View>
+`;
+
 exports[`Storyshots Common.DotSpacer DotSpacer default size M 1`] = `
 <View
+  alignItems="stretch"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
-        "alignItems": "center",
+        "alignItems": "stretch",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
@@ -1739,12 +1899,15 @@ exports[`Storyshots Common.DotSpacer DotSpacer default size M 1`] = `
 
 exports[`Storyshots Common.DotSpacer DotSpacer size L 1`] = `
 <View
+  alignItems="stretch"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
-        "alignItems": "center",
+        "alignItems": "stretch",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
@@ -1813,12 +1976,15 @@ exports[`Storyshots Common.DotSpacer DotSpacer size L 1`] = `
 
 exports[`Storyshots Common.DotSpacer DotSpacer size S 1`] = `
 <View
+  alignItems="stretch"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
-        "alignItems": "center",
+        "alignItems": "stretch",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
@@ -1992,24 +2158,30 @@ exports[`Storyshots Common.Modal Modal no footer 1`] = `
 
 exports[`Storyshots Common.OrganizerAndDescription OrganizerAndDescription 1`] = `
 <View
+  alignItems="center"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
         "alignItems": "center",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
   }
 >
   <View
+    alignItems="center"
+    justifyContent="flex-start"
     style={
       Array [
         Object {
           "alignItems": "center",
           "display": "flex",
           "flexDirection": "row",
+          "justifyContent": "flex-start",
         },
         undefined,
       ]
@@ -2073,9 +2245,13 @@ exports[`Storyshots Common.OrganizerAndDescription OrganizerAndDescription 1`] =
       </Text>
     </View>
     <View
+      direction="row"
+      pixels={8}
       style={
         Array [
           Object {
+            "backgroundColor": "transparent",
+            "height": "auto",
             "width": 8,
           },
           undefined,
@@ -2823,6 +2999,226 @@ exports[`Storyshots Common.RaisedButton RaisedButton warning 1`] = `
 </View>
 `;
 
+exports[`Storyshots Common.Row Row 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderColor": "black",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "height": 180,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    alignItems="stretch"
+    justifyContent="flex-start"
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      I'm inside a Row :)
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Storyshots Common.SliderWithText SliderWithText 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderColor": "black",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "height": 180,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    2
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Object {
+              "color": "#000",
+              "fontFamily": "Rajdhani-SemiBold",
+              "fontSize": 18,
+              "lineHeight": NaN,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      I'm the label
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Object {
+              "color": "#000",
+              "fontFamily": "Rajdhani-Regular",
+              "fontSize": 16,
+              "lineHeight": NaN,
+            },
+            Object {
+              "color": "#777",
+            },
+          ],
+        ]
+      }
+    >
+      I'm the description
+    </Text>
+    <View
+      direction="column"
+      pixels={16}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "height": 16,
+            "width": "auto",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderLeftColor": "#f5a623",
+            "borderLeftWidth": 5,
+            "borderRightColor": "#f5a623",
+            "borderRightWidth": 5,
+            "flexDirection": "row",
+            "height": 20,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#f5a623",
+              "flex": 1,
+              "height": 5,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "paddingHorizontal": 12.5,
+          }
+        }
+      >
+        <View
+          collapsable={undefined}
+          onMoveShouldSetResponder={[Function]}
+          onMoveShouldSetResponderCapture={[Function]}
+          onResponderEnd={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderReject={[Function]}
+          onResponderRelease={[Function]}
+          onResponderStart={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onStartShouldSetResponderCapture={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+              "left": -25,
+              "transform": Array [
+                Object {
+                  "translateX": 0,
+                },
+              ],
+              "width": 50,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`Storyshots Common.Spacer Spacer size L direction column 1`] = `
 <View
   style={
@@ -2878,12 +3274,15 @@ exports[`Storyshots Common.Spacer Spacer size L direction column 1`] = `
 
 exports[`Storyshots Common.Spacer Spacer size L direction row 1`] = `
 <View
+  alignItems="stretch"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
-        "alignItems": "center",
+        "alignItems": "stretch",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       Object {
         "borderColor": "blue",
@@ -2992,12 +3391,15 @@ exports[`Storyshots Common.Spacer Spacer size M direction column 1`] = `
 
 exports[`Storyshots Common.Spacer Spacer size M direction row 1`] = `
 <View
+  alignItems="stretch"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
-        "alignItems": "center",
+        "alignItems": "stretch",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       Object {
         "borderColor": "blue",
@@ -3106,12 +3508,15 @@ exports[`Storyshots Common.Spacer Spacer size S direction column 1`] = `
 
 exports[`Storyshots Common.Spacer Spacer size S direction row 1`] = `
 <View
+  alignItems="stretch"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
-        "alignItems": "center",
+        "alignItems": "stretch",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       Object {
         "borderColor": "blue",
@@ -3162,6 +3567,145 @@ exports[`Storyshots Common.Spacer Spacer size S direction row 1`] = `
       ]
     }
   />
+</View>
+`;
+
+exports[`Storyshots Common.SwitchWithText SwitchWithText 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderColor": "black",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "height": 180,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    false
+  </Text>
+  <View
+    alignItems="stretch"
+    justifyContent="flex-start"
+    style={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "#000",
+                "fontFamily": "Rajdhani-SemiBold",
+                "fontSize": 18,
+                "lineHeight": NaN,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        I'm the label
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "#000",
+                "fontFamily": "Rajdhani-Regular",
+                "fontSize": 16,
+                "lineHeight": NaN,
+              },
+              Object {
+                "color": "#777",
+              },
+            ],
+          ]
+        }
+      >
+        I'm the description
+      </Text>
+    </View>
+    <View
+      direction="row"
+      pixels={8}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "height": "auto",
+            "width": 8,
+          },
+          undefined,
+        ]
+      }
+    />
+    <RCTSwitch
+      disabled={false}
+      onChange={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      onValueChange={[Function]}
+      style={
+        Array [
+          Object {
+            "height": 31,
+            "width": 51,
+          },
+          undefined,
+        ]
+      }
+      thumbTintColor="#e6e6e6"
+      value={false}
+    />
+  </View>
 </View>
 `;
 
@@ -3910,12 +4454,15 @@ exports[`Storyshots Games GameProperties 1`] = `
 
 exports[`Storyshots Games.Attendees Attendees 1`] = `
 <View
+  alignItems="stretch"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
-        "alignItems": "center",
+        "alignItems": "stretch",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
@@ -4103,12 +4650,15 @@ exports[`Storyshots Games.Attendees Attendees 1`] = `
 
 exports[`Storyshots Games.Attendees Attendees maxLength 2 1`] = `
 <View
+  alignItems="stretch"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
-        "alignItems": "center",
+        "alignItems": "stretch",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
@@ -4800,254 +5350,249 @@ exports[`Storyshots Games.CancelGameConfirmationModal CancelGameConfirmationModa
 
 exports[`Storyshots Games.ClickableAttendees ClickableAttendees 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
-  accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "borderColor": "black",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+      },
+      undefined,
+    ]
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "row",
-        },
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      alignItems="center"
+      justifyContent="space-between"
+      style={
         Array [
           Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
             "justifyContent": "space-between",
           },
           undefined,
-        ],
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "flexDirection": "row",
-          },
-          undefined,
         ]
       }
     >
       <View
-        size={40}
+        alignItems="stretch"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#009f36",
-              "borderRadius": 40,
-              "flexDirection": "column",
-              "height": 40,
-              "justifyContent": "center",
-              "width": 40,
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          innerRef={[Function]}
-          size={40}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
-                },
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 18,
-                    "paddingBottom": 4,
-                    "paddingLeft": 4,
-                    "paddingRight": 4,
-                    "paddingTop": 4,
-                    "textAlign": "center",
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          RT
-        </Text>
-      </View>
-      <View
-        size={40}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#009f36",
-              "borderRadius": 40,
-              "flexDirection": "column",
-              "height": 40,
-              "justifyContent": "center",
-              "width": 40,
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          innerRef={[Function]}
-          size={40}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
-                },
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 18,
-                    "paddingBottom": 4,
-                    "paddingLeft": 4,
-                    "paddingRight": 4,
-                    "paddingTop": 4,
-                    "textAlign": "center",
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          RT
-        </Text>
-      </View>
-      <View
-        size={40}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#009f36",
-              "borderRadius": 40,
-              "flexDirection": "column",
-              "height": 40,
-              "justifyContent": "center",
-              "width": 40,
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          innerRef={[Function]}
-          size={40}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
-                },
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 18,
-                    "paddingBottom": 4,
-                    "paddingLeft": 4,
-                    "paddingRight": 4,
-                    "paddingTop": 4,
-                    "textAlign": "center",
-                  },
-                  undefined,
-                ],
-              ],
-            ]
-          }
-        >
-          RT
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "flexDirection": "row",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "alignItems": "stretch",
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
             undefined,
-          ],
-        ]
-      }
-    >
+          ]
+        }
+      >
+        <View
+          size={40}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#009f36",
+                "borderRadius": 40,
+                "flexDirection": "column",
+                "height": 40,
+                "justifyContent": "center",
+                "width": 40,
+              },
+              Object {
+                "marginRight": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            size={40}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 18,
+                      "paddingBottom": 4,
+                      "paddingLeft": 4,
+                      "paddingRight": 4,
+                      "paddingTop": 4,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            RT
+          </Text>
+        </View>
+        <View
+          size={40}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#009f36",
+                "borderRadius": 40,
+                "flexDirection": "column",
+                "height": 40,
+                "justifyContent": "center",
+                "width": 40,
+              },
+              Object {
+                "marginRight": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            size={40}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 18,
+                      "paddingBottom": 4,
+                      "paddingLeft": 4,
+                      "paddingRight": 4,
+                      "paddingTop": 4,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            RT
+          </Text>
+        </View>
+        <View
+          size={40}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#009f36",
+                "borderRadius": 40,
+                "flexDirection": "column",
+                "height": 40,
+                "justifyContent": "center",
+                "width": 40,
+              },
+              Object {
+                "marginRight": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            size={40}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 18,
+                      "paddingBottom": 4,
+                      "paddingLeft": 4,
+                      "paddingRight": 4,
+                      "paddingTop": 4,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            RT
+          </Text>
+        </View>
+      </View>
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -5076,192 +5621,187 @@ exports[`Storyshots Games.ClickableAttendees ClickableAttendees 1`] = `
 
 exports[`Storyshots Games.ClickableAttendees ClickableAttendees maxLength 2 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
-  accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "borderColor": "black",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+      },
+      undefined,
+    ]
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "row",
-        },
-        Array [
-          Object {
-            "justifyContent": "space-between",
-          },
-          undefined,
-        ],
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
+    testID={undefined}
+    tvParallaxProperties={undefined}
   >
     <View
+      alignItems="center"
+      justifyContent="space-between"
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
             "flexDirection": "row",
+            "justifyContent": "space-between",
           },
           undefined,
         ]
       }
     >
       <View
-        size={40}
+        alignItems="stretch"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#009f36",
-              "borderRadius": 40,
-              "flexDirection": "column",
-              "height": 40,
-              "justifyContent": "center",
-              "width": 40,
+              "alignItems": "stretch",
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
-            Object {
-              "marginRight": 8,
-            },
+            undefined,
           ]
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          innerRef={[Function]}
+        <View
           size={40}
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "alignItems": "center",
+                "backgroundColor": "#009f36",
+                "borderRadius": 40,
+                "flexDirection": "column",
+                "height": 40,
+                "justifyContent": "center",
+                "width": 40,
               },
+              Object {
+                "marginRight": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            size={40}
+            style={
               Array [
                 Object {
                   "backgroundColor": "transparent",
                 },
-                Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
-                },
                 Array [
                   Object {
-                    "color": "#fff",
-                    "fontSize": 18,
-                    "paddingBottom": 4,
-                    "paddingLeft": 4,
-                    "paddingRight": 4,
-                    "paddingTop": 4,
-                    "textAlign": "center",
+                    "backgroundColor": "transparent",
                   },
-                  undefined,
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 18,
+                      "paddingBottom": 4,
+                      "paddingLeft": 4,
+                      "paddingRight": 4,
+                      "paddingTop": 4,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                  ],
                 ],
-              ],
-            ]
-          }
-        >
-          RT
-        </Text>
-      </View>
-      <View
-        size={40}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#009f36",
-              "borderRadius": 40,
-              "flexDirection": "column",
-              "height": 40,
-              "justifyContent": "center",
-              "width": 40,
-            },
-            Object {},
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          innerRef={[Function]}
+              ]
+            }
+          >
+            RT
+          </Text>
+        </View>
+        <View
+          size={40}
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "alignItems": "center",
+                "backgroundColor": "#009f36",
+                "borderRadius": 40,
+                "flexDirection": "column",
+                "height": 40,
+                "justifyContent": "center",
+                "width": 40,
               },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
               Array [
                 Object {
                   "backgroundColor": "transparent",
                 },
-                Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-Regular",
-                  "fontSize": 12,
-                  "lineHeight": NaN,
-                },
                 Array [
                   Object {
-                    "color": "#fff",
-                    "fontSize": 12,
-                    "paddingBottom": 4,
-                    "paddingLeft": 4,
-                    "paddingRight": 4,
-                    "paddingTop": 4,
-                    "textAlign": "center",
+                    "backgroundColor": "transparent",
                   },
-                  undefined,
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 12,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 12,
+                      "paddingBottom": 4,
+                      "paddingLeft": 4,
+                      "paddingRight": 4,
+                      "paddingTop": 4,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                  ],
                 ],
-              ],
-            ]
-          }
-        >
-          +2
-        </Text>
+              ]
+            }
+          >
+            +2
+          </Text>
+        </View>
       </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "flexDirection": "row",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "justifyContent": "center",
-            },
-            undefined,
-          ],
-        ]
-      }
-    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -5457,9 +5997,12 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -5841,9 +6384,12 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -5889,24 +6435,30 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
         Organizer
       </Text>
       <View
+        alignItems="center"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
               "alignItems": "center",
               "display": "flex",
               "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
             undefined,
           ]
         }
       >
         <View
+          alignItems="center"
+          justifyContent="flex-start"
           style={
             Array [
               Object {
                 "alignItems": "center",
                 "display": "flex",
                 "flexDirection": "row",
+                "justifyContent": "flex-start",
               },
               undefined,
             ]
@@ -5970,9 +6522,13 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
             </Text>
           </View>
           <View
+            direction="row"
+            pixels={8}
             style={
               Array [
                 Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
                   "width": 8,
                 },
                 undefined,
@@ -6037,9 +6593,12 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -6109,29 +6668,30 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
         tvParallaxProperties={undefined}
       >
         <View
+          alignItems="center"
+          justifyContent="space-between"
           style={
             Array [
               Object {
                 "alignItems": "center",
                 "display": "flex",
                 "flexDirection": "row",
+                "justifyContent": "space-between",
               },
-              Array [
-                Object {
-                  "justifyContent": "space-between",
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
           <View
+            alignItems="stretch"
+            justifyContent="flex-start"
             style={
               Array [
                 Object {
-                  "alignItems": "center",
+                  "alignItems": "stretch",
                   "display": "flex",
                   "flexDirection": "row",
+                  "justifyContent": "flex-start",
                 },
                 undefined,
               ]
@@ -6315,53 +6875,37 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
               </Text>
             </View>
           </View>
-          <View
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "display": "flex",
-                  "flexDirection": "row",
+                  "color": "#000",
+                  "fontSize": 30,
                 },
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
               ]
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontSize": 30,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
+            
+          </Text>
         </View>
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -6407,12 +6951,15 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
         Open spots
       </Text>
       <View
+        alignItems="stretch"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
-              "alignItems": "center",
+              "alignItems": "stretch",
               "display": "flex",
               "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
             undefined,
           ]
@@ -6471,9 +7018,12 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -6519,16 +7069,17 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
         Do you join?
       </Text>
       <View
+        alignItems="stretch"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
-              "alignItems": "center",
+              "alignItems": "stretch",
               "display": "flex",
               "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
-            Object {
-              "width": "100%",
-            },
+            undefined,
           ]
         }
       >
@@ -6707,9 +7258,12 @@ exports[`Storyshots Games.GameDetails GameDetails 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -6915,9 +7469,12 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -7027,9 +7584,12 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -7411,9 +7971,12 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -7459,24 +8022,30 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
         Organizer
       </Text>
       <View
+        alignItems="center"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
               "alignItems": "center",
               "display": "flex",
               "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
             undefined,
           ]
         }
       >
         <View
+          alignItems="center"
+          justifyContent="flex-start"
           style={
             Array [
               Object {
                 "alignItems": "center",
                 "display": "flex",
                 "flexDirection": "row",
+                "justifyContent": "flex-start",
               },
               undefined,
             ]
@@ -7540,9 +8109,13 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
             </Text>
           </View>
           <View
+            direction="row"
+            pixels={8}
             style={
               Array [
                 Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
                   "width": 8,
                 },
                 undefined,
@@ -7607,9 +8180,12 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -7679,29 +8255,30 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
         tvParallaxProperties={undefined}
       >
         <View
+          alignItems="center"
+          justifyContent="space-between"
           style={
             Array [
               Object {
                 "alignItems": "center",
                 "display": "flex",
                 "flexDirection": "row",
+                "justifyContent": "space-between",
               },
-              Array [
-                Object {
-                  "justifyContent": "space-between",
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
           <View
+            alignItems="stretch"
+            justifyContent="flex-start"
             style={
               Array [
                 Object {
-                  "alignItems": "center",
+                  "alignItems": "stretch",
                   "display": "flex",
                   "flexDirection": "row",
+                  "justifyContent": "flex-start",
                 },
                 undefined,
               ]
@@ -7885,53 +8462,37 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
               </Text>
             </View>
           </View>
-          <View
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "display": "flex",
-                  "flexDirection": "row",
+                  "color": "#000",
+                  "fontSize": 30,
                 },
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ],
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
               ]
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontSize": 30,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
+            
+          </Text>
         </View>
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -7977,12 +8538,15 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
         Open spots
       </Text>
       <View
+        alignItems="stretch"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
-              "alignItems": "center",
+              "alignItems": "stretch",
               "display": "flex",
               "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
             undefined,
           ]
@@ -8041,9 +8605,12 @@ exports[`Storyshots Games.GameDetails GameDetails cancelled 1`] = `
       </View>
     </View>
     <View
+      bgColor="rgba(0,0,0,0)"
+      height={null}
       style={
         Array [
           Object {
+            "backgroundColor": "rgba(0,0,0,0)",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -8187,12 +8754,15 @@ exports[`Storyshots Games.GameListCard GameListCard 1`] = `
       }
     >
       <View
+        alignItems="center"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
               "alignItems": "center",
               "display": "flex",
               "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
             undefined,
           ]
@@ -8256,9 +8826,13 @@ exports[`Storyshots Games.GameListCard GameListCard 1`] = `
           </Text>
         </View>
         <View
+          direction="row"
+          pixels={8}
           style={
             Array [
               Object {
+                "backgroundColor": "transparent",
+                "height": "auto",
                 "width": 8,
               },
               undefined,
@@ -8516,12 +9090,15 @@ exports[`Storyshots Games.GameListCard GameListCard 1`] = `
           }
         />
         <View
+          alignItems="stretch"
+          justifyContent="flex-start"
           style={
             Array [
               Object {
-                "alignItems": "center",
+                "alignItems": "stretch",
                 "display": "flex",
                 "flexDirection": "row",
+                "justifyContent": "flex-start",
               },
               undefined,
             ]
@@ -8691,12 +9268,15 @@ exports[`Storyshots Games.GameListCard GameListCard 1`] = `
           }
         />
         <View
+          alignItems="stretch"
+          justifyContent="flex-start"
           style={
             Array [
               Object {
-                "alignItems": "center",
+                "alignItems": "stretch",
                 "display": "flex",
                 "flexDirection": "row",
+                "justifyContent": "flex-start",
               },
               undefined,
             ]
@@ -8928,12 +9508,15 @@ exports[`Storyshots Games.GameListCard GameListCard CANCELED 1`] = `
       }
     >
       <View
+        alignItems="center"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
               "alignItems": "center",
               "display": "flex",
               "flexDirection": "row",
+              "justifyContent": "flex-start",
             },
             undefined,
           ]
@@ -8997,9 +9580,13 @@ exports[`Storyshots Games.GameListCard GameListCard CANCELED 1`] = `
           </Text>
         </View>
         <View
+          direction="row"
+          pixels={8}
           style={
             Array [
               Object {
+                "backgroundColor": "transparent",
+                "height": "auto",
                 "width": 8,
               },
               undefined,
@@ -9333,12 +9920,15 @@ exports[`Storyshots Games.GameListCard GameListCard CANCELED 1`] = `
           }
         />
         <View
+          alignItems="stretch"
+          justifyContent="flex-start"
           style={
             Array [
               Object {
-                "alignItems": "center",
+                "alignItems": "stretch",
                 "display": "flex",
                 "flexDirection": "row",
+                "justifyContent": "flex-start",
               },
               undefined,
             ]
@@ -9508,12 +10098,15 @@ exports[`Storyshots Games.GameListCard GameListCard CANCELED 1`] = `
           }
         />
         <View
+          alignItems="stretch"
+          justifyContent="flex-start"
           style={
             Array [
               Object {
-                "alignItems": "center",
+                "alignItems": "stretch",
                 "display": "flex",
                 "flexDirection": "row",
+                "justifyContent": "flex-start",
               },
               undefined,
             ]
@@ -9703,14 +10296,1603 @@ exports[`Storyshots Games.GameListCard GameListCard CANCELED 1`] = `
 </View>
 `;
 
+exports[`Storyshots Games.GameListCard GameListCard CANCELED short title/name 1`] = `
+<View>
+  <View
+    height="270px"
+    style={
+      Array [
+        Object {
+          "borderRadius": 8,
+          "display": "flex",
+          "elevation": 2,
+          "height": 270,
+          "marginHorizontal": 4,
+          "marginVertical": 4,
+          "shadowColor": "#BDBDBD",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 1,
+          },
+          "shadowOpacity": 0.8,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderTopLeftRadius": 8,
+            "borderTopRightRadius": 8,
+            "display": "flex",
+            "flexDirection": "row",
+            "height": 58,
+            "paddingHorizontal": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        alignItems="center"
+        justifyContent="flex-start"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          size={40}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#009f36",
+                "borderRadius": 40,
+                "flexDirection": "column",
+                "height": 40,
+                "justifyContent": "center",
+                "width": 40,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            size={40}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 18,
+                      "paddingBottom": 4,
+                      "paddingLeft": 4,
+                      "paddingRight": 4,
+                      "paddingTop": 4,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            TK
+          </Text>
+        </View>
+        <View
+          direction="row"
+          pixels={8}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "height": "auto",
+                "width": 8,
+              },
+              undefined,
+            ]
+          }
+        />
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": NaN,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Tom
+           
+          Klaver
+        </Text>
+      </View>
+      <View
+        size="M"
+        style={
+          Array [
+            Object {
+              "marginHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          innerRef={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": NaN,
+                },
+                Array [
+                  Object {
+                    "color": "#BDBDBD",
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          ·
+        </Text>
+      </View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "#000",
+                "fontFamily": "Rajdhani-SemiBold",
+                "fontSize": 18,
+                "lineHeight": NaN,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        BEACH_VOLLEYBALL
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "green",
+            "borderBottomLeftRadius": 8,
+            "borderBottomRightRadius": 8,
+            "display": "flex",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "borderBottomLeftRadius": 8,
+              "borderBottomRightRadius": 8,
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://s3.amazonaws.com/sportyspots-prd/spots/dea377b2-cff8-49ae-97ea-475d22a3a477/images/Paramariboplein.jpg",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "borderBottomLeftRadius": 8,
+                "borderBottomRightRadius": 8,
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "black",
+                "borderBottomLeftRadius": 8,
+                "borderBottomRightRadius": 8,
+                "bottom": 0,
+                "left": 0,
+                "opacity": 0.5,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              undefined,
+            ]
+          }
+        />
+      </View>
+      <View
+        direction="column"
+        pixels={16}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 16,
+              "width": "auto",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#E0301E",
+                "borderBottomLeftRadius": 8,
+                "borderTopLeftRadius": 8,
+                "paddingBottom": 8,
+                "paddingLeft": 16,
+                "paddingRight": 16,
+                "paddingTop": 8,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            Canceled
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "flex-end",
+              "paddingBottom": 16,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+              "paddingTop": 16,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderColor": "white",
+                "borderStyle": "solid",
+                "borderWidth": 0,
+                "height": 30,
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 22,
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            Some Short Name
+          </Text>
+        </View>
+        <View
+          direction="column"
+          pixels={8}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "height": 8,
+                "width": "auto",
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          alignItems="stretch"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "stretch",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#fff",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <View
+            direction="row"
+            pixels={8}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "width": 8,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 16,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            24-05 16:00
+          </Text>
+          <View
+            direction="row"
+            pixels={16}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "width": 16,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#fff",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <View
+            direction="row"
+            pixels={8}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "width": 8,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 16,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            Oosterpark
+          </Text>
+        </View>
+        <View
+          direction="column"
+          pixels={16}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "height": 16,
+                "width": "auto",
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          alignItems="stretch"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "stretch",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            size={40}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#009f36",
+                  "borderRadius": 40,
+                  "flexDirection": "column",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "width": 40,
+                },
+                Object {
+                  "marginRight": 8,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              innerRef={[Function]}
+              size={40}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 18,
+                        "paddingBottom": 4,
+                        "paddingLeft": 4,
+                        "paddingRight": 4,
+                        "paddingTop": 4,
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ],
+                  ],
+                ]
+              }
+            >
+              RT
+            </Text>
+          </View>
+          <View
+            size={40}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#009f36",
+                  "borderRadius": 40,
+                  "flexDirection": "column",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "width": 40,
+                },
+                Object {
+                  "marginRight": 8,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              innerRef={[Function]}
+              size={40}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 18,
+                        "paddingBottom": 4,
+                        "paddingLeft": 4,
+                        "paddingRight": 4,
+                        "paddingTop": 4,
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ],
+                  ],
+                ]
+              }
+            >
+              RT
+            </Text>
+          </View>
+          <View
+            size={40}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#009f36",
+                  "borderRadius": 40,
+                  "flexDirection": "column",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "width": 40,
+                },
+                Object {
+                  "marginRight": 8,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              innerRef={[Function]}
+              size={40}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 18,
+                        "paddingBottom": 4,
+                        "paddingLeft": 4,
+                        "paddingRight": 4,
+                        "paddingTop": 4,
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ],
+                  ],
+                ]
+              }
+            >
+              RT
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Storyshots Games.GameListCard GameListCard short title/name 1`] = `
+<View>
+  <View
+    height="232px"
+    style={
+      Array [
+        Object {
+          "borderRadius": 8,
+          "display": "flex",
+          "elevation": 2,
+          "height": 232,
+          "marginHorizontal": 4,
+          "marginVertical": 4,
+          "shadowColor": "#BDBDBD",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 1,
+          },
+          "shadowOpacity": 0.8,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderTopLeftRadius": 8,
+            "borderTopRightRadius": 8,
+            "display": "flex",
+            "flexDirection": "row",
+            "height": 58,
+            "paddingHorizontal": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        alignItems="center"
+        justifyContent="flex-start"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          size={40}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#009f36",
+                "borderRadius": 40,
+                "flexDirection": "column",
+                "height": 40,
+                "justifyContent": "center",
+                "width": 40,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            size={40}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 18,
+                      "paddingBottom": 4,
+                      "paddingLeft": 4,
+                      "paddingRight": 4,
+                      "paddingTop": 4,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            TK
+          </Text>
+        </View>
+        <View
+          direction="row"
+          pixels={8}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "height": "auto",
+                "width": 8,
+              },
+              undefined,
+            ]
+          }
+        />
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": NaN,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Tom
+           
+          Klaver
+        </Text>
+      </View>
+      <View
+        size="M"
+        style={
+          Array [
+            Object {
+              "marginHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          innerRef={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": NaN,
+                },
+                Array [
+                  Object {
+                    "color": "#BDBDBD",
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          ·
+        </Text>
+      </View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "#000",
+                "fontFamily": "Rajdhani-SemiBold",
+                "fontSize": 18,
+                "lineHeight": NaN,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        BEACH_VOLLEYBALL
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "green",
+            "borderBottomLeftRadius": 8,
+            "borderBottomRightRadius": 8,
+            "display": "flex",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "borderBottomLeftRadius": 8,
+              "borderBottomRightRadius": 8,
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://s3.amazonaws.com/sportyspots-prd/spots/dea377b2-cff8-49ae-97ea-475d22a3a477/images/Paramariboplein.jpg",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "borderBottomLeftRadius": 8,
+                "borderBottomRightRadius": 8,
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "black",
+                "borderBottomLeftRadius": 8,
+                "borderBottomRightRadius": 8,
+                "bottom": 0,
+                "left": 0,
+                "opacity": 0.5,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              undefined,
+            ]
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "flex-end",
+              "paddingBottom": 16,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+              "paddingTop": 16,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderColor": "white",
+                "borderStyle": "solid",
+                "borderWidth": 0,
+                "height": 30,
+                "overflow": "hidden",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 22,
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            Some Short Name
+          </Text>
+        </View>
+        <View
+          direction="column"
+          pixels={8}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "height": 8,
+                "width": "auto",
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          alignItems="stretch"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "stretch",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#fff",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <View
+            direction="row"
+            pixels={8}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "width": 8,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 16,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            24-05 16:00
+          </Text>
+          <View
+            direction="row"
+            pixels={16}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "width": 16,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#fff",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <View
+            direction="row"
+            pixels={8}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "width": 8,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            innerRef={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-Regular",
+                    "fontSize": 16,
+                    "lineHeight": NaN,
+                  },
+                  Array [
+                    Object {
+                      "color": "#fff",
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            Oosterpark
+          </Text>
+        </View>
+        <View
+          direction="column"
+          pixels={16}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "height": 16,
+                "width": "auto",
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          alignItems="stretch"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "stretch",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            size={40}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#009f36",
+                  "borderRadius": 40,
+                  "flexDirection": "column",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "width": 40,
+                },
+                Object {
+                  "marginRight": 8,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              innerRef={[Function]}
+              size={40}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 18,
+                        "paddingBottom": 4,
+                        "paddingLeft": 4,
+                        "paddingRight": 4,
+                        "paddingTop": 4,
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ],
+                  ],
+                ]
+              }
+            >
+              RT
+            </Text>
+          </View>
+          <View
+            size={40}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#009f36",
+                  "borderRadius": 40,
+                  "flexDirection": "column",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "width": 40,
+                },
+                Object {
+                  "marginRight": 8,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              innerRef={[Function]}
+              size={40}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 18,
+                        "paddingBottom": 4,
+                        "paddingLeft": 4,
+                        "paddingRight": 4,
+                        "paddingTop": 4,
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ],
+                  ],
+                ]
+              }
+            >
+              RT
+            </Text>
+          </View>
+          <View
+            size={40}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#009f36",
+                  "borderRadius": 40,
+                  "flexDirection": "column",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "width": 40,
+                },
+                Object {
+                  "marginRight": 8,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              innerRef={[Function]}
+              size={40}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 18,
+                        "paddingBottom": 4,
+                        "paddingLeft": 4,
+                        "paddingRight": 4,
+                        "paddingTop": 4,
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ],
+                  ],
+                ]
+              }
+            >
+              RT
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Storyshots Games.OpenSpots OpenSpots 1`] = `null`;
+
 exports[`Storyshots Games.Organizer Organizer M textSize 1`] = `
 <View
+  alignItems="center"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
         "alignItems": "center",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
@@ -9774,9 +11956,13 @@ exports[`Storyshots Games.Organizer Organizer M textSize 1`] = `
     </Text>
   </View>
   <View
+    direction="row"
+    pixels={8}
     style={
       Array [
         Object {
+          "backgroundColor": "transparent",
+          "height": "auto",
           "width": 8,
         },
         undefined,
@@ -9816,12 +12002,15 @@ exports[`Storyshots Games.Organizer Organizer M textSize 1`] = `
 
 exports[`Storyshots Games.Organizer Organizer S textSize 1`] = `
 <View
+  alignItems="center"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
         "alignItems": "center",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
@@ -9885,9 +12074,13 @@ exports[`Storyshots Games.Organizer Organizer S textSize 1`] = `
     </Text>
   </View>
   <View
+    direction="row"
+    pixels={8}
     style={
       Array [
         Object {
+          "backgroundColor": "transparent",
+          "height": "auto",
           "width": 8,
         },
         undefined,
@@ -9927,12 +12120,15 @@ exports[`Storyshots Games.Organizer Organizer S textSize 1`] = `
 
 exports[`Storyshots Games.Organizer Organizer default textSize (SM) 1`] = `
 <View
+  alignItems="center"
+  justifyContent="flex-start"
   style={
     Array [
       Object {
         "alignItems": "center",
         "display": "flex",
         "flexDirection": "row",
+        "justifyContent": "flex-start",
       },
       undefined,
     ]
@@ -9996,9 +12192,13 @@ exports[`Storyshots Games.Organizer Organizer default textSize (SM) 1`] = `
     </Text>
   </View>
   <View
+    direction="row"
+    pixels={8}
     style={
       Array [
         Object {
+          "backgroundColor": "transparent",
+          "height": "auto",
           "width": 8,
         },
         undefined,
@@ -18344,6 +20544,8 @@ exports[`Storyshots Spots SpotListCardSmall 1`] = `null`;
 exports[`Storyshots Spots SpotMap 1`] = `null`;
 
 exports[`Storyshots Spots SpotProperties 1`] = `null`;
+
+exports[`Storyshots Spots.SpotLink SpotLink 1`] = `null`;
 
 exports[`Storyshots Text All sizes 1`] = `
 <View
