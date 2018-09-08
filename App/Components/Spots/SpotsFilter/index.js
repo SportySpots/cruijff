@@ -20,7 +20,7 @@ const SpotsFilter = ({
   onSportsFilterSwitch,
   onSportSwitch,
 }) => [
-  <Block key="slider" height={144}>
+  <Block key="slider">
     <SliderWithText
       value={maxDistance}
       max={20.0}
@@ -31,7 +31,7 @@ const SpotsFilter = ({
     />
   </Block>,
   <Divider key="divider-slider" />,
-  <Block key="sport-filter" height={82}>
+  <Block key="sport-filter">
     <SwitchFilter
       label={I18n.t('All sports')}
       description={I18n.t('Filter on type of sport')}
