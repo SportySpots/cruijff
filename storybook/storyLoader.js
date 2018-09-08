@@ -8,6 +8,7 @@ function loadStories() {
   require('../App/Backgrounds/Stories');
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/Block/stories');
+  require('../App/Components/Common/Divider/stories');
   require('../App/Components/Common/DotSpacer/stories');
   require('../App/Components/Common/Modals/ConfirmModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
@@ -25,6 +26,7 @@ function loadStories() {
   require('../App/Components/Games/GameCanceledFlag/stories');
   require('../App/Components/Games/GameDetails/stories');
   require('../App/Components/Games/GameListCard/stories');
+  require('../App/Components/Games/OpenSpots/stories');
   require('../App/Components/Games/Organizer/stories');
   require('../App/Components/Games/OrganizerAndDescription/stories');
   require('../App/Components/Games/Stories');
@@ -45,6 +47,7 @@ const stories = [
   '../App/Backgrounds/Stories',
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/Block/stories',
+  '../App/Components/Common/Divider/stories',
   '../App/Components/Common/DotSpacer/stories',
   '../App/Components/Common/Modals/ConfirmModal/stories',
   '../App/Components/Common/Modals/Modal/stories',
@@ -62,6 +65,7 @@ const stories = [
   '../App/Components/Games/GameCanceledFlag/stories',
   '../App/Components/Games/GameDetails/stories',
   '../App/Components/Games/GameListCard/stories',
+  '../App/Components/Games/OpenSpots/stories',
   '../App/Components/Games/Organizer/stories',
   '../App/Components/Games/OrganizerAndDescription/stories',
   '../App/Components/Games/Stories',

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 
+// TODO: do we need this component?
 const Label = styled(Text.M)`
   color: ${({ whiteColor }) => (whiteColor ? Colors.white : Colors.black)};
   margin-bottom: 8px;

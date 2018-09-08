@@ -4,7 +4,7 @@ import Fonts from '../../../Themes/Fonts';
 import Text from '../../Common/Text';
 import UserCircle from '../../Common/UserCircle';
 import Spacer from '../../Common/Spacer';
-import { HorizontalView } from '../style';
+import Row from '../../Common/Row';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -13,13 +13,13 @@ const Organizer = ({ organizer, textSize }) => {
   const TextSize = Text[textSize];
 
   return (
-    <HorizontalView>
+    <Row alignItems="center">
       <UserCircle user={organizer} />
       <Spacer direction="row" size="M" />
       <TextSize>
         {organizer.first_name} {organizer.last_name}
       </TextSize>
-    </HorizontalView>
+    </Row>
   );
 };
 

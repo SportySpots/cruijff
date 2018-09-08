@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components';
 import Spacer from './index';
-import { HorizontalView } from '../../Games/style';
+import Row from '../Row';
 
 const HorizontalBlock = styled.View`
   height: 100px;
@@ -18,25 +18,25 @@ const VerticalBlock = styled.View`
 
 storiesOf('Common.Spacer', module)
   .add('Spacer size S direction row', () => (
-    <HorizontalView style={{ borderWidth: 1, borderColor: 'blue' }}>
+    <Row style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
       <Spacer size="S" direction="row" />
       <HorizontalBlock />
-    </HorizontalView>
+    </Row>
   ))
   .add('Spacer size M direction row', () => (
-    <HorizontalView style={{ borderWidth: 1, borderColor: 'blue' }}>
+    <Row style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
       <Spacer size="M" direction="row" />
       <HorizontalBlock />
-    </HorizontalView>
+    </Row>
   ))
   .add('Spacer size L direction row', () => (
-    <HorizontalView style={{ borderWidth: 1, borderColor: 'blue' }}>
+    <Row style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
       <Spacer size="L" direction="row" />
       <HorizontalBlock />
-    </HorizontalView>
+    </Row>
   ))
   .add('Spacer size S direction column', () => (
     <View style={{ flex: 1, borderWidth: 1, borderColor: 'blue' }}>

@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { Image } from 'react-native';
-import I18n from '../../../I18n';
 import themeImages from '../../../Themes/Images';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import PropertyCircle from '../../Common/PropertyCircle';
 import CappedList from '../../Common/CappedList';
-import Label from '../../Common/Label';
+import Row from '../../Common/Row';
 import { getAttendees } from '../utils';
-import { HorizontalView } from '../style';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -39,19 +37,16 @@ const OpenSpots = ({ game, maxLength }) => {
   const attendees = getAttendees(game);
   const nOpenSpots = Math.max(0, game.capacity - attendees.length);
 
-  return [
-    <Label key="label">
-      {I18n.t('Open spots')}
-    </Label>,
-    <HorizontalView key="spots">
+  return (
+    <Row>
       <CappedList
         max={maxLength}
         data={[...Array(nOpenSpots)]}
         component={openSpotCircle}
         capComponent={({ data }) => restCircle(`+${data.length}`)}
       />
-    </HorizontalView>,
-  ];
+    </Row>
+  );
 };
 
 OpenSpots.propTypes = {

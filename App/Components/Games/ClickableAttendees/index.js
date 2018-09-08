@@ -2,20 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { TouchableOpacity } from 'react-native';
-import styled from 'styled-components';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
+import Row from '../../Common/Row';
 import Attendees from '../Attendees';
 import { getAttendees } from '../utils';
-import { HorizontalView, ChevronContainer } from '../style';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Container = styled(HorizontalView)`
-  justify-content: space-between;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -28,16 +21,17 @@ const ClickableAttendees = ({ game, maxLength, onAttendeesPress }) => {
 
   return (
     <TouchableOpacity onPress={onAttendeesPress}>
-      <Container>
+      <Row
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <Attendees game={game} maxLength={maxLength} />
-        <ChevronContainer>
-          <MaterialIcon
-            name="chevron-right"
-            size={30}
-            color={Colors.black}
-          />
-        </ChevronContainer>
-      </Container>
+        <MaterialIcon
+          name="chevron-right"
+          size={30}
+          color={Colors.black}
+        />
+      </Row>
     </TouchableOpacity>
   );
 };

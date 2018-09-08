@@ -2,27 +2,27 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Text } from 'react-native';
 import DotSpacer from './index';
-import { HorizontalView } from '../../Games/style';
+import Row from '../Row';
 
 storiesOf('Common.DotSpacer', module)
   .add('DotSpacer size S', () => (
-    <HorizontalView>
+    <Row>
       <Text>Left size</Text>
       <DotSpacer size="S" />
       <Text>Right size</Text>
-    </HorizontalView>
+    </Row>
   ))
   .add('DotSpacer default size M', () => (
-    <HorizontalView>
+    <Row>
       <Text>Left size</Text>
       <DotSpacer />
       <Text>Right size</Text>
-    </HorizontalView>
+    </Row>
   ))
   .add('DotSpacer size L', () => (
-    <HorizontalView>
+    <Row>
       <Text>Left size</Text>
       <DotSpacer size="L" />
       <Text>Right size</Text>
-    </HorizontalView>
+    </Row>
   ));

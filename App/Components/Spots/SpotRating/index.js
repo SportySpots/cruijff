@@ -1,25 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
 import api from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
-import FlatButton from '../../../Components/Common/FlatButton';
-import RatingBig from '../../../Components/Common/RatingBig';
-import Text from '../../../Components/Common/Text';
+import FlatButton from '../../Common/FlatButton';
+import Row from '../../Common/Row';
+import Block from '../../Common/Block';
+import RatingBig from '../../Common/RatingBig';
+import Text from '../../Common/Text';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const HorizontalView = styled.View`
-  flex-direction: row;
-`;
-//------------------------------------------------------------------------------
-const Block = styled.View`
-  padding: 16px;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -55,9 +46,9 @@ class SpotRating extends React.PureComponent {
     }
 
     return (
-      <Block style={{ backgroundColor: Colors.bgGrey }}>
+      <Block bgColor={Colors.bgGrey}>
         <Text>{I18n.t('Rate this spot')}</Text>
-        <HorizontalView style={{ justifyContent: 'space-between' }}>
+        <Row justifyContent="space-between">
           <RatingBig
             rating={rating}
             onPress={i => this.setState({ rating: i })}
@@ -66,7 +57,7 @@ class SpotRating extends React.PureComponent {
             text={I18n.t(userRating ? 'thank you' : 'submit').toUpperCase()}
             onPress={this.submitRating}
           />
-        </HorizontalView>
+        </Row>
       </Block>
     );
   }

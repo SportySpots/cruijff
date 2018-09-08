@@ -16,4 +16,21 @@ storiesOf('Games.GameListCard', module)
         game={Object.assign({}, Mocks.game, { status: 'CANCELED' })}
       />
     </View>
+  ))
+  .add('GameListCard short title/name', () => (
+    <View>
+      <GameListCard
+        game={Object.assign({}, Mocks.game, { name: 'Some Short Name' })}
+      />
+    </View>
+  ))
+  .add('GameListCard CANCELED short title/name', () => (
+    <View>
+      <GameListCard
+        game={Object.assign(
+          {},
+          Mocks.game,
+          { status: 'CANCELED', name: 'Some Short Name' })}
+      />
+    </View>
   ));

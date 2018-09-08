@@ -8,13 +8,12 @@ import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import GameProperties from '../GameProperties';
 import OrganizerAndDescription from '../OrganizerAndDescription';
 import ClickableAttendees from '../ClickableAttendees';
-import OpenSpots from '../OpenSpot';
+import OpenSpots from '../OpenSpots';
 import RSPV from '../RSPV';
 import ShareGame from '../ShareGame';
 import Block from '../../Common/Block';
 import Label from '../../Common/Label';
 import AlertMsg from '../../Common/AlertMsg';
-import { HorizontalView } from '../style';
 import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
@@ -29,6 +28,7 @@ const GameDetails = ({
   rspvSuccessHook,
 }) => {
   const isCanceled = game.status === 'CANCELED';
+  const hasCapacity = game.capacity && game.capacity > 0;
   const withAttendees = getAttendees(game).length > 0;
 
   return [
@@ -61,20 +61,21 @@ const GameDetails = ({
         />
       </Block>,
     ],
-    <Block key="open-spots">
-      <OpenSpots game={game} />
-    </Block>,
+    hasCapacity && [
+      <Block key="open-spots">
+        <Label>{I18n.t('Open spots')}</Label>
+        <OpenSpots game={game} />
+      </Block>,
+    ],
     !isCanceled && (
       <Block key="rspv">
         <Label>{I18n.t('Do you join?')}</Label>
-        <HorizontalView style={{ width: '100%' }}>
-          <RSPV
-            game={game}
-            user={user}
-            onBeforeHook={rspvBeforeHook}
-            onSuccessHook={rspvSuccessHook}
-          />
-        </HorizontalView>
+        <RSPV
+          game={game}
+          user={user}
+          onBeforeHook={rspvBeforeHook}
+          onSuccessHook={rspvSuccessHook}
+        />
       </Block>
     ),
     <Block key="share">

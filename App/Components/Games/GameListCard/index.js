@@ -11,11 +11,11 @@ import I18n from '../../../I18n';
 import Text from '../../Common/Text';
 import DotSpacer from '../../Common/DotSpacer';
 import Spacer from '../../Common/Spacer';
+import Row from '../../Common/Row';
 import BackgroundImage from '../../Spots/BackgroundImage';
 import Organizer from '../Organizer';
 import Attendees from '../Attendees';
 import GameCanceledFlag from '../GameCanceledFlag';
-import { HorizontalView } from '../style';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -109,7 +109,7 @@ const GameListCard = ({ game }) => {
             <Title>{name}</Title>
           </Overflow>
           <Spacer size="M" />
-          <HorizontalView>
+          <Row>
             <IonIcon
               name="ios-time"
               color={Colors.white}
@@ -129,7 +129,7 @@ const GameListCard = ({ game }) => {
             <SmallText>
               {spot.name}
             </SmallText>
-          </HorizontalView>
+          </Row>
           <Spacer size="L" />
           <Attendees game={game} />
         </Container>
