@@ -6,14 +6,15 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import GameProperties from '../GameProperties';
-import Organizer from '../Organizer';
-import Attendees from '../Attendees';
-import OpenSpots from '../OpenSpot';
+import OrganizerAndDescription from '../OrganizerAndDescription';
+import ClickableAttendees from '../ClickableAttendees';
+import OpenSpots from '../OpenSpots';
 import RSPV from '../RSPV';
 import ShareGame from '../ShareGame';
 import Block from '../../Common/Block';
 import Label from '../../Common/Label';
-import { HorizontalView } from '../style';
+import AlertMsg from '../../Common/AlertMsg';
+import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -25,44 +26,67 @@ const GameDetails = ({
   onAttendeesPress,
   rspvBeforeHook,
   rspvSuccessHook,
-}) => [
-  <SpotImages key="spot-images" spot={game.spot} />,
-  <Block key="game-properties">
-    <GameProperties game={game} onSpotPress={onSpotPress} />
-  </Block>,
-  <SpotMapWithLinkFallback key="spot-map" spot={game.spot} />,
-  <Block key="game-organizer">
-    <Label>{I18n.t('Organizer')}</Label>
-    <Organizer game={game} />
-  </Block>,
-  <Block key="game-attendees">
-    <Attendees
-      game={game}
-      onAttendeesPress={onAttendeesPress}
-    />
-  </Block>,
-  <Block key="open-spots">
-    <OpenSpots game={game} />
-  </Block>,
-  <Block key="rspv">
-    <Label>{I18n.t('Do you join?')}</Label>
-    <HorizontalView style={{ width: '100%' }}>
-      <RSPV
-        game={game}
-        user={user}
-        onBeforeHook={rspvBeforeHook}
-        onSuccessHook={rspvSuccessHook}
+}) => {
+  const isCanceled = game.status === 'CANCELED';
+  const hasCapacity = game.capacity && game.capacity > 0;
+  const withAttendees = getAttendees(game).length > 0;
+
+  return [
+    <SpotImages key="spot-images" spot={game.spot} />,
+    isCanceled && (
+      <Block key="alert-warning">
+        <AlertMsg
+          value={`${I18n.t('This activity is canceled')}.`}
+          status="error"
+        />
+      </Block>
+    ),
+    <Block key="game-properties">
+      <GameProperties game={game} onSpotPress={onSpotPress} />
+    </Block>,
+    <SpotMapWithLinkFallback key="spot-map" spot={game.spot} />,
+    <Block key="game-organizer">
+      <Label>{I18n.t('Organizer')}</Label>
+      <OrganizerAndDescription
+        organizer={game.organizer}
+        description={game.description}
       />
-    </HorizontalView>
-  </Block>,
-  <Block key="share">
-    <Label>{I18n.t('Share with friends')}</Label>
-    <ShareGame
-      game={game}
-      size={55}
-    />
-  </Block>,
-];
+    </Block>,
+    withAttendees && [
+      <Block key="game-attendees">
+        <Label>{I18n.t('Attending')}</Label>
+        <ClickableAttendees
+          game={game}
+          onAttendeesPress={onAttendeesPress}
+        />
+      </Block>,
+    ],
+    hasCapacity && [
+      <Block key="open-spots">
+        <Label>{I18n.t('Open spots')}</Label>
+        <OpenSpots game={game} />
+      </Block>,
+    ],
+    !isCanceled && (
+      <Block key="rspv">
+        <Label>{I18n.t('Do you join?')}</Label>
+        <RSPV
+          game={game}
+          user={user}
+          onBeforeHook={rspvBeforeHook}
+          onSuccessHook={rspvSuccessHook}
+        />
+      </Block>
+    ),
+    <Block key="share">
+      <Label>{I18n.t('Share with friends')}</Label>
+      <ShareGame
+        game={game}
+        size={55}
+      />
+    </Block>,
+  ];
+};
 
 GameDetails.propTypes = {
   user: PropTypes.shape({
@@ -73,7 +97,6 @@ GameDetails.propTypes = {
   onAttendeesPress: PropTypes.func,
   rspvBeforeHook: PropTypes.func,
   rspvSuccessHook: PropTypes.func,
-  navigation: PropTypes.any,
 };
 
 GameDetails.defaultProps = {

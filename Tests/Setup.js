@@ -1,6 +1,6 @@
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import faker from 'faker'
+import '../storybook/setup_faker';
 configure({ adapter: new Adapter() })
 
 // Mock your external modules here if needed
@@ -41,6 +41,3 @@ jest.mock('react-native-cookies', () => {
 jest.mock('../App/Themes/Images.js', () => jest.fn())
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/next.png', () => jest.fn())
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/previous.png', () => jest.fn())
-
-// give faker a fixed seed to have consistent test results
-faker.seed(1)

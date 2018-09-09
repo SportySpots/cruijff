@@ -1,5 +1,6 @@
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import ApolloClient from 'apollo-client';
+import ApolloProvider from 'react-apollo/ApolloProvider';
 import { ApolloLink } from 'apollo-link';
 import { onError } from 'apollo-link-error';
 import { HttpLink } from 'apollo-link-http';
@@ -8,8 +9,6 @@ import { buildClientSchema } from 'graphql';
 import { addMockFunctionsToSchema } from 'graphql-tools';
 import React from 'react';
 import mocks from './mocks';
-import ApolloProvider from 'react-apollo/ApolloProvider';
-
 
 export let client = null;
 
@@ -71,6 +70,8 @@ export const createMockClient = () => {
   return client;
 };
 
-export const WithApolloMockProvider = props => (
-  <ApolloProvider client={createMockClient()}>{props.children}</ApolloProvider>
+export const WithApolloMockProvider = ({ children }) => (
+  <ApolloProvider client={createMockClient()}>
+    {children}
+  </ApolloProvider>
 );

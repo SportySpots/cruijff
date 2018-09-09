@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Text from '../../Components/Text';
+import Text from '../../Components/Common/Text';
 import Colors from '../../Themes/Colors';
 
 export const Title = styled(Text.L)`

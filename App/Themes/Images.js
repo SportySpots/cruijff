@@ -7,6 +7,7 @@ const images = {
   illustrationShareLocation: require('../Images/illustration-share-location.png'),
   createProfileAvatar: require('../Images/create-profile-avatar.png'),
   spotOpenCircle: require('../Images/spot-open-circle.png'),
+  activityCancelledVisual: require('../Images/activity-cancelled-visual.png'),
 };
 
 export default images;
