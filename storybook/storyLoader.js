@@ -8,6 +8,7 @@ function loadStories() {
   require('../App/Backgrounds/Stories');
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/Block/stories');
+  require('../App/Components/Common/Calendar/stories');
   require('../App/Components/Common/Divider/stories');
   require('../App/Components/Common/DotSpacer/stories');
   require('../App/Components/Common/Modals/ConfirmModal/stories');
@@ -49,6 +50,7 @@ const stories = [
   '../App/Backgrounds/Stories',
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/Block/stories',
+  '../App/Components/Common/Calendar/stories',
   '../App/Components/Common/Divider/stories',
   '../App/Components/Common/DotSpacer/stories',
   '../App/Components/Common/Modals/ConfirmModal/stories',

@@ -2,7 +2,7 @@
 import React from 'react';
 import DatePickerModal from './index';
 
-storiesOf('Modal.DatePickerModal', module)
+storiesOf('Modals.DatePickerModal', module)
   .add('DatePickerModal', () => (
     <DatePickerModal
       visible
