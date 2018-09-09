@@ -37,6 +37,7 @@ function loadStories() {
   require('../App/Screens/Games/CancelGameScreen/stories');
   require('../App/Screens/Games/GameDetailsScreen/stories');
   require('../App/Screens/Games/Stories');
+  require('../App/Screens/Plan/PlanGameScreen/stories');
   require('../App/Screens/Plan/Stories');
   require('../App/Screens/Profile/Stories');
   require('../App/Screens/Stories');
@@ -76,6 +77,7 @@ const stories = [
   '../App/Screens/Games/CancelGameScreen/stories',
   '../App/Screens/Games/GameDetailsScreen/stories',
   '../App/Screens/Games/Stories',
+  '../App/Screens/Plan/PlanGameScreen/stories',
   '../App/Screens/Plan/Stories',
   '../App/Screens/Profile/Stories',
   '../App/Screens/Stories',

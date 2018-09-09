@@ -8,30 +8,35 @@ import Colors from '../../../Themes/Colors';
 // COMPONENT:
 //------------------------------------------------------------------------------
 const TextField = ({
-  whiteColor,
+  theme,
   ...rest
-}) => (
-  <TextFieldMUI
-    labelFontSize={Fonts.style.M.fontSize}
-    labelHeight={Fonts.style.M.fontSize * 1.5}
-    labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
-    errorColor={Colors.red}
-    animationDuration={150}
-    baseColor={whiteColor ? Colors.white : Colors.black}
-    tintColor={Colors.primaryGreen}
-    activeLineWidth={1}
-    style={{ lineHeight: Fonts.style.M.fontSize * 1.5 }}
-    {...rest}
-  />
-);
+}) => {
+  const isWhiteTheme = theme === 'white';
+
+  return (
+    <TextFieldMUI
+      labelFontSize={Fonts.style.M.fontSize}
+      labelHeight={Fonts.style.M.fontSize * 1.5}
+      labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
+      errorColor={Colors.red}
+      animationDuration={150}
+      lineWidth={1}
+      baseColor={isWhiteTheme ? Colors.white : Colors.black}
+      tintColor={isWhiteTheme ? Colors.white : Colors.primaryGreen}
+      activeLineWidth={2}
+      style={{ lineHeight: Fonts.style.M.fontSize * 1.5 }}
+      {...rest}
+    />
+  );
+};
 
 TextField.propTypes = {
-  whiteColor: PropTypes.bool,
+  theme: PropTypes.oneOf(['white', 'black']),
   // Plus all props from react-native-material-textfield
 };
 
 TextField.defaultProps = {
-  whiteColor: false,
+  theme: 'black',
 };
 
 export default TextField;
