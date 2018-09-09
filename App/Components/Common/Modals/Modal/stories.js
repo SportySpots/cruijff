@@ -24,6 +24,6 @@ const Container = () => (
   </ModalProps>
 );
 
-storiesOf('Common.Modal', module)
+storiesOf('Modals.Modal', module)
   .add('Modal no footer', () => <Container />);
 

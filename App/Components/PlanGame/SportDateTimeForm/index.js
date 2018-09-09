@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
+// import { propType } from 'graphql-anywhere';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import SportField from '../SportField';
-import DateField from '../DateField';
+import DateField from '../../Common/DatePickerField';
 import TimeField from '../TimeField';
 import TextField from '../../Common/TextField';
 import { Title, Label, FormField } from '../style';

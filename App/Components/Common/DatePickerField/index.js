@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import I18n from '../../../I18n/index';
-import Field from '../Field';
-import DateModal from './DateModal';
+import Field from '../../PlanGame/Field';
+import DateModal from '../Modals/DatePickerModal';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

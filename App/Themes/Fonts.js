@@ -27,6 +27,11 @@ const style = {
     color: Colors.black,
     // lineHeight: 50
   },
+  ML: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 22,
+    lineHeight: 33,
+  },
   M: {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 18,

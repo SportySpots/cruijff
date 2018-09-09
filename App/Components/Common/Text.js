@@ -12,7 +12,7 @@ Text.propTypes = {
   style: PropTypes.any,
 };
 
-const sizes = ['S', 'SM', 'M', 'L'];
+const sizes = Object.keys(Fonts.style);
 
 const styles = StyleSheet.create(sizes.reduce((acc, cur) => {
   acc[cur] = {
