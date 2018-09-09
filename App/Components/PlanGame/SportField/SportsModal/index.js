@@ -4,8 +4,8 @@ import { Modal } from 'react-native';
 import { Query } from 'react-apollo';
 import I18n from '../../../../I18n/index';
 import GET_SPORTS from '../../../../GraphQL/Sports/Queries/GET_SPORTS';
-import Text from '../../../../Components/Text';
-import CenteredActivityIndicator from '../../../../Components/CenteredActivityIndicator';
+import Text from '../../../Common/Text';
+import CenteredActivityIndicator from '../../../Common/CenteredActivityIndicator';
 import SportsList from './SportsList';
 import { ModalOuter, ModalInner } from '../../style';
 

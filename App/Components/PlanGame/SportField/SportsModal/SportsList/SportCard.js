@@ -4,7 +4,7 @@ import { propType } from 'graphql-anywhere';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 import sportFragment from '../../../../../GraphQL/Sports/Fragments/sport';
-import Text from '../../../../../Components/Text';
+import Text from '../../../../Common/Text';
 import I18n from '../../../../../I18n/index';
 
 //------------------------------------------------------------------------------

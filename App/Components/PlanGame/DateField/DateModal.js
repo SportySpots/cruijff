@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import I18n from '../../../I18n/index';
-import Text from '../../../Components/Text';
+import Text from '../../Common/Text';
 import { ModalOuter, ModalInner } from '../style';
 
 //------------------------------------------------------------------------------
