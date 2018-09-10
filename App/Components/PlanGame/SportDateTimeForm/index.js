@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
-import SportField from '../SportField';
+import SportField from '../../Common/SportPickerField';
 import DateField from '../../Common/DatePickerField';
-import TimeField from '../TimeField';
+import TimeField from '../../TimeField';
 import TextField from '../../Common/TextField';
 import { Title, Label, FormField } from '../style';
 
