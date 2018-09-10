@@ -22,9 +22,9 @@ const TimePickerField = ({ value, onChange, ...rest }) => (
         key="modal"
         mode="time"
         isVisible={visible}
-        date={value || new Date()}
-        onConfirm={(time) => {
-          onChange(time);
+        date={value}
+        onConfirm={(date) => {
+          onChange(date);
           closeModal();
         }}
         onCancel={closeModal}
@@ -40,7 +40,7 @@ TimePickerField.propTypes = {
 };
 
 TimePickerField.defaultProps = {
-  value: '',
+  value: new Date(),
   onChange: () => {},
 };
 
