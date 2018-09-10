@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import I18n from '../../I18n/index';
-import Field from './Field';
+import Field from '../Common/InputField';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:

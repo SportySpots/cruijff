@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from '../../../I18n/index';
-import Field from '../Field';
+import Field from '../../Common/InputField';
 import SportsModal from './SportsModal';
 
 //------------------------------------------------------------------------------

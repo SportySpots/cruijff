@@ -7,10 +7,7 @@ import Colors from '../../../Themes/Colors';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const TextField = ({
-  theme,
-  ...rest
-}) => {
+const TextField = ({ theme, ...rest }) => {
   const isWhiteTheme = theme === 'white';
 
   return (

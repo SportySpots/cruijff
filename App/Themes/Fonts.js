@@ -29,8 +29,8 @@ const style = {
   },
   ML: {
     fontFamily: 'Rajdhani-SemiBold',
-    fontSize: 22,
-    lineHeight: 33,
+    fontSize: 28,
+    lineHeight: 42,
   },
   M: {
     fontFamily: 'Rajdhani-SemiBold',

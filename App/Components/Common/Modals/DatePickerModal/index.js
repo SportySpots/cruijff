@@ -26,12 +26,7 @@ const DatePickerModal = ({
   onSelect,
   onClose,
 }) => (
-  <Modal
-    visible={visible}
-    animationType="fade"
-    onRequestClose={onClose}
-    transparent
-  >
+  <Modal visible={visible} onClose={onClose}>
     <Block>
       <Row
         alignItems="flex-end"
@@ -43,7 +38,7 @@ const DatePickerModal = ({
         </SelectedDate>
       </Row>
     </Block>
-    <Spacer direction="column" size="M" />
+    <Spacer direction="column" size="L" />
     <Calendar
       current={new Date().toISOString().slice(0, 10)}
       minDate={new Date().toISOString().slice(0, 10)}
