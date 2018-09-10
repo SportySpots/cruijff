@@ -1,19 +1,6 @@
-/* import { storiesOf } from '@storybook/react-native';
-import React from 'react';
-import DatePickerModal from './index';
-
-storiesOf('Modals.DatePickerModal', module)
-  .add('DatePickerModal', () => (
-    <DatePickerModal
-      visible
-      okBtnLabel="Ok"
-    />
-  ));
-*/
-
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import ModalProps from '../../../../RenderProps/modal-props';
 import RaisedButton from '../../RaisedButton';
 import DatePickerModal from './index';
