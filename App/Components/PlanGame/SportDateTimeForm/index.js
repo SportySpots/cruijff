@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
-import SportField from '../../Common/SportPickerField';
-import DateField from '../../Common/DatePickerField';
-import TimeField from '../../TimeField';
+import SportPickerField from '../../Common/SportPickerField';
+import DatePickerField from '../../Common/DatePickerField';
+import TimePickerField from '../../Common/TimePickerField';
 import TextField from '../../Common/TextField';
 import { Title, Label, FormField } from '../style';
 
@@ -36,28 +36,37 @@ const SportAndTime = ({
       <Title>{I18n.t('Plan a game')}</Title>
       <FormField>
         <Label>{I18n.t('I want to play')}</Label>
-        <SportField
+        <SportPickerField
           value={(sport && sport.name) || ''}
+          size="ML"
+          theme="white"
           onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
         />
       </FormField>
       <FormField>
         <Label>{I18n.t('on')}</Label>
-        <DateField
+        <DatePickerField
           value={date}
+          size="ML"
+          theme="white"
           onChange={(value) => { onChange({ fieldName: 'date', value }); }}
         />
       </FormField>
       <FormField>
-        <Label>{I18n.t('from')}</Label>
-        <TimeField
+        <Label>{I18n.t('at')}</Label>
+        <TimePickerField
           value={time}
+          size="ML"
+          theme="white"
           onChange={(value) => { onChange({ fieldName: 'time', value }); }}
         />
-        <Label>{I18n.t('to')}</Label>
-        <TimeField
-          value={duration}
-          onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
+      </FormField>
+      {/* <FormField>
+        // Duration
+        <Label>{I18n.t('at')}</Label>
+        <TimePickerField
+          value={time}
+          onChange={(value) => { onChange({ fieldName: 'time', value }); }}
         />
       </FormField>
       <FormField>
@@ -67,7 +76,7 @@ const SportAndTime = ({
           onBlur={(value) => { onChange({ fieldName: 'capacity', value }); }}
         />
         <Label> {I18n.t('people')}</Label>
-      </FormField>
+      </FormField> */}
     </KeyboardAwareScrollView>
   </Container>
 );

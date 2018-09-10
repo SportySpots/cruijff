@@ -38,7 +38,7 @@ storiesOf('Common.DatePickerField', module)
   .add('DatePickerField', () => (
     <Container />
   ))
-  .add('SportPickerField white theme', () => (
+  .add('DatePickerField white theme', () => (
     <Block bgColor={Colors.primaryGreen}>
       <Container theme="white" />
     </Block>
