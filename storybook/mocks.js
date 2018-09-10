@@ -1,3 +1,4 @@
+// TODO: get rid of this! replace Mocks usage with <ApolloMockProvider>
 const Mocks = {};
 
 Mocks.game = {

@@ -22,7 +22,6 @@ import Slider from './Common/Slider';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
 import PropertyCircle from './Common/PropertyCircle';
-import UserCircle from './Common/UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import NothingFound from './Common/NothingFound';
 
@@ -129,11 +128,6 @@ storiesOf('PropertyCircle', module).add('Propertycircle', () => (
   </View>
 ));
 
-const users = require('../Fixtures/users');
-
-storiesOf('UserCircle', module).add('UserCircle', () => (
-  <View>{users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}</View>
-));
 storiesOf('SignupScreen', module).add('Default', () => (
   <Provider store={store}>
     <SignupScreen navigation={dummyNavigator} />

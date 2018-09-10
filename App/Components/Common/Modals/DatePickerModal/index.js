@@ -40,15 +40,19 @@ const DatePickerModal = ({
     </Block>
     <Spacer direction="column" size="L" />
     <Calendar
-      current={new Date().toISOString().slice(0, 10)}
-      minDate={new Date().toISOString().slice(0, 10)}
+      current={(new Date()).toISOString().slice(0, 10)}
+      minDate={(new Date()).toISOString().slice(0, 10)}
       onDayPress={(day) => { onSelect(day.dateString); }}
     />
   </Modal>
 );
 
 DatePickerModal.propTypes = {
-  value: PropTypes.instanceOf(Date),
+  value: PropTypes.oneOfType([
+    PropTypes.instanceOf(Date),
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   visible: PropTypes.bool,
   onSelect: PropTypes.func,
   onClose: PropTypes.func,
