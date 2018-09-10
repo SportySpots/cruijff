@@ -1,30 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import I18n from '../../../I18n/index';
 import ModalProps from '../../../RenderProps/modal-props';
 import InputField from '../InputField';
-import DatePickerModal from '../Modals/DatePickerModal';
+import SportPickerModal from '../Modals/SportPickerModal';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DatePickerField = ({ value, onChange, ...rest }) => (
+const SportPickerField = ({ value, onChange, ...rest }) => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => [
       <InputField
         key="field"
-        value={value ? moment(value).format('DD-MM') : I18n.t('Select')}
+        value={value || I18n.t('Select')}
         onPress={openModal}
         {...rest}
       />,
-      <DatePickerModal
+      <SportPickerModal
         key="modal"
-        value={value}
         visible={visible}
-        onSelect={(date) => {
+        onSelect={(sport) => {
           // Pass event up to parent component
-          onChange(date);
+          onChange(sport);
           closeModal();
         }}
         onClose={closeModal}
@@ -33,18 +31,16 @@ const DatePickerField = ({ value, onChange, ...rest }) => (
   </ModalProps>
 );
 
-DatePickerField.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+SportPickerField.propTypes = {
+  value: PropTypes.string,
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };
 
-DatePickerField.defaultProps = {
+SportPickerField.defaultProps = {
   value: '',
   onChange: () => {},
 };
 
-export default DatePickerField;
+export default SportPickerField;
+

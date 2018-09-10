@@ -22,6 +22,7 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: introduce header and body and footer components for consistency
 const Modal = ({
   children,
   closable,

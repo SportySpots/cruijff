@@ -10,7 +10,7 @@ import Row from '../../Common/Row';
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Organizer = ({ organizer, textSize }) => {
-  const TextSize = Text[textSize];
+  const TextSize = Text[textSize.toUpperCase()];
 
   return (
     <Row alignItems="center">

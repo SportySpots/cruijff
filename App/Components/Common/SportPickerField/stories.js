@@ -1,15 +1,16 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { WithApolloMockProvider } from '../../../GraphQL';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
-import DatePickerField from './index';
+import SportPickerField from './index';
 
 class Container extends React.PureComponent {
-  state = { value: 2 }
+  state = { value: null }
 
-  handleChange = (value) => {
-    this.setState({ value });
+  handleChange = (sport) => {
+    this.setState({ value: sport.name });
   }
 
   render() {
@@ -17,7 +18,7 @@ class Container extends React.PureComponent {
     const { value } = this.state;
 
     return (
-      <DatePickerField
+      <SportPickerField
         theme={theme}
         value={value}
         onChange={this.handleChange}
@@ -34,12 +35,16 @@ Container.defaultProps = {
   theme: 'black',
 };
 
-storiesOf('Common.DatePickerField', module)
-  .add('DatePickerField', () => (
-    <Container />
+storiesOf('Common.SportPickerField', module)
+  .add('SportPickerField', () => (
+    <WithApolloMockProvider>
+      <Container />
+    </WithApolloMockProvider>
   ))
   .add('SportPickerField white theme', () => (
-    <Block bgColor={Colors.primaryGreen}>
-      <Container theme="white" />
-    </Block>
+    <WithApolloMockProvider>
+      <Block bgColor={Colors.primaryGreen}>
+        <Container theme="white" />
+      </Block>
+    </WithApolloMockProvider>
   ));

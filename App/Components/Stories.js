@@ -14,7 +14,6 @@ import DefaultButton from './Common/DefaultButton';
 import SecondaryButton from './Common/SecondaryButton';
 import FlatButton from './Common/FlatButton';
 import Checkbox from './Common/Checkbox';
-import Check from './Common/Check';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
 import NavDots from './Common/NavDots';
@@ -54,11 +53,6 @@ storiesOf('Basic components', module)
   .add('Checkbox', () => (
     <View style={{ flex: 1, backgroundColor: 'green' }}>
       <Checkbox />
-    </View>
-  ))
-  .add('Check', () => (
-    <View style={{ flex: 1, backgroundColor: 'green' }}>
-      <Check />
     </View>
   ));
 

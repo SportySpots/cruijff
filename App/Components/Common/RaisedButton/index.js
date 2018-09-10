@@ -33,6 +33,7 @@ const Label = styled(Text)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: use children instead of label
 const RaisedButton = ({
   label,
   status,

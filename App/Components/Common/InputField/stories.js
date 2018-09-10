@@ -10,6 +10,22 @@ storiesOf('Common.InputField', module)
       <InputField value="I'm the value" />
     </Block>
   ))
+  .add('InputField size S', () => (
+    <Block>
+      <InputField
+        value="I'm the value"
+        size="S"
+      />
+    </Block>
+  ))
+  .add('InputField size L', () => (
+    <Block>
+      <InputField
+        value="I'm the value"
+        size="L"
+      />
+    </Block>
+  ))
   .add('InputField white theme', () => (
     <Block bgColor={Colors.primaryGreen}>
       <InputField

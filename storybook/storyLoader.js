@@ -16,10 +16,14 @@ function loadStories() {
   require('../App/Components/Common/Modals/ConfirmModal/stories');
   require('../App/Components/Common/Modals/DatePickerModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
+  require('../App/Components/Common/Modals/SportPickerModal/stories');
   require('../App/Components/Common/RaisedButton/stories');
   require('../App/Components/Common/Row/stories');
   require('../App/Components/Common/SliderWithText/stories');
   require('../App/Components/Common/Spacer/stories');
+  require('../App/Components/Common/SportCard/stories');
+  require('../App/Components/Common/SportPickerField/stories');
+  require('../App/Components/Common/SportsList/stories');
   require('../App/Components/Common/SwitchWithText/stories');
   require('../App/Components/Common/TextField/stories');
   require('../App/Components/Common/UserCircle/stories');
@@ -60,10 +64,14 @@ const stories = [
   '../App/Components/Common/Modals/ConfirmModal/stories',
   '../App/Components/Common/Modals/DatePickerModal/stories',
   '../App/Components/Common/Modals/Modal/stories',
+  '../App/Components/Common/Modals/SportPickerModal/stories',
   '../App/Components/Common/RaisedButton/stories',
   '../App/Components/Common/Row/stories',
   '../App/Components/Common/SliderWithText/stories',
   '../App/Components/Common/Spacer/stories',
+  '../App/Components/Common/SportCard/stories',
+  '../App/Components/Common/SportPickerField/stories',
+  '../App/Components/Common/SportsList/stories',
   '../App/Components/Common/SwitchWithText/stories',
   '../App/Components/Common/TextField/stories',
   '../App/Components/Common/UserCircle/stories',

@@ -20,13 +20,13 @@ const Input = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Field = ({
+const InputField = ({
   theme,
   size,
   value,
   onPress,
 }) => {
-  const TextSize = Text[size];
+  const TextSize = Text[size.toUpperCase()];
   const isWhiteTheme = theme === 'white';
 
   return (
@@ -47,18 +47,18 @@ const Field = ({
   );
 };
 
-Field.propTypes = {
+InputField.propTypes = {
   theme: PropTypes.oneOf(['white', 'black']),
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
   value: PropTypes.string,
   onPress: PropTypes.func,
 };
 
-Field.defaultProps = {
+InputField.defaultProps = {
   theme: 'black',
   size: 'M',
   value: '',
   onPress: () => {},
 };
 
-export default Field;
+export default InputField;
