@@ -25,6 +25,7 @@ const TriggerContainer = styled.View`
 // See: https://github.com/instea/react-native-popup-menu/blob/master/examples/StylingExample.js
 const optionsStyles = {
   optionsContainer: {
+    marginRight: 32,
     borderRadius: 8,
     padding: 16,
   },
