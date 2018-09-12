@@ -12,7 +12,7 @@ const Container = styled.View`
   border-width: 1;
   border-color: #ddd;
   shadow-color: #000;
-  shadow-offset: {width: 2, height: 4};
+  shadow-offset: 2px 2px;
   shadow-opacity: 0.4;
 `;
 
