@@ -38,7 +38,7 @@ const DatePickerModal = ({
         </SelectedDate>
       </Row>
     </Block>
-    <Spacer direction="column" size="L" />
+    <Spacer orientation="column" size="L" />
     <Calendar
       current={(new Date()).toISOString().slice(0, 10)}
       minDate={(new Date()).toISOString().slice(0, 10)}

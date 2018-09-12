@@ -29,7 +29,7 @@ const CancelGameConfirmationModal = ({ visible, onClose }) => (
     onOk={onClose}
   >
     <Img source={themeImages.activityCancelledVisual} />
-    <Spacer size="L" />
+    <Spacer orientation="column" size="L" />
     <Centered>{`${I18n.t('The activity is cancelled')}.`}</Centered>
   </ConfirmModal>
 );

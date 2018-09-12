@@ -23,7 +23,7 @@ const SportCard = ({ sport, onSelect }) => (
             : themeIcons.soccer
           )}
         />
-        <Spacer direction="row" size="XL" />
+        <Spacer orientation="row" size="XL" />
         <Text.M>{I18n.t(sport.name)}</Text.M>
       </Row>
     </Block>

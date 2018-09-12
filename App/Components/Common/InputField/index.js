@@ -32,7 +32,7 @@ const InputField = ({
   return (
     <TouchableOpacity onPress={onPress}>
       <Row>
-        <Spacer direction="row" size="M" />
+        <Spacer orientation="row" size="M" />
         <Input isWhiteTheme={isWhiteTheme}>
           <TextSize>{value}</TextSize>
         </Input>
@@ -41,7 +41,7 @@ const InputField = ({
           name="keyboard-arrow-down"
           color={isWhiteTheme ? Colors.white : Colors.black}
         />
-        <Spacer direction="row" size="M" />
+        <Spacer orientation="row" size="M" />
       </Row>
     </TouchableOpacity>
   );
