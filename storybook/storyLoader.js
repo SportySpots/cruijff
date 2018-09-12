@@ -30,7 +30,8 @@ function loadStories() {
   require('../App/Components/Common/UserCircle/stories');
   require('../App/Components/DarkFooter/Stories');
   require('../App/Components/Games/Attendees/stories');
-  require('../App/Components/Games/CancelGameConfirmationModal/stories');
+  require('../App/Components/Games/CancelGameConfirmModal/stories');
+  require('../App/Components/Games/CancelGameDoneModal/stories');
   require('../App/Components/Games/ClickableAttendees/stories');
   require('../App/Components/Games/GameCanceledFlag/stories');
   require('../App/Components/Games/GameDetails/stories');
@@ -81,7 +82,8 @@ const stories = [
   '../App/Components/Common/UserCircle/stories',
   '../App/Components/DarkFooter/Stories',
   '../App/Components/Games/Attendees/stories',
-  '../App/Components/Games/CancelGameConfirmationModal/stories',
+  '../App/Components/Games/CancelGameConfirmModal/stories',
+  '../App/Components/Games/CancelGameDoneModal/stories',
   '../App/Components/Games/ClickableAttendees/stories',
   '../App/Components/Games/GameCanceledFlag/stories',
   '../App/Components/Games/GameDetails/stories',

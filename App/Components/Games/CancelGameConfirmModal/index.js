@@ -5,7 +5,7 @@ import I18n from '../../../I18n/index';
 import themeImages from '../../../Themes/Images';
 import Text from '../../../Components/Common/Text';
 import Spacer from '../../../Components/Common/Spacer';
-import ConfirmModal from '../../../Components/Common/Modals/ConfirmModal';
+import ConfirmModal from '../../Common/Modals/ButtonModal';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -21,7 +21,9 @@ const Centered = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const CancelGameConfirmationModal = ({ visible, onClose }) => (
+const CancelGameConfirmModal = ({ visible, onClose }) => (
+
+
   <ConfirmModal
     visible={visible}
     onClose={onClose}
@@ -34,14 +36,14 @@ const CancelGameConfirmationModal = ({ visible, onClose }) => (
   </ConfirmModal>
 );
 
-CancelGameConfirmationModal.propTypes = {
+CancelGameConfirmModal.propTypes = {
   visible: PropTypes.bool,
   onClose: PropTypes.func,
 };
 
-CancelGameConfirmationModal.defaultProps = {
+CancelGameConfirmModal.defaultProps = {
   visible: false,
   onClose: () => {},
 };
 
-export default CancelGameConfirmationModal;
+export default CancelGameConfirmModal;

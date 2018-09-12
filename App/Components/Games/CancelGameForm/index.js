@@ -164,13 +164,15 @@ class CancelGameForm extends React.PureComponent {
               error={cancelMsgErrors}
             />
           </Block>,
-          <Divider key="divider-alert-warning" />,
-          <Block key="alert-warning">
-            <AlertMsg
-              value={`${I18n.t('All attendees will receive an email update with your reason for cancellation')}.`}
-              status="warning"
-            />
-          </Block>,
+          false && [
+            <Divider key="divider-alert-warning" />,
+            <Block key="alert-warning">
+              <AlertMsg
+                value={`${I18n.t('All attendees will receive an email update with your reason for cancellation')}.`}
+                status="warning"
+              />
+            </Block>,
+          ],
         ]}
       </Top>,
       <Bottom key="bottom">

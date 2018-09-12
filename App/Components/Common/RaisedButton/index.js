@@ -20,12 +20,9 @@ const Container = styled.View`
   min-width: 80px;
   border-radius: ${({ size }) => (getPixelsFromSize(size).borderRadius)};
   border: 1px solid ${({ disabled, bgColor }) => (disabled ? Colors.lightGray : bgColor)};
-  shadow-color: #000;
-  shadow-offset: {width: 2, height: 2};
-  shadow-opacity: 0.2;
 `;
 //------------------------------------------------------------------------------
-const Label = styled(Text)`
+const Label = styled(Text.M)`
   font-size: ${Fonts.style.M.fontSize};
   color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
   font-weight: 500;
