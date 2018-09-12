@@ -13,7 +13,7 @@ const ButtonContainer = styled.View`
   margin: 16px;
   height: 56px;
   border: 1px solid ${props => props.borderColor || props.bgColor};
-  border-radius: 4px;
+  border-radius: 8px;
 `;
 
 const ButtonLabel = styled(Text.M)`

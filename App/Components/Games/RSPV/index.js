@@ -5,6 +5,7 @@ import { Alert } from 'react-native';
 import I18n from '../../../I18n/index';
 import API from '../../../Services/SeedorfApi';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
+import Row from '../../Common/Row';
 import AttendingBtn from './AttendingBtn';
 import DeclinedBtn from './DeclinedBtn';
 import AttendingDeclinedBtn from './AttendingDeclinedBtn';
@@ -78,20 +79,20 @@ class RSPV extends React.PureComponent {
     const status = this.userStatus;
 
     if (!status) {
-      return [
-        <AttendingBtn
-          key="attending-btn"
-          onPress={() => {
-            this.setRSVPStatus(RSVP_STATUSES.ATTENDING);
-          }}
-        />,
-        <DeclinedBtn
-          key="declined-btn"
-          onPress={() => {
-            this.setRSVPStatus(RSVP_STATUSES.DECLINED);
-          }}
-        />,
-      ];
+      return (
+        <Row>
+          <AttendingBtn
+            onPress={() => {
+              this.setRSVPStatus(RSVP_STATUSES.ATTENDING);
+            }}
+          />
+          <DeclinedBtn
+            onPress={() => {
+              this.setRSVPStatus(RSVP_STATUSES.DECLINED);
+            }}
+          />
+        </Row>
+      );
     }
 
     return (

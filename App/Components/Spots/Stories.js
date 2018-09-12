@@ -17,7 +17,6 @@ const dummyNavigator = {
   },
 };
 
-
 storiesOf('Spots', module)
   .add('SpotListCard', () => (
     <WithApolloMockProvider>

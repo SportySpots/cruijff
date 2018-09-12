@@ -1,19 +1,19 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import { Query } from 'react-apollo';
-import { View } from 'react-native';
-import { WithApolloMockProvider } from '../../GraphQL';
+// import { Query } from 'react-apollo';
+// import { View } from 'react-native';
+// import { WithApolloMockProvider } from '../../GraphQL';
 
-import GameListCard from './GameListCard';
+// import GameListCard from './GamesList/GameCard';
 import GameProperties from './GameProperties';
-import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
+// import GET_GAMES_LIST from '../../GraphQL/Games/Queries/GET_GAMES_LIST';
 
-const dummyNavigator = {
+/* const dummyNavigator = {
   navigate: () => null,
   state: {
     params: { uuid: 1 },
   },
-};
+}; */
 
 const game = {
   uuid: '6b7588e0-0c95-4797-94ea-51b03e1eedbf',
@@ -72,9 +72,9 @@ const game = {
 };
 
 storiesOf('Games', module)
-  .add('GameProperties', () => <GameProperties game={game} />)
-  .add('GameListCard', () => (
+  .add('GameProperties', () => <GameProperties game={game} />);
+  /* .add('GameListCard', () => (
     <View>
       <GameListCard game={game} />
     </View>
-  ));
+  )); */
