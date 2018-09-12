@@ -20,42 +20,42 @@ storiesOf('Common.Spacer', module)
   .add('Spacer size S direction row', () => (
     <Row style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
-      <Spacer size="S" direction="row" />
+      <Spacer size="S" orientation="row" />
       <HorizontalBlock />
     </Row>
   ))
   .add('Spacer size M direction row', () => (
     <Row style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
-      <Spacer size="M" direction="row" />
+      <Spacer size="M" orientation="row" />
       <HorizontalBlock />
     </Row>
   ))
   .add('Spacer size L direction row', () => (
     <Row style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
-      <Spacer size="L" direction="row" />
+      <Spacer size="L" orientation="row" />
       <HorizontalBlock />
     </Row>
   ))
   .add('Spacer size S direction column', () => (
     <View style={{ flex: 1, borderWidth: 1, borderColor: 'blue' }}>
       <VerticalBlock />
-      <Spacer size="S" direction="column" />
+      <Spacer size="S" orientation="column" />
       <VerticalBlock />
     </View>
   ))
   .add('Spacer size M direction column', () => (
     <View style={{ flex: 1, borderWidth: 1, borderColor: 'blue' }}>
       <VerticalBlock />
-      <Spacer size="M" direction="column" />
+      <Spacer size="M" orientation="column" />
       <VerticalBlock />
     </View>
   ))
   .add('Spacer size L direction column', () => (
     <View style={{ flex: 1, borderWidth: 1, borderColor: 'blue' }}>
       <VerticalBlock />
-      <Spacer size="L" direction="column" />
+      <Spacer size="L" orientation="column" />
       <VerticalBlock />
     </View>
   ));

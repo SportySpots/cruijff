@@ -15,7 +15,7 @@ const Organizer = ({ organizer, textSize }) => {
   return (
     <Row alignItems="center">
       <UserCircle user={organizer} />
-      <Spacer direction="row" size="M" />
+      <Spacer orientation="row" size="M" />
       <TextSize>
         {organizer.first_name} {organizer.last_name}
       </TextSize>

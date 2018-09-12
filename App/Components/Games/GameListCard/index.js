@@ -116,18 +116,18 @@ const GameListCard = ({ game }) => {
               size={24}
               style={{ backgroundColor: 'transparent' }}
             />
-            <Spacer direction="row" size="M" />
+            <Spacer orientation="row" size="M" />
             <SmallText>
               {formattedStartTime}
             </SmallText>
-            <Spacer direction="row" size="L" />
+            <Spacer orientation="row" size="L" />
             <CommunityIcon
               name="map-marker"
               color={Colors.white}
               size={24}
               style={{ backgroundColor: 'transparent' }}
             />
-            <Spacer direction="row" size="M" />
+            <Spacer orientation="row" size="M" />
             <SmallText>
               {spot.name}
             </SmallText>

@@ -30,7 +30,7 @@ const SliderWithText = ({
     <Text.SM style={{ color: Colors.gray }}>
       {description}
     </Text.SM>
-    <Spacer direction="column" size="L" />
+    <Spacer orientation="column" size="L" />
     <Slider
       value={(value / (max - min))}
       onChange={val => onChange(val * (max - min))}
