@@ -4,29 +4,25 @@ import styled from 'styled-components';
 // import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Text from '../Text';
+import Block from '../Block';
+import Row from '../Row';
+import Spacer from '../Spacer';
 import getPalette from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.View`
-  display: flex;
-  flex-direction: row;
-  background-color: ${({ bgColor }) => (bgColor)};
-  padding: 16px;
+const StyledBlock = styled(Block)`
   border-radius: 4px;
 `;
 //------------------------------------------------------------------------------
-const Left = styled.View`
-  margin-right: 8px;
+const FullWidth = styled.View`
+  flex: 1; /* full width */
 `;
 //------------------------------------------------------------------------------
-const Right = styled.View`
-  flex: 1;
-`;
-//------------------------------------------------------------------------------
+// TODO: replace this with Text.M[color]
 const Message = styled(Text.M)`
-  color: ${({ color }) => (color)}
+  color: ${({ color }) => (color)};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -36,20 +32,21 @@ const AlertMsg = ({ status, value }) => {
   const { iconName, fontColor, bgColor } = palette;
 
   return (
-    <Container bgColor={bgColor}>
-      <Left>
+    <StyledBlock bgColor={bgColor}>
+      <Row>
         <Icon
           name={iconName}
           size={24}
           color={fontColor}
         />
-      </Left>
-      <Right>
-        <Message color={fontColor}>
-          {value}
-        </Message>
-      </Right>
-    </Container>
+        <Spacer orientation="row" size="M" />
+        <FullWidth>
+          <Message color={fontColor}>
+            {value}
+          </Message>
+        </FullWidth>
+      </Row>
+    </StyledBlock>
   );
 };
 
