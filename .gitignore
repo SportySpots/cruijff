@@ -65,6 +65,7 @@ buck-out/
 # Misc
 #
 .env
+.env.old
 !.env.example
 
 # vscode
