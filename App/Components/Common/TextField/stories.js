@@ -6,7 +6,7 @@ import TextField from './index';
 
 storiesOf('Common.TextField', module)
   .add('TextField', () => (
-    <Block>
+    <Block flex={1}>
       <TextField
         label="I'm the label"
         value="I'm the value"
@@ -14,7 +14,7 @@ storiesOf('Common.TextField', module)
     </Block>
   ))
   .add('TextField with error', () => (
-    <Block>
+    <Block flex={1}>
       <TextField
         label="I'm the label"
         value="I'm the value"
@@ -23,7 +23,7 @@ storiesOf('Common.TextField', module)
     </Block>
   ))
   .add('TextField with characterRestriction = 20', () => (
-    <Block>
+    <Block flex={1}>
       <TextField
         label="I'm the label"
         value="I'm the value"
@@ -32,9 +32,20 @@ storiesOf('Common.TextField', module)
     </Block>
   ))
   .add('TextField with white theme', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor={Colors.primaryGreen} flex={1}>
       <TextField
         theme="white"
+        label="I'm the label"
+        value="I'm the value"
+        characterRestriction={20}
+      />
+    </Block>
+  ))
+  .add('TextField with white theme size L', () => (
+    <Block bgColor={Colors.primaryGreen} flex={1}>
+      <TextField
+        theme="white"
+        size="L"
         label="I'm the label"
         value="I'm the value"
         characterRestriction={20}

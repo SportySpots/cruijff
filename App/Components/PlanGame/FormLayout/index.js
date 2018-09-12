@@ -47,12 +47,13 @@ const FormLayout = ({
       </TouchableOpacity>
     </Row>
     <Spacer orientation="column" size="XXL" />
+    <Spacer orientation="column" size="XL" />
     {children}
   </StyledBlock>
 );
 
 FormLayout.propTypes = {
-  children: PropTypes.oneOf([
+  children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func,
   ]).isRequired,

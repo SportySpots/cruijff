@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { propType } from 'graphql-anywhere';
+import { View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
@@ -13,7 +14,8 @@ import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
 import TextField from '../../Common/TextField';
 import FormLayout from '../FormLayout';
-import { Title, Label, FormField } from '../style';
+import { Title, Label } from '../style';
+import Fonts from '../../../Themes/Fonts';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -42,6 +44,7 @@ const SportAndTime = ({
           onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
         />
       </Row>
+      <Spacer size="XXL" />
       <Row>
         <Label>{I18n.t('on')}</Label>
         <Spacer orientation="row" size="S" />
@@ -52,6 +55,7 @@ const SportAndTime = ({
           onChange={(value) => { onChange({ fieldName: 'date', value }); }}
         />
       </Row>
+      <Spacer size="XXL" />
       <Row>
         <Label>{I18n.t('at')}</Label>
         <Spacer orientation="row" size="S" />
@@ -61,23 +65,39 @@ const SportAndTime = ({
           theme="white"
           onChange={(value) => { onChange({ fieldName: 'time', value }); }}
         />
+        <Spacer orientation="row" size="M" />
+        <Label>{I18n.t('during')}</Label>
+        <Spacer orientation="row" size="L" />
+        <View style={{ flex: 1, marginTop: -22 }}>
+          <TextField
+            label=""
+            value={duration}
+            onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
+            theme="white"
+            size="ML"
+            inputContainerPadding={4}
+            inputContainerStyle={{ paddingHorizontal: 8 }}
+          />
+        </View>
       </Row>
-      {/* <Row>
-        // Duration
-        <Label>{I18n.t('at')}</Label>
-        <TimePickerField
-          value={time}
-          onChange={(value) => { onChange({ fieldName: 'time', value }); }}
-        />
-      </Row>
+      <Spacer size="XXL" />
       <Row>
         <Label>{I18n.t('with')}</Label>
-        <TextField
-          value={capacity}
-          onBlur={(value) => { onChange({ fieldName: 'capacity', value }); }}
-        />
-        <Label> {I18n.t('people')}</Label>
-      </Row> */}
+        <Spacer orientation="row" size="L" />
+        <View style={{ width: 50, marginTop: -22 }}>
+          <TextField
+            label=""
+            value={capacity}
+            onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
+            theme="white"
+            size="ML"
+            inputContainerPadding={4}
+            inputContainerStyle={{ paddingHorizontal: 8 }}
+          />
+        </View>
+        <Spacer orientation="row" size="L" />
+        <Label>{I18n.t('people')}</Label>
+      </Row>
     </KeyboardAwareScrollView>
   </FormLayout>
 );
