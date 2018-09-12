@@ -114,6 +114,7 @@ const GameListCard = ({ game }) => {
               name="ios-time"
               color={Colors.white}
               size={24}
+              style={{ backgroundColor: 'transparent' }}
             />
             <Spacer direction="row" size="M" />
             <SmallText>
@@ -124,6 +125,7 @@ const GameListCard = ({ game }) => {
               name="map-marker"
               color={Colors.white}
               size={24}
+              style={{ backgroundColor: 'transparent' }}
             />
             <Spacer direction="row" size="M" />
             <SmallText>
