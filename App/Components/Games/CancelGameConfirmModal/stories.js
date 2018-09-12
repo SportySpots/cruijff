@@ -25,34 +25,5 @@ const Container = () => (
   </ModalProps>
 );
 
-const ContainerWithTimeout = () => (
-  <ModalProps>
-    {({ visible, openModal, closeModal }) => (
-      <View>
-        <TouchableOpacity
-          onPress={() => {
-            openModal();
-            const handle = setTimeout(() => {
-              closeModal();
-              clearTimeout(handle);
-            }, 2000);
-          }}
-          style={{ backgroundColor: 'red' }}
-        >
-          <Text style={{ textAlign: 'center' }}>
-            Open
-          </Text>
-        </TouchableOpacity>
-        <CancelGameDoneModal
-          visible={visible}
-          closable={false}
-        />
-      </View>
-    )}
-  </ModalProps>
-);
-
-storiesOf('Games.CancelGameDoneModal', module)
-  .add('CancelGameDoneModal', () => <Container />)
-  .add('CancelGameDoneModal with timeOut', () => <ContainerWithTimeout />);
-
+storiesOf('Games.CancelGame', module)
+  .add('CancelGameConfirmModal', () => <Container />);

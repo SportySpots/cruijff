@@ -52,7 +52,7 @@ const ContainerWithTimeout = () => (
   </ModalProps>
 );
 
-storiesOf('Games.CancelGameDoneModal', module)
+storiesOf('Games.CancelGame', module)
   .add('CancelGameDoneModal', () => <Container />)
   .add('CancelGameDoneModal with timeOut', () => <ContainerWithTimeout />);
 
