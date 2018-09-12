@@ -11,7 +11,7 @@ import I18n from '../../../I18n/index';
 import api from '../../../Services/SeedorfApi';
 import Colors from '../../../Themes/Colors';
 import Footer from '../../../Components/DarkFooter';
-import SportDateTimeForm from '../../../Components/PlanGame/SportDateTimeForm/index.js';
+import SportDateTimeForm from '../../../Components/PlanGame/SportDateTimeForm/';
 import SpotForm from '../../../Components/PlanGame/SpotForm';
 import DescriptionForm from '../../../Components/PlanGame/DescriptionForm';
 import ShareForm from '../../../Components/PlanGame/ShareForm';
