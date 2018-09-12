@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 import ModalProps from '../../../RenderProps/modal-props';
-import CancelGameConfirmationModal from './index';
+import CancelGameConfirmModal from './index';
 
 const Container = () => (
   <ModalProps>
@@ -16,7 +16,7 @@ const Container = () => (
             Open
           </Text>
         </TouchableOpacity>
-        <CancelGameConfirmationModal
+        <CancelGameConfirmModal
           visible={visible}
           onClose={closeModal}
         />
@@ -43,7 +43,7 @@ const ContainerWithTimeout = () => (
             Open
           </Text>
         </TouchableOpacity>
-        <CancelGameConfirmationModal
+        <CancelGameDoneModal
           visible={visible}
           closable={false}
         />
@@ -52,7 +52,7 @@ const ContainerWithTimeout = () => (
   </ModalProps>
 );
 
-storiesOf('Games.CancelGameConfirmationModal', module)
-  .add('CancelGameConfirmationModal', () => <Container />)
-  .add('CancelGameConfirmationModal with timeOut', () => <ContainerWithTimeout />);
+storiesOf('Games.CancelGameDoneModal', module)
+  .add('CancelGameDoneModal', () => <Container />)
+  .add('CancelGameDoneModal with timeOut', () => <ContainerWithTimeout />);
 

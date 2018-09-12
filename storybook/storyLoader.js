@@ -10,7 +10,7 @@ function loadStories() {
   require('../App/Components/Common/Block/stories');
   require('../App/Components/Common/Divider/stories');
   require('../App/Components/Common/DotSpacer/stories');
-  require('../App/Components/Common/Modals/ConfirmModal/stories');
+  require('../App/Components/Common/Modals/ButtonModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
   require('../App/Components/Common/RaisedButton/stories');
   require('../App/Components/Common/Row/stories');
@@ -21,7 +21,7 @@ function loadStories() {
   require('../App/Components/Common/UserCircle/stories');
   require('../App/Components/DarkFooter/Stories');
   require('../App/Components/Games/Attendees/stories');
-  require('../App/Components/Games/CancelGameConfirmationModal/stories');
+  require('../App/Components/Games/CancelGameDoneModal/stories');
   require('../App/Components/Games/ClickableAttendees/stories');
   require('../App/Components/Games/GameCanceledFlag/stories');
   require('../App/Components/Games/GameDetails/stories');
@@ -40,7 +40,7 @@ function loadStories() {
   require('../App/Screens/Plan/Stories');
   require('../App/Screens/Profile/Stories');
   require('../App/Screens/Stories');
-  
+
 }
 
 const stories = [
@@ -79,7 +79,7 @@ const stories = [
   '../App/Screens/Plan/Stories',
   '../App/Screens/Profile/Stories',
   '../App/Screens/Stories',
-  
+
 ];
 
 module.exports = {
