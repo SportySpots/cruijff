@@ -51,7 +51,7 @@ const SpotsFilter = ({
       />,
       <Spacer
         key={`spacer-${sport.id}`}
-        direction="column"
+        orientation="column"
         size="XL"
       />,
     ])}

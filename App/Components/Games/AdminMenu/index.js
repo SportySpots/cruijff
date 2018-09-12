@@ -26,6 +26,8 @@ const TriggerContainer = styled.View`
 const optionsStyles = {
   optionsContainer: {
     borderRadius: 8,
+  },
+  optionWrapper: {
     padding: 16,
   },
 };

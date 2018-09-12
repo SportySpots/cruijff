@@ -31,7 +31,7 @@ const SwitchWithText = ({
         {description}
       </Text.SM>
     </Left>
-    <Spacer direction="row" size="M" />
+    <Spacer orientation="row" size="M" />
     <Switch
       value={value}
       onValueChange={() => onChange(!value)}

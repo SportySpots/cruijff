@@ -8,31 +8,31 @@ import getPixelsFromSize from './utils';
 //------------------------------------------------------------------------------
 const StyledView = styled.View`
   background-color: transparent;
-  width: ${({ direction, pixels }) => (direction === 'row' ? `${pixels}px` : 'auto')};
-  height: ${({ direction, pixels }) => (direction === 'column' ? `${pixels}px` : 'auto')};
+  width: ${({ orientation, pixels }) => (orientation === 'row' ? `${pixels}px` : 'auto')};
+  height: ${({ orientation, pixels }) => (orientation === 'column' ? `${pixels}px` : 'auto')};
   /* border: 1px solid green; */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Spacer = ({ direction, size }) => {
+const Spacer = ({ orientation, size }) => {
   const pixels = getPixelsFromSize(size);
 
   return (
     <StyledView
-      direction={direction}
+      orientation={orientation}
       pixels={pixels}
     />
   );
 };
 
 Spacer.propTypes = {
-  direction: PropTypes.oneOf(['row', 'column']),
+  orientation: PropTypes.oneOf(['row', 'column']),
   size: PropTypes.oneOf(['S', 'M', 'L', 'XL', 'XXL']),
 };
 
 Spacer.defaultProps = {
-  direction: 'column',
+  orientation: 'column',
   size: 'M',
 };
 
