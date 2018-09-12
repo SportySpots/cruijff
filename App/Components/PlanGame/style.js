@@ -16,6 +16,4 @@ export const FormField = styled.View`
   flex-direction: row;
   align-items: center;
   margin: 16px 0;
-  /* flex: 1;
-  flex-wrap: wrap; */
 `;

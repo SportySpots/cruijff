@@ -9,18 +9,12 @@ import Colors from '../../../Themes/Colors';
 import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
 import TimePickerField from '../../Common/TimePickerField';
+import Spacer from '../../Common/Spacer';
+import Row from '../../Common/Row';
 import TextField from '../../Common/TextField';
 import FormLayout from '../FormLayout';
 import { Title, Label, FormField } from '../style';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Container = styled.View`
-  flex: 1;
-  background-color: ${Colors.primaryGreen};
-  padding-top: 48px;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -38,49 +32,52 @@ const SportAndTime = ({
     bgColor={Colors.primaryGreen}
   >
     <KeyboardAwareScrollView>
-      <FormField>
+      <Row>
         <Label>{I18n.t('I want to play')}</Label>
+        <Spacer orientation="row" size="S" />
         <SportPickerField
           value={(sport && sport.name) || ''}
           size="ML"
           theme="white"
           onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
         />
-      </FormField>
-      <FormField>
+      </Row>
+      <Row>
         <Label>{I18n.t('on')}</Label>
+        <Spacer orientation="row" size="S" />
         <DatePickerField
           value={date}
           size="ML"
           theme="white"
           onChange={(value) => { onChange({ fieldName: 'date', value }); }}
         />
-      </FormField>
-      <FormField>
+      </Row>
+      <Row>
         <Label>{I18n.t('at')}</Label>
+        <Spacer orientation="row" size="S" />
         <TimePickerField
           value={time}
           size="ML"
           theme="white"
           onChange={(value) => { onChange({ fieldName: 'time', value }); }}
         />
-      </FormField>
-      {/* <FormField>
+      </Row>
+      {/* <Row>
         // Duration
         <Label>{I18n.t('at')}</Label>
         <TimePickerField
           value={time}
           onChange={(value) => { onChange({ fieldName: 'time', value }); }}
         />
-      </FormField>
-      <FormField>
+      </Row>
+      <Row>
         <Label>{I18n.t('with')}</Label>
         <TextField
           value={capacity}
           onBlur={(value) => { onChange({ fieldName: 'capacity', value }); }}
         />
         <Label> {I18n.t('people')}</Label>
-      </FormField> */}
+      </Row> */}
     </KeyboardAwareScrollView>
   </FormLayout>
 );

@@ -17,6 +17,7 @@ function loadStories() {
   require('../App/Components/Common/Modals/DatePickerModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
   require('../App/Components/Common/Modals/SportPickerModal/stories');
+  require('../App/Components/Common/PrefixSuffix/stories');
   require('../App/Components/Common/RaisedButton/stories');
   require('../App/Components/Common/Row/stories');
   require('../App/Components/Common/SliderWithText/stories');
@@ -69,6 +70,7 @@ const stories = [
   '../App/Components/Common/Modals/DatePickerModal/stories',
   '../App/Components/Common/Modals/Modal/stories',
   '../App/Components/Common/Modals/SportPickerModal/stories',
+  '../App/Components/Common/PrefixSuffix/stories',
   '../App/Components/Common/RaisedButton/stories',
   '../App/Components/Common/Row/stories',
   '../App/Components/Common/SliderWithText/stories',
