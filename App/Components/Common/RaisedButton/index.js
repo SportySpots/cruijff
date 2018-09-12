@@ -25,7 +25,7 @@ const Container = styled.View`
   shadow-opacity: 0.2;
 `;
 //------------------------------------------------------------------------------
-const Label = styled(Text)`
+const Label = styled(Text.M)`
   font-size: ${Fonts.style.M.fontSize};
   color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
   font-weight: 500;

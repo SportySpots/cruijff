@@ -129,15 +129,6 @@ class CancelGameScreen extends React.PureComponent {
                 onCancelMsgChange={this.handleCancelMsgChange}
               />
             </Container>,
-            <ButtonContainer key="button">
-              <DefaultButton
-                bgColor={this.disabled ? Colors.gray : Colors.red}
-                textColor={Colors.white}
-                text={I18n.t('Cancel this activity')}
-                disabled={disabled}
-                onPress={this.handleSubmit}
-              />
-            </ButtonContainer>,
           ];
         }}
       </Query>
