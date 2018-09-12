@@ -7,10 +7,15 @@ import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
 
 //------------------------------------------------------------------------------
 // STYLE:
+//------------------------------------------------------------------------------
+const StyledBlock = styled(Block)`
+  padding: 32px;
+`;
 //------------------------------------------------------------------------------
 export const Title = styled(Text.L)`
   color: ${({ color }) => (color)};
@@ -25,7 +30,7 @@ const FormLayout = ({
   bgColor,
   onClose,
 }) => (
-  <Block bgColor={bgColor} flex={1}>
+  <StyledBlock bgColor={bgColor} flex={1}>
     <Row
       justifyContent="space-between"
       alignItems="center"
@@ -41,8 +46,9 @@ const FormLayout = ({
         />
       </TouchableOpacity>
     </Row>
+    <Spacer orientation="column" size="XXL" />
     {children}
-  </Block>
+  </StyledBlock>
 );
 
 FormLayout.propTypes = {

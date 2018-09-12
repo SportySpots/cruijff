@@ -10,6 +10,7 @@ import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
 import TimePickerField from '../../Common/TimePickerField';
 import TextField from '../../Common/TextField';
+import FormLayout from '../FormLayout';
 import { Title, Label, FormField } from '../style';
 
 //------------------------------------------------------------------------------
@@ -31,9 +32,12 @@ const SportAndTime = ({
   capacity,
   onChange,
 }) => (
-  <Container>
+  <FormLayout
+    title={I18n.t('Plan a game')}
+    titleColor={Colors.white}
+    bgColor={Colors.primaryGreen}
+  >
     <KeyboardAwareScrollView>
-      <Title>{I18n.t('Plan a game')}</Title>
       <FormField>
         <Label>{I18n.t('I want to play')}</Label>
         <SportPickerField
@@ -78,7 +82,7 @@ const SportAndTime = ({
         <Label> {I18n.t('people')}</Label>
       </FormField> */}
     </KeyboardAwareScrollView>
-  </Container>
+  </FormLayout>
 );
 
 SportAndTime.propTypes = {
