@@ -10,6 +10,7 @@ import Colors from '../../../Themes/Colors';
 import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
 import TimePickerField from '../../Common/TimePickerField';
+import DurationPickerField from '../../Common/DurationPickerField';
 import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
 import TextField from '../../Common/TextField';
@@ -33,72 +34,70 @@ const SportAndTime = ({
     titleColor={Colors.white}
     bgColor={Colors.primaryGreen}
   >
-    <KeyboardAwareScrollView>
-      <Row>
-        <Label>{I18n.t('I want to play')}</Label>
-        <Spacer orientation="row" size="S" />
-        <SportPickerField
-          value={(sport && sport.name) || ''}
-          size="ML"
+    <Row>
+      <Label>{I18n.t('I want to play')}</Label>
+      <Spacer orientation="row" size="S" />
+      <SportPickerField
+        value={(sport && sport.name) || ''}
+        size="ML"
+        theme="white"
+        onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
+      />
+    </Row>
+    <Spacer size="XXL" />
+    <Row>
+      <Label>{I18n.t('on')}</Label>
+      <Spacer orientation="row" size="S" />
+      <DatePickerField
+        value={date}
+        size="ML"
+        theme="white"
+        onChange={(value) => { onChange({ fieldName: 'date', value }); }}
+      />
+    </Row>
+    <Spacer size="XXL" />
+    <Row>
+      <Label>{I18n.t('at')}</Label>
+      <Spacer orientation="row" size="S" />
+      <TimePickerField
+        value={time}
+        size="ML"
+        theme="white"
+        onChange={(value) => { onChange({ fieldName: 'time', value }); }}
+      />
+      <Spacer orientation="row" size="M" />
+      <Label>{I18n.t('during')}</Label>
+      <Spacer orientation="row" size="S" />
+      <View style={{ flex: 1, marginTop: -32, borderColor: 'transparent', borderWidth: 1 }}>
+        <DurationPickerField
+          label=""
+          value={duration}
+          onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
           theme="white"
-          onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
-        />
-      </Row>
-      <Spacer size="XXL" />
-      <Row>
-        <Label>{I18n.t('on')}</Label>
-        <Spacer orientation="row" size="S" />
-        <DatePickerField
-          value={date}
           size="ML"
-          theme="white"
-          onChange={(value) => { onChange({ fieldName: 'date', value }); }}
+          // inputContainerPadding={4}
+          // inputContainerStyle={{ paddingHorizontal: 8 }}
         />
-      </Row>
-      <Spacer size="XXL" />
-      <Row>
-        <Label>{I18n.t('at')}</Label>
-        <Spacer orientation="row" size="S" />
-        <TimePickerField
-          value={time}
+      </View>
+    </Row>
+    <Spacer size="XXL" />
+    <Row>
+      <Label>{I18n.t('with')}</Label>
+      <Spacer orientation="row" size="L" />
+      <View style={{ width: 50, marginTop: -22 }}>
+        <TextField
+          label=""
+          value={capacity}
+          onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
+          theme="white"
           size="ML"
-          theme="white"
-          onChange={(value) => { onChange({ fieldName: 'time', value }); }}
+          inputContainerPadding={4}
+          inputContainerStyle={{ paddingHorizontal: 8 }}
         />
-        <Spacer orientation="row" size="M" />
-        <Label>{I18n.t('during')}</Label>
-        <Spacer orientation="row" size="L" />
-        <View style={{ flex: 1, marginTop: -22 }}>
-          <TextField
-            label=""
-            value={duration}
-            onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
-            theme="white"
-            size="ML"
-            inputContainerPadding={4}
-            inputContainerStyle={{ paddingHorizontal: 8 }}
-          />
-        </View>
-      </Row>
-      <Spacer size="XXL" />
-      <Row>
-        <Label>{I18n.t('with')}</Label>
-        <Spacer orientation="row" size="L" />
-        <View style={{ width: 50, marginTop: -22 }}>
-          <TextField
-            label=""
-            value={capacity}
-            onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
-            theme="white"
-            size="ML"
-            inputContainerPadding={4}
-            inputContainerStyle={{ paddingHorizontal: 8 }}
-          />
-        </View>
-        <Spacer orientation="row" size="L" />
-        <Label>{I18n.t('people')}</Label>
-      </Row>
-    </KeyboardAwareScrollView>
+      </View>
+      <Spacer orientation="row" size="L" />
+      <Label>{I18n.t('people')}</Label>
+    </Row>
   </FormLayout>
 );
 

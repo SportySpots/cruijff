@@ -27,7 +27,7 @@ const Spacer = ({ orientation, size }) => {
 
 Spacer.propTypes = {
   orientation: PropTypes.oneOf(['row', 'column']),
-  size: PropTypes.oneOf(['S', 'M', 'L', 'XL', 'XXL', 'XXL']),
+  size: PropTypes.oneOf(['S', 'M', 'L', 'XL', 'XXL', 'XXL', 'XXXL']),
 };
 
 Spacer.defaultProps = {

@@ -29,7 +29,7 @@ const Dropdown = ({ theme, size, ...rest }) => {
           labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}    
           animationDuration={150}
           baseColor={isWhiteTheme ? Colors.white : Colors.black}
-          activeLineWidth={2}
+          lineWidth={1}
           dropdownPosition={-3.5}
           // Hide default carret
           renderAccessory={() => (null)}
