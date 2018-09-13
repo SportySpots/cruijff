@@ -163,5 +163,8 @@
   "Write here why the activity does not continue": "Schrijf hier waarom de activiteit niet doorgaat",
   "The activity is cancelled": "Je activiteit is geannuleerd",
   "Canceled": "Geannuleerd",
-  "This activity is canceled": "Deze activiteit is geannuleerd"
+  "This activity is canceled": "Deze activiteit is geannuleerd",
+  "minutes": "minuten",
+  "hours": "uur",
+  "Undetermined": "Onbepaald"
 }

@@ -13,6 +13,7 @@ function loadStories() {
   require('../App/Components/Common/Divider/stories');
   require('../App/Components/Common/DotSpacer/stories');
   require('../App/Components/Common/Dropdown/stories');
+  require('../App/Components/Common/DurationPickerField/stories');
   require('../App/Components/Common/InputField/stories');
   require('../App/Components/Common/Modals/ConfirmModal/stories');
   require('../App/Components/Common/Modals/DatePickerModal/stories');
@@ -66,6 +67,7 @@ const stories = [
   '../App/Components/Common/Divider/stories',
   '../App/Components/Common/DotSpacer/stories',
   '../App/Components/Common/Dropdown/stories',
+  '../App/Components/Common/DurationPickerField/stories',
   '../App/Components/Common/InputField/stories',
   '../App/Components/Common/Modals/ConfirmModal/stories',
   '../App/Components/Common/Modals/DatePickerModal/stories',

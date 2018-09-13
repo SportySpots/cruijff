@@ -30,6 +30,7 @@ const Dropdown = ({ theme, size, ...rest }) => {
           animationDuration={150}
           baseColor={isWhiteTheme ? Colors.white : Colors.black}
           activeLineWidth={2}
+          dropdownPosition={-3.5}
           // Hide default carret
           renderAccessory={() => (null)}
           style={{
