@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components';
 import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
-import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
@@ -13,8 +12,10 @@ import Text from '../../Common/Text';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const StyledBlock = styled(Block)`
+const Container = styled.View`
   padding: 32px;
+  flex: 1; /* full height */
+  background-color: ${({ bgColor }) => (bgColor)}
 `;
 //------------------------------------------------------------------------------
 export const Title = styled(Text.L)`
@@ -30,7 +31,7 @@ const FormLayout = ({
   bgColor,
   onClose,
 }) => (
-  <StyledBlock bgColor={bgColor} flex={1}>
+  <Container bgColor={bgColor}>
     <Row
       justifyContent="space-between"
       alignItems="center"
@@ -49,7 +50,7 @@ const FormLayout = ({
     <Spacer orientation="column" size="XXL" />
     <Spacer orientation="column" size="XL" />
     {children}
-  </StyledBlock>
+  </Container>
 );
 
 FormLayout.propTypes = {
