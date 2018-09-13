@@ -14,7 +14,6 @@ const TextField = ({ theme, size, ...rest }) => {
     <TextFieldMUI
       labelFontSize={Fonts.style.M.fontSize}
       labelHeight={Fonts.style.M.fontSize * 1.5}
-      labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
       errorColor={Colors.red}
       animationDuration={150}
       lineWidth={1}

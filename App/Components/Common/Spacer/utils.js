@@ -10,6 +10,8 @@ const getPixelsFromSize = (size) => {
       return 24;
     case 'XXL':
       return 32;
+    case 'XXXL':
+      return 56;
     default:
       throw new Error('Unknown size');
   }

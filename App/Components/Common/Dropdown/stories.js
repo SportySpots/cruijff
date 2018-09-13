@@ -26,17 +26,9 @@ storiesOf('Common.Dropdown', module)
     <Block>
       <Dropdown
         label="I'm the label"
+        data={data}
         // value="I'm the value"
         error="Some error msg"
-      />
-    </Block>
-  ))
-  .add('Dropdown with characterRestriction = 20', () => (
-    <Block>
-      <Dropdown
-        label="I'm the label"
-        // value="I'm the value"
-        // characterRestriction={20}
       />
     </Block>
   ))
@@ -45,6 +37,7 @@ storiesOf('Common.Dropdown', module)
       <Dropdown
         theme="white"
         label="I'm the label"
+        data={data}
         // value="I'm the value"
         // characterRestriction={20}
       />
@@ -56,6 +49,7 @@ storiesOf('Common.Dropdown', module)
         theme="white"
         size="L"
         label="I'm the label"
+        data={data}
         // value="I'm the value"
         // characterRestriction={20}
       />

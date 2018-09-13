@@ -47,8 +47,7 @@ const FormLayout = ({
         />
       </TouchableOpacity>
     </Row>
-    <Spacer orientation="column" size="XXL" />
-    <Spacer orientation="column" size="XL" />
+    <Spacer orientation="column" size="XXXL" />
     {children}
   </Container>
 );
