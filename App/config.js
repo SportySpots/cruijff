@@ -20,12 +20,16 @@ const settings = {
   testHostUrl: Config.TEST_HOST_URL,
 };
 
+if (settings.testBuild) {
+  console.disableYellowBox = true;
+}
+
 export const log = [];
 
 if (__DEV__) {
   // If ReactNative's yellow box warnings are too much, it is possible to turn
   // it off, but the healthier approach is to fix the warnings.  =)
-  console.disableYellowBox = false;
+  // console.disableYellowBox = false;
 } else {
   const bootTime = new Date();
   const oldConsoleLog = console.log;
@@ -38,12 +42,12 @@ if (__DEV__) {
 if (Config.ENVIRONMENT === 'TOM') {
   /* Fast overrides for Tom :) */
 
-  settings.seedorfRestUrl = 'https://api.sportyspots.com/api';
-  settings.seedorfGraphQLUrl = 'https://api.sportyspots.com/graphql';
+  // settings.seedorfRestUrl = 'https://api.sportyspots.com/api';
+  // settings.seedorfGraphQLUrl = 'https://api.sportyspots.com/graphql';
   // settings.seedorfRestUrl = 'https://training.sportyspots.com/api';
   // settings.seedorfGraphQLUrl = 'https://training.sportyspots.com/graphql';
-  // settings.seedorfRestUrl = 'http://localhost:8000/api';
-  // settings.seedorfGraphQLUrl = 'http://localhost:8000/graphql';
+  settings.seedorfRestUrl = 'http://10.0.2.2:8000/api';
+  settings.seedorfGraphQLUrl = 'http://10.0.2.2:8000/graphql';
   settings.testHostUrl = 'ws://10.0.2.2:8020';
   settings.testBuild = true;
 }

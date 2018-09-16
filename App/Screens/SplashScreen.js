@@ -96,7 +96,7 @@ export class _SplashScreen extends React.Component {
               accessibilityLabel="Start Discovering"
             />
             {!this.props.user.uuid && (
-              <TouchableOpacity onPress={() => navigate('LoginScreen')}>
+              <TouchableOpacity testID="splashLoginButton" onPress={() => navigate('LoginScreen')}>
                 <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
               </TouchableOpacity>
             )}

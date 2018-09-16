@@ -76,7 +76,7 @@ class GamesListScreen extends React.Component {
           }; */
 
            (
-             <Container>
+             <Container testID="GameListScreen">
                <GamesList
                  games={(data && data.games && curatedGames(data.games)) || []}
                  cardComponent={GameListCard}

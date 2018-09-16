@@ -105,12 +105,13 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
-      <KeyboardAwareScrollView>
+      <KeyboardAwareScrollView testID="LoginScreen">
         <LogoHeaderBackground hideLogo>
           <Form>
             <FieldSet>
               <BlackText>{I18n.t('E-mail')}</BlackText>
               <Input
+                testID="loginInputEmail"
                 keyboardType="email-address"
                 onChangeText={val => this.setState({ email: val })}
                 editable={!this.requestIsPending}
@@ -122,8 +123,9 @@ class LoginScreen extends React.Component {
             </FieldSet>
             <FieldSet>
               <BlackText>{I18n.t('Password')}</BlackText>
-              {this.hasError && <Error>{I18n.t('Wrong username or password')}</Error>}
+              {this.hasError && <Error testID="loginErrorText">{I18n.t('Wrong username or password')}</Error>}
               <Input
+                testID="loginInputPassword"
                 ref={(ref) => { this.passwordField = ref; }}
                 secureTextEntry
                 onChangeText={val => this.setState({ password: val })}
@@ -131,6 +133,7 @@ class LoginScreen extends React.Component {
               />
             </FieldSet>
             <DefaultButton
+              testID="loginSubmitButton"
               bgColor={this.loginButtonIsDisabled ? 'grey' : Colors.actionYellow}
               textColor={Colors.white}
               text={I18n.t('Login')}

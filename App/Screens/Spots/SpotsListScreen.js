@@ -125,7 +125,7 @@ class SpotsListScreen extends React.Component {
           };
 
           return (
-            <Container>
+            <Container testID="SpotsListScreen">
               <SpotsList
                 spots={(
                   selectedSportIds &&

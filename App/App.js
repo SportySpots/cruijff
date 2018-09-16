@@ -36,6 +36,7 @@ export class App extends Component {
         const ws = new WebSocket(config.testHostUrl);
 
         ws.onopen = () => {
+          console.warn('connected');
           // connection opened
           // ws.send('hi'); // send a message
         };
@@ -59,7 +60,7 @@ export class App extends Component {
 
         ws.onerror = (e) => {
           // an error occurred
-          console.log(e.message);
+          console.warn(e.message);
         };
 
         ws.onclose = (e) => {
@@ -67,7 +68,7 @@ export class App extends Component {
           console.log(e.code, e.reason);
         };
       } catch (e) {
-        console.log(e);
+        console.warn(e);
       }
     }
   }

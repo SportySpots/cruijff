@@ -58,7 +58,7 @@ export default class DarkFooter extends React.Component {
         />
         {this.props.showNext && (
           <Button
-            ref={addGlobalRef('footerNextButton')}
+            testID="footerNextButton"
             text={this.props.buttonNextText}
             style={style.nextButton}
             onPress={this.onNext}
