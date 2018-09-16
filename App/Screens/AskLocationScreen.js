@@ -63,7 +63,7 @@ export default connect(null, { updateLocation: locationActions.updateLocation })
             {/* <WhiteText>{I18n.t('share-your-location')}</WhiteText> */}
           </View>
           <HorizontalView>
-            <TouchableHighlight onPress={() => this.ask()}>
+            <TouchableHighlight onPress={() => this.ask()} accessibilityLabel="Ask location button">
               <View>
                 <ButtonText>
                   {I18n.t('continue').toUpperCase()}

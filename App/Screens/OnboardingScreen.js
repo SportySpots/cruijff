@@ -1,26 +1,52 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { Image, Text, View } from 'react-native';
-import { styles } from '../Components/Styles/Onboarding';
+import PropTypes from 'prop-types';
+import I18n from '../I18n/index';
+import Images from '../Themes/Images';
+import ScreenSlider from '../Components/ScreenSlider/index';
+import Onboarding from '../Components/Onboarding';
+import globalRefs from '../globalRefs';
 
-export default class OnboardingScreen extends React.PureComponent {
-  static propTypes = {
-    title: PropTypes.string,
-    text: PropTypes.string,
-    image: PropTypes.any,
-  };
+const data = [
+  {
+    title: I18n.t('hi-sport'),
+    text: I18n.t('onboarding-1'),
+    image: Images.illustrationWizard1,
+  },
+  {
+    title: I18n.t('join-a-game'),
+    text: I18n.t('onboarding-2'),
+    image: Images.illustrationWizard2,
+  },
+  {
+    title: I18n.t('plan-a-game'),
+    text: I18n.t('onboarding-3'),
+    image: Images.illustrationWizard3,
+  },
+];
 
+class OnboardingScreen extends React.Component {
+  componentDidMount() {
+    globalRefs.OnBoardingScreen = this;
+    // super.componentDidMount();
+  }
   render() {
+    const { navigation } = this.props;
     return (
-      <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <Image style={styles.image} resizeMode="contain" source={this.props.image} />
-        </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>{this.props.title}</Text>
-          <Text style={styles.paragraph}>{this.props.text}</Text>
-        </View>
-      </View>
+      <ScreenSlider
+        data={data}
+        style={{ flex: 1 }}
+        renderItem={({ item }) => <Onboarding {...item} />}
+        footerText={(item, index) => I18n.t(index < data.length - 1 ? 'continue' : 'lets go')}
+        onDone={() => navigation.navigate('LocationPermissionScreen')}
+      />
     );
   }
 }
+
+OnboardingScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default OnboardingScreen;

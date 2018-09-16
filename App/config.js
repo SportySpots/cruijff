@@ -16,6 +16,8 @@ const settings = {
   seedorfGraphQLUrl: Config.SEEDORF_GRAPHQL_URL,
   useFixtures: Config.USE_FIXTURES === 'YES',
   deeplinkHost: Config.DEEPLINK_HOST,
+  testBuild: Config.TEST_BUILD === 'YES',
+  testHostUrl: Config.TEST_HOST_URL,
 };
 
 export const log = [];
@@ -42,6 +44,8 @@ if (Config.ENVIRONMENT === 'TOM') {
   // settings.seedorfGraphQLUrl = 'https://training.sportyspots.com/graphql';
   // settings.seedorfRestUrl = 'http://localhost:8000/api';
   // settings.seedorfGraphQLUrl = 'http://localhost:8000/graphql';
+  settings.testHostUrl = 'ws://10.0.2.2:8020';
+  settings.testBuild = true;
 }
 
 console.log('settings', settings);

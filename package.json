@@ -27,6 +27,7 @@
     "appcenter:releasePrd": "yarn appcenter:releasePrdAndroid && yarn appcenter:releasePrdIos",
     "appcenter:listDeploymentAndroid": "appcenter codepush deployment list -a sportyspots-apps/sportyspots-android",
     "appcenter:listDeploymentIos": "appcenter codepush deployment list -a sportyspots-apps/sportyspots-ios",
+    "appium:android": "appium.sh",
     "fixcode": "lint --fix",
     "git-hook": "yarn run lint -s && yarn run test -s",
     "graphql:updateSchema": "get-graphql-schema https://api.sportyspots.com/graphql > schema.graphql",
@@ -137,6 +138,7 @@
     "jest-snapshot": "^23.0.0-alpha.0",
     "jshint": "^2.9.5",
     "lint-staged": "^6.1.0",
+    "mocha": "^5.2.0",
     "mockery": "^2.1.0",
     "prettier-eslint": "^8.8.1",
     "prettier-eslint-cli": "^4.7.1",
@@ -151,7 +153,7 @@
     "reactotron-redux-saga": "^1.13.0",
     "snazzy": "^7.0.0"
   },
-  "jest": {
+  "jesasft": {
     "testMatch": [
       "<rootDir>/Tests/**/*.js",
       "**/?(*.)(spec|test).js?(x)"

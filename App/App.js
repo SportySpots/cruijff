@@ -17,13 +17,59 @@ import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation from './Navigation/AppNavigation';
 import Colors from './Themes/Colors';
 import config from './config';
+import scopedEval from './scopedEval';
+import globalRefs, { addGlobalRef } from './globalRefs';
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super();
     this.store = createStore();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
     this.state = { hasInitialized: false };
+
+    if (config.testBuild) {
+      try {
+        console.warn('running a test image. not good if in production');
+        console.log('config', config);
+
+        // eslint-disable-next-line no-undef
+        const ws = new WebSocket(config.testHostUrl);
+
+        ws.onopen = () => {
+          // connection opened
+          // ws.send('hi'); // send a message
+        };
+
+        ws.onmessage = (e) => {
+          // a message was received
+          console.log('ws data', e.data);
+          // console.log(scopedEval(e.data));
+          const result = scopedEval(e.data);
+          console.log(result);
+          try {
+            ws.send(JSON.stringify(result));
+          } catch (err) {
+            ws.send(JSON.stringify({
+              hasError: false,
+              response: 'cannot jsonify',
+              error: null,
+            }));
+          }
+        };
+
+        ws.onerror = (e) => {
+          // an error occurred
+          console.log(e.message);
+        };
+
+        ws.onclose = (e) => {
+          // connection closed
+          console.log(e.code, e.reason);
+        };
+      } catch (e) {
+        console.log(e);
+      }
+    }
   }
 
   componentDidMount() {
@@ -74,13 +120,17 @@ class App extends Component {
       return null;
     }
     return (
-      <ApolloProvider client={this.client}>
+      <ApolloProvider
+        id="apollo"
+        ref={addGlobalRef('apolloProvider')}
+        client={this.client}
+      >
         <Provider store={this.store}>
           <MenuProvider>
             <AppRootView>
               <StatusBar barStyle="light-content" />
               <ConnectionCheck />
-              <AppNavigation ref={(ref) => { this.router = ref; }} initialRouteName="RootNav" />
+              <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
             </AppRootView>
           </MenuProvider>
         </Provider>

@@ -2,3 +2,4 @@
 *.bat text eol=crlf
 .env.prd filter=git-crypt diff=git-crypt
 .env.stg filter=git-crypt diff=git-crypt
+.env.tst filter=git-crypt diff=git-crypt
