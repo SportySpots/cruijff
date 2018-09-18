@@ -36,15 +36,10 @@ const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
   >
     <Img source={themeImages.activityCancelledVisual} />
     <Spacer orientation="column" size="L" />
-<<<<<<< HEAD
-    <Centered>{`${I18n.t('The activity is cancelled')}.`}</Centered>
-  </ConfirmModal>
-=======
     <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
     <Spacer orientation="column" size="M" />
     <Subtitle>{`${I18n.t('All attendees will receive an email with your reason for cancellation')}.`}</Subtitle>
   </CancelConfirmModal>
->>>>>>> 9a98bfe24971138c9f6591a34aa43555571f42b2
 );
 
 CancelGameConfirmModal.propTypes = {
