@@ -163,5 +163,9 @@
   "Write here why the activity does not continue": "Schrijf hier waarom de activiteit niet doorgaat",
   "The activity is cancelled": "Je activiteit is geannuleerd",
   "Canceled": "Geannuleerd",
-  "This activity is canceled": "Deze activiteit is geannuleerd"
+  "This activity is canceled": "Deze activiteit is geannuleerd",
+  "Are you 100% sure": "Weet je het 100% zeker",
+  "All attendees will receive an email with your reason for cancellation": "Alle aanwezigen ontvangen een email met jouw rede van annuleren",
+  "Back": "Terug",
+  "Hell yes": "Jazeker"
 }

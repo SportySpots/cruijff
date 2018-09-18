@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
-import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import { getPalette, getPixelsFromSize } from './utils';
