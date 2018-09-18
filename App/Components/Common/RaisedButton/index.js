@@ -23,7 +23,6 @@ const Container = styled.View`
 `;
 //------------------------------------------------------------------------------
 const Label = styled(Text.M)`
-  font-size: ${Fonts.style.M.fontSize};
   color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
   font-weight: 500;
 `;
@@ -52,7 +51,6 @@ const RaisedButton = ({
         disabled={disabled}
       >
         <Label
-          size={size}
           fontColor={fontColor}
           disabled={disabled}
         >
