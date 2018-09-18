@@ -25,5 +25,5 @@ const Container = () => (
   </ModalProps>
 );
 
-storiesOf('Games.CancelGame', module)
+storiesOf('Games.CancelGameConfirmModal', module)
   .add('CancelGameConfirmModal', () => <Container />);

@@ -5,7 +5,7 @@ import I18n from '../../../I18n/index';
 import themeImages from '../../../Themes/Images';
 import Text from '../../../Components/Common/Text';
 import Spacer from '../../../Components/Common/Spacer';
-import ConfirmModal from '../../Common/Modals/ButtonModal';
+import ConfirmModal from '../../Common/Modals/ConfirmModal';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -22,8 +22,6 @@ const Centered = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const CancelGameConfirmModal = ({ visible, onClose }) => (
-
-
   <ConfirmModal
     visible={visible}
     onClose={onClose}

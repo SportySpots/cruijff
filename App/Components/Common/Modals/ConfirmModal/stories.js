@@ -29,5 +29,5 @@ const Container = () => (
   </ModalProps>
 );
 
-storiesOf('Common.ConfirmModal', module)
+storiesOf('Modals.ConfirmModal', module)
   .add('ConfirmModal', () => <Container />);

@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RaisedButton from '../../../../Components/Common/RaisedButton';
-import ButtonModal from '../ButtonModal';
+import DialogModal from '../DialogModal';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ConfirmModal = ({
-  okBtnLabel,
-  onOk,
-  ...rest
-}) => {
+const ConfirmModal = ({ okBtnLabel, onOk, ...rest }) => {
   const footer = (
     <RaisedButton
       label={okBtnLabel}
@@ -20,7 +16,7 @@ const ConfirmModal = ({
     />
   );
 
-  return <ButtonModal {...rest} footer={footer} />;
+  return <DialogModal {...rest} footer={footer} />;
 };
 
 ConfirmModal.propTypes = {

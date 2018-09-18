@@ -11,6 +11,7 @@ function loadStories() {
   require('../App/Components/Common/Divider/stories');
   require('../App/Components/Common/DotSpacer/stories');
   require('../App/Components/Common/Modals/ConfirmModal/stories');
+  require('../App/Components/Common/Modals/DialogModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
   require('../App/Components/Common/RaisedButton/stories');
   require('../App/Components/Common/Row/stories');
@@ -51,6 +52,7 @@ const stories = [
   '../App/Components/Common/Divider/stories',
   '../App/Components/Common/DotSpacer/stories',
   '../App/Components/Common/Modals/ConfirmModal/stories',
+  '../App/Components/Common/Modals/DialogModal/stories',
   '../App/Components/Common/Modals/Modal/stories',
   '../App/Components/Common/RaisedButton/stories',
   '../App/Components/Common/Row/stories',
