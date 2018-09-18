@@ -17,9 +17,11 @@ function loadStories() {
   require('../App/Components/Common/Dropdown/stories');
   require('../App/Components/Common/DurationPickerField/stories');
   require('../App/Components/Common/InputField/stories');
+  require('../App/Components/Common/Modals/CancelConfirmModal/stories');
   require('../App/Components/Common/Modals/CapacityPickerModal/stories');
   require('../App/Components/Common/Modals/ConfirmModal/stories');
   require('../App/Components/Common/Modals/DatePickerModal/stories');
+  require('../App/Components/Common/Modals/DialogModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
   require('../App/Components/Common/Modals/SportPickerModal/stories');
   require('../App/Components/Common/RaisedButton/stories');
@@ -76,9 +78,11 @@ const stories = [
   '../App/Components/Common/Dropdown/stories',
   '../App/Components/Common/DurationPickerField/stories',
   '../App/Components/Common/InputField/stories',
+  '../App/Components/Common/Modals/CancelConfirmModal/stories',
   '../App/Components/Common/Modals/CapacityPickerModal/stories',
   '../App/Components/Common/Modals/ConfirmModal/stories',
   '../App/Components/Common/Modals/DatePickerModal/stories',
+  '../App/Components/Common/Modals/DialogModal/stories',
   '../App/Components/Common/Modals/Modal/stories',
   '../App/Components/Common/Modals/SportPickerModal/stories',
   '../App/Components/Common/RaisedButton/stories',

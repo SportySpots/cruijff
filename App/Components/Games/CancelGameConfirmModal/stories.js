@@ -1,23 +1,22 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import { TouchableOpacity, View, Text } from 'react-native';
+import { View } from 'react-native';
 import ModalProps from '../../../RenderProps/modal-props';
+import RaisedButton from '../../Common/RaisedButton';
 import CancelGameConfirmModal from './index';
 
 const Container = () => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => (
       <View>
-        <TouchableOpacity
+        <RaisedButton
+          status="primary"
+          label="Open"
           onPress={openModal}
-          style={{ backgroundColor: 'red' }}
-        >
-          <Text style={{ textAlign: 'center' }}>
-            Open
-          </Text>
-        </TouchableOpacity>
+        />
         <CancelGameConfirmModal
           visible={visible}
+          onConfirm={closeModal}
           onClose={closeModal}
         />
       </View>
@@ -25,5 +24,5 @@ const Container = () => (
   </ModalProps>
 );
 
-storiesOf('Games.CancelGame', module)
+storiesOf('Games.CancelGameConfirmModal', module)
   .add('CancelGameConfirmModal', () => <Container />);

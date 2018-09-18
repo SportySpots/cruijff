@@ -167,5 +167,9 @@
   "minutes": "minuten",
   "hours": "uur",
   "Undetermined": "Onbepaald",
-  "Choose amount players": "Kies aantal spelers"
+  "Choose amount players": "Kies aantal spelers",
+  "Are you 100% sure": "Weet je het 100% zeker",
+  "All attendees will receive an email with your reason for cancellation": "Alle aanwezigen ontvangen een email met jouw rede van annuleren",
+  "Back": "Terug",
+  "Hell yes": "Jazeker"
 }

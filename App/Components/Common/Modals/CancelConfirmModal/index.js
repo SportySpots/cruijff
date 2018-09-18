@@ -2,17 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RaisedButton from '../../../../Components/Common/RaisedButton';
 import Row from '../../Row';
+import Spacer from '../../Spacer';
 import DialogModal from '../DialogModal';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ConfirmModal = ({ okBtnLabel, onOk, ...rest }) => {
+const CancelConfirmModal = ({
+  okBtnLabel,
+  cancelBtnLabel,
+  onOk,
+  onCancel,
+  ...rest
+}) => {
   const footer = (
     <Row
       justifyContent="flex-end"
       alignItems="center"
     >
+      <RaisedButton
+        label={cancelBtnLabel}
+        size="S"
+        status="secondary"
+        onPress={onCancel}
+      />
+      <Spacer orientation="row" size="M" />
       <RaisedButton
         label={okBtnLabel}
         size="S"
@@ -25,16 +39,20 @@ const ConfirmModal = ({ okBtnLabel, onOk, ...rest }) => {
   return <DialogModal {...rest} footer={footer} />;
 };
 
-ConfirmModal.propTypes = {
+CancelConfirmModal.propTypes = {
   children: PropTypes.node.isRequired,
+  cancelBtnLabel: PropTypes.string,
   okBtnLabel: PropTypes.string,
+  onCancel: PropTypes.func,
   onOk: PropTypes.func,
   // Plus all props from native modal and Modal
 };
 
-ConfirmModal.defaultProps = {
+CancelConfirmModal.defaultProps = {
   okBtnLabel: '',
+  cancelBtnLabel: '',
   onOk: () => {},
+  onCancel: () => {},
 };
 
-export default ConfirmModal;
+export default CancelConfirmModal;

@@ -15,39 +15,34 @@ const Body = styled.View`
 `;
 //------------------------------------------------------------------------------
 const Footer = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
   padding: 8px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ButtonModal = ({
-  children,
-  footer,
-  ...rest
-}) => (
+const DialogModal = ({ children, footer, ...rest }) => (
   <Modal {...rest}>
     <Body>
-      { children }
+      {children}
     </Body>
     <Divider />
     <Footer>
-      { footer }
+      {footer}
     </Footer>
   </Modal>
 );
 
-ButtonModal.propTypes = {
+DialogModal.propTypes = {
   children: PropTypes.node.isRequired,
-  footer: PropTypes.func,
+  footer: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]),
   // Plus all props from native modal and Modal
 };
 
-ButtonModal.defaultProps = {
+DialogModal.defaultProps = {
   footer: () => null,
 };
 
-export default ButtonModal;
+export default DialogModal;
