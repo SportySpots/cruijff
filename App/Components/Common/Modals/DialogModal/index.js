@@ -15,10 +15,6 @@ const Body = styled.View`
 `;
 //------------------------------------------------------------------------------
 const Footer = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
   padding: 8px;
 `;
 //------------------------------------------------------------------------------
