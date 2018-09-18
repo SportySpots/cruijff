@@ -7,7 +7,7 @@ import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import CancelGame from '../../../Components/Games/CancelGame';
 import CancelGameDoneModal from '../../../Components/Games/CancelGameDoneModal';
-import {addModelState} from '../../../utils';
+import { addModelState } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -17,42 +17,46 @@ class CancelGameScreen extends React.PureComponent {
     super(props);
     this.state = {};
     addModelState(this, 'cancelDone');
-    console.log(this.modals);
   }
 
   get gameUUID() {
-    const {navigation} = this.props;
+    const { navigation } = this.props;
     return navigation.state.params.uuid;
   }
 
   handleAttendeesPress = () => {
-    const {navigation} = this.props;
-    navigation.navigate('GamePlayerScreen', {uuid: this.gameUUID});
+    const { navigation } = this.props;
+    navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
   }
 
   render() {
-    const {user, navigation} = this.props;
-    console.log(this.modals);
+    const { user, navigation } = this.props;
     const cancelDoneModal = this.modals.cancelDone;
+
     return (
       <FormProps>
         {({
-            disabled,
-            // errorMsg,
-            // successMsg,
-            handleBefore,
-            handleClientError,
-            handleServerError,
-            handleSuccess,
-          }) => (
+          disabled,
+          // errorMsg,
+          // successMsg,
+          handleBefore,
+          handleClientError,
+          handleServerError,
+          handleSuccess,
+        }) => (
           <Query
             query={GET_GAME_DETAILS}
-            variables={{uuid: this.gameUUID}}
+            variables={{ uuid: this.gameUUID }}
             fetchPolicy="network-only"
           >
-            {({loading, error, data, refetch}) => {
+            {({
+              loading,
+              error,
+              data,
+              refetch,
+            }) => {
               if (loading) {
-                return <CenteredActivityIndicator/>;
+                return <CenteredActivityIndicator />;
               }
               if (error || !data || !data.game || data.game.status === 'CANCELED') {
                 return null;
