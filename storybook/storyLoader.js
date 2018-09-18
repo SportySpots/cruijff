@@ -9,17 +9,21 @@ function loadStories() {
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/Block/stories');
   require('../App/Components/Common/Calendar/stories');
+  require('../App/Components/Common/CapacityPicker/stories');
+  require('../App/Components/Common/CapacityPickerField/stories');
   require('../App/Components/Common/DatePickerField/stories');
   require('../App/Components/Common/Divider/stories');
   require('../App/Components/Common/DotSpacer/stories');
   require('../App/Components/Common/Dropdown/stories');
   require('../App/Components/Common/DurationPickerField/stories');
   require('../App/Components/Common/InputField/stories');
+  require('../App/Components/Common/Modals/CapacityPickerModal/stories');
   require('../App/Components/Common/Modals/ConfirmModal/stories');
   require('../App/Components/Common/Modals/DatePickerModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
   require('../App/Components/Common/Modals/SportPickerModal/stories');
   require('../App/Components/Common/RaisedButton/stories');
+  require('../App/Components/Common/RoundButton/stories');
   require('../App/Components/Common/Row/stories');
   require('../App/Components/Common/SliderWithText/stories');
   require('../App/Components/Common/Spacer/stories');
@@ -46,6 +50,7 @@ function loadStories() {
   require('../App/Components/PlanGame/SportDateTimeForm/stories');
   require('../App/Components/ScreenSlider/Stories');
   require('../App/Components/Spots/SpotLink/stories');
+  require('../App/Components/Spots/SpotMap/stories');
   require('../App/Components/Spots/Stories');
   require('../App/Components/Stories');
   require('../App/Screens/Games/CancelGameScreen/stories');
@@ -63,17 +68,21 @@ const stories = [
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/Block/stories',
   '../App/Components/Common/Calendar/stories',
+  '../App/Components/Common/CapacityPicker/stories',
+  '../App/Components/Common/CapacityPickerField/stories',
   '../App/Components/Common/DatePickerField/stories',
   '../App/Components/Common/Divider/stories',
   '../App/Components/Common/DotSpacer/stories',
   '../App/Components/Common/Dropdown/stories',
   '../App/Components/Common/DurationPickerField/stories',
   '../App/Components/Common/InputField/stories',
+  '../App/Components/Common/Modals/CapacityPickerModal/stories',
   '../App/Components/Common/Modals/ConfirmModal/stories',
   '../App/Components/Common/Modals/DatePickerModal/stories',
   '../App/Components/Common/Modals/Modal/stories',
   '../App/Components/Common/Modals/SportPickerModal/stories',
   '../App/Components/Common/RaisedButton/stories',
+  '../App/Components/Common/RoundButton/stories',
   '../App/Components/Common/Row/stories',
   '../App/Components/Common/SliderWithText/stories',
   '../App/Components/Common/Spacer/stories',
@@ -100,6 +109,7 @@ const stories = [
   '../App/Components/PlanGame/SportDateTimeForm/stories',
   '../App/Components/ScreenSlider/Stories',
   '../App/Components/Spots/SpotLink/stories',
+  '../App/Components/Spots/SpotMap/stories',
   '../App/Components/Spots/Stories',
   '../App/Components/Stories',
   '../App/Screens/Games/CancelGameScreen/stories',

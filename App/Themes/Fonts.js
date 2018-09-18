@@ -21,6 +21,12 @@ const size = {
 };
 
 const style = {
+  XL: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 40,
+    color: Colors.black,
+    // lineHeight: 50
+  },
   L: {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 32,

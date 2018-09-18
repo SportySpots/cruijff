@@ -53,6 +53,7 @@ const Dropdown = ({ theme, size, ...rest }) => {
           {...rest}
         />
       </FullWidth>
+      {/* Add custom carret */}
       <View>
         <Spacer orientation="column" size="L" />
         <Icon

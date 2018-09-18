@@ -35,6 +35,7 @@ const colors = {
   negativeTint: 'rgba(224, 48, 30, 0.2)',
   info: '#019AE8', // rgb(1, 154, 232)
   infoTint: 'rgba(1, 154, 232, 0.2)',
+  darkGray: '#979797',
 };
 
 export default colors;

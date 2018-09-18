@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
-import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import { getPalette, getPixelsFromSize } from './utils';
@@ -19,11 +18,10 @@ const Container = styled.View`
   width: ${({ width }) => (width || '100%')};
   min-width: 80px;
   border-radius: ${({ size }) => (getPixelsFromSize(size).borderRadius)};
-  border: 1px solid ${({ disabled, bgColor }) => (disabled ? Colors.lightGray : bgColor)};
+  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.lightGray : borderColor)};
 `;
 //------------------------------------------------------------------------------
 const Label = styled(Text.M)`
-  font-size: ${Fonts.style.M.fontSize};
   color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
   font-weight: 500;
 `;
@@ -40,7 +38,7 @@ const RaisedButton = ({
   ...rest
 }) => {
   const palette = getPalette(status);
-  const { fontColor, bgColor } = palette;
+  const { fontColor, bgColor, borderColor } = palette;
 
   const Root = disabled ? View : TouchableOpacity;
 
@@ -49,11 +47,11 @@ const RaisedButton = ({
       <Container
         size={size}
         bgColor={bgColor}
+        borderColor={borderColor}
         width={width}
         disabled={disabled}
       >
         <Label
-          size={size}
           fontColor={fontColor}
           disabled={disabled}
         >
@@ -65,7 +63,10 @@ const RaisedButton = ({
 };
 
 RaisedButton.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   status: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'warning', 'ghost']),
   size: PropTypes.oneOf(['M', 'S']),
   disabled: PropTypes.bool,
@@ -73,6 +74,7 @@ RaisedButton.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  // Plus all props from native Button
 };
 
 RaisedButton.defaultProps = {
