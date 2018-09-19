@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
-import I18n from '../../../I18n/index';
 import ModalProps from '../../../RenderProps/modal-props';
 import InputField from '../InputField';
 import CapacityPickerModal from '../Modals/CapacityPickerModal';
@@ -14,7 +12,7 @@ const CapacityPickerField = ({ value, onChange, ...rest }) => (
     {({ visible, openModal, closeModal }) => [
       <InputField
         key="field"
-        value={value ? moment(value).format('DD-MM') : I18n.t('Select')}
+        value={value || ''}
         onPress={openModal}
         {...rest}
       />,
@@ -22,9 +20,9 @@ const CapacityPickerField = ({ value, onChange, ...rest }) => (
         key="modal"
         value={value}
         visible={visible}
-        onSelect={(date) => {
+        onSelect={(capacity) => {
           // Pass event up to parent component
-          onChange(date);
+          onChange(capacity);
           closeModal();
         }}
         onClose={closeModal}

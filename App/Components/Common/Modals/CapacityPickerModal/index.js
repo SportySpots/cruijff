@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
 import I18n from '../../../../I18n';
 import Text from '../../Text';
-import Block from '../../Block';
-import Spacer from '../../Spacer';
 import CapacityPicker from '../../CapacityPicker';
 import CancelConfirmModal from '../CancelConfirmModal';
 
