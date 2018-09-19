@@ -6,6 +6,7 @@ import I18n from '../../../../I18n';
 import Colors from '../../../../Themes/Colors';
 import Text from '../../Text';
 import Row from '../../Row';
+import Block from '../../Block';
 import Calendar from '../../Calendar';
 import CancelConfirmModal from '../CancelConfirmModal';
 import toTitleCase from './utils';
@@ -54,12 +55,14 @@ class DatePickerModal extends React.PureComponent {
         onOk={() => { onSelect(value.dateString); }}
         onCancel={onClose}
       >
-        <Calendar
-          current={(new Date()).toISOString().slice(0, 10)}
-          minDate={(new Date()).toISOString().slice(0, 10)}
-          // onDayPress={(day) => { onSelect(day.dateString); }}
-          onDayPress={this.handleDayPress}
-        />
+        <Block>
+          <Calendar
+            current={(new Date()).toISOString().slice(0, 10)}
+            minDate={(new Date()).toISOString().slice(0, 10)}
+            // onDayPress={(day) => { onSelect(day.dateString); }}
+            onDayPress={this.handleDayPress}
+          />
+        </Block>
       </CancelConfirmModal>
     );
   }
