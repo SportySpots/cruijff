@@ -15,8 +15,8 @@ const Container = () => (
         />
         <DatePickerModal
           visible={visible}
+          onSelect={closeModal}
           onClose={closeModal}
-          onOk={closeModal}
         />
       </View>
     )}
