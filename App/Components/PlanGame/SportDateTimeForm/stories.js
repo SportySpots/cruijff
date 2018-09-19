@@ -11,6 +11,7 @@ class Container extends React.PureComponent {
     sport: null,
     date: null,
     time: null,
+    capacity: null,
   }
 
   handleChange = ({ fieldName, value }) => {
@@ -19,7 +20,12 @@ class Container extends React.PureComponent {
 
   render() {
     const { theme } = this.props;
-    const { sport, date, time } = this.state;
+    const {
+      sport,
+      date,
+      time,
+      capacity,
+    } = this.state;
 
     return (
       <SportDateTimeForm
@@ -27,6 +33,7 @@ class Container extends React.PureComponent {
         sport={sport}
         date={date}
         time={time}
+        capacity={capacity}
         onChange={this.handleChange}
       />
     );

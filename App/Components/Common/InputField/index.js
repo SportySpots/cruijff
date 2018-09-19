@@ -16,6 +16,7 @@ const Input = styled.View`
   border-bottom-width: 1px;
   border-bottom-color: ${({ isWhiteTheme }) => (isWhiteTheme ? Colors.white : Colors.black)};
   padding-horizontal: 8px;
+  min-width: 40px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -34,7 +35,9 @@ const InputField = ({
       <Row>
         <Spacer orientation="row" size="M" />
         <Input isWhiteTheme={isWhiteTheme}>
-          <TextSize>{value}</TextSize>
+          <TextSize style={{ textAlign: 'center' }}>
+            {value}
+          </TextSize>
         </Input>
         <Icon
           size={24}

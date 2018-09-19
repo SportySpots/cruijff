@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
@@ -11,6 +9,7 @@ import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
 import TimePickerField from '../../Common/TimePickerField';
 import DurationPickerField from '../../Common/DurationPickerField';
+import CapacityPickerField from '../../Common/CapacityPickerField';
 import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
 import TextField from '../../Common/TextField';
@@ -75,27 +74,20 @@ const SportAndTime = ({
           onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
           theme="white"
           size="ML"
-          // inputContainerPadding={4}
-          // inputContainerStyle={{ paddingHorizontal: 8 }}
         />
       </View>
     </Row>
     <Spacer size="XXL" />
     <Row>
       <Label>{I18n.t('with')}</Label>
-      <Spacer orientation="row" size="L" />
-      <View style={{ width: 50, marginTop: -22 }}>
-        <TextField
-          label=""
-          value={capacity}
-          onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
-          theme="white"
-          size="ML"
-          inputContainerPadding={4}
-          inputContainerStyle={{ paddingHorizontal: 8 }}
-        />
-      </View>
-      <Spacer orientation="row" size="L" />
+      <Spacer orientation="row" size="S" />
+      <CapacityPickerField
+        value={capacity}
+        size="ML"
+        theme="white"
+        onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
+      />
+      <Spacer orientation="row" size="S" />
       <Label>{I18n.t('people')}</Label>
     </Row>
   </FormLayout>
