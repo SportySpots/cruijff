@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from '../../../../I18n';
 import Text from '../../Text';
+import Block from '../../Block';
 import CapacityPicker from '../../CapacityPicker';
 import CancelConfirmModal from '../CancelConfirmModal';
 
@@ -50,12 +51,14 @@ class CapacityPickerModal extends React.PureComponent {
         onOk={() => { onSelect(value); }}
         onCancel={onClose}
       >
-        <CapacityPicker
-          value={value}
-          onBtnPress={this.handleBtnPress}
-          onIncrease={this.increase}
-          onDecrease={this.decrease}
-        />
+        <Block>
+          <CapacityPicker
+            value={value}
+            onBtnPress={this.handleBtnPress}
+            onIncrease={this.increase}
+            onDecrease={this.decrease}
+          />
+        </Block>
       </CancelConfirmModal>
     );
   }
