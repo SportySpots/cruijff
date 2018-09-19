@@ -33,6 +33,8 @@ const SportsList = ({ selectedSport, onSportPress }) => (
           )}
           data={data.sports}
           ItemSeparatorComponent={null}
+          // Force list to re-render whenever selected sport changes
+          extraData={selectedSport}
         />
       );
     }}
