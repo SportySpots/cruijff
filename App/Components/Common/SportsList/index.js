@@ -4,13 +4,13 @@ import { Query } from 'react-apollo';
 import { FlatList } from 'react-native';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import CenteredActivityIndicator from '../CenteredActivityIndicator';
-import Divider from '../Divider';
+import Spacer from '../Spacer';
 import SportCard from '../SportCard';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SportsList = ({ onSelect }) => (
+const SportsList = ({ onSportPress }) => (
   <Query query={GET_SPORTS}>
     {({ loading, error, data }) => {
       if (loading) { return <CenteredActivityIndicator />; }
@@ -22,11 +22,13 @@ const SportsList = ({ onSelect }) => (
           renderItem={({ item }) => (
             <SportCard
               sport={item}
-              onSelect={onSelect}
+              onPress={onSportPress}
             />
           )}
           data={data.sports}
-          ItemSeparatorComponent={Divider}
+          ItemSeparatorComponent={() => (
+            <Spacer orientation="column" size="L" />
+          )}
         />
       );
     }}
@@ -34,11 +36,11 @@ const SportsList = ({ onSelect }) => (
 );
 
 SportsList.propTypes = {
-  onSelect: PropTypes.func,
+  onSportPress: PropTypes.func,
 };
 
 SportsList.defaultProps = {
-  onSelect: () => {},
+  onSportPress: () => {},
 };
 
 export default SportsList;

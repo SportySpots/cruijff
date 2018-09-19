@@ -12,10 +12,8 @@ import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
 import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
-import TextField from '../../Common/TextField';
 import FormLayout from '../FormLayout';
-import { Title, Label } from '../style';
-import Fonts from '../../../Themes/Fonts';
+import { Label } from '../style';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
