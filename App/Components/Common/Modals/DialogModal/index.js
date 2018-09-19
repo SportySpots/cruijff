@@ -15,7 +15,7 @@ const Flex = styled.View`
 //------------------------------------------------------------------------------
 const Body = styled.View`
   flex-grow: 1; /* full height */
-  padding: 16px 16px 32px 16px;
+  /* padding: 16px 16px 32px 16px; */
 `;
 //------------------------------------------------------------------------------
 const Footer = styled.View`

@@ -12,7 +12,7 @@ class SportPickerModal extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || '',
+      value: props.value || null,
     };
   }
 
@@ -39,7 +39,7 @@ class SportPickerModal extends React.PureComponent {
         onCancel={onClose}
       >
         <SportsList
-          value={value}
+          selectedSport={value}
           onSportPress={this.handleSportPress}
         />
       </CancelConfirmModal>

@@ -18,8 +18,6 @@ const Container = () => (
           visible={visible}
           onClose={closeModal}
           onSelect={closeModal}
-          // okBtnLabel="Ok"
-          // onOk={closeModal}
         />
       </View>
     )}
