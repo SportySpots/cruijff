@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
+import styled from 'styled-components';
 import Text from '../Text';
-import Block from '../Block';
 import Row from '../Row';
 import Spacer from '../Spacer';
 import RaisedButton from '../RaisedButton';
@@ -17,6 +17,13 @@ const BUTTONS = [
   { row: 2, labels: [14, 16, 22] },
 ];
 //------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Counter = styled(Text.XL)`
+  flex-grow: 1;
+  text-align: center;
+`;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const CapacityPicker = ({
@@ -25,7 +32,7 @@ const CapacityPicker = ({
   onIncrease,
   onDecrease,
 }) => (
-  <View style={{ borderWidth: 1, borderColor: 'green' }}>
+  <View>
     {BUTTONS.map(({ row, labels }) => [
       <Row
         key={row}
@@ -50,21 +57,21 @@ const CapacityPicker = ({
       />,
     ])}
     <Spacer orientation="column" size="L" />
-    <Block>
-      <Row justifyContent="space-between">
-        <RoundButton
-          status="dark"
-          iconName="minus"
-          onPress={onDecrease}
-        />
-        <Text.XL>{value || 0}</Text.XL>
-        <RoundButton
-          status="dark"
-          iconName="plus"
-          onPress={onIncrease}
-        />
-      </Row>
-    </Block>
+    <Row>
+      <Spacer orientation="row" size="L" />
+      <RoundButton
+        status="dark"
+        iconName="minus"
+        onPress={onDecrease}
+      />
+      <Counter>{value || 0}</Counter>
+      <RoundButton
+        status="dark"
+        iconName="plus"
+        onPress={onIncrease}
+      />
+      <Spacer orientation="row" size="L" />
+    </Row>
   </View>
 );
 

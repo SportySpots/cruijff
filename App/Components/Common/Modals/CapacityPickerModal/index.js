@@ -39,31 +39,26 @@ class CapacityPickerModal extends React.PureComponent {
     const { visible, onSelect, onClose } = this.props;
     const { value } = this.state;
 
+    const header = (
+      <Text.ML>{I18n.t('Choose amount players')}</Text.ML>
+    );
+
     return (
       <CancelConfirmModal
         visible={visible}
         onClose={onClose}
+        header={header}
         okBtnLabel={I18n.t('Ok')}
         cancelBtnLabel={I18n.t('Cancel')}
         onOk={() => { onSelect(value); }}
         onCancel={onClose}
       >
-        <View style={{ height: 400 }}>
-          <Block>
-            <Text.ML>{I18n.t('Choose amount players')}</Text.ML>
-          </Block>
-          <Spacer orientation="column" size="L" />
-          <View style={{ flex: 1, width: 320, borderWidth: 1, borderColor: 'red' }}>
-            <Block style={{ borderWidth: 1, borderColor: 'blue' }}>
-              <CapacityPicker
-                value={value}
-                onBtnPress={this.handleBtnPress}
-                onIncrease={this.increase}
-                onDecrease={this.decrease}
-              />
-            </Block>
-          </View>
-        </View>
+        <CapacityPicker
+          value={value}
+          onBtnPress={this.handleBtnPress}
+          onIncrease={this.increase}
+          onDecrease={this.decrease}
+        />
       </CancelConfirmModal>
     );
   }
