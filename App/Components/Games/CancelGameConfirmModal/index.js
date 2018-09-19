@@ -10,6 +10,12 @@ import CancelConfirmModal from '../../Common/Modals/CancelConfirmModal';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+const Container = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+//------------------------------------------------------------------------------
 const Img = styled.Image`
   height: 120px;
   width: 116px;
@@ -27,6 +33,7 @@ const Subtitle = styled(Text.SM)`
 //------------------------------------------------------------------------------
 const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
   <CancelConfirmModal
+    withHeader={false}
     visible={visible}
     onClose={onClose}
     okBtnLabel={I18n.t('Hell yes')}
@@ -34,11 +41,13 @@ const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
     onOk={onConfirm}
     onCancel={onClose}
   >
-    <Img source={themeImages.activityCancelledVisual} />
-    <Spacer orientation="column" size="L" />
-    <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
-    <Spacer orientation="column" size="M" />
-    <Subtitle>{`${I18n.t('All attendees will receive an email with your reason for cancellation')}.`}</Subtitle>
+    <Container>
+      <Img source={themeImages.activityCancelledVisual} />
+      <Spacer orientation="column" size="L" />
+      <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
+      <Spacer orientation="column" size="M" />
+      <Subtitle>{`${I18n.t('All attendees will receive an email with your reason for cancellation')}.`}</Subtitle>
+    </Container>
   </CancelConfirmModal>
 );
 

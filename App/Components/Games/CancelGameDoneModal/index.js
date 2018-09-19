@@ -10,6 +10,12 @@ import ConfirmModal from '../../Common/Modals/ConfirmModal';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+const Container = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+//------------------------------------------------------------------------------
 const Img = styled.Image`
   height: 120px;
   width: 116px;
@@ -23,14 +29,17 @@ const Title = styled(Text.M)`
 //------------------------------------------------------------------------------
 const CancelGameDoneModal = ({ visible, onClose }) => (
   <ConfirmModal
+    withHeader={false} // Hide header space
     visible={visible}
     onClose={onClose}
     okBtnLabel={I18n.t('Ok')}
     onOk={onClose}
   >
-    <Img source={themeImages.activityCancelledVisual} />
-    <Spacer orientation="column" size="L" />
-    <Title>{`${I18n.t('The activity is cancelled')}.`}</Title>
+    <Container>
+      <Img source={themeImages.activityCancelledVisual} />
+      <Spacer orientation="column" size="L" />
+      <Title>{`${I18n.t('The activity is cancelled')}.`}</Title>
+    </Container>
   </ConfirmModal>
 );
 
