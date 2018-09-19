@@ -9,7 +9,7 @@ import CapacityPickerModal from '../Modals/CapacityPickerModal';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DatePickerField = ({ value, onChange, ...rest }) => (
+const CapacityPickerField = ({ value, onChange, ...rest }) => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => [
       <InputField
@@ -33,7 +33,7 @@ const DatePickerField = ({ value, onChange, ...rest }) => (
   </ModalProps>
 );
 
-DatePickerField.propTypes = {
+CapacityPickerField.propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -42,9 +42,9 @@ DatePickerField.propTypes = {
   // Plus all InputField props (theme, size)
 };
 
-DatePickerField.defaultProps = {
+CapacityPickerField.defaultProps = {
   value: '',
   onChange: () => {},
 };
 
-export default DatePickerField;
+export default CapacityPickerField;

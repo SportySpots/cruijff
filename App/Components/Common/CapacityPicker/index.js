@@ -25,103 +25,67 @@ const FullWidth = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class CapacityPicker extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: props.value || 0,
-    };
-  }
-
-  handlePress = (value) => {
-    const { onChange } = this.props;
-
-    this.setState(
-      { value },
-      // Pass event up to parent component
-      () => { onChange(this.state.value); },
-    );
-  }
-
-  increase = () => {
-    const { onChange } = this.props;
-    const { value } = this.state;
-
-    this.setState(
-      { value: value + 1 },
-      // Pass event up to parent component
-      () => { onChange(this.state.value); },
-    );
-  }
-
-  decrease = () => {
-    const { onChange } = this.props;
-    const { value } = this.state;
-
-    this.setState(
-      { value: value > 0 ? value - 1 : 0 },
-      // Pass event up to parent component
-      () => { onChange(this.state.value); },
-    );
-  }
-
-  render() {
-    const { value } = this.state;
-
-    return (
-      <FullWidth>
-        {BUTTONS.map(({ row, labels }) => [
-          <Row
-            key={row}
-            justifyContent="space-between"
-          >
-            {labels.map(label => (
-              <RaisedButton
-                key={label}
-                label={label}
-                status={value === label ? 'primary' : 'ghost'}
-                size="M"
-                width={80}
-                onPress={() => { this.handlePress(label); }}
-              />
-            ))
-          }
-          </Row>,
-          <Spacer
-            key={`spacer-${row}`}
-            orientation="column"
-            size="L"
-          />,
-        ])}
-        <Spacer orientation="column" size="L" />
-        <Block>
-          <Row justifyContent="space-between">
-            <RoundButton
-              status="dark"
-              iconName="minus"
-              onPress={this.decrease}
-            />
-            <Text.XL>{value}</Text.XL>
-            <RoundButton
-              status="dark"
-              iconName="plus"
-              onPress={this.increase}
-            />
-          </Row>
-        </Block>
-      </FullWidth>
-    );
-  }
-}
+const CapacityPicker = ({
+  value,
+  onBtnPress,
+  onIncrease,
+  onDecrease,
+}) => (
+  <FullWidth>
+    {BUTTONS.map(({ row, labels }) => [
+      <Row
+        key={row}
+        justifyContent="space-between"
+      >
+        {labels.map(label => (
+          <RaisedButton
+            key={label}
+            label={label}
+            status={value === label ? 'primary' : 'ghost'}
+            size="M"
+            width={80}
+            onPress={() => { onBtnPress(label); }}
+          />
+        ))
+      }
+      </Row>,
+      <Spacer
+        key={`spacer-${row}`}
+        orientation="column"
+        size="L"
+      />,
+    ])}
+    <Spacer orientation="column" size="L" />
+    <Block>
+      <Row justifyContent="space-between">
+        <RoundButton
+          status="dark"
+          iconName="minus"
+          onPress={onDecrease}
+        />
+        <Text.XL>{value || 0}</Text.XL>
+        <RoundButton
+          status="dark"
+          iconName="plus"
+          onPress={onIncrease}
+        />
+      </Row>
+    </Block>
+  </FullWidth>
+);
 
 CapacityPicker.propTypes = {
   value: PropTypes.number,
-  onChange: PropTypes.func,
+  onBtnPress: PropTypes.func,
+  onIncrease: PropTypes.func,
+  onDecrease: PropTypes.func,
 };
 
 CapacityPicker.defaultProps = {
   value: 0,
-  onChange: () => {},
+  onBtnPress: () => {},
+  onIncrease: () => {},
+  onDecrease: () => {},
 };
 
 export default CapacityPicker;

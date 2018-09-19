@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import Block from '../Block';
 import CapacityPicker from './index';
@@ -8,31 +7,35 @@ import CapacityPicker from './index';
 class Container extends React.PureComponent {
   state = { value: null }
 
-  handleChange = (value) => {
+  handleBtnPress = (value) => {
     this.setState({ value });
   }
 
+  increase = () => {
+    this.setState(prevState => (
+      { value: prevState.value + 1 }
+    ));
+  }
+
+  decrease = () => {
+    this.setState(prevState => (
+      { value: prevState.value > 0 ? prevState.value - 1 : 0 }
+    ));
+  }
+
   render() {
-    const { theme } = this.props;
     const { value } = this.state;
 
     return (
       <CapacityPicker
-        theme={theme}
         value={value}
-        onChange={this.handleChange}
+        onBtnPress={this.handleBtnPress}
+        onIncrease={this.increase}
+        onDecrease={this.decrease}
       />
     );
   }
 }
-
-Container.propTypes = {
-  theme: PropTypes.oneOf(['black', 'white']),
-};
-
-Container.defaultProps = {
-  theme: 'black',
-};
 
 storiesOf('Common.CapacityPicker', module)
   .add('CapacityPicker', () => (
