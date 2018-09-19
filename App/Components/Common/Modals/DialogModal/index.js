@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView } from 'react-native';
+import { Dimensions, ScrollView } from 'react-native';
 import styled from 'styled-components';
 import Divider from '../../Divider';
 import Block from '../../Block';
 import Modal from '../Modal';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const { height: deviceHeight } = Dimensions.get('window');
+const MARGIN = 48;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -19,6 +24,10 @@ const Body = styled.View`
 //------------------------------------------------------------------------------
 const Footer = styled.View`
   padding: 8px;
+`;
+//------------------------------------------------------------------------------
+const StyledScrollView = styled(ScrollView)`
+  max-height: ${deviceHeight - (4 * MARGIN)}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -37,11 +46,11 @@ const DialogModal = ({
           {header}
         </Block>
       )}
-      <ScrollView>
+      <StyledScrollView>
         <Body>
           {children}
         </Body>
-      </ScrollView>
+      </StyledScrollView>
       <Divider />
       <Footer>
         {footer}

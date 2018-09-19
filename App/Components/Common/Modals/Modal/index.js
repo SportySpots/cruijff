@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dimensions, Modal as NativeModal } from 'react-native';
+import { Modal as NativeModal } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../../Themes/Colors';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const { height: deviceHeight } = Dimensions.get('window');
-const MARGIN = 48;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -21,10 +16,9 @@ const Overlay = styled.TouchableOpacity`
 //------------------------------------------------------------------------------
 const Container = styled.View`
   display: flex;
-  margin: ${MARGIN}px;
+  margin: 48px;
   border-radius: 4px;
   background-color: ${Colors.white};
-  max-height: ${deviceHeight - (2 * MARGIN)}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
