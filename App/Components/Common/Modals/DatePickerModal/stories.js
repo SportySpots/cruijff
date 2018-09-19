@@ -16,7 +16,6 @@ const Container = () => (
         <DatePickerModal
           visible={visible}
           onClose={closeModal}
-          okBtnLabel="Ok"
           onOk={closeModal}
         />
       </View>

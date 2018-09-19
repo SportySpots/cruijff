@@ -4,7 +4,6 @@ import { ScrollView } from 'react-native';
 import styled from 'styled-components';
 import Divider from '../../Divider';
 import Block from '../../Block';
-import Spacer from '../../Spacer';
 import Modal from '../Modal';
 
 //------------------------------------------------------------------------------
@@ -38,9 +37,6 @@ const DialogModal = ({
         <Block>
           {header}
         </Block>
-      )}
-      {withHeader && (
-        <Spacer orientation="column" size="S" />
       )}
       <ScrollView>
         <Body>
