@@ -16,10 +16,8 @@ const Container = () => (
         />
         <CapacityPickerModal
           visible={visible}
-          onClose={closeModal}
           onSelect={closeModal}
-          // okBtnLabel="Ok"
-          // onOk={closeModal}
+          onClose={closeModal}
         />
       </View>
     )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { View } from 'react-native';
 import Text from '../Text';
 import Block from '../Block';
 import Row from '../Row';
@@ -17,12 +17,6 @@ const BUTTONS = [
   { row: 2, labels: [14, 16, 22] },
 ];
 //------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const FullWidth = styled.View`
-  flex: 1; /* full width */
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const CapacityPicker = ({
@@ -31,7 +25,7 @@ const CapacityPicker = ({
   onIncrease,
   onDecrease,
 }) => (
-  <FullWidth>
+  <View style={{ borderWidth: 1, borderColor: 'green' }}>
     {BUTTONS.map(({ row, labels }) => [
       <Row
         key={row}
@@ -71,7 +65,7 @@ const CapacityPicker = ({
         />
       </Row>
     </Block>
-  </FullWidth>
+  </View>
 );
 
 CapacityPicker.propTypes = {

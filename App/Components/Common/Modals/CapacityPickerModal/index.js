@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import I18n from '../../../../I18n';
 import Text from '../../Text';
 import Block from '../../Block';
-import Divider from '../../Divider';
+import Spacer from '../../Spacer';
 import CapacityPicker from '../../CapacityPicker';
 import CancelConfirmModal from '../CancelConfirmModal';
 
@@ -47,16 +48,22 @@ class CapacityPickerModal extends React.PureComponent {
         onOk={() => { onSelect(value); }}
         onCancel={onClose}
       >
-        <Block>
-          <Text.ML>{I18n.t('Choose amount players')}</Text.ML>
-        </Block>
-        <Divider />
-        <CapacityPicker
-          value={value}
-          onBtnPress={this.handleBtnPress}
-          onIncrease={this.increase}
-          onDecrease={this.decrease}
-        />
+        <View style={{ height: 400 }}>
+          <Block>
+            <Text.ML>{I18n.t('Choose amount players')}</Text.ML>
+          </Block>
+          <Spacer orientation="column" size="L" />
+          <View style={{ flex: 1, width: 320, borderWidth: 1, borderColor: 'red' }}>
+            <Block style={{ borderWidth: 1, borderColor: 'blue' }}>
+              <CapacityPicker
+                value={value}
+                onBtnPress={this.handleBtnPress}
+                onIncrease={this.increase}
+                onDecrease={this.decrease}
+              />
+            </Block>
+          </View>
+        </View>
       </CancelConfirmModal>
     );
   }

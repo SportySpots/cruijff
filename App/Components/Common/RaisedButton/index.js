@@ -23,7 +23,7 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 const Label = styled(Text.M)`
   color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
-  font-weight: 500;
+  /* font-weight: bold; */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
