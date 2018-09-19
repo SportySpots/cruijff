@@ -33,7 +33,7 @@ const Subtitle = styled(Text.SM)`
 //------------------------------------------------------------------------------
 const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
   <CancelConfirmModal
-    withHeader={false}
+    withHeader={false} // Hide header space
     visible={visible}
     onClose={onClose}
     okBtnLabel={I18n.t('Hell yes')}
