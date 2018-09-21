@@ -36,26 +36,23 @@ export class App extends Component {
         const ws = new WebSocket(config.testHostUrl);
 
         ws.onopen = () => {
-          console.warn('connected');
-          // connection opened
-          // ws.send('hi'); // send a message
+          console.log('RN <-> detox connected');
         };
 
         ws.onmessage = (e) => {
           // a message was received
-          console.log('ws data', e.data);
-          // console.log(scopedEval(e.data));
           const result = scopedEval(e.data);
-          console.log(result);
-          try {
-            ws.send(JSON.stringify(result));
-          } catch (err) {
-            ws.send(JSON.stringify({
-              hasError: false,
-              response: 'cannot jsonify',
-              error: null,
-            }));
-          }
+          Promise.resolve(result.response).then((val) => {
+            try {
+              ws.send(JSON.stringify({ hasError: false, error: null, response: val }));
+            } catch (err) {
+              ws.send(JSON.stringify({
+                hasError: false,
+                response: 'cannot jsonify',
+                error: null,
+              }));
+            }
+          });
         };
 
         ws.onerror = (e) => {

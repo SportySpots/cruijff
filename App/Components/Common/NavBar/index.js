@@ -109,6 +109,7 @@ class NavBar extends React.Component {
       <Container>
         {buttons.map(btn => (
           <NavBarButton
+            testID={`navbarButton_${btn.id}`}
             key={btn.id}
             btnLabel={I18n.t(btn.label)}
             icon={btn.icon}

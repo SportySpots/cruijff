@@ -37,13 +37,14 @@ const NavBarButton = ({
   icon,
   active,
   onPress,
+  ...otherProps
 }) => {
   const Icon = icon.set;
   const baseColor = active ? Colors.primaryGreen : Colors.black54;
   const color = main ? Colors.white : baseColor;
 
   return (
-    <Button main={main} onPress={onPress}>
+    <Button main={main} onPress={onPress} {...otherProps}>
       <Center>
         <Icon
           name={icon.name}

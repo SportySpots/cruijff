@@ -58,6 +58,7 @@ const ProfileSignupScreen = ({ closable, onClose, navigation }) => [
     </Center>
     <ButtonContainer>
       <DefaultButton
+        testID="profileButtonSignup"
         onPress={() => { navigation.navigate('SignupScreen'); }}
         text={I18n.t('Register')}
       />

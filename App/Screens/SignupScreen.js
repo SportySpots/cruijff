@@ -106,12 +106,13 @@ export class _Signup extends Component {
 
   render() {
     return (
-      <KeyboardAwareScrollView ref={ref => {this.scroll = ref}}>
+      <KeyboardAwareScrollView testID="signupScrollView" ref={ref => {this.scroll = ref}}>
         <LogoHeaderBackground hideLogo>
           <Form>
             <FieldSet>
               <BlackText>{I18n.t('First name')}</BlackText>
               <Input
+                testID="signupFieldFirstName"
                 onChangeText={val => this.setState({ first_name: val })}
                 editable={!this.requestIsPending}
                 autoFocus
@@ -122,6 +123,7 @@ export class _Signup extends Component {
             <FieldSet>
               <BlackText>{I18n.t('Last name')}</BlackText>
               <Input
+                testID="signupFieldLastName"
                 ref={(ref) => { this.lastNameField = ref; }}
                 onChangeText={val => this.setState({ last_name: val })}
                 editable={!this.requestIsPending}
@@ -133,13 +135,14 @@ export class _Signup extends Component {
               <BlackText>{I18n.t('E-mail')}</BlackText>
               {this.hasError &&
                 'email' in this.error && (
-                  <Error>
+                  <Error testID="emailError">
                     {I18n.t('username' in this.error
                         ? 'E-mail address in use'
                         : 'Enter a valid e-mail address')}
                   </Error>
                 )}
               <Input
+                testID="signupFieldEmail"
                 ref={(ref) => { this.emailField = ref; }}
                 keyboardType="email-address"
                 onChangeText={val => this.setState({ email: val })}
@@ -153,9 +156,10 @@ export class _Signup extends Component {
               <BlackText>{I18n.t('Password')}</BlackText>
               {this.hasError &&
                 'password1' in this.error && (
-                  <Error>{I18n.t('Password needs to be at least 8 characters')}</Error>
+                  <Error testID="passwordError">{I18n.t('Password needs to be at least 8 characters')}</Error>
                 )}
               <Input
+                testID="signupFieldPassword"
                 ref={(ref) => { this.passwordField = ref; }}
                 secureTextEntry
                 onChangeText={val => this.setState({ password: val })}
@@ -167,6 +171,7 @@ export class _Signup extends Component {
               <Link text={I18n.t('Terms and conditions')} href="https://www.sportyspots.com/terms.html" />
             </TermsContainer>
             <DefaultButton
+              testID="signupButtonSubmit"
               bgColor={this.signupButtonIsDisabled ? 'grey' : Colors.actionYellow}
               textColor={Colors.white}
               text={I18n.t('Signup')}

@@ -48,7 +48,7 @@ class ProfileDetailsScreen extends React.PureComponent {
           if (!data || !data.user) { return null; }
 
           return (
-            <Container>
+            <Container testID="ProfileDetailsScreen">
               <ProfileDetails
                 user={data.user}
                 onEdit={this.handleEdit}
