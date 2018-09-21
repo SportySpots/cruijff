@@ -10,6 +10,7 @@ import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import NothingFound from '../../../Components/Common/NothingFound';
 import GameDetails from '../../../Components/Games/GameDetails';
+import {addGlobalRef} from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -72,8 +73,9 @@ class GameDetailsScreen extends React.PureComponent {
           }
 
           return (
-            <Container>
+            <Container testID="gameDetails">
               <GameDetails
+                ref={addGlobalRef('gameDetails')}
                 user={user}
                 game={data.game}
                 onSpotPress={this.handleSpotPress}

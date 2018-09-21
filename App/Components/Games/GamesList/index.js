@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import I18n from '../../../I18n';
 import gameFragment from '../../../GraphQL/Games/Fragments/game';
 import NothingFound from '../../Common/NothingFound';
+import {addGlobalRef} from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -25,6 +26,8 @@ const GamesList = ({
   ...rest
 }) => (
   <FlatList
+    testID="gamesFlatList"
+    ref={addGlobalRef('gamesFlatList')}
     showsVerticalScrollIndicator={false}
     contentContainerStyle={{ flexGrow: 1 }}
     data={games}
@@ -33,6 +36,7 @@ const GamesList = ({
     )}
     renderItem={({ item: game }) => (
       <CardContainer
+        testID={`game_${game.uuid}`}
         key={game.uuid}
         onPress={() => { onCardPress(game.uuid); }}
         activeOpacity={1}

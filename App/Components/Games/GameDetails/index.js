@@ -19,74 +19,79 @@ import { getAttendees } from '../utils';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameDetails = ({
-  game,
-  user,
-  onSpotPress,
-  onAttendeesPress,
-  rspvBeforeHook,
-  rspvSuccessHook,
-}) => {
-  const isCanceled = game.status === 'CANCELED';
-  const hasCapacity = game.capacity && game.capacity > 0;
-  const withAttendees = getAttendees(game).length > 0;
+class GameDetails extends React.Component {
+  render() {
+    const {
+      game,
+      user,
+      onSpotPress,
+      onAttendeesPress,
+      rspvBeforeHook,
+      rspvSuccessHook,
+    } = this.props;
 
-  return [
-    <SpotImages key="spot-images" spot={game.spot} />,
-    isCanceled && (
-      <Block key="alert-warning">
-        <AlertMsg
-          value={`${I18n.t('This activity is canceled')}.`}
-          status="error"
-        />
-      </Block>
-    ),
-    <Block key="game-properties">
-      <GameProperties game={game} onSpotPress={onSpotPress} />
-    </Block>,
-    <SpotMapWithLinkFallback key="spot-map" spot={game.spot} />,
-    <Block key="game-organizer">
-      <Label>{I18n.t('Organizer')}</Label>
-      <OrganizerAndDescription
-        organizer={game.organizer}
-        description={game.description}
-      />
-    </Block>,
-    withAttendees && [
-      <Block key="game-attendees">
-        <Label>{I18n.t('Attending')}</Label>
-        <ClickableAttendees
-          game={game}
-          onAttendeesPress={onAttendeesPress}
+
+    const isCanceled = game.status === 'CANCELED';
+    const hasCapacity = game.capacity && game.capacity > 0;
+    const withAttendees = getAttendees(game).length > 0;
+
+    return [
+      <SpotImages key="spot-images" spot={game.spot} />,
+      isCanceled && (
+        <Block key="alert-warning">
+          <AlertMsg
+            value={`${I18n.t('This activity is canceled')}.`}
+            status="error"
+          />
+        </Block>
+      ),
+      <Block key="game-properties">
+        <GameProperties game={game} onSpotPress={onSpotPress} />
+      </Block>,
+      <SpotMapWithLinkFallback key="spot-map" spot={game.spot} />,
+      <Block key="game-organizer">
+        <Label>{I18n.t('Organizer')}</Label>
+        <OrganizerAndDescription
+          organizer={game.organizer}
+          description={game.description}
         />
       </Block>,
-    ],
-    hasCapacity && [
-      <Block key="open-spots">
-        <Label>{I18n.t('Open spots')}</Label>
-        <OpenSpots game={game} />
-      </Block>,
-    ],
-    !isCanceled && (
-      <Block key="rspv">
-        <Label>{I18n.t('Do you join?')}</Label>
-        <RSPV
+      withAttendees && [
+        <Block key="game-attendees">
+          <Label>{I18n.t('Attending')}</Label>
+          <ClickableAttendees
+            game={game}
+            onAttendeesPress={onAttendeesPress}
+          />
+        </Block>,
+      ],
+      hasCapacity && [
+        <Block key="open-spots">
+          <Label>{I18n.t('Open spots')}</Label>
+          <OpenSpots game={game} />
+        </Block>,
+      ],
+      !isCanceled && (
+        <Block key="rspv">
+          <Label>{I18n.t('Do you join?')}</Label>
+          <RSPV
+            game={game}
+            user={user}
+            onBeforeHook={rspvBeforeHook}
+            onSuccessHook={rspvSuccessHook}
+          />
+        </Block>
+      ),
+      <Block key="share">
+        <Label>{I18n.t('Share with friends')}</Label>
+        <ShareGame
           game={game}
-          user={user}
-          onBeforeHook={rspvBeforeHook}
-          onSuccessHook={rspvSuccessHook}
+          size={55}
         />
-      </Block>
-    ),
-    <Block key="share">
-      <Label>{I18n.t('Share with friends')}</Label>
-      <ShareGame
-        game={game}
-        size={55}
-      />
-    </Block>,
-  ];
-};
+      </Block>,
+    ];
+  }
+}
 
 GameDetails.propTypes = {
   user: PropTypes.shape({
@@ -100,10 +105,14 @@ GameDetails.propTypes = {
 };
 
 GameDetails.defaultProps = {
-  onSpotPress: () => {},
-  onAttendeesPress: () => {},
-  rspvBeforeHook: () => {},
-  rspvSuccessHook: () => {},
+  onSpotPress: () => {
+  },
+  onAttendeesPress: () => {
+  },
+  rspvBeforeHook: () => {
+  },
+  rspvSuccessHook: () => {
+  },
 };
 
 export default GameDetails;
