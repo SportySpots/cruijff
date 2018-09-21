@@ -2,20 +2,18 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 import ModalProps from '../../../RenderProps/modal-props';
+import RaisedButton from '../../Common/RaisedButton';
 import CancelGameDoneModal from './index';
 
 const Container = () => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => (
       <View>
-        <TouchableOpacity
+        <RaisedButton
+          status="primary"
+          label="Open"
           onPress={openModal}
-          style={{ backgroundColor: 'red' }}
-        >
-          <Text style={{ textAlign: 'center' }}>
-            Open
-          </Text>
-        </TouchableOpacity>
+        />
         <CancelGameDoneModal
           visible={visible}
           onClose={closeModal}
@@ -29,7 +27,9 @@ const ContainerWithTimeout = () => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => (
       <View>
-        <TouchableOpacity
+        <RaisedButton
+          status="primary"
+          label="Open"
           onPress={() => {
             openModal();
             const handle = setTimeout(() => {
@@ -37,12 +37,7 @@ const ContainerWithTimeout = () => (
               clearTimeout(handle);
             }, 2000);
           }}
-          style={{ backgroundColor: 'red' }}
-        >
-          <Text style={{ textAlign: 'center' }}>
-            Open
-          </Text>
-        </TouchableOpacity>
+        />
         <CancelGameDoneModal
           visible={visible}
           closable={false}
@@ -52,7 +47,7 @@ const ContainerWithTimeout = () => (
   </ModalProps>
 );
 
-storiesOf('Games.CancelGame', module)
+storiesOf('Games.CancelGameDoneModal', module)
   .add('CancelGameDoneModal', () => <Container />)
   .add('CancelGameDoneModal with timeOut', () => <ContainerWithTimeout />);
 

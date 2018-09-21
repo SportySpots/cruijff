@@ -15,7 +15,7 @@ const Img = styled.Image`
   width: 116px;
 `;
 //------------------------------------------------------------------------------
-const Centered = styled(Text.M)`
+const Title = styled(Text.M)`
   text-align: center;
 `;
 //------------------------------------------------------------------------------
@@ -29,8 +29,8 @@ const CancelGameDoneModal = ({ visible, onClose }) => (
     onOk={onClose}
   >
     <Img source={themeImages.activityCancelledVisual} />
-    <Spacer size="L" />
-    <Centered>{`${I18n.t('The activity is cancelled')}.`}</Centered>
+    <Spacer orientation="column" size="L" />
+    <Title>{`${I18n.t('The activity is cancelled')}.`}</Title>
   </ConfirmModal>
 );
 

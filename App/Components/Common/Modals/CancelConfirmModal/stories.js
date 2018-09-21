@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import ModalProps from '../../../../RenderProps/modal-props';
 import RaisedButton from '../../RaisedButton';
-import ConfirmModal from './index';
+import CancelConfirmModal from './index';
 
 const Container = () => (
   <ModalProps>
@@ -14,18 +14,20 @@ const Container = () => (
           label="Open"
           onPress={openModal}
         />
-        <ConfirmModal
+        <CancelConfirmModal
           visible={visible}
           onClose={closeModal}
           okBtnLabel="Ok"
+          cancelBtnLabel="Cancel"
           onOk={closeModal}
+          onCancel={closeModal}
         >
           <Text>I&apos;m the child component</Text>
-        </ConfirmModal>
+        </CancelConfirmModal>
       </View>
     )}
   </ModalProps>
 );
 
-storiesOf('Modals.ConfirmModal', module)
-  .add('ConfirmModal', () => <Container />);
+storiesOf('Modals.CancelConfirmModal', module)
+  .add('CancelConfirmModal', () => <Container />);

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
-import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import { getPalette, getPixelsFromSize } from './utils';
@@ -23,7 +22,6 @@ const Container = styled.View`
 `;
 //------------------------------------------------------------------------------
 const Label = styled(Text.M)`
-  font-size: ${Fonts.style.M.fontSize};
   color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
   font-weight: 500;
 `;
@@ -52,7 +50,6 @@ const RaisedButton = ({
         disabled={disabled}
       >
         <Label
-          size={size}
           fontColor={fontColor}
           disabled={disabled}
         >
