@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import themeImages from '../../../Themes/Images';
-import Text from '../../../Components/Common/Text';
-import Spacer from '../../../Components/Common/Spacer';
+import Text from '../../Common/Text';
+import Spacer from '../../Common/Spacer';
+import Block from '../../Common/Block';
 import ConfirmModal from '../../Common/Modals/ConfirmModal';
 
 //------------------------------------------------------------------------------
@@ -29,17 +30,18 @@ const Title = styled(Text.M)`
 //------------------------------------------------------------------------------
 const CancelGameDoneModal = ({ visible, onClose }) => (
   <ConfirmModal
-    withHeader={false} // Hide header space
     visible={visible}
     onClose={onClose}
     okBtnLabel={I18n.t('Ok')}
     onOk={onClose}
   >
-    <Container>
-      <Img source={themeImages.activityCancelledVisual} />
-      <Spacer orientation="column" size="L" />
-      <Title>{`${I18n.t('The activity is cancelled')}.`}</Title>
-    </Container>
+    <Block>
+      <Container>
+        <Img source={themeImages.activityCancelledVisual} />
+        <Spacer orientation="column" size="L" />
+        <Title>{`${I18n.t('The activity is cancelled')}.`}</Title>
+      </Container>
+    </Block>
   </ConfirmModal>
 );
 

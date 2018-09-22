@@ -6,10 +6,7 @@ import ModalProps from '../../../../RenderProps/modal-props';
 import RaisedButton from '../../RaisedButton';
 import DialogModal from './index';
 
-const Container = ({ withHeader, children }) => {
-  const header = (
-    <Text>I&apos;m the Header</Text>
-  );
+const Container = ({ header, children }) => {
   const footer = (
     <Text>I&apos;m the footer</Text>
   );
@@ -26,7 +23,6 @@ const Container = ({ withHeader, children }) => {
           <DialogModal
             visible={visible}
             onClose={closeModal}
-            withHeader={withHeader}
             header={header}
             footer={footer}
           >
@@ -39,7 +35,7 @@ const Container = ({ withHeader, children }) => {
 };
 
 Container.propTypes = {
-  withHeader: PropTypes.bool,
+  header: PropTypes.func,
   children: PropTypes.oneOf([
     PropTypes.node,
     PropTypes.func,
@@ -47,24 +43,26 @@ Container.propTypes = {
 };
 
 Container.defaultProps = {
-  withHeader: true,
+  header: null,
 };
+
+const header = <Text>I&apos;m the Header</Text>;
 
 storiesOf('Modals.DialogModal', module)
   .add('DialogModal', () => (
-    <Container>
+    <Container header={header}>
       <Text>I&apos;m the child component</Text>
     </Container>
   ))
   .add('DialogModal big children', () => (
-    <Container>
+    <Container header={header}>
       <View style={{ height: 700, borderWidth: 1, borderColor: 'red' }}>
         <Text>I&apos;m the child component</Text>
       </View>
     </Container>
   ))
   .add('DialogModal big children no header', () => (
-    <Container withHeader={false}>
+    <Container>
       <View style={{ height: 400, borderWidth: 1, borderColor: 'red' }}>
         <Text>I&apos;m the child component</Text>
       </View>

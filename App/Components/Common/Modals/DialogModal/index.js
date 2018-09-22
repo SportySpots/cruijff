@@ -19,7 +19,7 @@ const Flex = styled.View`
 `;
 //------------------------------------------------------------------------------
 const Body = styled.View`
-  flex-grow: 1; /* full height */
+  flex-grow: 1; /* take all remaining height */
 `;
 //------------------------------------------------------------------------------
 const Footer = styled.View`
@@ -33,7 +33,6 @@ const StyledScrollView = styled(ScrollView)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const DialogModal = ({
-  withHeader,
   header,
   children,
   footer,
@@ -41,7 +40,7 @@ const DialogModal = ({
 }) => (
   <Modal {...rest}>
     <Flex>
-      {withHeader && (
+      {header && (
         <Block>
           {header}
         </Block>
@@ -60,24 +59,26 @@ const DialogModal = ({
 );
 
 DialogModal.propTypes = {
-  withHeader: PropTypes.bool,
-  header: PropTypes.oneOfType(
+  header: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func,
     PropTypes.object,
-  ),
-  children: PropTypes.node.isRequired,
-  footer: PropTypes.oneOfType(
+    null,
+  ]),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]).isRequired,
+  footer: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func,
     PropTypes.object,
-  ),
+  ]),
   // Plus all props from native modal and Modal
 };
 
 DialogModal.defaultProps = {
-  withHeader: true,
-  header: () => null,
+  header: null,
   footer: () => null,
 };
 

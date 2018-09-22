@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import themeImages from '../../../Themes/Images';
-import Text from '../../../Components/Common/Text';
-import Spacer from '../../../Components/Common/Spacer';
+import Text from '../../Common/Text';
+import Spacer from '../../Common/Spacer';
+import Block from '../../Common/Block';
 import CancelConfirmModal from '../../Common/Modals/CancelConfirmModal';
 
 //------------------------------------------------------------------------------
@@ -33,7 +34,6 @@ const Subtitle = styled(Text.SM)`
 //------------------------------------------------------------------------------
 const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
   <CancelConfirmModal
-    withHeader={false} // Hide header space
     visible={visible}
     onClose={onClose}
     okBtnLabel={I18n.t('Hell yes')}
@@ -41,13 +41,15 @@ const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
     onOk={onConfirm}
     onCancel={onClose}
   >
-    <Container>
-      <Img source={themeImages.activityCancelledVisual} />
-      <Spacer orientation="column" size="L" />
-      <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
-      <Spacer orientation="column" size="M" />
-      <Subtitle>{`${I18n.t('All attendees will receive an email with your reason for cancellation')}.`}</Subtitle>
-    </Container>
+    <Block>
+      <Container>
+        <Img source={themeImages.activityCancelledVisual} />
+        <Spacer orientation="column" size="L" />
+        <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
+        <Spacer orientation="column" size="M" />
+        <Subtitle>{`${I18n.t('All attendees will receive an email with your reason for cancellation')}.`}</Subtitle>
+      </Container>
+    </Block>
   </CancelConfirmModal>
 );
 
