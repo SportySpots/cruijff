@@ -26,48 +26,49 @@ export const Title = styled(Text.L)`
 //------------------------------------------------------------------------------
 const FormLayout = ({
   children,
+  theme,
   title,
-  titleColor,
-  bgColor,
-  onClose,
-}) => (
-  <Container bgColor={bgColor}>
-    <Row
-      justifyContent="space-between"
-      alignItems="center"
-    >
-      <Title color={titleColor}>
-        {title}
-      </Title>
-      <TouchableOpacity onPress={onClose}>
-        <Icon
-          name="close"
-          size={Fonts.style.L.fontSize}
-          color={bgColor === Colors.primaryGreen ? Colors.white : Colors.black}
-        />
-      </TouchableOpacity>
-    </Row>
-    <Spacer orientation="column" size="XXXL" />
-    {children}
-  </Container>
-);
+  onLeave,
+}) => {
+  const isWhiteTheme = theme === 'white';
+
+  return (
+    <Container bgColor={isWhiteTheme ? Colors.primaryGreen : Colors.lightGray}>
+      <Row
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Title color={isWhiteTheme ? Colors.white : Colors.black}>
+          {title}
+        </Title>
+        <TouchableOpacity onPress={onLeave}>
+          <Icon
+            name="close"
+            size={Fonts.style.L.fontSize}
+            color={isWhiteTheme ? Colors.white : Colors.black}
+          />
+        </TouchableOpacity>
+      </Row>
+      <Spacer orientation="column" size="XXXL" />
+      {children}
+    </Container>
+  );
+};
 
 FormLayout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func,
   ]).isRequired,
+  theme: PropTypes.oneOf(['black', 'white']),
   title: PropTypes.string,
-  titleColor: PropTypes.string,
-  bgColor: PropTypes.string,
-  onClose: PropTypes.func,
+  onLeave: PropTypes.func,
 };
 
 FormLayout.defaultProps = {
+  theme: 'black',
   title: '',
-  titleColor: Colors.white,
-  bgColor: Colors.primaryGreen,
-  onClose: () => {},
+  onLeave: () => {},
 };
 
 export default FormLayout;

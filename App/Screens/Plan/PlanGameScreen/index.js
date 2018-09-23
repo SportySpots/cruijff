@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import api from '../../../Services/SeedorfApi';
 import Colors from '../../../Themes/Colors';
+import FormLayout from '../../../Components/PlanGame/FormLayout';
 import Footer from '../../../Components/DarkFooter';
 import SportDateTimeForm from '../../../Components/PlanGame/SportDateTimeForm/';
 import SpotForm from '../../../Components/PlanGame/SpotForm';
@@ -24,6 +25,8 @@ const SLIDES = [
   {
     id: 'sportDateTimeForm',
     Comp: SportDateTimeForm,
+    title: 'Plan a game',
+    theme: 'white',
     // TODO: probably sportUuid or something
     fields: ['sport', 'date', 'time', 'duration', 'capacity'],
     requiredFields: ['sport', 'date', 'time'],
@@ -38,6 +41,8 @@ const SLIDES = [
   {
     id: 'spotForm',
     Comp: SpotForm,
+    title: 'Plan a game',
+    theme: 'white',
     // TODO: probably spotUuid or something
     fields: ['spot'],
     requiredFields: ['spot'],
@@ -48,6 +53,8 @@ const SLIDES = [
   {
     id: 'descriptionForm',
     Comp: DescriptionForm,
+    title: 'Plan a game',
+    theme: 'white',
     fields: ['description'],
     requiredFields: [],
     initState: {
@@ -58,6 +65,8 @@ const SLIDES = [
   {
     id: 'shareForm',
     Comp: ShareForm,
+    title: 'Plan a game',
+    theme: 'white',
     fields: ['gameUuid', 'share'],
     requiredFields: ['gameUuid'],
     initState: {
@@ -70,8 +79,6 @@ const SLIDES = [
 //------------------------------------------------------------------------------
 const Outer = styled.View`
   flex: 1;
-  background-color: ${Colors.primaryGreen};
-  padding-top: 48;
 `;
 //------------------------------------------------------------------------------
 const Inner = styled.View`
@@ -187,7 +194,7 @@ class PlanGameScreen extends React.Component {
     );
   }
 
-  handleBack = () => {
+  handleLeave = () => {
     Keyboard.dismiss();
 
     const { navigation } = this.props;
@@ -272,23 +279,36 @@ class PlanGameScreen extends React.Component {
 
     return (
       <Outer>
-        <Inner>
-          <Swiper
-            ref={(swiper) => { this.swiper = swiper; }}
-            scrollEnabled={false}
-            loop={false}
-            showsPagination={false}
-          >
-            {SLIDES.map(({ id, Comp, fields }) => (
-              <Comp
-                key={id}
-                onChange={this.handleChange}
-                // Only pass state fields associated to component
-                {...pick(this.state, fields)}
-              />
-            ))}
-          </Swiper>
-        </Inner>
+        <Swiper
+          ref={(swiper) => { this.swiper = swiper; }}
+          scrollEnabled={false}
+          loop={false}
+          showsPagination={false}
+        >
+          {SLIDES.map(({
+            id,
+            Comp,
+            theme,
+            title,
+            fields,
+          }) => (
+            <Inner>
+              <FormLayout
+                theme={theme}
+                title={I18n.t(title)}
+                onLeave={this.handleLeave}
+              >
+                <Comp
+                  key={id}
+                  onChange={this.handleChange}
+                  // Only pass state fields associated to component
+                  {...pick(this.state, fields)}
+                />
+                
+              </FormLayout>
+            </Inner>
+          ))}
+        </Swiper>
         <Footer
           numPages={SLIDES.length}
           currentPage={curSlide}

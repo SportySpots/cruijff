@@ -28,14 +28,16 @@ class Container extends React.PureComponent {
     } = this.state;
 
     return (
-      <SportDateTimeForm
-        theme={theme}
-        sport={sport}
-        date={date}
-        time={time}
-        capacity={capacity}
-        onChange={this.handleChange}
-      />
+      <WithApolloMockProvider>
+        <SportDateTimeForm
+          theme={theme}
+          sport={sport}
+          date={date}
+          time={time}
+          capacity={capacity}
+          onChange={this.handleChange}
+        />
+      </WithApolloMockProvider>
     );
   }
 }
@@ -49,15 +51,8 @@ Container.defaultProps = {
 };
 
 storiesOf('PlanGame.SportDateTimeForm', module)
-  .add('SportDateTimeForm', () => (
-    <WithApolloMockProvider>
-      <Container />
-    </WithApolloMockProvider>
-  ))
   .add('SportDateTimeForm white theme', () => (
-    <WithApolloMockProvider>
-      <Block bgColor={Colors.primaryGreen}>
-        <Container theme="white" />
-      </Block>
-    </WithApolloMockProvider>
+    <Block bgColor={Colors.primaryGreen}>
+      <Container theme="white" />
+    </Block>
   ));
