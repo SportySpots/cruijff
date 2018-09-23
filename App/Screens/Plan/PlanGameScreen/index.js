@@ -194,28 +194,28 @@ class PlanGameScreen extends React.Component {
     Keyboard.dismiss();
 
     const { navigation } = this.props;
-    const { curSlide } = this.state;
 
-    if (curSlide === 0) {
-      Alert.alert(
-        I18n.t('Confirm'),
-        I18n.t('Are you sure you want to cancel this game?'),
-        [
-          { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
-          { text: I18n.t('Yes'), onPress: () => { navigation.goBack(null); } },
-        ],
-      );
-    } else {
-      this.setState(
-        { curSlide: this.state.curSlide - 1 },
-        () => { this.swiper.scrollBy(-1); },
-      );
-    }
+    Alert.alert(
+      I18n.t('Confirm'),
+      I18n.t('Are you sure you want to cancel this game?'),
+      [
+        { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
+        { text: I18n.t('Yes'), onPress: () => { navigation.goBack(null); } },
+      ],
+    );
+  }
+
+  handleBack = () => {
+    Keyboard.dismiss();
+
+    this.setState(
+      prevState => ({ curSlide: prevState.curSlide === 0 ? 0 : prevState.curSlide - 1 }),
+      () => { this.swiper.scrollBy(-1); },
+    );
   }
 
   handleNext = () => {
     Keyboard.dismiss();
-    console.log('handleNext!!!!1');
 
     const { navigation } = this.props;
     const { curSlide } = this.state;
@@ -243,7 +243,7 @@ class PlanGameScreen extends React.Component {
       navigation.navigate('GameDetailsScreen', { uuid });
     } else {
       this.setState(
-        { curPage: this.state.curPage + 1 },
+        prevState => ({ curSlide: prevState.curSlide + 1 }),
         () => { this.swiper.scrollBy(1); },
       );
     }
@@ -290,12 +290,12 @@ class PlanGameScreen extends React.Component {
           }) => (
             <FullHeight>
               <FormLayout
+                key={id}
                 theme={theme}
                 title={I18n.t(title)}
                 onLeave={this.handleLeave}
               >
                 <Comp
-                  key={id}
                   onChange={this.handleChange}
                   // Only pass state fields associated to component
                   {...pick(this.state, fields)}

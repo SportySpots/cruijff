@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 // import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
