@@ -77,12 +77,8 @@ const SLIDES = [
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Outer = styled.View`
-  flex: 1;
-`;
-//------------------------------------------------------------------------------
-const Inner = styled.View`
-  flex: 1;
+const FullHeight = styled.View`
+  flex: 1; /* full height */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -183,7 +179,7 @@ class PlanGameScreen extends React.Component {
         formattedValue = this.setEndTime(value);
         break;
       default:
-        throw new Error(404, 'Unknown fieldName');
+        formattedValue = value;
     }
 
     console.log('formattedValue', formattedValue);
@@ -278,7 +274,7 @@ class PlanGameScreen extends React.Component {
     const { curSlide } = this.state;
 
     return (
-      <Outer>
+      <FullHeight>
         <Swiper
           ref={(swiper) => { this.swiper = swiper; }}
           scrollEnabled={false}
@@ -292,7 +288,7 @@ class PlanGameScreen extends React.Component {
             title,
             fields,
           }) => (
-            <Inner>
+            <FullHeight>
               <FormLayout
                 theme={theme}
                 title={I18n.t(title)}
@@ -306,7 +302,7 @@ class PlanGameScreen extends React.Component {
                 />
                 
               </FormLayout>
-            </Inner>
+            </FullHeight>
           ))}
         </Swiper>
         <Footer
@@ -316,7 +312,7 @@ class PlanGameScreen extends React.Component {
           onNext={this.handleNext}
           disableNext={this.disableNext}
         />
-      </Outer>
+      </FullHeight>
     );
   }
 }
