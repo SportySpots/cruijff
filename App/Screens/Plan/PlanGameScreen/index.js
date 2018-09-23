@@ -41,8 +41,8 @@ const SLIDES = [
   {
     id: 'spotForm',
     Comp: SpotForm,
-    title: 'Plan a game',
-    theme: 'white',
+    title: 'Pick a Spot',
+    theme: 'black',
     // TODO: probably spotUuid or something
     fields: ['spot'],
     requiredFields: ['spot'],

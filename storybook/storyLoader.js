@@ -32,6 +32,7 @@ function loadStories() {
   require('../App/Components/Common/SportCard/stories');
   require('../App/Components/Common/SportPickerField/stories');
   require('../App/Components/Common/SportsList/stories');
+  require('../App/Components/Common/SpotsList/stories');
   require('../App/Components/Common/SwitchWithText/stories');
   require('../App/Components/Common/TextField/stories');
   require('../App/Components/Common/TimePickerField/stories');
@@ -93,6 +94,7 @@ const stories = [
   '../App/Components/Common/SportCard/stories',
   '../App/Components/Common/SportPickerField/stories',
   '../App/Components/Common/SportsList/stories',
+  '../App/Components/Common/SpotsList/stories',
   '../App/Components/Common/SwitchWithText/stories',
   '../App/Components/Common/TextField/stories',
   '../App/Components/Common/TimePickerField/stories',
