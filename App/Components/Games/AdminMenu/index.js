@@ -80,7 +80,7 @@ class AdminMenu extends React.PureComponent {
           return (
             <Menu name="game-admin">
               <MenuTrigger menuName="game-admin">
-                <TriggerContainer>
+                <TriggerContainer testID="gameAdminMenuTrigger">
                   <Icon size={32} name="more-vert" />
                 </TriggerContainer>
               </MenuTrigger>
@@ -90,7 +90,7 @@ class AdminMenu extends React.PureComponent {
                 </MenuOption>
                 <MenuOption disabled /> */}
                 <MenuOption onSelect={this.handleCancel}>
-                  <Text.M>{I18n.t('Cancel activity')}</Text.M>
+                  <Text.M testID="gameAdminMenuCancel">{I18n.t('Cancel activity')}</Text.M>
                 </MenuOption>
               </MenuOptions>
             </Menu>

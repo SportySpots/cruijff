@@ -177,6 +177,7 @@ class CancelGameForm extends React.PureComponent {
       </Top>,
       <Bottom key="bottom">
         <RaisedButton
+          testID="cancelGameFormCancelButton"
           status="warning"
           label={I18n.t('Cancel this activity')}
           disabled={disabled}
