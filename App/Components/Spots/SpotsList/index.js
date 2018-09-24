@@ -5,8 +5,8 @@ import { Query } from 'react-apollo';
 import { FlatList } from 'react-native';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import GET_SPOTS_FOR_SPORT from '../../../GraphQL/Spots/Queries/GET_SPOTS_FOR_SPORT';
-import CenteredActivityIndicator from '../CenteredActivityIndicator';
-import SpotCard from '../../Spots/SpotListCardSmall';
+import CenteredActivityIndicator from '../../Common/CenteredActivityIndicator';
+import SpotCard from '../SpotListCardSmall';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
