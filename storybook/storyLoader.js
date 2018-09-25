@@ -49,6 +49,7 @@ function loadStories() {
   require('../App/Components/Games/Organizer/stories');
   require('../App/Components/Games/OrganizerAndDescription/stories');
   require('../App/Components/Games/Stories');
+  require('../App/Components/PlanGame/DescriptionField/stories');
   require('../App/Components/PlanGame/DescriptionForm/stories');
   require('../App/Components/PlanGame/FormLayout/stories');
   require('../App/Components/PlanGame/SportDateTimeForm/stories');
@@ -117,6 +118,7 @@ const stories = [
   '../App/Components/Games/Organizer/stories',
   '../App/Components/Games/OrganizerAndDescription/stories',
   '../App/Components/Games/Stories',
+  '../App/Components/PlanGame/DescriptionField/stories',
   '../App/Components/PlanGame/DescriptionForm/stories',
   '../App/Components/PlanGame/FormLayout/stories',
   '../App/Components/PlanGame/SportDateTimeForm/stories',
