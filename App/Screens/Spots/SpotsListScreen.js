@@ -5,10 +5,10 @@ import { uniqBy } from 'ramda';
 import geolib from 'geolib';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
-import SpotsList from '../../Components/Spots/SpotsList';
+import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
 import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import Card from '../../Components/Spots/SpotListCard';
-import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
+import SpotsList from '../../Components/Spots/SpotsList';
 
 //------------------------------------------------------------------------------
 // STYLE:

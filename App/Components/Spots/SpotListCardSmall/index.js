@@ -1,16 +1,15 @@
 import React from 'react';
-import { Image, View } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
+import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
-import Rating from '../../Common/Rating';
+// import Rating from '../../Common/Rating';
 import Text from '../../Common/Text';
 import Row from '../../Common/Row';
 import Block from '../../Common/Block';
-import DotSpacer from '../../Common/DotSpacer';
+// import DotSpacer from '../../Common/DotSpacer';
 import SpotImage from '../SpotImage';
-import toTitleCase from './utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -25,6 +24,10 @@ const Container = styled.View`
   flex: 1; /* full width */
   background-color: ${Colors.white};
   border-radius: ${BORDER_RADIUS};
+  shadow-offset: 1px 1px;
+  shadow-color: ${Colors.shade};
+  shadow-opacity: 0.8;
+  elevation: 2;
 `;
 //------------------------------------------------------------------------------
 const FlexGrow = styled.View`
@@ -45,32 +48,42 @@ const imgStyle = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SpotListCardSmall = ({ spot }) => {
-  const sports = spot.sports.map(({ category }) => (
-    toTitleCase(category.replace('_', ' '))
-  )).join(' ');
+class SpotListCardSmall extends React.PureComponent {
+  // Forward setNativeProps to the root (View) so that Card can be used as Touchable
+  setNativeProps = (nativeProps) => {
+    // eslint-disable-next-line no-underscore-dangle
+    this._root.setNativeProps(nativeProps);
+  }
 
-  return (
-    <Container>
-      <Row>
-        <FlexGrow>
-          <Block>
-            <Flex>
-              <Text.ML>{spot.name}</Text.ML>
-              <Text.M>{sports}</Text.M>
-              {/* <View style={{ flexDirection: 'row', paddingTop: 8 }}>
-                  <Rating rating={spot.rating || 4} />
-                  <DotSpacer />
-                  <Text.S>{distance.toFixed(1)} km</Text.S>
-                </View>
-              */}
-            </Flex>
-          </Block>
-        </FlexGrow>
-        <SpotImage spot={spot} style={imgStyle} />
-      </Row>
-    </Container>
-  );
+  render() {
+    const { spot } = this.props;
+
+    const sports = spot.sports.map(({ category }) => (
+      I18n.t(category)
+    )).join(', ');
+
+    return (
+      <Container>
+        <Row>
+          <FlexGrow>
+            <Block>
+              <Flex>
+                <Text.ML>{spot.name}</Text.ML>
+                <Text.M>{sports}</Text.M>
+                {/* <View style={{ flexDirection: 'row', paddingTop: 8 }}>
+                    <Rating rating={spot.rating || 4} />
+                    <DotSpacer />
+                    <Text.S>{distance.toFixed(1)} km</Text.S>
+                  </View>
+                */}
+              </Flex>
+            </Block>
+          </FlexGrow>
+          <SpotImage spot={spot} style={imgStyle} />
+        </Row>
+      </Container>
+    );
+  }
 }
 
 SpotListCardSmall.propTypes = {

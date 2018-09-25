@@ -1,57 +1,119 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
-import { FlatList } from 'react-native';
-import GET_SPOTS_FOR_SPORT from '../../../GraphQL/Spots/Queries/GET_SPOTS_FOR_SPORT';
+import { FlatList, TouchableOpacity } from 'react-native';
+import { propType } from 'graphql-anywhere';
+import I18n from '../../../I18n';
+import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
+import NothingFound from '../../Common/NothingFound';
 import Spacer from '../../Common/Spacer';
-import CenteredActivityIndicator from '../../Common/CenteredActivityIndicator';
-import SpotCard from '../SpotListCardSmall';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: move query up and use SpotsListOld instead
-const SpotsList = ({ sport, onSpotPress }) => (
-  <Query
-    query={GET_SPOTS_FOR_SPORT}
-    variables={{
-      limit: 30, // TODO: implement pagination
-      offset: 0,
-      sport,
-    }}
-  >
-    {({ loading, error, data }) => {
-      if (loading) { return <CenteredActivityIndicator />; }
-      if (error || !data) { return null; }
-
-      return (
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ flexGrow: 1 }}
-          data={data.spots}
-          keyExtractor={item => item.uuid}
-          renderItem={({ item }) => (
-            <SpotCard
-              spot={item}
-              onPress={onSpotPress}
-            />
-          )}
-          ItemSeparatorComponent={() => (
-            <Spacer orientation="column" size="L" />
-          )}
-        />
-      );
-    }}
-  </Query>
+const SpotsList = ({
+  spots,
+  cardComponent,
+  onCardPress,
+  ...rest
+}) => (
+  <FlatList
+    showsVerticalScrollIndicator={false}
+    contentContainerStyle={{ flexGrow: 1 }}
+    data={spots}
+    renderItem={({ item: spot }) => (
+      <TouchableOpacity
+        key={spot.uuid}
+        onPress={() => { onCardPress(spot.uuid); }}
+        activeOpacity={1}
+      >
+        {React.createElement(cardComponent, { spot })}
+      </TouchableOpacity>
+    )}
+    keyExtractor={item => item.uuid}
+    ListEmptyComponent={(
+      <NothingFound
+        icon="map-marker"
+        text={I18n.t('No spots found')}
+      />
+    )}
+    ItemSeparatorComponent={() => (
+      <Spacer orientation="column" size="M" />
+    )}
+    {...rest}
+  />
 );
 
 SpotsList.propTypes = {
-  sport: PropTypes.string.isRequired,
-  onSpotPress: PropTypes.func,
+  spots: PropTypes.arrayOf(propType(spotFragment)),
+  cardComponent: PropTypes.func.isRequired,
+  onCardPress: PropTypes.func,
 };
 
 SpotsList.defaultProps = {
-  onSpotPress: () => {},
+  spots: [],
+  onCardPress: () => {},
 };
 
 export default SpotsList;
+
+/*
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FlatList, TouchableOpacity } from 'react-native';
+import { propType } from 'graphql-anywhere';
+import styled from 'styled-components';
+import I18n from '../../../I18n';
+import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
+import NothingFound from '../../Common/NothingFound';
+
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const CardContainer = styled(TouchableOpacity)`
+  margin-vertical: 4px;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const SpotsList = ({
+  spots,
+  cardComponent,
+  onCardPress,
+  style,
+  ...rest
+}) => (
+  <FlatList
+    showsVerticalScrollIndicator={false}
+    contentContainerStyle={{ flexGrow: 1 }}
+    data={spots}
+    ListEmptyComponent={<NothingFound icon="map-marker" text={I18n.t('No spots found')} />}
+    renderItem={({ item: spot }) => (
+      <CardContainer
+        key={spot.uuid}
+        onPress={() => { onCardPress(spot.uuid); }}
+        activeOpacity={1}
+      >
+        {React.createElement(cardComponent, { spot })}
+      </CardContainer>
+    )}
+    keyExtractor={item => item.uuid}
+    {...rest}
+  />
+);
+
+SpotsList.propTypes = {
+  spots: PropTypes.arrayOf(propType(spotFragment)),
+  cardComponent: PropTypes.func.isRequired,
+  onCardPress: PropTypes.func,
+  style: PropTypes.object, // eslint-disable-line
+};
+
+SpotsList.defaultProps = {
+  spots: [],
+  onCardPress: () => {},
+  style: {},
+};
+
+export default SpotsList;
+
+*/
