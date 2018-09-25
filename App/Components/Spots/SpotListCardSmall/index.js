@@ -70,11 +70,13 @@ class SpotListCardSmall extends React.PureComponent {
               <Flex>
                 <Text.ML>{spot.name}</Text.ML>
                 <Text.M>{sports}</Text.M>
-                {/* <View style={{ flexDirection: 'row', paddingTop: 8 }}>
+                {/*
+                  <Spacer orientation="column" size="M" />
+                  <Row>
                     <Rating rating={spot.rating || 4} />
                     <DotSpacer />
                     <Text.S>{distance.toFixed(1)} km</Text.S>
-                  </View>
+                  </Row>
                 */}
               </Flex>
             </Block>

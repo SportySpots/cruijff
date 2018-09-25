@@ -15,40 +15,26 @@ const dummyNavigator = {
   },
 };
 
-class Container extends React.PureComponent {
-  state = {
-    spot: null,
-  }
-
-  handleChange = (spot) => {
-    this.setState({ spot });
-  }
-
-  render() {
-    const { theme } = this.props;
-
-    return (
-      <WithApolloMockProvider>
-        <Query
-          query={GET_SPORTS}
-          variables={{ uuid: dummyNavigator.state.params.uuid }}
-        >
-          {({ loading, error, data }) =>
-            (loading || error ? null : (
-              <Block>
-                <SpotForm
-                  theme={theme}
-                  sport={data.sports[0]}
-                  onChange={this.handleChange}
-                />
-              </Block>
-            ))
-          }
-        </Query>
-      </WithApolloMockProvider>
-    );
-  }
-}
+const Container = ({ theme }) => (
+  <WithApolloMockProvider>
+    <Query
+      query={GET_SPORTS}
+      variables={{ uuid: dummyNavigator.state.params.uuid }}
+    >
+      {({ loading, error, data }) =>
+        (loading || error ? null : (
+          <Block>
+            <SpotForm
+              theme={theme}
+              sport={data.sports[0]}
+              onChange={this.handleChange}
+            />
+          </Block>
+        ))
+      }
+    </Query>
+  </WithApolloMockProvider>
+);
 
 Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),

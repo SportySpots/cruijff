@@ -40,6 +40,7 @@ function loadStories() {
   require('../App/Components/Games/Attendees/stories');
   require('../App/Components/Games/CancelGameConfirmModal/stories');
   require('../App/Components/Games/CancelGameDoneModal/stories');
+  require('../App/Components/Games/CancelMsg/stories');
   require('../App/Components/Games/ClickableAttendees/stories');
   require('../App/Components/Games/GameCanceledFlag/stories');
   require('../App/Components/Games/GameDetails/stories');
@@ -48,6 +49,7 @@ function loadStories() {
   require('../App/Components/Games/Organizer/stories');
   require('../App/Components/Games/OrganizerAndDescription/stories');
   require('../App/Components/Games/Stories');
+  require('../App/Components/PlanGame/DescriptionForm/stories');
   require('../App/Components/PlanGame/FormLayout/stories');
   require('../App/Components/PlanGame/SportDateTimeForm/stories');
   require('../App/Components/PlanGame/SpotForm/stories');
@@ -106,6 +108,7 @@ const stories = [
   '../App/Components/Games/Attendees/stories',
   '../App/Components/Games/CancelGameConfirmModal/stories',
   '../App/Components/Games/CancelGameDoneModal/stories',
+  '../App/Components/Games/CancelMsg/stories',
   '../App/Components/Games/ClickableAttendees/stories',
   '../App/Components/Games/GameCanceledFlag/stories',
   '../App/Components/Games/GameDetails/stories',
@@ -114,6 +117,7 @@ const stories = [
   '../App/Components/Games/Organizer/stories',
   '../App/Components/Games/OrganizerAndDescription/stories',
   '../App/Components/Games/Stories',
+  '../App/Components/PlanGame/DescriptionForm/stories',
   '../App/Components/PlanGame/FormLayout/stories',
   '../App/Components/PlanGame/SportDateTimeForm/stories',
   '../App/Components/PlanGame/SpotForm/stories',
