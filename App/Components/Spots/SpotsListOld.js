@@ -46,7 +46,7 @@ SpotsList.propTypes = {
   spots: PropTypes.arrayOf(propType(spotFragment)),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
-  style: PropTypes.object,
+  style: PropTypes.object, // eslint-disable-line
 };
 
 SpotsList.defaultProps = {

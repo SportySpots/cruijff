@@ -16,7 +16,7 @@ import { Label } from '../style';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SportAndTime = ({
+const SportAndTimeForm = ({
   sport,
   date,
   time,
@@ -24,6 +24,7 @@ const SportAndTime = ({
   capacity,
   onChange,
 }) => [
+  <Spacer key="sport-spacer" size="XXXL" />,
   <Row key="sport">
     <Label>{I18n.t('I want to play')}</Label>
     <Spacer orientation="row" size="S" />
@@ -83,7 +84,7 @@ const SportAndTime = ({
   </Row>,
 ];
 
-SportAndTime.propTypes = {
+SportAndTimeForm.propTypes = {
   sport: PropTypes.string, // propType(sportFragment),
   date: PropTypes.string,
   time: PropTypes.string,
@@ -92,7 +93,7 @@ SportAndTime.propTypes = {
   onChange: PropTypes.func,
 };
 
-SportAndTime.defaultProps = {
+SportAndTimeForm.defaultProps = {
   sport: null,
   date: null,
   time: '',
@@ -101,5 +102,5 @@ SportAndTime.defaultProps = {
   onChange: () => {},
 };
 
-export default SportAndTime;
+export default SportAndTimeForm;
 

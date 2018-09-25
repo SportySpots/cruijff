@@ -286,7 +286,6 @@ class PlanGameScreen extends React.Component {
             Comp,
             theme,
             title,
-            fields,
           }) => (
             <FullHeight>
               <FormLayout
@@ -297,10 +296,9 @@ class PlanGameScreen extends React.Component {
               >
                 <Comp
                   onChange={this.handleChange}
-                  // Only pass state fields associated to component
-                  {...pick(this.state, fields)}
+                  {...this.state}
                 />
-                
+
               </FormLayout>
             </FullHeight>
           ))}

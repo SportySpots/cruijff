@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
 import { Query } from 'react-apollo';
 import { FlatList } from 'react-native';
-import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import GET_SPOTS_FOR_SPORT from '../../../GraphQL/Spots/Queries/GET_SPOTS_FOR_SPORT';
+import Spacer from '../../Common/Spacer';
 import CenteredActivityIndicator from '../../Common/CenteredActivityIndicator';
 import SpotCard from '../SpotListCardSmall';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: move query up and use SpotsListOld instead
 const SpotsList = ({ sport, onSpotPress }) => (
   <Query
     query={GET_SPOTS_FOR_SPORT}
@@ -26,6 +26,8 @@ const SpotsList = ({ sport, onSpotPress }) => (
 
       return (
         <FlatList
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1 }}
           data={data.spots}
           keyExtractor={item => item.uuid}
           renderItem={({ item }) => (
@@ -34,8 +36,9 @@ const SpotsList = ({ sport, onSpotPress }) => (
               onPress={onSpotPress}
             />
           )}
-
-          ItemSeparatorComponent={null}
+          ItemSeparatorComponent={() => (
+            <Spacer orientation="column" size="L" />
+          )}
         />
       );
     }}
@@ -43,12 +46,11 @@ const SpotsList = ({ sport, onSpotPress }) => (
 );
 
 SpotsList.propTypes = {
-  sport: propType(spotFragment),
+  sport: PropTypes.string.isRequired,
   onSpotPress: PropTypes.func,
 };
 
-SpotsList.defaultProps ={
-  sport: null,
+SpotsList.defaultProps = {
   onSpotPress: () => {},
 };
 

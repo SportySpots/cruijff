@@ -13,7 +13,7 @@ import Text from '../../Common/Text';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.View`
-  padding: 32px;
+  padding: 32px 32px 0 32px;
   flex: 1; /* full height */
   background-color: ${({ bgColor }) => (bgColor)}
 `;
@@ -49,7 +49,6 @@ const FormLayout = ({
           />
         </TouchableOpacity>
       </Row>
-      <Spacer orientation="column" size="XXXL" />
       {children}
     </Container>
   );

@@ -1,7 +1,8 @@
-import Config from 'react-native-config';
-
-const getImageUrl = image => (
-  image.startsWith('http') ? image : `${Config.SEEDORF_HOST}${image}`
+const toTitleCase = text => (
+  text.toLowerCase()
+    .split(' ')
+    .map(s => (s.charAt(0).toUpperCase() + s.substring(1)))
+    .join(' ')
 );
 
-export default getImageUrl;
+export default toTitleCase;

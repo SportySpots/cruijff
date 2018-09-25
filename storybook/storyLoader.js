@@ -50,8 +50,12 @@ function loadStories() {
   require('../App/Components/Games/Stories');
   require('../App/Components/PlanGame/FormLayout/stories');
   require('../App/Components/PlanGame/SportDateTimeForm/stories');
+  require('../App/Components/PlanGame/SpotForm/stories');
   require('../App/Components/ScreenSlider/Stories');
+  require('../App/Components/Spots/BackgroundImage/stories');
+  require('../App/Components/Spots/SpotImage/stories');
   require('../App/Components/Spots/SpotLink/stories');
+  require('../App/Components/Spots/SpotListCardSmall/stories');
   require('../App/Components/Spots/SpotMap/stories');
   require('../App/Components/Spots/SpotsList/stories');
   require('../App/Components/Spots/Stories');
@@ -112,8 +116,12 @@ const stories = [
   '../App/Components/Games/Stories',
   '../App/Components/PlanGame/FormLayout/stories',
   '../App/Components/PlanGame/SportDateTimeForm/stories',
+  '../App/Components/PlanGame/SpotForm/stories',
   '../App/Components/ScreenSlider/Stories',
+  '../App/Components/Spots/BackgroundImage/stories',
+  '../App/Components/Spots/SpotImage/stories',
   '../App/Components/Spots/SpotLink/stories',
+  '../App/Components/Spots/SpotListCardSmall/stories',
   '../App/Components/Spots/SpotMap/stories',
   '../App/Components/Spots/SpotsList/stories',
   '../App/Components/Spots/Stories',
