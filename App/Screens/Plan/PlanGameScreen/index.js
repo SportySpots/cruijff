@@ -53,7 +53,7 @@ const SLIDES = [
   {
     id: 'descriptionForm',
     Comp: DescriptionForm,
-    title: 'Plan a game',
+    title: 'Describe the game',
     theme: 'white',
     fields: ['description'],
     requiredFields: [],
