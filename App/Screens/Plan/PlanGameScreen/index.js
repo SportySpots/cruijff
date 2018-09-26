@@ -35,13 +35,13 @@ const SLIDES = [
       date: null,
       time: null,
       duration: null,
-      capacity: null,
+      capacity: '',
     },
   },
   {
     id: 'spotForm',
     Comp: SpotForm,
-    title: 'Pick a Spot',
+    title: 'Pick a spot',
     theme: 'black',
     // TODO: probably spotUuid or something
     fields: ['spot'],
@@ -93,7 +93,7 @@ class PlanGameScreen extends React.Component {
 
     // Attach slides fields to state
     SLIDES.forEach(({ initState }) => {
-      extend(this.state, ...initState);
+      extend(this.state, Object.assign({}, initState));
     });
   }
 
@@ -259,8 +259,11 @@ class PlanGameScreen extends React.Component {
 
     // Return 'true' if at least on of the required fields isn't set
     const { requiredFields } = SLIDES[curSlide];
-    for (let i = 0; i < requiredFields.length - 1; i += 1) {
+    console.log('REQUIRED_FIELDS', requiredFields);
+    for (let i = 0; i < requiredFields.length; i += 1) {
       const fieldName = requiredFields[i];
+      console.log('FIELD_NAME', fieldName);
+      console.log('!this.state[fieldName]', !this.state[fieldName]);
       if (!this.state[fieldName]) {
         return true;
       }
@@ -271,7 +274,9 @@ class PlanGameScreen extends React.Component {
   }
 
   render() {
-    const { curSlide } = this.state;
+    const { curSlide, ...rest } = this.state;
+
+    console.log('STATE', rest);
 
     return (
       <FullHeight>
@@ -287,16 +292,16 @@ class PlanGameScreen extends React.Component {
             theme,
             title,
           }) => (
-            <FullHeight>
+            <FullHeight key={id}>
               <FormLayout
-                key={id}
                 theme={theme}
                 title={I18n.t(title)}
                 onLeave={this.handleLeave}
               >
                 <Comp
                   onChange={this.handleChange}
-                  {...this.state}
+                  // Pass down all state values: sport, date, time, etc.
+                  {...rest}
                 />
 
               </FormLayout>

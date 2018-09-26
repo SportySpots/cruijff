@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { Query } from 'react-apollo';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
+import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import GET_SPOTS_FOR_SPORT from '../../../GraphQL/Spots/Queries/GET_SPOTS_FOR_SPORT';
 import Spacer from '../../Common/Spacer';
 import CenteredActivityIndicator from '../../Common/CenteredActivityIndicator';
@@ -12,11 +13,12 @@ import SpotsList from '../../Spots/SpotsList';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SpotForm = ({ sport, onChange }) => (
+// TODO: implement pagination
+const SpotForm = ({ sport, spot, onChange }) => (
   <Query
     query={GET_SPOTS_FOR_SPORT}
     variables={{
-      limit: 30, // TODO: implement pagination
+      limit: 30,
       offset: 0,
       sport: (sport && (sport.category || sport.name)) || 'SOCCER',
     }}
@@ -30,6 +32,7 @@ const SpotForm = ({ sport, onChange }) => (
         <SpotsList
           key="spots"
           spots={data.spots || []}
+          selectedSpot={spot}
           cardComponent={SpotListCardSmall}
           onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
         />,
@@ -39,11 +42,14 @@ const SpotForm = ({ sport, onChange }) => (
 );
 
 SpotForm.propTypes = {
-  sport: propType(sportFragment).isRequired,
+  sport: propType(sportFragment),
+  spot: propType(spotFragment),
   onChange: PropTypes.func,
 };
 
 SpotForm.defaultProps = {
+  sport: null,
+  spot: null,
   onChange: () => {},
 };
 

@@ -13,7 +13,7 @@ class CapacityPickerModal extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || 0,
+      value: props.value ? parseInt(props.value, 10) : 0,
     };
   }
 
@@ -65,7 +65,10 @@ class CapacityPickerModal extends React.PureComponent {
 }
 
 CapacityPickerModal.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   visible: PropTypes.bool,
   onSelect: PropTypes.func,
   onClose: PropTypes.func,

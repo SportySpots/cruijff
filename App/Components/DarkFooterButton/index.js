@@ -41,13 +41,21 @@ const DarkFooterButton = ({
             size={iconSize}
             color={disabled ? Colors.gray : Colors.white}
           />,
-          <Spacer orientation="row" size="S" />,
+          <Spacer
+            key="spacer"
+            orientation="row"
+            size="S"
+          />,
         ]}
         <Label disabled={disabled}>
           {text.toUpperCase()}
         </Label>
         {!isBack && [
-          <Spacer orientation="row" size="S" />,
+          <Spacer
+            key="spacer"
+            orientation="row"
+            size="S"
+          />,
           <Icon
             key="icon"
             name="chevron-right"

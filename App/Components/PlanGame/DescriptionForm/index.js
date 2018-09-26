@@ -12,8 +12,7 @@ const DescriptionForm = ({ description, onChange }) => [
     key="description"
     value={description}
     characterRestriction={120}
-    onChangeText={(value) => { onChange({ fieldName: 'sport', value }); }}
-    // size="ML"
+    onChangeText={(value) => { onChange({ fieldName: 'description', value }); }}
     theme="white"
   />,
 ];

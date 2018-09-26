@@ -80,9 +80,9 @@ class SpotsListScreen extends React.Component {
     this.setState({ coords: { latitude, longitude } });
   }
 
-  handleCardPress = (spotUuid) => {
+  handleCardPress = (spot) => {
     this.props.navigation.navigate('SpotDetailsScreen', {
-      uuid: spotUuid,
+      uuid: spot.uuid,
     });
   }
 

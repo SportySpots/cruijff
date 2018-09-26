@@ -10,25 +10,39 @@ import SpotListCardSmall from '../../Spots/SpotListCardSmall';
 import SpotListCard from '../../Spots/SpotListCard';
 import SpotsList from './index';
 
-const Container = ({ cardComponent }) => (
-  <WithApolloMockProvider>
-    <Query
-      query={GET_SPOTS_FOR_SPORT}
-      variables={{ sport: 'SOCCER' }}
-    >
-      {({ loading, error, data }) =>
-      (loading || error ? null : (
-        <Block bgColor={Colors.lightGray}>
-          <SpotsList
-            spots={data.spots || []}
-            cardComponent={cardComponent}
-            onCardPress={() => {}}
-          />
-        </Block>
-      ))}
-    </Query>
-  </WithApolloMockProvider>
-);
+class Container extends React.PureComponent {
+  state = {
+    selectedSpot: null,
+  }
+
+  render() {
+    const { cardComponent } = this.props;
+    const { selectedSpot } = this.state;
+
+    return (
+      <WithApolloMockProvider>
+        <Query
+          query={GET_SPOTS_FOR_SPORT}
+          variables={{ sport: 'SOCCER' }}
+        >
+          {({ loading, error, data }) =>
+          (loading || error ? null : (
+            <Block bgColor={Colors.lightGray}>
+              <SpotsList
+                spots={data.spots || []}
+                selectedSpot={selectedSpot}
+                cardComponent={cardComponent}
+                onCardPress={(spot) => {
+                  this.setState({ selectedSpot: spot });
+                }}
+              />
+            </Block>
+          ))}
+        </Query>
+      </WithApolloMockProvider>
+    );
+  }
+}
 
 Container.propTypes = {
   cardComponent: PropTypes.func.isRequired,

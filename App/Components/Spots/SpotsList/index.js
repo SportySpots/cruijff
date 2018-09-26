@@ -12,6 +12,7 @@ import Spacer from '../../Common/Spacer';
 //------------------------------------------------------------------------------
 const SpotsList = ({
   spots,
+  selectedSpot,
   cardComponent,
   onCardPress,
   ...rest
@@ -23,10 +24,13 @@ const SpotsList = ({
     renderItem={({ item: spot }) => (
       <TouchableOpacity
         key={spot.uuid}
-        onPress={() => { onCardPress(spot.uuid); }}
+        onPress={() => { onCardPress(spot); }}
         activeOpacity={1}
       >
-        {React.createElement(cardComponent, { spot })}
+        {React.createElement(cardComponent, {
+          spot,
+          active: selectedSpot && selectedSpot.uuid === spot.uuid,
+        })}
       </TouchableOpacity>
     )}
     keyExtractor={item => item.uuid}
@@ -45,12 +49,14 @@ const SpotsList = ({
 
 SpotsList.propTypes = {
   spots: PropTypes.arrayOf(propType(spotFragment)),
+  selectedSpot: propType(spotFragment),
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
 };
 
 SpotsList.defaultProps = {
   spots: [],
+  selectedSpot: null,
   onCardPress: () => {},
 };
 
