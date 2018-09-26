@@ -27,7 +27,6 @@ const SLIDES = [
     Comp: SportDateTimeForm,
     title: 'Plan a game',
     theme: 'white',
-    // TODO: probably sportUuid or something
     fields: ['sport', 'date', 'time', 'duration', 'capacity'],
     requiredFields: ['sport', 'date', 'time'],
     initState: {
@@ -43,7 +42,6 @@ const SLIDES = [
     Comp: SpotForm,
     title: 'Pick a spot',
     theme: 'black',
-    // TODO: probably spotUuid or something
     fields: ['spot'],
     requiredFields: ['spot'],
     initState: {
@@ -59,18 +57,6 @@ const SLIDES = [
     requiredFields: [],
     initState: {
       description: '',
-    },
-  },
-  // TODO: share is probably a different screen. Pass game uuid via navigation?
-  {
-    id: 'shareForm',
-    Comp: ShareForm,
-    title: 'Plan a game',
-    theme: 'white',
-    fields: ['gameUuid', 'share'],
-    requiredFields: ['gameUuid'],
-    initState: {
-      share: false,
     },
   },
 ];
@@ -214,33 +200,61 @@ class PlanGameScreen extends React.Component {
     );
   }
 
-  handleNext = () => {
+  handleNext = async () => {
     Keyboard.dismiss();
 
-    const { navigation } = this.props;
-    const { curSlide } = this.state;
+    const { navigation, user } = this.props;
+    const {
+      curSlide,
+      sport,
+      date,
+      time,
+      duration,
+      capacity,
+      spot,
+      description,
+    } = this.state;
 
-    // If it's the last slide
-    if (curSlide === 3) { // TODO: use slides.length instaed
-      // TODO: call api create game and redirect after successful response
-      const uuid = 'Some uuid';
-      // Go back to the begining of the stack
-      navigation.popToTop();
-      // Go back to main tabs navigation
-      navigation.goBack(null);
-      // Go to games list screen
-      navigation.navigate('GamesListScreen');
-      // Reset stack (otherwise we'll get a back arrow for some wired reason :S)
-      navigation.dispatch(new NavigationActions.reset({
-        index: 0,
-        actions: [
-          NavigationActions.navigate({
-            routeName: 'GamesListScreen',
-          }),
-        ],
-      }));
-      // Finally go to recently created game
-      navigation.navigate('GameDetailsScreen', { uuid });
+    // If it's NOT the last slide
+    if (curSlide !== SLIDES.length - 1) {
+      const username = (
+        user &&
+        user.claims &&
+        user.claims.username
+      ) || '';
+
+      let gameUUID;
+
+      // TODO: replace this with a single endpoint call
+      try {
+        // Create game
+        const result = await api.createGame({ name: `${username}'s game` });
+        gameUUID = result.data.uuid;
+
+        // Set sport
+        await api.setGameSport({ gameUUID, sport });
+
+        // Set date and duration
+        await api.setGameTimes({
+          gameUUID,
+          startTime: date,
+          endTime: date + duration,
+        });
+
+        // Set capacity
+        await api.setGameCapacity({ gameUUID, capacity: capacity || null });
+
+        // Set spot
+        await api.setGameSpot({ gameUUID, spotUUID: spot.uuid });
+
+        // Set description
+        await api.setGameDescription({ gameUUID, description });
+
+        // Lastly, redirect user to share screen
+        this.props.navigation.navigate('shareGameScreen', { uuid: gameUUID });
+      } catch (exc) {
+        console.log(exc);
+      }
     } else {
       this.setState(
         prevState => ({ curSlide: prevState.curSlide + 1 }),
@@ -289,7 +303,7 @@ class PlanGameScreen extends React.Component {
       case 2:
         return 'Invite';
       default:
-        return 'next';
+        return 'Next';
     }
   }
 
@@ -347,30 +361,15 @@ PlanGameScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  /* user: PropTypes.shape({
+  user: PropTypes.shape({
     claims: PropTypes.shape({
       username: PropTypes.string,
     }).isRequired,
-  }).isRequired, */
+  }).isRequired,
 };
 
-/* const mapStateToProps = state => ({
-  gameDetails: state.plan.gameDetails,
-  nav: state.nav,
-  user: state.user,
-});
+const mapStateToProps = ({ user }) => ({ user });
 
-const dispatchToProps = {
-  clear: planGameAction.clearGame,
-  setGameDetailField: planGameAction.setGameDetailField,
-  navigate: NavigationActions.navigate,
-};
+const withRedux = connect(mapStateToProps, null);
 
-const withRedux = connect(mapStateToProps, dispatchToProps);
-
-const enhance = compose(
-  withNavigation,
-  withRedux,
-); */
-
-export default PlanGameScreen;
+export default withRedux(PlanGameScreen);
