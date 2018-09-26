@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
+import Row from '../Row';
+import Spacer from '../Spacer';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -20,7 +22,14 @@ const Circle = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const NavDot = ({ active }) => (
-  <Circle active={active} />
+  <Row
+    alignItems="center"
+    justifyContent="center"
+  >
+    <Spacer orientation="row" size="S" />
+    <Circle active={active} />
+    <Spacer orientation="row" size="S" />
+  </Row>
 );
 
 NavDot.propTypes = {

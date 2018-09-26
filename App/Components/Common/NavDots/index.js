@@ -1,56 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View } from 'react-native';
-import Colors from '../../../Themes/Colors';
-import Row from '../../Common/Row';
+import Row from '../Row';
+import NavDot from '../NavDot';
+import range from './utils';
 
-const range = function (count) {
-  const result = [];
-  for (let i = 0; i < count; i++) {
-    result.push(i);
-  }
-  return result;
-};
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-
-
-const style = StyleSheet.create({
-  outer: {
-    flexDirection: 'row',
-  },
-  circle: {
-    width: 10,
-    height: 10,
-    borderRadius: 10,
-    marginLeft: 5,
-    marginRight: 5,
-  },
-  active: {},
-});
-//------------------------------------------------------------------------------
-const navDotsTheme = StyleSheet.create({
-  circle: {
-    backgroundColor: Colors.white20,
-  },
-  active: {
-    backgroundColor: Colors.actionYellow,
-  },
-});
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const NavDots = ({ count, active }) => (
+const NavDots = ({ count, activeIndex }) => (
   <Row>
     {range(count).map(i => (
-      <View
+      <NavDot
         key={i}
-        style={[
-          style.circle,
-          this.props.theme.circle,
-          i === this.props.active && [style.active, this.props.theme.active],
-        ]}
+        active={i === activeIndex}
       />
     ))}
   </Row>
@@ -58,14 +20,13 @@ const NavDots = ({ count, active }) => (
 
 NavDots.propTypes = {
   count: PropTypes.number,
-  active: PropTypes.number,
+  activeIndex: PropTypes.number,
 };
 
 NavDots.defaultProps = {
   count: 3,
-  active: 0,
+  activeIndex: 0,
 };
-
 
 export default NavDots;
 
