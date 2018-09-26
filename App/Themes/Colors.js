@@ -36,6 +36,7 @@ const colors = {
   info: '#019AE8', // rgb(1, 154, 232)
   infoTint: 'rgba(1, 154, 232, 0.2)',
   darkGray: '#979797',
+  link: '#ccc',
 };
 
 export default colors;
