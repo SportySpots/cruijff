@@ -47,12 +47,10 @@ const DarkFooter = ({
           />
         )}
       </StyledRow>
-      <StyledRow justifyContent="center">
-        <NavDots
-          count={numPages}
-          activeIndex={currentPage}
-        />
-      </StyledRow>
+      <NavDots
+        count={numPages}
+        activeIndex={currentPage}
+      />
       <StyledRow justifyContent="flex-end">
         {showNext && (
           <DarkFooterButton

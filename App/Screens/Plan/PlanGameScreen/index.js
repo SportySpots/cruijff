@@ -297,7 +297,7 @@ class PlanGameScreen extends React.Component {
 
     switch (curSlide) {
       case 0:
-        return 'Pick a spot';
+        return 'Spot';
       case 1:
         return 'Description';
       case 2:
