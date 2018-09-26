@@ -24,6 +24,8 @@ function loadStories() {
   require('../App/Components/Common/Modals/DialogModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
   require('../App/Components/Common/Modals/SportPickerModal/stories');
+  require('../App/Components/Common/NavDot/stories');
+  require('../App/Components/Common/NavDots/stories');
   require('../App/Components/Common/RaisedButton/stories');
   require('../App/Components/Common/RoundButton/stories');
   require('../App/Components/Common/Row/stories');
@@ -36,7 +38,7 @@ function loadStories() {
   require('../App/Components/Common/TextField/stories');
   require('../App/Components/Common/TimePickerField/stories');
   require('../App/Components/Common/UserCircle/stories');
-  require('../App/Components/DarkFooter/Stories');
+  require('../App/Components/DarkFooter/stories');
   require('../App/Components/DarkFooterButton/stories');
   require('../App/Components/Games/Attendees/stories');
   require('../App/Components/Games/CancelGameConfirmModal/stories');
@@ -94,6 +96,8 @@ const stories = [
   '../App/Components/Common/Modals/DialogModal/stories',
   '../App/Components/Common/Modals/Modal/stories',
   '../App/Components/Common/Modals/SportPickerModal/stories',
+  '../App/Components/Common/NavDot/stories',
+  '../App/Components/Common/NavDots/stories',
   '../App/Components/Common/RaisedButton/stories',
   '../App/Components/Common/RoundButton/stories',
   '../App/Components/Common/Row/stories',
@@ -106,7 +110,7 @@ const stories = [
   '../App/Components/Common/TextField/stories',
   '../App/Components/Common/TimePickerField/stories',
   '../App/Components/Common/UserCircle/stories',
-  '../App/Components/DarkFooter/Stories',
+  '../App/Components/DarkFooter/stories',
   '../App/Components/DarkFooterButton/stories',
   '../App/Components/Games/Attendees/stories',
   '../App/Components/Games/CancelGameConfirmModal/stories',

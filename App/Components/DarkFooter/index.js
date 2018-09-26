@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import styled from 'styled-components';
-import I18n from '../../I18n/index';
+import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
 import NavDots from '../Common/NavDots';
 import Row from '../Common/Row';
@@ -15,15 +14,6 @@ const Container = styled.View`
   height: 50;
   background-color: ${Colors.black},
 `;
-//------------------------------------------------------------------------------
-const navDotsTheme = StyleSheet.create({
-  circle: {
-    backgroundColor: Colors.white20,
-  },
-  active: {
-    backgroundColor: Colors.actionYellow,
-  },
-});
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -55,7 +45,6 @@ const DarkFooter = ({
       <NavDots
         count={numPages}
         active={currentPage}
-        theme={navDotsTheme}
       />
       {showNext && (
         <DarkFooterButton
