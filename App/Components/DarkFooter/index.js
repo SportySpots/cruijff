@@ -5,6 +5,7 @@ import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
 import NavDots from '../Common/NavDots';
 import Row from '../Common/Row';
+import Spacer from '../Common/Spacer';
 import DarkFooterButton from '../DarkFooterButton';
 
 //------------------------------------------------------------------------------
@@ -12,7 +13,11 @@ import DarkFooterButton from '../DarkFooterButton';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   height: 50;
-  background-color: ${Colors.black},
+  background-color: ${Colors.black};
+`;
+//------------------------------------------------------------------------------
+const StyledRow = styled(Row)`
+  flex: 1; /* full width/height */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -30,30 +35,35 @@ const DarkFooter = ({
   disableBack,
 }) => (
   <Container>
-    <Row
-      alignItems="center"
-      justifyContent="space-between"
-    >
-      {showBack && (
-        <DarkFooterButton
-          text={buttonBackText}
-          onPress={onBack}
-          disabled={disableBack}
-          isBack
+    <StyledRow alignItems="center">
+      <Spacer orientation="row" size="S" />
+      <StyledRow justifyContent="flex-start">
+        {showBack && (
+          <DarkFooterButton
+            text={buttonBackText}
+            onPress={onBack}
+            disabled={disableBack}
+            isBack
+          />
+        )}
+      </StyledRow>
+      <StyledRow justifyContent="center">
+        <NavDots
+          count={numPages}
+          activeIndex={currentPage}
         />
-      )}
-      <NavDots
-        count={numPages}
-        active={currentPage}
-      />
-      {showNext && (
-        <DarkFooterButton
-          text={buttonNextText}
-          onPress={onNext}
-          disabled={disableNext}
-        />
-      )}
-    </Row>
+      </StyledRow>
+      <StyledRow justifyContent="flex-end">
+        {showNext && (
+          <DarkFooterButton
+            text={buttonNextText}
+            onPress={onNext}
+            disabled={disableNext}
+          />
+        )}
+      </StyledRow>
+      <Spacer orientation="row" size="S" />
+    </StyledRow>
   </Container>
 );
 
@@ -82,62 +92,3 @@ DarkFooter.defaultProps = {
 };
 
 export default DarkFooter;
-
-
-/*
-import PropTypes from 'prop-types';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import I18n from '../../I18n/index';
-import Colors from '../../Themes/Colors';
-import Fonts from '../../Themes/Fonts';
-import NavDots from '../Common/NavDots';
-import Button from './Button';
-
-export default class DarkFooter extends React.Component {
-  static propTypes = {
-    numPages: PropTypes.number.isRequired,
-    currentPage: PropTypes.number.isRequired,
-    onNext: PropTypes.func,
-    showNext: PropTypes.bool,
-    disableNext: PropTypes.bool,
-    buttonNextText: PropTypes.string,
-    onBack: PropTypes.func,
-    showBack: PropTypes.bool,
-    disableBack: PropTypes.bool,
-    buttonBackText: PropTypes.string,
-  };
-
-  static defaultProps = {
-    buttonNextText: I18n.t('continue'),
-    showNext: true,
-    buttonBackText: I18n.t('back'),
-    showBack: true,
-  };
-
-  onNext = () => {
-    this.props.onNext && this.props.onNext();
-  };
-
-  onBack = () => {
-    this.props.onBack && this.props.onBack();
-  };
-
-  render() {
-    return (
-      <View style={style.container}>
-        {this.props.showBack && (
-          <Button
-            text={this.props.buttonBackText}
-   
-
-const navDotsTheme = StyleSheet.create({
-  circle: {
-    backgroundColor: Colors.white20,
-  },
-  active: {
-    backgroundColor: Colors.actionYellow,
-  },
-});
-
-*/

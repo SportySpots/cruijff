@@ -4,24 +4,27 @@ import { View } from 'react-native';
 import DarkFooter from '.';
 
 class Wrapper extends React.Component {
-  constructor() {
-    super();
-    this.state = { currentPage: 1 };
-  }
+  state = { currentPage: 1 }
+
   render() {
     return (
-      <DarkFooter
-        currentPage={this.state.currentPage}
-        numPages={4}
-        onNext={() => this.setState({ currentPage: this.state.currentPage + 1 })}
-        onBack={() => this.setState({ currentPage: this.state.currentPage - 1 })}
-      />
+      <View style={{ flex: 1 }}>
+        <DarkFooter
+          currentPage={this.state.currentPage}
+          numPages={4}
+          onNext={() => this.setState({ currentPage: this.state.currentPage + 1 })}
+          onBack={() => this.setState({ currentPage: this.state.currentPage - 1 })}
+          {...this.props}
+        />
+      </View>
     );
   }
 }
 
-storiesOf('DarkFooter', module).add('Default', () => (
-  <View style={{ flex: 1 }}>
+storiesOf('DarkFooter', module)
+  .add('DarkFooter default', () => (
     <Wrapper />
-  </View>
-));
+  ))
+  .add('DarkFooter NO Back button', () => (
+    <Wrapper showBack={false} />
+  ));

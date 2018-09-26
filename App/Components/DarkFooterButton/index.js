@@ -12,10 +12,9 @@ import Spacer from '../Common/Spacer';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Label = styled(Text.SM)`
+const Label = styled(Text.M)`
   color: ${({ disabled }) => (!disabled ? Colors.white : Colors.gray)}
   text-align: center;
-  font-weight: bold;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
