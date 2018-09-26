@@ -37,6 +37,7 @@ function loadStories() {
   require('../App/Components/Common/TimePickerField/stories');
   require('../App/Components/Common/UserCircle/stories');
   require('../App/Components/DarkFooter/Stories');
+  require('../App/Components/DarkFooterButton/stories');
   require('../App/Components/Games/Attendees/stories');
   require('../App/Components/Games/CancelGameConfirmModal/stories');
   require('../App/Components/Games/CancelGameDoneModal/stories');
@@ -106,6 +107,7 @@ const stories = [
   '../App/Components/Common/TimePickerField/stories',
   '../App/Components/Common/UserCircle/stories',
   '../App/Components/DarkFooter/Stories',
+  '../App/Components/DarkFooterButton/stories',
   '../App/Components/Games/Attendees/stories',
   '../App/Components/Games/CancelGameConfirmModal/stories',
   '../App/Components/Games/CancelGameDoneModal/stories',
