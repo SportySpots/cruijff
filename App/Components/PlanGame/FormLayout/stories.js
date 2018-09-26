@@ -20,4 +20,15 @@ storiesOf('PlanGame.FormLayout', module)
         <Text>I&apos;m the children</Text>
       </View>
     </FormLayout>
+  ))
+  .add('FormLayout white theme NOT closable', () => (
+    <FormLayout
+      title="I'm the title"
+      theme="white"
+      closable={false}
+    >
+      <View>
+        <Text>I&apos;m the children</Text>
+      </View>
+    </FormLayout>
   ));

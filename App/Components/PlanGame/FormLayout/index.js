@@ -28,6 +28,7 @@ const FormLayout = ({
   children,
   theme,
   title,
+  closable,
   onLeave,
 }) => {
   const isWhiteTheme = theme === 'white';
@@ -41,13 +42,15 @@ const FormLayout = ({
         <Title color={isWhiteTheme ? Colors.white : Colors.black}>
           {title}
         </Title>
-        <TouchableOpacity onPress={onLeave}>
-          <Icon
-            name="close"
-            size={Fonts.style.L.fontSize}
-            color={isWhiteTheme ? Colors.white : Colors.black}
-          />
-        </TouchableOpacity>
+        {closable && (
+          <TouchableOpacity onPress={onLeave}>
+            <Icon
+              name="close"
+              size={Fonts.style.L.fontSize}
+              color={isWhiteTheme ? Colors.white : Colors.black}
+            />
+          </TouchableOpacity>
+        )}
       </Row>
       {children}
     </Container>
@@ -61,12 +64,14 @@ FormLayout.propTypes = {
   ]).isRequired,
   theme: PropTypes.oneOf(['black', 'white']),
   title: PropTypes.string,
+  closable: PropTypes.bool,
   onLeave: PropTypes.func,
 };
 
 FormLayout.defaultProps = {
   theme: 'black',
   title: '',
+  closable: true,
   onLeave: () => {},
 };
 
