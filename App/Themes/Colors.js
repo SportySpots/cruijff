@@ -17,6 +17,7 @@ const colors = {
   black54: 'rgba(0,0,0,0.34)',
   greenSemi: 'rgba(0,40,0,0.8)',
   white20: 'rgba(255,255,255,.2)',
+  white80: 'rgba(255,255,255,.8)',
   bgGrey: '#f6f6f9',
   darkGreen: '#2F553C',
   red: '#ff0000',
@@ -37,6 +38,7 @@ const colors = {
   infoTint: 'rgba(1, 154, 232, 0.2)',
   darkGray: '#979797',
   link: '#ccc',
+  lightSkyBlue: '#87CEFA',
 };
 
 export default colors;

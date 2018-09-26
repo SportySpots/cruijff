@@ -29,7 +29,7 @@ const SportAndTimeForm = ({
     <Label>{I18n.t('I want to play')}</Label>
     <Spacer orientation="row" size="S" />
     <SportPickerField
-      value={(sport && (sport.name || sport.category)) || ''}
+      value={(sport && (I18n.t(sport.name) || I18n.t(sport.category))) || ''}
       size="ML"
       theme="white"
       onChange={(value) => { onChange({ fieldName: 'sport', value }); }}

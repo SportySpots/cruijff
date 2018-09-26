@@ -44,6 +44,12 @@ export const getPalette = (status, reverse) => {
         bgColor: !reverse ? Colors.black : Colors.white,
         borderColor: Colors.black,
       };
+    case 'translucid':
+      return {
+        fontColor: Colors.primaryGreen,
+        bgColor: Colors.white80,
+        borderColor: Colors.white80,
+      };
     default:
       throw new Error('Unknown status');
   }

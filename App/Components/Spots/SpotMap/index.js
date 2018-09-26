@@ -1,28 +1,29 @@
-import React from "react";
-import { Platform, Dimensions } from "react-native";
-import { propType } from "graphql-anywhere";
-import Secrets from "react-native-config";
-import styled from "styled-components";
-// import Icon from 'react-native-vector-icons/MaterialIcons';
-import GoogleStaticMap from "react-native-google-static-map";
-import { showLocation } from "react-native-map-link";
-import spotMapFragment from "../../../GraphQL/Spots/Fragments/spotMap";
-import RoundButton from "../../Common/RoundButton";
+import React from 'react';
+import { Platform, Dimensions } from 'react-native';
+import { propType } from 'graphql-anywhere';
+import Secrets from 'react-native-config';
+import styled from 'styled-components';
+import GoogleStaticMap from 'react-native-google-static-map';
+import { showLocation } from 'react-native-map-link';
+import Colors from '../../../Themes/Colors';
+import spotMapFragment from '../../../GraphQL/Spots/Fragments/spotMap';
+import RoundButton from '../../Common/RoundButton';
 
 // -----------------------------------------------------------------------------
 // CONSTANTS:
 // -----------------------------------------------------------------------------
-const { width: windowWidth } = Dimensions.get("window");
+const { width: windowWidth } = Dimensions.get('window');
 // -----------------------------------------------------------------------------
 const { GOOGLE_MAPS_IOS_API_KEY, GOOGLE_MAPS_ANDROID_API_KEY } = Secrets;
 const GOOGLE_MAPS_API_KEY =
-  Platform.OS === "ios" ? GOOGLE_MAPS_IOS_API_KEY : GOOGLE_MAPS_ANDROID_API_KEY;
+  Platform.OS === 'ios' ? GOOGLE_MAPS_IOS_API_KEY : GOOGLE_MAPS_ANDROID_API_KEY;
 // -----------------------------------------------------------------------------
 // STYLE:
 // -----------------------------------------------------------------------------
 const Relative = styled.View`
   position: relative;
   margin: 0;
+  background-color: ${Colors.lightSkyBlue}
 `;
 // -----------------------------------------------------------------------------
 const Absolute = styled.View`
@@ -45,7 +46,7 @@ const Spacer = styled.View`
 // -----------------------------------------------------------------------------
 const getSpotLocation = spot => ({
   latitude: spot && spot.address && spot.address.lat,
-  longitude: spot && spot.address && spot.address.lng
+  longitude: spot && spot.address && spot.address.lng,
 });
 // ------------------------------------------------------------------------------
 const getCurrentPosition = (options = {}) =>
@@ -53,18 +54,18 @@ const getCurrentPosition = (options = {}) =>
     navigator.geolocation.getCurrentPosition(resolve, reject, options);
   });
 // -----------------------------------------------------------------------------
-const handleLocationBtnPress = ({ latLng, title = "" }) => {
+const handleLocationBtnPress = ({ latLng, title = '' }) => {
   showLocation({
     ...latLng,
     title,
     // force GoogleMaps to use the latLng from the query instead of the title
-    googleForceLatLon: true
+    googleForceLatLon: true,
   });
 };
 // -----------------------------------------------------------------------------
-const handleDirectionsBtnPress = async ({ latLng, title = "" }) => {
-  if (!("geolocation" in navigator)) {
-    console.log("Geolocation is not available");
+const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
+  if (!('geolocation' in navigator)) {
+    console.log('Geolocation is not available');
     return;
   }
 
@@ -72,7 +73,7 @@ const handleDirectionsBtnPress = async ({ latLng, title = "" }) => {
   const options = {
     enableHighAccuracy: true,
     timeout: 1000,
-    maximumAge: 100000
+    maximumAge: 100000,
   };
 
   let position;
@@ -80,8 +81,8 @@ const handleDirectionsBtnPress = async ({ latLng, title = "" }) => {
     position = await getCurrentPosition(options);
   } catch (exc) {
     console.log(
-      "Oops, we couldn't get your position! Make sure you GPS is enabled ;)",
-      exc
+      'Oops, we couldn\'t get your position! Make sure you GPS is enabled ;)',
+      exc,
     );
   }
 
@@ -95,7 +96,7 @@ const handleDirectionsBtnPress = async ({ latLng, title = "" }) => {
     ...latLng,
     title,
     // force GoogleMaps to use the latLng from the query instead of the title
-    googleForceLatLon: true
+    googleForceLatLon: true,
   });
 };
 // -----------------------------------------------------------------------------
@@ -130,7 +131,7 @@ const SpotMap = ({ spot }) => {
       <Absolute>
         <Flex>
           <RoundButton
-            status="ghost"
+            status="translucid"
             iconName="map-marker"
             onPress={() => {
               handleDirectionsBtnPress({ latLng, title: spot.name });
@@ -138,7 +139,7 @@ const SpotMap = ({ spot }) => {
           />
           <Spacer />
           <RoundButton
-            status="ghost"
+            status="translucid"
             iconName="directions"
             onPress={() => {
               handleLocationBtnPress({ latLng, title: spot.name });
@@ -151,7 +152,7 @@ const SpotMap = ({ spot }) => {
 };
 
 SpotMap.propTypes = {
-  spot: propType(spotMapFragment).isRequired
+  spot: propType(spotMapFragment).isRequired,
 };
 
 export default SpotMap;

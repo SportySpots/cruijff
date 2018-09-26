@@ -62,6 +62,7 @@ RoundButton.propTypes = {
     'warning',
     'ghost',
     'dark',
+    'translucid',
   ]),
   size: PropTypes.string,
   disabled: PropTypes.bool,

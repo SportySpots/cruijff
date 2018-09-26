@@ -12,7 +12,7 @@ import Spacer from '../Common/Spacer';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Label = styled(Text.S)`
+const Label = styled(Text.M)`
   color: ${({ disabled }) => (!disabled ? Colors.white : Colors.gray)}
   text-align: center;
 `;
