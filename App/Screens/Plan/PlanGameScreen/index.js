@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Alert, Keyboard } from 'react-native';
-import { NavigationActions } from 'react-navigation';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
 import extend from 'lodash/extend';
-import pick from 'lodash/pick';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import api from '../../../Services/SeedorfApi';
-import Colors from '../../../Themes/Colors';
 import FormLayout from '../../../Components/PlanGame/FormLayout';
 import Footer from '../../../Components/DarkFooter';
 import SportDateTimeForm from '../../../Components/PlanGame/SportDateTimeForm/';
 import SpotForm from '../../../Components/PlanGame/SpotForm';
 import DescriptionForm from '../../../Components/PlanGame/DescriptionForm';
-import ShareForm from '../../../Components/PlanGame/ShareForm';
 import dateStringToTimeString from './utils';
 
 //------------------------------------------------------------------------------
@@ -217,6 +214,11 @@ class PlanGameScreen extends React.Component {
 
     // If it's NOT the last slide
     if (curSlide !== SLIDES.length - 1) {
+      this.setState(
+        prevState => ({ curSlide: prevState.curSlide + 1 }),
+        () => { this.swiper.scrollBy(1); },
+      );
+    } else {
       const username = (
         user &&
         user.claims &&
@@ -250,16 +252,14 @@ class PlanGameScreen extends React.Component {
         // Set description
         await api.setGameDescription({ gameUUID, description });
 
+        // Set game status to 'planned'
+        await api.setGameStatus({ gameUUID, status: 'planned' });
+
         // Lastly, redirect user to share screen
         this.props.navigation.navigate('shareGameScreen', { uuid: gameUUID });
       } catch (exc) {
         console.log(exc);
       }
-    } else {
-      this.setState(
-        prevState => ({ curSlide: prevState.curSlide + 1 }),
-        () => { this.swiper.scrollBy(1); },
-      );
     }
   }
 
@@ -297,7 +297,7 @@ class PlanGameScreen extends React.Component {
 
     switch (curSlide) {
       case 0:
-        return 'Pick spot';
+        return 'Pick a spot';
       case 1:
         return 'Description';
       case 2:
@@ -343,13 +343,13 @@ class PlanGameScreen extends React.Component {
           ))}
         </Swiper>
         <Footer
-          numPages={SLIDES.length}
+          numPages={SLIDES.length + 1} // also consider share screen
           currentPage={curSlide}
           onBack={this.handleBack}
           onNext={this.handleNext}
           disableNext={this.disableNext}
           showBack={this.showBack}
-          buttonNextText={this.buttonNextText}
+          buttonNextText={I18n.t(this.buttonNextText)}
         />
       </FullHeight>
     );

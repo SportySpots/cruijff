@@ -29,7 +29,7 @@ const SpotsList = ({
       >
         {React.createElement(cardComponent, {
           spot,
-          active: selectedSpot && selectedSpot.uuid === spot.uuid,
+          active: (selectedSpot && selectedSpot.uuid === spot.uuid) || false,
         })}
       </TouchableOpacity>
     )}

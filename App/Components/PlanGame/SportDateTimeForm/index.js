@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { propType } from 'graphql-anywhere';
+import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
 import I18n from '../../../I18n';
-// import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
+import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
 import TimePickerField from '../../Common/TimePickerField';
@@ -29,7 +29,7 @@ const SportAndTimeForm = ({
     <Label>{I18n.t('I want to play')}</Label>
     <Spacer orientation="row" size="S" />
     <SportPickerField
-      value={(sport && sport.name) || ''}
+      value={(sport && (sport.name || sport.category)) || ''}
       size="ML"
       theme="white"
       onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
@@ -85,7 +85,7 @@ const SportAndTimeForm = ({
 ];
 
 SportAndTimeForm.propTypes = {
-  sport: PropTypes.string, // propType(sportFragment),
+  sport: propType(sportFragment),
   date: PropTypes.string,
   time: PropTypes.string,
   duration: PropTypes.string,

@@ -12,7 +12,7 @@ import Spacer from '../Common/Spacer';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Label = styled(Text.M)`
+const Label = styled(Text.S)`
   color: ${({ disabled }) => (!disabled ? Colors.white : Colors.gray)}
   text-align: center;
 `;
@@ -26,7 +26,7 @@ const DarkFooterButton = ({
   ...rest
 }) => {
   const WrapperElement = disabled ? View : TouchableOpacity;
-  const iconSize = 1.5 * Fonts.style.SM.fontSize;
+  const iconSize = 1.5 * Fonts.style.M.fontSize;
 
   return (
     <WrapperElement {...rest}>

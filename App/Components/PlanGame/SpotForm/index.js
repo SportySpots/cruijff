@@ -14,32 +14,36 @@ import SpotsList from '../../Spots/SpotsList';
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: implement pagination
-const SpotForm = ({ sport, spot, onChange }) => (
-  <Query
-    query={GET_SPOTS_FOR_SPORT}
-    variables={{
-      limit: 30,
-      offset: 0,
-      sport: (sport && (sport.category || sport.name)) || 'SOCCER',
-    }}
-  >
-    {({ loading, error, data }) => {
-      if (loading) { return <CenteredActivityIndicator />; }
-      if (error || !data) { return null; }
+const SpotForm = ({ sport, spot, onChange }) => {
+  console.log({ sport, spot });
 
-      return [
-        <Spacer key="spacer" size="XL" />,
-        <SpotsList
-          key="spots"
-          spots={data.spots || []}
-          selectedSpot={spot}
-          cardComponent={SpotListCardSmall}
-          onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
-        />,
-      ];
-    }}
-  </Query>
-);
+  return (
+    <Query
+      query={GET_SPOTS_FOR_SPORT}
+      variables={{
+        limit: 30,
+        offset: 0,
+        sport: (sport && (sport.category || sport.name)) || 'SOCCER',
+      }}
+    >
+      {({ loading, error, data }) => {
+        if (loading) { return <CenteredActivityIndicator />; }
+        if (error || !data) { return null; }
+  
+        return [
+          <Spacer key="spacer" size="XL" />,
+          <SpotsList
+            key="spots"
+            spots={data.spots || []}
+            selectedSpot={spot}
+            cardComponent={SpotListCardSmall}
+            onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
+          />,
+        ];
+      }}
+    </Query>
+  );
+};
 
 SpotForm.propTypes = {
   sport: propType(sportFragment),
