@@ -91,6 +91,7 @@ class ShareGameScreen extends React.Component {
         <FormLayout
           theme="white"
           title={I18n.t('Game created')}
+          closable={false}
         >
           <ShareForm
             onChange={this.handleChange}
@@ -99,7 +100,7 @@ class ShareGameScreen extends React.Component {
         </FormLayout>
         <Footer
           numPages={4}
-          currentPage={4}
+          currentPage={3}
           onNext={this.handleNext}
           showBack={false}
           buttonNextText="Done"

@@ -7,6 +7,7 @@ import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import PlanGameScreen from '../../Screens/Plan/PlanGameScreen';
+import ShareGameScreen from '../../Screens/Plan/ShareGameScreen';
 import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
@@ -52,7 +53,20 @@ const PlanGameNav = StackNavigator({
       headerLeft: backBtn(navigation),
     }),
   },
-  // TODO: add ShareGameScreen
+  shareGameScreen: {
+    screen: ({ navigation }) => (
+      <LoggedInRoute
+        component={ShareGameScreen}
+        navigation={navigation}
+        overlay={ProfileSignupScreen}
+        closable
+        onClose={() => { navigation.goBack(null); }}
+      />
+    ),
+    navigationOptions: {
+      header: null,
+    },
+  },
   planGameScreen: {
     screen: ({ navigation }) => (
       <LoggedInRoute

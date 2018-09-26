@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
 import Row from '../../Common/Row';
-import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
 
 //------------------------------------------------------------------------------
