@@ -273,6 +273,26 @@ class PlanGameScreen extends React.Component {
     return false;
   }
 
+  get showBack() {
+    const { curSlide } = this.state;
+    return curSlide !== 0;
+  }
+
+  get buttonNextText() {
+    const { curSlide } = this.state;
+
+    switch (curSlide) {
+      case 0:
+        return 'Pick spot';
+      case 1:
+        return 'Description';
+      case 2:
+        return 'Invite';
+      default:
+        return 'next';
+    }
+  }
+
   render() {
     const { curSlide, ...rest } = this.state;
 
@@ -314,6 +334,8 @@ class PlanGameScreen extends React.Component {
           onBack={this.handleBack}
           onNext={this.handleNext}
           disableNext={this.disableNext}
+          showBack={this.showBack}
+          buttonNextText={this.buttonNextText}
         />
       </FullHeight>
     );
