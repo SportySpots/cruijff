@@ -6,7 +6,8 @@ import PlanGameScreen from './index';
 const dummyNavigation = {
   goBack: () => {},
   navigate: () => {},
-}
+};
+
 storiesOf('Screens.Plan.PlanGameScreen', module)
   .add('PlanGameScreen', () => (
     <WithApolloMockProvider>

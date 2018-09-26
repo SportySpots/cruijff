@@ -8,14 +8,18 @@ function loadStories() {
   // require('../App/Screens/Plan/PlanGameScreen/stories');
   // require('../App/Components/Spots/SpotListCardSmall/stories');
   // require('../App/Components/Spots/SpotsList/stories');
-  require('../App/Components/PlanGame/ShareLink/stories');
+  // require('../App/Components/PlanGame/ShareLink/stories');
+  // require('../App/Components/PlanGame/ShareForm/stories');
+  require('../App/Screens/Plan/ShareGameScreen/stories');
 }
 
 const stories = [
   // '../App/Screens/Plan/PlanGameScreen/stories',
   // '../App/Components/Spots/SpotListCardSmall/stories',
   // '../App/Components/Spots/SpotsList/stories',
-  '../App/Components/PlanGame/ShareLink/stories',
+  // '../App/Components/PlanGame/ShareLink/stories',
+  // '../App/Components/PlanGame/ShareForm/stories',
+  '../App/Screens/Plan/ShareGameScreen/stories',
 ];
 
 module.exports = {

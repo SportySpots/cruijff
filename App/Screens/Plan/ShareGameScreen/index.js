@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard } from 'react-native';
+import { Keyboard, Clipboard, Share } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
+import config from '../../../config';
 import FormLayout from '../../../Components/PlanGame/FormLayout';
 import Footer from '../../../Components/DarkFooter';
 import ShareForm from '../../../Components/PlanGame/ShareForm';
@@ -27,6 +28,10 @@ class ShareGameScreen extends React.Component {
     return navigation.state.params.uuid;
   }
 
+  get link() {
+    return `https://${config.deeplinkHost}/games/${this.gameUuid}`;
+  }
+
   handleChange = ({ fieldName, value }) => {
     if (!fieldName || !value) {
       return;
@@ -37,6 +42,23 @@ class ShareGameScreen extends React.Component {
       () => { console.log(this.state); },
     );
   }
+
+  handleCopy = () => {
+    Clipboard.setString(this.link);
+  };
+
+  handleShare = () => {
+    const message = `${I18n.t('You have been invited to a SportySpots game:')} ${this.link}`;
+    Share.share(
+      {
+        message,
+        title: 'Sportyspots',
+      },
+      {
+        dialogTitle: I18n.t('share'),
+      },
+    );
+  };
 
   handleNext = () => {
     Keyboard.dismiss();
@@ -62,7 +84,7 @@ class ShareGameScreen extends React.Component {
   }
 
   render() {
-    const { share } = this.state;
+    // const { share } = this.state;
 
     return (
       <FullHeight>
@@ -72,7 +94,7 @@ class ShareGameScreen extends React.Component {
         >
           <ShareForm
             onChange={this.handleChange}
-            share={share}
+            link={this.link}
           />
         </FormLayout>
         <Footer

@@ -1,24 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Spacer from '../../Common/Spacer';
-import DescriptionField from '../DescriptionField';
+import ShareLink from '../ShareLink';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ShareForm = ({ share, onChange }) => [
+const ShareForm = ({ link, onChange }) => [
   <Spacer key="sport-spacer" size="XL" />,
-  <DescriptionField
-    key="share"
-    value={share}
-    characterRestriction={120}
-    onChangeText={(value) => { onChange({ fieldName: 'share', value }); }}
-    theme="white"
+  <ShareLink
+    key="link"
+    link={link}
   />,
 ];
 
 ShareForm.propTypes = {
-  share: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
   onChange: PropTypes.func,
 };
 

@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
+import Block from '../../Common/Block';
 
 // -----------------------------------------------------------------------------
 // STYLE:
 // -----------------------------------------------------------------------------
-const Container = styled.View`
-  background-color: ${Colors.black54};
-  height: 64px;
-  padding: 8px;
+const Flex = styled.View`
+  flex: 1; /* full height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 // -----------------------------------------------------------------------------
 const Url = styled(Text.M)`
@@ -21,9 +24,11 @@ const Url = styled(Text.M)`
 // COMPONENT:
 // -----------------------------------------------------------------------------
 const ShareLink = ({ link }) => (
-  <Container>
-    <Url>{link}</Url>
-  </Container>
+  <Block bgColor={Colors.black54}>
+    <Flex>
+      <Url>{link}</Url>
+    </Flex>
+  </Block>
 );
 
 ShareLink.propTypes = {

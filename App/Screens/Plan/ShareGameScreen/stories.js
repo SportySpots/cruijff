@@ -1,15 +1,21 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { WithApolloMockProvider } from '../../../GraphQL';
-import PlanGameScreen from './index';
+import ShareGameScreen from './index';
 
 const dummyNavigation = {
   goBack: () => {},
   navigate: () => {},
-}
-storiesOf('Screens.Plan.PlanGameScreen', module)
-  .add('PlanGameScreen', () => (
+  state: {
+    params: {
+      uuid: 455,
+    },
+  },
+};
+
+storiesOf('Screens.Plan.ShareGameScreen', module)
+  .add('ShareGameScreen', () => (
     <WithApolloMockProvider>
-      <PlanGameScreen navigation={dummyNavigation} />
+      <ShareGameScreen navigation={dummyNavigation} />
     </WithApolloMockProvider>
   ));
