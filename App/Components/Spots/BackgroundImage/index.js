@@ -1,6 +1,7 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
+import Colors from '../../../Themes/Colors';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import SpotImage from '../SpotImage';
 
@@ -8,6 +9,7 @@ import SpotImage from '../SpotImage';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.View`
+  background-color: ${Colors.darkGreen};
   position: absolute;
   top: 0;
   bottom: 0;

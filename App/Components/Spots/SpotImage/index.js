@@ -1,17 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import { Image } from 'react-native';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import getImageUrl from './utils';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const StyledImage = styled.Image`
-  background-color: ${Colors.darkGreen};
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -21,7 +14,7 @@ const SpotImage = ({ spot, style }) => {
     : 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/game-placeholder.png';
 
   return (
-    <StyledImage
+    <Image
       style={style}
       source={{ uri: image }}
     />
@@ -34,6 +27,3 @@ SpotImage.propTypes = {
 };
 
 export default SpotImage;
-
-/* border-bottom-left-radius: 8px;
- border-bottom-right-radius: 8px; */
