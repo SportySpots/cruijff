@@ -47,8 +47,8 @@ export const getPalette = (status, reverse) => {
     case 'translucid':
       return {
         fontColor: Colors.primaryGreen,
-        bgColor: Colors.white80,
-        borderColor: Colors.white80,
+        bgColor: Colors.white85,
+        borderColor: Colors.shade,
       };
     default:
       throw new Error('Unknown status');

@@ -7,6 +7,9 @@ import GoogleStaticMap from 'react-native-google-static-map';
 import { showLocation } from 'react-native-map-link';
 import Colors from '../../../Themes/Colors';
 import spotMapFragment from '../../../GraphQL/Spots/Fragments/spotMap';
+import Block from '../../Common/Block';
+import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
 import RoundButton from '../../Common/RoundButton';
 
 // -----------------------------------------------------------------------------
@@ -30,16 +33,6 @@ const Absolute = styled.View`
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 16px;
-`;
-// -----------------------------------------------------------------------------
-const Flex = styled.View`
-  flex-direction: row;
-  flex: 1;
-`;
-// -----------------------------------------------------------------------------
-const Spacer = styled.View`
-  width: 6;
 `;
 // -----------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -129,23 +122,25 @@ const SpotMap = ({ spot }) => {
         apiKey={GOOGLE_MAPS_API_KEY}
       />
       <Absolute>
-        <Flex>
-          <RoundButton
-            status="translucid"
-            iconName="map-marker"
-            onPress={() => {
-              handleDirectionsBtnPress({ latLng, title: spot.name });
-            }}
-          />
-          <Spacer />
-          <RoundButton
-            status="translucid"
-            iconName="directions"
-            onPress={() => {
-              handleLocationBtnPress({ latLng, title: spot.name });
-            }}
-          />
-        </Flex>
+        <Block>
+          <Row>
+            <RoundButton
+              status="translucid"
+              iconName="directions"
+              onPress={() => {
+                handleLocationBtnPress({ latLng, title: spot.name });
+              }}
+            />
+            <Spacer orientation="row" size="M" />
+            <RoundButton
+              status="translucid"
+              iconName="map-marker"
+              onPress={() => {
+                handleDirectionsBtnPress({ latLng, title: spot.name });
+              }}
+            />
+          </Row>
+        </Block>
       </Absolute>
     </Relative>
   );

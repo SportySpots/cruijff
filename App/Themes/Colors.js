@@ -17,7 +17,7 @@ const colors = {
   black54: 'rgba(0,0,0,0.34)',
   greenSemi: 'rgba(0,40,0,0.8)',
   white20: 'rgba(255,255,255,.2)',
-  white80: 'rgba(255,255,255,.8)',
+  white85: 'rgba(255,255,255,0.85)',
   bgGrey: '#f6f6f9',
   darkGreen: '#2F553C',
   red: '#ff0000',

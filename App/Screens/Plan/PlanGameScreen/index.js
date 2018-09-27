@@ -253,7 +253,8 @@ class PlanGameScreen extends React.Component {
         await api.setGameDescription({ gameUUID, description });
 
         // Set game status to 'planned'
-        await api.setGameStatus({ gameUUID, status: 'planned' });
+        const res = await api.setGameStatus({ gameUUID, status: 'planned' });
+        console.log('last game', res.data);
 
         // Lastly, redirect user to share screen
         this.props.navigation.navigate('shareGameScreen', { uuid: gameUUID });

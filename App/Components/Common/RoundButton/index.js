@@ -17,7 +17,7 @@ const Container = styled.View`
   height: ${({ size }) => (getPixelsFromSize(size))};
   width: ${({ size }) => (getPixelsFromSize(size))};
   border-radius: ${({ size }) => (getPixelsFromSize(size))};
-  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.lightGray : borderColor)};
+  border: 0.3px solid ${({ disabled, borderColor }) => (disabled ? Colors.lightGray : borderColor)};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
