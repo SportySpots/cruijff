@@ -134,7 +134,7 @@ const SpotMap = ({ spot }) => {
             <Spacer orientation="row" size="M" />
             <RoundButton
               status="translucid"
-              iconName="map-marker"
+              iconName="google-maps"
               onPress={() => {
                 handleDirectionsBtnPress({ latLng, title: spot.name });
               }}
