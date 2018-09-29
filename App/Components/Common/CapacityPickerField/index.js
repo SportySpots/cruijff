@@ -12,7 +12,7 @@ const CapacityPickerField = ({ value, onChange, ...rest }) => (
     {({ visible, openModal, closeModal }) => [
       <InputField
         key="field"
-        value={value || ''}
+        value={value ? value.toString() : ''}
         onPress={openModal}
         {...rest}
       />,
@@ -32,10 +32,7 @@ const CapacityPickerField = ({ value, onChange, ...rest }) => (
 );
 
 CapacityPickerField.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  value: PropTypes.number,
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };

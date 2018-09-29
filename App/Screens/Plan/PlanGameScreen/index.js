@@ -30,7 +30,7 @@ const SLIDES = [
       date: null,
       time: null,
       duration: null,
-      capacity: '',
+      capacity: null,
     },
   },
   {
@@ -71,9 +71,11 @@ class PlanGameScreen extends React.Component {
 
     this.state = {
       curSlide: 0,
+      startTime: new Date(),
+      endTime: new Date(),
     };
 
-    // Attach slides fields to state
+    // Attach slide initial state to state
     SLIDES.forEach(({ initState }) => {
       extend(this.state, Object.assign({}, initState));
     });
@@ -90,10 +92,11 @@ class PlanGameScreen extends React.Component {
       'value', value,
     );
 
-    let formattedValue = value;
+    /* let formattedValue = value;
     switch (fieldName) {
       case 'date':
-        formattedValue = setDate(value);
+        // formattedValue = setDate(value);
+        formattedValue = value;
         break;
       case 'time':
         formattedValue = setStartTime(value);
@@ -103,12 +106,12 @@ class PlanGameScreen extends React.Component {
         break;
       default:
         break;
-    }
+    } */
 
-    console.log('formattedValue', formattedValue);
+    // console.log('formattedValue', formattedValue);
 
     this.setState(
-      { [fieldName]: formattedValue },
+      { [fieldName]: value },
       () => { console.log(this.state); },
     );
   }

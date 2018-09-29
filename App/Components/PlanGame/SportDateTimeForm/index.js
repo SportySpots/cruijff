@@ -87,18 +87,18 @@ const SportAndTimeForm = ({
 SportAndTimeForm.propTypes = {
   sport: propType(sportFragment),
   date: PropTypes.string,
-  time: PropTypes.string,
+  time: PropTypes.instanceOf(Date),
   duration: PropTypes.string,
-  capacity: PropTypes.string,
+  capacity: PropTypes.number,
   onChange: PropTypes.func,
 };
 
 SportAndTimeForm.defaultProps = {
   sport: null,
   date: null,
-  time: '',
+  time: null,
   duration: '',
-  capacity: '',
+  capacity: null,
   onChange: () => {},
 };
 
