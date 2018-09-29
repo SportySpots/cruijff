@@ -86,6 +86,8 @@ const GameListCard = ({ game }) => {
     name,
   } = game;
 
+  console.log('GAME_LIST_CARD game', game);
+
   const isCanceled = status === 'CANCELED';
   const formattedStartTime = moment(startTime).format('D-MM HH:mm');
 

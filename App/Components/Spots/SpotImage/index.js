@@ -13,6 +13,8 @@ const SpotImage = ({ spot, style }) => {
     ? getImageUrl(spot.images[0].image)
     : 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/game-placeholder.png';
 
+  console.log('SPOT_IMAGE image', image);
+
   return (
     <Image
       style={style}

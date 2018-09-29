@@ -78,8 +78,8 @@ class GameDetailsScreen extends React.PureComponent {
                 game={data.game}
                 onSpotPress={this.handleSpotPress}
                 onAttendeesPress={this.handleAttendeesPress}
-                rspvBeforeHook={this.handleRSVPBefore}
-                rspvSuccessHook={refetch}
+                rsvpBeforeHook={this.handleRSVPBefore}
+                rsvpSuccessHook={refetch}
               />
             </Container>
           );

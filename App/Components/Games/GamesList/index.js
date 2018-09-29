@@ -10,6 +10,7 @@ import NothingFound from '../../Common/NothingFound';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+// TODO: remove margin, use List spacer and Spacer comp
 const CardContainer = styled(TouchableOpacity)`
   margin-vertical: 4px;
 `;
@@ -21,7 +22,6 @@ const GamesList = ({
   withEmptyComponent,
   cardComponent,
   onCardPress,
-  style,
   ...rest
 }) => (
   <FlatList
@@ -50,14 +50,12 @@ GamesList.propTypes = {
   withEmptyComponent: PropTypes.bool,
   cardComponent: PropTypes.func.isRequired,
   onCardPress: PropTypes.func,
-  style: PropTypes.object,
 };
 
 GamesList.defaultProps = {
   games: [],
   withEmptyComponent: true,
   onCardPress: () => {},
-  style: {},
 };
 
 export default GamesList;
