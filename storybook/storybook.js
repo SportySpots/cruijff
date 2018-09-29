@@ -1,6 +1,17 @@
+import React from 'react';
 import { AppRegistry } from 'react-native';
-import { getStorybookUI, configure } from '@storybook/react-native';
+import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
+import { WithApolloMockProvider } from '../App/GraphQL';
 import { loadStories } from './storyLoader';
+import ReduxMockProvider from '../App/Redux/ReduxMockProvider';
+
+addDecorator(story => (
+  <WithApolloMockProvider>
+    <ReduxMockProvider>
+      {story()}
+    </ReduxMockProvider>
+  </WithApolloMockProvider>
+));
 
 // Import stories
 configure(loadStories, module);
@@ -9,4 +20,6 @@ configure(loadStories, module);
 // to set manually use, e.g. host: 'localhost' option
 const StorybookUI = getStorybookUI({ port: 7007, onDeviceUI: true });
 AppRegistry.registerComponent('SportySpots', () => StorybookUI);
+
 export default StorybookUI;
+

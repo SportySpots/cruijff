@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Colors from '../../../Themes/Colors';
-import { WithApolloMockProvider } from '../../../GraphQL';
 import Block from '../../Common/Block';
 import SportDateTimeForm from './index';
 
@@ -28,16 +27,14 @@ class Container extends React.PureComponent {
     } = this.state;
 
     return (
-      <WithApolloMockProvider>
-        <SportDateTimeForm
-          theme={theme}
-          sport={sport}
-          date={date}
-          time={time}
-          capacity={capacity}
-          onChange={this.handleChange}
-        />
-      </WithApolloMockProvider>
+      <SportDateTimeForm
+        theme={theme}
+        sport={sport}
+        date={date}
+        time={time}
+        capacity={capacity}
+        onChange={this.handleChange}
+      />
     );
   }
 }

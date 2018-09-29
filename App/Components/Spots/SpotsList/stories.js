@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import Colors from '../../../Themes/Colors';
-import { WithApolloMockProvider } from '../../../GraphQL';
 import GET_SPOTS_FOR_SPORT from '../../../GraphQL/Spots/Queries/GET_SPOTS_FOR_SPORT';
 import Block from '../../Common/Block';
 import SpotListCardSmall from '../../Spots/SpotListCardSmall';
@@ -20,26 +19,24 @@ class Container extends React.PureComponent {
     const { selectedSpot } = this.state;
 
     return (
-      <WithApolloMockProvider>
-        <Query
-          query={GET_SPOTS_FOR_SPORT}
-          variables={{ sport: 'SOCCER' }}
-        >
-          {({ loading, error, data }) =>
-          (loading || error ? null : (
-            <Block bgColor={Colors.lightGray}>
-              <SpotsList
-                spots={data.spots || []}
-                selectedSpot={selectedSpot}
-                cardComponent={cardComponent}
-                onCardPress={(spot) => {
-                  this.setState({ selectedSpot: spot });
-                }}
-              />
-            </Block>
-          ))}
-        </Query>
-      </WithApolloMockProvider>
+      <Query
+        query={GET_SPOTS_FOR_SPORT}
+        variables={{ sport: 'SOCCER' }}
+      >
+        {({ loading, error, data }) =>
+        (loading || error ? null : (
+          <Block bgColor={Colors.lightGray}>
+            <SpotsList
+              spots={data.spots || []}
+              selectedSpot={selectedSpot}
+              cardComponent={cardComponent}
+              onCardPress={(spot) => {
+                this.setState({ selectedSpot: spot });
+              }}
+            />
+          </Block>
+        ))}
+      </Query>
     );
   }
 }

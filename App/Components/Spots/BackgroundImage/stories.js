@@ -3,7 +3,6 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import colors from '../../../Themes/Colors';
-import { WithApolloMockProvider } from '../../../GraphQL';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Block from '../../Common/Block';
 import BackgroundImage from './index';
@@ -21,19 +20,17 @@ const dummyNavigator = {
 
 storiesOf('Spots.BackgroundImage', module)
   .add('BackgroundImage', () => (
-    <WithApolloMockProvider>
-      <Query
-        query={GET_SPOT_DETAILS}
-        variables={{ uuid: dummyNavigator.state.params.spotId }}
-      >
-        {({ loading, error, data }) =>
-        (loading || error ? null : (
-          <Block bgColor={colors.lightGray}>
-            <Container>
-              <BackgroundImage spot={data.spot} />
-            </Container>
-          </Block>
-        ))}
-      </Query>
-    </WithApolloMockProvider>
+    <Query
+      query={GET_SPOT_DETAILS}
+      variables={{ uuid: dummyNavigator.state.params.spotId }}
+    >
+      {({ loading, error, data }) =>
+      (loading || error ? null : (
+        <Block bgColor={colors.lightGray}>
+          <Container>
+            <BackgroundImage spot={data.spot} />
+          </Container>
+        </Block>
+      ))}
+    </Query>
   ));

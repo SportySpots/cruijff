@@ -4,7 +4,7 @@ import { propType } from 'graphql-anywhere';
 import { withNavigation } from 'react-navigation';
 import moment from 'moment';
 import styled from 'styled-components';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
 import Text from '../../Common/Text';
 import GamesList from '../../Games/GamesList';
@@ -23,6 +23,22 @@ const curatedGames = (games) => {
     ? games.filter(game => game.start_time > today && game.status !== 'DRAFT')
     : [];
 };
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  min-height: 100px;
+`;
+//------------------------------------------------------------------------------
+const Title = styled(Text.M)`
+  font-size: 22px;
+  padding-horizontal: 16px;
+  margin-top: 16px;
+`;
+//------------------------------------------------------------------------------
+const GamesContainer = styled.View`
+  padding-horizontal: 8px;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -65,19 +81,3 @@ SpotGames.propTypes = {
 
 export default withNavigation(SpotGames);
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Container = styled.View`
-  min-height: 100px;
-`;
-//------------------------------------------------------------------------------
-const Title = styled(Text.M)`
-  font-size: 22px;
-  padding-horizontal: 16px;
-  margin-top: 16px;
-`;
-//------------------------------------------------------------------------------
-const GamesContainer = styled.View`
-  padding-horizontal: 8px;
-`;

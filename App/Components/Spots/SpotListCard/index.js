@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Config from 'react-native-config';
-import Header from './Header';
-import Colors from '../../Themes/Colors';
+import Header from '../Header';
+import Colors from '../../../Themes/Colors';
 
 export default class SpotListCard extends Component {
   static propTypes = {

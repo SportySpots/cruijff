@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import { WithApolloMockProvider } from '../../../../GraphQL';
 import ModalProps from '../../../../RenderProps/modal-props';
 import RaisedButton from '../../RaisedButton';
 import CapacityPickerModal from './index';
@@ -25,8 +24,4 @@ const Container = () => (
 );
 
 storiesOf('Modals.CapacityPickerModal', module)
-  .add('CapacityPickerModal', () => (
-    <WithApolloMockProvider>
-      <Container />
-    </WithApolloMockProvider>
-  ));
+  .add('CapacityPickerModal', () => <Container />);

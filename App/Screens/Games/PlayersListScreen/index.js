@@ -6,11 +6,11 @@ import { Query } from 'react-apollo';
 import { ScrollView, View } from 'react-native';
 import { TabBarTop, TabNavigator } from 'react-navigation';
 import styled from 'styled-components';
-import Text from '../../Components/Common/Text';
-import UserCircle from '../../Components/Common/UserCircle';
-import I18n from '../../I18n/index';
-import Colors from '../../Themes/Colors';
-import { navigation as navigationPropType } from '../../PropTypesDefinitions/navigation';
+import I18n from '../../../I18n/index';
+import Colors from '../../../Themes/Colors';
+import Text from '../../../Components/Common/Text';
+import UserCircle from '../../../Components/Common/UserCircle';
+import { navigation as navigationPropType } from '../../../PropTypesDefinitions/navigation';
 
 export const BottomNav = ({ screens }) =>
   React.createElement(new TabNavigator(screens, {

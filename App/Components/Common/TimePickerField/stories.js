@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { WithApolloMockProvider } from '../../../GraphQL';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import TimePickerField from './index';
@@ -36,15 +35,9 @@ Container.defaultProps = {
 };
 
 storiesOf('Common.TimePickerField', module)
-  .add('TimePickerField', () => (
-    <WithApolloMockProvider>
-      <Container />
-    </WithApolloMockProvider>
-  ))
+  .add('TimePickerField', () => <Container />)
   .add('TimePickerField white theme', () => (
-    <WithApolloMockProvider>
-      <Block bgColor={Colors.primaryGreen}>
-        <Container theme="white" />
-      </Block>
-    </WithApolloMockProvider>
+    <Block bgColor={Colors.primaryGreen}>
+      <Container theme="white" />
+    </Block>
   ));

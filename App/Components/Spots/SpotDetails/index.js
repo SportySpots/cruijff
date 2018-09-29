@@ -9,8 +9,8 @@ import SpotMapWithLinkFallback from '../../../Components/Spots/SpotMapWithLinkFa
 import Header from '../../../Components/Spots/Header';
 // import SpotRating from './SpotRating';
 import SpotImages from '../SpotImages';
-import SpotProperties from './SpotProperties';
-import SpotGames from './SpotGames';
+import SpotProperties from '../SpotProperties';
+import SpotGames from '../SpotGames';
 
 //------------------------------------------------------------------------------
 // STYLE:

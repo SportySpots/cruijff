@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import Colors from '../../../Themes/Colors';
-import { WithApolloMockProvider } from '../../../GraphQL';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import Block from '../../Common/Block';
 import SpotForm from './index';
@@ -16,24 +15,22 @@ const dummyNavigator = {
 };
 
 const Container = ({ theme }) => (
-  <WithApolloMockProvider>
-    <Query
-      query={GET_SPORTS}
-      variables={{ uuid: dummyNavigator.state.params.uuid }}
-    >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
-          <Block>
-            <SpotForm
-              theme={theme}
-              sport={data.sports[0]}
-              onChange={this.handleChange}
-            />
-          </Block>
-        ))
-      }
-    </Query>
-  </WithApolloMockProvider>
+  <Query
+    query={GET_SPORTS}
+    variables={{ uuid: dummyNavigator.state.params.uuid }}
+  >
+    {({ loading, error, data }) =>
+      (loading || error ? null : (
+        <Block>
+          <SpotForm
+            theme={theme}
+            sport={data.sports[0]}
+            onChange={this.handleChange}
+          />
+        </Block>
+      ))
+    }
+  </Query>
 );
 
 Container.propTypes = {
