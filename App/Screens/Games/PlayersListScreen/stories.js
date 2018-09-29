@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View } from 'react-native';
-import PlayerListScreen from '.';
+import PlayersListScreen from '.';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -11,8 +11,8 @@ const dummyNavigator = {
 };
 
 storiesOf('Screens.Games', module)
-  .add('PlayerListScreen', () => (
+  .add('PlayersListScreen', () => (
     <View style={{ flex: 1 }}>
-      <PlayerListScreen navigation={dummyNavigator} />
+      <PlayersListScreen navigation={dummyNavigator} />
     </View>
   ));

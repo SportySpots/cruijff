@@ -1,36 +1,80 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import Mocks from '../../../../storybook/mocks';
-import GameListCard from './index';
+import { Query } from 'react-apollo';
+import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import GameListCard from '.';
 
 storiesOf('Games.GameListCard', module)
-  .add('GameListCard', () => (
+  .add('GameListCard PLANNED', () => (
     <View>
-      <GameListCard game={Mocks.game} />
+      <Query
+        query={GET_GAME_DETAILS}
+        variables={{ uuid: 455 }}
+      >
+        {({ loading, error, data }) =>
+          (loading || error ? null : (
+            <GameListCard
+              game={Object.assign({}, data.game, { status: 'PLANNED' })}
+            />
+          ))
+        }
+      </Query>
     </View>
   ))
   .add('GameListCard CANCELED', () => (
     <View>
-      <GameListCard
-        game={Object.assign({}, Mocks.game, { status: 'CANCELED' })}
-      />
+      <Query
+        query={GET_GAME_DETAILS}
+        variables={{ uuid: 455 }}
+      >
+        {({ loading, error, data }) =>
+          (loading || error ? null : (
+            <GameListCard
+              game={Object.assign({}, data.game, { status: 'CANCELED' })}
+            />
+          ))
+        }
+      </Query>
     </View>
   ))
-  .add('GameListCard short title/name', () => (
+  .add('GameListCard PLANNED short title/name', () => (
     <View>
-      <GameListCard
-        game={Object.assign({}, Mocks.game, { name: 'Some Short Name' })}
-      />
+      <Query
+        query={GET_GAME_DETAILS}
+        variables={{ uuid: 455 }}
+      >
+        {({ loading, error, data }) =>
+          (loading || error ? null : (
+            <GameListCard
+              game={
+                Object.assign(
+                  {},
+                  data.game,
+                  { status: 'PLANNED', name: 'Some Short Name' })}
+            />
+          ))
+        }
+      </Query>
     </View>
   ))
   .add('GameListCard CANCELED short title/name', () => (
     <View>
-      <GameListCard
-        game={Object.assign(
-          {},
-          Mocks.game,
-          { status: 'CANCELED', name: 'Some Short Name' })}
-      />
+      <Query
+        query={GET_GAME_DETAILS}
+        variables={{ uuid: 455 }}
+      >
+        {({ loading, error, data }) =>
+          (loading || error ? null : (
+            <GameListCard
+              game={
+                Object.assign(
+                  {},
+                  data.game,
+                  { status: 'CANCELED', name: 'Some Short Name' })}
+            />
+          ))
+        }
+      </Query>
     </View>
   ));

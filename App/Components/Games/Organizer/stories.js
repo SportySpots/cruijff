@@ -1,24 +1,42 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import Mocks from '../../../../storybook/mocks';
-import Organizer from './index';
+import PropTypes from 'prop-types';
+import { Query } from 'react-apollo';
+import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import Organizer from '.';
 
-const { organizer } = Mocks.game;
+const Container = ({ textSize }) => (
+  <Query
+    query={GET_GAME_DETAILS}
+    variables={{ uuid: 455 }}
+  >
+    {({ loading, error, data }) =>
+      (loading || error ? null : (
+        <Organizer
+          organizer={data.game.organizer}
+          textSize={textSize}
+        />
+      ))
+    }
+  </Query>
+);
+
+Container.propTypes = {
+  textSize: PropTypes.string,
+};
+
+Container.defaultProps = {
+  textSize: 'SM',
+};
 
 storiesOf('Games.Organizer', module)
   .add('Organizer S textSize', () => (
-    <Organizer
-      organizer={organizer}
-      textSize="S"
-    />
+    <Container textSize="S" />
   ))
   .add('Organizer default textSize (SM)', () => (
-    <Organizer organizer={organizer} />
+    <Container />
   ))
   .add('Organizer M textSize', () => (
-    <Organizer
-      organizer={organizer}
-      textSize="M"
-    />
+    <Container textSize="M" />
   ));
 
