@@ -10,7 +10,7 @@ import OrganizerAndDescription from '../OrganizerAndDescription';
 import ClickableAttendees from '../ClickableAttendees';
 import OpenSpots from '../OpenSpots';
 import RSPV from '../RSPV';
-import ShareGame from '../ShareGame';
+import ShareGameButton from '../ShareGameButton';
 import Block from '../../Common/Block';
 import Label from '../../Common/Label';
 import AlertMsg from '../../Common/AlertMsg';
@@ -104,10 +104,7 @@ class GameDetails extends React.PureComponent {
       ),
       <Block key="share">
         <Label>{I18n.t('Share with friends')}</Label>
-        <ShareGame
-          game={game}
-          size={55}
-        />
+        <ShareGameButton game={game} />
       </Block>,
     ];
   }
