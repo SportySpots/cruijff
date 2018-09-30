@@ -50,10 +50,12 @@ const DialogModal = ({
           {children}
         </Body>
       </StyledScrollView>
-      <Divider />
-      <Footer>
-        {footer}
-      </Footer>
+      {footer && [
+        <Divider key="spacer" />,
+        <Footer key="footer">
+          {footer}
+        </Footer>,
+      ]}
     </Flex>
   </Modal>
 );
@@ -63,7 +65,6 @@ DialogModal.propTypes = {
     PropTypes.node,
     PropTypes.func,
     PropTypes.object,
-    null,
   ]),
   children: PropTypes.oneOfType([
     PropTypes.node,
@@ -79,7 +80,7 @@ DialogModal.propTypes = {
 
 DialogModal.defaultProps = {
   header: null,
-  footer: () => null,
+  footer: null,
 };
 
 export default DialogModal;

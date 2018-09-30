@@ -27,7 +27,7 @@ const SportsList = ({ selectedSport, onSportPress }) => (
                 selectedSport &&
                 selectedSport.uuid &&
                 item.uuid === selectedSport.uuid
-              )}
+              ) || false}
               onPress={onSportPress}
             />
           )}
