@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import styled from 'styled-components';
 import { View } from 'react-native';
 import I18n from '../../../I18n';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
@@ -13,6 +14,15 @@ import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
 import { Label } from '../style';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const DurationFieldContainer = styled.View`
+  width: 170px;
+  margin-top: -32;
+  border-color: transparent;
+  border-width: 1;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -45,9 +55,7 @@ const SportAndTimeForm = ({
       theme="white"
       onChange={(value) => { onChange({ fieldName: 'date', value }); }}
     />
-  </Row>,
-  <Spacer key="time-duration-spacer" size="XXL" />,
-  <Row key="time-duration">
+    <Spacer orientation="row" size="M" />
     <Label>{I18n.t('at')}</Label>
     <Spacer orientation="row" size="S" />
     <TimePickerField
@@ -56,10 +64,12 @@ const SportAndTimeForm = ({
       theme="white"
       onChange={(value) => { onChange({ fieldName: 'time', value }); }}
     />
-    <Spacer orientation="row" size="M" />
+  </Row>,
+  <Spacer key="time-duration-spacer" size="XXL" />,
+  <Row key="time-duration">
     <Label>{I18n.t('during')}</Label>
     <Spacer orientation="row" size="S" />
-    <View style={{ flex: 1, marginTop: -32, borderColor: 'transparent', borderWidth: 1 }}>
+    <DurationFieldContainer>
       <DurationPickerField
         label=""
         value={duration}
@@ -67,9 +77,9 @@ const SportAndTimeForm = ({
         theme="white"
         size="ML"
       />
-    </View>
+    </DurationFieldContainer>
   </Row>,
-  <Spacer key="capacity-spacer" size="XXL" />,
+  <Spacer key="capacity-spacer" size="XL" />,
   <Row key="capacity">
     <Label>{I18n.t('with')}</Label>
     <Spacer orientation="row" size="S" />
