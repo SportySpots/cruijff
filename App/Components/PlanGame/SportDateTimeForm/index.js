@@ -88,7 +88,10 @@ SportAndTimeForm.propTypes = {
   sport: propType(sportFragment),
   date: PropTypes.string,
   time: PropTypes.instanceOf(Date),
-  duration: PropTypes.string,
+  duration: PropTypes.oneOf(
+    PropTypes.number,
+    null,
+  ),
   capacity: PropTypes.number,
   onChange: PropTypes.func,
 };

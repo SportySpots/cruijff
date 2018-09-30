@@ -29,7 +29,7 @@ const SLIDES = [
       sport: null,
       date: null,
       time: null,
-      duration: null,
+      duration: '',
       capacity: null,
     },
   },
