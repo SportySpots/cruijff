@@ -1,44 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components/native';
 import moment from 'moment';
-import { TouchableOpacity } from 'react-native';
 import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n';
 import Text from '../../Common/Text';
+import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
-//------------------------------------------------------------------------------
-const TitleContainer = styled.View`
-  display: flex;
-  margin-bottom: 8px;
-`;
-//------------------------------------------------------------------------------
-const Title = styled(Text.M)`
-  font-size: 22px;
-  color: ${props => props.textColor || '#000'};
-`;
-//------------------------------------------------------------------------------
-const Row = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-vertical: 4px;
+const Title = styled(Text.ML)`
+  color: ${({ textColor }) => (textColor || '#000')};
 `;
 //------------------------------------------------------------------------------
 const Label = styled(Text.SM)`
   flex: 1;
-  color: ${props => props.textColor || '#000'};
-  padding-horizontal: 20px;
+  color: ${({ textColor }) => (textColor || '#000')};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -53,40 +36,46 @@ const GameProperties = ({ game, onSpotPress }) => {
   } = game;
 
   return (
-    <Container>
-      <TitleContainer>
-        <Title>{name}</Title>
-      </TitleContainer>
+    <View>
+      <Title>{name}</Title>
+      <Spacer size="L" />
       <Row>
         <Icon name="event" size={22} color={Colors.shade} />
+        <Spacer orientation="row" size="L" />
         <Label>
           {moment.utc(startTime).format('DD-MM-YYYY')}
         </Label>
       </Row>
+      <Spacer size="M" />
       <Row>
         <Icon name="watch-later" size={22} color={Colors.shade} />
+        <Spacer orientation="row" size="L" />
         <Label>
           {moment.utc(startTime).format('HH:mm')}
           {endTime && `- ${moment.utc(endTime).format('HH:mm')}`}
         </Label>
       </Row>
+      <Spacer size="M" />
       <Row>
         <Icon name="label" size={22} color={Colors.shade} />
+        <Spacer orientation="row" size="L" />
         <Label>
           {I18n.t(sport.category)}
         </Label>
       </Row>
+      <Spacer size="M" />
       <TouchableOpacity
         onPress={() => { onSpotPress({ spotUuid: spot.uuid }); }}
       >
         <Row>
           <Icon name="place" size={22} color={Colors.shade} />
+          <Spacer orientation="row" size="L" />
           <Label>{spot.name}</Label>
         </Row>
       </TouchableOpacity>
-    </Container>
+    </View>
   );
-}
+};
 
 GameProperties.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
