@@ -18,7 +18,15 @@ const FullWidth = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Dropdown = ({ theme, size, ...rest }) => {
+// We extend Dropdown component so that is can receive an array of
+// { label, value } pairs instead of only { value }
+const Dropdown = ({
+  theme,
+  size,
+  data,
+  onChangeText,
+  ...rest
+}) => {
   const isWhiteTheme = theme === 'white';
 
   return (
@@ -26,8 +34,12 @@ const Dropdown = ({ theme, size, ...rest }) => {
       <Spacer orientation="row" size="M" />
       <FullWidth>
         <DropdownMUI
+          data={data.map(({ label }) => ({ value: label }))}
+          onChangeText={(value) => {
+            onChangeText(data.find(d => (d.label === value)));
+          }}
           labelFontSize={Fonts.style.M.fontSize}
-          labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}    
+          labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
           animationDuration={150}
           baseColor={isWhiteTheme ? Colors.white : Colors.black}
           lineWidth={1}
@@ -70,12 +82,20 @@ const Dropdown = ({ theme, size, ...rest }) => {
 Dropdown.propTypes = {
   theme: PropTypes.oneOf(['white', 'black']),
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  data: PropTypes.arrayOf([
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.array,
+    }).isRequired,
+  ]).isRequired,
+  onChangeText: PropTypes.func,
   // Plus all props from react-native-material-textfield
 };
 
 Dropdown.defaultProps = {
   theme: 'black',
   size: 'M',
+  onChangeText: () => {},
 };
 
 export default Dropdown;

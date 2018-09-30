@@ -7,22 +7,21 @@ import Dropdown from '../Dropdown';
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const DURATION_OPTIONS = [
-  { value: '15', unit: 'minutes' },
-  { value: '30', unit: 'minutes' },
-  { value: '45', unit: 'minutes' },
-  { value: '60', unit: 'minutes' },
-  { value: '75', unit: 'minutes' },
-  { value: '90', unit: 'minutes' },
-  { value: '2', unit: 'hours' },
-  { value: '2,5', unit: 'hours' },
-  { value: '3', unit: 'hours' },
-  { value: '4', unit: 'hours' },
-  { value: '3', unit: 'hours' },
+  { number: '15', unit: 'minutes', minutes: 15 },
+  { number: '30', unit: 'minutes', minutes: 30 },
+  { number: '45', unit: 'minutes', minutes: 45 },
+  { number: '60', unit: 'minutes', minutes: 60 },
+  { number: '75', unit: 'minutes', minutes: 75 },
+  { number: '90', unit: 'minutes', minutes: 90 },
+  { number: '2', unit: 'hours', minutes: 120 },
+  { number: '2,5', unit: 'hours', minutes: 150 },
+  { number: '3', unit: 'hours', minutes: 180 },
+  { number: '4', unit: 'hours', minutes: 240 },
   { unit: 'Undetermined' },
 ];
 //------------------------------------------------------------------------------
-const data = DURATION_OPTIONS.map(({ value, unit }) => (
-  { value: `${value || ''} ${I18n.t(unit)}` }
+const data = DURATION_OPTIONS.map(({ number, unit }) => (
+  { value: `${number || ''} ${I18n.t(unit)}` }
 ));
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -30,6 +29,7 @@ const data = DURATION_OPTIONS.map(({ value, unit }) => (
 const DurationPickerField = ({ value, onChange, ...rest }) => (
   <Dropdown
     label=""
+    value={value}
     data={data}
     onChangeText={(duration) => { onChange(duration); }}
     {...rest}

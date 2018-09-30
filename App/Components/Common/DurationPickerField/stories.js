@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View, Text } from 'react-native';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import DurationPickerField from './index';
@@ -8,8 +9,11 @@ import DurationPickerField from './index';
 class Container extends React.PureComponent {
   state = { value: null }
 
-  handleChange = (date) => {
-    this.setState({ value: date });
+  handleChange = (value) => {
+    this.setState(
+      { value },
+      () => { console.log(this.state); },
+    );
   }
 
   render() {
@@ -17,11 +21,14 @@ class Container extends React.PureComponent {
     const { value } = this.state;
 
     return (
-      <DurationPickerField
-        theme={theme}
-        value={value}
-        onChange={this.handleChange}
-      />
+      <View>
+        <Text>{value}</Text>
+        <DurationPickerField
+          theme={theme}
+          value={value}
+          onChange={this.handleChange}
+        />
+      </View>
     );
   }
 }

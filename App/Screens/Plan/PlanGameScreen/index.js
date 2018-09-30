@@ -71,8 +71,6 @@ class PlanGameScreen extends React.Component {
 
     this.state = {
       curSlide: 0,
-      startTime: new Date(),
-      endTime: new Date(),
     };
 
     // Attach slide initial state to state
@@ -91,24 +89,6 @@ class PlanGameScreen extends React.Component {
       'fieldName', fieldName,
       'value', value,
     );
-
-    /* let formattedValue = value;
-    switch (fieldName) {
-      case 'date':
-        // formattedValue = setDate(value);
-        formattedValue = value;
-        break;
-      case 'time':
-        formattedValue = setStartTime(value);
-        break;
-      case 'duration':
-        formattedValue = setEndTime(value);
-        break;
-      default:
-        break;
-    } */
-
-    // console.log('formattedValue', formattedValue);
 
     this.setState(
       { [fieldName]: value },
@@ -161,6 +141,8 @@ class PlanGameScreen extends React.Component {
         prevState => ({ curSlide: prevState.curSlide + 1 }),
         () => { this.swiper.scrollBy(1); },
       );
+
+    // Otherwise, create game
     } else {
       const username = (
         user &&
