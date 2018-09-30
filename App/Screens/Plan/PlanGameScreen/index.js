@@ -29,7 +29,7 @@ const SLIDES = [
       sport: null,
       date: null,
       time: null,
-      duration: '',
+      duration: null,
       capacity: null,
     },
   },
@@ -86,7 +86,7 @@ class PlanGameScreen extends React.Component {
 
     this.setState(
       { [fieldName]: value },
-      () => { console.log(this.state); },
+      () => { console.log('HANDLE_CHANGE new state', this.state); },
     );
   }
 
@@ -153,13 +153,11 @@ class PlanGameScreen extends React.Component {
       console.log('START_TIME', startTime.toISOString()); // '2018-10-06T13:15:00.000Z'
       console.log('END_TIME', endTime ? endTime.toISOString() : null); // '2018-10-06T14:15:00.000Z'
 
-      let gameUUID;
-
       // TODO: replace this with a single endpoint call
       try {
         // Create game
         const result = await api.createGame({ name: `${username}'s game` });
-        gameUUID = result.data.uuid;
+        const gameUUID = result.data.uuid;
 
         // Set sport
         await api.setGameSport({ gameUUID, sport });
@@ -235,8 +233,6 @@ class PlanGameScreen extends React.Component {
 
   render() {
     const { curSlide, ...rest } = this.state;
-
-    console.log('STATE', rest);
 
     return (
       <FullHeight>

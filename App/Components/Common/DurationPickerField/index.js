@@ -29,7 +29,7 @@ const data = DURATION_OPTIONS.map(({ number, unit, value }) => (
 const DurationPickerField = ({ value, onChange, ...rest }) => (
   <Dropdown
     label=""
-    value={value}
+    value={value || ''}
     data={data}
     onChangeText={(duration) => { onChange(duration.value); }}
     {...rest}
@@ -37,16 +37,13 @@ const DurationPickerField = ({ value, onChange, ...rest }) => (
 );
 
 DurationPickerField.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  value: PropTypes.number,
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };
 
 DurationPickerField.defaultProps = {
-  value: '',
+  value: null,
   onChange: () => {},
 };
 

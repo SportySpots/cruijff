@@ -18,9 +18,9 @@ import { Label } from '../style';
 //------------------------------------------------------------------------------
 const DurationFieldContainer = styled.View`
   width: 170px;
-  margin-top: -32;
+  margin-top: -32px;
   border-color: transparent;
-  border-width: 1;
+  border-width: 1px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -38,7 +38,7 @@ const SportAndTimeForm = ({
     <Label>{I18n.t('I want to play')}</Label>
     <Spacer orientation="row" size="S" />
     <SportPickerField
-      value={(sport && (I18n.t(sport.name) || I18n.t(sport.category))) || ''}
+      value={sport}
       size="ML"
       theme="white"
       onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
@@ -97,10 +97,7 @@ SportAndTimeForm.propTypes = {
   sport: propType(sportFragment),
   date: PropTypes.string,
   time: PropTypes.instanceOf(Date),
-  duration: PropTypes.oneOf(
-    PropTypes.number,
-    null,
-  ),
+  duration: PropTypes.number,
   capacity: PropTypes.number,
   onChange: PropTypes.func,
 };
@@ -109,7 +106,7 @@ SportAndTimeForm.defaultProps = {
   sport: null,
   date: null,
   time: null,
-  duration: '',
+  duration: null,
   capacity: null,
   onChange: () => {},
 };
