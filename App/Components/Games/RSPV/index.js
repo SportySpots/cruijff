@@ -125,13 +125,14 @@ RSPV.propTypes = {
     'DECLINED',
     'INTERESTED',
     'INVITED',
-  ]).isRequired,
+  ]),
   onBeforeHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
 };
 
 RSPV.defaultProps = {
   userRSVP: null,
+  userStatus: null,
   onBeforeHook: () => {},
   onSuccessHook: () => {},
 };
