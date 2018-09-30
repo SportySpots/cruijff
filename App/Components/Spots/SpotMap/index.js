@@ -4,13 +4,17 @@ import { propType } from 'graphql-anywhere';
 import Secrets from 'react-native-config';
 import styled from 'styled-components';
 import GoogleStaticMap from 'react-native-google-static-map';
-import { showLocation } from 'react-native-map-link';
 import Colors from '../../../Themes/Colors';
 import spotMapFragment from '../../../GraphQL/Spots/Fragments/spotMap';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import RoundButton from '../../Common/RoundButton';
+import {
+  getSpotLocation,
+  openGoogleMapsLocation,
+  openGoogleMapsDirections,
+} from './utils';
 
 // -----------------------------------------------------------------------------
 // CONSTANTS:
@@ -34,64 +38,6 @@ const Absolute = styled.View`
   bottom: 0;
   right: 0;
 `;
-// -----------------------------------------------------------------------------
-// AUX FUNCTIONS:
-// -----------------------------------------------------------------------------
-const getSpotLocation = spot => ({
-  latitude: spot && spot.address && spot.address.lat,
-  longitude: spot && spot.address && spot.address.lng,
-});
-// ------------------------------------------------------------------------------
-const getCurrentPosition = (options = {}) =>
-  new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject, options);
-  });
-// -----------------------------------------------------------------------------
-const handleLocationBtnPress = ({ latLng, title = '' }) => {
-  showLocation({
-    ...latLng,
-    title,
-    // force GoogleMaps to use the latLng from the query instead of the title
-    googleForceLatLon: true,
-  });
-};
-// -----------------------------------------------------------------------------
-const handleDirectionsBtnPress = async ({ latLng, title = '' }) => {
-  if (!('geolocation' in navigator)) {
-    console.log('Geolocation is not available');
-    return;
-  }
-
-  // Get user's position from navigator
-  const options = {
-    enableHighAccuracy: true,
-    timeout: 1000,
-    maximumAge: 100000,
-  };
-
-  let position;
-  try {
-    position = await getCurrentPosition(options);
-  } catch (exc) {
-    console.log(
-      'Oops, we couldn\'t get your position! Make sure you GPS is enabled ;)',
-      exc,
-    );
-  }
-
-  // Show directions FROM the user's current position (if available) TO the
-  // spot's location
-  showLocation({
-    sourceLatitude:
-      (position && position.coords && position.coords.latitude) || undefined,
-    sourceLongitude:
-      (position && position.coords && position.coords.longitude) || undefined,
-    ...latLng,
-    title,
-    // force GoogleMaps to use the latLng from the query instead of the title
-    googleForceLatLon: true,
-  });
-};
 // -----------------------------------------------------------------------------
 // COMPONENT:
 // -----------------------------------------------------------------------------
@@ -128,7 +74,7 @@ const SpotMap = ({ spot }) => {
               status="translucid"
               iconName="directions"
               onPress={() => {
-                handleDirectionsBtnPress({ latLng, title: spot.name });
+                openGoogleMapsDirections({ latLng, title: spot.name });
               }}
             />
             <Spacer orientation="row" size="M" />
@@ -136,7 +82,7 @@ const SpotMap = ({ spot }) => {
               status="translucid"
               iconName="google-maps"
               onPress={() => {
-                handleLocationBtnPress({ latLng, title: spot.name });
+                openGoogleMapsLocation({ latLng, title: spot.name });
               }}
             />
           </Row>
