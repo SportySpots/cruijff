@@ -12,7 +12,7 @@ import Footer from '../../../Components/DarkFooter';
 import SportDateTimeForm from '../../../Components/PlanGame/SportDateTimeForm/';
 import SpotForm from '../../../Components/PlanGame/SpotForm';
 import DescriptionForm from '../../../Components/PlanGame/DescriptionForm';
-import { setDate, setStartTime, setEndTime } from './utils';
+import { formatDate, formatStartTime, formatEndTime } from './utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -144,10 +144,14 @@ class PlanGameScreen extends React.Component {
         user.claims.username
       ) || '';
 
-      // Format date, time and duration into startTime and endTime
-      let startTime = setDate(date);
-      startTime = setStartTime(startTime, time);
-      const endTime = duration ? setEndTime(startTime, time, duration) : null;
+      // Get startTime and endTime from date, time and duration
+      const startDate = formatDate(date); // begining of the selected date (moment object)
+      const startTime = formatStartTime(startDate, time); // moment object
+      const endTime = duration ? formatEndTime(startTime, duration) : null; // moment object
+
+      console.log('START_DATE', startDate.toISOString()); // '2018-10-06T00:00:00.000Z'
+      console.log('START_TIME', startTime.toISOString()); // '2018-10-06T13:15:00.000Z'
+      console.log('END_TIME', endTime ? endTime.toISOString() : null); // '2018-10-06T14:15:00.000Z'
 
       let gameUUID;
 
@@ -163,8 +167,8 @@ class PlanGameScreen extends React.Component {
         // Set date and duration
         await api.setGameTimes({
           gameUUID,
-          start_time: startTime,
-          end_time: endTime,
+          startTime: startTime.toISOString(),
+          endTime: endTime ? endTime.toISOString() : null,
         });
 
         // Set capacity
@@ -178,7 +182,7 @@ class PlanGameScreen extends React.Component {
 
         // Set game status to 'planned'
         const res = await api.setGameStatus({ gameUUID, status: 'PLANNED' });
-        console.log('last game', res.data);
+        console.log('CREATED GAME', res.data);
 
         // Lastly, redirect user to share screen
         navigation.navigate('shareGameScreen', { uuid: gameUUID });

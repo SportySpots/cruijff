@@ -67,8 +67,6 @@ class GamesListScreen extends React.Component {
             return null;
           }
 
-          console.log('DATA', data);
-          console.log('CURATED_GAMES', data && data.games && curatedGames(data.games));
           /* const loadMore = () => {
             fetchMore({
               variables: {
