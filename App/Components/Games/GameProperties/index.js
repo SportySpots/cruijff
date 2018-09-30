@@ -43,40 +43,50 @@ const Label = styled(Text.SM)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameProperties = ({ game, onSpotPress }) => (
-  <Container>
-    <TitleContainer>
-      <Title>{game.name}</Title>
-    </TitleContainer>
-    <Row>
-      <Icon name="event" size={22} color={Colors.shade} />
-      <Label>
-        {moment(game.start_time).format('DD-MM-YYYY')}
-      </Label>
-    </Row>
-    <Row>
-      <Icon name="watch-later" size={22} color={Colors.shade} />
-      <Label>
-        {moment(game.start_time).format('HH:mm')} - {moment(game.end_time).format('HH:mm')}
-      </Label>
-    </Row>
-    <Row>
-      <Icon name="label" size={22} color={Colors.shade} />
-      <Label>
-        {I18n.t(game.sport.category)}
-      </Label>
-    </Row>
-    <Row>
+const GameProperties = ({ game, onSpotPress }) => {
+  const {
+    name,
+    start_time: startTime,
+    end_time: endTime,
+    sport,
+    spot,
+  } = game;
+
+  return (
+    <Container>
+      <TitleContainer>
+        <Title>{name}</Title>
+      </TitleContainer>
+      <Row>
+        <Icon name="event" size={22} color={Colors.shade} />
+        <Label>
+          {moment.utc(startTime).format('DD-MM-YYYY')}
+        </Label>
+      </Row>
+      <Row>
+        <Icon name="watch-later" size={22} color={Colors.shade} />
+        <Label>
+          {moment.utc(startTime).format('HH:mm')}
+          {endTime && `- ${moment.utc(endTime).format('HH:mm')}`}
+        </Label>
+      </Row>
+      <Row>
+        <Icon name="label" size={22} color={Colors.shade} />
+        <Label>
+          {I18n.t(sport.category)}
+        </Label>
+      </Row>
       <TouchableOpacity
-        style={{ flexDirection: 'row' }}
-        onPress={() => { onSpotPress({ spotUuid: game.spot.uuid }); }}
+        onPress={() => { onSpotPress({ spotUuid: spot.uuid }); }}
       >
-        <Icon name="place" size={22} color={Colors.shade} />
-        <Label>{game.spot.name}</Label>
+        <Row>
+          <Icon name="place" size={22} color={Colors.shade} />
+          <Label>{spot.name}</Label>
+        </Row>
       </TouchableOpacity>
-    </Row>
-  </Container>
-);
+    </Container>
+  );
+}
 
 GameProperties.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
