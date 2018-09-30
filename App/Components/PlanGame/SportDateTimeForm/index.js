@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
-import { View } from 'react-native';
 import I18n from '../../../I18n';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import SportPickerField from '../../Common/SportPickerField';
