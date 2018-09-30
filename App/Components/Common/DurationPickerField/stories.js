@@ -7,9 +7,9 @@ import Block from '../Block';
 import DurationPickerField from './index';
 
 class Container extends React.PureComponent {
-  state = { value: null }
+  state = { value: '' }
 
-  handleChange = (value) => {
+  handleChange = ({ value }) => {
     this.setState(
       { value },
       () => { console.log(this.state); },

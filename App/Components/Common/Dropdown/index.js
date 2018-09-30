@@ -82,12 +82,12 @@ const Dropdown = ({
 Dropdown.propTypes = {
   theme: PropTypes.oneOf(['white', 'black']),
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
-  data: PropTypes.arrayOf([
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
-      value: PropTypes.array,
+      value: PropTypes.any,
     }).isRequired,
-  ]).isRequired,
+  ).isRequired,
   onChangeText: PropTypes.func,
   // Plus all props from react-native-material-textfield
 };
