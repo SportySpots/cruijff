@@ -84,12 +84,6 @@ class PlanGameScreen extends React.Component {
       return;
     }
 
-    console.log(
-      '\n\nhandleChange',
-      'fieldName', fieldName,
-      'value', value,
-    );
-
     this.setState(
       { [fieldName]: value },
       () => { console.log(this.state); },
@@ -135,20 +129,25 @@ class PlanGameScreen extends React.Component {
       description,
     } = this.state;
 
-    // If it's NOT the last slide
+    // If it's NOT the last slide, increment slide counter
     if (curSlide !== SLIDES.length - 1) {
       this.setState(
         prevState => ({ curSlide: prevState.curSlide + 1 }),
         () => { this.swiper.scrollBy(1); },
       );
 
-    // Otherwise, create game
+    // Otherwise, create fomat data and call create game API
     } else {
       const username = (
         user &&
         user.claims &&
         user.claims.username
       ) || '';
+
+      // Format date, time and duration into startTime and endTime
+      let startTime = setDate(date);
+      startTime = setStartTime(startTime, time);
+      const endTime = duration ? setEndTime(startTime, time, duration) : null;
 
       let gameUUID;
 
@@ -164,8 +163,8 @@ class PlanGameScreen extends React.Component {
         // Set date and duration
         await api.setGameTimes({
           gameUUID,
-          startTime: date,
-          endTime: date + duration,
+          start_time: startTime,
+          end_time: endTime,
         });
 
         // Set capacity
@@ -178,7 +177,7 @@ class PlanGameScreen extends React.Component {
         await api.setGameDescription({ gameUUID, description });
 
         // Set game status to 'planned'
-        const res = await api.setGameStatus({ gameUUID, status: 'planned' });
+        const res = await api.setGameStatus({ gameUUID, status: 'PLANNED' });
         console.log('last game', res.data);
 
         // Lastly, redirect user to share screen
@@ -199,11 +198,8 @@ class PlanGameScreen extends React.Component {
 
     // Return 'true' if at least on of the required fields isn't set
     const { requiredFields } = SLIDES[curSlide];
-    console.log('REQUIRED_FIELDS', requiredFields);
     for (let i = 0; i < requiredFields.length; i += 1) {
       const fieldName = requiredFields[i];
-      console.log('FIELD_NAME', fieldName);
-      console.log('!this.state[fieldName]', !this.state[fieldName]);
       if (!this.state[fieldName]) {
         return true;
       }
