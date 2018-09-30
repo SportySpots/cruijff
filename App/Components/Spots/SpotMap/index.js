@@ -128,7 +128,7 @@ const SpotMap = ({ spot }) => {
               status="translucid"
               iconName="directions"
               onPress={() => {
-                handleLocationBtnPress({ latLng, title: spot.name });
+                handleDirectionsBtnPress({ latLng, title: spot.name });
               }}
             />
             <Spacer orientation="row" size="M" />
@@ -136,7 +136,7 @@ const SpotMap = ({ spot }) => {
               status="translucid"
               iconName="google-maps"
               onPress={() => {
-                handleDirectionsBtnPress({ latLng, title: spot.name });
+                handleLocationBtnPress({ latLng, title: spot.name });
               }}
             />
           </Row>
