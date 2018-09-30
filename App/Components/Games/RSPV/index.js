@@ -115,10 +115,8 @@ class RSPV extends React.PureComponent {
 
 RSPV.propTypes = {
   gameUUID: PropTypes.string.isRequired,
-  userRSVP: PropTypes.oneOfType([
-    PropTypes.object,
-    null,
-  ]).isRequired,
+  // TODO: use userFragment
+  userRSVP: PropTypes.object, // eslint-disable-line
   userStatus: PropTypes.oneOf([
     'UNKNOWN',
     'ACCEPTED',
@@ -133,6 +131,7 @@ RSPV.propTypes = {
 };
 
 RSPV.defaultProps = {
+  userRSVP: null,
   onBeforeHook: () => {},
   onSuccessHook: () => {},
 };

@@ -84,7 +84,7 @@ class SpotListCardSmall extends React.PureComponent {
               </Flex>
             </Block>
           </FlexGrow>
-          <SpotImage spot={spot} style={imgStyle} />
+          <SpotImage images={spot.images} style={imgStyle} />
         </Row>
       </Container>
     );

@@ -1,8 +1,7 @@
 import React from 'react';
-import { propType } from 'graphql-anywhere';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
-import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import SpotImage from '../SpotImage';
 
 //------------------------------------------------------------------------------
@@ -39,15 +38,23 @@ const imgStyle = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const BackgroundImage = ({ spot }) => (
+const BackgroundImage = ({ images }) => (
   <Container>
-    <SpotImage spot={spot} style={imgStyle} />
+    <SpotImage images={images} style={imgStyle} />
     <Overlay />
   </Container>
 );
 
 BackgroundImage.propTypes = {
-  spot: propType(spotFragment).isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string,
+    }),
+  ),
+};
+
+BackgroundImage.defaultProps = {
+  images: [],
 };
 
 export default BackgroundImage;

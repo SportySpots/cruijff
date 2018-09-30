@@ -14,7 +14,7 @@ storiesOf('Spots.SpotImage', module)
       {({ loading, error, data }) =>
       (loading || error ? null : (
         <View style={{ height: 100 }}>
-          <SpotImage spot={data.spot} />
+          <SpotImage spot={data.spot.images} />
         </View>
         ))
       }
