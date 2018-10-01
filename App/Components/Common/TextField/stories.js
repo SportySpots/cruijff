@@ -9,7 +9,7 @@ storiesOf('Common.TextField', module)
     <Block>
       <TextField
         label="I'm the label"
-        value="I'm the value"
+        value=""
       />
     </Block>
   ))

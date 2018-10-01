@@ -5,13 +5,11 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../App/Components/Spots/SpotListCardSmall/stories');
-  require('../App/Components/PlanGame/SpotForm/stories');
+  require('../App/Screens/Plan/PlanGameScreen/stories');
 }
 
 const stories = [
-  '../App/Components/Spots/SpotListCardSmall/stories',
-  '../App/Components/PlanGame/SpotForm/stories',
+  '../App/Screens/Plan/PlanGameScreen/stories',
 ];
 
 module.exports = {

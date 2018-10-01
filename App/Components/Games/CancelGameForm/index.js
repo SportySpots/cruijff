@@ -139,7 +139,6 @@ class CancelGameForm extends React.PureComponent {
     const { cancelMsg, errors } = this.state;
 
     const attendees = getAttendees(game.attendees);
-    console.log('ATTENDEES', attendees);
     const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg');
 
     return [

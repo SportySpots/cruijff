@@ -13,17 +13,22 @@ const TextField = ({ theme, size, ...rest }) => {
   return (
     <TextFieldMUI
       labelFontSize={Fonts.style.M.fontSize}
-      labelHeight={Fonts.style.M.fontSize * 1.5}
+      labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
+      labelHeight={1.5 * Fonts.style.M.fontSize}
       errorColor={Colors.red}
       animationDuration={150}
       lineWidth={1}
       baseColor={isWhiteTheme ? Colors.white : Colors.black}
       tintColor={isWhiteTheme ? Colors.white : Colors.primaryGreen}
       activeLineWidth={2}
+      inputContainerPadding={14}
       style={{
         fontSize: Fonts.style[size].fontSize,
-        lineHeight: Fonts.style[size].fontSize * 1.5,
+        fontWeight: 'normal',
         fontFamily: Fonts.style[size].fontFamily,
+        lineHeight: 1.3 * Fonts.style[size].fontSize,
+        marginTop: 8, // the lower the padding the greater the line height
+        color: isWhiteTheme ? Colors.white : Colors.black,
       }}
       {...rest}
     />
