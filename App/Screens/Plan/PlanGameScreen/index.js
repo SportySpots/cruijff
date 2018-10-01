@@ -17,6 +17,8 @@ import { formatDate, formatStartTime, formatEndTime } from './utils';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
+const DESCRIPTION_MAX_CHARS = 300;
+
 const SLIDES = [
   {
     id: 'sportDateTimeForm',
@@ -51,6 +53,7 @@ const SLIDES = [
     theme: 'white',
     fields: ['description'],
     requiredFields: [],
+    restrictions: [{ fieldName: 'description', upperBound: DESCRIPTION_MAX_CHARS }],
     initState: {
       description: '',
     },
@@ -87,7 +90,7 @@ class PlanGameScreen extends React.Component {
 
     this.setState(
       { [fieldName]: value },
-      () => { console.log('HANDLE_CHANGE new state', this.state); },
+      // () => { console.log('HANDLE_CHANGE new state', this.state); },
     );
   }
 
@@ -200,17 +203,24 @@ class PlanGameScreen extends React.Component {
   get disableNext() {
     const { curSlide } = this.state;
 
-    // Last slide (share) is always anabled
-    if (curSlide === SLIDES.length - 1) {
-      return false;
-    }
+    // Get required fields and restrictions for the current slide
+    const { requiredFields, restrictions } = SLIDES[curSlide];
 
     // Return 'true' if at least on of the required fields isn't set
-    const { requiredFields } = SLIDES[curSlide];
     for (let i = 0; i < requiredFields.length; i += 1) {
       const fieldName = requiredFields[i];
       if (!this.state[fieldName]) {
         return true;
+      }
+    }
+
+    // Return 'true' if upper bound is exceeded
+    if (restrictions) {
+      for (let i = 0; i < restrictions.length; i += 1) {
+        const { fieldName, upperBound } = restrictions[i];
+        if (this.state[fieldName].length > upperBound) {
+          return true;
+        }
       }
     }
 
@@ -263,6 +273,7 @@ class PlanGameScreen extends React.Component {
               >
                 <Comp
                   onChange={this.handleChange}
+                  descriptionMaxChars={DESCRIPTION_MAX_CHARS}
                   // Pass down all state values: sport, date, time, etc.
                   {...rest}
                 />

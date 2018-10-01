@@ -5,10 +5,10 @@ import DescriptionField from '../DescriptionField';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DescriptionForm = ({ description, onChange }) => (
+const DescriptionForm = ({ description, descriptionMaxChars, onChange }) => (
   <DescriptionField
     value={description}
-    characterRestriction={120}
+    characterRestriction={descriptionMaxChars}
     onChangeText={(value) => { onChange({ fieldName: 'description', value }); }}
     theme="white"
   />
@@ -16,6 +16,7 @@ const DescriptionForm = ({ description, onChange }) => (
 
 DescriptionForm.propTypes = {
   description: PropTypes.string.isRequired,
+  descriptionMaxChars: PropTypes.number.isRequired,
   onChange: PropTypes.func,
 };
 
