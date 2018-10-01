@@ -16,6 +16,7 @@ import BackgroundImage from '../../Spots/BackgroundImage';
 import Organizer from '../Organizer';
 import Attendees from '../Attendees';
 import GameCanceledFlag from '../GameCanceledFlag';
+import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -87,6 +88,7 @@ const GameListCard = ({ game }) => {
   } = game;
 
   const isCanceled = status === 'CANCELED';
+  const attendees = getAttendees(game.attendees);
   const formattedStartTime = moment(startTime).format('D-MM HH:mm');
 
   return (
@@ -101,7 +103,7 @@ const GameListCard = ({ game }) => {
       <Bottom>
         <BackgroundImage images={spot.images} />
         {isCanceled && [
-          <Spacer key="top-spacer" size="L" />,
+          <Spacer key="spacer" size="L" />,
           <GameCanceledFlag key="cancel-flag" />,
         ]}
         <Container>
@@ -132,8 +134,10 @@ const GameListCard = ({ game }) => {
               {spot.name}
             </SmallText>
           </Row>
-          <Spacer size="L" />
-          <Attendees game={game} />
+          {attendees.length > 0 && [
+            <Spacer key="spacer" size="L" />,
+            <Attendees key="attendees" attendees={attendees} />,
+          ]}
         </Container>
       </Bottom>
     </Outer>

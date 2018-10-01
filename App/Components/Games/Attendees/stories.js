@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import Attendees from '.';
+import { getAttendees } from '../utils';
 
 const Container = ({ maxLength }) => (
   <Query
@@ -13,7 +14,7 @@ const Container = ({ maxLength }) => (
     {({ loading, error, data }) =>
       (loading || error ? null : (
         <Attendees
-          game={data.game}
+          attendees={getAttendees(data.game.attendees) || []}
           maxLength={maxLength}
         />
       ))
@@ -26,7 +27,7 @@ Container.propTypes = {
 };
 
 Container.defaultProps = {
-  maxLength: null,
+  maxLength: 7,
 };
 
 storiesOf('Games.Attendees', module)

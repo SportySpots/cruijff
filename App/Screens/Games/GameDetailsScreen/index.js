@@ -97,7 +97,8 @@ GameDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: PropTypes.object,
+  // TODO: use userFragment
+  user: PropTypes.object, // eslint-disable-line
 };
 
 GameDetailsScreen.defaultProps = {

@@ -138,7 +138,8 @@ class CancelGameForm extends React.PureComponent {
     const { game, disabled, onAttendeesPress } = this.props;
     const { cancelMsg, errors } = this.state;
 
-    const withAttendees = getAttendees(game).length > 0;
+    const attendees = getAttendees(game.attendees);
+    console.log('ATTENDEES', attendees);
     const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg');
 
     return [
@@ -146,12 +147,12 @@ class CancelGameForm extends React.PureComponent {
         <Block>
           <GameProperties game={game} />
         </Block>
-        {withAttendees && [
+        {attendees.length > 0 && [
           <Divider key="divider-game-attendees" />,
           <Block key="game-attendees">
             <Label>{I18n.t('Attending')}</Label>
             <ClickableAttendees
-              game={game}
+              attendees={attendees}
               onAttendeesPress={onAttendeesPress}
             />
           </Block>,

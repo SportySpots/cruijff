@@ -46,12 +46,21 @@ class CancelGame extends React.PureComponent {
 
 CancelGame.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
-  disabled: PropTypes.bool.isRequired,
-  onBeforeHook: PropTypes.func.isRequired,
-  onClientErrorHook: PropTypes.func.isRequired,
-  onServerErrorHook: PropTypes.func.isRequired,
-  onSuccessHook: PropTypes.func.isRequired,
-  onAttendeesPress: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  onBeforeHook: PropTypes.func,
+  onClientErrorHook: PropTypes.func,
+  onServerErrorHook: PropTypes.func,
+  onSuccessHook: PropTypes.func,
+  onAttendeesPress: PropTypes.func,
+};
+
+CancelGame.defaultProps = {
+  disabled: false,
+  onBeforeHook: () => {},
+  onClientErrorHook: () => {},
+  onServerErrorHook: () => {},
+  onSuccessHook: () => {},
+  onAttendeesPress: () => {},
 };
 
 export default CancelGame;

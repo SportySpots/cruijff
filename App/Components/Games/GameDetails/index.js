@@ -50,7 +50,7 @@ class GameDetails extends React.PureComponent {
 
     const isCanceled = game.status === 'CANCELED';
     const hasCapacity = game.capacity && game.capacity > 0;
-    const withAttendees = getAttendees(game).length > 0;
+    const attendees = getAttendees(game.attendees);
 
     return [
       <SpotImages key="spot-images" spot={game.spot} />,
@@ -73,11 +73,11 @@ class GameDetails extends React.PureComponent {
           description={game.description}
         />
       </Block>,
-      withAttendees && [
+      attendees.length > 0 && [
         <Block key="game-attendees">
           <Label>{I18n.t('Attending')}</Label>
           <ClickableAttendees
-            game={game}
+            attendees={attendees}
             onAttendeesPress={onAttendeesPress}
           />
         </Block>,

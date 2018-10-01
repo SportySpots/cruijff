@@ -19,7 +19,7 @@ const Container = ({ maxLength }) => (
       {({ loading, error, data }) =>
         (loading || error ? null : (
           <ClickableAttendees
-            game={data.game}
+            attendees={data.game.attendees}
             maxLength={maxLength}
           />
         ))
@@ -33,7 +33,7 @@ Container.propTypes = {
 };
 
 Container.defaultProps = {
-  maxLength: null,
+  maxLength: 7,
 };
 
 storiesOf('Games.ClickableAttendees', module)
