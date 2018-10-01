@@ -71,6 +71,7 @@ class PlanGameScreen extends React.Component {
 
     this.state = {
       curSlide: 0,
+      disabled: false, // disable for buttons after create game submission
     };
 
     // Attach slide initial state to state
@@ -138,6 +139,9 @@ class PlanGameScreen extends React.Component {
 
     // Otherwise, create fomat data and call create game API
     } else {
+      // Disable buttons
+      this.setState({ disabled: true });
+
       const username = (
         user &&
         user.claims &&
@@ -187,6 +191,9 @@ class PlanGameScreen extends React.Component {
       } catch (exc) {
         console.log(exc);
       }
+
+      // Re-enable buttons
+      this.setState({ disabled: false });
     }
   }
 
@@ -232,7 +239,7 @@ class PlanGameScreen extends React.Component {
   }
 
   render() {
-    const { curSlide, ...rest } = this.state;
+    const { curSlide, disabled, ...rest } = this.state;
 
     return (
       <FullHeight>
@@ -269,7 +276,8 @@ class PlanGameScreen extends React.Component {
           currentPage={curSlide}
           onBack={this.handleBack}
           onNext={this.handleNext}
-          disableNext={this.disableNext}
+          disableNext={this.disableNext || disabled}
+          disableBack={disabled}
           showBack={this.showBack}
           buttonNextText={I18n.t(this.buttonNextText)}
         />
