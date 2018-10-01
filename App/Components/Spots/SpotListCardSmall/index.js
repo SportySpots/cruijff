@@ -30,6 +30,7 @@ const Container = styled.View`
   shadow-opacity: 0.8;
   elevation: 2;
   border: ${({ active }) => (!active ? 1 : 1.5)}px solid ${({ active }) => (!active ? Colors.shade : Colors.primaryGreen)};
+  overflow: hidden;
 `;
 //------------------------------------------------------------------------------
 const FlexGrow = styled.View`
@@ -45,8 +46,6 @@ const imgStyle = {
   height: SIZE,
   width: SIZE,
   backgroundColor: Colors.darkGreen,
-  borderTopRightRadius: BORDER_RADIUS,
-  borderBottomRightRadius: BORDER_RADIUS,
 };
 //------------------------------------------------------------------------------
 // COMPONENT:
