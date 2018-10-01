@@ -52,7 +52,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         <Spacer orientation="row" size="L" />
         <Label>
           {moment.utc(startTime).format('HH:mm')}
-          {endTime && `- ${moment.utc(endTime).format('HH:mm')}`}
+          {endTime && ` - ${moment.utc(endTime).format('HH:mm')}`}
         </Label>
       </Row>
       <Spacer size="M" />
