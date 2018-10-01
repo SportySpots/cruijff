@@ -28,7 +28,7 @@ storiesOf('Spots.BackgroundImage', module)
       (loading || error ? null : (
         <Block bgColor={colors.lightGray}>
           <Container>
-            <BackgroundImage spot={data.spot} />
+            <BackgroundImage images={data.spot.images} />
           </Container>
         </Block>
       ))}
