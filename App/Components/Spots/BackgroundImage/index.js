@@ -31,6 +31,7 @@ const Overlay = styled.View`
 `;
 //------------------------------------------------------------------------------
 const imgStyle = {
+  flex: 1,
   borderBottomLeftRadius: 8,
   borderBottomRightRadius: 8,
 };

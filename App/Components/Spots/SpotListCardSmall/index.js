@@ -42,8 +42,8 @@ const Flex = styled.View`
 `;
 //------------------------------------------------------------------------------
 const imgStyle = {
-  height: 80,
-  width: 80,
+  height: SIZE,
+  width: SIZE,
   backgroundColor: Colors.darkGreen,
   borderTopRightRadius: BORDER_RADIUS,
   borderBottomRightRadius: BORDER_RADIUS,

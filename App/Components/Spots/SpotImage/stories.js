@@ -9,11 +9,9 @@ const Container = styled.View`
   height: 100px;
 `;
 
-/* const imgStyle = {
-  backgroundColor: 'green',
-  borderBottomLeftRadius: 8,
-  borderBottomRightRadius: 8,
-}; */
+const imgStyle = {
+  flex: 1,
+};
 
 storiesOf('Spots.SpotImage', module)
   .add('SpotImage', () => (
@@ -26,7 +24,7 @@ storiesOf('Spots.SpotImage', module)
         <Container>
           <SpotImage
             images={data.spot.images}
-            // style={imgStyle}
+            style={imgStyle}
           />
         </Container>
         ))

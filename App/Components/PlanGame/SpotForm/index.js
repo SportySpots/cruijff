@@ -15,21 +15,32 @@ import SpotsList from '../../Spots/SpotsList';
 //------------------------------------------------------------------------------
 // TODO: implement pagination
 const SpotForm = ({ sport, spot, onChange }) => {
-  console.log({ sport, spot });
+  console.log('SPOT_FORM---------', { sport, spot });
+
+  const sportName = (
+    sport && (
+      (sport.category && sport.category.toUpperCase()) ||
+      (sport.name && sport.name.toUpperCase())
+    )
+  ) || 'SOCCER';
+
+  console.log('SPOT_FORM SPORT NAME', sportName);
 
   return (
     <Query
       query={GET_SPOTS_FOR_SPORT}
       variables={{
-        limit: 30,
+        limit: 50,
         offset: 0,
-        sport: (sport && (sport.category || sport.name)) || 'SOCCER',
+        sport: sportName,
       }}
     >
       {({ loading, error, data }) => {
         if (loading) { return <CenteredActivityIndicator />; }
         if (error || !data) { return null; }
-  
+
+        console.log('SPOT_FORM DATA---------', data);
+
         return [
           <Spacer key="spacer" size="XL" />,
           <SpotsList

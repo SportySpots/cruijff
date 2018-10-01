@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import spotFragment from '../Fragments/spot';
 
 const GET_SPOTS_FOR_SPORT = gql`
-  query (
+  query spots(
     $sport: String,
     $limit: Int,
     $offset: Int,

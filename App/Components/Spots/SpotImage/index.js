@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { Image } from 'react-native';
 import getImageUrl from './utils';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const StyledImage = styled.Image`
-  flex: 1; /* full height */
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -18,7 +12,7 @@ const SpotImage = ({ images, style }) => {
     : 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/game-placeholder.png';
 
   return (
-    <StyledImage
+    <Image
       source={{ uri: image }}
       style={style}
     />
