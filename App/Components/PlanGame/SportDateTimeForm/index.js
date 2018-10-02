@@ -18,9 +18,6 @@ import { Label } from '../style';
 //------------------------------------------------------------------------------
 const DurationFieldContainer = styled.View`
   width: 170px;
-  margin-top: -32px;
-  border-color: transparent;
-  border-width: 1px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -78,7 +75,7 @@ const SportAndTimeForm = ({
       />
     </DurationFieldContainer>
   </Row>,
-  <Spacer key="capacity-spacer" size="XL" />,
+  <Spacer key="capacity-spacer" size="XXL" />,
   <Row key="capacity">
     <Label>{I18n.t('with')}</Label>
     <Spacer orientation="row" size="S" />

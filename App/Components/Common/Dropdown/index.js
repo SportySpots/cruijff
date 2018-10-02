@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
 import { Dropdown as DropdownMUI } from 'react-native-material-dropdown';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -44,7 +43,8 @@ const Dropdown = ({
           baseColor={isWhiteTheme ? Colors.white : Colors.black}
           lineWidth={1}
           rippleOpacity={0}
-          dropdownPosition={-3.5}
+          dropdownPosition={-4}
+          dropdownOffset={{ top: 0, left: 16 }}
           // Hide default carret
           renderAccessory={() => (null)}
           /* containerStyle={{
@@ -61,19 +61,18 @@ const Dropdown = ({
             borderColor: 'black', */
             margin: 0,
             padding: 0,
+            paddingBottom: 4,
           }}
           {...rest}
         />
       </FullWidth>
       {/* Add custom carret */}
-      <View>
-        <Spacer orientation="column" size="L" />
-        <Icon
-          size={24}
-          name="keyboard-arrow-down"
-          color={isWhiteTheme ? Colors.white : Colors.black}
-        />
-      </View>
+      <Icon
+        size={24}
+        name="keyboard-arrow-down"
+        color={isWhiteTheme ? Colors.white : Colors.black}
+        style={{ height: 40 }}
+      />
       <Spacer orientation="row" size="M" />
     </Row>
   );
