@@ -43,8 +43,9 @@ const Dropdown = ({
           baseColor={isWhiteTheme ? Colors.white : Colors.black}
           lineWidth={1}
           rippleOpacity={0}
-          dropdownPosition={-4}
+          dropdownPosition={-8}
           dropdownOffset={{ top: 0, left: 16 }}
+          itemCount={8}
           // Hide default carret
           renderAccessory={() => (null)}
           /* containerStyle={{
