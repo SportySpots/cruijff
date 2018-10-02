@@ -96,7 +96,10 @@ class SpotsListScreen extends React.Component {
       limit: 20,
       distance: `${parseInt(1000 * maxDistance, 10)}:52.3727729:4.9055008`, // TODO: use current user location
     };
-    if (!allSports) { variables.sports__ids = selectedSportIds; }
+
+    if (!allSports) {
+      variables.sports__ids = selectedSportIds;
+    }
 
     return (
       <QueryCatchErrors

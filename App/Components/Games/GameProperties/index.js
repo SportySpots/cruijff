@@ -65,12 +65,15 @@ const GameProperties = ({ game, onSpotPress }) => {
       </Row>
       <Spacer size="M" />
       <TouchableOpacity
-        onPress={() => { onSpotPress({ spotUuid: spot.uuid }); }}
+        onPress={() => {
+          if (!spot || !spot.uuid) { return; }
+          onSpotPress({ spotUuid: spot.uuid });
+        }}
       >
         <Row>
           <Icon name="place" size={22} color={Colors.shade} />
           <Spacer orientation="row" size="L" />
-          <Label>{spot.name}</Label>
+          <Label>{(spot && spot.name) || '?'}</Label>
         </Row>
       </TouchableOpacity>
     </View>

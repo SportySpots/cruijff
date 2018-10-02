@@ -6,47 +6,60 @@ import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import GET_SPOTS_FOR_SPORT from '../../../GraphQL/Spots/Queries/GET_SPOTS_FOR_SPORT';
 import Spacer from '../../Common/Spacer';
-import CenteredActivityIndicator from '../../Common/CenteredActivityIndicator';
 import SpotListCardSmall from '../../Spots/SpotListCardSmall';
 import SpotsList from '../../Spots/SpotsList';
+import curatedSpots from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: implement pagination
-const SpotForm = ({ sport, spot, onChange }) => {
-  console.log('SPOT_FORM---------', { sport, spot });
-  console.log('SPORT_ID---------', sport && sport.id);
+const SpotForm = ({ sport, spot, onChange }) => (
+  <Query
+    query={GET_SPOTS_FOR_SPORT}
+    variables={{
+      limit: 20,
+      offset: 0,
+      sports__ids: sport && sport.id ? [sport.id] : [],
+    }}
+  >
+    {({
+      loading,
+      data,
+      refetch,
+      fetchMore,
+    }) => {
+      const loadMore = () => {
+        fetchMore({
+          variables: {
+            offset: (data && data.spots && data.spots.length) || 0,
+          },
+          updateQuery: (prev, { fetchMoreResult }) => {
+            if (!fetchMoreResult) return prev;
+            return Object.assign({}, prev, {
+              spots: [...prev.spots, ...fetchMoreResult.spots],
+            });
+          },
+        });
+      };
 
-  return (
-    <Query
-      query={GET_SPOTS_FOR_SPORT}
-      variables={{
-        limit: 50,
-        offset: 0,
-        sports__ids: sport && sport.id ? [sport.id] : [],
-      }}
-    >
-      {({ loading, error, data }) => {
-        if (loading) { return <CenteredActivityIndicator />; }
-        if (error || !data) { return null; }
-
-        // console.log('SPOT_FORM DATA---------', data);
-
-        return [
-          <Spacer key="spacer" size="XL" />,
-          <SpotsList
-            key="spots"
-            spots={data.spots || []}
-            selectedSpot={spot}
-            cardComponent={SpotListCardSmall}
-            onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
-          />,
-        ];
-      }}
-    </Query>
-  );
-};
+      return [
+        <Spacer key="spacer" size="XL" />,
+        <SpotsList
+          key="spots"
+          spots={(sport && sport.id && data && data.spots && curatedSpots(data.spots)) || []}
+          selectedSpot={spot}
+          cardComponent={SpotListCardSmall}
+          onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
+          // FlatList props
+          onRefresh={refetch}
+          refreshing={loading}
+          onEndReached={loadMore}
+          onEndReachedThreshold={0.1}
+        />,
+      ];
+    }}
+  </Query>
+);
 
 SpotForm.propTypes = {
   sport: propType(sportFragment),
