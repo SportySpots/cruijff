@@ -15,16 +15,8 @@ import SpotsList from '../../Spots/SpotsList';
 //------------------------------------------------------------------------------
 // TODO: implement pagination
 const SpotForm = ({ sport, spot, onChange }) => {
-  // console.log('SPOT_FORM---------', { sport, spot });
-
-  const sportName = (
-    sport && (
-      (sport.category && sport.category.toUpperCase()) ||
-      (sport.name && sport.name.toUpperCase())
-    )
-  ) || 'SOCCER';
-
-  // console.log('SPOT_FORM SPORT NAME', sportName);
+  console.log('SPOT_FORM---------', { sport, spot });
+  console.log('SPORT_ID---------', sport && sport.id);
 
   return (
     <Query
@@ -32,7 +24,7 @@ const SpotForm = ({ sport, spot, onChange }) => {
       variables={{
         limit: 50,
         offset: 0,
-        sport: sportName,
+        sports__ids: sport && sport.id ? [sport.id] : [],
       }}
     >
       {({ loading, error, data }) => {

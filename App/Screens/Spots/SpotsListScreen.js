@@ -104,7 +104,7 @@ class SpotsListScreen extends React.Component {
         variables={variables}
         fetchPolicy="cache-and-network"
       >
-        { ({
+        {({
           loading,
           data,
           refetch,
