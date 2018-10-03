@@ -12,7 +12,6 @@ import ImageSwiper from './Common/ImageSwiper';
 import DefaultButton from './Common/DefaultButton';
 import SecondaryButton from './Common/SecondaryButton';
 import FlatButton from './Common/FlatButton';
-import Checkbox from './Common/Checkbox';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
 import NavDots from './Common/NavDots';
@@ -48,12 +47,7 @@ storiesOf('Logo', module)
 storiesOf('Basic components', module)
   .add('DefaultButton', () => <DefaultButton text="Press me please" />)
   .add('SecondaryButton', () => <SecondaryButton text="Press me please" />)
-  .add('FlatButton', () => <FlatButton text="SUBMIT" />)
-  .add('Checkbox', () => (
-    <View style={{ flex: 1, backgroundColor: 'green' }}>
-      <Checkbox />
-    </View>
-  ));
+  .add('FlatButton', () => <FlatButton text="SUBMIT" />);
 
 storiesOf('Text', module)
   .add('All sizes', () => (
