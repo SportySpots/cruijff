@@ -1,23 +1,22 @@
 import React from 'react';
-import { propType } from 'graphql-anywhere';
+import PropTypes from 'prop-types';
 import RoundButton from '../../Common/RoundButton';
-import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import handleShare from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ShareGame = ({ game }) => (
+const ShareGame = ({ gameUUID }) => (
   <RoundButton
     size="L"
-    status="secondary"
-    iconName="share-variant"
-    onPress={() => { handleShare(game); }}
+    status="default"
+    iconName="link-variant"
+    onPress={() => { handleShare(gameUUID); }}
   />
 );
 
 ShareGame.propTypes = {
-  game: propType(gameDetailsFragment).isRequired,
+  gameUUID: PropTypes.string.isRequired,
 };
 
 export default ShareGame;

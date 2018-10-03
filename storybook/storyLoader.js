@@ -26,9 +26,9 @@ function loadStories() {
   require('../App/Components/Common/Modals/SportPickerModal/stories');
   require('../App/Components/Common/NavDot/stories');
   require('../App/Components/Common/NavDots/stories');
-  require('../App/Components/Common/RaisedButton/stories');
+  require('../App/Components/Common/RaisedButton/stories'); */
   require('../App/Components/Common/RoundButton/stories');
-  require('../App/Components/Common/Row/stories');
+  /* require('../App/Components/Common/Row/stories');
   require('../App/Components/Common/SliderWithText/stories');
   require('../App/Components/Common/Spacer/stories');
   require('../App/Components/Common/SportCard/stories');
@@ -46,16 +46,16 @@ function loadStories() {
   require('../App/Components/Games/CancelGameForm/stories');
   require('../App/Components/Games/CancelMsg/stories');
   require('../App/Components/Games/ClickableAttendees/stories');
-  require('../App/Components/Games/GameCanceledFlag/stories');
+  require('../App/Components/Games/GameCanceledFlag/stories'); */
   require('../App/Components/Games/GameDetails/stories');
-  require('../App/Components/Games/GameListCard/stories');
+  /* require('../App/Components/Games/GameListCard/stories');
   require('../App/Components/Games/GameProperties/stories');
   require('../App/Components/Games/GamesList/stories');
   require('../App/Components/Games/OpenSpots/stories');
   require('../App/Components/Games/Organizer/stories');
-  require('../App/Components/Games/OrganizerAndDescription/stories');
+  require('../App/Components/Games/OrganizerAndDescription/stories'); */
   require('../App/Components/Games/ShareGameButton/stories');
-  require('../App/Components/PlanGame/DescriptionField/stories');
+  /* require('../App/Components/PlanGame/DescriptionField/stories');
   require('../App/Components/PlanGame/DescriptionForm/stories');
   require('../App/Components/PlanGame/FormLayout/stories');
   require('../App/Components/PlanGame/ShareForm/stories');
@@ -105,9 +105,9 @@ const stories = [
   '../App/Components/Common/Modals/SportPickerModal/stories',
   '../App/Components/Common/NavDot/stories',
   '../App/Components/Common/NavDots/stories',
-  '../App/Components/Common/RaisedButton/stories',
+  '../App/Components/Common/RaisedButton/stories', */
   '../App/Components/Common/RoundButton/stories',
-  '../App/Components/Common/Row/stories',
+  /* '../App/Components/Common/Row/stories',
   '../App/Components/Common/SliderWithText/stories',
   '../App/Components/Common/Spacer/stories',
   '../App/Components/Common/SportCard/stories',
@@ -125,16 +125,16 @@ const stories = [
   '../App/Components/Games/CancelGameForm/stories',
   '../App/Components/Games/CancelMsg/stories',
   '../App/Components/Games/ClickableAttendees/stories',
-  '../App/Components/Games/GameCanceledFlag/stories',
+  '../App/Components/Games/GameCanceledFlag/stories', */
   '../App/Components/Games/GameDetails/stories',
-  '../App/Components/Games/GameListCard/stories',
+  /* '../App/Components/Games/GameListCard/stories',
   '../App/Components/Games/GameProperties/stories',
   '../App/Components/Games/GamesList/stories',
   '../App/Components/Games/OpenSpots/stories',
   '../App/Components/Games/Organizer/stories',
-  '../App/Components/Games/OrganizerAndDescription/stories',
+  '../App/Components/Games/OrganizerAndDescription/stories', */
   '../App/Components/Games/ShareGameButton/stories',
-  '../App/Components/PlanGame/DescriptionField/stories',
+  /* '../App/Components/PlanGame/DescriptionField/stories',
   '../App/Components/PlanGame/DescriptionForm/stories',
   '../App/Components/PlanGame/FormLayout/stories',
   '../App/Components/PlanGame/ShareForm/stories',

@@ -104,7 +104,7 @@ class GameDetails extends React.PureComponent {
       ),
       <Block key="share">
         <Label>{I18n.t('Share with friends')}</Label>
-        <ShareGameButton game={game} />
+        <ShareGameButton gameUUID={game.uuid} />
       </Block>,
     ];
   }
