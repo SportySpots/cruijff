@@ -8,6 +8,7 @@ import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
 import ShareGameButton from '../../Games/ShareGameButton';
+import InviteOnly from '../InviteOnly';
 
 // import ShareLink from '../ShareLink';
 
@@ -20,7 +21,7 @@ const Subtitle = styled(Text.ML)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ShareForm = ({ gameUUID, onChange }) => [
+const ShareForm = ({ gameUUID, isPublic, onChange }) => [
   <Spacer key="sport-spacer" size="XXXL" />,
   <Row
     key="subtitle"
@@ -43,18 +44,26 @@ const ShareForm = ({ gameUUID, onChange }) => [
     key="share-btn"
     gameUUID={gameUUID}
   />,
-  /* <ShareLink
-    key="link"
-    link={link}
-  />, */
+  <Spacer
+    key="spacer-invite-only"
+    orientation="column"
+    size="XXL"
+  />,
+  <InviteOnly
+    key="invite-only"
+    isPublic={isPublic}
+    onPress={(value) => { onChange({ fieldName: 'isPublic', value }); }}
+  />,
 ];
 
 ShareForm.propTypes = {
   gameUUID: PropTypes.string.isRequired,
+  isPublic: PropTypes.bool,
   onChange: PropTypes.func,
 };
 
 ShareForm.defaultProps = {
+  isPublic: true,
   onChange: () => {},
 };
 
