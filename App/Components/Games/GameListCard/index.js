@@ -23,7 +23,7 @@ import { getAttendees } from '../utils';
 //------------------------------------------------------------------------------
 const Outer = styled.View`
   display: flex;
-  height: ${({ height }) => (height)};
+  height: ${({ isCanceled }) => (isCanceled ? '270px' : '232px')};
   border-radius: 8px;
   shadow-offset: 1px 1px;
   shadow-color: ${Colors.shade};
@@ -47,7 +47,6 @@ const Top = styled.View`
 const Bottom = styled.View`
   flex: 1;
   display: flex;
-  background-color: green;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
@@ -92,7 +91,7 @@ const GameListCard = ({ game }) => {
   const formattedStartTime = moment(startTime).format('D-MM HH:mm');
 
   return (
-    <Outer height={isCanceled ? '270px' : '232px'}>
+    <Outer isCanceled={isCanceled}>
       <Top>
         <Organizer organizer={organizer} textSize="M" />
         <DotSpacer />
