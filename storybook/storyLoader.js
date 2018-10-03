@@ -27,7 +27,7 @@ function loadStories() {
   require('../App/Components/Common/NavDot/stories');
   require('../App/Components/Common/NavDots/stories');
   require('../App/Components/Common/RaisedButton/stories'); */
-  require('../App/Components/Common/RoundButton/stories');
+  // require('../App/Components/Common/RoundButton/stories');
   /* require('../App/Components/Common/Row/stories');
   require('../App/Components/Common/SliderWithText/stories');
   require('../App/Components/Common/Spacer/stories');
@@ -47,14 +47,14 @@ function loadStories() {
   require('../App/Components/Games/CancelMsg/stories');
   require('../App/Components/Games/ClickableAttendees/stories');
   require('../App/Components/Games/GameCanceledFlag/stories'); */
-  require('../App/Components/Games/GameDetails/stories');
+  // require('../App/Components/Games/GameDetails/stories');
   /* require('../App/Components/Games/GameListCard/stories');
   require('../App/Components/Games/GameProperties/stories');
   require('../App/Components/Games/GamesList/stories');
   require('../App/Components/Games/OpenSpots/stories');
   require('../App/Components/Games/Organizer/stories');
   require('../App/Components/Games/OrganizerAndDescription/stories'); */
-  require('../App/Components/Games/ShareGameButton/stories');
+  // require('../App/Components/Games/ShareGameButton/stories');
   /* require('../App/Components/PlanGame/DescriptionField/stories');
   require('../App/Components/PlanGame/DescriptionForm/stories');
   require('../App/Components/PlanGame/FormLayout/stories');
@@ -76,9 +76,9 @@ function loadStories() {
   require('../App/Screens/Games/GameDetailsScreen/stories');
   require('../App/Screens/Games/GamesListScreen/stories');
   require('../App/Screens/Games/PlayersListScreen/stories'); */
-  require('../App/Screens/Plan/PlanGameScreen/stories');
-  /* require('../App/Screens/Plan/ShareGameScreen/stories');
-  require('../App/Screens/Plan/Stories');
+  // require('../App/Screens/Plan/PlanGameScreen/stories');
+  require('../App/Screens/Plan/ShareGameScreen/stories');
+  /* require('../App/Screens/Plan/Stories');
   require('../App/Screens/Profile/Stories');
   require('../App/Screens/Stories'); */
 }
@@ -106,7 +106,7 @@ const stories = [
   '../App/Components/Common/NavDot/stories',
   '../App/Components/Common/NavDots/stories',
   '../App/Components/Common/RaisedButton/stories', */
-  '../App/Components/Common/RoundButton/stories',
+  // '../App/Components/Common/RoundButton/stories',
   /* '../App/Components/Common/Row/stories',
   '../App/Components/Common/SliderWithText/stories',
   '../App/Components/Common/Spacer/stories',
@@ -126,14 +126,14 @@ const stories = [
   '../App/Components/Games/CancelMsg/stories',
   '../App/Components/Games/ClickableAttendees/stories',
   '../App/Components/Games/GameCanceledFlag/stories', */
-  '../App/Components/Games/GameDetails/stories',
+  // '../App/Components/Games/GameDetails/stories',
   /* '../App/Components/Games/GameListCard/stories',
   '../App/Components/Games/GameProperties/stories',
   '../App/Components/Games/GamesList/stories',
   '../App/Components/Games/OpenSpots/stories',
   '../App/Components/Games/Organizer/stories',
   '../App/Components/Games/OrganizerAndDescription/stories', */
-  '../App/Components/Games/ShareGameButton/stories',
+  // '../App/Components/Games/ShareGameButton/stories',
   /* '../App/Components/PlanGame/DescriptionField/stories',
   '../App/Components/PlanGame/DescriptionForm/stories',
   '../App/Components/PlanGame/FormLayout/stories',
@@ -155,9 +155,9 @@ const stories = [
   '../App/Screens/Games/GameDetailsScreen/stories',
   '../App/Screens/Games/GamesListScreen/stories',
   '../App/Screens/Games/PlayersListScreen/stories', */
-  '../App/Screens/Plan/PlanGameScreen/stories',
-  /* '../App/Screens/Plan/ShareGameScreen/stories',
-  '../App/Screens/Plan/Stories',
+  // '../App/Screens/Plan/PlanGameScreen/stories',
+  '../App/Screens/Plan/ShareGameScreen/stories',
+  /* '../App/Screens/Plan/Stories',
   '../App/Screens/Profile/Stories',
   '../App/Screens/Stories', */
 ];

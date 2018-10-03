@@ -8,7 +8,7 @@ import handleShare from './utils';
 //------------------------------------------------------------------------------
 const ShareGame = ({ gameUUID }) => (
   <RoundButton
-    size="L"
+    size="XL"
     status="default"
     iconName="link-variant"
     onPress={() => { handleShare(gameUUID); }}

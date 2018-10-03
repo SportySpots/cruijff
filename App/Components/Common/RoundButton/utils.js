@@ -63,6 +63,8 @@ export const getPixelsFromSize = (size) => {
       return '40px';
     case 'L':
       return '48px';
+    case 'XL':
+      return '58px';
     default:
       throw new Error('Unknown size');
   }

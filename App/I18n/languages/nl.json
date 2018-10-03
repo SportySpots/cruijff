@@ -37,7 +37,7 @@
   "Choose sport": "Kies sport",
   "Pick a spot": "Kies een locatie",
   "Describe the game": "Omschrijving",
-  "Game created": "Activiteit aangemaakt",
+  "Activity created": "Activiteit gecreeerd",
   "Share": "Delen",
   "Copy": "Kopiëren",
   "This event is invite-only": "Alleen op uitnodiging",
@@ -175,5 +175,7 @@
   "Cancel": "Annuleer",
   "Ok": "Ok",
   "Spot": "Locatie",
-  "Edit presence": "Wijzigen aanwezigheid"
+  "Edit presence": "Wijzigen aanwezigheid",
+  "invite via": "uitnodigen via",
+  "Close": "Sluit"
 }

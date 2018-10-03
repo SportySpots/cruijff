@@ -7,7 +7,7 @@ const dummyNavigation = {
   navigate: () => {},
   state: {
     params: {
-      uuid: 455,
+      uuid: '455',
     },
   },
 };

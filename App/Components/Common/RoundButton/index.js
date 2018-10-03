@@ -64,7 +64,7 @@ RoundButton.propTypes = {
     'dark',
     'translucid',
   ]),
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['S', 'M', 'L', 'XL']),
   disabled: PropTypes.bool,
   reverse: PropTypes.bool,
   onPress: PropTypes.func,
