@@ -84,7 +84,7 @@ class PlanGameScreen extends React.Component {
   }
 
   handleChange = ({ fieldName, value }) => {
-    if (!fieldName || !value) {
+    if (!fieldName) {
       return;
     }
 

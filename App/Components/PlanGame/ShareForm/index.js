@@ -10,8 +10,6 @@ import Spacer from '../../Common/Spacer';
 import ShareGameButton from '../../Games/ShareGameButton';
 import InviteOnly from '../InviteOnly';
 
-// import ShareLink from '../ShareLink';
-
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -47,7 +45,7 @@ const ShareForm = ({ gameUUID, isPublic, onChange }) => [
   <Spacer
     key="spacer-invite-only"
     orientation="column"
-    size="XXL"
+    size="XXXL"
   />,
   <InviteOnly
     key="invite-only"

@@ -45,10 +45,14 @@ class ShareGameScreen extends React.Component {
     const { isPublic } = this.state;
 
     // Set game invite mode
-    await api.setGameInviteMode({
-      gameUUID: this.gameUUID,
-      inviteMode: isPublic ? 'public' : 'invite-only',
-    });
+    try {
+      await api.setGameInviteMode({
+        gameUUID: this.gameUUID,
+        inviteMode: isPublic ? 'public' : 'invite-only',
+      });
+    } catch (exc) {
+      console.log(exc);
+    }
 
     // Go back to the begining of the stack
     navigation.popToTop();
@@ -66,7 +70,7 @@ class ShareGameScreen extends React.Component {
       ],
     }));
     // Finally go to recently created game
-    navigation.navigate('GameDetailsScreen', { uuid: this.gameUuid });
+    navigation.navigate('GameDetailsScreen', { uuid: this.gameUUID });
   }
 
   render() {
