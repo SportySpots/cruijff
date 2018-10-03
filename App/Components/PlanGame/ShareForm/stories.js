@@ -7,6 +7,6 @@ import ShareForm from './index';
 storiesOf('PlanGame.ShareForm', module)
   .add('ShareForm white theme', () => (
     <Block bgColor={Colors.primaryGreen}>
-      <ShareForm link="https://some/link" />
+      <ShareForm gameUUID="455" />
     </Block>
   ));

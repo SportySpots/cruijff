@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard, Clipboard, Share } from 'react-native';
+import { Keyboard } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
-import config from '../../../config';
+import api from '../../../Services/SeedorfApi';
 import FormLayout from '../../../Components/PlanGame/FormLayout';
 import Footer from '../../../Components/DarkFooter';
 import ShareForm from '../../../Components/PlanGame/ShareForm';
@@ -20,7 +20,7 @@ const FullHeight = styled.View`
 //------------------------------------------------------------------------------
 class ShareGameScreen extends React.Component {
   state = {
-    share: false,
+    isPublic: true,
   }
 
   get gameUUID() {
@@ -28,12 +28,8 @@ class ShareGameScreen extends React.Component {
     return navigation.state.params.uuid;
   }
 
-  get link() {
-    return `https://${config.deeplinkHost}/games/${this.gameUuid}`;
-  }
-
   handleChange = ({ fieldName, value }) => {
-    if (!fieldName || !value) {
+    if (!fieldName) {
       return;
     }
 
@@ -43,26 +39,16 @@ class ShareGameScreen extends React.Component {
     );
   }
 
-  handleCopy = () => {
-    Clipboard.setString(this.link);
-  };
-
-  handleShare = () => {
-    const message = `${I18n.t('You have been invited to a SportySpots game:')} ${this.link}`;
-    Share.share(
-      {
-        message,
-        title: 'Sportyspots',
-      },
-      {
-        dialogTitle: I18n.t('share'),
-      },
-    );
-  };
-
-  handleNext = () => {
+  handleNext = async () => {
     Keyboard.dismiss();
     const { navigation } = this.props;
+    const { isPublic } = this.state;
+
+    // Set game invite mode
+    await api.setGameInviteMode({
+      gameUUID: this.gameUUID,
+      inviteMode: isPublic ? 'public' : 'invite-only',
+    });
 
     // Go back to the begining of the stack
     navigation.popToTop();
@@ -84,7 +70,7 @@ class ShareGameScreen extends React.Component {
   }
 
   render() {
-    // const { share } = this.state;
+    const { isPublic } = this.state;
 
     return (
       <FullHeight>
@@ -94,8 +80,9 @@ class ShareGameScreen extends React.Component {
           closable={false}
         >
           <ShareForm
-            onChange={this.handleChange}
             gameUUID={this.gameUUID}
+            isPublic={isPublic}
+            onChange={this.handleChange}
           />
         </FormLayout>
         <Footer
