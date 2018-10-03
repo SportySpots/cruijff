@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Alert, Keyboard } from 'react-native';
+import { Alert, Keyboard, BackHandler } from 'react-native';
 import Swiper from 'react-native-swiper';
 import extend from 'lodash/extend';
 import styled from 'styled-components';
@@ -83,6 +83,15 @@ class PlanGameScreen extends React.Component {
     });
   }
 
+  // Handle android back button press
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
+  }
+
   handleChange = ({ fieldName, value }) => {
     if (!fieldName) {
       return;
@@ -107,6 +116,9 @@ class PlanGameScreen extends React.Component {
         { text: I18n.t('Yes'), onPress: () => { navigation.goBack(null); } },
       ],
     );
+
+    // Need this for android back handler btn to work
+    return true;
   }
 
   handleBack = () => {
