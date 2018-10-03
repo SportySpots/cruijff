@@ -48,7 +48,7 @@ class ShareGameScreen extends React.Component {
     try {
       await api.setGameInviteMode({
         gameUUID: this.gameUUID,
-        inviteMode: isPublic ? 'public' : 'invite-only',
+        inviteMode: isPublic ? 'open' : 'invite_only',
       });
     } catch (exc) {
       console.log(exc);
