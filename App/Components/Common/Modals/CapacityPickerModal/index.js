@@ -7,6 +7,10 @@ import CapacityPicker from '../../CapacityPicker';
 import CancelConfirmModal from '../CancelConfirmModal';
 
 //------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const MAX_CAPACITY = 1000;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class CapacityPickerModal extends React.PureComponent {
@@ -23,7 +27,7 @@ class CapacityPickerModal extends React.PureComponent {
 
   increase = () => {
     this.setState(prevState => (
-      { value: prevState.value + 1 }
+      { value: prevState.value < MAX_CAPACITY ? prevState.value + 1 : MAX_CAPACITY }
     ));
   }
 
