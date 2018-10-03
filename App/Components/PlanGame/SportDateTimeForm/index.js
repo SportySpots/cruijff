@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
+import Colors from '../../../Themes/Colors';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
@@ -11,10 +12,14 @@ import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
 import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
-import { Label } from '../style';
+import Text from '../../Common/Text';
 
 //------------------------------------------------------------------------------
 // STYLE:
+//------------------------------------------------------------------------------
+export const Label = styled(Text.ML)`
+  color: ${Colors.white};
+`;
 //------------------------------------------------------------------------------
 const DurationFieldContainer = styled.View`
   width: 170px;
