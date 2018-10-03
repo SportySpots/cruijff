@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Calendar as NativeCalendar } from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../../Themes/Colors';
@@ -38,24 +39,49 @@ const theme = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Calendar = props => (
-  <NativeCalendar
-    style={style}
-    theme={theme}
-    hideExtraDays
-    renderArrow={direction => (
-      <Icon
-        size={24}
-        name={`keyboard-arrow-${direction}`}
-        color={Colors.darkGray}
-      />
-    )}
-    {...props}
-  />
-);
+const Calendar = ({ value, ...rest }) => {
+  const markedDates = value ? ({
+    [value.dateString]: {
+      selected: true,
+      disableTouchEvent: true,
+    },
+  }) : {};
 
-Calendar.propTypes = {
-  // All props from native Calendar
+  return (
+    <NativeCalendar
+      style={style}
+      theme={theme}
+      hideExtraDays
+      renderArrow={direction => (
+        <Icon
+          size={24}
+          name={`keyboard-arrow-${direction}`}
+          color={Colors.darkGray}
+        />
+      )}
+      markedDates={markedDates}
+      current={(
+        value
+          ? value.dateString
+          : (new Date()).toISOString().slice(0, 10)
+      )}
+      minDate={(new Date()).toISOString().slice(0, 10)}
+      {...rest}
+    />
+  );
 };
 
+Calendar.propTypes = {
+  value: PropTypes.shape({
+    year: PropTypes.number,
+    month: PropTypes.number,
+    day: PropTypes.number,
+    dateString: PropTypes.string,
+  }),
+  // Plus all props from native Calendar
+};
+
+Calendar.defaultProps = {
+  value: null,
+};
 export default Calendar;

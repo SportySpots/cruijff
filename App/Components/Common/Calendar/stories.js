@@ -21,7 +21,7 @@ class Container extends React.PureComponent {
         <Text>{(date && date.dateString) || ''}</Text>
         <Calendar
           visible
-          // date={date}
+          value={date}
           onDayPress={this.handleDayPress}
         />
       </View>
