@@ -40,7 +40,7 @@ class DatePickerModal extends React.PureComponent {
       <Row alignItems="center" justifyContent="space-between">
         <Text.ML>{I18n.t('Select a date')}</Text.ML>
         <SelectedDate>
-          {value && toTitleCase(moment(value).format('ddd, MMM D').replace(/\./g, ''))}
+          {value && toTitleCase(moment(value.dateString).format('ddd, MMM D').replace(/\./g, ''))}
         </SelectedDate>
       </Row>
     );
