@@ -42,6 +42,7 @@ const Calendar = props => (
   <NativeCalendar
     style={style}
     theme={theme}
+    hideExtraDays
     renderArrow={direction => (
       <Icon
         size={24}

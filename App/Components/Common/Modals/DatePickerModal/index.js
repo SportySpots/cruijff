@@ -45,6 +45,13 @@ class DatePickerModal extends React.PureComponent {
       </Row>
     );
 
+    const markedDates = value ? ({
+      [value.dateString]: {
+        selected: true,
+        disableTouchEvent: true,
+      },
+    }) : {};
+
     return (
       <CancelConfirmModal
         visible={visible}
@@ -57,9 +64,13 @@ class DatePickerModal extends React.PureComponent {
       >
         <Block>
           <Calendar
-            current={(new Date()).toISOString().slice(0, 10)}
+            markedDates={markedDates}
+            current={(
+              value
+                ? value.dateString
+                : (new Date()).toISOString().slice(0, 10)
+            )}
             minDate={(new Date()).toISOString().slice(0, 10)}
-            // onDayPress={(day) => { onSelect(day.dateString); }}
             onDayPress={this.handleDayPress}
           />
         </Block>

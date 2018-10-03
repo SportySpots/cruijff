@@ -5,15 +5,13 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../App/Components/PlanGame/ShareForm/stories');
-  require('../App/Screens/Plan/ShareGameScreen/stories');
-  require('../App/Components/PlanGame/InviteOnly/stories');
+  require('../App/Screens/Plan/PlanGameScreen/stories');
+  require('../App/Components/Common/Calendar/stories');
 }
 
 const stories = [
-  '../App/Components/PlanGame/ShareForm/stories',
-  '../App/Screens/Plan/ShareGameScreen/stories',
-  '../App/Components/PlanGame/InviteOnly/stories',
+  '../App/Screens/Plan/PlanGameScreen/stories',
+  '../App/Components/Common/Calendar/stories',
 ];
 
 module.exports = {
