@@ -17,6 +17,7 @@ const Input = styled.View`
   border-bottom-color: ${({ isWhiteTheme }) => (isWhiteTheme ? Colors.white : Colors.black)};
   padding-horizontal: 8px;
   min-width: 40px;
+  height: 32px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
