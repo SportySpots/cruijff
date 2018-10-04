@@ -17,7 +17,7 @@ const SpotForm = ({ sport, spot, onChange }) => (
   <Query
     query={GET_SPOTS_FOR_SPORT}
     variables={{
-      limit: 20,
+      limit: 100,
       offset: 0,
       sports__ids: sport && sport.id ? [sport.id] : [],
     }}

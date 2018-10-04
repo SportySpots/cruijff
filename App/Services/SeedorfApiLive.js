@@ -1,9 +1,9 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce';
 import CookieManager from 'react-native-cookies';
-import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
 import moment from 'moment';
-import { client } from '../GraphQL';
+// import { client } from '../GraphQL';
 import config from '../config';
 
 
@@ -92,7 +92,7 @@ const create = () => {
     api.post(`/games/${gameUUID}/sport/`, {
       uuid: sport.uuid,
     });
-    global.client = client;
+    /* global.client = client;
     const q = gql`
       query game($uuid: UUID!) {
         game(uuid: $uuid) {
@@ -108,7 +108,7 @@ const create = () => {
       variables: {
         uuid: gameUUID,
       },
-    });
+    }); */
   };
 
   const setGameSpot = ({ gameUUID, spotUUID }) =>
