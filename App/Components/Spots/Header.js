@@ -19,12 +19,13 @@ const curatedGames = (games) => {
   const today = moment(new Date()).startOf('day').toISOString();
 
   return games && games.length > 0
-    ? games.filter(game => game.start_time > today && game.status !== 'DRAFT')
+    ? games.filter(game => game.start_time && game.start_time > today && game.status !== 'DRAFT')
     : [];
 };
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: cleanup!
 const Header = ({ spot, ...props }) => {
   // Don't consider passed games
   const { games: rawGames } = spot;
@@ -59,7 +60,7 @@ Header.propTypes = {
     })),
     games: PropTypes.arrayOf(PropTypes.shape({
       uuid: PropTypes.string.isRequired,
-      start_time: PropTypes.string.isRequired,
+      start_time: PropTypes.string,
     })),
     distance: PropTypes.number,
   }).isRequired,

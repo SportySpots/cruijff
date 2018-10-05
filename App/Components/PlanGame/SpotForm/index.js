@@ -47,24 +47,24 @@ const SpotForm = ({ sport, spot, onChange }) => (
 
       console.log(
         'SPOTS',
-        sport && sport.id && data && data.spots && data.spots.length,
+        data && data.spots && data.spots.length,
       );
 
       console.log(
         'CURATED SPOTS',
-        (sport && sport.id && data && data.spots && curatedSpots(data.spots).length),
+        (data && data.spots && curatedSpots(data.spots).length),
       );
 
       console.log(
         'CURATED SPOTS NAMES',
-        (sport && sport.id && data && data.spots && curatedSpots(data.spots).map(({ name, images }) => ({ name, images }))),
+        (data && data.spots && curatedSpots(data.spots).map(({ name, images }) => ({ name, images }))),
       );
 
       return [
         <Spacer key="spacer" size="XL" />,
         <SpotsList
           key="spots"
-          spots={(sport && sport.id && data && data.spots && curatedSpots(data.spots)) || []}
+          spots={(data && data.spots && curatedSpots(data.spots)) || []}
           selectedSpot={spot}
           cardComponent={SpotListCardSmall}
           onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
