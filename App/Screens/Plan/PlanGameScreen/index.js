@@ -322,7 +322,6 @@ PlanGameScreen.propTypes = {
 };
 
 const mapStateToProps = ({ user }) => ({ user });
-
 const withRedux = connect(mapStateToProps, null);
 
 export default withRedux(PlanGameScreen);

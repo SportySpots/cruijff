@@ -4,7 +4,7 @@ import { propType } from 'graphql-anywhere';
 import { Query } from 'react-apollo';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
-import GET_SPOTS_FOR_SPORT from '../../../GraphQL/Spots/Queries/GET_SPOTS_FOR_SPORT';
+import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
 import Spacer from '../../Common/Spacer';
 import SpotListCardSmall from '../../Spots/SpotListCardSmall';
 import SpotsList from '../../Spots/SpotsList';
@@ -15,12 +15,13 @@ import curatedSpots from './utils';
 //------------------------------------------------------------------------------
 const SpotForm = ({ sport, spot, onChange }) => (
   <Query
-    query={GET_SPOTS_FOR_SPORT}
+    query={GET_SPOTS}
     variables={{
-      limit: 100,
       offset: 0,
+      limit: 6,
       sports__ids: sport && sport.id ? [sport.id] : [],
     }}
+    fetchPolicy="cache-and-network"
   >
     {({
       loading,
@@ -41,6 +42,23 @@ const SpotForm = ({ sport, spot, onChange }) => (
           },
         });
       };
+
+      console.log('SPORT', sport);
+
+      console.log(
+        'SPOTS',
+        sport && sport.id && data && data.spots && data.spots.length,
+      );
+
+      console.log(
+        'CURATED SPOTS',
+        (sport && sport.id && data && data.spots && curatedSpots(data.spots).length),
+      );
+
+      console.log(
+        'CURATED SPOTS NAMES',
+        (sport && sport.id && data && data.spots && curatedSpots(data.spots).map(({ name, images }) => ({ name, images }))),
+      );
 
       return [
         <Spacer key="spacer" size="XL" />,

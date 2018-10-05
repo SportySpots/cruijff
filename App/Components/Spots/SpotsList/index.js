@@ -19,7 +19,7 @@ const SpotsList = ({
 }) => (
   <FlatList
     showsVerticalScrollIndicator={false}
-    contentContainerStyle={{ flexGrow: 1 }}
+    contentContainerStyle={{ flexGrow: 1 }} // centers not found component
     data={spots}
     renderItem={({ item: spot }) => (
       <TouchableOpacity

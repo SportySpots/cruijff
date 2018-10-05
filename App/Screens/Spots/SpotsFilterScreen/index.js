@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import I18n from '../../I18n/index';
-import Colors from '../../Themes/Colors';
-import spotFiltersActions from '../../Redux/SpotFiltersRedux';
-import { client } from '../../GraphQL/index';
-import GET_SPORTS from '../../GraphQL/Sports/Queries/GET_SPORTS';
-import DefaultButton from '../../Components/Common/DefaultButton';
-import SpotsFilter from '../../Components/Spots/SpotsFilter';
+import I18n from '../../../I18n/index';
+import Colors from '../../../Themes/Colors';
+import * as spotFiltersActions from '../../../Redux/SpotFiltersRedux';
+import { client } from '../../../GraphQL/index';
+import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
+import DefaultButton from '../../../Components/Common/DefaultButton';
+import SpotsFilter from '../../../Components/Spots/SpotsFilter';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -27,12 +27,14 @@ const ButtonContainer = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: introduce TopBottomLayout to hold body and button container
 class SpotsFilterScreen extends React.PureComponent {
   constructor(props) {
     super(props);
 
     // Get data from redux
-    const { maxDistance, allSports, selectedSportIds } = props;
+    const { spotFilters } = props;
+    const { maxDistance, allSports, selectedSportIds } = spotFilters;
 
     this.state = {
       maxDistance: maxDistance || 3,
@@ -48,26 +50,18 @@ class SpotsFilterScreen extends React.PureComponent {
   init = async () => {
     const result = await client.query({ query: GET_SPORTS });
     const { sports } = result.data;
-    this.setState({
-      sports,
-      loaded: true,
-    });
+    this.setState({ sports, loaded: true });
   }
 
-  handleSliderChange = (maxDistance) => {
+  handleDistanceChange = (maxDistance) => {
     this.setState({ maxDistance });
   }
 
-  handleSportsFilterSwitch = (allSports) => {
-    this.setState({
-      allSports,
-      selectedSportIds: allSports
-        ? this.state.sports.map(({ id }) => (id))
-        : [],
-    });
+  handleAllSportsChange = (allSports) => {
+    this.setState({ allSports, selectedSportIds: [] });
   }
 
-  handleSportSwitch = (sportId) => {
+  handleSportChange = (sportId) => {
     this.setState((prevState) => {
       // Check whether or not sportId is already in the list of selected sports.
       const index = prevState.selectedSportIds.indexOf(sportId);
@@ -79,9 +73,7 @@ class SpotsFilterScreen extends React.PureComponent {
           ...prevState.selectedSportIds.slice(index + 1),
         ] : [...prevState.selectedSportIds, sportId],
         // Finally, update allSports switch
-        allSports: (prevState.allSports && index !== -1)
-          ? false
-          : prevState.allSports,
+        allSports: false,
       };
     });
   }
@@ -114,6 +106,7 @@ class SpotsFilterScreen extends React.PureComponent {
   }
 
   render() {
+    console.log('PROPS', this.props);
     const {
       maxDistance,
       allSports,
@@ -132,13 +125,13 @@ class SpotsFilterScreen extends React.PureComponent {
         <SpotsFilter
           // SliderFilter props
           maxDistance={maxDistance}
-          onSliderChange={this.handleSliderChange}
+          onSliderChange={this.handleDistanceChange}
           // SwitchFilter props
           allSports={allSports}
           sports={sports}
           selectedSportIds={selectedSportIds}
-          onSportsFilterSwitch={this.handleSportsFilterSwitch}
-          onSportSwitch={this.handleSportSwitch}
+          onSportsFilterSwitch={this.handleAllSportsChange}
+          onSportSwitch={this.handleSportChange}
         />
       </Container>,
       <ButtonContainer key="button">
@@ -158,15 +151,18 @@ SpotsFilterScreen.propTypes = {
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
-  maxDistance: PropTypes.number.isRequired,
-  allSports: PropTypes.bool.isRequired,
-  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  spotFilters: PropTypes.shape({
+    maxDistance: PropTypes.number.isRequired,
+    allSports: PropTypes.bool.isRequired,
+    selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
   setMaxDistance: PropTypes.func.isRequired,
   setAllSports: PropTypes.func.isRequired,
   setSports: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => state.spotFilters;
+// const mapStateToProps = state => state.spotFilters;
+const mapStateToProps = ({ spotFilters }) => ({ spotFilters });
 const mapDispatchToProps = {
   setMaxDistance: spotFiltersActions.setMaxDistance,
   setAllSports: spotFiltersActions.setAllSports,

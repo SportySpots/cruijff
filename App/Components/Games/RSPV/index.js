@@ -17,6 +17,7 @@ const RSVP_STATUSES = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: disable button on submit
 class RSPV extends React.PureComponent {
   setRSVPStatus = async (status) => {
     const {
