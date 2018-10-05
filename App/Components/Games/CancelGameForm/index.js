@@ -24,6 +24,7 @@ const MAX_CHARS = 120;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+// TODO: introduce TopBottomLayout to hold body and button container
 const Top = styled.ScrollView`
   flex: 1;
   background-color: ${Colors.white}
