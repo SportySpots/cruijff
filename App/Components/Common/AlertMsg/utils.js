@@ -5,25 +5,25 @@ const getPalette = (status) => {
     case 'success':
       return {
         fontColor: Colors.grass,
-        bgColor: Colors.grassTint,
+        bgColor: Colors.grass20,
         iconName: 'alert',
       };
     case 'error':
       return {
         fontColor: Colors.negative,
-        bgColor: Colors.negativeTint,
+        bgColor: Colors.negative20,
         iconName: 'alert-circle',
       };
     case 'warning':
       return {
         fontColor: Colors.notify,
-        bgColor: Colors.notifyTint,
+        bgColor: Colors.notify20,
         iconName: 'alert',
       };
     case 'info':
       return {
         fontColor: Colors.info,
-        bgColor: Colors.infoTint,
+        bgColor: Colors.info20,
         iconName: 'alert',
       };
     default:

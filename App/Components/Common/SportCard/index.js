@@ -16,7 +16,7 @@ import Text from '../Text';
 //------------------------------------------------------------------------------
 const SportCard = ({ sport, isSelected, onPress }) => (
   <TouchableOpacity onPress={() => onPress(sport)}>
-    <Block bgColor={isSelected ? Colors.grassTint : Colors.transparent}>
+    <Block bgColor={isSelected ? Colors.grass20 : Colors.transparent}>
       <Row>
         <Image source={(
           sport && sport.category
