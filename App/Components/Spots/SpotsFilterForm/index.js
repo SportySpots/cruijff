@@ -92,10 +92,10 @@ class SpotsFilterForm extends React.PureComponent {
       <Top key="top">
         <Block>
           <SliderWithText
+            minimumValue={1}
+            maximumValue={20}
             value={maxDistance}
-            max={20.0}
-            min={0.0}
-            onChange={this.handleDistanceChange}
+            onValueChange={this.handleDistanceChange}
             label={I18n.t('Location')}
             description={`${I18n.t('Shows spots inside')}: ${maxDistance.toFixed(1)}km`}
           />
@@ -128,7 +128,7 @@ class SpotsFilterForm extends React.PureComponent {
       </Top>,
       <Bottom key="bottom">
         <RaisedButton
-          status="warning"
+          status="primary"
           label={I18n.t('View spots')}
           disabled={disabled}
           onPress={this.handleSubmit}

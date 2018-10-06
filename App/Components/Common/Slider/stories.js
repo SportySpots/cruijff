@@ -2,50 +2,49 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from 'react-native';
-import styled from 'styled-components';
-import SliderWithText from './index';
-
-const StyledView = styled.View`
-  height: 180px;
-  border: 1px solid black;
-`;
+import Block from '../Block';
+import Spacer from '../Spacer';
+import Slider from '.';
 
 class Container extends React.PureComponent {
-  state = { value: this.props.minimumValue }
+  state = { value: this.props.initialValue }
 
   handleChange = (value) => {
     this.setState({ value });
   }
 
   render() {
+    const { initialValue, ...rest } = this.props;
     const { value } = this.state;
 
     return (
-      <StyledView>
+      <Block>
         <Text>{value}</Text>
-        <SliderWithText
-          label="I'm the label"
-          description="I'm the description"
+        <Spacer size="M" />
+        <Slider
           value={value}
           onValueChange={this.handleChange}
-          {...this.props}
+          {...rest}
         />
-      </StyledView>
+      </Block>
     );
   }
 }
 
 Container.propTypes = {
+  initialValue: PropTypes.number,
   minimumValue: PropTypes.number,
   maximumValue: PropTypes.number,
 };
 
 Container.defaultProps = {
+  initialValue: 0,
   minimumValue: 0,
   maximumValue: 20,
 };
 
-storiesOf('Common.SliderWithText', module)
-  .add('SliderWithText', () => (
-    <Container />
+storiesOf('Common.Slider', module)
+  .add('Slider default', () => <Container />)
+  .add('Slider initialValue 5', () => (
+    <Container initialValue={5} />
   ));

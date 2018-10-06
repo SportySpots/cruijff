@@ -1,7 +1,62 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Slider as SliderNative } from 'react-native';
+import styled from 'styled-components';
+import Row from '../Row';
+import Text from '../Text';
+import Colors from '../../../Themes/Colors';
+
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const FullWidth = styled.View`
+  margin: 0 -12px;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+class Slider extends React.Component {
+  // Once the initial value is set, prevent component to re-render based
+  // on value change. Otherwise, slider miss-behaves/jumps
+  shouldComponentUpdate = () => (false)
+
+  render() {
+    const { minimumValue, maximumValue, ...rest } = this.props;
+
+    return [
+      <FullWidth key="slider">
+        <SliderNative
+          minimumValue={minimumValue}
+          maximumValue={maximumValue}
+          minimumTrackTintColor={Colors.primaryGreen}
+          thumbTintColor={Colors.primaryGreen}
+          {...rest}
+        />
+      </FullWidth>,
+      <Row
+        key="labels"
+        justifyContent="space-between"
+      >
+        <Text>{minimumValue}</Text>
+        <Text>{maximumValue}</Text>
+      </Row>,
+    ];
+  }
+}
+
+Slider.propTypes = {
+  minimumValue: PropTypes.number.isRequired,
+  maximumValue: PropTypes.number.isRequired,
+  // Plus all props from react-native Slider
+};
+
+export default Slider;
+
+/*
+import React from 'react';
 import { Animated, PanResponder, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import Colors from '../../Themes/Colors';
+import Colors from '../../../Themes/Colors';
 
 const handleSize = 25;
 
@@ -104,3 +159,5 @@ const style = StyleSheet.create({
     borderRadius: handleSize,
   },
 });
+
+*/

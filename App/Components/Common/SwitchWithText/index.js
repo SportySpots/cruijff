@@ -11,7 +11,11 @@ import Spacer from '../Spacer';
 // STYLE:
 //------------------------------------------------------------------------------
 const Left = styled.View`
-  flex: 1; /* full width */
+  flex-grow: 1; /* full width */
+`;
+//------------------------------------------------------------------------------
+const Right = styled.View`
+  margin-right: -3px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -24,7 +28,7 @@ const SwitchWithText = ({
   value,
   onChange,
 }) => (
-  <Row>
+  <Row alignItems="center">
     <Left>
       <Text.M>{label}</Text.M>
       <Text.SM style={{ color: Colors.gray }}>
@@ -32,11 +36,13 @@ const SwitchWithText = ({
       </Text.SM>
     </Left>
     <Spacer orientation="row" size="M" />
-    <Switch
-      value={value}
-      onValueChange={() => onChange(!value)}
-      thumbTintColor={value ? Colors.primaryGreen : Colors.lightGray}
-    />
+    <Right>
+      <Switch
+        value={value}
+        onValueChange={() => onChange(!value)}
+        thumbTintColor={value ? Colors.primaryGreen : Colors.lightGray}
+      />
+    </Right>
   </Row>
 );
 
