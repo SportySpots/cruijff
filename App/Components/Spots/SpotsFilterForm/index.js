@@ -143,7 +143,7 @@ class SpotsFilterForm extends React.PureComponent {
       </Top>,
       <Bottom key="bottom">
         <RaisedButton
-          status="primary"
+          status="default"
           label={I18n.t('View spots')}
           disabled={disabled}
           onPress={this.handleSubmit}
