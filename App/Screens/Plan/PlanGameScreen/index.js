@@ -12,7 +12,7 @@ import Footer from '../../../Components/DarkFooter';
 import SportDateTimeForm from '../../../Components/PlanGame/SportDateTimeForm/';
 import SpotForm from '../../../Components/PlanGame/SpotForm';
 import DescriptionForm from '../../../Components/PlanGame/DescriptionForm';
-import { formatDate, formatStartTime, formatEndTime } from './utils';
+import { setDate, setStartTime, setEndTime } from './utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -96,11 +96,7 @@ class PlanGameScreen extends React.Component {
     if (!fieldName) {
       return;
     }
-
-    this.setState(
-      { [fieldName]: value },
-      // () => { console.log('HANDLE_CHANGE new state', this.state); },
-    );
+    this.setState({ [fieldName]: value });
   }
 
   handleLeave = () => {
@@ -164,9 +160,9 @@ class PlanGameScreen extends React.Component {
       ) || '';
 
       // Get startTime and endTime from date, time and duration
-      const startDate = formatDate(date); // begining of the selected date (moment object)
-      const startTime = formatStartTime(startDate, time); // moment object
-      const endTime = duration ? formatEndTime(startTime, duration) : null; // moment object
+      const startDate = setDate(date); // begining of the selected date (moment object)
+      const startTime = setStartTime(startDate, time); // moment object
+      const endTime = duration ? setEndTime(startTime, duration) : null; // moment object
 
       console.log('START_DATE', startDate.toISOString()); // '2018-10-06T00:00:00.000Z'
       console.log('START_TIME', startTime.toISOString()); // '2018-10-06T13:15:00.000Z'

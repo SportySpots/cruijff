@@ -5,6 +5,7 @@ import I18n from '../../../I18n/index';
 import ModalProps from '../../../RenderProps/modal-props';
 import InputField from '../InputField';
 import DatePickerModal from '../Modals/DatePickerModal';
+import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -36,18 +37,13 @@ const DatePickerField = ({ value, onChange, ...rest }) => (
 );
 
 DatePickerField.propTypes = {
-  value: PropTypes.shape({
-    year: PropTypes.number,
-    month: PropTypes.number,
-    day: PropTypes.number,
-    dateString: PropTypes.string,
-  }),
+  value: datePickerDatePropTypes,
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };
 
 DatePickerField.defaultProps = {
-  value: '',
+  value: null,
   onChange: () => {},
 };
 

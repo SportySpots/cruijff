@@ -13,6 +13,7 @@ import CapacityPickerField from '../../Common/CapacityPickerField';
 import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
+import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -97,7 +98,7 @@ const SportAndTimeForm = ({
 
 SportAndTimeForm.propTypes = {
   sport: propType(sportFragment),
-  date: PropTypes.string,
+  date: datePickerDatePropTypes,
   time: PropTypes.instanceOf(Date),
   duration: PropTypes.oneOfType([
     PropTypes.number,

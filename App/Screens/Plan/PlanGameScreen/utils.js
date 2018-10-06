@@ -8,15 +8,15 @@ const getHoursMinutes = (dateString) => {
   };
 };
 
-export const formatDate = date => (
-  moment.utc(date).startOf('day') // moment object
+export const setDate = date => (
+  moment.utc(date.dateString).startOf('day') // moment object
 );
 
-export const formatStartTime = (startDate, time) => {
+export const setStartTime = (startDate, time) => {
   const { hours, minutes } = getHoursMinutes(time);
   return startDate.clone().add(hours, 'hours').add(minutes, 'minutes'); // moment object
 };
 
-export const formatEndTime = (startTime, duration) => (
+export const setEndTime = (startTime, duration) => (
   startTime.clone().add(duration, 'minutes') // moment object
 );

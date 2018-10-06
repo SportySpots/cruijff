@@ -6,7 +6,7 @@ import Block from '../Block';
 import DatePickerField from './index';
 
 class Container extends React.PureComponent {
-  state = { value: 2 }
+  state = { value: null }
 
   handleChange = (value) => {
     this.setState({ value });

@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Calendar as NativeCalendar } from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../../Themes/Colors';
+import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -72,12 +72,7 @@ const Calendar = ({ value, ...rest }) => {
 };
 
 Calendar.propTypes = {
-  value: PropTypes.shape({
-    year: PropTypes.number,
-    month: PropTypes.number,
-    day: PropTypes.number,
-    dateString: PropTypes.string,
-  }),
+  value: datePickerDatePropTypes,
   // Plus all props from native Calendar
 };
 

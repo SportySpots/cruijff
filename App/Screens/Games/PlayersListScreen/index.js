@@ -10,7 +10,7 @@ import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import Text from '../../../Components/Common/Text';
 import UserCircle from '../../../Components/Common/UserCircle';
-import { navigation as navigationPropType } from '../../../PropTypesDefinitions/navigation';
+import navigationPropTypes from '../../../PropTypesDefinitions/navigation';
 
 export const BottomNav = ({ screens }) =>
   React.createElement(new TabNavigator(screens, {
@@ -134,7 +134,7 @@ const UserList = ({ navigation }) => (
 );
 
 UserList.propTypes = {
-  navigation: navigationPropType,
+  navigation: navigationPropTypes,
 };
 
 export default UserList;
