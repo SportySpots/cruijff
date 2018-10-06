@@ -11,16 +11,6 @@ import Card from '../../Components/Spots/SpotListCard';
 import SpotsList from '../../Components/Spots/SpotsList';
 
 //------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-// Hack: we should query the sport ids from DB
-const ALL_SPORT_IDS = [];
-const N = 8;
-
-for (let i = N; i > 0; i -= 1) {
-  ALL_SPORT_IDS.push(i.toString());
-}
-//------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.View`
@@ -105,7 +95,7 @@ class SpotsListScreen extends React.Component {
       offset: 0,
       limit: 20,
       distance: `${parseInt(1000 * maxDistance, 10)}:52.3727729:4.9055008`, // TODO: use current user location
-      sports__ids: allSports ? ALL_SPORT_IDS : selectedSportIds,
+      sports__ids: allSports ? [] : selectedSportIds, // empty array will return all spots
     };
 
     return (
@@ -154,6 +144,7 @@ class SpotsListScreen extends React.Component {
                 refreshing={loading}
                 onEndReached={loadMore}
                 onEndReachedThreshold={0.1}
+                contentContainerStyle={{ paddingVertical: 8 }}
               />
             </Container>
           );

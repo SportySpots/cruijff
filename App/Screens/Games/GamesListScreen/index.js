@@ -87,9 +87,10 @@ class GamesListScreen extends React.Component {
                 games={(data && data.games && curatedGames(data.games)) || []}
                 cardComponent={GameListCard}
                 onCardPress={this.handleCardPress}
-               // FlatList props
+                // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
+                contentContainerStyle={{ paddingVertical: 8 }}
               />
             </Container>
          );
