@@ -16,9 +16,7 @@ const SportPickerModal = ({
   onSelect,
   onClose,
 }) => {
-  const header = (
-    <Text.ML>{I18n.t('Choose sport')}</Text.ML>
-  );
+  const header = <Text.ML>{I18n.t('Choose sport')}</Text.ML>;
 
   return (
     <DialogModal

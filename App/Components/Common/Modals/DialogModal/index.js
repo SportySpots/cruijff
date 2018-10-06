@@ -4,6 +4,7 @@ import { Dimensions, ScrollView } from 'react-native';
 import styled from 'styled-components';
 import Divider from '../../Divider';
 import Block from '../../Block';
+import Spacer from '../../Spacer';
 import Modal from '../Modal';
 
 //------------------------------------------------------------------------------
@@ -50,12 +51,16 @@ const DialogModal = ({
           {children}
         </Body>
       </StyledScrollView>
-      {footer && [
-        <Divider key="spacer" />,
+      {footer ? [
+        <Divider key="divider" />,
         <Footer key="footer">
           {footer}
         </Footer>,
-      ]}
+      ] : (
+        <Footer>
+          <Spacer size="XL" />
+        </Footer>
+      )}
     </Flex>
   </Modal>
 );
