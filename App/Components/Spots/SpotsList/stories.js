@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import Colors from '../../../Themes/Colors';
-import GET_SPOTS_FOR_SPORT from '../../../GraphQL/Spots/Queries/GET_SPOTS_FOR_SPORT';
+import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
 import Block from '../../Common/Block';
 import SpotListCardSmall from '../../Spots/SpotListCardSmall';
 import SpotListCard from '../../Spots/SpotListCard';
@@ -20,7 +20,7 @@ class Container extends React.PureComponent {
 
     return (
       <Query
-        query={GET_SPOTS_FOR_SPORT}
+        query={GET_SPOTS}
         variables={{ sport: 'SOCCER' }}
       >
         {({ loading, error, data }) =>

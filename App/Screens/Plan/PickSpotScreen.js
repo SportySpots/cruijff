@@ -9,7 +9,7 @@ import Text from '../../Components/Common/Text';
 import { client } from '../../GraphQL/index';
 import withQuery from '../../GraphQL/withQuery';
 import I18n from '../../I18n/index';
-import { GET_SPOTS_FOR_SPORT } from '../../GraphQL/Spots/Queries/GET_SPOTS';
+import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import api from '../../Services/SeedorfApi';
 import NothingFound from '../../Components/Common/NothingFound';
 
@@ -129,7 +129,7 @@ class PickSpotComponent extends Component {
 
 
 export default (props) => {
-  const Comp = withQuery(GET_SPOTS_FOR_SPORT)(PickSpotComponent);
+  const Comp = withQuery(GET_SPOTS)(PickSpotComponent);
   return (<Comp
     {...props}
     variables={{

@@ -18,26 +18,30 @@ const DatePickerField = ({ value, onChange, ...rest }) => (
         onPress={openModal}
         {...rest}
       />,
-      <DatePickerModal
-        key="modal"
-        value={value}
-        visible={visible}
-        onSelect={(date) => {
-          // Pass event up to parent component
-          onChange(date);
-          closeModal();
-        }}
-        onClose={closeModal}
-      />,
+      visible && (
+        <DatePickerModal
+          key="modal"
+          value={value}
+          visible={visible}
+          onSelect={(date) => {
+            // Pass event up to parent component
+            onChange(date);
+            closeModal();
+          }}
+          onClose={closeModal}
+        />
+      ),
     ]}
   </ModalProps>
 );
 
 DatePickerField.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  value: PropTypes.shape({
+    year: PropTypes.number,
+    month: PropTypes.number,
+    day: PropTypes.number,
+    dateString: PropTypes.string,
+  }),
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };

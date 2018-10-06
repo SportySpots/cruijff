@@ -52,7 +52,8 @@ class DatePickerModal extends React.PureComponent {
         header={header}
         okBtnLabel={I18n.t('Ok')}
         cancelBtnLabel={I18n.t('Cancel')}
-        onOk={() => { onSelect(value.dateString); }}
+        // onOk={() => { onSelect(value.dateString); }}
+        onOk={() => { onSelect(value); }}
         onCancel={onClose}
       >
         <Block>
@@ -67,11 +68,12 @@ class DatePickerModal extends React.PureComponent {
 }
 
 DatePickerModal.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.instanceOf(Date),
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  value: PropTypes.shape({
+    year: PropTypes.number,
+    month: PropTypes.number,
+    day: PropTypes.number,
+    dateString: PropTypes.string,
+  }),
   visible: PropTypes.bool,
   onSelect: PropTypes.func,
   onClose: PropTypes.func,
