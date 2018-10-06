@@ -37,7 +37,10 @@ const DurationPickerField = ({ value, onChange, ...rest }) => (
 );
 
 DurationPickerField.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };
