@@ -28,6 +28,7 @@ const colors = {
   concrete: '#F5F5F5',
   chalk: 'fff',
   grass: '#009f36', // rgb(0, 159, 54)
+  grass10: 'rgba(0, 159, 54, 0.1)',
   grass20: 'rgba(0, 159, 54, 0.2)',
   grassDark: '#005537',
   notify: '#f5a623', // rgb(245, 166, 35)
