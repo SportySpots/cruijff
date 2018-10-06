@@ -144,7 +144,10 @@ class SpotsListScreen extends React.Component {
                 refreshing={loading}
                 onEndReached={loadMore}
                 onEndReachedThreshold={0.1}
-                contentContainerStyle={{ paddingVertical: 8 }}
+                contentContainerStyle={{
+                  flexGrow: 1, // centers not found component
+                  paddingVertical: 8,
+                }}
               />
             </Container>
           );

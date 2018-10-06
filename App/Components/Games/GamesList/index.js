@@ -19,7 +19,6 @@ const GamesList = ({
 }) => (
   <FlatList
     showsVerticalScrollIndicator={false}
-    contentContainerStyle={{ flexGrow: 1 }}
     data={games}
     ListEmptyComponent={withEmptyComponent && (
       <NothingFound icon="calendar-plus" text={I18n.t('No games found')} />

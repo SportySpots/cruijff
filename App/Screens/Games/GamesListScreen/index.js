@@ -90,7 +90,10 @@ class GamesListScreen extends React.Component {
                 // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
-                contentContainerStyle={{ paddingVertical: 8 }}
+                contentContainerStyle={{
+                  flexGrow: 1, // centers not found component
+                  paddingVertical: 8,
+                }}
               />
             </Container>
          );
