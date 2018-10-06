@@ -19,6 +19,7 @@ const DatePickerField = ({ value, onChange, ...rest }) => (
         onPress={openModal}
         {...rest}
       />,
+      // Force re-render to re-initialize DatePickerModal state
       visible && (
         <DatePickerModal
           key="modal"

@@ -16,17 +16,20 @@ const CapacityPickerField = ({ value, onChange, ...rest }) => (
         onPress={openModal}
         {...rest}
       />,
-      <CapacityPickerModal
-        key="modal"
-        value={value}
-        visible={visible}
-        onSelect={(capacity) => {
-          // Pass event up to parent component
-          onChange(capacity);
-          closeModal();
-        }}
-        onClose={closeModal}
-      />,
+      // Force re-render to re-initialize CapacityPickerModal state
+      visible && (
+        <CapacityPickerModal
+          key="modal"
+          value={value}
+          visible={visible}
+          onSelect={(capacity) => {
+            // Pass event up to parent component
+            onChange(capacity);
+            closeModal();
+          }}
+          onClose={closeModal}
+        />
+      ),
     ]}
   </ModalProps>
 );
