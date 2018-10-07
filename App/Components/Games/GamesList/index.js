@@ -13,7 +13,7 @@ import Spacer from '../../Common/Spacer';
 const GamesList = ({
   games,
   withEmptyComponent,
-  cardComponent,
+  cardComponent: Card,
   onCardPress,
   ...rest
 }) => (
@@ -29,7 +29,7 @@ const GamesList = ({
         onPress={() => { onCardPress(game.uuid); }}
         activeOpacity={1}
       >
-        {React.createElement(cardComponent, { game })}
+        <Card game={game} />
       </TouchableOpacity>
     )}
     keyExtractor={item => item.uuid}

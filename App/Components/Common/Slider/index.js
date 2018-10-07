@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SliderNative from 'react-native-slider';
 // import styled from 'styled-components';
+import Colors from '../../../Themes/Colors';
 import Row from '../Row';
 import Text from '../Text';
-import Colors from '../../../Themes/Colors';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
