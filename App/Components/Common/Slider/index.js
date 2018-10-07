@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Slider as SliderNative } from 'react-native';
 import SliderNative from 'react-native-slider';
 // import styled from 'styled-components';
 import Row from '../Row';
@@ -11,44 +10,37 @@ import Colors from '../../../Themes/Colors';
 // COMPONENT:
 //------------------------------------------------------------------------------
 // See https://github.com/jeanregisser/react-native-slider instead
-class Slider extends React.Component {
-  // Once the initial value is set, prevent component to re-render based
-  // on value change. Otherwise, slider miss-behaves/jumps
-  shouldComponentUpdate = () => (false)
-
-  render() {
-    const { minimumValue, maximumValue, ...rest } = this.props;
-
-    return [
-      <SliderNative
-        key="slider"
-        minimumValue={minimumValue}
-        maximumValue={maximumValue}
-        minimumTrackTintColor={Colors.primaryGreen}
-        thumbTintColor={Colors.primaryGreen}
-        trackStyle={{
-          height: 1,
-          borderRadius: 1,
-        }}
-        thumbStyle={{
-          shadowColor: 'black',
-          shadowOffset: { width: 0, height: 2 },
-          shadowRadius: 2,
-          shadowOpacity: 0.35,
-          elevation: 2,
-        }}
-        {...rest}
-      />,
-      <Row
-        key="labels"
-        justifyContent="space-between"
-      >
-        <Text>{minimumValue}</Text>
-        <Text>{maximumValue}</Text>
-      </Row>,
-    ];
-  }
-}
+const Slider = ({ minimumValue, maximumValue, ...rest }) => [
+  <SliderNative
+    key="slider"
+    minimumValue={minimumValue}
+    maximumValue={maximumValue}
+    minimumTrackTintColor={Colors.primaryGreen}
+    thumbTintColor={Colors.primaryGreen}
+    trackStyle={{
+      height: 1,
+      borderRadius: 1,
+    }}
+    thumbStyle={{
+      shadowColor: 'black',
+      shadowOffset: { width: 0, height: 2 },
+      shadowRadius: 2,
+      shadowOpacity: 0.35,
+      elevation: 2,
+    }}
+    style={{
+      height: 20,
+    }}
+    {...rest}
+  />,
+  <Row
+    key="labels"
+    justifyContent="space-between"
+  >
+    <Text>{minimumValue}</Text>
+    <Text>{maximumValue}</Text>
+  </Row>,
+];
 
 Slider.propTypes = {
   minimumValue: PropTypes.number.isRequired,
