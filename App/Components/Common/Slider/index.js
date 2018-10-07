@@ -1,22 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Slider as SliderNative } from 'react-native';
-import styled from 'styled-components';
+// import { Slider as SliderNative } from 'react-native';
+import SliderNative from 'react-native-slider';
+// import styled from 'styled-components';
 import Row from '../Row';
 import Text from '../Text';
 import Colors from '../../../Themes/Colors';
 
 //------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const FullWidth = styled.View`
-  margin: 0 -12px;
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// See https://github.com/facebook/react-native/blob/b6b0fc1f27051aae540f0955196dd0d9701749c9/Libraries/Components/Slider/Slider.js
-// TODO: use https://github.com/jeanregisser/react-native-slider instead
+// See https://github.com/jeanregisser/react-native-slider instead
 class Slider extends React.Component {
   // Once the initial value is set, prevent component to re-render based
   // on value change. Otherwise, slider miss-behaves/jumps
@@ -26,15 +20,25 @@ class Slider extends React.Component {
     const { minimumValue, maximumValue, ...rest } = this.props;
 
     return [
-      <FullWidth key="slider">
-        <SliderNative
-          minimumValue={minimumValue}
-          maximumValue={maximumValue}
-          minimumTrackTintColor={Colors.primaryGreen}
-          thumbTintColor={Colors.primaryGreen}
-          {...rest}
-        />
-      </FullWidth>,
+      <SliderNative
+        key="slider"
+        minimumValue={minimumValue}
+        maximumValue={maximumValue}
+        minimumTrackTintColor={Colors.primaryGreen}
+        thumbTintColor={Colors.primaryGreen}
+        trackStyle={{
+          height: 1,
+          borderRadius: 1,
+        }}
+        thumbStyle={{
+          shadowColor: 'black',
+          shadowOffset: { width: 0, height: 2 },
+          shadowRadius: 2,
+          shadowOpacity: 0.35,
+          elevation: 2,
+        }}
+        {...rest}
+      />,
       <Row
         key="labels"
         justifyContent="space-between"
@@ -49,7 +53,7 @@ class Slider extends React.Component {
 Slider.propTypes = {
   minimumValue: PropTypes.number.isRequired,
   maximumValue: PropTypes.number.isRequired,
-  // Plus all props from react-native Slider
+  // Plus all props from react-native-slider
 };
 
 export default Slider;
