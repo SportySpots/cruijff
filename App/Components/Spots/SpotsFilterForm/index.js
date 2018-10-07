@@ -88,33 +88,6 @@ class SpotsFilterForm extends React.PureComponent {
     const { sports, disabled } = this.props;
     const { maxDistance, allSports, selectedSportIds } = this.state;
 
-    // Define sport switches
-    const sportSwitches = [];
-    const { length } = sports;
-
-    for (let i = 0; i < length; i += 1) {
-      const sport = sports[i];
-      // Push every sport-switcher into the array
-      sportSwitches.push(
-        <SwitchWithText
-          key={sport.id}
-          label={I18n.t(sport.name)}
-          value={selectedSportIds.indexOf(sport.id) !== -1}
-          onChange={() => { this.handleSportChange(sport.id); }}
-        />,
-      );
-      // Add spacer after every switch except for the last item
-      if (i < length - 1) {
-        sportSwitches.push(
-          <Spacer
-            key={`spacer-${sport.id}`}
-            orientation="column"
-            size="XL"
-          />,
-        );
-      }
-    }
-
     return [
       <Top key="top">
         <Block>
@@ -138,7 +111,22 @@ class SpotsFilterForm extends React.PureComponent {
         </Block>
         <Divider />
         <Block>
-          {sportSwitches}
+          {sports.map((sport, index) => [
+            <SwitchWithText
+              key={sport.id}
+              label={I18n.t(sport.name)}
+              value={selectedSportIds.indexOf(sport.id) !== -1}
+              onChange={() => { this.handleSportChange(sport.id); }}
+            />,
+            // Add spacer after every switch except for the last item
+            index < sports.length - 1 && (
+              <Spacer
+                key={`spacer-${sport.id}`}
+                orientation="column"
+                size="XL"
+              />
+            ),
+          ])}
         </Block>
       </Top>,
       <Bottom key="bottom">

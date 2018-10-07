@@ -15,6 +15,8 @@ const FullWidth = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// See https://github.com/facebook/react-native/blob/b6b0fc1f27051aae540f0955196dd0d9701749c9/Libraries/Components/Slider/Slider.js
+// TODO: use https://github.com/jeanregisser/react-native-slider instead
 class Slider extends React.Component {
   // Once the initial value is set, prevent component to re-render based
   // on value change. Otherwise, slider miss-behaves/jumps
