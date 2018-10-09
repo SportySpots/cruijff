@@ -4,7 +4,6 @@ import { Dimensions, ScrollView } from 'react-native';
 import styled from 'styled-components';
 import Divider from '../../Divider';
 import Block from '../../Block';
-import Spacer from '../../Spacer';
 import Modal from '../Modal';
 
 //------------------------------------------------------------------------------
@@ -12,6 +11,7 @@ import Modal from '../Modal';
 //------------------------------------------------------------------------------
 const { height: deviceHeight } = Dimensions.get('window');
 const MARGIN = 48;
+const MAX_BODY_HEIGHT = deviceHeight - (4 * MARGIN);
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -28,7 +28,9 @@ const Footer = styled.View`
 `;
 //------------------------------------------------------------------------------
 const StyledScrollView = styled(ScrollView)`
-  max-height: ${deviceHeight - (4 * MARGIN)}px;
+  max-height: ${({ bodyHeight }) => (
+    bodyHeight ? Math.min(bodyHeight, MAX_BODY_HEIGHT) : MAX_BODY_HEIGHT
+  )}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -37,6 +39,7 @@ const DialogModal = ({
   header,
   children,
   footer,
+  bodyHeight,
   ...rest
 }) => (
   <Modal {...rest}>
@@ -46,21 +49,17 @@ const DialogModal = ({
           {header}
         </Block>
       )}
-      <StyledScrollView>
+      <StyledScrollView bodyHeight={bodyHeight}>
         <Body>
           {children}
         </Body>
       </StyledScrollView>
-      {footer ? [
+      {footer && [
         <Divider key="divider" />,
         <Footer key="footer">
           {footer}
         </Footer>,
-      ] : (
-        <Footer>
-          <Spacer size="XL" />
-        </Footer>
-      )}
+      ]}
     </Flex>
   </Modal>
 );
@@ -80,12 +79,14 @@ DialogModal.propTypes = {
     PropTypes.func,
     PropTypes.object,
   ]),
+  bodyHeight: PropTypes.number,
   // Plus all props from native modal and Modal
 };
 
 DialogModal.defaultProps = {
   header: null,
   footer: null,
+  bodyHeight: null,
 };
 
 export default DialogModal;
