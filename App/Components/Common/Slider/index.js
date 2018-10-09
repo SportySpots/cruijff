@@ -17,20 +17,8 @@ const Slider = ({ minimumValue, maximumValue, ...rest }) => [
     maximumValue={maximumValue}
     minimumTrackTintColor={Colors.primaryGreen}
     thumbTintColor={Colors.primaryGreen}
-    trackStyle={{
-      height: 1,
-      borderRadius: 1,
-    }}
-    thumbStyle={{
-      shadowColor: 'black',
-      shadowOffset: { width: 0, height: 2 },
-      shadowRadius: 2,
-      shadowOpacity: 0.35,
-      elevation: 2,
-    }}
-    style={{
-      height: 20,
-    }}
+    trackStyle={{ height: 1 }}
+    style={{ height: 20 }}
     {...rest}
   />,
   <Row
