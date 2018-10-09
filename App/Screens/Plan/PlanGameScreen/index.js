@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Alert, Keyboard, BackHandler } from 'react-native';
+import { Alert, Keyboard, Platform, BackHandler } from 'react-native';
 import Swiper from 'react-native-swiper';
 import extend from 'lodash/extend';
 import styled from 'styled-components';
@@ -74,10 +74,10 @@ class PlanGameScreen extends React.Component {
 
     this.state = {
       curSlide: 0,
-      disabled: false, // disable for buttons after create game submission
+      disabled: false, // disable all buttons after create game is submitted
     };
 
-    // Attach slide initial state to state
+    // Attach slide's initial state to component's state
     SLIDES.forEach(({ initState }) => {
       extend(this.state, Object.assign({}, initState));
     });
@@ -85,18 +85,15 @@ class PlanGameScreen extends React.Component {
 
   // Handle android back button press
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
+    if (Platform.OS === 'android') {
+      BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
+    }
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
-  }
-
-  handleChange = ({ fieldName, value }) => {
-    if (!fieldName) {
-      return;
+    if (Platform.OS === 'android') {
+      BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
     }
-    this.setState({ [fieldName]: value });
   }
 
   handleLeave = () => {
@@ -117,9 +114,17 @@ class PlanGameScreen extends React.Component {
     return true;
   }
 
+  handleChange = ({ fieldName, value }) => {
+    if (!fieldName) {
+      return;
+    }
+    this.setState({ [fieldName]: value });
+  }
+
   handleBack = () => {
     Keyboard.dismiss();
 
+    // Decrease current slider index and slide back one position
     this.setState(
       prevState => ({ curSlide: prevState.curSlide === 0 ? 0 : prevState.curSlide - 1 }),
       () => { this.swiper.scrollBy(-1); },
@@ -141,18 +146,19 @@ class PlanGameScreen extends React.Component {
       description,
     } = this.state;
 
-    // If it's NOT the last slide, increment slide counter
+    // If it's NOT the last slide, increment slide counter and slide forward one position
     if (curSlide !== SLIDES.length - 1) {
       this.setState(
         prevState => ({ curSlide: prevState.curSlide + 1 }),
         () => { this.swiper.scrollBy(1); },
       );
 
-    // Otherwise, create fomat data and call create game API
+    // Otherwise, format data and call create game endpoint
     } else {
       // Disable buttons
       this.setState({ disabled: true });
 
+      // Get user name for game name
       const username = (
         user &&
         user.claims &&
@@ -160,7 +166,7 @@ class PlanGameScreen extends React.Component {
       ) || '';
 
       // Get startTime and endTime from date, time and duration
-      const startDate = setDate(date); // begining of the selected date (moment object)
+      const startDate = setDate(date); // beginning of the selected date (moment object)
       const startTime = setStartTime(startDate, time); // moment object
       const endTime = duration ? setEndTime(startTime, duration) : null; // moment object
 
@@ -168,7 +174,7 @@ class PlanGameScreen extends React.Component {
       console.log('START_TIME', startTime.toISOString()); // '2018-10-06T13:15:00.000Z'
       console.log('END_TIME', endTime ? endTime.toISOString() : null); // '2018-10-06T14:15:00.000Z'
 
-      // TODO: replace this with a single endpoint call
+      // TODO: replace this with a single endpoint
       try {
         // Create game
         const result = await api.createGame({ name: `${username}'s game` });
@@ -197,7 +203,15 @@ class PlanGameScreen extends React.Component {
         const res = await api.setGameStatus({ gameUUID, status: 'PLANNED' });
         console.log('CREATED GAME', res.data);
 
-        // Lastly, redirect user to share screen
+        // Remove android back btn listener manually. Stack navigator won't
+        // unmount this view until the whole create and share process is completed.
+        // We still need the componentWillUnmount life cycle method in case the user
+        // decides to leave the create flow.
+        if (Platform.OS === 'android') {
+          BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
+        }
+
+        // Lastly, clear the navigation stack and then redirect user to share screen
         navigation.navigate('shareGameScreen', { uuid: gameUUID });
       } catch (exc) {
         console.log(exc);
@@ -214,7 +228,7 @@ class PlanGameScreen extends React.Component {
     // Get required fields and restrictions for the current slide
     const { requiredFields, restrictions } = SLIDES[curSlide];
 
-    // Return 'true' if at least on of the required fields isn't set
+    // Disable next btn (return 'true') if at least on of the required fields isn't set
     for (let i = 0; i < requiredFields.length; i += 1) {
       const fieldName = requiredFields[i];
       if (!this.state[fieldName]) {
@@ -222,7 +236,7 @@ class PlanGameScreen extends React.Component {
       }
     }
 
-    // Return 'true' if upper bound is exceeded
+    // Disable next btn (return 'true') if restrictions aren't satisfied
     if (restrictions) {
       for (let i = 0; i < restrictions.length; i += 1) {
         const { fieldName, upperBound } = restrictions[i];
@@ -232,12 +246,13 @@ class PlanGameScreen extends React.Component {
       }
     }
 
-    // Return 'false' otherwise (all required fields are set)
+    // Enable btn otherwise (all required fields are set and restrictions met)
     return false;
   }
 
   get showBack() {
     const { curSlide } = this.state;
+    // Do not back btn for the first slide
     return curSlide !== 0;
   }
 

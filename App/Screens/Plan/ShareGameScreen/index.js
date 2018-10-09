@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard } from 'react-native';
+import { Alert, Keyboard, BackHandler } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
@@ -21,6 +21,41 @@ const FullHeight = styled.View`
 class ShareGameScreen extends React.Component {
   state = {
     isPublic: true,
+  }
+
+  // Handle android back button press
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
+  }
+
+  handleLeave = () => {
+    Keyboard.dismiss();
+
+    const { navigation } = this.props;
+
+    Alert.alert(
+      I18n.t('Confirm'),
+      I18n.t('Are you sure you want to cancel this game?'),
+      [
+        { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
+        {
+          text: I18n.t('Yes'),
+          onPress: () => {
+            // Go back to the beginning of the stack
+            navigation.popToTop();
+            // Go back to main tabs navigation
+            navigation.goBack(null);
+          },
+        },
+      ],
+    );
+
+    // Need this for android back handler btn to work
+    return true;
   }
 
   get gameUUID() {
@@ -54,7 +89,7 @@ class ShareGameScreen extends React.Component {
       console.log(exc);
     }
 
-    // Go back to the begining of the stack
+    // Go back to the beginning of the stack
     navigation.popToTop();
     // Go back to main tabs navigation
     navigation.goBack(null);

@@ -174,8 +174,12 @@
   "Hell yes": "Jazeker",
   "Cancel": "Annuleer",
   "Ok": "Ok",
-  "Spot": "Locatie",
+  "Spot": "Spot",
   "Edit presence": "Wijzigen aanwezigheid",
   "invite via": "uitnodigen via",
-  "Close": "Sluit"
+  "Close": "Sluit",
+  "Description": "Beschrijving",
+  "during": "gedurende",
+  "at": "om",
+  "Invite": "Nodigen"
 }
