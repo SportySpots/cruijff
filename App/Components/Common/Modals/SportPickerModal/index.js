@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import { ScrollView } from 'react-native';
 import I18n from '../../../../I18n';
 import Fonts from '../../../../Themes/Fonts';
 import sportFragment from '../../../../GraphQL/Sports/Fragments/sport';
@@ -30,10 +31,12 @@ const SportPickerModal = ({
       header={header}
       bodyHeight={8 * SPORT_CARD_HEIGHT}
     >
-      <SportsList
-        selectedSport={value}
-        onSportPress={onSelect}
-      />
+      <ScrollView>
+        <SportsList
+          selectedSport={value}
+          onSportPress={onSelect}
+        />
+      </ScrollView>
     </DialogModal>
   );
 };

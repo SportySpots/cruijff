@@ -7,9 +7,7 @@ import RaisedButton from '../../RaisedButton';
 import DialogModal from './index';
 
 const Container = ({ header, children }) => {
-  const footer = (
-    <Text>I&apos;m the footer</Text>
-  );
+  const footer = <Text>I&apos;m the footer</Text>;
 
   return (
     <ModalProps>
