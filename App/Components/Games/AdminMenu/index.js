@@ -7,16 +7,16 @@ import { Query } from 'react-apollo';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n';
-// import Colors from '../../../Themes/Colors';
+import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
 import GET_GAME_ORGANIZER from '../../../GraphQL/Games/Queries/GET_GAME_ORGANIZER';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-/* const Danger = styled(Text.M)`
+const Danger = styled(Text.M)`
   color: ${Colors.red};
-`; */
+`;
 //------------------------------------------------------------------------------
 const TriggerContainer = styled.View`
   padding-right: 8px;
@@ -42,7 +42,7 @@ class AdminMenu extends React.PureComponent {
 
   handleEdit = () => {
     const { navigation } = this.props;
-    navigation.navigate('PlanScreen', { uuid: this.gameUUID });
+    navigation.navigate('EditGameScreen', { uuid: this.gameUUID });
   }
 
   handleCancel = () => {
@@ -85,12 +85,12 @@ class AdminMenu extends React.PureComponent {
                 </TriggerContainer>
               </MenuTrigger>
               <MenuOptions customStyles={optionsStyles}>
-                {/* <MenuOption onSelect={this.handleEdit}>
+                <MenuOption onSelect={this.handleEdit}>
                   <Text.M>{I18n.t('Edit Activity')}</Text.M>
                 </MenuOption>
-                <MenuOption disabled /> */}
+                <MenuOption disabled />
                 <MenuOption onSelect={this.handleCancel}>
-                  <Text.M>{I18n.t('Cancel activity')}</Text.M>
+                  <Danger>{I18n.t('Cancel activity')}</Danger>
                 </MenuOption>
               </MenuOptions>
             </Menu>
@@ -122,6 +122,7 @@ AdminMenu.defaultProps = {
   user: null,
 };
 
+// TODO: we need a user provider at top level to avoid using redux over and over again
 const mapStateToProps = ({ user }) => ({ user });
 const withRedux = connect(mapStateToProps, null);
 
