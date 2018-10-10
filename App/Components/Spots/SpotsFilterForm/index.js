@@ -6,8 +6,10 @@ import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Block from '../../Common/Block';
+import Row from '../../Common/Row';
 import Divider from '../../Common/Divider';
 import Spacer from '../../Common/Spacer';
+import Text from '../../Common/Text';
 import SliderWithText from '../../Common/SliderWithText';
 import SwitchWithText from '../../Common/SwitchWithText';
 import RaisedButton from '../../Common/RaisedButton';
@@ -92,12 +94,22 @@ class SpotsFilterForm extends React.PureComponent {
       <Top key="top">
         <Block>
           <SliderWithText
-            minimumValue={1}
+            minimumValue={0}
             maximumValue={20}
             value={maxDistance}
             onValueChange={this.handleDistanceChange}
             label={I18n.t('Location')}
-            description={`${I18n.t('Shows spots inside')}: ${maxDistance.toFixed(1)}km`}
+            description={(
+              <Row alignItems="flex-end">
+                <Text.SM style={{ color: Colors.gray }}>
+                  {I18n.t('Shows spots inside')}:
+                </Text.SM>
+                <Spacer orientation="row" size="S" />
+                <Text.SM style={{ fontWeight: 'bold' }}>
+                  {maxDistance.toFixed(1).toString().replace('.0', '')} KM
+                </Text.SM>
+              </Row>
+            )}
           />
         </Block>
         <Divider />

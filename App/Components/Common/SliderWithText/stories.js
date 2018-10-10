@@ -25,7 +25,7 @@ class Container extends React.PureComponent {
         <Text>{value}</Text>
         <SliderWithText
           label="I'm the label"
-          description="I'm the description"
+          description={<Text>I&apos;m the description</Text>}
           value={value}
           onValueChange={this.handleChange}
           {...this.props}

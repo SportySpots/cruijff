@@ -5,6 +5,8 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
+  require('../App/Components/Common/Slider/stories');
+  require('../App/Screens/Spots/SpotsFilterScreen/stories');
   require('../App/Components/Common/Menu/stories');
   require('../App/Components/Games/AdminMenu/stories');
   require('../App/Screens/Games/EditGameScreen/stories');
@@ -12,6 +14,8 @@ function loadStories() {
 }
 
 const stories = [
+  '../App/Components/Common/Slider/stories',
+  '../App/Screens/Spots/SpotsFilterScreen/stories',
   '../App/Components/Common/Menu/stories',
   '../App/Components/Games/AdminMenu/stories',
   '../App/Screens/Games/EditGameScreen/stories',
@@ -22,3 +26,4 @@ module.exports = {
   loadStories,
   stories,
 };
+
