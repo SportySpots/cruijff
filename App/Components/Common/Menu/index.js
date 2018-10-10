@@ -22,7 +22,7 @@ const optionsStyles = {
   optionsContainer: {
     borderRadius: 8,
     paddingVertical: 8,
-    marginTop: -34,
+    marginTop: 6,
     marginLeft: -16,
   },
   optionWrapper: {
@@ -41,8 +41,13 @@ const Menu = ({ menuName, triggerName, options }) => (
       </TriggerContainer>
     </MenuTrigger>
     <MenuOptions customStyles={optionsStyles}>
-      {options.map(({ id, text, danger, handlePress }) => (
-        <MenuOption key={id} onSelect={handlePress}>
+      {options.map(({
+        id,
+        text,
+        danger,
+        onPress,
+      }) => (
+        <MenuOption key={id} onSelect={onPress}>
           <StyledText danger={danger}>
             {text}
           </StyledText>
