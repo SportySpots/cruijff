@@ -9,7 +9,7 @@ import GameProperties from '../GameProperties';
 import OrganizerAndDescription from '../OrganizerAndDescription';
 import ClickableAttendees from '../ClickableAttendees';
 import OpenSpots from '../OpenSpots';
-import RSPV from '../RSPV';
+import RSVP from '../RSVP';
 import ShareGameButton from '../ShareGameButton';
 import Block from '../../Common/Block';
 import Label from '../../Common/Label';
@@ -89,11 +89,11 @@ class GameDetails extends React.PureComponent {
         </Block>,
       ],
       !isCanceled && (
-        <Block key="rspv">
+        <Block key="rsvp">
           <Label>
             {I18n.t(!this.userStatus ? 'Do you join?' : 'Edit presence')}
           </Label>
-          <RSPV
+          <RSVP
             gameUUID={game.uuid}
             userRSVP={this.userRSVP}
             userStatus={this.userStatus}

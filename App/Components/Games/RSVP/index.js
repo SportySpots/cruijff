@@ -18,7 +18,7 @@ const RSVP_STATUSES = {
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: disable button on submit
-class RSPV extends React.PureComponent {
+class RSVP extends React.PureComponent {
   setRSVPStatus = async (status) => {
     const {
       gameUUID,
@@ -114,7 +114,7 @@ class RSPV extends React.PureComponent {
   }
 }
 
-RSPV.propTypes = {
+RSVP.propTypes = {
   gameUUID: PropTypes.string.isRequired,
   // TODO: use userFragment
   userRSVP: PropTypes.object, // eslint-disable-line
@@ -131,11 +131,11 @@ RSPV.propTypes = {
   onSuccessHook: PropTypes.func,
 };
 
-RSPV.defaultProps = {
+RSVP.defaultProps = {
   userRSVP: null,
   userStatus: null,
   onBeforeHook: () => {},
   onSuccessHook: () => {},
 };
 
-export default RSPV;
+export default RSVP;
