@@ -24,7 +24,7 @@ import AdminMenu from '.';
 storiesOf('Games.AdminMenu', module)
   .add('AdminMenu', () => (
     <Provider store={store}>
-      <View style={{ backgroundColor: 'gray', height: 100 }}>
+      <View style={{ backgroundColor: 'gray', flex: 1 }}>
         <Row justifyContent="space-between">
           <View />
           <AdminMenu navigation={navigation} />
