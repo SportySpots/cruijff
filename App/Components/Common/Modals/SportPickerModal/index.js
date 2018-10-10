@@ -3,16 +3,12 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { ScrollView } from 'react-native';
 import I18n from '../../../../I18n';
-import Fonts from '../../../../Themes/Fonts';
 import sportFragment from '../../../../GraphQL/Sports/Fragments/sport';
 import Text from '../../Text';
 import SportsList from '../../SportsList';
 import DialogModal from '../DialogModal';
+import { SPORT_CARD_HEIGHT } from '../../SportCard';
 
-//------------------------------------------------------------------------------
-// COMPONENT:
-//------------------------------------------------------------------------------
-const SPORT_CARD_HEIGHT = (16 * 2) + (1.4 * Fonts.style.M.fontSize); // padding = 16
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------

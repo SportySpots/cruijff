@@ -5,12 +5,18 @@ import { TouchableOpacity, Image } from 'react-native';
 import I18n from '../../../I18n/index';
 import themeIcons from '../../../Themes/Icons';
 import Colors from '../../../Themes/Colors';
+import Fonts from '../../../Themes/Fonts';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Block from '../Block';
 import Row from '../Row';
 import Spacer from '../Spacer';
 import Text from '../Text';
 
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+// 16 = padding from Block
+export const SPORT_CARD_HEIGHT = (16 * 2) + (1.4 * Fonts.style.M.fontSize);
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
