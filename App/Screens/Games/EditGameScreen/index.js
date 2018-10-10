@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 import FormProps from '../../../RenderProps/form-props';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import CancelGame from '../../../Components/Games/CancelGame';
+import EditGame from '../../../Components/Games/EditGame';
 import CancelGameDoneModal from '../../../Components/Games/CancelGameDoneModal';
 import { addModelState } from '../../../utils';
 
@@ -16,7 +16,7 @@ class EditGameScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
-    addModelState(this, 'cancelDone');
+    addModelState(this, 'editDone');
   }
 
   get gameUUID() {
@@ -24,14 +24,14 @@ class EditGameScreen extends React.PureComponent {
     return navigation.state.params.uuid;
   }
 
-  handleAttendeesPress = () => {
-    const { navigation } = this.props;
-    navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
-  }
+  // handleAttendeesPress = () => {
+  //   const { navigation } = this.props;
+  //   navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
+  // }
 
   render() {
     const { user, navigation } = this.props;
-    const cancelDoneModal = this.modals.cancelDone;
+    const editDoneModal = this.modals.editDone;
 
     return (
       <FormProps>
@@ -76,7 +76,7 @@ class EditGameScreen extends React.PureComponent {
               }
 
               return [
-                <CancelGame
+                <EditGame
                   key="form"
                   game={data.game}
                   // Form props
@@ -86,16 +86,16 @@ class EditGameScreen extends React.PureComponent {
                   onServerErrorHook={handleServerError}
                   onSuccessHook={() => {
                     // Extend FormProps.handleSuccess default functionality
-                    handleSuccess(cancelDoneModal.show);
+                    handleSuccess(editDoneModal.show);
                   }}
                   // Other props
-                  onAttendeesPress={this.handleAttendeesPress}
+                  // onAttendeesPress={this.handleAttendeesPress}
                 />,
                 <CancelGameDoneModal
                   key="modal"
-                  visible={cancelDoneModal.isVisible}
+                  visible={editDoneModal.isVisible}
                   onClose={() => {
-                    cancelDoneModal.hide();
+                    editDoneModal.hide();
                     // Refetch activity data
                     refetch();
                     // Redirect user to activity display screen

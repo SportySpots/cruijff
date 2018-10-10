@@ -182,5 +182,7 @@
   "Description": "Beschrijving",
   "during": "gedurende",
   "at": "om",
-  "Invite": "Nodigen"
+  "Invite": "Nodigen",
+  "Activity name": "Naam activiteit",
+  "Activity details": "Activiteit details"
 }

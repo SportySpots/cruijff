@@ -7,7 +7,7 @@ import Colors from '../../../Themes/Colors';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const TextField = ({ theme, size, ...rest }) => {
+const TextField = ({ theme, size, disabled, ...rest }) => {
   const isWhiteTheme = theme === 'white';
 
   return (
@@ -18,17 +18,19 @@ const TextField = ({ theme, size, ...rest }) => {
       errorColor={Colors.red}
       animationDuration={150}
       lineWidth={1}
+      disabledLineWidth={0}
       baseColor={isWhiteTheme ? Colors.white : Colors.black}
       tintColor={isWhiteTheme ? Colors.white : Colors.primaryGreen}
       activeLineWidth={2}
       inputContainerPadding={14}
+      disabled={disabled}
       style={{
         fontSize: Fonts.style[size].fontSize,
         fontWeight: 'normal',
         fontFamily: Fonts.style[size].fontFamily,
         lineHeight: 1.3 * Fonts.style[size].fontSize,
         marginTop: 8, // the lower the padding the greater the line height
-        color: isWhiteTheme ? Colors.white : Colors.black,
+        color: isWhiteTheme ? Colors.white : (disabled ? Colors.gray : Colors.black),
       }}
       {...rest}
     />
@@ -38,12 +40,14 @@ const TextField = ({ theme, size, ...rest }) => {
 TextField.propTypes = {
   theme: PropTypes.oneOf(['white', 'black']),
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  disabled: PropTypes.bool,
   // Plus all props from react-native-material-textfield
 };
 
 TextField.defaultProps = {
   theme: 'black',
   size: 'M',
+  disabled: false,
 };
 
 export default TextField;
