@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Keyboard, BackHandler } from 'react-native';
+import { Alert, Keyboard, Platform, BackHandler } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
@@ -25,11 +25,15 @@ class ShareGameScreen extends React.Component {
 
   // Handle android back button press
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
+    if (Platform.OS === 'android') {
+      BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
+    }
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
+    if (Platform.OS === 'android') {
+      BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
+    }
   }
 
   handleLeave = () => {
