@@ -22,6 +22,7 @@ const StyledRow = styled(Row)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: move to common folder
 const DarkFooter = ({
   numPages,
   currentPage,

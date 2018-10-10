@@ -10,6 +10,7 @@ import { addMockFunctionsToSchema } from 'graphql-tools';
 import React from 'react';
 import mocks from './mocks';
 
+// TODO: cleanup, solve eslint errors
 export let client = null;
 
 const createCache = () =>

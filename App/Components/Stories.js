@@ -22,6 +22,7 @@ import PropertyCircle from './Common/PropertyCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import NothingFound from './Common/NothingFound';
 
+// TODO: move stories to individual component's folder
 const dummyNavigator = {
   navigate: () => null,
   state: {

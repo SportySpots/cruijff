@@ -4,6 +4,7 @@ import { Text, View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Footer from '../DarkFooter';
 
+// TODO: refactor, move to common folder, try to use in PlanGame screens
 /* ScreenSlider is using the same interface as FlatList (data, renderItem, keyExtractor) */
 export default class ScreenSlider extends Component {
   static propTypes = {

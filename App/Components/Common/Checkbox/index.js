@@ -9,6 +9,7 @@ import Colors from '../../../Themes/Colors';
 //------------------------------------------------------------------------------
 // TODO: probably need to use absolute-relative position to add white bg.
 // backgroundColor prop doesn't work as expected :(
+// TODO: use some checkbox lib!
 const Checkbox = ({ theme, checked, ...rest }) => {
   const isWhiteTheme = theme === 'white';
 
