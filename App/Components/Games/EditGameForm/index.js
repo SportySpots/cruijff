@@ -8,7 +8,7 @@ import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
-import SportPickerField from '../../Common/SportPickerField';
+// import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
 import TimePickerField from '../../Common/TimePickerField';
 import DurationPickerField from '../../Common/DurationPickerField';
@@ -20,6 +20,7 @@ import Row from '../../Common/Row';
 import Divider from '../../Common/Divider';
 import Text from '../../Common/Text';
 import TextField from '../../Common/TextField';
+import SwitchWithText from '../../Common/SwitchWithText';
 // import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
 import RaisedButton from '../../Common/RaisedButton';
 
@@ -62,6 +63,7 @@ class EditGameForm extends React.PureComponent {
     super(props);
 
     const { game } = props;
+    console.log('GAME', game);
     const {
       name,
       sport,
@@ -71,6 +73,7 @@ class EditGameForm extends React.PureComponent {
       capacity,
       spot,
       description,
+      invite_mode: inviteMode,
     } = game;
 
     this.state = {
@@ -82,11 +85,12 @@ class EditGameForm extends React.PureComponent {
       capacity,
       spot,
       description: description || '',
+      isPublic: inviteMode !== 'INVITE_ONLY',
       errors: {
         name: [],
         description: [],
       },
-    }
+    };
   }
 
   clearErrors = () => {
@@ -99,6 +103,8 @@ class EditGameForm extends React.PureComponent {
   };
 
   handleChange = ({ fieldName, value }) => {
+    console.log('FIELD_NAME', fieldName);
+    console.log('VALUE', value);
     if (!fieldName) {
       return;
     }
@@ -157,6 +163,7 @@ class EditGameForm extends React.PureComponent {
       capacity,
       spot,
       description,
+      isPublic,
     } = this.state;
 
     // Clear previous errors if any
@@ -185,11 +192,12 @@ class EditGameForm extends React.PureComponent {
       capacity,
       spot,
       description,
+      isPublic,
     });
   }
 
   render() {
-    const { game, disabled, onSpotPress } = this.props;
+    const { disabled, onSpotPress } = this.props;
     const {
       name,
       sport,
@@ -199,11 +207,14 @@ class EditGameForm extends React.PureComponent {
       capacity,
       spot,
       description,
+      isPublic,
       errors,
     } = this.state;
 
     const nameErrors = ErrorHandling.getFieldErrors(errors, 'name');
     const descriptionErrors = ErrorHandling.getFieldErrors(errors, 'description');
+
+    console.log('IS_PUBLIC', isPublic);
 
     return [
       <Top key="top">
@@ -282,6 +293,14 @@ class EditGameForm extends React.PureComponent {
             onChangeText={(value) => { this.handleChange({ fieldName: 'description', value }); }}
             theme="black"
             error={descriptionErrors}
+          />
+        </Block>
+        <Divider />
+        <Block>
+          <SwitchWithText
+            label={I18n.t('This is a private activity')}
+            value={!isPublic}
+            onChange={(value) => { this.handleChange({ fieldName: 'isPublic', value: !value }); }}
           />
         </Block>
       </Top>,

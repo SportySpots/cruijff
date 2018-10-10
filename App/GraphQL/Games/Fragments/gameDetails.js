@@ -11,6 +11,7 @@ const gameDetailsFragment = gql`
     show_remaining
     capacity
     description
+    invite_mode
     sport {
       uuid
       category
