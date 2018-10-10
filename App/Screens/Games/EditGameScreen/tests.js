@@ -2,23 +2,23 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 
-import CancelGameScreen from '.';
+import EditGameScreen from '.';
 import { navigation, store } from './mocks';
 import { WithApolloMockProvider } from '../../../GraphQL';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 
-describe('CancelGameScreen', () => {
+describe('EditGameScreen', () => {
   it('renders', () => {
     const WrappedScreen = renderer.create(
       <Provider store={store}>
         <WithApolloMockProvider>
-          <CancelGameScreen
+          <EditGameScreen
             navigation={navigation}
           />
         </WithApolloMockProvider>
       </Provider>,
     );
-    const Screen = WrappedScreen.root.findByType(CancelGameScreen);
+    const Screen = WrappedScreen.root.findByType(EditGameScreen);
     expect(Screen.instance.props).toHaveProperty('navigation', navigation);
 
     const activityIndicator = Screen.findByType(CenteredActivityIndicator);

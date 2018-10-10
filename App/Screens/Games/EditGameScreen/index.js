@@ -12,7 +12,7 @@ import { addModelState } from '../../../utils';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class CancelGameScreen extends React.PureComponent {
+class EditGameScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
@@ -111,7 +111,7 @@ class CancelGameScreen extends React.PureComponent {
   }
 }
 
-CancelGameScreen.propTypes = {
+EditGameScreen.propTypes = {
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -122,7 +122,7 @@ CancelGameScreen.propTypes = {
   user: PropTypes.object, // eslint-disable-line
 };
 
-CancelGameScreen.defaultProps = {
+EditGameScreen.defaultProps = {
   user: null,
 };
 
@@ -130,4 +130,4 @@ CancelGameScreen.defaultProps = {
 const mapStateToProps = ({ user }) => ({ user });
 const withRedux = connect(mapStateToProps, null);
 
-export default withRedux(CancelGameScreen);
+export default withRedux(EditGameScreen);

@@ -3,13 +3,13 @@ import { storiesOf } from '@storybook/react-native';
 import { Provider } from 'react-redux';
 import { View } from 'react-native';
 import { store, navigation } from './mocks';
-import CancelGameScreen from '.';
+import EditGameScreen from '.';
 
 storiesOf('Screens.Games', module)
-  .add('CancelGameScreen', () => (
+  .add('EditGameScreen', () => (
     <View style={{ flex: 1 }}>
       <Provider store={store}>
-        <CancelGameScreen
+        <EditGameScreen
           navigation={navigation}
         />
       </Provider>
