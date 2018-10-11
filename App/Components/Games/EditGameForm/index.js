@@ -255,9 +255,11 @@ class EditGameForm extends React.PureComponent {
           <Row>
             <Half>
               <TimePickerField
+                label={I18n.t('Start time')}
                 value={time}
                 size="ML"
                 theme="black"
+                boxed
                 onChange={(value) => { this.handleChange({ fieldName: 'time', value }); }}
               />
             </Half>
