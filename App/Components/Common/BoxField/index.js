@@ -54,6 +54,7 @@ const BoxField = ({
             </TextSize>
           </Container>
         </View>
+        {/* Add custom carret */}
         <View>
           <Spacer size="XXL" />
           <Icon

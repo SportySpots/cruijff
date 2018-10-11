@@ -48,10 +48,6 @@ const Bottom = styled.View`
   padding-horizontal: 16px;
 `;
 //------------------------------------------------------------------------------
-const DurationFieldContainer = styled.View`
-  width: 170px;
-`;
-//------------------------------------------------------------------------------
 const Half = styled.View`
   flex: 1;
 `;
@@ -251,9 +247,9 @@ class EditGameForm extends React.PureComponent {
           />
         </Block>
         <Divider />
-        <Block>
-          <Row>
-            <Half>
+        <Row>
+          <Half>
+            <Block>
               <TimePickerField
                 label={I18n.t('Start time')}
                 value={time}
@@ -262,20 +258,21 @@ class EditGameForm extends React.PureComponent {
                 boxed
                 onChange={(value) => { this.handleChange({ fieldName: 'time', value }); }}
               />
-            </Half>
-            <Half>
-              <DurationFieldContainer>
-                <DurationPickerField
-                  label=""
-                  value={duration}
-                  onChange={(value) => { this.handleChange({ fieldName: 'duration', value }); }}
-                  theme="black"
-                  size="ML"
-                />
-              </DurationFieldContainer>
-            </Half>
-          </Row>
-        </Block>
+            </Block>
+          </Half>
+          <Half>
+            <Block>
+              <DurationPickerField
+                label={I18n.t('Duration')}
+                value={duration}
+                size="ML"
+                theme="black"
+                boxed
+                onChange={(value) => { this.handleChange({ fieldName: 'duration', value }); }}
+              />
+            </Block>
+          </Half>
+        </Row>
         <Divider />
         <Block>
           <CapacityPickerField
