@@ -232,22 +232,21 @@ class EditGameForm extends React.PureComponent {
         <Divider />
         <Block bgColor={Colors.lightGray}>
           <TextField
-            value={I18n.t(sport.name) || I18n.t(sport.category)}
-            onChangeText={() => {}}
             label={I18n.t('Sport')}
+            value={I18n.t(sport.name) || I18n.t(sport.category)}
             disabled
             size="ML"
-            // error={error}
-            // multiline
-            // placeholder={I18n.t('Write here why the activity does not continue')}
+            onChangeText={() => {}}
           />
         </Block>
         <Divider />
         <Block>
           <DatePickerField
+            label={I18n.t('Date')}
             value={date}
             size="ML"
             theme="black"
+            boxed
             onChange={(value) => { this.handleChange({ fieldName: 'date', value }); }}
           />
         </Block>
