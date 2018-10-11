@@ -260,6 +260,7 @@ class EditGameForm extends React.PureComponent {
               />
             </Block>
           </Half>
+          <Divider orientation="row" />
           <Half>
             <Block>
               <DurationPickerField
