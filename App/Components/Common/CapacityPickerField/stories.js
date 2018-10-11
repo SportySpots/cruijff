@@ -13,14 +13,22 @@ class Container extends React.PureComponent {
   }
 
   render() {
-    const { theme } = this.props;
+    const {
+      theme,
+      label,
+      boxed,
+      size,
+    } = this.props;
     const { value } = this.state;
 
     return (
       <CapacityPickerField
         theme={theme}
+        label={label}
+        boxed={boxed}
         value={value}
         onChange={this.handleChange}
+        size={size}
       />
     );
   }
@@ -28,10 +36,16 @@ class Container extends React.PureComponent {
 
 Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
+  size: PropTypes.string,
+  label: PropTypes.string,
+  boxed: PropTypes.bool,
 };
 
 Container.defaultProps = {
   theme: 'black',
+  size: 'M',
+  label: '',
+  boxed: false,
 };
 
 storiesOf('Common.CapacityPickerField', module)
@@ -42,4 +56,7 @@ storiesOf('Common.CapacityPickerField', module)
     <Block bgColor={Colors.primaryGreen}>
       <Container theme="white" />
     </Block>
+  ))
+  .add('CapacityPickerField boxed size ML', () => (
+    <Container label="I'm the label" boxed size="ML" />
   ));

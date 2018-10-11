@@ -235,7 +235,6 @@ class EditGameForm extends React.PureComponent {
             onChangeText={() => {}}
           />
         </Block>
-        <Divider />
         <Block>
           <DatePickerField
             label={I18n.t('Date')}
@@ -277,9 +276,11 @@ class EditGameForm extends React.PureComponent {
         <Divider />
         <Block>
           <CapacityPickerField
+            label={I18n.t('Number of players')}
             value={capacity}
             size="ML"
             theme="black"
+            boxed
             onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
           />
         </Block>

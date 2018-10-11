@@ -5,6 +5,7 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
+  require('../App/Components/Common/CapacityPickerField/stories');
   require('../App/Components/Common/Divider/stories');
   require('../App/Components/Common/DurationPickerField/stories');
   require('../App/Components/Common/DropdownBox/stories');
@@ -18,6 +19,7 @@ function loadStories() {
 }
 
 const stories = [
+  '../App/Components/Common/CapacityPickerField/stories',
   '../App/Components/Common/Divider/stories',
   '../App/Components/Common/DurationPickerField/stories',
   '../App/Components/Common/DropdownBox/stories',
