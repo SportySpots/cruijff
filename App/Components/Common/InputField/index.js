@@ -23,12 +23,37 @@ const InputField = ({
   comp,
   theme,
   onPress,
+  boxed,
   ...rest
 }) => {
   const isTextField = comp === 'TextField';
   const Comp = isTextField ? TextField : Dropdown;
   const pointerEvents = isTextField ? 'none' : 'auto';
   const isWhiteTheme = theme === 'white';
+
+  if (boxed) {
+    return (
+      <TouchableOpacity onPress={onPress}>
+        <Row>
+          <FlexGrow pointerEvents={pointerEvents}>
+            <Comp
+              theme={theme}
+              {...rest}
+            />
+          </FlexGrow>
+          {/* Add custom carret */}
+          <View>
+            <Spacer size="XXL" />
+            <Icon
+              size={24}
+              name="keyboard-arrow-down"
+              color={isWhiteTheme ? Colors.white : Colors.black}
+            />
+          </View>
+        </Row>
+      </TouchableOpacity>
+    );
+  }
 
   return (
     <TouchableOpacity onPress={onPress}>
@@ -63,11 +88,13 @@ InputField.propTypes = {
   comp: PropTypes.oneOf(['TextField', 'Dropdown']).isRequired,
   theme: PropTypes.oneOf(['white', 'black']),
   onPress: PropTypes.func,
+  boxed: PropTypes.bool,
 };
 
 InputField.defaultProps = {
   theme: 'black',
   onPress: () => {},
+  boxed: false,
 };
 
 export default InputField;

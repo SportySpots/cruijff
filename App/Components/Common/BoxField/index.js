@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -13,7 +13,7 @@ import Dropdown from '../Dropdown';
 // STYLE:
 //------------------------------------------------------------------------------
 const FlexGrow = styled.View`
-  flex-grow: 1; /* full width */
+  flex-grow: 1; /* full width //
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -39,7 +39,7 @@ const BoxField = ({
             {...rest}
           />
         </FlexGrow>
-        {/* Add custom carret */}
+        {/* Add custom carret //}
         <View>
           <Spacer size="XXL" />
           <Icon
@@ -65,6 +65,7 @@ BoxField.defaultProps = {
 };
 
 export default BoxField;
+*/
 
 /*
 import React from 'react';

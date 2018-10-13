@@ -27,6 +27,17 @@ storiesOf('Common.InputField', module)
       />
     </Block>
   ))
+  .add('InputField TextField comp boxed', () => (
+    <Block>
+      <InputField
+        comp="TextField"
+        label="I'm the label"
+        value="I'm the value"
+        error="I'm the error"
+        boxed
+      />
+    </Block>
+  ))
   .add('InputField Dropdown comp', () => (
     <Block>
       <InputField
@@ -34,6 +45,17 @@ storiesOf('Common.InputField', module)
         label="I'm the label"
         data={data}
         error="I'm the error"
+      />
+    </Block>
+  ))
+  .add('InputField Dropdown comp boxed', () => (
+    <Block>
+      <InputField
+        comp="Dropdown"
+        label="I'm the label"
+        data={data}
+        error="I'm the error"
+        boxed
       />
     </Block>
   ))

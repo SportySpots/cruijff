@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import styled from 'styled-components';
@@ -13,7 +13,7 @@ import Dropdown from '../Dropdown';
 // STYLE:
 //------------------------------------------------------------------------------
 const FlexGrow = styled.View`
-  flex-grow: 1; /* full width */
+  flex-grow: 1; /* full width //
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -29,7 +29,7 @@ const DropdownBox = ({ theme, ...rest }) => {
           {...rest}
         />
       </FlexGrow>
-      {/* Add custom carret */}
+      {/* Add custom carret //}
       <View>
         <Spacer size="XXL" />
         <Icon
@@ -62,3 +62,4 @@ DropdownBox.defaultProps = {
 };
 
 export default DropdownBox;
+*/

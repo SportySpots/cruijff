@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/react-native';
+/* import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from 'react-native';
@@ -87,3 +87,4 @@ storiesOf('Common.DropdownField', module)
       size="L"
     />
   ));
+*/

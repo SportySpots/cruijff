@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -12,7 +12,7 @@ import Dropdown from '../Dropdown';
 // STYLE:
 //------------------------------------------------------------------------------
 const FullWidth = styled.View`
-  flex: 1; /* full width */
+  flex: 1; /* full width //
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -30,7 +30,7 @@ const DropdownField = ({ theme, ...rest }) => {
           {...rest}
         />
       </FullWidth>
-      {/* Add custom carret */}
+      {/* Add custom carret //}
       <Icon
         size={24}
         name="keyboard-arrow-down"
@@ -62,3 +62,4 @@ DropdownField.defaultProps = {
 };
 
 export default DropdownField;
+*/

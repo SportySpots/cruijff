@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/react-native';
+/* import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
@@ -70,3 +70,4 @@ storiesOf('Common.BoxField', module)
       />
     </Block>
   ));
+*/
