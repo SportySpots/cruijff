@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from '../../../I18n/index';
-import DropdownField from '../DropdownField';
-import DropdownBox from '../DropdownBox';
+import InputField from '../InputField';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -27,32 +26,15 @@ const data = DURATION_OPTIONS.map(({ number, unit, value }) => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DurationPickerField = ({
-  value,
-  onChange,
-  boxed,
-  ...rest
-}) => {
-  if (!boxed) {
-    return (
-      <DropdownField
-        value={value || ''}
-        data={data}
-        onChangeText={(duration) => { onChange(duration.value); }}
-        {...rest}
-      />
-    );
-  }
-
-  return (
-    <DropdownBox
-      value={value || ''}
-      data={data}
-      onChangeText={(duration) => { onChange(duration.value); }}
-      {...rest}
-    />
-  );
-};
+const DurationPickerField = ({ value, onChange, ...rest }) => (
+  <InputField
+    comp="Dropdown"
+    value={value || ''}
+    data={data}
+    onChangeText={(duration) => { onChange(duration.value); }}
+    {...rest}
+  />
+);
 
 DurationPickerField.propTypes = {
   value: PropTypes.oneOfType([
@@ -60,14 +42,12 @@ DurationPickerField.propTypes = {
     PropTypes.string,
   ]),
   onChange: PropTypes.func,
-  boxed: PropTypes.bool,
   // Plus all InputField props (theme, size)
 };
 
 DurationPickerField.defaultProps = {
   value: null,
   onChange: () => {},
-  boxed: false,
 };
 
 export default DurationPickerField;
