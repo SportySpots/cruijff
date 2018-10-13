@@ -6,7 +6,7 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import GameProperties from '../GameProperties';
-import OrganizerAndDescription from '../OrganizerAndDescription';
+import Organizer from '../Organizer';
 import ClickableAttendees from '../ClickableAttendees';
 import OpenSpots from '../OpenSpots';
 import RSVP from '../RSVP';
@@ -68,7 +68,7 @@ class GameDetails extends React.PureComponent {
       <SpotMapWithLinkFallback key="spot-map" spot={game.spot} />,
       <Block key="game-organizer">
         <Label>{I18n.t('Organizer')}</Label>
-        <OrganizerAndDescription
+        <Organizer
           organizer={game.organizer}
           description={game.description}
         />
