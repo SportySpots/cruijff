@@ -16,8 +16,6 @@ const TextField = ({
   ...rest
 }) => {
   const isWhiteTheme = theme === 'white';
-  console.log('SIZE', size);
-  console.log('FONT SIZE', Fonts.style[size].fontSize);
 
   return (
     <TextFieldMUI
