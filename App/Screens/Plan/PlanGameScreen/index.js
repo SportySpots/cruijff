@@ -118,7 +118,10 @@ class PlanGameScreen extends React.Component {
     if (!fieldName) {
       return;
     }
-    this.setState({ [fieldName]: value });
+    this.setState(
+      { [fieldName]: value },
+      () => { console.log(this.state); },
+    );
   }
 
   handleBack = () => {

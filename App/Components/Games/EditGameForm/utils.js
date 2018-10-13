@@ -7,7 +7,8 @@ export const getDate = (startTime) => {
     year: startDate.year(),
     month: startDate.month(),
     day: startDate.date(),
-    dateString: startDate.format('MM-DD-YYYY'),
+    timestamp: startDate.unix(),
+    dateString: startDate.format('YYYY-MM-DD'),
   };
 };
 
