@@ -216,13 +216,13 @@ class EditGameForm extends React.PureComponent {
       <Top key="top">
         <Block>
           <TextField
-            value={name}
-            onChangeText={() => {}}
             label={I18n.t('Activity name')}
+            value={name}
             error={nameErrors}
-            // multiline
             placeholder={I18n.t('Write here why the activity does not continue')}
             size="ML"
+            // multiline
+            onChangeText={() => {}}
           />
         </Block>
         <Divider />
@@ -240,7 +240,8 @@ class EditGameForm extends React.PureComponent {
             label={I18n.t('Date')}
             value={date}
             size="ML"
-            theme="black"
+            theme="transparent"
+            dateFormat="DD/MM/YYYY"
             boxed
             onChange={(value) => { this.handleChange({ fieldName: 'date', value }); }}
           />
@@ -253,7 +254,7 @@ class EditGameForm extends React.PureComponent {
                 label={I18n.t('Start time')}
                 value={time}
                 size="ML"
-                theme="black"
+                theme="transparent"
                 boxed
                 onChange={(value) => { this.handleChange({ fieldName: 'time', value }); }}
               />
@@ -266,7 +267,7 @@ class EditGameForm extends React.PureComponent {
                 label={I18n.t('Duration')}
                 value={duration}
                 size="ML"
-                theme="black"
+                theme="transparent"
                 boxed
                 onChange={(value) => { this.handleChange({ fieldName: 'duration', value }); }}
               />
@@ -279,7 +280,7 @@ class EditGameForm extends React.PureComponent {
             label={I18n.t('Number of players')}
             value={capacity}
             size="ML"
-            theme="black"
+            theme="transparent"
             boxed
             onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
           />

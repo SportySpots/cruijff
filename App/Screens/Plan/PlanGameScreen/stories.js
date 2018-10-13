@@ -14,6 +14,9 @@ const dummyNavigation = {
 };
 
 storiesOf('Screens.Plan.PlanGameScreen', module)
+  .add('PlanGameScreen', () => (
+    <PlanGameScreen navigation={dummyNavigation} />
+  ))
   .add('PlanGameScreen inputs', () => (
     <Block bgColor={Colors.primaryGreen}>
       <Row>
@@ -33,8 +36,9 @@ storiesOf('Screens.Plan.PlanGameScreen', module)
         </View>
       </Row>
     </Block>
-  ))
-  .add('PlanGameScreen inputs no errors or labels', () => (
+  ));
+
+    /* .add('PlanGameScreen inputs no errors or labels', () => (
     <Block bgColor={Colors.primaryGreen}>
       <Row>
         <DatePickerField />
@@ -43,7 +47,4 @@ storiesOf('Screens.Plan.PlanGameScreen', module)
         </View>
       </Row>
     </Block>
-  ))
-  .add('PlanGameScreen', () => (
-    <PlanGameScreen navigation={dummyNavigation} />
-  ));
+  )) */
