@@ -23,6 +23,7 @@ import TextField from '../../Common/TextField';
 import SwitchWithText from '../../Common/SwitchWithText';
 // import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
 import RaisedButton from '../../Common/RaisedButton';
+import { getDate, getTime, getDuration } from './utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -63,9 +64,8 @@ class EditGameForm extends React.PureComponent {
     const {
       name,
       sport,
-      date,
-      time,
-      duration,
+      start_time: startTime,
+      end_time: endTime,
       capacity,
       spot,
       description,
@@ -75,9 +75,9 @@ class EditGameForm extends React.PureComponent {
     this.state = {
       name,
       sport,
-      date,
-      time,
-      duration,
+      date: startTime ? getDate(startTime) : null,
+      time: startTime ? getTime(startTime) : null,
+      duration: startTime && endTime ? getDuration(startTime, endTime) : null,
       capacity,
       spot,
       description: description || '',
