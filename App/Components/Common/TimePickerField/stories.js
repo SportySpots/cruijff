@@ -6,10 +6,10 @@ import Block from '../Block';
 import TimePickerField from './index';
 
 class Container extends React.PureComponent {
-  state = { value: null }
+  state = { date: null }
 
   handleChange = (date) => {
-    this.setState({ value: date });
+    this.setState({ date });
   }
 
   render() {
@@ -19,14 +19,14 @@ class Container extends React.PureComponent {
       boxed,
       size,
     } = this.props;
-    const { value } = this.state;
+    const { date } = this.state;
 
     return (
       <TimePickerField
         theme={theme}
         label={label}
         boxed={boxed}
-        value={value}
+        value={date}
         onChange={this.handleChange}
         size={size}
       />
