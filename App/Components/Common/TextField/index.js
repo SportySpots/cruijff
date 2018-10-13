@@ -36,9 +36,7 @@ const TextField = ({
       fontSize: Fonts.style[size].fontSize,
       fontWeight: 'normal',
       fontFamily: Fonts.style[size].fontFamily,
-      // lineHeight: 1.3 * Fonts.style[size].fontSize,
       marginTop: 8, // the lower the margin the greater the line height
-      // color: isWhiteTheme ? Colors.white : (disabled ? Colors.gray : Colors.black),
       color: disabled ? Colors.gray : fontColor,
       ...style,
     }}

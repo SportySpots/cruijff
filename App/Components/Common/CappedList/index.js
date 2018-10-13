@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// TODO: linter
+
 const CappedList = ({
   max, data, component, propsMap, capComponent, keyExtractor,
 }) => {

@@ -54,15 +54,10 @@ const Dropdown = ({
       fontSize: Fonts.style[size].fontSize,
       fontWeight: 'normal',
       fontFamily: Fonts.style[size].fontFamily,
-      // lineHeight: Fonts.style[size].fontSize,
-      // lineHeight: 1.3 * Fonts.style[size].fontSize,
       marginTop: 8, // the lower the margin the greater the line height
-      // color: isWhiteTheme ? Colors.white : (disabled ? Colors.gray : Colors.black),
       color: disabled ? Colors.gray : fontColor,
       /* borderWidth: 1,
       borderColor: 'black', */
-      // padding: 0,
-      // paddingBottom: 4,
       ...style,
     }}
     {...rest}
