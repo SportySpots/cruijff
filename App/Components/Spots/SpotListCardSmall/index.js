@@ -49,7 +49,7 @@ const imgStyle = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SpotListCardSmall = ({ spot, withImage, active }) => {
+const SpotListCardSmall = ({ spot, active }) => {
   const sports = spot.sports.map(({ category }) => (
     I18n.t(category)
   )).join(', ');
@@ -73,9 +73,7 @@ const SpotListCardSmall = ({ spot, withImage, active }) => {
             </Flex>
           </Block>
         </FlexGrow>
-        {withImage && (
-          <SpotImage images={spot.images} style={imgStyle} />
-        )}
+        <SpotImage images={spot.images} style={imgStyle} />
       </Row>
     </Container>
   );
@@ -83,12 +81,10 @@ const SpotListCardSmall = ({ spot, withImage, active }) => {
 
 SpotListCardSmall.propTypes = {
   spot: propType(spotFragment).isRequired,
-  withImage: PropTypes.bool,
   active: PropTypes.bool,
 };
 
 SpotListCardSmall.defaultProps = {
-  withImage: true,
   active: false,
 };
 
