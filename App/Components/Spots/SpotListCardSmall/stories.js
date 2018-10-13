@@ -19,7 +19,7 @@ const dummyNavigator = {
   },
 };
 
-const Container = ({ active }) => (
+const Container = ({ withImage, active }) => (
   <Query
     query={GET_SPOT_DETAILS}
     variables={{ uuid: dummyNavigator.state.params.spotId }}
@@ -30,6 +30,7 @@ const Container = ({ active }) => (
         <StyledView>
           <SpotListCardSmall
             spot={data.spot}
+            withImage={withImage}
             active={active}
           />
         </StyledView>
@@ -39,10 +40,12 @@ const Container = ({ active }) => (
 );
 
 Container.propTypes = {
+  withImage: PropTypes.bool,
   active: PropTypes.bool,
 };
 
 Container.defaultProps = {
+  withImage: true,
   active: false,
 };
 
@@ -52,4 +55,7 @@ storiesOf('Spots.SpotListCardSmall', module)
   ))
   .add('SpotListCardSmall active', () => (
     <Container active />
+  ))
+  .add('SpotListCardSmall without image', () => (
+    <Container withImage={false} />
   ));
