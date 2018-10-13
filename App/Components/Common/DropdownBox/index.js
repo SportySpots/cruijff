@@ -12,8 +12,8 @@ import Dropdown from '../Dropdown';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const FullWidth = styled.View`
-  flex: 1; /* full width */
+const FlexGrow = styled.View`
+  flex-grow: 1; /* full width */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -23,12 +23,12 @@ const DropdownBox = ({ theme, ...rest }) => {
 
   return (
     <Row justifyContent="space-between">
-      <FullWidth>
+      <FlexGrow>
         <Dropdown
           theme={theme === 'black' ? 'transparent' : theme}
           {...rest}
         />
-      </FullWidth>
+      </FlexGrow>
       {/* Add custom carret */}
       <View>
         <Spacer size="XXL" />

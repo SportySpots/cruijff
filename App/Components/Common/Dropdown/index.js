@@ -14,6 +14,7 @@ const Dropdown = ({
   size,
   data,
   onChangeText,
+  label,
   style,
   disabled,
   ...rest
@@ -23,10 +24,11 @@ const Dropdown = ({
 
   return (
     <DropdownMUI
-      data={data.map(({ label }) => ({ value: label }))}
+      data={data.map(item => ({ value: item.label }))}
       onChangeText={(value) => {
         onChangeText(data.find(d => (d.label === value)));
       }}
+      label={label}
       labelFontSize={Fonts.style.M.fontSize}
       labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
       labelHeight={1.5 * Fonts.style.M.fontSize}
@@ -74,6 +76,7 @@ Dropdown.propTypes = {
     }).isRequired,
   ).isRequired,
   onChangeText: PropTypes.func,
+  label: PropTypes.string,
   style: PropTypes.object, // eslint-disable-line
   disabled: PropTypes.bool,
   // Plus all props from react-native-material-textfield
@@ -82,6 +85,7 @@ Dropdown.propTypes = {
 Dropdown.defaultProps = {
   theme: 'black',
   size: 'M',
+  label: '',
   onChangeText: () => {},
   style: {},
   disabled: false,
