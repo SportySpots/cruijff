@@ -6,7 +6,7 @@ import Colors from '../../../Themes/Colors';
 // STYLE:
 //------------------------------------------------------------------------------
 const Block = styled.View`
-  padding: 16px;
+  padding: ${({ midHeight }) => (midHeight ? '8px 16px' : '16px')};
   height: ${({ height }) => (height ? `${height}px` : 'auto')}
   background-color: ${({ bgColor }) => (bgColor)}
 `;
@@ -14,11 +14,13 @@ const Block = styled.View`
 Block.propTypes = {
   height: PropTypes.number,
   bgColor: PropTypes.string,
+  midHeight: PropTypes.bool,
 };
 
 Block.defaultProps = {
   height: null,
   bgColor: Colors.transparent,
+  midHeight: false,
 };
 
 export default Block;

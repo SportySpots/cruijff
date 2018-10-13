@@ -13,7 +13,7 @@ import DatePickerField from '../../Common/DatePickerField';
 import TimePickerField from '../../Common/TimePickerField';
 import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
-import DescriptionField from '../../PlanGame/DescriptionField';
+import DescriptionField from '../../Common/DescriptionField';
 import Spacer from '../../Common/Spacer';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
@@ -214,7 +214,7 @@ class EditGameForm extends React.PureComponent {
 
     return [
       <Top key="top">
-        <Block>
+        <Block midHeight>
           <TextField
             label={I18n.t('Activity name')}
             value={name}
@@ -226,7 +226,10 @@ class EditGameForm extends React.PureComponent {
           />
         </Block>
         <Divider />
-        <Block bgColor={Colors.lightGray}>
+        <Block
+          midHeight
+          bgColor={Colors.lightGray}
+        >
           <TextField
             label={I18n.t('Sport')}
             value={I18n.t(sport.name) || I18n.t(sport.category)}
@@ -235,7 +238,7 @@ class EditGameForm extends React.PureComponent {
             onChangeText={() => {}}
           />
         </Block>
-        <Block>
+        <Block midHeight>
           <DatePickerField
             label={I18n.t('Date')}
             value={date}
@@ -249,7 +252,7 @@ class EditGameForm extends React.PureComponent {
         <Divider />
         <Row>
           <Half>
-            <Block>
+            <Block midHeight>
               <TimePickerField
                 label={I18n.t('Start time')}
                 value={time}
@@ -262,7 +265,7 @@ class EditGameForm extends React.PureComponent {
           </Half>
           <Divider orientation="row" />
           <Half>
-            <Block>
+            <Block midHeight>
               <DurationPickerField
                 label={I18n.t('Duration')}
                 value={duration}
@@ -275,7 +278,7 @@ class EditGameForm extends React.PureComponent {
           </Half>
         </Row>
         <Divider />
-        <Block>
+        <Block midHeight>
           <CapacityPickerField
             label={I18n.t('Number of players')}
             value={capacity}
@@ -286,7 +289,7 @@ class EditGameForm extends React.PureComponent {
           />
         </Block>
         <Divider />
-        <Block>
+        <Block midHeight>
           <DescriptionField
             value={description}
             label={I18n.t('Activity details')}

@@ -5,6 +5,7 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
+  require('../App/Screens/Games/CancelGameScreen/stories');
   require('../App/Screens/Games/EditGameScreen/stories');
   require('../App/Screens/Plan/PlanGameScreen/stories');
   // require('../App/Components/Common/DurationPickerField/stories');
@@ -15,6 +16,7 @@ function loadStories() {
 }
 
 const stories = [
+  '../App/Screens/Games/CancelGameScreen/stories',
   '../App/Screens/Games/EditGameScreen/stories',
   '../App/Screens/Plan/PlanGameScreen/stories',
   // '../App/Components/Common/DurationPickerField/stories',
