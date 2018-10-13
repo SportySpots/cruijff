@@ -44,19 +44,15 @@ const DatePickerField = ({
 );
 
 DatePickerField.propTypes = {
-  label: PropTypes.string,
   value: datePickerDatePropTypes,
   onChange: PropTypes.func,
-  boxed: PropTypes.bool,
   dateFormat: PropTypes.string,
   // Plus all InputField props (theme, size)
 };
 
 DatePickerField.defaultProps = {
-  label: '',
   value: null,
   onChange: () => {},
-  boxed: false,
   dateFormat: 'DD-MM', // 'DD/MM/YYYY'
 };
 
