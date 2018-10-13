@@ -15,6 +15,7 @@ const Container = ({ textSize }) => (
         <Organizer
           organizer={data.game.organizer}
           textSize={textSize}
+          description="Some dscription here \n Hola"
         />
       ))
     }
