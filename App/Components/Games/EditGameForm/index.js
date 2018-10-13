@@ -14,6 +14,7 @@ import TimePickerField from '../../Common/TimePickerField';
 import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
 import DescriptionField from '../../Common/DescriptionField';
+import EditSpotField from '../../Spots/EditSpotField';
 import Spacer from '../../Common/Spacer';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
@@ -286,6 +287,13 @@ class EditGameForm extends React.PureComponent {
             theme="transparent"
             boxed
             onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
+          />
+        </Block>
+        <Divider />
+        <Block>
+          <EditSpotField
+            spot={spot}
+            onPress={() => {}}
           />
         </Block>
         <Divider />

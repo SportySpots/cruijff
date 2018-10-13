@@ -4,6 +4,7 @@ import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../../Themes/Colors';
+import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import SpotListCardSmallBody from '../SpotListCardSmallBody';
 import SpotImage from '../SpotImage';
@@ -44,7 +45,9 @@ const SpotListCardSmall = ({ spot, active }) => (
   <Container active={active}>
     <Row>
       <FlexGrow>
-        <SpotListCardSmallBody spot={spot} />
+        <Block>
+          <SpotListCardSmallBody spot={spot} />
+        </Block>
       </FlexGrow>
       <SpotImage images={spot.images} style={imgStyle} />
     </Row>

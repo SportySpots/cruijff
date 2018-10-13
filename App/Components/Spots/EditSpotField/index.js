@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
@@ -10,17 +11,6 @@ import Spacer from '../../Common/Spacer';
 import SpotListCardSmallBody from '../SpotListCardSmallBody';
 
 //------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const SIZE = 80;
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const StyledTouchableOpacity = styled.TouchableOpacity`
-  height: ${SIZE}px;
-  background-color: ${Colors.white};
-`;
-//------------------------------------------------------------------------------
 const FlexGrow = styled.View`
   flex-grow: 1; /* take all remaining width */
 `;
@@ -28,7 +18,7 @@ const FlexGrow = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const EditSpotField = ({ spot, onPress }) => (
-  <StyledTouchableOpacity onPress={onPress}>
+  <TouchableOpacity onPress={onPress}>
     <Row alignItems="center">
       <FlexGrow>
         <SpotListCardSmallBody spot={spot} />
@@ -40,7 +30,7 @@ const EditSpotField = ({ spot, onPress }) => (
         color={Colors.black}
       />
     </Row>
-  </StyledTouchableOpacity>
+  </TouchableOpacity>
 );
 
 EditSpotField.propTypes = {
