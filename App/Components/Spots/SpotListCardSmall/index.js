@@ -10,6 +10,7 @@ import Text from '../../Common/Text';
 import Row from '../../Common/Row';
 import Block from '../../Common/Block';
 // import DotSpacer from '../../Common/DotSpacer';
+import SpotListCardSmallBody from '../SpotListCardSmallBody';
 import SpotImage from '../SpotImage';
 
 //------------------------------------------------------------------------------
@@ -36,11 +37,6 @@ const FlexGrow = styled.View`
   flex-grow: 1; /* take all remaining width */
 `;
 //------------------------------------------------------------------------------
-const Flex = styled.View`
-  display: flex;
-  justify-content: space-between;
-`;
-//------------------------------------------------------------------------------
 const imgStyle = {
   height: SIZE,
   width: SIZE,
@@ -49,35 +45,16 @@ const imgStyle = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SpotListCardSmall = ({ spot, active }) => {
-  const sports = spot.sports.map(({ category }) => (
-    I18n.t(category)
-  )).join(', ');
-
-  return (
-    <Container active={active}>
-      <Row>
-        <FlexGrow>
-          <Block>
-            <Flex>
-              <Text.ML>{spot.name}</Text.ML>
-              <Text.M>{sports}</Text.M>
-              {/*
-                <Spacer orientation="column" size="M" />
-                <Row>
-                  <Rating rating={spot.rating || 4} />
-                  <DotSpacer />
-                  <Text.S>{distance.toFixed(1)} km</Text.S>
-                </Row>
-              */}
-            </Flex>
-          </Block>
-        </FlexGrow>
-        <SpotImage images={spot.images} style={imgStyle} />
-      </Row>
-    </Container>
-  );
-};
+const SpotListCardSmall = ({ spot, active }) => (
+  <Container active={active}>
+    <Row>
+      <FlexGrow>
+        <SpotListCardSmallBody spot={spot} />
+      </FlexGrow>
+      <SpotImage images={spot.images} style={imgStyle} />
+    </Row>
+  </Container>
+);
 
 SpotListCardSmall.propTypes = {
   spot: propType(spotFragment).isRequired,
