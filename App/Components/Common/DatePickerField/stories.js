@@ -18,6 +18,7 @@ class Container extends React.PureComponent {
       label,
       boxed,
       size,
+      dateFormat,
     } = this.props;
     const { value } = this.state;
 
@@ -29,6 +30,7 @@ class Container extends React.PureComponent {
         value={value}
         onChange={this.handleChange}
         size={size}
+        dateFormat={dateFormat}
       />
     );
   }
@@ -39,6 +41,7 @@ Container.propTypes = {
   size: PropTypes.string,
   label: PropTypes.string,
   boxed: PropTypes.bool,
+  dateFormat: PropTypes.string,
 };
 
 Container.defaultProps = {
@@ -46,6 +49,7 @@ Container.defaultProps = {
   size: 'M',
   label: '',
   boxed: false,
+  dateFormat: 'DD-MM', // 'DD/MM/YYYY'
 };
 
 storiesOf('Common.DatePickerField', module)
@@ -57,6 +61,11 @@ storiesOf('Common.DatePickerField', module)
       <Container theme="white" />
     </Block>
   ))
-  .add('DatePickerField boxed size ML', () => (
-    <Container label="I'm the label" boxed size="ML" />
+  .add('DatePickerField boxed size ML dateFormat DD/MM/YYYY', () => (
+    <Container
+      label="I'm the label"
+      boxed
+      size="ML"
+      dateFormat="DD/MM/YYYY"
+    />
   ));
