@@ -19,5 +19,5 @@ export const getTime = startTime => (
 export const getDuration = (startTime, endTime) => {
   const start = moment.utc(startTime);
   const end = moment.utc(endTime);
-  return end.diff(start, 'minutes');
+  return parseInt(end.diff(start, 'minutes'), 10);
 };

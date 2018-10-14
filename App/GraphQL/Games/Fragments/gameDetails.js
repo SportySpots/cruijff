@@ -25,6 +25,11 @@ const gameDetailsFragment = gql`
         uuid
         image
       }
+      games {
+        uuid
+        start_time
+        status
+      }
       amenities {
         uuid
         #sport {

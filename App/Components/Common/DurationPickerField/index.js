@@ -21,20 +21,24 @@ const DURATION_OPTIONS = [
 ];
 //------------------------------------------------------------------------------
 const data = DURATION_OPTIONS.map(({ number, unit, value }) => (
-  { label: `${number || ''} ${I18n.t(unit)}`, value }
+  { label: number ? `${number} ${I18n.t(unit)}` : I18n.t(unit), value }
 ));
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DurationPickerField = ({ value, onChange, ...rest }) => (
-  <InputField
-    comp="Dropdown"
-    value={value || ''}
-    data={data}
-    onChangeText={(duration) => { onChange(duration.value); }}
-    {...rest}
-  />
-);
+const DurationPickerField = ({ value, onChange, ...rest }) => {
+  const item = data.find(d => (d.value === value));
+
+  return (
+    <InputField
+      comp="Dropdown"
+      value={item ? item.label : ''}
+      data={data}
+      onChangeText={(duration) => { onChange(duration.value); }}
+      {...rest}
+    />
+  );
+}
 
 DurationPickerField.propTypes = {
   value: PropTypes.oneOfType([

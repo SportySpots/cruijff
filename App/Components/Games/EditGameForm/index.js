@@ -100,6 +100,8 @@ class EditGameForm extends React.PureComponent {
         description: [],
       },
     };
+
+    console.log('STATE', this.state);
   }
 
   clearErrors = () => {
@@ -301,7 +303,7 @@ class EditGameForm extends React.PureComponent {
                 <CapacityPickerField
                   label={I18n.t('Number of players')}
                   value={capacity}
-                  size="ML"
+                  size="L"
                   theme="transparent"
                   boxed
                   onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
