@@ -60,6 +60,12 @@ const FullHeight = styled.View`
   flex: 1; /* full height */
 `;
 //------------------------------------------------------------------------------
+const SpotsContainer = styled.View`
+  flex: 1; /* full height */
+  background-color: ${Colors.concrete};
+  padding: 0 16px;
+`;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class EditGameForm extends React.PureComponent {
@@ -337,21 +343,19 @@ class EditGameForm extends React.PureComponent {
               />
             </Bottom>
           </FullHeight>
-          <FullHeight style={{ backgroundColor: Colors.concrete }}>
-            <Block>
-              <SpotsList
-                cardComponent="SpotListCardSmall"
-                sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
-                // userCoords={userCoords}
-                // maxDistance={maxDistance} // km
-                selectedSpot={spot}
-                onCardPress={(value) => {
-                  this.handleChange({ fieldName: 'spot', value });
-                  this.swiper.scrollBy(-1);
-                }}
-              />
-            </Block>
-          </FullHeight>
+          <SpotsContainer>
+            <SpotsList
+              cardComponent="SpotListCardSmall"
+              sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
+              // userCoords={userCoords}
+              // maxDistance={maxDistance} // km
+              selectedSpot={spot}
+              onCardPress={(value) => {
+                this.handleChange({ fieldName: 'spot', value });
+                this.swiper.scrollBy(-1);
+              }}
+            />
+          </SpotsContainer>
         </Swiper>
       </FullHeight>
     );

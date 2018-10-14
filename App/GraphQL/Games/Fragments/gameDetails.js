@@ -13,10 +13,12 @@ const gameDetailsFragment = gql`
     description
     invite_mode
     sport {
+      id
       uuid
       category
     }
     spot {
+      id
       uuid
       name
       images {
