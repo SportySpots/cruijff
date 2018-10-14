@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { Alert } from 'react-native';
 import { propType } from 'graphql-anywhere';
+import { View } from 'react-native';
+import Swiper from 'react-native-swiper';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
@@ -52,6 +54,10 @@ const Bottom = styled.View`
 //------------------------------------------------------------------------------
 const Half = styled.View`
   flex: 1;
+`;
+//------------------------------------------------------------------------------
+const FullHeight = styled.View`
+  flex: 1; /* full height */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -211,120 +217,132 @@ class EditGameForm extends React.PureComponent {
     const nameErrors = ErrorHandling.getFieldErrors(errors, 'name');
     const descriptionErrors = ErrorHandling.getFieldErrors(errors, 'description');
 
-    console.log('IS_PUBLIC', isPublic);
-
-    return [
-      <Top key="top">
-        <Block midHeight>
-          <TextField
-            label={I18n.t('Activity name')}
-            value={name}
-            error={nameErrors}
-            placeholder={I18n.t('Write here why the activity does not continue')}
-            size="ML"
-            // multiline
-            onChangeText={() => {}}
-          />
-        </Block>
-        <Divider />
-        <Block
-          midHeight
-          bgColor={Colors.lightGray}
+    return (
+      <FullHeight>
+        <Swiper
+          ref={(swiper) => { this.swiper = swiper; }}
+          // scrollEnabled={false}
+          loop={false}
+          showsPagination={false}
         >
-          <TextField
-            label={I18n.t('Sport')}
-            value={I18n.t(sport.name) || I18n.t(sport.category)}
-            disabled
-            size="ML"
-            onChangeText={() => {}}
-          />
-        </Block>
-        <Block midHeight>
-          <DatePickerField
-            label={I18n.t('Date')}
-            value={date}
-            size="ML"
-            theme="transparent"
-            dateFormat="DD/MM/YYYY"
-            boxed
-            onChange={(value) => { this.handleChange({ fieldName: 'date', value }); }}
-          />
-        </Block>
-        <Divider />
-        <Row>
-          <Half>
-            <Block midHeight>
-              <TimePickerField
-                label={I18n.t('Start time')}
-                value={time}
-                size="ML"
-                theme="transparent"
-                boxed
-                onChange={(value) => { this.handleChange({ fieldName: 'time', value }); }}
+          <FullHeight>
+            <Top>
+              <Block midHeight>
+                <TextField
+                  label={I18n.t('Activity name')}
+                  value={name}
+                  error={nameErrors}
+                  placeholder={I18n.t('Write here why the activity does not continue')}
+                  size="ML"
+                  // multiline
+                  onChangeText={() => {}}
+                />
+              </Block>
+              <Divider />
+              <Block
+                midHeight
+                bgColor={Colors.lightGray}
+              >
+                <TextField
+                  label={I18n.t('Sport')}
+                  value={I18n.t(sport.name) || I18n.t(sport.category)}
+                  disabled
+                  size="ML"
+                  onChangeText={() => {}}
+                />
+              </Block>
+              <Block midHeight>
+                <DatePickerField
+                  label={I18n.t('Date')}
+                  value={date}
+                  size="ML"
+                  theme="transparent"
+                  dateFormat="DD/MM/YYYY"
+                  boxed
+                  onChange={(value) => { this.handleChange({ fieldName: 'date', value }); }}
+                />
+              </Block>
+              <Divider />
+              <Row>
+                <Half>
+                  <Block midHeight>
+                    <TimePickerField
+                      label={I18n.t('Start time')}
+                      value={time}
+                      size="ML"
+                      theme="transparent"
+                      boxed
+                      onChange={(value) => { this.handleChange({ fieldName: 'time', value }); }}
+                    />
+                  </Block>
+                </Half>
+                <Divider orientation="row" />
+                <Half>
+                  <Block midHeight>
+                    <DurationPickerField
+                      label={I18n.t('Duration')}
+                      value={duration}
+                      size="ML"
+                      theme="transparent"
+                      boxed
+                      onChange={(value) => { this.handleChange({ fieldName: 'duration', value }); }}
+                    />
+                  </Block>
+                </Half>
+              </Row>
+              <Divider />
+              <Block midHeight>
+                <CapacityPickerField
+                  label={I18n.t('Number of players')}
+                  value={capacity}
+                  size="ML"
+                  theme="transparent"
+                  boxed
+                  onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
+                />
+              </Block>
+              <Divider />
+              <Block>
+                <EditSpotField
+                  spot={spot}
+                  onPress={() => { this.swiper.scrollBy(1); }}
+                />
+              </Block>
+              <Divider />
+              <Block midHeight>
+                <DescriptionField
+                  value={description}
+                  label={I18n.t('Activity details')}
+                  characterRestriction={DESCRIPTION_MAX_CHARS}
+                  onChangeText={(value) => { this.handleChange({ fieldName: 'description', value }); }}
+                  theme="black"
+                  error={descriptionErrors}
+                />
+              </Block>
+              <Divider />
+              <Block>
+                <SwitchWithText
+                  label={I18n.t('This is a private activity')}
+                  value={!isPublic}
+                  onChange={(value) => { this.handleChange({ fieldName: 'isPublic', value: !value }); }}
+                />
+              </Block>
+            </Top>
+            <Bottom>
+              <RaisedButton
+                status="primary"
+                label={I18n.t('Save')}
+                disabled={disabled}
+                onPress={this.handleSubmit}
               />
-            </Block>
-          </Half>
-          <Divider orientation="row" />
-          <Half>
-            <Block midHeight>
-              <DurationPickerField
-                label={I18n.t('Duration')}
-                value={duration}
-                size="ML"
-                theme="transparent"
-                boxed
-                onChange={(value) => { this.handleChange({ fieldName: 'duration', value }); }}
-              />
-            </Block>
-          </Half>
-        </Row>
-        <Divider />
-        <Block midHeight>
-          <CapacityPickerField
-            label={I18n.t('Number of players')}
-            value={capacity}
-            size="ML"
-            theme="transparent"
-            boxed
-            onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
-          />
-        </Block>
-        <Divider />
-        <Block>
-          <EditSpotField
-            spot={spot}
-            onPress={() => {}}
-          />
-        </Block>
-        <Divider />
-        <Block midHeight>
-          <DescriptionField
-            value={description}
-            label={I18n.t('Activity details')}
-            characterRestriction={DESCRIPTION_MAX_CHARS}
-            onChangeText={(value) => { this.handleChange({ fieldName: 'description', value }); }}
-            theme="black"
-            error={descriptionErrors}
-          />
-        </Block>
-        <Divider />
-        <Block>
-          <SwitchWithText
-            label={I18n.t('This is a private activity')}
-            value={!isPublic}
-            onChange={(value) => { this.handleChange({ fieldName: 'isPublic', value: !value }); }}
-          />
-        </Block>
-      </Top>,
-      <Bottom key="bottom">
-        <RaisedButton
-          status="primary"
-          label={I18n.t('Save')}
-          disabled={disabled}
-          onPress={this.handleSubmit}
-        />
-      </Bottom>,
-    ];
+            </Bottom>
+          </FullHeight>
+          <FullHeight>
+            <Text>Hola</Text>
+          </FullHeight>
+        </Swiper>
+      </FullHeight>
+    );
   }
 }
 
