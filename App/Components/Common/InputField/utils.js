@@ -23,7 +23,7 @@ const getPalette = (theme) => {
         fontColor: Colors.black,
         baseColor: Colors.black,
         tintColor: Colors.black,
-        iconColor: Colors.back,
+        iconColor: Colors.black,
         lineWidth: 0,
       };
     case 'mix':

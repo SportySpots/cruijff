@@ -32,7 +32,7 @@ const DurationPickerField = ({ value, onChange, ...rest }) => {
   return (
     <InputField
       comp="Dropdown"
-      value={item ? item.label : ''}
+      value={item ? item.label : I18n.t('Undetermined')}
       data={data}
       onChangeText={(duration) => { onChange(duration.value); }}
       {...rest}
