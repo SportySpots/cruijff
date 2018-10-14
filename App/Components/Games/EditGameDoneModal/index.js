@@ -6,7 +6,7 @@ import themeImages from '../../../Themes/Images';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
 import Block from '../../Common/Block';
-import CancelConfirmModal from '../../Common/Modals/CancelConfirmModal';
+import ConfirmModal from '../../Common/Modals/ConfirmModal';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -32,37 +32,34 @@ const Subtitle = styled(Text.SM)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
-  <CancelConfirmModal
+// TODO: probably need to create a component for img, title and subtitle
+const EditGameDoneModal = ({ visible, onClose }) => (
+  <ConfirmModal
     visible={visible}
     onClose={onClose}
-    okBtnLabel={I18n.t('Hell yes')}
-    cancelBtnLabel={I18n.t('Back')}
-    onOk={onConfirm}
-    onCancel={onClose}
+    okBtnLabel={I18n.t('Ok')}
+    onOk={onClose}
   >
     <Block>
       <Container>
         <Img source={themeImages.activityCancelledVisual} />
         <Spacer orientation="column" size="L" />
-        <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
-        <Spacer orientation="column" size="M" />
-        <Subtitle>${I18n.t('All attendees will receive an email with your reason for cancellation')}</Subtitle>
+        <Title>{I18n.t('The activity has been updated')}</Title>
+        <Spacer size="M" />
+        <Subtitle>{I18n.t('All attendees will receive an update email')}</Subtitle>
       </Container>
     </Block>
-  </CancelConfirmModal>
+  </ConfirmModal>
 );
 
-CancelGameConfirmModal.propTypes = {
+EditGameDoneModal.propTypes = {
   visible: PropTypes.bool,
-  onConfirm: PropTypes.func,
   onClose: PropTypes.func,
 };
 
-CancelGameConfirmModal.defaultProps = {
+EditGameDoneModal.defaultProps = {
   visible: false,
-  onConfirm: () => {},
   onClose: () => {},
 };
 
-export default CancelGameConfirmModal;
+export default EditGameDoneModal;

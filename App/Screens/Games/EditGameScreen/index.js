@@ -6,7 +6,7 @@ import FormProps from '../../../RenderProps/form-props';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import EditGame from '../../../Components/Games/EditGame';
-import CancelGameDoneModal from '../../../Components/Games/CancelGameDoneModal';
+import EditGameDoneModal from '../../../Components/Games/EditGameDoneModal';
 import { addModelState } from '../../../utils';
 
 //------------------------------------------------------------------------------
@@ -91,7 +91,7 @@ class EditGameScreen extends React.PureComponent {
                   // Other props
                   // onAttendeesPress={this.handleAttendeesPress}
                 />,
-                <CancelGameDoneModal
+                <EditGameDoneModal
                   key="modal"
                   visible={editDoneModal.isVisible}
                   onClose={() => {

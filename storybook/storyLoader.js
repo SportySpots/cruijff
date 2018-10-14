@@ -5,6 +5,7 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
+  require('../App/Components/Games/EditGameDoneModal/stories');
   require('../App/Screens/Games/EditGameScreen/stories');
   // require('../App/Components/Common/InputField/stories');
   require('../App/Components/Games/EditGameForm/stories');
@@ -14,6 +15,7 @@ function loadStories() {
 }
 
 const stories = [
+  '../App/Components/Games/EditGameDoneModal/stories',
   '../App/Screens/Games/EditGameScreen/stories',
   // '../App/Components/Common/InputField/stories',
   '../App/Components/Games/EditGameForm/stories',
