@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { Alert } from 'react-native';
 import { propType } from 'graphql-anywhere';
-import { View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
@@ -17,6 +16,7 @@ import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
 import DescriptionField from '../../Common/DescriptionField';
 import EditSpotField from '../../Spots/EditSpotField';
+import SpotsList from '../../Spots/SpotsList';
 import Spacer from '../../Common/Spacer';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
@@ -337,8 +337,20 @@ class EditGameForm extends React.PureComponent {
               />
             </Bottom>
           </FullHeight>
-          <FullHeight>
-            <Text>Hola</Text>
+          <FullHeight style={{ backgroundColor: Colors.concrete }}>
+            <Block>
+              <SpotsList
+                cardComponent="SpotListCardSmall"
+                sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
+                // userCoords={userCoords}
+                // maxDistance={maxDistance} // km
+                selectedSpot={spot}
+                onCardPress={(value) => {
+                  this.handleChange({ fieldName: 'spot', value });
+                  this.swiper.scrollBy(-1);
+                }}
+              />
+            </Block>
           </FullHeight>
         </Swiper>
       </FullHeight>
