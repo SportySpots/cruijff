@@ -43,21 +43,14 @@ const Dropdown = ({
     itemCount={8}
     // Hide default carret
     renderAccessory={() => (null)}
-    /* containerStyle={{
-      borderWidth: 1,
-      borderColor: 'red',
-      padding: 0,
-    }} */
     inputContainerPadding={14}
     disabled={disabled}
     style={{
       fontSize: Fonts.style[size].fontSize,
       fontWeight: 'normal',
       fontFamily: Fonts.style[size].fontFamily,
-      marginTop: 8, // the lower the margin the greater the line height
+      marginTop: 8,
       color: disabled ? Colors.gray : fontColor,
-      /* borderWidth: 1,
-      borderColor: 'black', */
       ...style,
     }}
     {...rest}

@@ -246,7 +246,6 @@ class EditGameForm extends React.PureComponent {
                   onChangeText={() => {}}
                 />
               </Block>
-              <Divider />
               <Block
                 midHeight
                 bgColor={Colors.lightGray}
@@ -303,7 +302,7 @@ class EditGameForm extends React.PureComponent {
                 <CapacityPickerField
                   label={I18n.t('Number of players')}
                   value={capacity}
-                  size="L"
+                  size="ML"
                   theme="transparent"
                   boxed
                   onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
