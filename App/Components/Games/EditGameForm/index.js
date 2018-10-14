@@ -167,7 +167,6 @@ class EditGameForm extends React.PureComponent {
     // Get field values
     const {
       name,
-      sport,
       date,
       time,
       duration,
@@ -196,7 +195,6 @@ class EditGameForm extends React.PureComponent {
     // value back to 'false' so that the user can re-submit the form
     onSuccessHook({
       name,
-      sport,
       date,
       time,
       duration,
@@ -208,7 +206,7 @@ class EditGameForm extends React.PureComponent {
   }
 
   render() {
-    const { disabled, onSpotPress } = this.props;
+    const { disabled } = this.props;
     const {
       name,
       sport,
@@ -229,7 +227,6 @@ class EditGameForm extends React.PureComponent {
       <FullHeight>
         <Swiper
           ref={(swiper) => { this.swiper = swiper; }}
-          // scrollEnabled={false}
           loop={false}
           showsPagination={false}
         >
@@ -243,7 +240,7 @@ class EditGameForm extends React.PureComponent {
                   placeholder={I18n.t('Write here why the activity does not continue')}
                   size="ML"
                   // multiline
-                  onChangeText={() => {}}
+                  onChangeText={(value) => { this.handleChange({ fieldName: 'name', value }); }}
                 />
               </Block>
               <Block
@@ -369,7 +366,6 @@ EditGameForm.propTypes = {
   onBeforeHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
-  onSpotPress: PropTypes.func,
 };
 
 EditGameForm.defaultProps = {
@@ -377,7 +373,6 @@ EditGameForm.defaultProps = {
   onBeforeHook: () => {},
   onClientErrorHook: () => {},
   onSuccessHook: () => {},
-  onSpotPress: () => {},
 };
 
 export default EditGameForm;

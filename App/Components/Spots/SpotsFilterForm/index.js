@@ -106,7 +106,7 @@ class SpotsFilterForm extends React.PureComponent {
                 </Text.SM>
                 <Spacer orientation="row" size="S" />
                 <Text.SM style={{ fontWeight: 'bold' }}>
-                  {maxDistance.toFixed(1).toString().replace('.0', '')} KM
+                  {maxDistance.toFixed(1).toString().replace('.0', '')} km
                 </Text.SM>
               </Row>
             )}

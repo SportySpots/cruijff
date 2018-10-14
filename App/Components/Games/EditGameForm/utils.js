@@ -5,16 +5,31 @@ export const getDate = (startTime) => {
 
   return {
     year: startDate.year(),
-    month: startDate.month(),
+    month: startDate.month() + 1,
     day: startDate.date(),
     timestamp: startDate.unix(),
     dateString: startDate.format('YYYY-MM-DD'),
   };
 };
 
-export const getTime = startTime => (
-  new Date(moment.utc(startTime).toISOString())
-);
+// TODO: sum offset
+// See how timepicer works
+export const getTime = (startTime) => {
+  // const date = new Date(startTime);
+  // new Date.UTC(startTime)
+  return new Date(moment.utc(startTime).toISOString());
+  // moment.utc(startTime).format('HH:mm')
+  /* const startTimeUTC = Date.UTC(
+    date.getUTCFullYear(),
+    date.getUTCMonth(),
+    date.getUTCDate(),
+    date.getUTCHours(),
+    date.getUTCMinutes(),
+    date.getUTCSeconds(),
+  ); */
+
+  // return new Date(startTimeUTC);
+};
 
 export const getDuration = (startTime, endTime) => {
   const start = moment.utc(startTime);

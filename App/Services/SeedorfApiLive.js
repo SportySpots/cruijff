@@ -129,6 +129,11 @@ const create = () => {
       rsvp_close_time: endTime,
     });
 
+  const setGameName = ({ gameUUID, name }) =>
+    api.put(`/games/${gameUUID}/`, {
+      name,
+    });
+
   const setGameInviteMode = ({ gameUUID, inviteMode }) =>
     api.put(`/games/${gameUUID}/`, {
       invite_mode: inviteMode,
@@ -186,6 +191,7 @@ const create = () => {
     setGameSport,
     setGameSpot,
     setGameTimes,
+    setGameName,
     setGameInviteMode,
     setGameDescription,
     setGameStatus,
