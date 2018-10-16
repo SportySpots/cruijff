@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import { Alert } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import Swiper from 'react-native-swiper';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
@@ -31,8 +31,8 @@ import { getDate, getTime, getDuration } from './utils';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const NAME_MAX_CHARS = 120;
-const DESCRIPTION_MAX_CHARS = 300;
+const NAME_MAX_CHARS = 10; // 120;
+const DESCRIPTION_MAX_CHARS = 10; // 300;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -99,6 +99,11 @@ class EditGameForm extends React.PureComponent {
         name: [],
         description: [],
       },
+      // Keep track of field position in order to 'scroll to' on error
+      offsetY: {
+        name: 0,
+        description: 0,
+      },
     };
 
     console.log('STATE', this.state);
@@ -112,6 +117,19 @@ class EditGameForm extends React.PureComponent {
       },
     });
   };
+
+  handleLayout = ({ fieldName, nativeEvent }) => {
+    const { offsetY } = this.state;
+    console.log('OFFSET', offsetY);
+
+    this.setState({
+      offsetY: {
+        ...offsetY,
+        [fieldName]: nativeEvent.layout.y,
+      },
+    },
+    () => { console.log('STATE', this.state); });
+  }
 
   handleChange = ({ fieldName, value }) => {
     console.log('FIELD_NAME', fieldName);
@@ -174,6 +192,7 @@ class EditGameForm extends React.PureComponent {
       spot,
       description,
       isPublic,
+      offsetY,
     } = this.state;
 
     // Clear previous errors if any
@@ -185,6 +204,10 @@ class EditGameForm extends React.PureComponent {
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
       this.setState({ errors });
+      // Scroll to first error field
+      const firstErrorKey = ErrorHandling.getFirstError(errors).key; // 'name', 'attendees', 'description'
+      const y = parseInt(offsetY[firstErrorKey], 10);
+      this.scroller.scrollTo({ x: 0, y });
       // Pass event up to parent component. onClientErrorHook will set 'disabled'
       // value back to 'false' so that the user can re-submit the form
       onClientErrorHook();
@@ -231,8 +254,11 @@ class EditGameForm extends React.PureComponent {
           showsPagination={false}
         >
           <FullHeight>
-            <Top>
-              <Block midHeight>
+            <Top innerRef={(scroller) => { this.scroller = scroller; }}>
+              <Block
+                midHeight
+                onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'name', nativeEvent }); }}
+              >
                 <TextField
                   label={I18n.t('Activity name')}
                   value={name}
@@ -313,14 +339,17 @@ class EditGameForm extends React.PureComponent {
                 />
               </Block>
               <Divider />
-              <Block midHeight>
+              <Block
+                midHeight
+                onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'description', nativeEvent }); }}
+              >
                 <DescriptionField
-                  value={description}
                   label={I18n.t('Activity details')}
-                  characterRestriction={DESCRIPTION_MAX_CHARS}
-                  onChangeText={(value) => { this.handleChange({ fieldName: 'description', value }); }}
+                  value={description}
                   theme="black"
                   error={descriptionErrors}
+                  characterRestriction={DESCRIPTION_MAX_CHARS}
+                  onChangeText={(value) => { this.handleChange({ fieldName: 'description', value }); }}
                 />
               </Block>
               <Divider />

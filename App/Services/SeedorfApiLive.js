@@ -121,7 +121,13 @@ const create = () => {
       status: status.toLowerCase(),
     });
 
-  const setGameTimes = ({ gameUUID, startTZ, startTime, endTZ, endTime }) =>
+  const setGameTimes = ({
+    gameUUID,
+    startTZ,
+    startTime,
+    endTZ,
+    endTime,
+  }) =>
     api.put(`/games/${gameUUID}/`, {
       start_timezone: startTZ,
       start_time: startTime,
