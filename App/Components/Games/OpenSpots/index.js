@@ -34,7 +34,7 @@ const OpenSpots = ({ game, maxLength }) => {
     return null;
   }
 
-  const attendees = getAttendees(game);
+  const attendees = getAttendees(game.attendees);
   const nOpenSpots = Math.max(0, game.capacity - attendees.length);
 
   return (

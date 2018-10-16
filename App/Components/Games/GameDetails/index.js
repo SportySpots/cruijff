@@ -10,7 +10,7 @@ import OrganizerAndDescription from '../OrganizerAndDescription';
 import ClickableAttendees from '../ClickableAttendees';
 import OpenSpots from '../OpenSpots';
 import RSPV from '../RSPV';
-import ShareGame from '../ShareGame';
+import ShareGameButton from '../ShareGameButton';
 import Block from '../../Common/Block';
 import Label from '../../Common/Label';
 import AlertMsg from '../../Common/AlertMsg';
@@ -19,21 +19,38 @@ import { getAttendees } from '../utils';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class GameDetails extends React.Component {
+class GameDetails extends React.PureComponent {
+  /**
+   * @summary Check whether or not user is attending
+   */
+  get userRSVP() {
+    const { user, game } = this.props;
+
+    for (const attendee of game.attendees) {
+      if (user && attendee.user.uuid === user.uuid) {
+        return attendee;
+      }
+    }
+    return null;
+  }
+
+  get userStatus() {
+    const attendee = this.userRSVP;
+    return attendee ? attendee.status : null;
+  }
+
   render() {
     const {
       game,
-      user,
       onSpotPress,
       onAttendeesPress,
-      rspvBeforeHook,
-      rspvSuccessHook,
+      rsvpBeforeHook,
+      rsvpSuccessHook,
     } = this.props;
-
 
     const isCanceled = game.status === 'CANCELED';
     const hasCapacity = game.capacity && game.capacity > 0;
-    const withAttendees = getAttendees(game).length > 0;
+    const attendees = getAttendees(game.attendees);
 
     return [
       <SpotImages key="spot-images" spot={game.spot} />,
@@ -56,11 +73,11 @@ class GameDetails extends React.Component {
           description={game.description}
         />
       </Block>,
-      withAttendees && [
+      attendees.length > 0 && [
         <Block key="game-attendees">
           <Label>{I18n.t('Attending')}</Label>
           <ClickableAttendees
-            game={game}
+            attendees={attendees}
             onAttendeesPress={onAttendeesPress}
           />
         </Block>,
@@ -73,21 +90,21 @@ class GameDetails extends React.Component {
       ],
       !isCanceled && (
         <Block key="rspv">
-          <Label>{I18n.t('Do you join?')}</Label>
+          <Label>
+            {I18n.t(!this.userStatus ? 'Do you join?' : 'Edit presence')}
+          </Label>
           <RSPV
-            game={game}
-            user={user}
-            onBeforeHook={rspvBeforeHook}
-            onSuccessHook={rspvSuccessHook}
+            gameUUID={game.uuid}
+            userRSVP={this.userRSVP}
+            userStatus={this.userStatus}
+            onBeforeHook={rsvpBeforeHook}
+            onSuccessHook={rsvpSuccessHook}
           />
         </Block>
       ),
       <Block key="share">
         <Label>{I18n.t('Share with friends')}</Label>
-        <ShareGame
-          game={game}
-          size={55}
-        />
+        <ShareGameButton gameUUID={game.uuid} />
       </Block>,
     ];
   }
@@ -100,19 +117,15 @@ GameDetails.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
   onSpotPress: PropTypes.func,
   onAttendeesPress: PropTypes.func,
-  rspvBeforeHook: PropTypes.func,
-  rspvSuccessHook: PropTypes.func,
+  rsvpBeforeHook: PropTypes.func,
+  rsvpSuccessHook: PropTypes.func,
 };
 
 GameDetails.defaultProps = {
-  onSpotPress: () => {
-  },
-  onAttendeesPress: () => {
-  },
-  rspvBeforeHook: () => {
-  },
-  rspvSuccessHook: () => {
-  },
+  onSpotPress: () => {},
+  onAttendeesPress: () => {},
+  rsvpBeforeHook: () => {},
+  rsvpSuccessHook: () => {},
 };
 
 export default GameDetails;

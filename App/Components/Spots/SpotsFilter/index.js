@@ -1,81 +1,67 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import I18n from '../../../I18n/index';
+import { connect } from 'react-redux';
+import * as spotFiltersActions from '../../../Redux/SpotFiltersRedux';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
-import Block from '../../Common/Block';
-import Divider from '../../Common/Divider';
-import Spacer from '../../Common/Spacer';
-import SliderWithText from '../../Common/SliderWithText';
-import SwitchWithText from '../../Common/SwitchWithText';
+import SpotsFilterForm from '../SpotsFilterForm';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SpotsFilter = ({
-  maxDistance,
-  onSliderChange,
-  allSports,
-  sports,
-  selectedSportIds,
-  onSportsFilterSwitch,
-  onSportSwitch,
-}) => [
-  <Block key="slider">
-    <SliderWithText
-      value={maxDistance}
-      max={20.0}
-      min={0.0}
-      onChange={(value) => { onSliderChange(value); }}
-      label={I18n.t('Location')}
-      description={`${I18n.t('Shows spots inside')}: ${maxDistance.toFixed(1)}km`}
-    />
-  </Block>,
-  <Divider key="divider-slider" />,
-  <Block key="sport-filter">
-    <SwitchWithText
-      label={I18n.t('All sports')}
-      description={I18n.t('Filter on type of sport')}
-      value={allSports}
-      onChange={onSportsFilterSwitch}
-    />
-  </Block>,
-  <Divider key="divider-sport-filter" />,
-  <Block key="switch">
-    {sports.map(sport => [
-      <SwitchWithText
-        key={sport.id}
-        label={I18n.t(sport.name)}
-        value={selectedSportIds.indexOf(sport.id) !== -1}
-        onChange={() => { onSportSwitch(sport.id); }}
-      />,
-      <Spacer
-        key={`spacer-${sport.id}`}
-        orientation="column"
-        size="XL"
-      />,
-    ])}
-  </Block>,
-];
+class SpotsFilter extends React.PureComponent {
+  handleSuccess = async ({ maxDistance, allSports, selectedSportIds }) => {
+    const {
+      setMaxDistance,
+      setAllSports,
+      setSports,
+      onSuccessHook,
+    } = this.props;
+
+    // Save data into redux store.
+    setMaxDistance(maxDistance);
+    setAllSports(allSports);
+    setSports(selectedSportIds);
+
+    // Pass event up to parent component
+    onSuccessHook();
+  }
+
+  render() {
+    return (
+      <SpotsFilterForm
+        {...this.props}
+        // Overwrite on onSuccessHook
+        onSuccessHook={this.handleSuccess}
+      />
+    );
+  }
+}
 
 SpotsFilter.propTypes = {
-  maxDistance: PropTypes.number,
-  onSliderChange: PropTypes.func,
-  allSports: PropTypes.bool,
-  sports: PropTypes.arrayOf(propType(sportFragment)),
-  selectedSportIds: PropTypes.arrayOf(PropTypes.string),
-  onSportsFilterSwitch: PropTypes.func,
-  onSportSwitch: PropTypes.func,
+  sports: PropTypes.arrayOf(propType(sportFragment)).isRequired,
+  maxDistance: PropTypes.number.isRequired,
+  allSports: PropTypes.bool.isRequired,
+  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  disabled: PropTypes.bool,
+  onBeforeHook: PropTypes.func,
+  onSuccessHook: PropTypes.func,
+  setMaxDistance: PropTypes.func.isRequired,
+  setAllSports: PropTypes.func.isRequired,
+  setSports: PropTypes.func.isRequired,
 };
 
 SpotsFilter.defaultProps = {
-  maxDistance: 3,
-  allSports: false,
-  sports: [],
-  selectedSportIds: [],
-  onSliderChange: () => {},
-  onSportsFilterSwitch: () => {},
-  onSportSwitch: () => {},
+  disabled: false,
+  onBeforeHook: () => {},
+  onSuccessHook: () => {},
 };
 
-export default SpotsFilter;
+const mapDispatchToProps = {
+  setMaxDistance: spotFiltersActions.default.setMaxDistance,
+  setAllSports: spotFiltersActions.default.setAllSports,
+  setSports: spotFiltersActions.default.setSports,
+};
+const withRedux = connect(null, mapDispatchToProps);
+
+export default withRedux(SpotsFilter);

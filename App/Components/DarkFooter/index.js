@@ -1,102 +1,95 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import I18n from '../../I18n/index';
+import styled from 'styled-components';
+import I18n from '../../I18n';
 import Colors from '../../Themes/Colors';
-import Fonts from '../../Themes/Fonts';
 import NavDots from '../Common/NavDots';
-import Button from './Button';
-import {addGlobalRef} from '../../globalRefs';
+import Row from '../Common/Row';
+import Spacer from '../Common/Spacer';
+import DarkFooterButton from '../DarkFooterButton';
+import { addGlobalRef } from '../../globalRefs';
 
-export default class DarkFooter extends React.Component {
-  static propTypes = {
-    numPages: PropTypes.number.isRequired,
-    currentPage: PropTypes.number.isRequired,
-    onNext: PropTypes.func,
-    showNext: PropTypes.bool,
-    disableNext: PropTypes.bool,
-    buttonNextText: PropTypes.string,
-    onBack: PropTypes.func,
-    showBack: PropTypes.bool,
-    disableBack: PropTypes.bool,
-    buttonBackText: PropTypes.string,
-  };
-
-  static defaultProps = {
-    buttonNextText: I18n.t('continue'),
-    showNext: true,
-    buttonBackText: I18n.t('back'),
-    showBack: true,
-  };
-
-  onNext = () => {
-    this.props.onNext && this.props.onNext();
-  };
-
-  onBack = () => {
-    this.props.onBack && this.props.onBack();
-  };
-
-  render() {
-    return (
-      <View style={style.container}>
-        {this.props.showBack && (
-          <Button
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  height: 50px;
+  background-color: ${Colors.black};
+`;
+//------------------------------------------------------------------------------
+const StyledRow = styled(Row)`
+  flex: 1; /* full width/height */
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const DarkFooter = ({
+  numPages,
+  currentPage,
+  buttonNextText,
+  onNext,
+  showNext,
+  disableNext,
+  buttonBackText,
+  onBack,
+  showBack,
+  disableBack,
+}) => (
+  <Container>
+    <StyledRow alignItems="center">
+      <Spacer orientation="row" size="S" />
+      <StyledRow justifyContent="flex-start">
+        {showBack && (
+          <DarkFooterButton
             ref={addGlobalRef('footerBackButton')}
-            text={this.props.buttonBackText}
-            style={style.backButton}
-            onPress={this.onBack}
-            disabled={this.props.disableBack}
+            text={buttonBackText}
+            onPress={onBack}
+            disabled={disableBack}
             isBack
           />
         )}
-        <NavDots
-          count={this.props.numPages}
-          active={this.props.currentPage}
-          theme={navDotsTheme}
-          style={style.navDots}
-        />
-        {this.props.showNext && (
-          <Button
+      </StyledRow>
+      <NavDots
+        count={numPages}
+        activeIndex={currentPage}
+      />
+      <StyledRow justifyContent="flex-end">
+        {showNext && (
+          <DarkFooterButton
             testID="footerNextButton"
-            text={this.props.buttonNextText}
-            style={style.nextButton}
-            onPress={this.onNext}
-            disabled={this.props.disableNext}
+            text={buttonNextText}
+            onPress={onNext}
+            disabled={disableNext}
           />
         )}
-      </View>
-    );
-  }
-}
+      </StyledRow>
+      <Spacer orientation="row" size="S" />
+    </StyledRow>
+  </Container>
+);
 
-const navDotsTheme = StyleSheet.create({
-  circle: {
-    backgroundColor: Colors.white20,
-  },
-  active: {
-    backgroundColor: Colors.actionYellow,
-  },
-});
+DarkFooter.propTypes = {
+  numPages: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  buttonNextText: PropTypes.string,
+  onNext: PropTypes.func,
+  showNext: PropTypes.bool,
+  disableNext: PropTypes.bool,
+  buttonBackText: PropTypes.string,
+  onBack: PropTypes.func,
+  showBack: PropTypes.bool,
+  disableBack: PropTypes.bool,
+};
 
-const style = StyleSheet.create({
-  container: {
-    height: 50,
-    flexDirection: 'column',
-    backgroundColor: Colors.black,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    ...Fonts.style.L,
-  },
-  navDots: {},
-  nextButton: {
-    position: 'absolute',
-    right: 5,
-  },
-  backButton: {
-    position: 'absolute',
-    left: 5,
-  },
-});
+DarkFooter.defaultProps = {
+  buttonNextText: I18n.t('continue'),
+  showNext: true,
+  onNext: () => {},
+  disableNext: false,
+  buttonBackText: I18n.t('back'),
+  onBack: () => {},
+  showBack: true,
+  disableBack: false,
+};
+
+export default DarkFooter;

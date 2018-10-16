@@ -1,17 +1,13 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
-import { WithApolloMockProvider } from '../GraphQL';
 
 import LoginScreen from './LoginScreen';
 import SpotsFilterScreen from './Spots/SpotsFilterScreen';
 import InfoScreen from './InfoScreen';
 import SplashScreen from './SplashScreen';
 import SpotsListScreen from './Spots/SpotsListScreen';
-import SpotDetailsScreen from './Spots/SpotDetailsScreen';
 
 const dummyNavigator = {
   navigate: () => null,
@@ -41,9 +37,7 @@ storiesOf('Screens', module)
   ))
   .add('SpotsFilterScreen', () => (
     <Provider store={store}>
-      <WithApolloMockProvider>
-        <SpotsFilterScreen navigation={dummyNavigator} />
-      </WithApolloMockProvider>
+      <SpotsFilterScreen navigation={dummyNavigator} />
     </Provider>
   ))
   .add('InfoScreen', () => (
@@ -53,20 +47,6 @@ storiesOf('Screens', module)
   ))
   .add('SpotsListScreen', () => (
     <Provider store={store}>
-      <WithApolloMockProvider>
-        <SpotsListScreen navigation={dummyNavigator} />
-      </WithApolloMockProvider>
-    </Provider>
-  ))
-  .add('SpotDetailsScreen', () => (
-    <Provider store={store}>
-      <WithApolloMockProvider>
-        <SpotDetailsScreen
-          navigation={{
-            ...dummyNavigator,
-            state: { params: { uuid: '12345' } },
-          }}
-        />
-      </WithApolloMockProvider>
+      <SpotsListScreen navigation={dummyNavigator} />
     </Provider>
   ));

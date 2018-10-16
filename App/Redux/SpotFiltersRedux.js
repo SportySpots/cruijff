@@ -17,18 +17,10 @@ export default Creators;
 
 /* ------------- Initial State ------------- */
 
-// Hack: we should query the sport ids from DB
-const allSportIds = [];
-const N = 10;
-
-for (let i = 1; i < N; i += 1) {
-  allSportIds.push(i.toString());
-}
-
 export const INITIAL_STATE = Immutable({
   maxDistance: 4,
   allSports: true,
-  selectedSportIds: allSportIds,
+  selectedSportIds: [],
 });
 
 /* ------------- Reducers ------------- */

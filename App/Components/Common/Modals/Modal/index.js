@@ -15,6 +15,7 @@ const Overlay = styled.TouchableOpacity`
 `;
 //------------------------------------------------------------------------------
 const Container = styled.View`
+  display: flex;
   margin: 48px;
   border-radius: 4px;
   background-color: ${Colors.white};

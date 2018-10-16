@@ -27,6 +27,7 @@ const Initials = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: rename component to Avatar
 const UserCircle = ({ user, size, style }) => (
   <Circle size={size} style={style}>
     <Initials size={size}>

@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native';
 
 import Text from '../Components/Common/Text';
 import DefaultButton from '../Components/Common/DefaultButton';
-import { navigation as navigationPropType } from '../PropTypesDefinitions/navigation';
+import navigationPropTypes from '../PropTypesDefinitions/navigation';
 
 import { log } from '../config';
 
@@ -18,7 +18,7 @@ const Line = styled.View`
 
 class DebugScreen extends React.Component {
   static propTypes = {
-    navigation: navigationPropType,
+    navigation: navigationPropTypes,
   }
   render() {
     return (

@@ -7,7 +7,7 @@ import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
 import CancelGameScreen from '../../Screens/Games/CancelGameScreen/index';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
-import PlayerList from '../../Screens/Games/PlayerListScreen';
+import PlayerList from '../../Screens/Games/PlayersListScreen';
 import AdminMenu from '../../Components/Games/AdminMenu';
 import { headerTitleStyle } from './style';
 

@@ -80,8 +80,8 @@ class GameDetailsScreen extends React.PureComponent {
                 game={data.game}
                 onSpotPress={this.handleSpotPress}
                 onAttendeesPress={this.handleAttendeesPress}
-                rspvBeforeHook={this.handleRSVPBefore}
-                rspvSuccessHook={refetch}
+                rsvpBeforeHook={this.handleRSVPBefore}
+                rsvpSuccessHook={refetch}
               />
             </Container>
           );
@@ -99,7 +99,8 @@ GameDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: PropTypes.object,
+  // TODO: use userFragment
+  user: PropTypes.object, // eslint-disable-line
 };
 
 GameDetailsScreen.defaultProps = {

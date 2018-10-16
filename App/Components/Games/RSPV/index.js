@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
 import { Alert } from 'react-native';
 import I18n from '../../../I18n/index';
 import API from '../../../Services/SeedorfApi';
-import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import Row from '../../Common/Row';
-import AttendingBtn from './AttendingBtn';
-import DeclinedBtn from './DeclinedBtn';
-import AttendingDeclinedBtn from './AttendingDeclinedBtn';
+import RaisedButton from '../../Common/RaisedButton';
+import Spacer from '../../Common/Spacer';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -20,28 +17,15 @@ const RSVP_STATUSES = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: disable button on submit
 class RSPV extends React.PureComponent {
-  /**
-    * @summary Check whether or not user is attending
-    */
-  get userRSVP() {
-    const { game, user } = this.props;
-
-    for (const attendee of game.attendees) {
-      if (user && attendee.user.uuid === user.uuid) {
-        return attendee;
-      }
-    }
-    return null;
-  }
-
-  get userStatus() {
-    const attendee = this.userRSVP;
-    return attendee ? attendee.status : null;
-  }
-
   setRSVPStatus = async (status) => {
-    const { game, onBeforeHook, onSuccessHook } = this.props;
+    const {
+      gameUUID,
+      userRSVP,
+      onBeforeHook,
+      onSuccessHook,
+    } = this.props;
 
     // Run before logic if provided and return on error
     try {
@@ -51,8 +35,7 @@ class RSPV extends React.PureComponent {
     }
 
     // Update/set status
-    const gameUUID = game.uuid;
-    const attendee = this.userRSVP;
+    const attendee = userRSVP;
 
     if (attendee) {
       await API.updateRSVPStatus({ gameUUID, rsvpUUID: attendee.uuid, status });
@@ -69,24 +52,32 @@ class RSPV extends React.PureComponent {
       I18n.t('Confirm'),
       I18n.t('Are you sure you want to stop attending?'),
       [
-        { text: I18n.t('No'), onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-        { text: I18n.t('Yes'), onPress: () => this.setRSVPStatus(RSVP_STATUSES.DECLINED) },
+        { text: I18n.t('No'), onPress: () => { console.log('Cancel Pressed'); }, style: 'cancel' },
+        { text: I18n.t('Yes'), onPress: () => { this.setRSVPStatus(RSVP_STATUSES.DECLINED); } },
       ],
     );
   }
 
   render() {
-    const status = this.userStatus;
+    const { userStatus } = this.props;
 
-    if (!status) {
+    // Attending and declined button
+    if (!userStatus) {
       return (
         <Row>
-          <AttendingBtn
+          <RaisedButton
+            style={{ flex: 1 }}
+            status="primary"
+            label={I18n.t("I'm attending")}
             onPress={() => {
               this.setRSVPStatus(RSVP_STATUSES.ATTENDING);
             }}
           />
-          <DeclinedBtn
+          <Spacer orientation="row" size="L" />
+          <RaisedButton
+            style={{ flex: 1 }}
+            status="warning"
+            label={I18n.t("I'm not attending")}
             onPress={() => {
               this.setRSVPStatus(RSVP_STATUSES.DECLINED);
             }}
@@ -95,28 +86,54 @@ class RSPV extends React.PureComponent {
       );
     }
 
+    const isAttending = userStatus === RSVP_STATUSES.ATTENDING;
+
+    // When user status is 'attending', display the leave button
+    if (isAttending) {
+      return (
+        <RaisedButton
+          style={{ flex: 1 }}
+          status="ghost"
+          label={I18n.t("I'm not attending")}
+          onPress={this.openAlert}
+        />
+      );
+    }
+
+    // When user status is NOT 'attending', display the join button
     return (
-      <AttendingDeclinedBtn
-        isAttending={status === RSVP_STATUSES.ATTENDING}
-        onAttending={() => {
+      <RaisedButton
+        style={{ flex: 1 }}
+        status="primary"
+        label={I18n.t("I'm attending")}
+        onPress={() => {
           this.setRSVPStatus(RSVP_STATUSES.ATTENDING);
         }}
-        onDeclined={this.openAlert}
       />
     );
   }
 }
 
 RSPV.propTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string,
-  }).isRequired,
-  game: propType(gameDetailsFragment).isRequired,
+  gameUUID: PropTypes.string.isRequired,
+  // TODO: use userFragment
+  userRSVP: PropTypes.object, // eslint-disable-line
+  userStatus: PropTypes.oneOf([
+    'UNKNOWN',
+    'ACCEPTED',
+    'ATTENDING',
+    'CHECKED_IN',
+    'DECLINED',
+    'INTERESTED',
+    'INVITED',
+  ]),
   onBeforeHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
 };
 
 RSPV.defaultProps = {
+  userRSVP: null,
+  userStatus: null,
   onBeforeHook: () => {},
   onSuccessHook: () => {},
 };

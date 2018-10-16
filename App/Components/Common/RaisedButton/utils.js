@@ -6,31 +6,37 @@ export const getPalette = (status) => {
       return {
         fontColor: Colors.white,
         bgColor: Colors.actionYellow,
+        borderColor: Colors.actionYellow,
       };
     case 'primary':
       return {
         fontColor: Colors.white,
         bgColor: Colors.grass,
+        borderColor: Colors.grass,
       };
     case 'secondary':
       return {
         fontColor: Colors.white,
         bgColor: Colors.gray,
+        borderColor: Colors.gray,
       };
     case 'warning':
       return {
         fontColor: Colors.white,
         bgColor: Colors.negative,
+        borderColor: Colors.negative,
       };
     case 'info':
       return {
         fontColor: Colors.white,
         bgColor: Colors.info,
+        borderColor: Colors.info,
       };
     case 'ghost':
       return {
         fontColor: Colors.black,
         bgColor: Colors.white,
+        borderColor: Colors.darkGray,
       };
     default:
       throw new Error('Unknown status');

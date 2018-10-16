@@ -1,29 +1,52 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import { TouchableOpacity, View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, Text } from 'react-native';
 import ModalProps from '../../../../RenderProps/modal-props';
+import RaisedButton from '../../RaisedButton';
 import Modal from './index';
 
-const Container = () => (
+const Container = ({ children }) => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => (
       <View>
-        <TouchableOpacity
+        <RaisedButton
+          label="Open Modal"
           onPress={openModal}
-          style={{ backgroundColor: 'red' }}
-        >
-          <Text style={{ textAlign: 'center' }}>
-            Open
-          </Text>
-        </TouchableOpacity>
+        />
         <Modal visible={visible} onClose={closeModal}>
-          <Text>I&apos;m the child component</Text>
+          {children}
         </Modal>
       </View>
     )}
   </ModalProps>
 );
 
-storiesOf('Common.Modal', module)
-  .add('Modal no footer', () => <Container />);
+Container.propTypes = {
+  children: PropTypes.oneOf([
+    PropTypes.node,
+    PropTypes.func,
+  ]).isRequired,
+};
+
+storiesOf('Modals.Modal', module)
+  .add('Modal no footer', () => (
+    <Container>
+      <Text>I&apos;m the child component</Text>
+    </Container>
+  ))
+  .add('Modal no footer big children', () => (
+    <Container>
+      <View style={{ height: 400, borderWidth: 1, borderColor: 'red' }}>
+        <Text>I&apos;m the child component</Text>
+      </View>
+    </Container>
+  ))
+  .add('Modal no footer overflow children', () => (
+    <Container>
+      <View style={{ height: 800, borderWidth: 1, borderColor: 'red' }}>
+        <Text>I&apos;m the child component</Text>
+      </View>
+    </Container>
+  ));
 

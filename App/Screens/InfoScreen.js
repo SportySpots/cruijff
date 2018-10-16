@@ -9,7 +9,7 @@ import Colors from '../Themes/Colors';
 import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
 import Text from '../Components/Common/Text';
 
-import { navigation as navigationPropType } from '../PropTypesDefinitions/navigation';
+import navigationPropTypes from '../PropTypesDefinitions/navigation';
 
 const Row = styled.View`
   height: 64px;
@@ -71,7 +71,7 @@ Link.propTypes = {
 
 class InfoScreen extends React.Component {
   static propTypes = {
-    navigation: navigationPropType,
+    navigation: navigationPropTypes,
   }
   constructor(props) {
     super(props);

@@ -16,13 +16,14 @@ import BackgroundImage from '../../Spots/BackgroundImage';
 import Organizer from '../Organizer';
 import Attendees from '../Attendees';
 import GameCanceledFlag from '../GameCanceledFlag';
+import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Outer = styled.View`
   display: flex;
-  height: ${({ height }) => (height)};
+  height: ${({ isCanceled }) => (isCanceled ? '270px' : '232px')};
   border-radius: 8px;
   shadow-offset: 1px 1px;
   shadow-color: ${Colors.shade};
@@ -46,7 +47,6 @@ const Top = styled.View`
 const Bottom = styled.View`
   flex: 1;
   display: flex;
-  background-color: green;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
@@ -87,10 +87,11 @@ const GameListCard = ({ game }) => {
   } = game;
 
   const isCanceled = status === 'CANCELED';
+  const attendees = getAttendees(game.attendees);
   const formattedStartTime = moment(startTime).format('D-MM HH:mm');
 
   return (
-    <Outer height={isCanceled ? '270px' : '232px'}>
+    <Outer isCanceled={isCanceled}>
       <Top>
         <Organizer organizer={organizer} textSize="M" />
         <DotSpacer />
@@ -99,9 +100,9 @@ const GameListCard = ({ game }) => {
         </Text.M>
       </Top>
       <Bottom>
-        <BackgroundImage spot={spot} />
+        <BackgroundImage images={spot.images} />
         {isCanceled && [
-          <Spacer key="top-spacer" size="L" />,
+          <Spacer key="spacer" size="L" />,
           <GameCanceledFlag key="cancel-flag" />,
         ]}
         <Container>
@@ -132,8 +133,10 @@ const GameListCard = ({ game }) => {
               {spot.name}
             </SmallText>
           </Row>
-          <Spacer size="L" />
-          <Attendees game={game} />
+          {attendees.length > 0 && [
+            <Spacer key="spacer" size="L" />,
+            <Attendees key="attendees" attendees={attendees} />,
+          ]}
         </Container>
       </Bottom>
     </Outer>

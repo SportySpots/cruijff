@@ -24,6 +24,7 @@ const MAX_CHARS = 120;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+// TODO: introduce TopBottomLayout to hold body and button container
 const Top = styled.ScrollView`
   flex: 1;
   background-color: ${Colors.white}
@@ -138,7 +139,7 @@ class CancelGameForm extends React.PureComponent {
     const { game, disabled, onAttendeesPress } = this.props;
     const { cancelMsg, errors } = this.state;
 
-    const withAttendees = getAttendees(game).length > 0;
+    const attendees = getAttendees(game.attendees);
     const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg');
 
     return [
@@ -146,12 +147,12 @@ class CancelGameForm extends React.PureComponent {
         <Block>
           <GameProperties game={game} />
         </Block>
-        {withAttendees && [
+        {attendees.length > 0 && [
           <Divider key="divider-game-attendees" />,
           <Block key="game-attendees">
             <Label>{I18n.t('Attending')}</Label>
             <ClickableAttendees
-              game={game}
+              attendees={attendees}
               onAttendeesPress={onAttendeesPress}
             />
           </Block>,
@@ -190,11 +191,19 @@ class CancelGameForm extends React.PureComponent {
 
 CancelGameForm.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
-  disabled: PropTypes.bool.isRequired,
-  onBeforeHook: PropTypes.func.isRequired,
-  onClientErrorHook: PropTypes.func.isRequired,
-  onSuccessHook: PropTypes.func.isRequired,
-  onAttendeesPress: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  onBeforeHook: PropTypes.func,
+  onClientErrorHook: PropTypes.func,
+  onSuccessHook: PropTypes.func,
+  onAttendeesPress: PropTypes.func,
+};
+
+CancelGameForm.defaultProps = {
+  disabled: false,
+  onBeforeHook: () => {},
+  onClientErrorHook: () => {},
+  onSuccessHook: () => {},
+  onAttendeesPress: () => {},
 };
 
 export default CancelGameForm;

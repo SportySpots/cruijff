@@ -16,4 +16,7 @@ storiesOf('Common.AlertMsg', module)
   ))
   .add('AlertMsg info', () => (
     <AlertMsg status="info" value={text} />
+  ))
+  .add('AlertMsg info long text', () => (
+    <AlertMsg status="info" value={`${text} ${text} ${text} ${text} ${text}`} />
   ));

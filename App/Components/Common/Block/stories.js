@@ -5,29 +5,21 @@ import { Text } from 'react-native';
 import Colors from '../../../Themes/Colors';
 import Block from './index';
 
-const Container = styled.View`
-  border: 1px solid black;
-`;
-
 storiesOf('Common.Block', module)
   .add('Block', () => (
-    <Block>
+    <Block bgColor="green">
       <Text>I&apos;m inside a Block :)</Text>
     </Block>
   ))
   .add('Block 100px fixed height', () => (
-    <Container>
-      <Block height={100}>
-        <Text>I&apos;m inside a Block :)</Text>
-        <Text>with fixed height</Text>
-      </Block>
-    </Container>
+    <Block bgColor="green" height={100}>
+      <Text>I&apos;m inside a Block :)</Text>
+      <Text>with fixed height</Text>
+    </Block>
   ))
   .add('Block 100px fixed height bgColor gray', () => (
-    <Container>
-      <Block height={100} bgColor={Colors.gray}>
-        <Text>I&apos;m inside a Block :)</Text>
-        <Text>with fixed height</Text>
-      </Block>
-    </Container>
+    <Block height={100} bgColor={Colors.gray}>
+      <Text>I&apos;m inside a Block :)</Text>
+      <Text>with fixed height</Text>
+    </Block>
   ));

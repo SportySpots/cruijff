@@ -5,10 +5,10 @@ import { uniqBy } from 'ramda';
 import geolib from 'geolib';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
-import SpotsList from '../../Components/Spots/SpotsList';
+import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
 import GET_SPOTS from '../../GraphQL/Spots/Queries/GET_SPOTS';
 import Card from '../../Components/Spots/SpotListCard';
-import { QueryCatchErrors } from '../../GraphQL/QueryCatchErrors';
+import SpotsList from '../../Components/Spots/SpotsList';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -80,9 +80,9 @@ class SpotsListScreen extends React.Component {
     this.setState({ coords: { latitude, longitude } });
   }
 
-  handleCardPress = (spotUuid) => {
+  handleCardPress = (spot) => {
     this.props.navigation.navigate('SpotDetailsScreen', {
-      uuid: spotUuid,
+      uuid: spot.uuid,
     });
   }
 
@@ -95,8 +95,8 @@ class SpotsListScreen extends React.Component {
       offset: 0,
       limit: 20,
       distance: `${parseInt(1000 * maxDistance, 10)}:52.3727729:4.9055008`, // TODO: use current user location
+      sports__ids: allSports ? [] : selectedSportIds, // empty array will return all spots
     };
-    if (!allSports) { variables.sports__ids = selectedSportIds; }
 
     return (
       <QueryCatchErrors
@@ -104,7 +104,7 @@ class SpotsListScreen extends React.Component {
         variables={variables}
         fetchPolicy="cache-and-network"
       >
-        { ({
+        {({
           loading,
           data,
           refetch,
@@ -128,8 +128,6 @@ class SpotsListScreen extends React.Component {
             <Container testID="SpotsListScreen">
               <SpotsList
                 spots={(
-                  selectedSportIds &&
-                  selectedSportIds.length > 0 &&
                   data &&
                   data.spots &&
                   curatedSpots(data.spots).map((spot) => {
@@ -146,6 +144,10 @@ class SpotsListScreen extends React.Component {
                 refreshing={loading}
                 onEndReached={loadMore}
                 onEndReachedThreshold={0.1}
+                contentContainerStyle={{
+                  flexGrow: 1, // centers not found component
+                  paddingVertical: 8,
+                }}
               />
             </Container>
           );

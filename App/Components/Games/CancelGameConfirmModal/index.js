@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import themeImages from '../../../Themes/Images';
-import Text from '../../../Components/Common/Text';
-import Spacer from '../../../Components/Common/Spacer';
+import Text from '../../Common/Text';
+import Spacer from '../../Common/Spacer';
+import Block from '../../Common/Block';
 import CancelConfirmModal from '../../Common/Modals/CancelConfirmModal';
 
 //------------------------------------------------------------------------------
 // STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 //------------------------------------------------------------------------------
 const Img = styled.Image`
   height: 120px;
@@ -34,11 +41,15 @@ const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
     onOk={onConfirm}
     onCancel={onClose}
   >
-    <Img source={themeImages.activityCancelledVisual} />
-    <Spacer orientation="column" size="L" />
-    <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
-    <Spacer orientation="column" size="M" />
-    <Subtitle>{`${I18n.t('All attendees will receive an email with your reason for cancellation')}.`}</Subtitle>
+    <Block>
+      <Container>
+        <Img source={themeImages.activityCancelledVisual} />
+        <Spacer orientation="column" size="L" />
+        <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
+        <Spacer orientation="column" size="M" />
+        <Subtitle>{`${I18n.t('All attendees will receive an email with your reason for cancellation')}.`}</Subtitle>
+      </Container>
+    </Block>
   </CancelConfirmModal>
 );
 

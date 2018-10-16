@@ -18,16 +18,17 @@ const Container = styled.View`
   width: ${({ width }) => (width || '100%')};
   min-width: 80px;
   border-radius: ${({ size }) => (getPixelsFromSize(size).borderRadius)};
-  border: 1px solid ${({ disabled, bgColor }) => (disabled ? Colors.lightGray : bgColor)};
+  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.lightGray : borderColor)};
 `;
 //------------------------------------------------------------------------------
 const Label = styled(Text.M)`
   color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
-  font-weight: 500;
+  /* font-weight: bold; */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: use children instead of label
 const RaisedButton = ({
   label,
   status,
@@ -37,7 +38,7 @@ const RaisedButton = ({
   ...rest
 }) => {
   const palette = getPalette(status);
-  const { fontColor, bgColor } = palette;
+  const { fontColor, bgColor, borderColor } = palette;
 
   const Root = disabled ? View : TouchableOpacity;
 
@@ -46,6 +47,7 @@ const RaisedButton = ({
       <Container
         size={size}
         bgColor={bgColor}
+        borderColor={borderColor}
         width={width}
         disabled={disabled}
       >
@@ -61,7 +63,10 @@ const RaisedButton = ({
 };
 
 RaisedButton.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   status: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'warning', 'ghost']),
   size: PropTypes.oneOf(['M', 'S']),
   disabled: PropTypes.bool,
@@ -69,6 +74,7 @@ RaisedButton.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  // Plus all props from native Button
 };
 
 RaisedButton.defaultProps = {

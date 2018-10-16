@@ -21,11 +21,22 @@ const size = {
 };
 
 const style = {
+  XL: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 40,
+    color: Colors.black,
+    // lineHeight: 50
+  },
   L: {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 32,
     color: Colors.black,
     // lineHeight: 50
+  },
+  ML: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 24,
+    lineHeight: 36,
   },
   M: {
     fontFamily: 'Rajdhani-SemiBold',

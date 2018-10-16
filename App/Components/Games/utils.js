@@ -1,12 +1,9 @@
-//------------------------------------------------------------------------------
-// AUX FUNCTIONS:
-//------------------------------------------------------------------------------
-export const getAttendees = game => (
-  (game && game.attendees)
-    ? game.attendees.filter(rsvp => rsvp.status === 'ATTENDING').map(rsvp => rsvp.user)
+export const getAttendees = attendees => (
+  (attendees && attendees.length > 0)
+    ? attendees.filter(rsvp => rsvp.status === 'ATTENDING') // .map(rsvp => rsvp.user)
     : []
 );
-//------------------------------------------------------------------------------
+
 export const mapMax = (maxNum, data, fn, fnElse) => {
   if (maxNum >= data.length) return data.map(fn);
 
@@ -14,4 +11,4 @@ export const mapMax = (maxNum, data, fn, fnElse) => {
   returnArr.push(fnElse());
   return returnArr;
 };
-//------------------------------------------------------------------------------
+

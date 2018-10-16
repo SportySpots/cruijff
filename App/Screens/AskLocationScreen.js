@@ -10,11 +10,11 @@ import locationActions from '../Redux/LocationRedux';
 import Colors from '../Themes/Colors';
 import Fonts from '../Themes/Fonts';
 import Text from '../Components/Common/Text';
-import PropTypesDefinitions from '../PropTypesDefinitions';
+import navigationPropTypes from '../PropTypesDefinitions/navigation';
 
 export default connect(null, { updateLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
   static propTypes = {
-    navigation: PropTypesDefinitions.navigation.isRequired,
+    navigation: navigationPropTypes.isRequired,
     updateLocation: PropTypes.func.isRequired,
   };
 

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
@@ -13,8 +12,6 @@ import ImageSwiper from './Common/ImageSwiper';
 import DefaultButton from './Common/DefaultButton';
 import SecondaryButton from './Common/SecondaryButton';
 import FlatButton from './Common/FlatButton';
-import Checkbox from './Common/Checkbox';
-import Check from './Common/Check';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
 import NavDots from './Common/NavDots';
@@ -22,7 +19,6 @@ import Slider from './Common/Slider';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
 import PropertyCircle from './Common/PropertyCircle';
-import UserCircle from './Common/UserCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import NothingFound from './Common/NothingFound';
 
@@ -51,17 +47,7 @@ storiesOf('Logo', module)
 storiesOf('Basic components', module)
   .add('DefaultButton', () => <DefaultButton text="Press me please" />)
   .add('SecondaryButton', () => <SecondaryButton text="Press me please" />)
-  .add('FlatButton', () => <FlatButton text="SUBMIT" />)
-  .add('Checkbox', () => (
-    <View style={{ flex: 1, backgroundColor: 'green' }}>
-      <Checkbox />
-    </View>
-  ))
-  .add('Check', () => (
-    <View style={{ flex: 1, backgroundColor: 'green' }}>
-      <Check />
-    </View>
-  ));
+  .add('FlatButton', () => <FlatButton text="SUBMIT" />);
 
 storiesOf('Text', module)
   .add('All sizes', () => (
@@ -129,11 +115,6 @@ storiesOf('PropertyCircle', module).add('Propertycircle', () => (
   </View>
 ));
 
-const users = require('../Fixtures/users');
-
-storiesOf('UserCircle', module).add('UserCircle', () => (
-  <View>{users.slice(0, 3).map((user, idx) => <UserCircle user={user} key={idx} />)}</View>
-));
 storiesOf('SignupScreen', module).add('Default', () => (
   <Provider store={store}>
     <SignupScreen navigation={dummyNavigator} />

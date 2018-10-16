@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import { TouchableOpacity, View, Text } from 'react-native';
+import { View } from 'react-native';
 import ModalProps from '../../../RenderProps/modal-props';
 import RaisedButton from '../../Common/RaisedButton';
 import CancelGameDoneModal from './index';

@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text } from 'react-native';
 import styled from 'styled-components';
 import SliderWithText from './index';
@@ -10,7 +11,7 @@ const StyledView = styled.View`
 `;
 
 class Container extends React.PureComponent {
-  state = { value: 2 }
+  state = { value: this.props.minimumValue }
 
   handleChange = (value) => {
     this.setState({ value });
@@ -26,12 +27,23 @@ class Container extends React.PureComponent {
           label="I'm the label"
           description="I'm the description"
           value={value}
-          onChange={this.handleChange}
+          onValueChange={this.handleChange}
+          {...this.props}
         />
       </StyledView>
     );
   }
 }
+
+Container.propTypes = {
+  minimumValue: PropTypes.number,
+  maximumValue: PropTypes.number,
+};
+
+Container.defaultProps = {
+  minimumValue: 0,
+  maximumValue: 20,
+};
 
 storiesOf('Common.SliderWithText', module)
   .add('SliderWithText', () => (

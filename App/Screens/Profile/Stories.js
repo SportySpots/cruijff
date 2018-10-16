@@ -3,7 +3,6 @@ import React from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { WithApolloMockProvider } from '../../GraphQL';
 import ProfileDetailsScreen from './ProfileDetailsScreen';
 import ProfileEditScreen from './ProfileEditScreen';
 import ProfileLoginScreen from './ProfileSignupScreen';
@@ -23,22 +22,18 @@ const store = createStore(state => state, {
 
 storiesOf('Profile', module)
   .add('Detail', () => (
-    <WithApolloMockProvider>
-      <View style={{ flex: 1 }}>
-        <Provider store={store}>
-          <ProfileDetailsScreen navigation={dummyNavigator} />
-        </Provider>
-      </View>
-    </WithApolloMockProvider>
+    <View style={{ flex: 1 }}>
+      <Provider store={store}>
+        <ProfileDetailsScreen navigation={dummyNavigator} />
+      </Provider>
+    </View>
   ))
   .add('Edit', () => (
-    <WithApolloMockProvider>
-      <View style={{ flex: 1 }}>
-        <Provider store={store}>
-          <ProfileEditScreen navigation={dummyNavigator} />
-        </Provider>
-      </View>
-    </WithApolloMockProvider>
+    <View style={{ flex: 1 }}>
+      <Provider store={store}>
+        <ProfileEditScreen navigation={dummyNavigator} />
+      </Provider>
+    </View>
   ))
   .add('Login', () => (
     <View style={{ flex: 1 }}>

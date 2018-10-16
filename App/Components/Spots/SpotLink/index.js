@@ -4,9 +4,9 @@ import { showLocation } from 'react-native-map-link';
 import I18n from '../../../I18n';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../../Themes/Colors';
-import Text from '../../../Components/Common/Text';
-import Spacer from '../../../Components/Common/Spacer';
-import Block from '../../../Components/Common/Block';
+import Text from '../../Common/Text';
+import Spacer from '../../Common/Spacer';
+import Block from '../../Common/Block';
 import getSpotLocation from './utils';
 
 // -----------------------------------------------------------------------------

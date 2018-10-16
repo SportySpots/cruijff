@@ -17,6 +17,7 @@ const colors = {
   black54: 'rgba(0,0,0,0.34)',
   greenSemi: 'rgba(0,40,0,0.8)',
   white20: 'rgba(255,255,255,.2)',
+  white85: 'rgba(255,255,255,0.85)',
   bgGrey: '#f6f6f9',
   darkGreen: '#2F553C',
   red: '#ff0000',
@@ -27,14 +28,18 @@ const colors = {
   concrete: '#F5F5F5',
   chalk: 'fff',
   grass: '#009f36', // rgb(0, 159, 54)
-  grassTint: 'rgba(0, 159, 54, 0.2)',
+  grass10: 'rgba(0, 159, 54, 0.1)',
+  grass20: 'rgba(0, 159, 54, 0.2)',
   grassDark: '#005537',
   notify: '#f5a623', // rgb(245, 166, 35)
-  notifyTint: 'rgba(245, 166, 35, 0.2)',
+  notify20: 'rgba(245, 166, 35, 0.2)',
   negative: '#E0301E', // rgb(224, 48, 30)
-  negativeTint: 'rgba(224, 48, 30, 0.2)',
+  negative20: 'rgba(224, 48, 30, 0.2)',
   info: '#019AE8', // rgb(1, 154, 232)
-  infoTint: 'rgba(1, 154, 232, 0.2)',
+  info20: 'rgba(1, 154, 232, 0.2)',
+  darkGray: '#979797',
+  link: '#ccc',
+  lightSkyBlue: '#87CEFA',
 };
 
 export default colors;

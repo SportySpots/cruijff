@@ -7,31 +7,43 @@ import Colors from '../../../Themes/Colors';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const TextField = ({
-  whiteColor,
-  ...rest
-}) => (
-  <TextFieldMUI
-    labelFontSize={Fonts.style.M.fontSize}
-    labelHeight={Fonts.style.M.fontSize * 1.5}
-    labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
-    errorColor={Colors.red}
-    animationDuration={150}
-    baseColor={whiteColor ? Colors.white : Colors.black}
-    tintColor={Colors.primaryGreen}
-    activeLineWidth={1}
-    style={{ lineHeight: Fonts.style.M.fontSize * 1.5 }}
-    {...rest}
-  />
-);
+const TextField = ({ theme, size, ...rest }) => {
+  const isWhiteTheme = theme === 'white';
+
+  return (
+    <TextFieldMUI
+      labelFontSize={Fonts.style.M.fontSize}
+      labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
+      labelHeight={1.5 * Fonts.style.M.fontSize}
+      errorColor={Colors.red}
+      animationDuration={150}
+      lineWidth={1}
+      baseColor={isWhiteTheme ? Colors.white : Colors.black}
+      tintColor={isWhiteTheme ? Colors.white : Colors.primaryGreen}
+      activeLineWidth={2}
+      inputContainerPadding={14}
+      style={{
+        fontSize: Fonts.style[size].fontSize,
+        fontWeight: 'normal',
+        fontFamily: Fonts.style[size].fontFamily,
+        lineHeight: 1.3 * Fonts.style[size].fontSize,
+        marginTop: 8, // the lower the padding the greater the line height
+        color: isWhiteTheme ? Colors.white : Colors.black,
+      }}
+      {...rest}
+    />
+  );
+};
 
 TextField.propTypes = {
-  whiteColor: PropTypes.bool,
+  theme: PropTypes.oneOf(['white', 'black']),
+  size: PropTypes.oneOf(Object.keys(Fonts.style)),
   // Plus all props from react-native-material-textfield
 };
 
 TextField.defaultProps = {
-  whiteColor: false,
+  theme: 'black',
+  size: 'M',
 };
 
 export default TextField;

@@ -1,20 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
 import { TouchableOpacity } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../../Themes/Colors';
-import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import Row from '../../Common/Row';
 import Attendees from '../Attendees';
-import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ClickableAttendees = ({ game, maxLength, onAttendeesPress }) => {
-  const attendees = getAttendees(game);
-
+const ClickableAttendees = ({ attendees, maxLength, onAttendeesPress }) => {
   if (attendees.length === 0) {
     return null;
   }
@@ -25,7 +20,7 @@ const ClickableAttendees = ({ game, maxLength, onAttendeesPress }) => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Attendees game={game} maxLength={maxLength} />
+        <Attendees attendees={attendees} maxLength={maxLength} />
         <MaterialIcon
           name="chevron-right"
           size={30}
@@ -37,12 +32,18 @@ const ClickableAttendees = ({ game, maxLength, onAttendeesPress }) => {
 };
 
 ClickableAttendees.propTypes = {
-  game: propType(gameDetailsFragment).isRequired,
+  attendees: PropTypes.arrayOf(
+    PropTypes.shape({
+      status: PropTypes.oneOf(['ATTENDING']),
+      user: PropTypes.object, // TODO: use userFragment instead
+    }),
+  ),
   maxLength: PropTypes.number,
   onAttendeesPress: PropTypes.func,
 };
 
 ClickableAttendees.defaultProps = {
+  attendees: [],
   maxLength: 7,
   onAttendeesPress: () => {},
 };
