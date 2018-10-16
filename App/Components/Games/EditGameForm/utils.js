@@ -15,9 +15,10 @@ export const getDate = (startTime) => {
 // TODO: sum offset
 // See how timepicer works
 export const getTime = (startTime) => {
+  return new Date(startTime);
   // const date = new Date(startTime);
   // new Date.UTC(startTime)
-  return new Date(moment.utc(startTime).toISOString());
+  // return new Date(moment.utc(startTime).toISOString());
   // moment.utc(startTime).format('HH:mm')
   /* const startTimeUTC = Date.UTC(
     date.getUTCFullYear(),

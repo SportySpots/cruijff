@@ -121,9 +121,11 @@ const create = () => {
       status: status.toLowerCase(),
     });
 
-  const setGameTimes = ({ gameUUID, startTime, endTime }) =>
+  const setGameTimes = ({ gameUUID, startTZ, startTime, endTZ, endTime }) =>
     api.put(`/games/${gameUUID}/`, {
+      start_timezone: startTZ,
       start_time: startTime,
+      end_timezone: endTZ,
       end_time: endTime,
       rsvp_open_time: startTime,
       rsvp_close_time: endTime,

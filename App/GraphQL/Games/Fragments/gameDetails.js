@@ -5,7 +5,9 @@ const gameDetailsFragment = gql`
     uuid
     name
     status
+    start_timezone
     start_time
+    end_timezone
     end_time
     is_featured
     show_remaining
