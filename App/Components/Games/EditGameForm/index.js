@@ -26,6 +26,7 @@ import TextField from '../../Common/TextField';
 import SwitchWithText from '../../Common/SwitchWithText';
 // import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
 import RaisedButton from '../../Common/RaisedButton';
+import { getAttendees } from '../utils';
 import { getDate, getTime, getDuration } from './utils';
 
 //------------------------------------------------------------------------------
@@ -97,11 +98,13 @@ class EditGameForm extends React.PureComponent {
       isPublic: inviteMode !== 'INVITE_ONLY',
       errors: {
         name: [],
+        capacity: [],
         description: [],
       },
       // Keep track of field position in order to 'scroll to' on error
       offsetY: {
         name: 0,
+        capacity: 0,
         description: 0,
       },
     };
@@ -113,6 +116,7 @@ class EditGameForm extends React.PureComponent {
     this.setState({
       errors: {
         name: [],
+        capacity: [],
         description: [],
       },
     });
@@ -120,15 +124,13 @@ class EditGameForm extends React.PureComponent {
 
   handleLayout = ({ fieldName, nativeEvent }) => {
     const { offsetY } = this.state;
-    console.log('OFFSET', offsetY);
 
     this.setState({
       offsetY: {
         ...offsetY,
         [fieldName]: nativeEvent.layout.y,
       },
-    },
-    () => { console.log('STATE', this.state); });
+    });
   }
 
   handleChange = ({ fieldName, value }) => {
@@ -147,10 +149,13 @@ class EditGameForm extends React.PureComponent {
     });
   }
 
-  validateFields = ({ name, description }) => {
+  validateFields = ({ name, capacity, description }) => {
+    const { game } = this.props;
+
     // Initialize errors
     const errors = {
       name: [],
+      capacity: [],
       description: [],
     };
 
@@ -166,6 +171,11 @@ class EditGameForm extends React.PureComponent {
 
     if (_description.length > DESCRIPTION_MAX_CHARS) {
       errors.description.push(`Must be no more than ${DESCRIPTION_MAX_CHARS} characters!`);
+    }
+
+    const attendees = getAttendees(game.attendees); // [1, 2, 3, 4, 5, 6];
+    if (capacity && attendees.length > capacity) {
+      errors.capacity.push('Number of attendees is greater than the number of spots');
     }
 
     return errors;
@@ -199,7 +209,7 @@ class EditGameForm extends React.PureComponent {
     this.clearErrors();
 
     // Validate fields
-    const errors = this.validateFields({ name, description });
+    const errors = this.validateFields({ name, capacity, description });
 
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
@@ -244,6 +254,7 @@ class EditGameForm extends React.PureComponent {
     } = this.state;
 
     const nameErrors = ErrorHandling.getFieldErrors(errors, 'name');
+    const capacityErrors = ErrorHandling.getFieldErrors(errors, 'capacity');
     const descriptionErrors = ErrorHandling.getFieldErrors(errors, 'description');
 
     return (
@@ -321,10 +332,14 @@ class EditGameForm extends React.PureComponent {
                 </Half>
               </Row>
               <Divider />
-              <Block midHeight>
+              <Block
+                midHeight
+                onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'capacity', nativeEvent }); }}
+              >
                 <CapacityPickerField
                   label={I18n.t('Number of players')}
                   value={capacity}
+                  error={capacityErrors}
                   size="ML"
                   theme="transparent"
                   boxed
