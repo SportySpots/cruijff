@@ -157,7 +157,7 @@
     "reactotron-redux-saga": "^1.13.0",
     "snazzy": "^7.0.0"
   },
-  "jesasft": {
+  "jest": {
     "testMatch": [
       "<rootDir>/Tests/**/*.js",
       "**/?(*.)(spec|test).js?(x)"
