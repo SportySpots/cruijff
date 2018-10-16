@@ -6,15 +6,6 @@ import PropTypes from 'prop-types';
 const CappedList = ({
   max, data, component, propsMap, capComponent, keyExtractor,
 }) => {
-  if (!keyExtractor) {
-    let i = 0;
-    keyExtractor = () => { i += 1; return i; };
-  }
-
-  if (!propsMap) {
-    propsMap = item => item;
-  }
-
   const itemMapper = item =>
     React.createElement(component, { key: keyExtractor(item), ...propsMap(item) });
 
@@ -33,9 +24,19 @@ const CappedList = ({
   ];
 };
 
+function makeNumGenerator() {
+  let i = 0;
+  return () => { i += 1; return i; };
+}
+
+CappedList.defaultProps = {
+  keyExtractor: makeNumGenerator(),
+  propsMap: item => item,
+};
+
 CappedList.propTypes = {
   max: PropTypes.number.isRequired,
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(PropTypes.any),
   component: PropTypes.func.isRequired,
   propsMap: PropTypes.func,
   capComponent: PropTypes.func,
