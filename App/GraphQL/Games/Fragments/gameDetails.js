@@ -5,22 +5,32 @@ const gameDetailsFragment = gql`
     uuid
     name
     status
+    start_timezone
     start_time
+    end_timezone
     end_time
     is_featured
     show_remaining
     capacity
     description
+    invite_mode
     sport {
+      id
       uuid
       category
     }
     spot {
+      id
       uuid
       name
       images {
         uuid
         image
+      }
+      games {
+        uuid
+        start_time
+        status
       }
       amenities {
         uuid

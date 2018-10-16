@@ -12,7 +12,7 @@ import Footer from '../../../Components/DarkFooter';
 import SportDateTimeForm from '../../../Components/PlanGame/SportDateTimeForm/';
 import SpotForm from '../../../Components/PlanGame/SpotForm';
 import DescriptionForm from '../../../Components/PlanGame/DescriptionForm';
-import { setDate, setStartTime, setEndTime } from './utils';
+import { getUserTZ, setDate, setStartTime, setEndTime } from './utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -118,7 +118,10 @@ class PlanGameScreen extends React.Component {
     if (!fieldName) {
       return;
     }
-    this.setState({ [fieldName]: value });
+    this.setState(
+      { [fieldName]: value },
+      () => { console.log(this.state); },
+    );
   }
 
   handleBack = () => {
@@ -165,11 +168,15 @@ class PlanGameScreen extends React.Component {
         user.claims.username
       ) || '';
 
-      // Get startTime and endTime from date, time and duration
+      // Get user timezone, startTime and endTime from date, time and duration
+      const userTZ = getUserTZ();
       const startDate = setDate(date); // beginning of the selected date (moment object)
       const startTime = setStartTime(startDate, time); // moment object
       const endTime = duration ? setEndTime(startTime, duration) : null; // moment object
 
+      console.log('USER_TZ', userTZ);
+      console.log('DATE', date);
+      console.log('TIME', time);
       console.log('START_DATE', startDate.toISOString()); // '2018-10-06T00:00:00.000Z'
       console.log('START_TIME', startTime.toISOString()); // '2018-10-06T13:15:00.000Z'
       console.log('END_TIME', endTime ? endTime.toISOString() : null); // '2018-10-06T14:15:00.000Z'
@@ -186,7 +193,9 @@ class PlanGameScreen extends React.Component {
         // Set date and duration
         await api.setGameTimes({
           gameUUID,
+          startTZ: userTZ,
           startTime: startTime.toISOString(),
+          endTZ: userTZ,
           endTime: endTime ? endTime.toISOString() : null,
         });
 
@@ -336,3 +345,4 @@ const mapStateToProps = ({ user }) => ({ user });
 const withRedux = connect(mapStateToProps, null);
 
 export default withRedux(PlanGameScreen);
+

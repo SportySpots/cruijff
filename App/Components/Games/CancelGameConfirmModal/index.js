@@ -47,7 +47,7 @@ const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
         <Spacer orientation="column" size="L" />
         <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
         <Spacer orientation="column" size="M" />
-        <Subtitle>{`${I18n.t('All attendees will receive an email with your reason for cancellation')}.`}</Subtitle>
+        <Subtitle>${I18n.t('All attendees will receive an email with your reason for cancellation')}</Subtitle>
       </Container>
     </Block>
   </CancelConfirmModal>

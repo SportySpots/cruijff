@@ -9,6 +9,7 @@ import Colors from '../../../Themes/Colors';
 //------------------------------------------------------------------------------
 // TODO: probably need to use absolute-relative position to add white bg.
 // backgroundColor prop doesn't work as expected :(
+// TODO: use some checkbox lib!
 const Checkbox = ({ theme, checked, ...rest }) => {
   const isWhiteTheme = theme === 'white';
 
@@ -47,42 +48,3 @@ Checkbox.defaultProps = {
 };
 
 export default Checkbox;
-
-/*
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
-
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const ButtonContainer = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 48px;
-  height: 48px;
-`;
-//------------------------------------------------------------------------------
-// COMPONENT:
-//------------------------------------------------------------------------------
-const Checkbox = props => (
-  <TouchableOpacity {...props}>
-    <ButtonContainer>
-      <Icon
-        name="check-box-outline-blank"
-        size={48}
-        color={Colors.white}
-      />
-    </ButtonContainer>
-  </TouchableOpacity>
-);
-
-Checkbox.propTypes = {
-
-}
-
-export default Checkbox;
-*/

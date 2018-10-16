@@ -19,6 +19,7 @@ const Label = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: move to common folder
 const DarkFooterButton = ({
   text,
   disabled,

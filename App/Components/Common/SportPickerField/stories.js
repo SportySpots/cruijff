@@ -6,21 +6,29 @@ import Block from '../Block';
 import SportPickerField from './index';
 
 class Container extends React.PureComponent {
-  state = { value: null }
+  state = { sport: null }
 
   handleChange = (sport) => {
-    this.setState({ value: sport.name });
+    this.setState({ sport });
   }
 
   render() {
-    const { theme } = this.props;
-    const { value } = this.state;
+    const {
+      theme,
+      label,
+      boxed,
+      size,
+    } = this.props;
+    const { sport } = this.state;
 
     return (
       <SportPickerField
         theme={theme}
-        value={value}
+        label={label}
+        boxed={boxed}
+        value={sport}
         onChange={this.handleChange}
+        size={size}
       />
     );
   }
@@ -28,10 +36,16 @@ class Container extends React.PureComponent {
 
 Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
+  size: PropTypes.string,
+  label: PropTypes.string,
+  boxed: PropTypes.bool,
 };
 
 Container.defaultProps = {
   theme: 'black',
+  size: 'M',
+  label: '',
+  boxed: false,
 };
 
 storiesOf('Common.SportPickerField', module)
@@ -40,4 +54,12 @@ storiesOf('Common.SportPickerField', module)
     <Block bgColor={Colors.primaryGreen}>
       <Container theme="white" />
     </Block>
+  ))
+  .add('SportPickerField boxed size ML', () => (
+    <Container
+      label="I'm the label"
+      boxed
+      size="ML"
+      dateFormat="DD/MM/YYYY"
+    />
   ));

@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import I18n from '../I18n';
 import NothingFound from '../Components/Common/NothingFound';
 
+// TODO: solve eslint errors, test and implement across all queries
+// use default export
 export const QueryCatchErrors = (props) => {
   const {
     children, logErrors, errorComponent, crashApp, ...queryProps

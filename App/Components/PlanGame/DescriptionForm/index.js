@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DescriptionField from '../DescriptionField';
+import DescriptionField from '../../Common/DescriptionField';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

@@ -10,10 +10,7 @@ import GameListCard from '../../Games/GameListCard';
 import GamesList from './index';
 
 const Container = () => (
-  <Query
-    query={GET_GAMES_LIST}
-    // variables={{ sport: 'SOCCER' }}
-  >
+  <Query query={GET_GAMES_LIST}>
     {({ loading, error, data }) =>
     (loading || error ? null : (
       <Block bgColor={Colors.lightGray}>

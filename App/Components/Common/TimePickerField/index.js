@@ -13,7 +13,8 @@ const TimePickerField = ({ value, onChange, ...rest }) => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => [
       <InputField
-        key="field"
+        key="input-field"
+        comp="TextField"
         value={value ? moment(value).format('HH:mm') : I18n.t('Select')}
         onPress={openModal}
         {...rest}
@@ -21,9 +22,10 @@ const TimePickerField = ({ value, onChange, ...rest }) => (
       <TimePickerModal
         key="modal"
         mode="time"
-        isVisible={visible}
         date={value}
+        isVisible={visible}
         onConfirm={(date) => {
+          // Pass event up to parent component
           onChange(date);
           closeModal();
         }}

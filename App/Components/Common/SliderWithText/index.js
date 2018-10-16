@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import Slider from '../Slider';
 import Spacer from '../Spacer';
 import Text from '../Text';
@@ -20,9 +19,7 @@ const FullHeight = styled.View`
 const SliderWithText = ({ label, description, ...rest }) => (
   <FullHeight>
     <Text.M>{label}</Text.M>
-    <Text.SM style={{ color: Colors.gray }}>
-      {description}
-    </Text.SM>
+    {description}
     <Spacer orientation="column" size="L" />
     <Slider {...rest} />
   </FullHeight>
@@ -30,13 +27,16 @@ const SliderWithText = ({ label, description, ...rest }) => (
 
 SliderWithText.propTypes = {
   label: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.node,
+  ]),
   // Plus all props from Slider
 };
 
 SliderWithText.defaultProps = {
   label: '',
-  description: '',
+  description: null,
 };
 
 export default SliderWithText;

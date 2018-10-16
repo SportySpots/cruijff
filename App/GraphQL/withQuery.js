@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { Query } from 'react-apollo';
 import Text from '../Components/Common/Text';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
@@ -15,4 +15,4 @@ const withQuery = query => Component => props => (
   </Query>
 );
 
-export default withQuery;
+export default withQuery; */

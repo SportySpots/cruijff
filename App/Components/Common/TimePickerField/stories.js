@@ -6,21 +6,29 @@ import Block from '../Block';
 import TimePickerField from './index';
 
 class Container extends React.PureComponent {
-  state = { value: null }
+  state = { date: null }
 
   handleChange = (date) => {
-    this.setState({ value: date });
+    this.setState({ date });
   }
 
   render() {
-    const { theme } = this.props;
-    const { value } = this.state;
+    const {
+      theme,
+      label,
+      boxed,
+      size,
+    } = this.props;
+    const { date } = this.state;
 
     return (
       <TimePickerField
         theme={theme}
-        value={value}
+        label={label}
+        boxed={boxed}
+        value={date}
         onChange={this.handleChange}
+        size={size}
       />
     );
   }
@@ -28,10 +36,16 @@ class Container extends React.PureComponent {
 
 Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
+  size: PropTypes.string,
+  label: PropTypes.string,
+  boxed: PropTypes.bool,
 };
 
 Container.defaultProps = {
   theme: 'black',
+  size: 'M',
+  label: '',
+  boxed: false,
 };
 
 storiesOf('Common.TimePickerField', module)
@@ -40,4 +54,7 @@ storiesOf('Common.TimePickerField', module)
     <Block bgColor={Colors.primaryGreen}>
       <Container theme="white" />
     </Block>
+  ))
+  .add('TimePickerField boxed size ML', () => (
+    <Container label="I'm the label" boxed size="ML" />
   ));

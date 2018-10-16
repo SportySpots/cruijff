@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import Colors from '../../Themes/Colors';
 import Fonts from '../../Themes/Fonts';
 
+// TODO: move to onboarding page, get rid of Styles container folder
 export const styles = StyleSheet.create({
   container: {
     flex: 1,

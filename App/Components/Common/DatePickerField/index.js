@@ -10,12 +10,18 @@ import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDat
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DatePickerField = ({ value, onChange, ...rest }) => (
+const DatePickerField = ({
+  value,
+  onChange,
+  dateFormat,
+  ...rest
+}) => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => [
       <InputField
-        key="field"
-        value={value ? moment(value).format('DD-MM') : I18n.t('Select')}
+        key="input-field"
+        comp="TextField"
+        value={value ? moment(value).format(dateFormat) : I18n.t('Select')}
         onPress={openModal}
         {...rest}
       />,
@@ -40,12 +46,14 @@ const DatePickerField = ({ value, onChange, ...rest }) => (
 DatePickerField.propTypes = {
   value: datePickerDatePropTypes,
   onChange: PropTypes.func,
+  dateFormat: PropTypes.string,
   // Plus all InputField props (theme, size)
 };
 
 DatePickerField.defaultProps = {
   value: null,
   onChange: () => {},
+  dateFormat: 'DD-MM', // 'DD/MM/YYYY'
 };
 
 export default DatePickerField;

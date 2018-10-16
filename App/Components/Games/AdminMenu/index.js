@@ -1,36 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { Keyboard } from 'react-native';
-import { Menu, MenuTrigger, MenuOptions, MenuOption } from 'react-native-popup-menu';
 import { Query } from 'react-apollo';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import styled from 'styled-components/native';
 import I18n from '../../../I18n';
-// import Colors from '../../../Themes/Colors';
-import Text from '../../Common/Text';
+import Menu from '../../Common/Menu';
 import GET_GAME_ORGANIZER from '../../../GraphQL/Games/Queries/GET_GAME_ORGANIZER';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-/* const Danger = styled(Text.M)`
-  color: ${Colors.red};
-`; */
-//------------------------------------------------------------------------------
-const TriggerContainer = styled.View`
-  padding-right: 8px;
-`;
-//------------------------------------------------------------------------------
-// See: https://github.com/instea/react-native-popup-menu/blob/master/examples/StylingExample.js
-const optionsStyles = {
-  optionsContainer: {
-    borderRadius: 8,
-  },
-  optionWrapper: {
-    padding: 16,
-  },
-};
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -42,7 +17,7 @@ class AdminMenu extends React.PureComponent {
 
   handleEdit = () => {
     const { navigation } = this.props;
-    navigation.navigate('PlanScreen', { uuid: this.gameUUID });
+    navigation.navigate('EditGameScreen', { uuid: this.gameUUID });
   }
 
   handleCancel = () => {
@@ -52,6 +27,20 @@ class AdminMenu extends React.PureComponent {
 
   render() {
     const { user } = this.props;
+
+    const OPTIONS = [
+      {
+        id: 'edit',
+        text: I18n.t('Edit activity'),
+        onPress: this.handleEdit,
+      },
+      {
+        id: 'cancel',
+        text: I18n.t('Cancel activity'),
+        danger: true,
+        onPress: this.handleCancel,
+      },
+    ];
 
     return (
       <Query
@@ -78,22 +67,11 @@ class AdminMenu extends React.PureComponent {
           }
 
           return (
-            <Menu name="game-admin">
-              <MenuTrigger menuName="game-admin">
-                <TriggerContainer testID="gameAdminMenuTrigger">
-                  <Icon size={32} name="more-vert" />
-                </TriggerContainer>
-              </MenuTrigger>
-              <MenuOptions customStyles={optionsStyles}>
-                {/* <MenuOption onSelect={this.handleEdit}>
-                  <Text.M>{I18n.t('Edit Activity')}</Text.M>
-                </MenuOption>
-                <MenuOption disabled /> */}
-                <MenuOption onSelect={this.handleCancel}>
-                  <Text.M testID="gameAdminMenuCancel">{I18n.t('Cancel activity')}</Text.M>
-                </MenuOption>
-              </MenuOptions>
-            </Menu>
+            <Menu
+              menuName="display-game-menu"
+              triggerName="display-game-trigger"
+              options={OPTIONS}
+            />
           );
         }}
       </Query>
@@ -122,6 +100,7 @@ AdminMenu.defaultProps = {
   user: null,
 };
 
+// TODO: we need a user provider at top level to avoid using redux over and over again
 const mapStateToProps = ({ user }) => ({ user });
 const withRedux = connect(mapStateToProps, null);
 

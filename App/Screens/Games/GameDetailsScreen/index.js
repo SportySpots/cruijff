@@ -21,6 +21,7 @@ const Container = styled(ScrollView)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: disable RSVP buttons when clicked. Use render-props
 class GameDetailsScreen extends React.PureComponent {
   get gameUUID() {
     const { navigation } = this.props;
@@ -42,7 +43,7 @@ class GameDetailsScreen extends React.PureComponent {
 
     if (!user || !user.uuid) {
       navigation.navigate('ProfileSignupScreen');
-      // Throw error in order to interrupt rspv normal flow
+      // Throw error in order to interrupt rsvp normal flow
       throw new Error(401, 'User not authorized!');
     }
   }

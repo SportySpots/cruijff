@@ -1,6 +1,103 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+import Colors from '../../../Themes/Colors';
+import SpotsList from '../../../Components/Spots/SpotsList';
+import getCurrentPosition from './utils';
+
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Container = styled.View`
+  flex: 1;
+  padding: 0 4px;
+  background-color: ${Colors.concrete};
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+// TODO: replace Container with Layout comp
+// TODO: get rid of geolocation call, use user data from query instead
+class SpotsListScreen extends React.Component {
+  state = {
+    // set some location. Ideally user should be in context (top level query)
+    userCoords: { latitude: 52.3727729, longitude: 4.9055008 },
+  }
+
+  async componentWillMount() {
+    if (!('geolocation' in navigator)) {
+      console.log('Geolocation is not available');
+      return;
+    }
+
+    // Get user's position from navigator
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 1000,
+      maximumAge: 100000,
+    };
+
+    let position;
+    try {
+      position = await getCurrentPosition(options);
+    } catch (exc) {
+      console.log("Oops, we couldn't get your position! Make sure you GPS is enabled ;)", exc);
+    }
+
+    const coordsSet = (
+      position &&
+      position.coords &&
+      position.coords.latitude &&
+      position.coords.latitude
+    );
+    if (!coordsSet) { return; }
+    const { latitude, longitude } = position.coords;
+    this.setState({ userCoords: { latitude, longitude } });
+  }
+
+  handleCardPress = (spot) => {
+    this.props.navigation.navigate('SpotDetailsScreen', {
+      uuid: spot.uuid,
+    });
+  }
+
+  render() {
+    const { maxDistance, allSports, selectedSportIds } = this.props;
+    const { userCoords } = this.state;
+
+    return (
+      <Container>
+        <SpotsList
+          cardComponent="SpotListCard"
+          sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
+          userCoords={userCoords}
+          maxDistance={maxDistance} // km
+          onCardPress={this.handleCardPress}
+        />
+      </Container>
+    );
+  }
+}
+
+SpotsListScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+  maxDistance: PropTypes.number.isRequired,
+  allSports: PropTypes.bool.isRequired,
+  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+const mapStateToProps = state => state.spotFilters;
+const withRedux = connect(mapStateToProps, null);
+
+export default withRedux(SpotsListScreen);
+
+/*
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { uniqBy } from 'ramda';
 import geolib from 'geolib';
 import styled from 'styled-components';
@@ -33,7 +130,7 @@ const getCurrentPosition = (options = {}) =>
 //------------------------------------------------------------------------------
 /**
  * @summary Make sure spots are unique.
- */
+ /
 const curatedSpots = spots => (
   spots && spots.length > 0
     ? uniqBy(({ uuid }) => (uuid), spots)
@@ -170,3 +267,5 @@ const mapStateToProps = state => state.spotFilters;
 const withRedux = connect(mapStateToProps, null);
 
 export default withRedux(SpotsListScreen);
+
+*/

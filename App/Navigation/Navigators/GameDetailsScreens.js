@@ -3,9 +3,10 @@ import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
-import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
-import CancelGameScreen from '../../Screens/Games/CancelGameScreen/index';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
+import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
+import CancelGameScreen from '../../Screens/Games/CancelGameScreen';
+import EditGameScreen from '../../Screens/Games/EditGameScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import PlayerList from '../../Screens/Games/PlayersListScreen';
 import AdminMenu from '../../Components/Games/AdminMenu';
@@ -63,6 +64,14 @@ const GameDetailsScreens = {
       headerLeft: backBtn(navigation),
     }),
   },
+  ProfileSignupScreen: {
+    screen: ProfileSignupScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Game details'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
+  },
   CancelGameScreen: {
     screen: CancelGameScreen,
     navigationOptions: ({ navigation }) => ({
@@ -71,10 +80,10 @@ const GameDetailsScreens = {
       headerLeft: backBtn(navigation),
     }),
   },
-  ProfileSignupScreen: {
-    screen: ProfileSignupScreen,
+  EditGameScreen: {
+    screen: EditGameScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Game details'),
+      headerTitle: I18n.t('Edit activity'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

@@ -1,50 +1,105 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
-import Fonts from '../../../Themes/Fonts';
-import Colors from '../../../Themes/Colors';
 import Row from '../Row';
 import Spacer from '../Spacer';
-import Text from '../Text';
+import TextField from '../TextField';
+import Dropdown from '../Dropdown';
+import getPalette from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Input = styled.View`
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ isWhiteTheme }) => (isWhiteTheme ? Colors.white : Colors.black)};
-  padding-horizontal: 8px;
-  min-width: 40px;
-  height: 32px;
+const FlexGrow = styled.View`
+  flex-grow: 1; /* full width */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const InputField = ({
+  comp,
   theme,
-  size,
-  value,
   onPress,
+  boxed,
+  width,
+  ...rest
 }) => {
-  const TextSize = Text[size.toUpperCase()];
-  const isWhiteTheme = theme === 'white';
+  const isTextField = comp === 'TextField';
+  const Comp = isTextField ? TextField : Dropdown;
+  const pointerEvents = isTextField ? 'none' : 'auto';
+  const {
+    fontColor,
+    baseColor,
+    tintColor,
+    iconColor,
+    lineWidth,
+  } = getPalette(theme);
+
+  const touchableStyle = width ? { width } : { flex: 1 };
+
+  if (boxed) {
+    return (
+      <TouchableOpacity
+        onPress={onPress}
+        style={touchableStyle}
+      >
+        <Row>
+          <FlexGrow pointerEvents={pointerEvents}>
+            <Comp
+              fontColor={fontColor}
+              baseColor={baseColor}
+              tintColor={tintColor}
+              iconColor={iconColor}
+              lineWidth={lineWidth}
+              {...rest}
+            />
+          </FlexGrow>
+          {/* Add custom carret */}
+          <View>
+            <Spacer size="XXL" />
+            <Icon
+              size={24}
+              name="keyboard-arrow-down"
+              color={iconColor}
+            />
+          </View>
+        </Row>
+      </TouchableOpacity>
+    );
+  }
 
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={touchableStyle}
+    >
       <Row>
         <Spacer orientation="row" size="M" />
-        <Input isWhiteTheme={isWhiteTheme}>
-          <TextSize style={{ textAlign: 'center' }}>
-            {value}
-          </TextSize>
-        </Input>
-        <Icon
-          size={24}
-          name="keyboard-arrow-down"
-          color={isWhiteTheme ? Colors.white : Colors.black}
-        />
+        <FlexGrow pointerEvents={pointerEvents}>
+          <Comp
+            fontColor={fontColor}
+            baseColor={baseColor}
+            tintColor={tintColor}
+            iconColor={iconColor}
+            lineWidth={lineWidth}
+            style={{
+              paddingHorizontal: 8,
+              textAlign: 'center',
+            }}
+            {...rest}
+          />
+        </FlexGrow>
+        {/* Add custom carret */}
+        <View>
+          <Spacer size="XXL" />
+          <Icon
+            size={24}
+            name="keyboard-arrow-down"
+            color={iconColor}
+          />
+        </View>
         <Spacer orientation="row" size="M" />
       </Row>
     </TouchableOpacity>
@@ -52,17 +107,18 @@ const InputField = ({
 };
 
 InputField.propTypes = {
-  theme: PropTypes.oneOf(['white', 'black']),
-  size: PropTypes.oneOf(Object.keys(Fonts.style)),
-  value: PropTypes.string,
+  comp: PropTypes.oneOf(['TextField', 'Dropdown']).isRequired,
+  theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
   onPress: PropTypes.func,
+  boxed: PropTypes.bool,
+  width: PropTypes.number,
 };
 
 InputField.defaultProps = {
   theme: 'black',
-  size: 'M',
-  value: '',
   onPress: () => {},
+  boxed: false,
+  width: null,
 };
 
 export default InputField;
