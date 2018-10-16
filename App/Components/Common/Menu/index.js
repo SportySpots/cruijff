@@ -36,7 +36,7 @@ const optionsStyles = {
 const Menu = ({ menuName, triggerName, options }) => (
   <MenuNative name={menuName}>
     <MenuTrigger menuName={triggerName}>
-      <TriggerContainer>
+      <TriggerContainer testID="gameAdminMenuTrigger">
         <Icon size={32} name="more-vert" />
       </TriggerContainer>
     </MenuTrigger>
@@ -48,7 +48,7 @@ const Menu = ({ menuName, triggerName, options }) => (
         onPress,
       }) => (
         <MenuOption key={id} onSelect={onPress}>
-          <StyledText danger={danger}>
+          <StyledText testID="gameAdminMenuCancel" danger={danger}>
             {text}
           </StyledText>
         </MenuOption>
@@ -56,6 +56,7 @@ const Menu = ({ menuName, triggerName, options }) => (
     </MenuOptions>
   </MenuNative>
 );
+
 
 Menu.propTypes = {
   menuName: PropTypes.string.isRequired,
