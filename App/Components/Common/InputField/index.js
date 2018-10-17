@@ -37,7 +37,7 @@ const InputField = ({
     lineWidth,
   } = getPalette(theme);
 
-  const containerStyle = width ? { width } : { flex: 1 };
+  const containerStyle = width ? { width } : { width: '100%' };
 
   if (boxed) {
     return (
