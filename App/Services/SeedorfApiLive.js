@@ -79,14 +79,17 @@ const create = () => {
     });
   };
 
-  const createGame = ({ name }) =>
-    api.post('/games/', {
+  const createGame = ({ name }) => {
+    // use a dummy future date, actual datetimes should be set in a separate call
+    const futureDate = moment().add(1, 'days').toISOString();
+    return api.post('/games/', {
       name,
-      start_time: moment().toISOString(),
-      rsvp_open_time: moment().toISOString(),
-      rsvp_close_time: moment().toISOString(),
-      end_time: moment().toISOString(),
+      start_time: futureDate,
+      rsvp_open_time: futureDate,
+      rsvp_close_time: futureDate,
+      end_time: futureDate,
     });
+  };
 
   const setGameSport = ({ gameUUID, sport }) => {
     api.post(`/games/${gameUUID}/sport/`, {
@@ -128,32 +131,32 @@ const create = () => {
     endTZ,
     endTime,
   }) =>
-    api.put(`/games/${gameUUID}/`, {
+    api.patch(`/games/${gameUUID}/`, {
       start_timezone: startTZ,
       start_time: startTime,
       end_timezone: endTZ,
       end_time: endTime,
-      rsvp_open_time: startTime,
-      rsvp_close_time: endTime,
+      rsvp_open_time: moment().toISOString(),
+      rsvp_close_time: startTime,
     });
 
   const setGameName = ({ gameUUID, name }) =>
-    api.put(`/games/${gameUUID}/`, {
+    api.patch(`/games/${gameUUID}/`, {
       name,
     });
 
   const setGameInviteMode = ({ gameUUID, inviteMode }) =>
-    api.put(`/games/${gameUUID}/`, {
+    api.patch(`/games/${gameUUID}/`, {
       invite_mode: inviteMode,
     });
 
   const setGameDescription = ({ gameUUID, description }) =>
-    api.put(`/games/${gameUUID}/`, {
+    api.patch(`/games/${gameUUID}/`, {
       description,
     });
 
   const setGameCapacity = ({ gameUUID, capacity }) =>
-    api.put(`/games/${gameUUID}/`, {
+    api.patch(`/games/${gameUUID}/`, {
       capacity,
     });
 
