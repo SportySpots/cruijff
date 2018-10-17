@@ -8,6 +8,7 @@ import SignupScreen from '../../Screens/SignupScreen';
 import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
 import ProfileDetailsScreen from '../../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../../Screens/Profile/ProfileEditScreen';
+import UserMenu from '../../Components/Profile/UserMenu';
 import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
@@ -73,8 +74,10 @@ const ProfileNav = StackNavigator({
         overlay={ProfileSignupScreen}
       />
     ),
-    navigationOptions: () => ({
+    navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Profile'),
+      // headerTitleStyle,
+      headerRight: <UserMenu navigation={navigation} />,
     }),
   },
 }, {
