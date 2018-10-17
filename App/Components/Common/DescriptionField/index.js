@@ -29,7 +29,7 @@ const DescriptionField = ({
       label=""
       error={error}
       multiline
-      placeholder={I18n.t('Write here why the activity does not continue')}
+      placeholder={I18n.t('Write extra details about the game here')}
       fontColor={fontColor}
       baseColor={baseColor}
       tintColor={tintColor}

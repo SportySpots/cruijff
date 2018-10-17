@@ -24,6 +24,7 @@ const InputField = ({
   onPress,
   boxed,
   width,
+  testID,
   ...rest
 }) => {
   const isTextField = comp === 'TextField';
@@ -44,6 +45,7 @@ const InputField = ({
       <TouchableOpacity
         onPress={onPress}
         style={touchableStyle}
+        testID={testID}
       >
         <Row>
           <FlexGrow pointerEvents={pointerEvents}>
@@ -74,6 +76,7 @@ const InputField = ({
     <TouchableOpacity
       onPress={onPress}
       style={touchableStyle}
+      testID={testID}
     >
       <Row>
         <Spacer orientation="row" size="M" />
@@ -112,6 +115,7 @@ InputField.propTypes = {
   onPress: PropTypes.func,
   boxed: PropTypes.bool,
   width: PropTypes.number,
+  testID: PropTypes.string,
 };
 
 InputField.defaultProps = {
@@ -119,6 +123,7 @@ InputField.defaultProps = {
   onPress: () => {},
   boxed: false,
   width: null,
+  testID: '',
 };
 
 export default InputField;

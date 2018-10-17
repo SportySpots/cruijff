@@ -60,12 +60,14 @@ const CapacityPicker = ({
     <Row>
       <Spacer orientation="row" size="L" />
       <RoundButton
+        testID="capacityMinus"
         status="dark"
         iconName="minus"
         onPress={onDecrease}
       />
       <Counter>{value || 0}</Counter>
       <RoundButton
+        testID="capacityPlus"
         status="dark"
         iconName="plus"
         onPress={onIncrease}

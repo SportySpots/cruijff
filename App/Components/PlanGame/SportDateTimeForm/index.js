@@ -41,6 +41,7 @@ const SportAndTimeForm = ({
     <Label>{I18n.t('I want to play')}</Label>
     <Spacer orientation="row" size="S" />
     <SportPickerField
+      testID="pickSport"
       value={sport}
       size="ML"
       theme="mix"
@@ -56,6 +57,7 @@ const SportAndTimeForm = ({
     <Label>{I18n.t('on')}</Label>
     <Spacer orientation="row" size="S" />
     <DatePickerField
+      testID="pickDate"
       value={date}
       size="ML"
       theme="mix"
@@ -66,6 +68,7 @@ const SportAndTimeForm = ({
     <Label>{I18n.t('at')}</Label>
     <Spacer orientation="row" size="S" />
     <TimePickerField
+      testID="pickTime"
       value={time}
       size="ML"
       theme="mix"
@@ -81,6 +84,7 @@ const SportAndTimeForm = ({
     <Label>{I18n.t('during')}</Label>
     <Spacer orientation="row" size="S" />
     <DurationPickerField
+      testID="pickDuration"
       label=""
       value={duration}
       onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
@@ -97,6 +101,7 @@ const SportAndTimeForm = ({
     <Label>{I18n.t('with')}</Label>
     <Spacer orientation="row" size="S" />
     <CapacityPickerField
+      testID="pickCapacity"
       value={capacity}
       size="ML"
       theme="mix"

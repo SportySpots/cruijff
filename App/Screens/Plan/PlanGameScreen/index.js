@@ -13,6 +13,7 @@ import SportDateTimeForm from '../../../Components/PlanGame/SportDateTimeForm/';
 import SpotForm from '../../../Components/PlanGame/SpotForm';
 import DescriptionForm from '../../../Components/PlanGame/DescriptionForm';
 import { getUserTZ, setDate, setStartTime, setEndTime } from './utils';
+import { addGlobalRef } from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -88,6 +89,7 @@ class PlanGameScreen extends React.Component {
     if (Platform.OS === 'android') {
       BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
     }
+    addGlobalRef('PlanGameScreen')(this);
   }
 
   componentWillUnmount() {

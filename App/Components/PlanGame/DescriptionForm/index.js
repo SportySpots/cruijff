@@ -7,6 +7,7 @@ import DescriptionField from '../../Common/DescriptionField';
 //------------------------------------------------------------------------------
 const DescriptionForm = ({ description, descriptionMaxChars, onChange }) => (
   <DescriptionField
+    testID="description"
     value={description}
     characterRestriction={descriptionMaxChars}
     onChangeText={(value) => { onChange({ fieldName: 'description', value }); }}

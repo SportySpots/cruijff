@@ -12,6 +12,7 @@ import Spacer from '../../Common/Spacer';
 import SpotListCard from '../SpotListCard';
 import SpotListCardSmall from '../SpotListCardSmall';
 import { curatedSpots, getSpotLocation, rounded } from './utils';
+import { makeNumGenerator } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -72,12 +73,15 @@ const SpotsList = ({
           })
         ) || [];
 
+        const numGenerator = makeNumGenerator();
+
         return (
           <FlatList
             data={spots}
             keyExtractor={item => item.uuid}
             renderItem={({ item: spot }) => (
               <TouchableOpacity
+                testID={`pickSpot_${numGenerator()}`}
                 key={spot.uuid}
                 // Pass event up to parent component
                 onPress={() => { onCardPress(spot); }}

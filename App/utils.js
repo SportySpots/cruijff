@@ -16,3 +16,11 @@ export const addModelState = (reactComponentInstance, modalName, isOpen=false) =
   };
   reactComponentInstance.state.modals[modalName] = isOpen;
 };
+
+export function makeNumGenerator() {
+  let i = -1;
+  return () => {
+    i += 1;
+    return i;
+  };
+}

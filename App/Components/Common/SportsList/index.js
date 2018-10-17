@@ -7,6 +7,7 @@ import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import CenteredActivityIndicator from '../CenteredActivityIndicator';
 import SportCard from '../SportCard';
+import { makeNumGenerator } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -16,12 +17,13 @@ const SportsList = ({ selectedSport, onSportPress }) => (
     {({ loading, error, data }) => {
       if (loading) { return <CenteredActivityIndicator />; }
       if (error || !data) { return null; }
-
+      const numGenerator = makeNumGenerator();
       return (
         <FlatList
           keyExtractor={item => item.uuid}
           renderItem={({ item }) => (
             <SportCard
+              testID={`sport_${numGenerator()}`}
               sport={item}
               isSelected={(
                 selectedSport &&

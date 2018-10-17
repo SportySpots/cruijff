@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { makeNumGenerator } from '../../../utils';
 
 // TODO: linter
 
@@ -23,11 +24,6 @@ const CappedList = ({
     }) : null,
   ];
 };
-
-function makeNumGenerator() {
-  let i = 0;
-  return () => { i += 1; return i; };
-}
 
 CappedList.defaultProps = {
   keyExtractor: makeNumGenerator(),
