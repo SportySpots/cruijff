@@ -3206,7 +3206,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                           "marginTop": 6,
                         },
                         Object {
-                          "color": "#00adf5",
+                          "color": "#d9e1e8",
                         },
                       ]
                     }
@@ -3254,6 +3254,9 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                           "fontSize": 16,
                           "fontWeight": "300",
                           "marginTop": 6,
+                        },
+                        Object {
+                          "color": "#00adf5",
                         },
                       ]
                     }
@@ -4921,7 +4924,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
+              testID="capacityMinus"
               tvParallaxProperties={undefined}
             >
               <View
@@ -5024,7 +5027,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "opacity": 1,
                 }
               }
-              testID={undefined}
+              testID="capacityPlus"
               tvParallaxProperties={undefined}
             >
               <View
@@ -5142,11 +5145,10 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
               "opacity": 1,
             }
           }
-          testID={undefined}
+          testID=""
           tvParallaxProperties={undefined}
         >
           <View
@@ -5193,7 +5195,11 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField 1`] = `
                 onResponderRelease={[Function]}
                 onStartShouldSetResponder={[Function]}
                 pointerEvents="auto"
-                style={undefined}
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
                 <View
                   collapsable={undefined}
@@ -5213,7 +5219,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField 1`] = `
                     style={
                       Object {
                         "position": "absolute",
-                        "top": 5,
+                        "top": 31,
                       }
                     }
                   >
@@ -5227,7 +5233,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField 1`] = `
                         Object {
                           "color": "rgba(0, 0, 0, 1)",
                           "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 18,
+                          "fontSize": 16,
                         }
                       }
                     >
@@ -5279,7 +5285,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField 1`] = `
                         ]
                       }
                       underlineColorAndroid="transparent"
-                      value="∞"
+                      value=""
                     />
                   </View>
                 </View>
@@ -5467,11 +5473,10 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField boxed size ML
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
               "opacity": 1,
             }
           }
-          testID={undefined}
+          testID=""
           tvParallaxProperties={undefined}
         >
           <View
@@ -5504,7 +5509,11 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField boxed size ML
                 onResponderRelease={[Function]}
                 onStartShouldSetResponder={[Function]}
                 pointerEvents="auto"
-                style={undefined}
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
                 <View
                   collapsable={undefined}
@@ -5524,7 +5533,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField boxed size ML
                     style={
                       Object {
                         "position": "absolute",
-                        "top": 5,
+                        "top": 31,
                       }
                     }
                   >
@@ -5538,7 +5547,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField boxed size ML
                         Object {
                           "color": "rgba(0, 0, 0, 1)",
                           "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 18,
+                          "fontSize": 16,
                         }
                       }
                     >
@@ -5588,7 +5597,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField boxed size ML
                         ]
                       }
                       underlineColorAndroid="transparent"
-                      value="∞"
+                      value=""
                     />
                   </View>
                 </View>
@@ -5780,11 +5789,10 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -5831,7 +5839,11 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
                   onResponderRelease={[Function]}
                   onStartShouldSetResponder={[Function]}
                   pointerEvents="auto"
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     collapsable={undefined}
@@ -5851,7 +5863,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
                       style={
                         Object {
                           "position": "absolute",
-                          "top": 5,
+                          "top": 31,
                         }
                       }
                     >
@@ -5865,7 +5877,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
                           Object {
                             "color": "rgba(255, 255, 255, 1)",
                             "fontFamily": "Rajdhani-SemiBold",
-                            "fontSize": 18,
+                            "fontSize": 16,
                           }
                         }
                       >
@@ -5917,7 +5929,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
                           ]
                         }
                         underlineColorAndroid="transparent"
-                        value="∞"
+                        value=""
                       />
                     </View>
                   </View>
@@ -6298,11 +6310,10 @@ exports[`Storyshots Common.DatePickerField DatePickerField 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
               "opacity": 1,
             }
           }
-          testID={undefined}
+          testID=""
           tvParallaxProperties={undefined}
         >
           <View
@@ -6349,7 +6360,11 @@ exports[`Storyshots Common.DatePickerField DatePickerField 1`] = `
                 onResponderRelease={[Function]}
                 onStartShouldSetResponder={[Function]}
                 pointerEvents="auto"
-                style={undefined}
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
                 <View
                   collapsable={undefined}
@@ -6623,11 +6638,10 @@ exports[`Storyshots Common.DatePickerField DatePickerField boxed size ML dateFor
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
               "opacity": 1,
             }
           }
-          testID={undefined}
+          testID=""
           tvParallaxProperties={undefined}
         >
           <View
@@ -6660,7 +6674,11 @@ exports[`Storyshots Common.DatePickerField DatePickerField boxed size ML dateFor
                 onResponderRelease={[Function]}
                 onStartShouldSetResponder={[Function]}
                 pointerEvents="auto"
-                style={undefined}
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
                 <View
                   collapsable={undefined}
@@ -6936,11 +6954,10 @@ exports[`Storyshots Common.DatePickerField DatePickerField white theme 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -6987,7 +7004,11 @@ exports[`Storyshots Common.DatePickerField DatePickerField white theme 1`] = `
                   onResponderRelease={[Function]}
                   onStartShouldSetResponder={[Function]}
                   pointerEvents="auto"
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     collapsable={undefined}
@@ -10933,11 +10954,10 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -10982,7 +11002,11 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField 1`] = `
               >
                 <View
                   onLayout={[Function]}
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     accessibilityComponentType={undefined}
@@ -12638,11 +12662,10 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField boxed size ML
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -12673,7 +12696,11 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField boxed size ML
               >
                 <View
                   onLayout={[Function]}
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     accessibilityComponentType={undefined}
@@ -14331,11 +14358,10 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField white theme 1
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
-                  "flex": 1,
                   "opacity": 1,
                 }
               }
-              testID={undefined}
+              testID=""
               tvParallaxProperties={undefined}
             >
               <View
@@ -14380,7 +14406,11 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField white theme 1
                 >
                   <View
                     onLayout={[Function]}
-                    style={undefined}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
                   >
                     <View
                       accessibilityComponentType={undefined}
@@ -16047,11 +16077,10 @@ exports[`Storyshots Common.InputField InputField Dropdown comp 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -16096,7 +16125,11 @@ exports[`Storyshots Common.InputField InputField Dropdown comp 1`] = `
               >
                 <View
                   onLayout={[Function]}
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     accessibilityComponentType={undefined}
@@ -16961,11 +16994,10 @@ exports[`Storyshots Common.InputField InputField Dropdown comp boxed 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -16996,7 +17028,11 @@ exports[`Storyshots Common.InputField InputField Dropdown comp boxed 1`] = `
               >
                 <View
                   onLayout={[Function]}
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     accessibilityComponentType={undefined}
@@ -17845,11 +17881,10 @@ exports[`Storyshots Common.InputField InputField TextField comp 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -17896,7 +17931,11 @@ exports[`Storyshots Common.InputField InputField TextField comp 1`] = `
                   onResponderRelease={[Function]}
                   onStartShouldSetResponder={[Function]}
                   pointerEvents="auto"
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     collapsable={undefined}
@@ -18192,11 +18231,10 @@ exports[`Storyshots Common.InputField InputField TextField comp boxed 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -18229,7 +18267,11 @@ exports[`Storyshots Common.InputField InputField TextField comp boxed 1`] = `
                   onResponderRelease={[Function]}
                   onStartShouldSetResponder={[Function]}
                   pointerEvents="auto"
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     collapsable={undefined}
@@ -18509,11 +18551,10 @@ exports[`Storyshots Common.InputField InputField size ML 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -18560,7 +18601,11 @@ exports[`Storyshots Common.InputField InputField size ML 1`] = `
                   onResponderRelease={[Function]}
                   onStartShouldSetResponder={[Function]}
                   pointerEvents="auto"
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     collapsable={undefined}
@@ -18856,11 +18901,10 @@ exports[`Storyshots Common.InputField InputField size S 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -18907,7 +18951,11 @@ exports[`Storyshots Common.InputField InputField size S 1`] = `
                   onResponderRelease={[Function]}
                   onStartShouldSetResponder={[Function]}
                   pointerEvents="auto"
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     collapsable={undefined}
@@ -19203,11 +19251,10 @@ exports[`Storyshots Common.InputField InputField white theme 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -19254,7 +19301,11 @@ exports[`Storyshots Common.InputField InputField white theme 1`] = `
                   onResponderRelease={[Function]}
                   onStartShouldSetResponder={[Function]}
                   pointerEvents="auto"
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     collapsable={undefined}
@@ -24045,11 +24096,10 @@ exports[`Storyshots Common.SportPickerField SportPickerField 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
               "opacity": 1,
             }
           }
-          testID={undefined}
+          testID=""
           tvParallaxProperties={undefined}
         >
           <View
@@ -24096,7 +24146,11 @@ exports[`Storyshots Common.SportPickerField SportPickerField 1`] = `
                 onResponderRelease={[Function]}
                 onStartShouldSetResponder={[Function]}
                 pointerEvents="auto"
-                style={undefined}
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
                 <View
                   collapsable={undefined}
@@ -24519,11 +24573,10 @@ exports[`Storyshots Common.SportPickerField SportPickerField boxed size ML 1`] =
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
               "opacity": 1,
             }
           }
-          testID={undefined}
+          testID=""
           tvParallaxProperties={undefined}
         >
           <View
@@ -24556,7 +24609,11 @@ exports[`Storyshots Common.SportPickerField SportPickerField boxed size ML 1`] =
                 onResponderRelease={[Function]}
                 onStartShouldSetResponder={[Function]}
                 pointerEvents="auto"
-                style={undefined}
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
                 <View
                   collapsable={undefined}
@@ -24981,11 +25038,10 @@ exports[`Storyshots Common.SportPickerField SportPickerField white theme 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flex": 1,
                 "opacity": 1,
               }
             }
-            testID={undefined}
+            testID=""
             tvParallaxProperties={undefined}
           >
             <View
@@ -25032,7 +25088,11 @@ exports[`Storyshots Common.SportPickerField SportPickerField white theme 1`] = `
                   onResponderRelease={[Function]}
                   onStartShouldSetResponder={[Function]}
                   pointerEvents="auto"
-                  style={undefined}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
                 >
                   <View
                     collapsable={undefined}
@@ -25715,7 +25775,11 @@ exports[`Storyshots Common.TextField TextField 1`] = `
             onResponderRelease={[Function]}
             onStartShouldSetResponder={[Function]}
             pointerEvents="auto"
-            style={undefined}
+            style={
+              Object {
+                "width": 200,
+              }
+            }
           >
             <View
               collapsable={undefined}
@@ -25937,7 +26001,11 @@ exports[`Storyshots Common.TextField TextField with characterRestriction = 20 1`
             onResponderRelease={[Function]}
             onStartShouldSetResponder={[Function]}
             pointerEvents="auto"
-            style={undefined}
+            style={
+              Object {
+                "width": 200,
+              }
+            }
           >
             <View
               collapsable={undefined}
@@ -26190,7 +26258,11 @@ exports[`Storyshots Common.TextField TextField with error 1`] = `
             onResponderRelease={[Function]}
             onStartShouldSetResponder={[Function]}
             pointerEvents="auto"
-            style={undefined}
+            style={
+              Object {
+                "width": 200,
+              }
+            }
           >
             <View
               collapsable={undefined}
@@ -26415,7 +26487,11 @@ exports[`Storyshots Common.TextField TextField with white theme 1`] = `
             onResponderRelease={[Function]}
             onStartShouldSetResponder={[Function]}
             pointerEvents="auto"
-            style={undefined}
+            style={
+              Object {
+                "width": 200,
+              }
+            }
           >
             <View
               collapsable={undefined}
@@ -26669,7 +26745,11 @@ exports[`Storyshots Common.TextField TextField with white theme size L 1`] = `
             onResponderRelease={[Function]}
             onStartShouldSetResponder={[Function]}
             pointerEvents="auto"
-            style={undefined}
+            style={
+              Object {
+                "width": 200,
+              }
+            }
           >
             <View
               collapsable={undefined}
@@ -34234,7 +34314,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "opacity": 1,
                               }
                             }
-                            testID={undefined}
+                            testID="capacityMinus"
                             tvParallaxProperties={undefined}
                           >
                             <View
@@ -34337,7 +34417,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "opacity": 1,
                               }
                             }
-                            testID={undefined}
+                            testID="capacityPlus"
                             tvParallaxProperties={undefined}
                           >
                             <View
@@ -36425,7 +36505,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                       "marginTop": 6,
                                     },
                                     Object {
-                                      "color": "#00adf5",
+                                      "color": "#d9e1e8",
                                     },
                                   ]
                                 }
@@ -36473,6 +36553,9 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                       "fontSize": 16,
                                       "fontWeight": "300",
                                       "marginTop": 6,
+                                    },
+                                    Object {
+                                      "color": "#00adf5",
                                     },
                                   ]
                                 }
@@ -41689,7 +41772,7 @@ exports[`Storyshots PlanGame.DescriptionField DescriptionField 1`] = `
                 onChangeText={[Function]}
                 onContentSizeChange={[Function]}
                 onFocus={[Function]}
-                placeholder="Write here why the activity does not continue"
+                placeholder="Write extra details about the game here"
                 selectionColor="#009f36"
                 style={
                   Array [
@@ -41948,7 +42031,7 @@ exports[`Storyshots PlanGame.DescriptionForm DescriptionForm white theme 1`] = `
                   onChangeText={[Function]}
                   onContentSizeChange={[Function]}
                   onFocus={[Function]}
-                  placeholder="Write here why the activity does not continue"
+                  placeholder="Write extra details about the game here"
                   selectionColor="#fff"
                   style={
                     Array [
@@ -41974,6 +42057,7 @@ exports[`Storyshots PlanGame.DescriptionForm DescriptionForm white theme 1`] = `
                       },
                     ]
                   }
+                  testID="description"
                   underlineColorAndroid="transparent"
                   value=""
                 />
