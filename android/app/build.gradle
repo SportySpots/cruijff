@@ -161,11 +161,12 @@ dependencies {
     compile 'com.facebook.react:react-native:+'  // From node_modules
     compile 'com.android.support:appcompat-v7:26.1.0'
 
-    androidTestImplementation(project(path: ":detox"))
-    androidTestImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test:rules:1.0.1'
-
+    if (project.hasProperty('detoxBuild')) {
+        androidTestImplementation(project(path: ":detox"))
+        androidTestImplementation 'junit:junit:4.12'
+        androidTestImplementation 'com.android.support.test:runner:1.0.1'
+        androidTestImplementation 'com.android.support.test:rules:1.0.1'
+    }
 }
 
 // Run this once to be able to run the application with BUCK

@@ -4,7 +4,7 @@
   "repository": "git@github.com:SportySpots/cruijff.git",
   "author": "Ashutosh Bandiwdekar <ashutoshb@gmail.com>",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "android:build": "cd android && ./gradlew assembleRelease",
@@ -119,6 +119,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react-native": "^3.0.2",
+    "detox": "^9.0.4",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^4.19.1",
