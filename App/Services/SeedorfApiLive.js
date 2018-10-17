@@ -79,17 +79,19 @@ const create = () => {
     });
   };
 
-  const createGame = ({ name }) => {
-    // use a dummy future date, actual datetimes should be set in a separate call
-    const futureDate = moment().add(1, 'days').toISOString();
-    return api.post('/games/', {
-      name,
-      start_time: futureDate,
-      rsvp_open_time: futureDate,
-      rsvp_close_time: futureDate,
-      end_time: futureDate,
-    });
-  };
+  const createGame = ({
+    name, startTZ, startTime, endTZ, endTime, capacity, description,
+  }) => api.post('/games/', {
+    name,
+    start_timezone: startTZ,
+    start_time: startTime,
+    end_timezone: endTZ,
+    end_time: endTime,
+    rsvp_open_time: moment().toISOString(),
+    rsvp_close_time: startTime,
+    capacity,
+    description,
+  });
 
   const setGameSport = ({ gameUUID, sport }) => {
     api.post(`/games/${gameUUID}/sport/`, {
@@ -130,8 +132,8 @@ const create = () => {
     startTime,
     endTZ,
     endTime,
-  }) =>
-    api.patch(`/games/${gameUUID}/`, {
+  }) => {
+    return api.patch(`/games/${gameUUID}/`, {
       start_timezone: startTZ,
       start_time: startTime,
       end_timezone: endTZ,
@@ -139,6 +141,7 @@ const create = () => {
       rsvp_open_time: moment().toISOString(),
       rsvp_close_time: startTime,
     });
+  };
 
   const setGameName = ({ gameUUID, name }) =>
     api.patch(`/games/${gameUUID}/`, {

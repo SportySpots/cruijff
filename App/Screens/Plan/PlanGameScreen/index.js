@@ -170,6 +170,7 @@ class PlanGameScreen extends React.Component {
         user.claims.username
       ) || '';
 
+
       // Get user timezone, startTime and endTime from date, time and duration
       const userTZ = getUserTZ();
       const startDate = setDate(date); // beginning of the selected date (moment object)
@@ -186,29 +187,22 @@ class PlanGameScreen extends React.Component {
       // TODO: replace this with a single endpoint
       try {
         // Create game
-        const result = await api.createGame({ name: `${username}'s game` });
+        const result = await api.createGame({
+          name: `${username}'s game`,
+          startTZ: userTZ,
+          startTime: startTime.toISOString(),
+          endTZ: userTZ,
+          endTime: endTime ? endTime.toISOString() : null,
+          capacity: capacity,
+          description: description,
+        });
         const gameUUID = result.data.uuid;
 
         // Set sport
         await api.setGameSport({ gameUUID, sport });
 
-        // Set date and duration
-        await api.setGameTimes({
-          gameUUID,
-          startTZ: userTZ,
-          startTime: startTime.toISOString(),
-          endTZ: userTZ,
-          endTime: endTime ? endTime.toISOString() : null,
-        });
-
-        // Set capacity
-        await api.setGameCapacity({ gameUUID, capacity: capacity || null });
-
         // Set spot
         await api.setGameSpot({ gameUUID, spotUUID: spot.uuid });
-
-        // Set description
-        await api.setGameDescription({ gameUUID, description });
 
         // Set game status to 'planned'
         const res = await api.setGameStatus({ gameUUID, status: 'PLANNED' });
