@@ -48,7 +48,7 @@ const Menu = ({ menuName, triggerName, options }) => (
         onPress,
       }) => (
         <MenuOption key={id} onSelect={onPress}>
-          <StyledText testID="gameAdminMenuCancel" danger={danger}>
+          <StyledText danger={danger}>
             {text}
           </StyledText>
         </MenuOption>

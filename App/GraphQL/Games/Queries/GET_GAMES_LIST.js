@@ -6,7 +6,7 @@ const GET_GAMES_LIST = gql`
     $limit: Int,
     $offset: Int,
     $ordering: String,
-    $start_time__gte: DateTime,
+    $start_time__gte: String,
   ) {
     games(
       limit: $limit,

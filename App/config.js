@@ -49,6 +49,11 @@ if (Config.ENVIRONMENT === 'TOM') {
   settings.seedorfRestUrl = 'http://10.0.2.2:8000/api';
   settings.seedorfGraphQLUrl = 'http://10.0.2.2:8000/graphql';
   settings.testHostUrl = 'ws://10.0.2.2:8020';
+
+  // settings.seedorfRestUrl = 'http://localhost:8000/api';
+  // settings.seedorfGraphQLUrl = 'http://localhost:8000/graphql';
+  // settings.testHostUrl = 'ws://localhost:8020';
+
   settings.testBuild = true;
 }
 
