@@ -11,6 +11,7 @@ import DotSpacer from '../../Common/DotSpacer';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: look for a better name + try to merge with Spots/Header.js SpotSummary maybe?
 const SpotListCardSmallBody = ({ spot }) => (
   <View>
     <Text.ML>{spot.name}</Text.ML>

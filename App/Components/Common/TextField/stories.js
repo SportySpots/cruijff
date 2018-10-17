@@ -4,12 +4,15 @@ import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import TextField from './index';
 
+const containerStyle = { width: 200 };
+
 storiesOf('Common.TextField', module)
   .add('TextField', () => (
     <Block>
       <TextField
         label="I'm the label"
         value=""
+        containerStyle={containerStyle}
       />
     </Block>
   ))
@@ -19,6 +22,7 @@ storiesOf('Common.TextField', module)
         label="I'm the label"
         value="I'm the value"
         error="Some error msg"
+        containerStyle={containerStyle}
       />
     </Block>
   ))
@@ -28,6 +32,7 @@ storiesOf('Common.TextField', module)
         label="I'm the label"
         value="I'm the value"
         characterRestriction={20}
+        containerStyle={containerStyle}
       />
     </Block>
   ))
@@ -38,6 +43,7 @@ storiesOf('Common.TextField', module)
         label="I'm the label"
         value="I'm the value"
         characterRestriction={20}
+        containerStyle={containerStyle}
       />
     </Block>
   ))
@@ -49,6 +55,7 @@ storiesOf('Common.TextField', module)
         label="I'm the label"
         value="I'm the value"
         characterRestriction={20}
+        containerStyle={containerStyle}
       />
     </Block>
   ));

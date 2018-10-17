@@ -1,4 +1,5 @@
 import React from 'react';
+import { Alert, Keyboard } from 'react-native';
 import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/LoginScreen';
@@ -21,9 +22,30 @@ const handleSuccessAuth = (navigation) => {
   navigation.pop(2);
 };
 //------------------------------------------------------------------------------
+const handleEditGameLeave = (navigation) => {
+  Keyboard.dismiss();
+
+  Alert.alert(
+    I18n.t('Confirm'),
+    I18n.t('Are you sure you want to leave the edition?'),
+    [
+      { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
+      { text: I18n.t('Yes'), onPress: () => { navigation.goBack(null); } },
+    ],
+  );
+};
+//------------------------------------------------------------------------------
 const backBtn = navigation => (
   <StackBackHeader
     onPress={() => { navigation.goBack(null); }}
+  />
+);
+//------------------------------------------------------------------------------
+const backBtnConfirm = navigation => (
+  <StackBackHeader
+    onPress={() => {
+      handleEditGameLeave(navigation);
+    }}
   />
 );
 //------------------------------------------------------------------------------
@@ -81,11 +103,16 @@ const GameDetailsScreens = {
     }),
   },
   EditGameScreen: {
-    screen: EditGameScreen,
+    screen: ({ navigation }) => (
+      <EditGameScreen
+        navigation={navigation}
+        onLeave={() => { handleEditGameLeave(navigation); }}
+      />
+    ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Edit activity'),
       headerTitleStyle,
-      headerLeft: backBtn(navigation),
+      headerLeft: backBtnConfirm(navigation),
     }),
   },
   GamePlayerScreen: {

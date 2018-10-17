@@ -13,7 +13,7 @@ const CapacityPickerField = ({ value, onChange, ...rest }) => (
       <InputField
         key="input-field"
         comp="TextField"
-        value={value ? value.toString() : '∞'}
+        value={value ? value.toString() : ''}
         onPress={openModal}
         {...rest}
       />,

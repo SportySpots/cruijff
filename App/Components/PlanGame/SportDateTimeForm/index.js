@@ -62,7 +62,7 @@ const SportAndTimeForm = ({
       size="ML"
       theme="mix"
       onChange={(value) => { onChange({ fieldName: 'date', value }); }}
-      width={120}
+      width={80}
     />
     <Spacer orientation="row" size="M" />
     <Label>{I18n.t('at')}</Label>
@@ -73,7 +73,7 @@ const SportAndTimeForm = ({
       size="ML"
       theme="mix"
       onChange={(value) => { onChange({ fieldName: 'time', value }); }}
-      width={120}
+      width={80}
     />
   </Row>,
   <Spacer key="time-duration-spacer" size="S" />,
@@ -90,7 +90,7 @@ const SportAndTimeForm = ({
       onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
       theme="mix"
       size="ML"
-      width={170}
+      width={150}
     />
   </Row>,
   <Spacer key="capacity-spacer" size="S" />,
@@ -106,7 +106,7 @@ const SportAndTimeForm = ({
       size="ML"
       theme="mix"
       onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
-      width={100}
+      width={80}
     />
     <Spacer orientation="row" size="S" />
     <Label>{I18n.t('people')}</Label>
