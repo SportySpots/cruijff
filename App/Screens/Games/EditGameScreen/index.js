@@ -24,13 +24,8 @@ class EditGameScreen extends React.PureComponent {
     return navigation.state.params.uuid;
   }
 
-  // handleAttendeesPress = () => {
-  //   const { navigation } = this.props;
-  //   navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
-  // }
-
   render() {
-    const { user, navigation } = this.props;
+    const { user, navigation, onLeave } = this.props;
     const editDoneModal = this.modals.editDone;
 
     return (
@@ -89,7 +84,7 @@ class EditGameScreen extends React.PureComponent {
                     handleSuccess(editDoneModal.show);
                   }}
                   // Other props
-                  // onAttendeesPress={this.handleAttendeesPress}
+                  onLeave={onLeave}
                 />,
                 <EditGameDoneModal
                   key="modal"
@@ -120,10 +115,12 @@ EditGameScreen.propTypes = {
     }).isRequired,
   }).isRequired,
   user: PropTypes.object, // eslint-disable-line
+  onLeave: PropTypes.func,
 };
 
 EditGameScreen.defaultProps = {
   user: null,
+  onLeave: () => {},
 };
 
 // Redux integration
