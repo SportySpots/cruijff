@@ -37,14 +37,11 @@ const InputField = ({
     lineWidth,
   } = getPalette(theme);
 
-  const touchableStyle = width ? { width } : { flex: 1 };
+  const containerStyle = width ? { width } : { flex: 1 };
 
   if (boxed) {
     return (
-      <TouchableOpacity
-        onPress={onPress}
-        style={touchableStyle}
-      >
+      <TouchableOpacity onPress={onPress}>
         <Row>
           <FlexGrow pointerEvents={pointerEvents}>
             <Comp
@@ -53,6 +50,7 @@ const InputField = ({
               tintColor={tintColor}
               iconColor={iconColor}
               lineWidth={lineWidth}
+              containerStyle={containerStyle}
               {...rest}
             />
           </FlexGrow>
@@ -71,10 +69,7 @@ const InputField = ({
   }
 
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      style={touchableStyle}
-    >
+    <TouchableOpacity onPress={onPress}>
       <Row>
         <Spacer orientation="row" size="M" />
         <FlexGrow pointerEvents={pointerEvents}>
@@ -88,6 +83,7 @@ const InputField = ({
               paddingHorizontal: 8,
               textAlign: 'center',
             }}
+            containerStyle={containerStyle}
             {...rest}
           />
         </FlexGrow>
