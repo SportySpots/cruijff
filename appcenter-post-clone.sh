@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 brew uninstall node@6
 brew install node@8
+export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 # install git-crypt
 brew install git-crypt
