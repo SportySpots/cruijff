@@ -193,8 +193,8 @@ class PlanGameScreen extends React.Component {
           startTime: startTime.toISOString(),
           endTZ: userTZ,
           endTime: endTime ? endTime.toISOString() : null,
-          capacity: capacity,
-          description: description,
+          capacity,
+          description,
         });
         const gameUUID = result.data.uuid;
 
