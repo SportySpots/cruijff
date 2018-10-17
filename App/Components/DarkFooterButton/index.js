@@ -67,7 +67,7 @@ const DarkFooterButton = ({
       </Row>
     </WrapperElement>
   );
-}
+};
 
 DarkFooterButton.propTypes = {
   text: PropTypes.string,
