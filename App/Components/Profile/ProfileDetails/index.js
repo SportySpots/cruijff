@@ -10,7 +10,7 @@ import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Text from '../../Common/Text';
 import UserCircle from '../../Common/UserCircle';
 // import Tabs from './Tabs';
-import EditMenu from './EditMenu';
+import EditMenu from '../EditMenu';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
