@@ -9,7 +9,7 @@ import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 // import Slider from '../../Slider';
 import Text from '../../Common/Text';
 import UserCircle from '../../Common/UserCircle';
-// import ProfileTabs from './ProfileTabs';
+import ProfileTabs from '../ProfileTabs';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -42,12 +42,12 @@ const Competitiveness = styled.View`
   flex: 4;
 `;
 //------------------------------------------------------------------------------
-/* const TabsContainer = styled.View`
+const TabsContainer = styled.View`
   flex: 1;
   border-top-width: 2;
   border-top-color: ${Colors.bgGrey};
   background-color: ${Colors.bgGrey};
-`; */
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -69,9 +69,9 @@ const ProfileDetails = ({ user }) => (
         </Competitiveness>
       </Profile>
     )}
-    {/* <TabsContainer>
+    <TabsContainer>
       <ProfileTabs user={user} style={{ flex: 1 }} />
-    </TabsContainer> */}
+    </TabsContainer>
   </Outer>
 );
 

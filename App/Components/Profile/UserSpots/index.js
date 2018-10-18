@@ -35,7 +35,7 @@ const UserSpots = ({ spots, onCardPress }) => (
     // onEndReachedThreshold={0.1}
     contentContainerStyle={{
       flexGrow: 1, // centers not-found-component
-      paddingVertical: 8,
+      paddingVertical: 16,
     }}
   />
 );
