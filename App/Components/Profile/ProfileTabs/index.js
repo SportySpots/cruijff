@@ -4,7 +4,7 @@ import { TabBarTop, TabNavigator } from 'react-navigation';
 import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import UserSpots from '../UserSpots';
-import UserGames from '../UserGames';
+// import UserGames from '../UserGames';
 import I18n from '../../../I18n';
 
 //------------------------------------------------------------------------------
@@ -13,14 +13,17 @@ import I18n from '../../../I18n';
 const ProfileTabs = ({ user }) => (
   React.createElement(new TabNavigator({
     spots: {
-      screen: () => <UserSpots user={user} />,
+      screen: () => <UserSpots spots={user.profile.spots} />,
+      navigationOptions: {
+        tabBarLabel: I18n.t('Spots'),
+      },
     },
-    games: {
+    /* games: {
       screen: () => <UserGames user={user} />,
       navigationOptions: {
         tabBarLabel: I18n.t('Activities'),
       },
-    },
+    }, */
   }, {
     tabBarComponent: TabBarTop,
     tabBarPosition: 'top',

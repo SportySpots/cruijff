@@ -1,38 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-// import { TabBarTop, TabNavigator } from 'react-navigation';
-// import I18n from '../../../I18n/index';
-// import Colors from '../../../Themes/Colors';
-import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
-// import Text from '../../Text';
-import SpotsList from '../../Spots/SpotsList';
-import Card from '../../Spots/SpotListCard';
+import { FlatList, TouchableOpacity } from 'react-native';
+import I18n from '../../../I18n';
+import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
+import SpotListCardSmall from '../../Spots/SpotListCardSmall';
+import Spacer from '../../Common/Spacer';
+import NothingFound from '../../Common/NothingFound';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const UserSpots = ({ user }) => {
-  // TODO: use GET_USER_SPOTS query
-  return (
-    <SpotsList
-      spots={(
-        user &&
-        user.profile &&
-        user.profile.spots
-      ) || []}
-      cardComponent={Card}
-      // onCardPress={this.handleCardPress}
-      // FlatList props
-      // onRefresh={refetch}
-      // refreshing={loading}
-      // onEndReached={loadMore}
-      // onEndReachedThreshold={0.1}
-    />
-  );
-};
+const UserSpots = ({ spots, onCardPress }) => (
+  <FlatList
+    data={spots}
+    keyExtractor={item => item.uuid}
+    renderItem={({ item: spot }) => (
+      <TouchableOpacity
+        // testID={`pickSpot_${numGenerator()}`}
+        key={spot.uuid}
+        // Pass event up to parent component
+        onPress={() => { onCardPress(spot); }}
+        activeOpacity={1}
+      >
+        <SpotListCardSmall spot={spot} />
+      </TouchableOpacity>
+    )}
+    ListEmptyComponent={(<NothingFound icon="map-marker" text={I18n.t('No spots found')} />)}
+    ItemSeparatorComponent={() => (<Spacer orientation="column" size="M" />)}
+    showsVerticalScrollIndicator={false}
+    // onRefresh={refetch}
+    // refreshing={loading}
+    // onEndReached={loadMore}
+    // onEndReachedThreshold={0.1}
+    contentContainerStyle={{
+      flexGrow: 1, // centers not-found-component
+      paddingVertical: 8,
+    }}
+  />
+);
 
 UserSpots.propTypes = {
-  user: propType(userDetailsFragment).isRequired,
+  spots: PropTypes.arrayOf(propType(spotFragment)).isRequired,
+  onCardPress: PropTypes.func,
+};
+
+UserSpots.defaultProps = {
+  onCardPress: () => {},
 };
 
 export default UserSpots;
