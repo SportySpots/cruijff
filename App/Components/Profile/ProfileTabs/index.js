@@ -3,14 +3,14 @@ import { propType } from 'graphql-anywhere';
 import { TabBarTop, TabNavigator } from 'react-navigation';
 import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
-import UserSpots from './UserSpots';
-import UserGames from './UserGames';
+import UserSpots from '../UserSpots';
+import UserGames from '../UserGames';
 import I18n from '../../../I18n';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Tabs = ({ user }) => (
+const ProfileTabs = ({ user }) => (
   React.createElement(new TabNavigator({
     spots: {
       screen: () => <UserSpots user={user} />,
@@ -41,8 +41,8 @@ const Tabs = ({ user }) => (
   }))
 );
 
-Tabs.propTypes = {
+ProfileTabs.propTypes = {
   user: propType(userDetailsFragment).isRequired,
 };
 
-export default Tabs;
+export default ProfileTabs;
