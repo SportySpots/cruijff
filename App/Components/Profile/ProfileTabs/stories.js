@@ -2,17 +2,17 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import UserSpots from '.';
+import ProfileTabs from '.';
 
-storiesOf('Profile.UserSpots', module)
-  .add('UserSpots', () => (
+storiesOf('Profile.ProfileTabs', module)
+  .add('ProfileTabs', () => (
     <Query
       query={GET_USER_DETAILS}
       variables={{ uuid: 455 }}
     >
       {({ loading, error, data }) =>
         (loading || error ? null : (
-          <UserSpots spots={data.user.profile.spots} />
+          <ProfileTabs user={data.user} />
         ))
       }
     </Query>
