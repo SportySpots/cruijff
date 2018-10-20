@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { propType } from 'graphql-anywhere';
 import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
+// import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Text from '../../../Components/Common/Text';
 import ProfileDetails from '../../../Components/Profile/ProfileDetails';
@@ -32,6 +34,8 @@ const ProfileDetailsScreen = ({ user }) => (
       if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
       if (!data || !data.user) { return null; }
 
+      console.log('FIRST_NAME', data.user.first_name);
+
       return (
         <Container testID="ProfileDetailsScreen">
           <ProfileDetails user={data.user} />
@@ -42,6 +46,7 @@ const ProfileDetailsScreen = ({ user }) => (
 );
 
 ProfileDetailsScreen.propTypes = {
+  // TODO: implement userProvider and use userDetailsFragment
   user: PropTypes.shape({
     uuid: PropTypes.string.isRequired,
   }).isRequired,

@@ -12,17 +12,17 @@ import { connect } from 'react-redux';
  */
 const LoggedInRoute = ({
   user,
-  component,
-  overlay,
+  component: Component,
+  overlay: Overlay,
   ...rest
 }) => {
   const childProps = { user, ...rest };
   // In case user is not logged in, render overlay component
   if (!user || !user.uuid) {
-    return React.createElement(overlay, childProps);
+    return <Overlay {...childProps} />;
   }
   // ...Otherwise, render requested component
-  return React.createElement(component, childProps);
+  return <Component {...childProps} />;
 };
 
 LoggedInRoute.propTypes = {

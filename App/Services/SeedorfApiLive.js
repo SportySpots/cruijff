@@ -65,10 +65,15 @@ const create = () => {
       password,
     });
 
-  const updateProfile = ({ userUUID, firstName, lastName }) =>
+  const updateProfile = ({
+    userUUID, firstName, lastName, birthYear,
+  }) =>
     api.patch(`/users/${userUUID}/`, {
       first_name: firstName,
       last_name: lastName,
+      /* profile: {
+        year_of_birth: birthYear,
+      }, */
     });
 
   const submitRating = (spotUuid, userUuid, rating) => {

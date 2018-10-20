@@ -55,8 +55,9 @@ const ProfileNav = StackNavigator({
     }),
   },
   ProfileEditScreen: {
-    screen: () => (
+    screen: ({ navigation }) => (
       <LoggedInRoute
+        navigation={navigation}
         component={ProfileEditScreen}
         overlay={ProfileSignupScreen}
       />

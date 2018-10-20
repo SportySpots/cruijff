@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
+// import { propType } from 'graphql-anywhere';
 import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
-import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
+// import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import Text from '../../../Components/Common/Text';
@@ -54,8 +54,8 @@ const ProfileEditScreen = ({ user, navigation }) => (
           return (
             <Container>
               <EditProfileApiCall
-                onSendError={handleServerError}
-                onSendSuccess={() => {
+                onEditError={handleServerError}
+                onEditSuccess={() => {
                   // Extend formProps.handleSuccess' default functionality
                   handleSuccess(() => {
                     refetch();
@@ -85,7 +85,10 @@ const ProfileEditScreen = ({ user, navigation }) => (
 );
 
 ProfileEditScreen.propTypes = {
-  user: propType(userDetailsFragment).isRequired,
+  // TODO: implement userProvider and use userDetailsFragment
+  user: PropTypes.shape({
+    uuid: PropTypes.string.isRequired,
+  }).isRequired,
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
@@ -93,7 +96,7 @@ ProfileEditScreen.propTypes = {
 
 // Redux integration
 const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps);
+const withRedux = connect(mapStateToProps, null);
 
 export default withRedux(ProfileEditScreen);
 

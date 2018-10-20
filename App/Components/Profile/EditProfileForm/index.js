@@ -51,9 +51,9 @@ class EditProfileForm extends React.PureComponent {
 
     // Initialize state based on current user data
     this.state = {
-      firstName,
-      lastName,
-      birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || null,
+      firstName: firstName || '',
+      lastName: lastName || '',
+      birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || '',
       errors: {
         firstName: [],
         lastName: [],

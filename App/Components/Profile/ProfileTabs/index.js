@@ -28,7 +28,7 @@ const ProfileTabs = ({ user }) => (
     spots: {
       screen: () => (
         <Container>
-          <UserSpots spots={user.profile.spots} />
+          <UserSpots spots={(user && user.profile && user.profile.spots) || []} />
         </Container>
       ),
       navigationOptions: {
