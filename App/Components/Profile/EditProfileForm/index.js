@@ -54,10 +54,12 @@ class EditProfileForm extends React.PureComponent {
       firstName: firstName || '',
       lastName: lastName || '',
       birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || '',
+      avatar: (profile && profile.avatar && profile.avatar.toString()) || '',
       errors: {
         firstName: [],
         lastName: [],
         birthYear: [],
+        avatar: [],
       },
     };
   }
@@ -68,6 +70,7 @@ class EditProfileForm extends React.PureComponent {
         firstName: [],
         lastName: [],
         birthYear: [],
+        avatar: [],
       },
     });
   };
@@ -88,6 +91,7 @@ class EditProfileForm extends React.PureComponent {
       firstName: [],
       lastName: [],
       birthYear: [],
+      avatar: [],
     };
 
     // Sanitize input
@@ -140,7 +144,7 @@ class EditProfileForm extends React.PureComponent {
     }
 
     // Get field values
-    const { firstName, lastName, birthYear } = this.state;
+    const { firstName, lastName, birthYear, avatar } = this.state;
 
     // Clear previous errors if any
     this.clearErrors();
@@ -163,6 +167,56 @@ class EditProfileForm extends React.PureComponent {
       firstName,
       lastName,
       birthYear,
+      avatar,
+    });
+  }
+
+  handleSubmit = () => {
+    const {
+      user,
+      onBeforeHook,
+      onClientErrorHook,
+      onSuccessHook,
+    } = this.props;
+
+    // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
+    // value to 'true' so that the user cannot re-submit the form
+    try {
+      onBeforeHook();
+    } catch (exc) {
+      return; // return silently
+    }
+
+    // Get field values
+    const {
+      firstName,
+      lastName,
+      birthYear,
+      avatar,
+    } = this.state;
+
+    // Clear previous errors if any
+    this.clearErrors();
+
+    // Validate fields
+    const errors = this.validateFields({ firstName, lastName, birthYear });
+
+    // In case of errors, display on UI and return handler to parent component
+    if (ErrorHandling.hasErrors(errors)) {
+      this.setState({ errors });
+      // Pass event up to parent component. onClientErrorHook will set 'disabled'
+      // value back to 'false' so that the user can re-submit the form
+      onClientErrorHook();
+      return;
+    }
+
+    // Pass event up to parent component
+    onSuccessHook({
+      userUUID: user.uuid,
+      firstName,
+      lastName,
+      birthYear,
+      avatar,
     });
   }
 

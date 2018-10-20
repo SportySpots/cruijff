@@ -10,6 +10,7 @@ const userDetailsFragment = gql`
       uuid
       id
       year_of_birth
+      avatar
       spots {
         ...spotFragment
       }

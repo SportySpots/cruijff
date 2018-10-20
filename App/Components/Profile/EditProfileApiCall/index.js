@@ -11,6 +11,7 @@ const FIELDS = [
   'firstName',
   'lastName',
   'birthYear',
+  'avatar',
   // TODO: add remaining fields
 ];
 //------------------------------------------------------------------------------
