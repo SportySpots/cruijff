@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
+import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import Text from '../../../Components/Common/Text';
@@ -56,15 +58,14 @@ const ProfileEditScreen = ({ user, navigation }) => (
                 onSendSuccess={() => {
                   // Extend formProps.handleSuccess' default functionality
                   handleSuccess(() => {
-                    // Show success message after action is completed
-                    setSuccessMessage('A new email has been sent to your inbox!');
-                    // Switch to passCodeView view
-                    this.setState({ view: 'passCodeView' });
+                    refetch();
+                    navigation.goBack(null);
                   });
                 }}
               >
                 {({ updateProfile }) => (
                   <EditProfileForm
+                    user={data.user}
                     disabled={disabled}
                     onBeforeHook={handleBefore}
                     onClientErrorHook={handleClientError}
@@ -75,20 +76,6 @@ const ProfileEditScreen = ({ user, navigation }) => (
                   />
                 )}
               </EditProfileApiCall>
-
-              <ProfileUpdate
-                user={user}
-                onSuccessHook={onEditSuccess}
-                onErrorHook={onEditError}
-              />,
-              <ProfileEdit
-                user={data.user}
-                onEditSuccess={() => {
-                  refetch();
-                  navigation.goBack(null);
-                }}
-                onEditError={console.log}
-              />
             </Container>
           );
         }}
@@ -98,9 +85,7 @@ const ProfileEditScreen = ({ user, navigation }) => (
 );
 
 ProfileEditScreen.propTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string.isRequired,
-  }).isRequired,
+  user: propType(userDetailsFragment).isRequired,
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,

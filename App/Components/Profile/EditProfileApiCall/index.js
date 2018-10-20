@@ -25,7 +25,7 @@ class EditProfileApiCall extends React.PureComponent {
     const { onEditError, onEditSuccess } = this.props;
 
     const doc = pick(inputFields, FIELDS);
-    // Make sure birthYear is a number
+    // Make sure birthYear is numeric
     if (inputFields.birthYear) {
       doc.birthYear = parseInt(inputFields.birthYear, 10);
     }
