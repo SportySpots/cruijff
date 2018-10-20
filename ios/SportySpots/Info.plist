@@ -31,7 +31,6 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-<<<<<<< ours
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
