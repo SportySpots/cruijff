@@ -1,9 +1,7 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce';
 import CookieManager from 'react-native-cookies';
-// import gql from 'graphql-tag';
 import moment from 'moment';
-// import { client } from '../GraphQL';
 import config from '../config';
 
 
@@ -67,10 +65,10 @@ const create = () => {
       password,
     });
 
-  const updateUser = ({ uuid, first_name, last_name }) =>
-    api.patch(`/users/${uuid}/`, {
-      first_name,
-      last_name,
+  const updateProfile = ({ userUUID, firstName, lastName }) =>
+    api.patch(`/users/${userUUID}/`, {
+      first_name: firstName,
+      last_name: lastName,
     });
 
   const submitRating = (spotUuid, userUuid, rating) => {
@@ -81,39 +79,23 @@ const create = () => {
 
   const createGame = ({
     name, startTZ, startTime, endTZ, endTime, capacity, description,
-  }) => api.post('/games/', {
-    name,
-    start_timezone: startTZ,
-    start_time: startTime,
-    end_timezone: endTZ,
-    end_time: endTime,
-    rsvp_open_time: moment().toISOString(),
-    rsvp_close_time: startTime,
-    capacity,
-    description,
-  });
+  }) =>
+    api.post('/games/', {
+      name,
+      start_timezone: startTZ,
+      start_time: startTime,
+      end_timezone: endTZ,
+      end_time: endTime,
+      rsvp_open_time: moment().toISOString(),
+      rsvp_close_time: startTime,
+      capacity,
+      description,
+    });
 
   const setGameSport = ({ gameUUID, sport }) => {
     api.post(`/games/${gameUUID}/sport/`, {
       uuid: sport.uuid,
     });
-    /* global.client = client;
-    const q = gql`
-      query game($uuid: UUID!) {
-        game(uuid: $uuid) {
-          sport
-        }
-      }
-    `;
-    client.writeQuery({
-      query: q,
-      data: {
-        sport: { uuid: sport.uuid },
-      },
-      variables: {
-        uuid: gameUUID,
-      },
-    }); */
   };
 
   const setGameSpot = ({ gameUUID, spotUUID }) =>
@@ -132,8 +114,8 @@ const create = () => {
     startTime,
     endTZ,
     endTime,
-  }) => {
-    return api.patch(`/games/${gameUUID}/`, {
+  }) =>
+    api.patch(`/games/${gameUUID}/`, {
       start_timezone: startTZ,
       start_time: startTime,
       end_timezone: endTZ,
@@ -141,7 +123,6 @@ const create = () => {
       rsvp_open_time: moment().toISOString(),
       rsvp_close_time: startTime,
     });
-  };
 
   const setGameName = ({ gameUUID, name }) =>
     api.patch(`/games/${gameUUID}/`, {
@@ -212,7 +193,7 @@ const create = () => {
     deleteGame,
     signup,
     login,
-    updateUser,
+    updateProfile,
     submitRating,
     verifyToken,
     setRSVPStatus,

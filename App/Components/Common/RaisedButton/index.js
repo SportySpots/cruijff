@@ -29,6 +29,7 @@ const Label = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: use children instead of label
+// TODO: replace 'status' prop with 'variant'
 const RaisedButton = ({
   label,
   status,

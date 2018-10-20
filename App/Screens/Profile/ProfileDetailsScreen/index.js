@@ -12,6 +12,7 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+// TODO: introduce/use DefaultLayout instead
 const Container = styled.View`
   flex: 1;
   background-color: ${Colors.white};

@@ -76,7 +76,7 @@ const ProfileNav = StackNavigator({
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Profile'),
-      // headerTitleStyle,
+      headerTitleStyle,
       headerRight: <UserMenu navigation={navigation} />,
     }),
   },
