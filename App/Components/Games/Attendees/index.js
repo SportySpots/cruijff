@@ -4,6 +4,7 @@ import UserCircle from '../../Common/UserCircle';
 import PropertyCircle from '../../Common/PropertyCircle';
 import CappedList from '../../Common/CappedList';
 import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -19,8 +20,9 @@ const Attendees = ({ attendees, maxLength }) => {
         max={maxLength}
         data={attendees}
         keyExtractor={({ user }) => (user.uuid)}
-        component={({ user }) => <UserCircle user={user} style={{ marginRight: 8 }} />}
+        component={({ user }) => <UserCircle user={user} />}
         capComponent={({ data }) => <PropertyCircle key="cap" text={`+${data.length}`} />}
+        ItemSeparatorComponent={() => <Spacer orientation="row" size="M" />}
       />
     </Row>
   );

@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeNumGenerator } from '../../../utils';
 
-// TODO: linter
-
 const CappedList = ({
-  max, data, component, propsMap, capComponent, keyExtractor,
+  max, data, component, propsMap, capComponent, keyExtractor, ItemSeparatorComponent,
 }) => {
-  const itemMapper = item =>
-    React.createElement(component, { key: keyExtractor(item), ...propsMap(item) });
+  const itemMapper = item => [
+    React.createElement(component, { key: keyExtractor(item), ...propsMap(item) }),
+    <ItemSeparatorComponent key={`separator-${keyExtractor(item)}`} />,
+  ];
 
   if (max >= data.length) {
     return data.map(itemMapper);
@@ -25,11 +25,6 @@ const CappedList = ({
   ];
 };
 
-CappedList.defaultProps = {
-  keyExtractor: makeNumGenerator(),
-  propsMap: item => item,
-};
-
 CappedList.propTypes = {
   max: PropTypes.number.isRequired,
   data: PropTypes.arrayOf(PropTypes.any),
@@ -37,6 +32,13 @@ CappedList.propTypes = {
   propsMap: PropTypes.func,
   capComponent: PropTypes.func,
   keyExtractor: PropTypes.func,
+  ItemSeparatorComponent: PropTypes.func,
+};
+
+CappedList.defaultProps = {
+  propsMap: item => item,
+  keyExtractor: makeNumGenerator(),
+  ItemSeparatorComponent: () => null,
 };
 
 export default CappedList;
