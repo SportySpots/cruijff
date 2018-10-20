@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import { Image } from 'react-native';
 import isNumber from 'lodash/isNumber';
 import moment from 'moment';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
+import ImagePicker from 'react-native-image-picker';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
 import TextField from '../../Common/TextField';
 import UserCircle from '../../Common/UserCircle';
 import RaisedButton from '../../Common/RaisedButton';
@@ -127,9 +130,8 @@ class EditProfileForm extends React.PureComponent {
     return errors;
   };
 
-  handleSubmit = () => {
+  handleUpload = () => {
     const {
-      user,
       onBeforeHook,
       onClientErrorHook,
       onSuccessHook,
@@ -143,31 +145,45 @@ class EditProfileForm extends React.PureComponent {
       return; // return silently
     }
 
-    // Get field values
-    const { firstName, lastName, birthYear, avatar } = this.state;
-
     // Clear previous errors if any
     this.clearErrors();
 
-    // Validate fields
-    const errors = this.validateFields({ firstName, lastName, birthYear });
+    const options = {
+      quality: 1.0,
+      maxWidth: 500,
+      maxHeight: 500,
+      storageOptions: {
+        skipBackup: true,
+      },
+    };
 
-    // In case of errors, display on UI and return handler to parent component
-    if (ErrorHandling.hasErrors(errors)) {
-      this.setState({ errors });
-      // Pass event up to parent component. onClientErrorHook will set 'disabled'
-      // value back to 'false' so that the user can re-submit the form
-      onClientErrorHook();
-      return;
-    }
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
 
-    // Pass event up to parent component
-    onSuccessHook({
-      userUUID: user.uuid,
-      firstName,
-      lastName,
-      birthYear,
-      avatar,
+      if (response.didCancel) {
+        console.log('User cancelled photo picker');
+        // TODO: implement onClientCancelHook instead
+        onClientErrorHook();
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+        // Pass event up to parent component. onClientErrorHook will set 'disabled'
+        // value back to 'false' so that the user can re-submit the form
+        onClientErrorHook(response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+        // TODO: implement onClientCancelHook instead
+        onClientErrorHook();
+      } else {
+        const source = { uri: response.uri };
+
+        // You can also display the image using data:
+        // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+        this.setState({ avatar: source });
+        // Pass event up to parent component. onClientSuccessHook will set 'disabled'
+        // value back to 'false' so that the user can re-submit the form
+        onSuccessHook();
+      }
     });
   }
 
@@ -226,6 +242,7 @@ class EditProfileForm extends React.PureComponent {
       firstName,
       lastName,
       birthYear,
+      avatar,
       errors,
     } = this.state;
 
@@ -238,7 +255,15 @@ class EditProfileForm extends React.PureComponent {
         <Block>
           <Row justifyContent="center">
             <UserCircle user={user} size={80} />
+            <Image style={{ width: 150, height: 150 }} source={avatar} />
           </Row>
+          <Spacer size="XL" />
+          <RaisedButton
+            status="ghost"
+            label={I18n.t('Upload photo')}
+            disabled={disabled}
+            onPress={this.handleUpload}
+          />
         </Block>
         <Block>
           <TextField
