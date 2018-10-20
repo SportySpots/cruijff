@@ -10,6 +10,7 @@ const FIELDS = [
   'userUUID',
   'firstName',
   'lastName',
+  'birthYear',
   // TODO: add remaining fields
 ];
 //------------------------------------------------------------------------------
@@ -23,8 +24,14 @@ class EditProfileApiCall extends React.PureComponent {
   handleUpdate = async (inputFields) => {
     const { onEditError, onEditSuccess } = this.props;
 
+    const doc = pick(inputFields, FIELDS);
+    // Make sure birthYear is a number
+    if (inputFields.birthYear) {
+      doc.birthYear = parseInt(inputFields.birthYear, 10);
+    }
+
     try {
-      const result = await SeedorfAPI.updateProfile(pick(inputFields, FIELDS));
+      const result = await SeedorfAPI.updateProfile(doc);
 
       // Pass event up to parent component
       if (result && result.ok) {

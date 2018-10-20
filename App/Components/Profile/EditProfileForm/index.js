@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import isNumber from 'lodash/isNumber';
+import moment from 'moment';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
@@ -44,15 +46,18 @@ class EditProfileForm extends React.PureComponent {
     const {
       first_name: firstName,
       last_name: lastName,
+      profile,
     } = props.user;
 
     // Initialize state based on current user data
     this.state = {
       firstName,
       lastName,
+      birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || null,
       errors: {
         firstName: [],
         lastName: [],
+        birthYear: [],
       },
     };
   }
@@ -62,6 +67,7 @@ class EditProfileForm extends React.PureComponent {
       errors: {
         firstName: [],
         lastName: [],
+        birthYear: [],
       },
     });
   };
@@ -76,11 +82,12 @@ class EditProfileForm extends React.PureComponent {
     });
   }
 
-  validateFields = ({ firstName, lastName }) => {
+  validateFields = ({ firstName, lastName, birthYear }) => {
     // Initialize errors
     const errors = {
       firstName: [],
       lastName: [],
+      birthYear: [],
     };
 
     // Sanitize input
@@ -99,6 +106,18 @@ class EditProfileForm extends React.PureComponent {
       errors.lastName.push('Last name is required');
     } else if (_lastName.length > MAX_CHARS) {
       errors.lastName.push(`Must be no more than ${MAX_CHARS} characters!`);
+    }
+
+    // Sanitize input
+    const _birthYear = birthYear && parseInt(birthYear, 10); // eslint-disable-line no-underscore-dangle
+
+    if (_birthYear && (
+      !isNumber(_birthYear) ||
+      _birthYear < 1900 ||
+      _birthYear > 9999 ||
+      moment().diff(moment(_birthYear, 'YYYY'), 'years') <= 0 // diff between today and the provided year
+    )) {
+      errors.birthYear.push('Please, provide a valid year');
     }
 
     return errors;
@@ -121,13 +140,13 @@ class EditProfileForm extends React.PureComponent {
     }
 
     // Get field values
-    const { firstName, lastName } = this.state;
+    const { firstName, lastName, birthYear } = this.state;
 
     // Clear previous errors if any
     this.clearErrors();
 
     // Validate fields
-    const errors = this.validateFields({ firstName, lastName });
+    const errors = this.validateFields({ firstName, lastName, birthYear });
 
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
@@ -139,21 +158,32 @@ class EditProfileForm extends React.PureComponent {
     }
 
     // Pass event up to parent component
-    onSuccessHook({ userUUID: user.uuid, firstName, lastName });
+    onSuccessHook({
+      userUUID: user.uuid,
+      firstName,
+      lastName,
+      birthYear,
+    });
   }
 
   render() {
     const { user, disabled } = this.props;
-    const { firstName, lastName, errors } = this.state;
+    const {
+      firstName,
+      lastName,
+      birthYear,
+      errors,
+    } = this.state;
 
     const firstNameErrors = ErrorHandling.getFieldErrors(errors, 'firstName');
     const lastNameErrors = ErrorHandling.getFieldErrors(errors, 'lastName');
+    const birthYearErrors = ErrorHandling.getFieldErrors(errors, 'birthYear');
 
     return [
       <Top key="top">
         <Block>
           <Row justifyContent="center">
-            <UserCircle user={user} size={75} />
+            <UserCircle user={user} size={80} />
           </Row>
         </Block>
         <Block>
@@ -161,15 +191,10 @@ class EditProfileForm extends React.PureComponent {
             label={I18n.t('First name')}
             value={firstName}
             error={firstNameErrors}
+            size="ML"
             onChangeText={(value) => {
               this.handleChange({ fieldName: 'firstName', value });
             }}
-            // fontColor={fontColor}
-            // baseColor={baseColor}
-            // tintColor={tintColor}
-            // iconColor={iconColor}
-            // lineWidth={lineWidth}
-            // {...rest}
           />
         </Block>
         <Block>
@@ -177,21 +202,25 @@ class EditProfileForm extends React.PureComponent {
             label={I18n.t('Last name')}
             value={lastName}
             error={lastNameErrors}
+            size="ML"
             onChangeText={(value) => {
               this.handleChange({ fieldName: 'lastName', value });
             }}
-            // fontColor={fontColor}
-            // baseColor={baseColor}
-            // tintColor={tintColor}
-            // iconColor={iconColor}
-            // lineWidth={lineWidth}
-            // {...rest}
           />
         </Block>
-        {/* <FieldSet>
-            <Text>{I18n.t('Age')}</Text>
-            <TextInput keyboardType="numeric" defaultValue="30" />
-        </FieldSet> */}
+        <Block>
+          <TextField
+            label={I18n.t('Year of birth')}
+            value={birthYear}
+            error={birthYearErrors}
+            placeholder="YYYY"
+            size="ML"
+            keyboardType="numeric"
+            onChangeText={(value) => {
+              this.handleChange({ fieldName: 'birthYear', value });
+            }}
+          />
+        </Block>
       </Top>,
       <Bottom key="bottom">
         <RaisedButton
@@ -221,126 +250,3 @@ EditProfileForm.defaultProps = {
 };
 
 export default EditProfileForm;
-
-/*
-import React from 'react';
-import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
-import { TextInput } from 'react-native';
-import styled from 'styled-components';
-import I18n from '../../../I18n/index';
-import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
-// import Slider from '../../Slider';
-import Text from '../../Common/Text';
-import DefaultButton from '../../Common/DefaultButton';
-
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Form = styled.View`
-  margin: 0 16px;
-`;
-//------------------------------------------------------------------------------
-const FieldSet = styled.View`
-  margin-top: 16px;
-`;
-//------------------------------------------------------------------------------
-const Input = styled(TextInput)`
-  font-size: 16px;
-  margin: 8px 0;
-  padding: 8px 0;
-`;
-//------------------------------------------------------------------------------
-/* const SliderLabel = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-`; /
-//------------------------------------------------------------------------------
-// COMPONENT:
-//------------------------------------------------------------------------------
-class ProfileForm extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    const {
-      first_name: firstName,
-      last_name: lastName,
-    } = props.user;
-
-    this.state = {
-      firstName,
-      lastName,
-    };
-  }
-
-  handleChange = ({ fieldName, value }) => {
-    this.setState({ [fieldName]: value });
-  }
-
-  handleSubmit = () => {
-    const { user, onSubmit } = this.props;
-    const { firstName, lastName } = this.state;
-
-    // Pass event up to parent component
-    onSubmit({ uuid: user.uuid, firstName, lastName });
-  }
-
-  render() {
-    const { firstName, lastName } = this.state;
-
-    return (
-      <Form>
-        <FieldSet>
-          <Text>{I18n.t('First name')}</Text>
-          <Input
-            value={firstName}
-            onChangeText={(value) => {
-              this.handleChange({ fieldName: 'firstName', value });
-            }}
-          />
-        </FieldSet>
-        <FieldSet>
-          <Text>{I18n.t('Last name')}</Text>
-          <Input
-            value={lastName}
-            onChangeText={(value) => {
-              this.handleChange({ fieldName: 'lastName', value });
-            }}
-          />
-        </FieldSet>
-        {/* <FieldSet>
-            <Text>{I18n.t('Age')}</Text>
-            <TextInput keyboardType="numeric" defaultValue="30" />
-          </FieldSet>
-          <FieldSet>
-            <Text>{I18n.t('Style')}</Text>
-            <SliderLabel>
-              <Text.S>{I18n.t('recreative')}</Text.S>
-              <Text.S>{I18n.t('competitive')}</Text.S>
-            </SliderLabel>
-            <View style={{ flex: 1, height: 50 }}>
-              <Slider value={this.props.user.level} onChange={console.log} />
-            </View>
-          </FieldSet> /}
-        <DefaultButton
-          // style={{ width: 100 }}
-          text={I18n.t('Save')}
-          onPress={this.handleSubmit}
-        />
-      </Form>
-    );
-  }
-}
-
-ProfileForm.propTypes = {
-  user: propType(userDetailsFragment).isRequired,
-  onSubmit: PropTypes.func,
-};
-
-ProfileForm.defaultProps = {
-  onSubmit: () => {},
-};
-
-export default ProfileForm;
-
-*/
