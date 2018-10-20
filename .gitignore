@@ -63,7 +63,6 @@ buck-out/
 */fastlane/screenshots
 
 # Misc
-#
 .env
 .env.old
 !.env.example
@@ -73,3 +72,6 @@ buck-out/
 
 # test key generator for appium tests
 test-key.keystore
+
+# Bundle artifact
+*.jsbundle
