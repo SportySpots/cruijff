@@ -1,187 +1,69 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import { propType } from 'graphql-anywhere';
-import { MenuProvider } from 'react-native-popup-menu';
+import moment from 'moment';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
-// import Slider from '../../Slider';
+import Block from '../../Common/Block';
+import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
+import Divider from '../../Common/Divider';
 import Text from '../../Common/Text';
 import UserCircle from '../../Common/UserCircle';
 import ProfileTabs from '../ProfileTabs';
 
 //------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const AVATAR_SIZE = 56;
+//------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Outer = styled.View`
+const Bottom = styled.View`
   flex: 1;
-  padding-top: 24;
-  background-color: ${Colors.white};
-`;
-//------------------------------------------------------------------------------
-const Avatar = styled.View`
-  align-items: center;
-  margin-bottom: 16px;
-`;
-//------------------------------------------------------------------------------
-const Name = styled(Text.L)`
-  margin: 16px;
-`;
-//------------------------------------------------------------------------------
-const Profile = styled.View`
-  flex-direction: row;
-  margin: 0 16px;
-`;
-//------------------------------------------------------------------------------
-const Age = styled.View`
-  flex: 2;
-`;
-//------------------------------------------------------------------------------
-const Competitiveness = styled.View`
-  flex: 4;
-`;
-//------------------------------------------------------------------------------
-const TabsContainer = styled.View`
-  flex: 1;
-  border-top-width: 2;
-  border-top-color: ${Colors.bgGrey};
   background-color: ${Colors.bgGrey};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetails = ({ user }) => (
-  <Outer>
-    <Avatar>
-      <UserCircle user={user} size={75} />
-      <Name>{user.first_name} {user.last_name}</Name>
-    </Avatar>
+const ProfileDetails = ({ user }) => [
+  <Block key="top">
+    <Row alignItems="center">
+      <UserCircle user={user} size={AVATAR_SIZE} />
+      <Spacer orientation="row" size="XXL" />
+      <View>
+        <Text.ML>{user.first_name} {user.last_name}</Text.ML>
+        <Text>{(user.profile && user.profile.country) || ''}</Text>
+      </View>
+    </Row>
+  </Block>,
+  <Block key="middle">
     {user.profile && (
-      <Profile>
-        <Age>
+      <Row>
+        <View style={{ width: AVATAR_SIZE }}>
           <Text>{I18n.t('Age')}</Text>
-          {/* <Text.L>{user.profile.year_of_birth}</Text.L> */}
-        </Age>
-        <Competitiveness>
-          <Text>{I18n.t('Style')}</Text>
-          {/* <Slider disabled value={0.5} onChange={console.log} /> */}
-        </Competitiveness>
-      </Profile>
+          <Spacer size="M" />
+          <Text.ML>{moment().diff(user.profile.year_of_birth, 'years')}</Text.ML>
+        </View>
+        <Spacer orientation="row" size="XXL" />
+        <View>
+          <Text>{I18n.t('Sports')}</Text>
+          <Spacer size="M" />
+          <Text style={{ color: Colors.black }}>TODO</Text>
+        </View>
+      </Row>
     )}
-    <TabsContainer>
-      <ProfileTabs user={user} style={{ flex: 1 }} />
-    </TabsContainer>
-  </Outer>
-);
+  </Block>,
+  <Divider key="divider" />,
+  <Bottom key="bottom">
+    <ProfileTabs user={user} style={{ flex: 1 }} />
+  </Bottom>,
+];
 
 ProfileDetails.propTypes = {
   user: propType(userDetailsFragment).isRequired,
 };
 
 export default ProfileDetails;
-
-/*
-import React from 'react';
-import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
-import { MenuProvider } from 'react-native-popup-menu';
-import styled from 'styled-components/native';
-import I18n from '../../../I18n/index';
-import Colors from '../../../Themes/Colors';
-import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
-// import Slider from '../../Slider';
-import Text from '../../Common/Text';
-import UserCircle from '../../Common/UserCircle';
-// import ProfileTabs from './ProfileTabs';
-import EditMenu from '../EditMenu';
-
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Outer = styled.View`
-  flex: 1;
-  padding-top: 24;
-  background-color: ${Colors.white};
-`;
-//------------------------------------------------------------------------------
-const MenuContainer = styled.View`
-  position: absolute;
-  right: 16px;
-  top: 16px;
-`;
-//------------------------------------------------------------------------------
-const Avatar = styled.View`
-  align-items: center;
-  margin-bottom: 16px;
-`;
-//------------------------------------------------------------------------------
-const Name = styled(Text.L)`
-  margin: 16px;
-`;
-//------------------------------------------------------------------------------
-const Profile = styled.View`
-  flex-direction: row;
-  margin: 0 16px;
-`;
-//------------------------------------------------------------------------------
-const Age = styled.View`
-  flex: 2;
-`;
-//------------------------------------------------------------------------------
-const Competitiveness = styled.View`
-  flex: 4;
-`;
-//------------------------------------------------------------------------------
-/* const TabsContainer = styled.View`
-  flex: 1;
-  border-top-width: 2;
-  border-top-color: ${Colors.bgGrey};
-  background-color: ${Colors.bgGrey};
-`; /
-//------------------------------------------------------------------------------
-// COMPONENT:
-//------------------------------------------------------------------------------
-const ProfileDetails = ({ user, onEdit, onLogout }) => (
-  <MenuProvider>
-    <Outer>
-      <MenuContainer>
-        <EditMenu onEdit={onEdit} onLogout={onLogout} />
-      </MenuContainer>
-      <Avatar>
-        <UserCircle user={user} size={75} />
-        <Name>{user.first_name} {user.last_name}</Name>
-      </Avatar>
-      {user.profile && (
-        <Profile>
-          <Age>
-            <Text>{I18n.t('Age')}</Text>
-            {/* <Text.L>{user.profile.year_of_birth}</Text.L> /}
-          </Age>
-          <Competitiveness>
-            <Text>{I18n.t('Style')}</Text>
-            {/* <Slider disabled value={0.5} onChange={console.log} /> /}
-          </Competitiveness>
-        </Profile>
-      )}
-      {/* <TabsContainer>
-        <ProfileTabs user={user} style={{ flex: 1 }} />
-      </TabsContainer> /}
-    </Outer>
-  </MenuProvider>
-);
-
-ProfileDetails.propTypes = {
-  user: propType(userDetailsFragment).isRequired,
-  onEdit: PropTypes.func,
-  onLogout: PropTypes.func,
-};
-
-ProfileDetails.defaultProps = {
-  onEdit: () => {},
-  onLogout: () => {},
-};
-
-export default ProfileDetails;
-
-*/

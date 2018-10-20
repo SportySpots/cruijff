@@ -13,6 +13,7 @@ const userDetailsFragment = gql`
       spots {
         ...spotFragment
       }
+      country
     }
   }
   ${spotFragment}

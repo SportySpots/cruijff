@@ -14,6 +14,7 @@ const StyledView = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: remove orientation, pass row as a bool prop instead
 const Spacer = ({ orientation, size }) => {
   const pixels = getPixelsFromSize(size.toUpperCase());
 
