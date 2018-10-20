@@ -11,6 +11,7 @@ import NothingFound from '../../Common/NothingFound';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: clean. Can we merge with SpotsList?
 const UserSpots = ({ spots, onCardPress }) => (
   <FlatList
     data={spots}
