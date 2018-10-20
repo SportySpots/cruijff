@@ -1,3 +1,14 @@
 {
-  "presets": ["module:metro-react-native-babel-preset"]
+  "presets": ["react-native"],
+  "env": {
+    "production": {
+      "plugins": ["ignite-ignore-reactotron"]
+    },
+    "development": {
+      "plugins": [["transform-es2015-modules-commonjs", { "strict": false }]]
+    },
+    "test": {
+      "plugins": [["transform-es2015-modules-commonjs", { "strict": false }]]
+    }
+  }
 }
