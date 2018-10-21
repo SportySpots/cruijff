@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import I18n from '../../../I18n';
-import NavBarButton from './NavBarButton';
+import NavBarButton from '../NavBarButton';
 
 //------------------------------------------------------------------------------
 // STYLE:
