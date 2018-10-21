@@ -6,14 +6,14 @@ const GET_GAMES_LIST = gql`
     $limit: Int,
     $offset: Int,
     $ordering: String,
-    $start_time__gte: String,
+    $start_time__gte: DateTime,
   ) {
     games(
       limit: $limit,
       offset: $offset,
       ordering: $ordering,
       start_time__gte: $start_time__gte,
-      # status: "planned"
+      status: "planned"
     ) {
       ...gameFragment
     }
