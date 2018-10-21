@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
-import GET_SPOT_DETAILS from '../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
-import Text from '../../Components/Common/Text';
-import CenteredActivityIndicator from '../../Components/Common/CenteredActivityIndicator';
-import SpotDetails from '../../Components/Spots/SpotDetails';
+import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
+import Text from '../../../Components/Common/Text';
+import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
+import SpotDetails from '../../../Components/Spots/SpotDetails';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -15,7 +15,6 @@ const SpotDetailsScreen = ({ navigation, userId }) => (
     query={GET_SPOT_DETAILS}
     variables={{
       uuid: navigation.state.params.uuid,
-      user_uuid: userId,
     }}
     fetchPolicy="cache-and-network"
   >

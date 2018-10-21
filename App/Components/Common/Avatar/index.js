@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { Image } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import themeImages from '../../../Themes/Images';
@@ -21,6 +20,11 @@ const Circle = styled.View`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+`;
+//------------------------------------------------------------------------------
+const StyledImage = styled.Image`
+  width: ${({ size }) => (size)};
+  height: ${({ size }) => (size)};
 `;
 //------------------------------------------------------------------------------
 const Initials = styled(Text.M)`
@@ -43,7 +47,10 @@ const Avatar = ({ user, text, size }) => {
   if (avatar) {
     return (
       <Circle size={size}>
-        <Image source={avatar} />
+        <StyledImage
+          source={avatar}
+          size={size}
+        />
       </Circle>
     );
   }
@@ -79,7 +86,10 @@ const Avatar = ({ user, text, size }) => {
   // If no user and no text, display default avatar
   return (
     <Circle bgColor={Colors.transparent} size={size}>
-      <Image source={themeImages.spotOpenCircle} />
+      <StyledImage
+        source={themeImages.spotOpenCircle}
+        size={size}
+      />
     </Circle>
   );
 };

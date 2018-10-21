@@ -139,7 +139,7 @@ class EditProfileForm extends React.PureComponent {
     // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
     // value to 'true' so that the user cannot re-submit the form
     try {
-      onBeforeHook();
+      // onBeforeHook();
     } catch (exc) {
       return; // return silently
     }
@@ -162,16 +162,16 @@ class EditProfileForm extends React.PureComponent {
       if (response.didCancel) {
         console.log('User cancelled photo picker');
         // TODO: implement onClientCancelHook instead
-        onClientErrorHook();
+        // onClientErrorHook();
       } else if (response.error) {
         console.log('ImagePicker Error: ', response.error);
         // Pass event up to parent component. onClientErrorHook will set 'disabled'
         // value back to 'false' so that the user can re-submit the form
-        onClientErrorHook(response.error);
+        // onClientErrorHook(response.error);
       } else if (response.customButton) {
         console.log('User tapped custom button: ', response.customButton);
         // TODO: implement onClientCancelHook instead
-        onClientErrorHook();
+        // onClientErrorHook();
       } else {
         const source = { uri: response.uri };
 
@@ -181,7 +181,7 @@ class EditProfileForm extends React.PureComponent {
         this.setState({ avatar: source });
         // Pass event up to parent component. onClientSuccessHook will set 'disabled'
         // value back to 'false' so that the user can re-submit the form
-        onSuccessHook();
+        // onSuccessHook();
       }
     });
   }
