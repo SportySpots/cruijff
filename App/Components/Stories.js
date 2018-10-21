@@ -1,12 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import NavBar from './Common/NavBar';
-import NavBarButton from './Common/NavBar/NavBarButton';
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import ImageSwiper from './Common/ImageSwiper';
 import DefaultButton from './Common/DefaultButton';
@@ -14,11 +11,9 @@ import SecondaryButton from './Common/SecondaryButton';
 import FlatButton from './Common/FlatButton';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
-import NavDots from './Common/NavDots';
 import Slider from './Common/Slider';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
-import PropertyCircle from './Common/PropertyCircle';
 import SignupScreen from '../Screens/SignupScreen';
 import NothingFound from './Common/NothingFound';
 
@@ -75,26 +70,6 @@ storiesOf('ImageSwiper', module).add('Default', () => (
   />
 ));
 
-storiesOf('NavBar', module)
-  .add('Default', () => (
-    <Provider store={store}>
-      <NavBar navigation={dummyNavigator} />
-    </Provider>
-  ))
-  .add('NavBarButton', () => (
-    <NavBarButton icon={{ set: MaterialIcon, name: 'info' }} buttonText="test" />
-  ))
-  .add('At bottom', () => (
-    <Provider store={store}>
-      <View style={{ flex: 1 }}>
-        <View style={{ flex: 1, backgroundColor: 'white' }} />
-        <NavBar navigation={dummyNavigator} />
-      </View>
-    </Provider>
-  ));
-
-storiesOf('NavDots', module).add('Default', () => <NavDots count={5} active={3} />);
-
 storiesOf('Rating', module)
   .add('1', () => <Rating rating={1} />)
   .add('3', () => <Rating rating={3} />)
@@ -107,14 +82,6 @@ storiesOf('RatingBig', module)
 
 storiesOf('Slider', module).add('Default', () => <Slider value={0.75} />);
 
-
-storiesOf('PropertyCircle', module).add('Propertycircle', () => (
-  <View>
-    {['blablabla', 'ASD GDS ASD DAS', 'as asdasdasdsadassadas', '+4', 'HMMMM'].map((text, idx) => (
-      <PropertyCircle text={text} key={idx} />
-    ))}
-  </View>
-));
 
 storiesOf('SignupScreen', module).add('Default', () => (
   <Provider store={store}>

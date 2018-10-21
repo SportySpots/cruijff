@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import I18n from '../../I18n';
 import Fonts from '../../Themes/Fonts';
-import PropertyCircle from '../Common/PropertyCircle';
+import Avatar from '../Common/Avatar';
 import Text from '../Common/Text';
 
 const Amenities = ({ amenities }) =>
@@ -12,7 +12,7 @@ const Amenities = ({ amenities }) =>
           console.log(amenities[key]) || (
             <View key={key} style={style.innerContainer}>
               <Text.M style={style.text}>{I18n.t(key)}</Text.M>
-              <PropertyCircle text={amenities[key]} />
+              <Avatar text={amenities[key]} />
             </View>
           ))}
     </View>

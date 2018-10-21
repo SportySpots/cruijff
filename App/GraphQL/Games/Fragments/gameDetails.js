@@ -54,6 +54,9 @@ const gameDetailsFragment = gql`
       uuid
       first_name
       last_name
+      profile {
+        avatar
+      }
     }
     attendees {
       uuid
@@ -62,6 +65,9 @@ const gameDetailsFragment = gql`
         uuid
         first_name
         last_name
+        profile {
+          avatar
+        }
       }
     }
   }

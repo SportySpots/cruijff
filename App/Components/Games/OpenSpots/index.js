@@ -1,31 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { Image } from 'react-native';
-import themeImages from '../../../Themes/Images';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import PropertyCircle from '../../Common/PropertyCircle';
+import Avatar from '../../Common/Avatar';
 import CappedList from '../../Common/CappedList';
 import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
 import { getAttendees } from '../utils';
 
-//------------------------------------------------------------------------------
-// AUX FUNCTIONS:
-//------------------------------------------------------------------------------
-const openSpotCircle = (_, i) => (
-  <Image
-    key={i}
-    source={themeImages.spotOpenCircle}
-    style={{ width: 42, height: 42, marginRight: 4 }}
-  />
-);
-//------------------------------------------------------------------------------
-const restCircle = text => (
-  <PropertyCircle
-    key="extra"
-    text={text}
-  />
-);
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -42,8 +24,9 @@ const OpenSpots = ({ game, maxLength }) => {
       <CappedList
         max={maxLength}
         data={[...Array(nOpenSpots)]}
-        component={openSpotCircle}
-        capComponent={({ data }) => restCircle(`+${data.length}`)}
+        component={(_, i) => <Avatar key={i} />}
+        capComponent={({ data }) => <Avatar key="cap" text={`+${data.length}`} />}
+        ItemSeparatorComponent={() => <Spacer orientation="row" size="M" />}
       />
     </Row>
   );

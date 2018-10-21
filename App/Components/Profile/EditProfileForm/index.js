@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { Image } from 'react-native';
 import isNumber from 'lodash/isNumber';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -14,7 +13,7 @@ import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import TextField from '../../Common/TextField';
-import UserCircle from '../../Common/UserCircle';
+import Avatar from '../../Common/Avatar';
 import RaisedButton from '../../Common/RaisedButton';
 
 //------------------------------------------------------------------------------
@@ -237,7 +236,7 @@ class EditProfileForm extends React.PureComponent {
   }
 
   render() {
-    const { user, disabled } = this.props;
+    const { disabled } = this.props;
     const {
       firstName,
       lastName,
@@ -245,6 +244,13 @@ class EditProfileForm extends React.PureComponent {
       avatar,
       errors,
     } = this.state;
+
+    // Set user based on state values
+    const user = {
+      first_name: firstName,
+      last_name: lastName,
+      profile: { avatar },
+    };
 
     const firstNameErrors = ErrorHandling.getFieldErrors(errors, 'firstName');
     const lastNameErrors = ErrorHandling.getFieldErrors(errors, 'lastName');
@@ -254,8 +260,7 @@ class EditProfileForm extends React.PureComponent {
       <Top key="top">
         <Block>
           <Row justifyContent="center">
-            <UserCircle user={user} size={80} />
-            <Image style={{ width: 150, height: 150 }} source={avatar} />
+            <Avatar user={user} size={80} />
           </Row>
           <Spacer size="XL" />
           <RaisedButton

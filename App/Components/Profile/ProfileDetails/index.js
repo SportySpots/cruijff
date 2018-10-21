@@ -11,7 +11,7 @@ import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import Divider from '../../Common/Divider';
 import Text from '../../Common/Text';
-import UserCircle from '../../Common/UserCircle';
+import Avatar from '../../Common/Avatar';
 import ProfileTabs from '../ProfileTabs';
 
 //------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ const Bottom = styled.View`
 const ProfileDetails = ({ user }) => [
   <Block key="top">
     <Row alignItems="center">
-      <UserCircle user={user} size={AVATAR_SIZE} />
+      <Avatar user={user} size={AVATAR_SIZE} />
       <Spacer orientation="row" size="XXL" />
       <View>
         <Text.ML>{user.first_name} {user.last_name}</Text.ML>

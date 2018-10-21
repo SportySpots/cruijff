@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import Text from '../../../Components/Common/Text';
-import UserCircle from '../../../Components/Common/UserCircle';
+import Avatar from '../../../Components/Common/Avatar';
 import navigationPropTypes from '../../../PropTypesDefinitions/navigation';
 
 export const BottomNav = ({ screens }) =>
@@ -50,7 +50,7 @@ const UserRow = ({ attendee }) => {
 
   return (
     <UserRowContainer>
-      <UserCircle user={user} />
+      <Avatar user={user} />
       <UserRowRight>
         <Text.M>{user.first_name} {user.last_name}</Text.M>
         <Text.S>

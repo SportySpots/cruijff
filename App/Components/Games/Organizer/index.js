@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import Fonts from '../../../Themes/Fonts';
+import userNameAvatarFragment from '../../../GraphQL/Users/Fragments/userNameAvatar';
 import Text from '../../Common/Text';
-import UserCircle from '../../Common/UserCircle';
+import Avatar from '../../Common/Avatar';
 import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
 
@@ -21,7 +23,7 @@ const Organizer = ({ organizer, textSize, description }) => {
 
   return (
     <Row>
-      <UserCircle user={organizer} />
+      <Avatar user={organizer} />
       <Spacer orientation="row" size="M" />
       <Container>
         <TextSize>
@@ -34,10 +36,7 @@ const Organizer = ({ organizer, textSize, description }) => {
 };
 
 Organizer.propTypes = {
-  organizer: PropTypes.shape({
-    first_name: PropTypes.string,
-    last_name: PropTypes.string,
-  }).isRequired,
+  organizer: propType(userNameAvatarFragment).isRequired,
   textSize: PropTypes.oneOf(Object.keys(Fonts.style)),
   description: PropTypes.string,
 };
