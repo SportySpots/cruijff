@@ -36,6 +36,8 @@ const SpotsList = ({
     distance: `${parseInt(1000 * maxDistance, 10)}:${userCoords.latitude}:${userCoords.longitude}`,
   };
 
+  const numGenerator = makeNumGenerator();
+
   return (
     <QueryCatchErrors
       query={GET_SPOTS}
@@ -72,8 +74,6 @@ const SpotsList = ({
             return Object.assign({}, spot, { distance });
           })
         ) || [];
-
-        const numGenerator = makeNumGenerator();
 
         return (
           <FlatList
