@@ -43,7 +43,7 @@ const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
   >
     <Block>
       <Container>
-        <Img source={themeImages.activityCancelledVisual} />
+        <Img source={themeImages.activityConfirmVisual} />
         <Spacer size="L" />
         <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
         <Spacer size="M" />

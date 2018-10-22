@@ -42,7 +42,7 @@ const EditGameDoneModal = ({ visible, onClose }) => (
   >
     <Block>
       <Container>
-        <Img source={themeImages.activityCancelledVisual} />
+        <Img source={themeImages.activitySuccessVisual} />
         <Spacer size="L" />
         <Title>{I18n.t('The activity has been updated')}</Title>
         <Spacer size="M" />

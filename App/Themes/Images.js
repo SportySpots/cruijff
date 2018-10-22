@@ -8,6 +8,8 @@ const images = {
   createProfileAvatar: require('../Images/create-profile-avatar.png'),
   spotOpenCircle: require('../Images/spot-open-circle.png'),
   activityCancelledVisual: require('../Images/activity-cancelled-visual.png'),
+  activitySuccessVisual: require('../Images/activity-success-visual.png'),
+  activityConfirmVisual: require('../Images/activity-confirm-visual.png'),
 };
 
 export default images;
