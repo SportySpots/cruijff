@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Keyboard, Platform, BackHandler } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import Swiper from 'react-native-swiper';
 import styled from 'styled-components/native';
@@ -112,28 +111,6 @@ class EditGameForm extends React.PureComponent {
     console.log('STATE', this.state);
   }
 
-  // Handle android back button press
-  componentDidMount() {
-    if (Platform.OS === 'android') {
-      BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
-    }
-  }
-
-  componentWillUnmount() {
-    if (Platform.OS === 'android') {
-      BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
-    }
-  }
-
-  handleLeave = () => {
-    const { onLeave } = this.props;
-    // Pass event up to parent component
-    onLeave();
-
-    // Need this for android back handler btn to work
-    return true;
-  }
-
   clearErrors = () => {
     this.setState({
       errors: {
@@ -204,7 +181,12 @@ class EditGameForm extends React.PureComponent {
   };
 
   handleSubmit = () => {
-    const { onBeforeHook, onClientErrorHook, onSuccessHook } = this.props;
+    const {
+      game,
+      onBeforeHook,
+      onClientErrorHook,
+      onSuccessHook,
+    } = this.props;
 
     // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
     // value to 'true' so that the user cannot re-submit the form
@@ -249,6 +231,7 @@ class EditGameForm extends React.PureComponent {
     // Pass event up to parent component. onSuccessHook 'disabled'
     // value back to 'false' so that the user can re-submit the form
     onSuccessHook({
+      gameUUID: game.uuid,
       name,
       date,
       time,
@@ -432,7 +415,6 @@ EditGameForm.propTypes = {
   onBeforeHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
-  onLeave: PropTypes.func,
 };
 
 EditGameForm.defaultProps = {
@@ -440,7 +422,6 @@ EditGameForm.defaultProps = {
   onBeforeHook: () => {},
   onClientErrorHook: () => {},
   onSuccessHook: () => {},
-  onLeave: () => {},
 };
 
 export default EditGameForm;
