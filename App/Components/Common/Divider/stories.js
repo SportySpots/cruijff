@@ -12,10 +12,10 @@ storiesOf('Common.Divider', module)
       <Text>Below</Text>
     </View>
   ))
-  .add('Divider orientation row', () => (
+  .add('Divider row', () => (
     <Row>
       <Text>Left</Text>
-      <Divider orientation="row" />
+      <Divider row />
       <Text>Right</Text>
     </Row>
   ));
