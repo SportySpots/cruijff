@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
-import SportDateTimeForm from './index';
+import SportDateTimeSlide from './index';
 
 class Container extends React.PureComponent {
   state = {
@@ -27,7 +27,7 @@ class Container extends React.PureComponent {
     } = this.state;
 
     return (
-      <SportDateTimeForm
+      <SportDateTimeSlide
         theme={theme}
         sport={sport}
         date={date}
@@ -47,8 +47,8 @@ Container.defaultProps = {
   theme: 'black',
 };
 
-storiesOf('PlanGame.SportDateTimeForm', module)
-  .add('SportDateTimeForm white theme', () => (
+storiesOf('PlanGame.SportDateTimeSlide', module)
+  .add('SportDateTimeSlide white theme', () => (
     <Block bgColor={Colors.primaryGreen}>
       <Container theme="white" />
     </Block>

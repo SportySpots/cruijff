@@ -5,7 +5,7 @@ import DescriptionField from '../../Common/DescriptionField';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DescriptionForm = ({ description, descriptionMaxChars, onChange }) => (
+const DescriptionSlide = ({ description, descriptionMaxChars, onChange }) => (
   <DescriptionField
     testID="description"
     value={description}
@@ -15,14 +15,14 @@ const DescriptionForm = ({ description, descriptionMaxChars, onChange }) => (
   />
 );
 
-DescriptionForm.propTypes = {
+DescriptionSlide.propTypes = {
   description: PropTypes.string.isRequired,
   descriptionMaxChars: PropTypes.number.isRequired,
   onChange: PropTypes.func,
 };
 
-DescriptionForm.defaultProps = {
+DescriptionSlide.defaultProps = {
   onChange: () => {},
 };
 
-export default DescriptionForm;
+export default DescriptionSlide;

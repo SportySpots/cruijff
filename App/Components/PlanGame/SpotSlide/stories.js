@@ -4,25 +4,19 @@ import { Query } from 'react-apollo';
 import Colors from '../../../Themes/Colors';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import Block from '../../Common/Block';
-import SpotForm from './index';
+import navigation from './mocks';
+import SpotSlide from '.';
 
-const dummyNavigator = {
-  navigate: () => null,
-  state: {
-    params: { uuid: 455 },
-  },
-};
-
-storiesOf('PlanGame.SpotForm', module)
-  .add('SpotForm white theme', () => (
+storiesOf('PlanGame.SpotSlide', module)
+  .add('SpotSlide white theme', () => (
     <Query
       query={GET_SPORTS}
-      variables={{ uuid: dummyNavigator.state.params.uuid }}
+      variables={{ uuid: navigation.state.params.uuid }}
     >
       {({ loading, error, data }) =>
         (loading || error ? null : (
           <Block bgColor={Colors.lightGray}>
-            <SpotForm
+            <SpotSlide
               sport={data.sports[0]}
               onChange={this.handleChange}
             />

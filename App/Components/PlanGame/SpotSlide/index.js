@@ -10,7 +10,7 @@ import SpotsList from '../../Spots/SpotsList';
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: get userCoords and maxDistance from context
-const SpotForm = ({ sport, spot, onChange }) => [
+const SpotSlide = ({ sport, spot, onChange }) => [
   <Spacer key="spacer" size="XL" />,
   <SpotsList
     key="spots"
@@ -23,16 +23,16 @@ const SpotForm = ({ sport, spot, onChange }) => [
   />,
 ];
 
-SpotForm.propTypes = {
+SpotSlide.propTypes = {
   sport: propType(sportFragment),
   spot: propType(spotFragment),
   onChange: PropTypes.func,
 };
 
-SpotForm.defaultProps = {
+SpotSlide.defaultProps = {
   sport: null,
   spot: null,
   onChange: () => {},
 };
 
-export default SpotForm;
+export default SpotSlide;

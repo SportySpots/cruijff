@@ -25,7 +25,7 @@ export const Label = styled(Text.ML)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SportDateTimeForm = ({
+const SportDateTimeSlide = ({
   sport,
   date,
   time,
@@ -113,7 +113,7 @@ const SportDateTimeForm = ({
   </Row>,
 ];
 
-SportDateTimeForm.propTypes = {
+SportDateTimeSlide.propTypes = {
   sport: propType(sportFragment),
   date: datePickerDatePropTypes,
   time: PropTypes.instanceOf(Date),
@@ -125,7 +125,7 @@ SportDateTimeForm.propTypes = {
   onChange: PropTypes.func,
 };
 
-SportDateTimeForm.defaultProps = {
+SportDateTimeSlide.defaultProps = {
   sport: null,
   date: null,
   time: null,
@@ -134,4 +134,4 @@ SportDateTimeForm.defaultProps = {
   onChange: () => {},
 };
 
-export default SportDateTimeForm;
+export default SportDateTimeSlide;
