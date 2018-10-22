@@ -25,7 +25,7 @@ export const Label = styled(Text.ML)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SportAndTimeForm = ({
+const SportDateTimeForm = ({
   sport,
   date,
   time,
@@ -113,7 +113,7 @@ const SportAndTimeForm = ({
   </Row>,
 ];
 
-SportAndTimeForm.propTypes = {
+SportDateTimeForm.propTypes = {
   sport: propType(sportFragment),
   date: datePickerDatePropTypes,
   time: PropTypes.instanceOf(Date),
@@ -125,7 +125,7 @@ SportAndTimeForm.propTypes = {
   onChange: PropTypes.func,
 };
 
-SportAndTimeForm.defaultProps = {
+SportDateTimeForm.defaultProps = {
   sport: null,
   date: null,
   time: null,
@@ -134,4 +134,4 @@ SportAndTimeForm.defaultProps = {
   onChange: () => {},
 };
 
-export default SportAndTimeForm;
+export default SportDateTimeForm;

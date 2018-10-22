@@ -16,8 +16,10 @@ class CancelGame extends React.PureComponent {
       // TODO: pass cancelMsg to api.cancelGame
       const result = await api.setGameStatus({
         gameUUID: game.uuid,
-        status: 'Canceled',
+        status: 'CANCELED',
       });
+
+      console.log('CANCEL_GAME', result);
 
       if (result.ok) {
         // Pass event up to parent component
