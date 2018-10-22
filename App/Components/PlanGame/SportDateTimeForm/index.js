@@ -39,7 +39,7 @@ const SportAndTimeForm = ({
     alignItems="flex-end"
   >
     <Label>{I18n.t('I want to play')}</Label>
-    <Spacer orientation="row" size="S" />
+    <Spacer row size="S" />
     <SportPickerField
       testID="pickSport"
       value={sport}
@@ -55,7 +55,7 @@ const SportAndTimeForm = ({
     alignItems="flex-end"
   >
     <Label>{I18n.t('on')}</Label>
-    <Spacer orientation="row" size="S" />
+    <Spacer row size="S" />
     <DatePickerField
       testID="pickDate"
       value={date}
@@ -64,9 +64,9 @@ const SportAndTimeForm = ({
       onChange={(value) => { onChange({ fieldName: 'date', value }); }}
       width={80}
     />
-    <Spacer orientation="row" size="M" />
+    <Spacer row size="M" />
     <Label>{I18n.t('at')}</Label>
-    <Spacer orientation="row" size="S" />
+    <Spacer row size="S" />
     <TimePickerField
       testID="pickTime"
       value={time}
@@ -82,7 +82,7 @@ const SportAndTimeForm = ({
     alignItems="flex-end"
   >
     <Label>{I18n.t('during')}</Label>
-    <Spacer orientation="row" size="S" />
+    <Spacer row size="S" />
     <DurationPickerField
       testID="pickDuration"
       label=""
@@ -99,7 +99,7 @@ const SportAndTimeForm = ({
     alignItems="flex-end"
   >
     <Label>{I18n.t('with')}</Label>
-    <Spacer orientation="row" size="S" />
+    <Spacer row size="S" />
     <CapacityPickerField
       testID="pickCapacity"
       value={capacity}
@@ -108,7 +108,7 @@ const SportAndTimeForm = ({
       onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
       width={80}
     />
-    <Spacer orientation="row" size="S" />
+    <Spacer row size="S" />
     <Label>{I18n.t('people')}</Label>
   </Row>,
 ];

@@ -44,7 +44,7 @@ const DarkFooterButton = ({
           />,
           <Spacer
             key="spacer"
-            orientation="row"
+            row
             size="S"
           />,
         ]}
@@ -54,7 +54,7 @@ const DarkFooterButton = ({
         {!isBack && [
           <Spacer
             key="spacer"
-            orientation="row"
+            row
             size="S"
           />,
           <Icon

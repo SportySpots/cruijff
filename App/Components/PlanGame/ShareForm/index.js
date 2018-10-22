@@ -30,12 +30,11 @@ const ShareForm = ({ gameUUID, isPublic, onChange }) => [
       size={35}
       color={Colors.white}
     />
-    <Spacer orientation="row" size="L" />
+    <Spacer row size="L" />
     <Subtitle>{I18n.t('invite via')}</Subtitle>
   </Row>,
   <Spacer
     key="spacer-share-btn"
-    orientation="column"
     size="XXL"
   />,
   <ShareGameButton
@@ -44,7 +43,6 @@ const ShareForm = ({ gameUUID, isPublic, onChange }) => [
   />,
   <Spacer
     key="spacer-invite-only"
-    orientation="column"
     size="XXXL"
   />,
   <InviteOnly

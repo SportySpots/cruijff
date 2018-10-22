@@ -26,7 +26,7 @@ const OpenSpots = ({ game, maxLength }) => {
         data={[...Array(nOpenSpots)]}
         component={(_, i) => <Avatar key={i} />}
         capComponent={({ data }) => <Avatar key="cap" text={`+${data.length}`} />}
-        ItemSeparatorComponent={() => <Spacer orientation="row" size="M" />}
+        ItemSeparatorComponent={() => <Spacer row size="M" />}
       />
     </Row>
   );

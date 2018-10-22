@@ -8,33 +8,31 @@ import getPixelsFromSize from './utils';
 //------------------------------------------------------------------------------
 const StyledView = styled.View`
   background-color: transparent;
-  width: ${({ orientation, pixels }) => (orientation === 'row' ? `${pixels}px` : 'auto')};
-  height: ${({ orientation, pixels }) => (orientation === 'column' ? `${pixels}px` : 'auto')};
+  width: ${({ row, pixels }) => (row ? `${pixels}px` : 'auto')};
+  height: ${({ row, pixels }) => (!row ? `${pixels}px` : 'auto')};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: remove orientation, pass row as a bool prop instead
-const Spacer = ({ orientation, size }) => {
+const Spacer = ({ row, size }) => {
   const pixels = getPixelsFromSize(size.toUpperCase());
 
   return (
     <StyledView
-      orientation={orientation}
+      row={row}
       pixels={pixels}
     />
   );
 };
 
 Spacer.propTypes = {
-  orientation: PropTypes.oneOf(['row', 'column']),
+  row: PropTypes.bool,
   size: PropTypes.oneOf(['S', 'M', 'L', 'XL', 'XXL', 'XXL', 'XXXL']),
 };
 
 Spacer.defaultProps = {
-  orientation: 'column',
+  row: false,
   size: 'M',
 };
 
 export default Spacer;
-

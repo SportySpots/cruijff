@@ -44,9 +44,9 @@ const CancelGameConfirmModal = ({ visible, onConfirm, onClose }) => (
     <Block>
       <Container>
         <Img source={themeImages.activityCancelledVisual} />
-        <Spacer orientation="column" size="L" />
+        <Spacer size="L" />
         <Title>{`${I18n.t('Are you 100% sure')}?`}</Title>
-        <Spacer orientation="column" size="M" />
+        <Spacer size="M" />
         <Subtitle>${I18n.t('All attendees will receive an email with your reason for cancellation')}</Subtitle>
       </Container>
     </Block>

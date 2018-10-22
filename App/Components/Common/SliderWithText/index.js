@@ -20,7 +20,7 @@ const SliderWithText = ({ label, description, ...rest }) => (
   <FullHeight>
     <Text.M>{label}</Text.M>
     {description}
-    <Spacer orientation="column" size="L" />
+    <Spacer size="L" />
     <Slider {...rest} />
   </FullHeight>
 );

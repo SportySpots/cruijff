@@ -38,7 +38,7 @@ const CancelGameDoneModal = ({ visible, onClose }) => (
     <Block>
       <Container>
         <Img source={themeImages.activityCancelledVisual} />
-        <Spacer orientation="column" size="L" />
+        <Spacer size="L" />
         <Title>{I18n.t('The activity is cancelled')}</Title>
       </Container>
     </Block>

@@ -39,7 +39,7 @@ const AlertMsg = ({ status, value }) => {
           size={24}
           color={fontColor}
         />
-        <Spacer orientation="row" size="M" />
+        <Spacer row size="M" />
         <FullWidth>
           <Message color={fontColor}>
             {value}

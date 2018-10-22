@@ -38,7 +38,7 @@ const GamesList = ({
     )}
     keyExtractor={item => item.uuid}
     ItemSeparatorComponent={() => (
-      <Spacer orientation="column" size="M" />
+      <Spacer size="M" />
     )}
     {...rest}
   />

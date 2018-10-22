@@ -26,9 +26,9 @@ const NavDot = ({ active }) => (
     alignItems="center"
     justifyContent="center"
   >
-    <Spacer orientation="row" size="S" />
+    <Spacer row size="S" />
     <Circle active={active} />
-    <Spacer orientation="row" size="S" />
+    <Spacer row size="S" />
   </Row>
 );
 

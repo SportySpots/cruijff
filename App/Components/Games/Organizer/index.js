@@ -24,7 +24,7 @@ const Organizer = ({ organizer, textSize, description }) => {
   return (
     <Row>
       <Avatar user={organizer} />
-      <Spacer orientation="row" size="M" />
+      <Spacer row size="M" />
       <Container>
         <TextSize>
           {organizer.first_name} {organizer.last_name}

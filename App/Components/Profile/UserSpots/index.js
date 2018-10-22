@@ -28,7 +28,7 @@ const UserSpots = ({ spots, onCardPress }) => (
       </TouchableOpacity>
     )}
     ListEmptyComponent={(<NothingFound icon="map-marker" text={I18n.t('No spots found')} />)}
-    ItemSeparatorComponent={() => (<Spacer orientation="column" size="M" />)}
+    ItemSeparatorComponent={() => (<Spacer size="M" />)}
     showsVerticalScrollIndicator={false}
     // onRefresh={refetch}
     // refreshing={loading}

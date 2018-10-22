@@ -72,7 +72,7 @@ const InputField = ({
   return (
     <TouchableOpacity onPress={onPress} testID={testID}>
       <Row>
-        <Spacer orientation="row" size="M" />
+        <Spacer row size="M" />
         <FlexGrow pointerEvents={pointerEvents}>
           <Comp
             fontColor={fontColor}
@@ -97,7 +97,7 @@ const InputField = ({
             color={iconColor}
           />
         </View>
-        <Spacer orientation="row" size="M" />
+        <Spacer row size="M" />
       </Row>
     </TouchableOpacity>
   );

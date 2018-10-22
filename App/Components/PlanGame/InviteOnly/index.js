@@ -28,9 +28,8 @@ const InviteOnly = ({ isPublic, onPress }) => (
       theme="white"
       checked={!isPublic}
       onPress={() => { onPress(!isPublic); }}
-      // size={72}
     />
-    <Spacer orientation="row" size="L" />
+    <Spacer row size="L" />
     <StyledRow>
       <Label>{I18n.t('This event is invite-only')}</Label>
     </StyledRow>

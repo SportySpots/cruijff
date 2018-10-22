@@ -32,7 +32,7 @@ const ProfileDetails = ({ user }) => [
   <Block key="top">
     <Row alignItems="center">
       <Avatar user={user} size={AVATAR_SIZE} />
-      <Spacer orientation="row" size="XXL" />
+      <Spacer size="XXL" />
       <View>
         <Text.ML>{user.first_name} {user.last_name}</Text.ML>
         <Text>{(user.profile && user.profile.country) || ''}</Text>
@@ -47,7 +47,7 @@ const ProfileDetails = ({ user }) => [
           <Spacer size="M" />
           <Text.ML>{moment().diff(user.profile.year_of_birth, 'years')}</Text.ML>
         </View>
-        <Spacer orientation="row" size="XXL" />
+        <Spacer size="XXL" />
         <View>
           <Text>{I18n.t('Sports')}</Text>
           <Spacer size="M" />

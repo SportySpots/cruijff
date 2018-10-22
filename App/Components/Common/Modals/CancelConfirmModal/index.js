@@ -26,7 +26,7 @@ const CancelConfirmModal = ({
         status="secondary"
         onPress={onCancel}
       />
-      <Spacer orientation="row" size="M" />
+      <Spacer row size="M" />
       <RaisedButton
         label={okBtnLabel}
         size="S"

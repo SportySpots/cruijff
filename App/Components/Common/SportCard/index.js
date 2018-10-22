@@ -32,7 +32,7 @@ const SportCard = ({
             : themeIcons.soccer
         )}
         />
-        <Spacer orientation="row" size="XXL" />
+        <Spacer row size="XXL" />
         <Text.M>{I18n.t(sport.name)}</Text.M>
       </Row>
     </Block>

@@ -41,7 +41,7 @@ const GameProperties = ({ game, onSpotPress }) => {
       <Spacer size="L" />
       <Row>
         <Icon name="event" size={22} color={Colors.shade} />
-        <Spacer orientation="row" size="L" />
+        <Spacer row size="L" />
         <Label>
           {moment.utc(startTime).format('DD-MM-YYYY')}
         </Label>
@@ -49,7 +49,7 @@ const GameProperties = ({ game, onSpotPress }) => {
       <Spacer size="M" />
       <Row>
         <Icon name="watch-later" size={22} color={Colors.shade} />
-        <Spacer orientation="row" size="L" />
+        <Spacer row size="L" />
         <Label>
           {moment.utc(startTime).format('HH:mm')}
           {endTime && ` - ${moment.utc(endTime).format('HH:mm')}`}
@@ -58,7 +58,7 @@ const GameProperties = ({ game, onSpotPress }) => {
       <Spacer size="M" />
       <Row>
         <Icon name="label" size={22} color={Colors.shade} />
-        <Spacer orientation="row" size="L" />
+        <Spacer row size="L" />
         <Label>
           {I18n.t(sport.category)}
         </Label>
@@ -72,7 +72,7 @@ const GameProperties = ({ game, onSpotPress }) => {
       >
         <Row>
           <Icon name="place" size={22} color={Colors.shade} />
-          <Spacer orientation="row" size="L" />
+          <Spacer row size="L" />
           <Label>{(spot && spot.name) || '?'}</Label>
         </Row>
       </TouchableOpacity>

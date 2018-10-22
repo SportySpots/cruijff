@@ -38,7 +38,7 @@ const DarkFooter = ({
 }) => (
   <Container>
     <StyledRow alignItems="center">
-      <Spacer orientation="row" size="S" />
+      <Spacer row size="S" />
       <StyledRow justifyContent="flex-start">
         {showBack && (
           <DarkFooterButton
@@ -64,7 +64,7 @@ const DarkFooter = ({
           />
         )}
       </StyledRow>
-      <Spacer orientation="row" size="S" />
+      <Spacer row size="S" />
     </StyledRow>
   </Container>
 );

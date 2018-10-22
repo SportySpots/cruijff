@@ -23,7 +23,7 @@ const EditSpotField = ({ spot, onPress }) => (
       <FlexGrow>
         <SpotListCardSmallBody spot={spot} />
       </FlexGrow>
-      <Spacer orientation="row" size="M" />
+      <Spacer row size="M" />
       <Icon
         size={24}
         name="keyboard-arrow-right"

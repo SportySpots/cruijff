@@ -77,7 +77,7 @@ const SpotMap = ({ spot }) => {
                 openGoogleMapsDirections({ latLng, title: spot.name });
               }}
             />
-            <Spacer orientation="row" size="M" />
+            <Spacer row size="M" />
             <RoundButton
               status="translucid"
               iconName="google-maps"

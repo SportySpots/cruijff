@@ -23,7 +23,7 @@ const Attendees = ({ attendees, maxLength }) => {
         keyExtractor={({ user }) => (user.uuid)}
         component={({ user }) => <Avatar user={user} />}
         capComponent={({ data }) => <Avatar key="cap" text={`+${data.length}`} />}
-        ItemSeparatorComponent={() => <Spacer orientation="row" size="M" />}
+        ItemSeparatorComponent={() => <Spacer row size="M" />}
       />
     </Row>
   );

@@ -35,7 +35,7 @@ const SwitchWithText = ({
         {description}
       </Text.SM>
     </Left>
-    <Spacer orientation="row" size="M" />
+    <Spacer row size="M" />
     <Right>
       <Switch
         value={value}

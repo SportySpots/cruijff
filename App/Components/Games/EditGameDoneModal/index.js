@@ -43,7 +43,7 @@ const EditGameDoneModal = ({ visible, onClose }) => (
     <Block>
       <Container>
         <Img source={themeImages.activityCancelledVisual} />
-        <Spacer orientation="column" size="L" />
+        <Spacer size="L" />
         <Title>{I18n.t('The activity has been updated')}</Title>
         <Spacer size="M" />
         <Subtitle>{I18n.t('All attendees will receive an update email')}</Subtitle>

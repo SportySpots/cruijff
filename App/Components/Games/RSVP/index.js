@@ -73,7 +73,7 @@ class RSVP extends React.PureComponent {
               this.setRSVPStatus(RSVP_STATUSES.ATTENDING);
             }}
           />
-          <Spacer orientation="row" size="L" />
+          <Spacer row size="L" />
           <RaisedButton
             style={{ flex: 1 }}
             status="warning"

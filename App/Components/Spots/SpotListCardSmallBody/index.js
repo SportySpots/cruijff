@@ -26,7 +26,7 @@ const SpotListCardSmallBody = ({ spot }) => (
       ])}
     </Row>
     {/*
-      <Spacer orientation="column" size="M" />
+      <Spacer size="M" />
       <Row>
         <Rating rating={spot.rating || 4} />
         <DotSpacer />

@@ -104,7 +104,7 @@ class SpotsFilterForm extends React.PureComponent {
                 <Text.SM style={{ color: Colors.gray }}>
                   {I18n.t('Shows spots inside')}:
                 </Text.SM>
-                <Spacer orientation="row" size="S" />
+                <Spacer row size="S" />
                 <Text.SM style={{ fontWeight: 'bold' }}>
                   {maxDistance.toFixed(1).toString().replace('.0', '')} km
                 </Text.SM>
@@ -134,7 +134,6 @@ class SpotsFilterForm extends React.PureComponent {
             index < sports.length - 1 && (
               <Spacer
                 key={`spacer-${sport.id}`}
-                orientation="column"
                 size="XL"
               />
             ),

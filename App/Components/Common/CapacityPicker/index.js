@@ -52,13 +52,12 @@ const CapacityPicker = ({
       </Row>,
       <Spacer
         key={`spacer-${row}`}
-        orientation="column"
         size="L"
       />,
     ])}
-    <Spacer orientation="column" size="L" />
+    <Spacer size="L" />
     <Row>
-      <Spacer orientation="row" size="L" />
+      <Spacer row size="L" />
       <RoundButton
         testID="capacityMinus"
         status="dark"
@@ -72,7 +71,7 @@ const CapacityPicker = ({
         iconName="plus"
         onPress={onIncrease}
       />
-      <Spacer orientation="row" size="L" />
+      <Spacer row size="L" />
     </Row>
   </View>
 );
