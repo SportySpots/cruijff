@@ -37,7 +37,6 @@ const Initials = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Avatar = ({ user, text, size }) => {
-  console.log('USER', user);
   const avatar = (
     user &&
     user.profile &&

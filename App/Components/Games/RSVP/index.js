@@ -1,122 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert } from 'react-native';
-import I18n from '../../../I18n/index';
-import API from '../../../Services/SeedorfApi';
-import Row from '../../Common/Row';
-import RaisedButton from '../../Common/RaisedButton';
-import Spacer from '../../Common/Spacer';
+import FormProps from '../../../RenderProps/form-props';
+import RSVPApiCall from '../../../Components/Games/RSVPApiCall';
+import RSVPButtons from '../../../Components/Games/RSVPButtons';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const RSVP_STATUSES = {
-  ATTENDING: 'ATTENDING',
-  DECLINED: 'DECLINED',
-};
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: disable button on submit
-class RSVP extends React.PureComponent {
-  setRSVPStatus = async (status) => {
-    const {
-      gameUUID,
-      userRSVP,
-      onBeforeHook,
-      onSuccessHook,
-    } = this.props;
-
-    // Run before logic if provided and return on error
-    try {
-      onBeforeHook();
-    } catch (exc) {
-      return; // return silently
-    }
-
-    // Update/set status
-    const attendee = userRSVP;
-
-    if (attendee) {
-      await API.updateRSVPStatus({ gameUUID, rsvpUUID: attendee.uuid, status });
-    } else {
-      await API.setRSVPStatus({ gameUUID, status });
-    }
-
-    // Pass event up to parent component
-    onSuccessHook();
-  }
-
-  openAlert = () => {
-    Alert.alert(
-      I18n.t('Confirm'),
-      I18n.t('Are you sure you want to stop attending?'),
-      [
-        { text: I18n.t('No'), onPress: () => { console.log('Cancel Pressed'); }, style: 'cancel' },
-        { text: I18n.t('Yes'), onPress: () => { this.setRSVPStatus(RSVP_STATUSES.DECLINED); } },
-      ],
-    );
-  }
-
-  render() {
-    const { userStatus } = this.props;
-
-    // Attending and declined button
-    if (!userStatus) {
-      return (
-        <Row>
-          <RaisedButton
-            style={{ flex: 1 }}
-            status="primary"
-            label={I18n.t("I'm attending")}
-            onPress={() => {
-              this.setRSVPStatus(RSVP_STATUSES.ATTENDING);
-            }}
-          />
-          <Spacer row size="L" />
-          <RaisedButton
-            style={{ flex: 1 }}
-            status="warning"
-            label={I18n.t("I'm not attending")}
-            onPress={() => {
-              this.setRSVPStatus(RSVP_STATUSES.DECLINED);
-            }}
-          />
-        </Row>
-      );
-    }
-
-    const isAttending = userStatus === RSVP_STATUSES.ATTENDING;
-
-    // When user status is 'attending', display the leave button
-    if (isAttending) {
-      return (
-        <RaisedButton
-          style={{ flex: 1 }}
-          status="ghost"
-          label={I18n.t("I'm not attending")}
-          onPress={this.openAlert}
-        />
-      );
-    }
-
-    // When user status is NOT 'attending', display the join button
-    return (
-      <RaisedButton
-        style={{ flex: 1 }}
-        status="primary"
-        label={I18n.t("I'm attending")}
-        onPress={() => {
-          this.setRSVPStatus(RSVP_STATUSES.ATTENDING);
+const RSVP = ({
+  gameUUID,
+  user,
+  userRSVP,
+  userStatus,
+  onRSVPLoggedOut,
+  onRSVPSuccess,
+}) => (
+  <FormProps>
+    {({
+      disabled,
+      handleBefore,
+      handleClientCancel,
+      handleServerError,
+      handleSuccess,
+    }) => (
+      <RSVPApiCall
+        onRSVPError={handleServerError}
+        onRSVPSuccess={() => {
+          // Extend formProps.handleSuccess' default functionality
+          handleSuccess(onRSVPSuccess);
         }}
-      />
-    );
-  }
-}
+      >
+        {({ updateStatus }) => (
+          <RSVPButtons
+            gameUUID={gameUUID}
+            userRSVP={userRSVP}
+            userStatus={userStatus}
+            disabled={disabled}
+            onBeforeHook={() => {
+              // Extend formProps.handleBefore' default functionality
+              handleBefore(() => {
+                if (!user || !user.uuid) {
+                  onRSVPLoggedOut();
+                  // Throw error in order to interrupt rsvp normal flow
+                  throw new Error(401, 'User not authorized!');
+                }
+              });
+            }}
+            onClientCancelHook={handleClientCancel}
+            onSuccessHook={(inputFields) => {
+              // Call api to store data into DB
+              updateStatus(inputFields);
+            }}
+          />
+        )}
+      </RSVPApiCall>
+    )}
+  </FormProps>
+);
 
 RSVP.propTypes = {
   gameUUID: PropTypes.string.isRequired,
-  // TODO: use userFragment
+  user: PropTypes.object, // eslint-disable-line
   userRSVP: PropTypes.object, // eslint-disable-line
   userStatus: PropTypes.oneOf([
     'UNKNOWN',
@@ -127,15 +71,16 @@ RSVP.propTypes = {
     'INTERESTED',
     'INVITED',
   ]),
-  onBeforeHook: PropTypes.func,
-  onSuccessHook: PropTypes.func,
+  onRSVPLoggedOut: PropTypes.func,
+  onRSVPSuccess: PropTypes.func,
 };
 
 RSVP.defaultProps = {
+  user: null,
   userRSVP: null,
   userStatus: null,
-  onBeforeHook: () => {},
-  onSuccessHook: () => {},
+  onRSVPLoggedOut: () => {},
+  onRSVPSuccess: () => {},
 };
 
 export default RSVP;

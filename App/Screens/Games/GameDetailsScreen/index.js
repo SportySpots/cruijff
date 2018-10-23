@@ -10,7 +10,7 @@ import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import NothingFound from '../../../Components/Common/NothingFound';
 import GameDetails from '../../../Components/Games/GameDetails';
-import {addGlobalRef} from '../../../globalRefs';
+import { addGlobalRef } from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -21,12 +21,24 @@ const Container = styled(ScrollView)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: disable RSVP buttons when clicked. Use render-props
 class GameDetailsScreen extends React.PureComponent {
   get gameUUID() {
     const { navigation } = this.props;
     return navigation.state.params.uuid;
   }
+
+  // Check whether or not the current user is involved in the game in any way
+  // (attending or dropped out from the game)
+  getUserRSVP = (game) => {
+    const { user } = this.props;
+
+    for (const attendee of game.attendees) {
+      if (user && attendee.user.uuid === user.uuid) {
+        return attendee;
+      }
+    }
+    return null;
+  };
 
   handleSpotPress = ({ spotUuid }) => {
     const { navigation } = this.props;
@@ -38,14 +50,9 @@ class GameDetailsScreen extends React.PureComponent {
     navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
   }
 
-  handleRSVPBefore = () => {
-    const { user, navigation } = this.props;
-
-    if (!user || !user.uuid) {
-      navigation.navigate('ProfileSignupScreen');
-      // Throw error in order to interrupt rsvp normal flow
-      throw new Error(401, 'User not authorized!');
-    }
+  handleRSVPLoggedOut = () => {
+    const { navigation } = this.props;
+    navigation.navigate('ProfileSignupScreen');
   }
 
   render() {
@@ -73,16 +80,21 @@ class GameDetailsScreen extends React.PureComponent {
             );
           }
 
+          const userRSVP = this.getUserRSVP(data.game);
+          const userStatus = userRSVP ? userRSVP.status : null;
+
           return (
             <Container testID="gameDetails">
               <GameDetails
                 ref={addGlobalRef('gameDetails')}
-                user={user}
                 game={data.game}
+                user={user}
+                userRSVP={userRSVP}
+                userStatus={userStatus}
                 onSpotPress={this.handleSpotPress}
                 onAttendeesPress={this.handleAttendeesPress}
-                rsvpBeforeHook={this.handleRSVPBefore}
-                rsvpSuccessHook={refetch}
+                onRSVPLoggedOut={this.handleRSVPLoggedOut}
+                onRSVPSuccess={refetch}
               />
             </Container>
           );
