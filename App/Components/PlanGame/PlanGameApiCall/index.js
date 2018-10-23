@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import { getUserTZ, setDate, setStartTime, setEndTime } from './utils';
+import {
+  getUserTZ,
+  setDate,
+  setStartTime,
+  setEndTime,
+} from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

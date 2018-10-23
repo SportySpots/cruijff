@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Alert, Keyboard, Platform, BackHandler } from 'react-native';
+import {
+  Alert,
+  Keyboard,
+  Platform,
+  BackHandler,
+} from 'react-native';
 import I18n from '../../../I18n/index';
 import FormProps from '../../../RenderProps/form-props';
 import PlanGameApiCall from '../../../Components/PlanGame/PlanGameApiCall';

@@ -2,11 +2,11 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
-import ShareForm from './index';
+import ShareGameForm from './index';
 
-storiesOf('PlanGame.ShareForm', module)
-  .add('ShareForm white theme', () => (
+storiesOf('PlanGame.ShareGameForm', module)
+  .add('ShareGameForm white theme', () => (
     <Block bgColor={Colors.primaryGreen}>
-      <ShareForm gameUUID="455" />
+      <ShareGameForm gameUUID="455" />
     </Block>
   ));
