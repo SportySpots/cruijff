@@ -9,6 +9,7 @@ import SpotsFilterForm from '../SpotsFilterForm';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: rename it to SpotsFilterActionsCall
 class SpotsFilter extends React.PureComponent {
   handleSuccess = async ({ maxDistance, allSports, selectedSportIds }) => {
     const {
