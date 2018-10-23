@@ -98,7 +98,7 @@ class PlanGameForm extends React.Component {
     // Disable next btn (return 'true') if at least on of the required fields isn't set
     for (let i = 0; i < requiredFields.length; i += 1) {
       const fieldName = requiredFields[i];
-      if (!this.state[fieldName]) {
+      if (!this.state[fieldName]) { // eslint-disable-line
         return true;
       }
     }
@@ -107,7 +107,7 @@ class PlanGameForm extends React.Component {
     if (restrictions) {
       for (let i = 0; i < restrictions.length; i += 1) {
         const { fieldName, upperBound } = restrictions[i];
-        if (this.state[fieldName].length > upperBound) {
+        if (this.state[fieldName].length > upperBound) { // eslint-disable-line
           return true;
         }
       }
