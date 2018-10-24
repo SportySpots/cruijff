@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
 import { connect } from 'react-redux';
 import * as spotFiltersActions from '../../../Redux/SpotFiltersRedux';
-import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
-import SpotsFilterForm from '../SpotsFilterForm';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: rename it to SpotsFilterActionsCall
-class SpotsFilter extends React.PureComponent {
-  handleSuccess = async ({ maxDistance, allSports, selectedSportIds }) => {
+class SpotsFilterActionCall extends React.PureComponent {
+  handleFilter = async (inputFields) => {
     const {
       setMaxDistance,
       setAllSports,
       setSports,
-      onSuccessHook,
+      onFilterSuccess,
+      // onFilterError,
     } = this.props;
+
+    const { maxDistance, allSports, selectedSportIds } = inputFields;
 
     // Save data into redux store.
     setMaxDistance(maxDistance);
@@ -25,37 +24,36 @@ class SpotsFilter extends React.PureComponent {
     setSports(selectedSportIds);
 
     // Pass event up to parent component
-    onSuccessHook();
+    onFilterSuccess();
   }
 
   render() {
-    return (
-      <SpotsFilterForm
-        {...this.props}
-        // Overwrite on onSuccessHook
-        onSuccessHook={this.handleSuccess}
-      />
-    );
+    const { children } = this.props;
+
+    // Public API
+    const api = {
+      filterSpots: this.handleFilter,
+    };
+
+    return children(api);
   }
 }
 
-SpotsFilter.propTypes = {
-  sports: PropTypes.arrayOf(propType(sportFragment)).isRequired,
-  maxDistance: PropTypes.number.isRequired,
-  allSports: PropTypes.bool.isRequired,
-  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-  disabled: PropTypes.bool,
-  onBeforeHook: PropTypes.func,
-  onSuccessHook: PropTypes.func,
+SpotsFilterActionCall.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
+  // onFilterError: PropTypes.func,
+  onFilterSuccess: PropTypes.func,
   setMaxDistance: PropTypes.func.isRequired,
   setAllSports: PropTypes.func.isRequired,
   setSports: PropTypes.func.isRequired,
 };
 
-SpotsFilter.defaultProps = {
-  disabled: false,
-  onBeforeHook: () => {},
-  onSuccessHook: () => {},
+SpotsFilterActionCall.defaultProps = {
+  // onFilterError: () => {},
+  onFilterSuccess: () => {},
 };
 
 const mapDispatchToProps = {
@@ -65,4 +63,4 @@ const mapDispatchToProps = {
 };
 const withRedux = connect(null, mapDispatchToProps);
 
-export default withRedux(SpotsFilter);
+export default withRedux(SpotsFilterActionCall);

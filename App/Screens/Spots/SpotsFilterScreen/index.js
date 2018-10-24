@@ -5,7 +5,8 @@ import { Query } from 'react-apollo';
 import FormProps from '../../../RenderProps/form-props';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import SpotsFilter from '../../../Components/Spots/SpotsFilter';
+import SpotsFilterActionCall from '../../../Components/Spots/SpotsFilterActionCall';
+import SpotsFilterForm from '../../../Components/Spots/SpotsFilterForm';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -33,23 +34,31 @@ const SpotsFilterScreen = ({
           }
 
           return (
-            <SpotsFilter
-              sports={data.sports}
-              maxDistance={maxDistance}
-              allSports={allSports}
-              selectedSportIds={selectedSportIds}
-              // Form props
-              disabled={disabled}
-              onBeforeHook={handleBefore}
-              onClientCancelHook={handleClientCancel}
-              onSuccessHook={() => {
-                // Extend FormProps.handleSuccess default functionality
+            <SpotsFilterActionCall
+              onFilterSuccess={() => {
+                // Extend formProps.handleSuccess' default functionality
                 handleSuccess(() => {
                   // Go back to spots screen
                   navigation.goBack(null);
                 });
               }}
-            />
+            >
+              {({ filterSpots }) => (
+                <SpotsFilterForm
+                  sports={data.sports}
+                  maxDistance={maxDistance}
+                  allSports={allSports}
+                  selectedSportIds={selectedSportIds}
+                  disabled={disabled}
+                  onBeforeHook={handleBefore}
+                  onClientCancelHook={handleClientCancel}
+                  onSuccessHook={(inputFields) => {
+                    // Call actions to update redux store
+                    filterSpots(inputFields);
+                  }}
+                />
+              )}
+            </SpotsFilterActionCall>
           );
         }}
       </Query>
