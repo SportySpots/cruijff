@@ -11,7 +11,7 @@ import InputField from '../InputField';
 //------------------------------------------------------------------------------
 const TimePickerField = ({ value, onChange, ...rest }) => (
   <ModalProps>
-    {({ visible, openModal, closeModal }) => [
+    {({ visible, openModal, closeModal }) => console.log('rendering', value) || [
       <InputField
         key="input-field"
         comp="TextField"
@@ -22,7 +22,7 @@ const TimePickerField = ({ value, onChange, ...rest }) => (
       <TimePickerModal
         key="modal"
         mode="time"
-        date={value}
+        date={value || new Date()}
         isVisible={visible}
         onConfirm={(date) => {
           // Pass event up to parent component
