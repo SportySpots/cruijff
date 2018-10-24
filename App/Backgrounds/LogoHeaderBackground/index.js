@@ -37,8 +37,11 @@ const LogoHeaderBackground = ({
     <Container
       bgColor={isWhiteTheme ? Colors.white : Colors.secondaryGreen}
     >
-      {!hideLogo && (
-        <View alignItems="center">
+      {!hideLogo && [
+        <View
+          key="logo"
+          alignItems="center"
+        >
           <Logo scale={1} />
           <Spacer size="L" />
           <Brand
@@ -47,8 +50,9 @@ const LogoHeaderBackground = ({
           >
             SPORTYSPOTS
           </Brand>
-        </View>
-      )}
+        </View>,
+        <Spacer key="spacer" size="XL" />,
+      ]}
       <FlexGrow>
         {children}
       </FlexGrow>

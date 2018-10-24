@@ -9,6 +9,7 @@ import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
 import Block from '../../Common/Block';
+import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
 import Link from '../../Common/Link';
 import TextField from '../../Common/TextField';
@@ -175,6 +176,7 @@ class SignupForm extends React.PureComponent {
       <LogoHeaderBackground
         testID="signupScrollView"
         theme="green"
+        // hideLogo
       >
         <FlexOne>
           <Block>
@@ -184,6 +186,7 @@ class SignupForm extends React.PureComponent {
               value={firstName}
               error={firstNameErrors}
               size="ML"
+              theme="white"
               autoFocus
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'firstName', value });
@@ -197,6 +200,7 @@ class SignupForm extends React.PureComponent {
               value={lastName}
               error={lastNameErrors}
               size="ML"
+              theme="white"
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'lastName', value });
               }}
@@ -209,6 +213,7 @@ class SignupForm extends React.PureComponent {
               value={email}
               error={emailErrors}
               size="ML"
+              theme="white"
               keyboardType="email-address"
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'email', value });
@@ -222,6 +227,7 @@ class SignupForm extends React.PureComponent {
               value={password}
               error={passwordErrors}
               size="ML"
+              theme="white"
               secureTextEntry
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'password', value });
@@ -229,7 +235,9 @@ class SignupForm extends React.PureComponent {
             />
           </Block>
           <Block>
-            <Text.M>{I18n.t('By signing up, you are agreeing to the')} </Text.M>
+            <Text.M style={{ color: Colors.white }}>
+              {I18n.t('By signing up, you are agreeing to the')}
+            </Text.M>
             <Link
               text={I18n.t('Terms and conditions')}
               href="https://www.sportyspots.com/terms.html"
