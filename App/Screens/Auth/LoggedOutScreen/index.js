@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n/index';

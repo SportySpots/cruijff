@@ -74,8 +74,8 @@ UserAdmin.propTypes = {
 };
 
 // Redux integration
-const dispatchToProps = { logout: userActions.logout };
 const mapStateToProps = ({ user }) => ({ user });
+const dispatchToProps = { logout: userActions.logout };
 const withRedux = connect(mapStateToProps, dispatchToProps);
 
 export default withRedux(UserAdmin);

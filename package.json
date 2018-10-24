@@ -102,6 +102,7 @@
     "stacktrace-js": "^2.0.0",
     "styled-components": "^3.2.5",
     "tinycolor2": "^1.4.1",
+    "validator": "^10.8.0",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
