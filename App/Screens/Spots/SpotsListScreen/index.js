@@ -67,7 +67,7 @@ class SpotsListScreen extends React.Component {
     const { userCoords } = this.state;
 
     return (
-      <Container>
+      <Container testID="SpotsListScreen">
         <SpotsList
           cardComponent="SpotListCard"
           sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
