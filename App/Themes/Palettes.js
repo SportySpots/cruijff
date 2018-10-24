@@ -1,13 +1,13 @@
-import Colors from '../../../Themes/Colors';
+import Colors from './Colors';
 
-const getPalette = (theme) => {
+const getInputPalette = (theme) => {
   switch (theme) {
     case 'black':
       return {
-        fontColor: Colors.back,
-        baseColor: Colors.back,
+        fontColor: Colors.black,
+        baseColor: Colors.black,
         tintColor: Colors.primaryGreen,
-        iconColor: Colors.back,
+        iconColor: Colors.black,
         lineWidth: 1,
       };
     case 'white':
@@ -39,4 +39,4 @@ const getPalette = (theme) => {
   }
 };
 
-export default getPalette;
+export default getInputPalette;

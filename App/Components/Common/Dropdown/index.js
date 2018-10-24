@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Dropdown as DropdownMUI } from 'react-native-material-dropdown';
 import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
+import getInputPalette from '../../../Themes/Palettes';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -10,10 +11,7 @@ import Colors from '../../../Themes/Colors';
 // We extend Dropdown component so that is can receive an array of
 // { label, value } pairs instead of only { value }
 const Dropdown = ({
-  fontColor,
-  baseColor,
-  tintColor,
-  lineWidth,
+  theme,
   size,
   data,
   onChangeText,
@@ -21,47 +19,53 @@ const Dropdown = ({
   style,
   disabled,
   ...rest
-}) => (
-  <DropdownMUI
-    data={data.map(item => ({ value: item.label }))}
-    onChangeText={(value) => {
-      onChangeText(data.find(d => (d.label === value)));
-    }}
-    label={label}
-    labelFontSize={Fonts.style.M.fontSize}
-    labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
-    labelHeight={1.5 * Fonts.style.M.fontSize}
-    errorColor={Colors.red}
-    animationDuration={150}
-    lineWidth={lineWidth}
-    disabledLineWidth={0}
-    baseColor={baseColor}
-    tintColor={tintColor}
-    rippleOpacity={0}
-    dropdownPosition={-8}
-    dropdownOffset={{ top: 0, left: 16 }}
-    itemCount={8}
-    // Hide default carret
-    renderAccessory={() => (null)}
-    inputContainerPadding={14}
-    disabled={disabled}
-    style={{
-      fontSize: Fonts.style[size].fontSize,
-      fontWeight: 'normal',
-      fontFamily: Fonts.style[size].fontFamily,
-      marginTop: 8,
-      color: disabled ? Colors.gray : fontColor,
-      ...style,
-    }}
-    {...rest}
-  />
-);
+}) => {
+  const {
+    fontColor,
+    baseColor,
+    tintColor,
+    lineWidth,
+  } = getInputPalette(theme);
+
+  return (
+    <DropdownMUI
+      data={data.map(item => ({ value: item.label }))}
+      onChangeText={(value) => {
+        onChangeText(data.find(d => (d.label === value)));
+      }}
+      label={label}
+      labelFontSize={Fonts.style.M.fontSize}
+      labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
+      labelHeight={1.5 * Fonts.style.M.fontSize}
+      errorColor={Colors.red}
+      animationDuration={150}
+      lineWidth={lineWidth}
+      disabledLineWidth={0}
+      baseColor={baseColor}
+      tintColor={tintColor}
+      rippleOpacity={0}
+      dropdownPosition={-8}
+      dropdownOffset={{ top: 0, left: 16 }}
+      itemCount={8}
+      // Hide default carret
+      renderAccessory={() => (null)}
+      inputContainerPadding={14}
+      disabled={disabled}
+      style={{
+        fontSize: Fonts.style[size].fontSize,
+        fontWeight: 'normal',
+        fontFamily: Fonts.style[size].fontFamily,
+        marginTop: 8,
+        color: disabled ? Colors.gray : fontColor,
+        ...style,
+      }}
+      {...rest}
+    />
+  );
+};
 
 Dropdown.propTypes = {
-  fontColor: PropTypes.string,
-  baseColor: PropTypes.string,
-  tintColor: PropTypes.string,
-  lineWidth: PropTypes.number,
+  theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
   data: PropTypes.arrayOf(
     PropTypes.shape({
@@ -77,10 +81,7 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
-  fontColor: Colors.black,
-  baseColor: Colors.black,
-  tintColor: Colors.primaryGreen,
-  lineWidth: 1,
+  theme: 'black',
   size: 'M',
   label: '',
   onChangeText: () => {},

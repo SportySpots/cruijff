@@ -3,52 +3,56 @@ import PropTypes from 'prop-types';
 import { TextField as TextFieldMUI } from 'react-native-material-textfield';
 import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
+import getInputPalette from '../../../Themes/Palettes';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const TextField = ({
-  fontColor,
-  baseColor,
-  tintColor,
-  lineWidth,
+  theme,
   size,
   label,
   style,
   disabled,
   ...rest
-}) => (
-  <TextFieldMUI
-    label={label}
-    labelFontSize={Fonts.style.M.fontSize}
-    labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
-    labelHeight={1.5 * Fonts.style.M.fontSize}
-    errorColor={Colors.red}
-    animationDuration={150}
-    lineWidth={lineWidth}
-    disabledLineWidth={0}
-    baseColor={baseColor}
-    tintColor={tintColor}
-    activeLineWidth={2}
-    inputContainerPadding={14}
-    disabled={disabled}
-    style={{
-      fontSize: Fonts.style[size].fontSize,
-      fontWeight: 'normal',
-      fontFamily: Fonts.style[size].fontFamily,
-      marginTop: 8,
-      color: disabled ? Colors.gray : fontColor,
-      ...style,
-    }}
-    {...rest}
-  />
-);
+}) => {
+  const {
+    fontColor,
+    baseColor,
+    tintColor,
+    lineWidth,
+  } = getInputPalette(theme);
+
+  return (
+    <TextFieldMUI
+      label={label}
+      labelFontSize={Fonts.style.M.fontSize}
+      labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
+      labelHeight={1.5 * Fonts.style.M.fontSize}
+      errorColor={Colors.red}
+      animationDuration={150}
+      lineWidth={lineWidth}
+      disabledLineWidth={0}
+      baseColor={baseColor}
+      tintColor={tintColor}
+      activeLineWidth={2}
+      inputContainerPadding={14}
+      disabled={disabled}
+      style={{
+        fontSize: Fonts.style[size].fontSize,
+        fontWeight: 'normal',
+        fontFamily: Fonts.style[size].fontFamily,
+        marginTop: 8,
+        color: disabled ? Colors.gray : fontColor,
+        ...style,
+      }}
+      {...rest}
+    />
+  );
+};
 
 TextField.propTypes = {
-  fontColor: PropTypes.string,
-  baseColor: PropTypes.string,
-  tintColor: PropTypes.string,
-  lineWidth: PropTypes.number,
+  theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
   label: PropTypes.string,
   style: PropTypes.object, // eslint-disable-line
@@ -57,10 +61,7 @@ TextField.propTypes = {
 };
 
 TextField.defaultProps = {
-  fontColor: Colors.black,
-  baseColor: Colors.black,
-  tintColor: Colors.primaryGreen,
-  lineWidth: 1,
+  theme: 'black',
   size: 'M',
   label: '',
   style: {},
