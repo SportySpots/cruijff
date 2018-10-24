@@ -45,6 +45,7 @@ class ShareGameForm extends React.PureComponent {
     const {
       gameUUID,
       onBeforeHook,
+      onClientCancelHook,
       // onClientErrorHook,
       onSuccessHook,
     } = this.props;
@@ -54,6 +55,7 @@ class ShareGameForm extends React.PureComponent {
     try {
       onBeforeHook();
     } catch (exc) {
+      onClientCancelHook();
       return; // return silently
     }
 
@@ -110,6 +112,7 @@ ShareGameForm.propTypes = {
   gameUUID: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
+  onClientCancelHook: PropTypes.func,
   // onClientErrorHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
 };
@@ -117,6 +120,7 @@ ShareGameForm.propTypes = {
 ShareGameForm.defaultProps = {
   disabled: false,
   onBeforeHook: () => {},
+  onClientCancelHook: () => {},
   // onClientErrorHook: () => {},
   onSuccessHook: () => {},
 };

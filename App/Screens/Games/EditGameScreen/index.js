@@ -56,9 +56,8 @@ class EditGameScreen extends React.PureComponent {
       <FormProps>
         {({
           disabled,
-          // errorMsg,
-          // successMsg,
           handleBefore,
+          handleClientCancel,
           handleClientError,
           handleServerError,
           handleSuccess,
@@ -108,6 +107,7 @@ class EditGameScreen extends React.PureComponent {
                       game={data.game}
                       disabled={disabled}
                       onBeforeHook={handleBefore}
+                      onClientCancelHook={handleClientCancel}
                       onClientErrorHook={handleClientError}
                       onSuccessHook={(inputFields) => {
                         // Call api to store data into DB

@@ -132,6 +132,7 @@ class EditProfileForm extends React.PureComponent {
   handleUpload = () => {
     const {
       onBeforeHook,
+      onClientCancelHook,
       onClientErrorHook,
       onSuccessHook,
     } = this.props;
@@ -141,6 +142,7 @@ class EditProfileForm extends React.PureComponent {
     try {
       // onBeforeHook();
     } catch (exc) {
+      // onClientCancelHook();
       return; // return silently
     }
 
@@ -190,6 +192,7 @@ class EditProfileForm extends React.PureComponent {
     const {
       user,
       onBeforeHook,
+      onClientCancelHook,
       onClientErrorHook,
       onSuccessHook,
     } = this.props;
@@ -199,6 +202,7 @@ class EditProfileForm extends React.PureComponent {
     try {
       onBeforeHook();
     } catch (exc) {
+      onClientCancelHook();
       return; // return silently
     }
 
@@ -322,6 +326,7 @@ EditProfileForm.propTypes = {
   user: propType(userDetailsFragment).isRequired,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
+  onClientCancelHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
 };
@@ -329,6 +334,7 @@ EditProfileForm.propTypes = {
 EditProfileForm.defaultProps = {
   disabled: false,
   onBeforeHook: () => {},
+  onClientCancelHook: () => {},
   onClientErrorHook: () => {},
   onSuccessHook: () => {},
 };

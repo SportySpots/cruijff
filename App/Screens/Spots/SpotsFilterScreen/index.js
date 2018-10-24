@@ -19,9 +19,8 @@ const SpotsFilterScreen = ({
   <FormProps>
     {({
       disabled,
-      // errorMsg,
-      // successMsg,
       handleBefore,
+      handleClientCancel,
       handleSuccess,
     }) => (
       <Query query={GET_SPORTS}>
@@ -42,6 +41,7 @@ const SpotsFilterScreen = ({
               // Form props
               disabled={disabled}
               onBeforeHook={handleBefore}
+              onClientCancelHook={handleClientCancel}
               onSuccessHook={() => {
                 // Extend FormProps.handleSuccess default functionality
                 handleSuccess(() => {

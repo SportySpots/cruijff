@@ -58,9 +58,8 @@ class PlanGameScreen extends React.Component {
       <FormProps>
         {({
           disabled,
-          // errorMsg,
-          // successMsg,
           handleBefore,
+          handleClientCancel,
           handleClientError,
           handleServerError,
           handleSuccess,
@@ -87,6 +86,7 @@ class PlanGameScreen extends React.Component {
                 username={username}
                 disabled={disabled}
                 onBeforeHook={handleBefore}
+                onClientCancelHook={handleClientCancel}
                 onClientErrorHook={handleClientError}
                 onSuccessHook={(inputFields) => {
                   // Call api to store data into DB

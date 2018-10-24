@@ -63,9 +63,8 @@ class ShareGameScreen extends React.Component {
       <FormProps>
         {({
           disabled,
-          // errorMsg,
-          // successMsg,
           handleBefore,
+          handleClientCancel,
           handleClientError,
           handleServerError,
           handleSuccess,
@@ -100,6 +99,7 @@ class ShareGameScreen extends React.Component {
                 gameUUID={gameUUID}
                 disabled={disabled}
                 onBeforeHook={handleBefore}
+                onClientCancelHook={handleClientCancel}
                 onClientErrorHook={handleClientError}
                 onSuccessHook={(inputFields) => {
                   // Call api to store data into DB

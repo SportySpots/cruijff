@@ -40,6 +40,7 @@ class CancelGameScreen extends React.PureComponent {
           // errorMsg,
           // successMsg,
           handleBefore,
+          handleClientCancel,
           handleClientError,
           handleServerError,
           handleSuccess,
@@ -82,6 +83,7 @@ class CancelGameScreen extends React.PureComponent {
                   // Form props
                   disabled={disabled}
                   onBeforeHook={handleBefore}
+                  onClientCancelHook={handleClientCancel}
                   onClientErrorHook={handleClientError}
                   onServerErrorHook={handleServerError}
                   onSuccessHook={() => {

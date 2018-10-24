@@ -184,6 +184,7 @@ class EditGameForm extends React.PureComponent {
     const {
       game,
       onBeforeHook,
+      onClientCancelHook,
       onClientErrorHook,
       onSuccessHook,
     } = this.props;
@@ -193,6 +194,7 @@ class EditGameForm extends React.PureComponent {
     try {
       onBeforeHook();
     } catch (exc) {
+      onClientCancelHook();
       return; // return silently
     }
 

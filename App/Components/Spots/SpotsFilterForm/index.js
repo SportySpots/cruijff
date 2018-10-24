@@ -68,13 +68,14 @@ class SpotsFilterForm extends React.PureComponent {
   }
 
   handleSubmit = () => {
-    const { onBeforeHook, onSuccessHook } = this.props;
+    const { onBeforeHook, onClientCancelHook, onSuccessHook } = this.props;
 
     // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
     // value to 'true' so that the user cannot re-submit the form
     try {
       onBeforeHook();
     } catch (exc) {
+      onClientCancelHook();
       return; // return silently
     }
 
@@ -159,12 +160,14 @@ SpotsFilterForm.propTypes = {
   selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
+  onClientCancelHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
 };
 
 SpotsFilterForm.defaultProps = {
   disabled: false,
   onBeforeHook: () => {},
+  onClientCancelHook: () => {},
   onSuccessHook: () => {},
 };
 

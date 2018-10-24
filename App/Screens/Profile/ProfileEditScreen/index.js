@@ -30,9 +30,8 @@ const ProfileEditScreen = ({ user, navigation }) => (
   <FormProps>
     {({
       disabled,
-      // errorMsg,
-      // successMsg,
       handleBefore,
+      handleClientCancel,
       handleClientError,
       handleServerError,
       handleSuccess,
@@ -68,6 +67,7 @@ const ProfileEditScreen = ({ user, navigation }) => (
                     user={data.user}
                     disabled={disabled}
                     onBeforeHook={handleBefore}
+                    onClientCancelHook={handleClientCancel}
                     onClientErrorHook={handleClientError}
                     onSuccessHook={(inputFields) => {
                       // Call api to store data into DB

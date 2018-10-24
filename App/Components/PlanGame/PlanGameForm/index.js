@@ -165,6 +165,7 @@ class PlanGameForm extends React.Component {
       const {
         username,
         onBeforeHook,
+        onClientCancelHook,
         // onClientErrorHook,
         onSuccessHook,
       } = this.props;
@@ -174,6 +175,7 @@ class PlanGameForm extends React.Component {
       try {
         onBeforeHook();
       } catch (exc) {
+        onClientCancelHook();
         return; // return silently
       }
 
@@ -256,7 +258,8 @@ PlanGameForm.propTypes = {
   username: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
-  onClientErrorHook: PropTypes.func,
+  onClientCancelHook: PropTypes.func,
+  // onClientErrorHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
   onLeave: PropTypes.func,
 };
@@ -264,7 +267,8 @@ PlanGameForm.propTypes = {
 PlanGameForm.defaultProps = {
   disabled: false,
   onBeforeHook: () => {},
-  onClientErrorHook: () => {},
+  onClientCancelHook: () => {},
+  // onClientErrorHook: () => {},
   onSuccessHook: () => {},
   onLeave: () => {},
 };

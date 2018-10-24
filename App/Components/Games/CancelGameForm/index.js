@@ -81,13 +81,19 @@ class CancelGameForm extends React.PureComponent {
   };
 
   handleSubmit = () => {
-    const { onBeforeHook, onClientErrorHook, onSuccessHook } = this.props;
+    const {
+      onBeforeHook,
+      onClientCancelHook,
+      onClientErrorHook,
+      onSuccessHook,
+    } = this.props;
 
     // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
     // value to 'true' so that the user cannot re-submit the form
     try {
       onBeforeHook();
     } catch (exc) {
+      onClientCancelHook();
       return; // return silently
     }
 
@@ -193,6 +199,7 @@ CancelGameForm.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
+  onClientCancelHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
   onAttendeesPress: PropTypes.func,
@@ -201,6 +208,7 @@ CancelGameForm.propTypes = {
 CancelGameForm.defaultProps = {
   disabled: false,
   onBeforeHook: () => {},
+  onClientCancelHook: () => {},
   onClientErrorHook: () => {},
   onSuccessHook: () => {},
   onAttendeesPress: () => {},
