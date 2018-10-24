@@ -33,6 +33,7 @@ class EditProfileApiCall extends React.PureComponent {
 
     try {
       const result = await SeedorfAPI.updateProfile(doc);
+      console.log('RESULT', result);
 
       // Pass event up to parent component
       if (result && result.ok) {
