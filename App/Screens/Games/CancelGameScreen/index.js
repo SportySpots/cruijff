@@ -5,7 +5,8 @@ import { Query } from 'react-apollo';
 import FormProps from '../../../RenderProps/form-props';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import CancelGame from '../../../Components/Games/CancelGame';
+import CancelGameApiCall from '../../../Components/Games/CancelGameApiCall';
+import CancelGameForm from '../../../Components/Games/CancelGameForm';
 import CancelGameDoneModal from '../../../Components/Games/CancelGameDoneModal';
 import { addModelState } from '../../../utils';
 
@@ -37,8 +38,6 @@ class CancelGameScreen extends React.PureComponent {
       <FormProps>
         {({
           disabled,
-          // errorMsg,
-          // successMsg,
           handleBefore,
           handleClientCancel,
           handleClientError,
@@ -77,22 +76,28 @@ class CancelGameScreen extends React.PureComponent {
               }
 
               return [
-                <CancelGame
+                <CancelGameApiCall
                   key="form"
-                  game={data.game}
-                  // Form props
-                  disabled={disabled}
-                  onBeforeHook={handleBefore}
-                  onClientCancelHook={handleClientCancel}
-                  onClientErrorHook={handleClientError}
-                  onServerErrorHook={handleServerError}
-                  onSuccessHook={() => {
-                    // Extend FormProps.handleSuccess default functionality
+                  onCancelError={handleServerError}
+                  onCancelSuccess={() => {
+                    // Extend formProps.handleSuccess' default functionality
                     handleSuccess(cancelDoneModal.show);
                   }}
-                  // Other props
-                  onAttendeesPress={this.handleAttendeesPress}
-                />,
+                >
+                  {({ cancelGame }) => (
+                    <CancelGameForm
+                      game={data.game}
+                      disabled={disabled}
+                      onBeforeHook={handleBefore}
+                      onClientCancelHook={handleClientCancel}
+                      onClientErrorHook={handleClientError}
+                      onSuccessHook={(inputFields) => {
+                        // Call api to store data into DB
+                        cancelGame(inputFields);
+                      }}
+                    />
+                  )}
+                </CancelGameApiCall>,
                 <CancelGameDoneModal
                   key="modal"
                   visible={cancelDoneModal.isVisible}
@@ -133,3 +138,22 @@ const mapStateToProps = ({ user }) => ({ user });
 const withRedux = connect(mapStateToProps, null);
 
 export default withRedux(CancelGameScreen);
+
+/*
+                <CancelGame
+                  key="form"
+                  game={data.game}
+                  // Form props
+                  disabled={disabled}
+                  onBeforeHook={handleBefore}
+                  onClientCancelHook={handleClientCancel}
+                  onClientErrorHook={handleClientError}
+                  onServerErrorHook={handleServerError}
+                  onSuccessHook={() => {
+                    // Extend FormProps.handleSuccess default functionality
+                    handleSuccess(cancelDoneModal.show);
+                  }}
+                  // Other props
+                  onAttendeesPress={this.handleAttendeesPress}
+                />,
+*/

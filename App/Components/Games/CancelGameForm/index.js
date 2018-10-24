@@ -82,6 +82,7 @@ class CancelGameForm extends React.PureComponent {
 
   handleSubmit = () => {
     const {
+      game,
       onBeforeHook,
       onClientCancelHook,
       onClientErrorHook,
@@ -125,7 +126,7 @@ class CancelGameForm extends React.PureComponent {
           onPress: () => {
             // Pass event up to parent component. onClientErrorHook will set 'disabled'
             // value back to 'false' so that the user can re-submit the form
-            onClientErrorHook();
+            onClientCancelHook();
           },
           style: 'cancel',
         },
@@ -134,7 +135,7 @@ class CancelGameForm extends React.PureComponent {
           onPress: () => {
             // Pass event up to parent component. onSuccessHook 'disabled'
             // value back to 'false' so that the user can re-submit the form
-            onSuccessHook({ cancelMsg });
+            onSuccessHook({ gameUUID: game.uuid, cancelMsg });
           },
         },
       ],
