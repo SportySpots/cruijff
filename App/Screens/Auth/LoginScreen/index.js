@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
 // import I18n from '../../../I18n/index';
 import userActions from '../../../Redux/UserRedux';
 import FormProps from '../../../RenderProps/form-props';
-import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
 import LoginApiCall from '../../../Components/Auth/LoginApiCall';
 import LoginForm from '../../../Components/Auth/LoginForm';
 
@@ -54,34 +52,30 @@ class LoginScreen extends React.Component {
           handleServerError,
           handleSuccess,
         }) => (
-          <KeyboardAwareScrollView testID="LoginScreen">
-            <LogoHeaderBackground>
-              <LoginApiCall
-                onLoginError={handleServerError}
-                onLoginSuccess={({ token }) => {
-                  // Extend formProps.handleSuccess' default functionality
-                  handleSuccess(() => {
-                    setToken(token);
-                    // TODO: reset apollo store
-                    onSuccessHook();
-                  });
+          <LoginApiCall
+            onLoginError={handleServerError}
+            onLoginSuccess={({ token }) => {
+              // Extend formProps.handleSuccess' default functionality
+              handleSuccess(() => {
+                setToken(token);
+                // TODO: reset apollo store
+                onSuccessHook();
+              });
+            }}
+          >
+            {({ loginUser }) => (
+              <LoginForm
+                disabled={disabled}
+                onBeforeHook={handleBefore}
+                onClientCancelHook={handleClientCancel}
+                onClientErrorHook={handleClientError}
+                onSuccessHook={(inputFields) => {
+                  // Call api to authenticate user
+                  loginUser(inputFields);
                 }}
-              >
-                {({ loginUser }) => (
-                  <LoginForm
-                    disabled={disabled}
-                    onBeforeHook={handleBefore}
-                    onClientCancelHook={handleClientCancel}
-                    onClientErrorHook={handleClientError}
-                    onSuccessHook={(inputFields) => {
-                      // Call api to authenticate user
-                      loginUser(inputFields);
-                    }}
-                  />
-                )}
-              </LoginApiCall>
-            </LogoHeaderBackground>
-          </KeyboardAwareScrollView>
+              />
+            )}
+          </LoginApiCall>
         )}
       </FormProps>
     );

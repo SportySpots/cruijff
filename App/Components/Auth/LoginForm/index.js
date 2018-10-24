@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import ErrorHandling from 'error-handling-utils';
 import isEmail from 'validator/lib/isEmail';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
+import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
 import Block from '../../Common/Block';
 import TextField from '../../Common/TextField';
 import RaisedButton from '../../Common/RaisedButton';
@@ -15,14 +17,13 @@ const MAX_CHARS = 120;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Top = styled.ScrollView`
+const FlexOne = styled.ScrollView`
   flex: 1; /* full height */
 `;
 //------------------------------------------------------------------------------
-const Bottom = styled.View``;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: use KeyboardAwareScrollView
 class LoginForm extends React.PureComponent {
   state = {
     email: '',
@@ -126,34 +127,37 @@ class LoginForm extends React.PureComponent {
     const emailErrors = ErrorHandling.getFieldErrors(errors, 'email');
     const passwordErrors = ErrorHandling.getFieldErrors(errors, 'password');
 
-    return [
-      <Top key="top">
-        <Block>
-          <TextField
-            testID="loginInputEmail"
-            label={I18n.t('E-mail')}
-            value={email}
-            error={emailErrors}
-            size="ML"
-            onChangeText={(value) => {
-              this.handleChange({ fieldName: 'email', value });
-            }}
-          />
-        </Block>
-        <Block>
-          <TextField
-            testID="loginInputPassword"
-            label={I18n.t('Password')}
-            value={password}
-            error={passwordErrors}
-            size="ML"
-            onChangeText={(value) => {
-              this.handleChange({ fieldName: 'password', value });
-            }}
-          />
-        </Block>
-      </Top>,
-      <Bottom key="bottom">
+    return (
+      <LogoHeaderBackground
+        testID="LoginScreen"
+        theme="green"
+      >
+        <FlexOne>
+          <Block>
+            <TextField
+              testID="loginInputEmail"
+              label={I18n.t('E-mail')}
+              value={email}
+              error={emailErrors}
+              size="ML"
+              onChangeText={(value) => {
+                this.handleChange({ fieldName: 'email', value });
+              }}
+            />
+          </Block>
+          <Block>
+            <TextField
+              testID="loginInputPassword"
+              label={I18n.t('Password')}
+              value={password}
+              error={passwordErrors}
+              size="ML"
+              onChangeText={(value) => {
+                this.handleChange({ fieldName: 'password', value });
+              }}
+            />
+          </Block>
+        </FlexOne>
         <Block>
           <RaisedButton
             testID="loginSubmitButton"
@@ -163,8 +167,8 @@ class LoginForm extends React.PureComponent {
             onPress={this.handleSubmit}
           />
         </Block>
-      </Bottom>,
-    ];
+      </LogoHeaderBackground>
+    );
   }
 }
 
