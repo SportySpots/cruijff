@@ -19,6 +19,7 @@ import Colors from './Themes/Colors';
 import config from './config';
 import scopedEval from './scopedEval';
 import globalRefs, { addGlobalRef } from './globalRefs';
+import { getBottomSpace, getStatusBarHeight } from './iphoneHelpers';
 
 export class App extends Component {
   constructor() {
@@ -114,7 +115,8 @@ export class App extends Component {
   }
 
   render() {
-    if (!this.state.hasInitialized) {
+    const { state } = this;
+    if (!state.hasInitialized) {
       return null;
     }
     return (
@@ -141,6 +143,8 @@ const AppRootView = styled.View`
   flex: 1;
   flex-direction: column;
   background-color: ${Colors.white};
+  margin-bottom: ${getBottomSpace()}px;
+  margin-top: ${getStatusBarHeight()}px;
 `;
 
 export default codePush(App);
