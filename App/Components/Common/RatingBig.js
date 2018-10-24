@@ -19,8 +19,9 @@ const Star = styled(Icon)`
   padding-right: 10px;
 `;
 //------------------------------------------------------------------------------
-const FullStar = Star.extend`
+const FullStar = styled(Icon)`
   color: ${Colors.primaryGreen};
+  padding-right: 10px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
