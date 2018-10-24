@@ -47,6 +47,7 @@
 		C5E9FCE2217B8B15008C3F7D /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F03AB387D5A8411F966D4201 /* MaterialIcons.ttf */; };
 		C5E9FCE3217B8B1F008C3F7D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF410FCE334F4F1C8D5DFA53 /* SimpleLineIcons.ttf */; };
 		C5E9FCE4217B8B22008C3F7D /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2B5241D4E434F1AAAEAD9DC /* Zocial.ttf */; };
+    0F6D7FFA7DD24D37B6928C9D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C90012776EA245B5B2706773 /* Ionicons.ttf */; };
 		D5B6E67A7EFD498BBCE8C4BB /* Rajdhani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D261FA20ED145478B41D33E /* Rajdhani-Bold.ttf */; };
 		D6F01FDBDBBF4385B690C818 /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 790CCF37A883411FACB8BBAA /* libjschelpers.a */; };
 		DBD03076B3294A24AFCF040F /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D516A61CC6DE480EAB9ED13C /* libRNDeviceInfo.a */; };
