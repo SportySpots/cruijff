@@ -10,7 +10,15 @@ import LoginForm from '../../../Components/Auth/LoginForm';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: can we get rid of componentWillMount and componentWillReceiveProps?
 class LoginScreen extends React.Component {
+  componentWillMount() {
+    const { user, navigation } = this.props;
+    if (user && user.uuid) {
+      navigation.navigate('MainNav');
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     const { user, onSuccessHook } = this.props;
 
@@ -29,13 +37,6 @@ class LoginScreen extends React.Component {
     // Right after the user is logged in, fire success auth callback
     if (userWasLoggedOut && userIsLoggedIn) {
       onSuccessHook();
-    }
-  }
-
-  componentWillMount() {
-    const { user, navigation } = this.props;
-    if (user && user.uuid) {
-      navigation.navigate('MainNav');
     }
   }
 

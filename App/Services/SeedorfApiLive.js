@@ -47,13 +47,13 @@ const create = () => {
   const verifyToken = token => api.post('/auth/token-verify/', { token });
 
   const signup = ({
-    username, email, first_name, last_name, password,
+    username, email, firstName, lastName, password,
   }) =>
     api.post('/auth/registration/', {
       username,
       email,
-      first_name,
-      last_name,
+      first_name: firstName,
+      last_name: lastName,
       password1: password,
       password2: password,
     });

@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 import ErrorHandling from 'error-handling-utils';
 import isEmail from 'validator/lib/isEmail';
 import styled from 'styled-components';
+import pick from 'lodash/pick';
 import I18n from '../../../I18n';
+import Colors from '../../../Themes/Colors';
 import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
 import Block from '../../Common/Block';
+import Text from '../../Common/Text';
+import Link from '../../Common/Link';
 import TextField from '../../Common/TextField';
 import RaisedButton from '../../Common/RaisedButton';
 
@@ -14,6 +18,7 @@ import RaisedButton from '../../Common/RaisedButton';
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const MAX_CHARS = 120;
+const FIELDS = ['firstName', 'lastName', 'email', 'password'];
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -24,11 +29,15 @@ const FlexOne = styled.ScrollView`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: use KeyboardAwareScrollView
-class LoginForm extends React.PureComponent {
+class SignupForm extends React.PureComponent {
   state = {
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     errors: {
+      firstName: [],
+      lastName: [],
       email: [],
       password: [],
     },
@@ -37,6 +46,8 @@ class LoginForm extends React.PureComponent {
   clearErrors = () => {
     this.setState({
       errors: {
+        firstName: [],
+        lastName: [],
         email: [],
         password: [],
       },
@@ -53,12 +64,37 @@ class LoginForm extends React.PureComponent {
     });
   }
 
-  validateFields = ({ email, password }) => {
+  validateFields = ({
+    firstName,
+    lastName,
+    email,
+    password,
+  }) => {
     // Initialize errors
     const errors = {
+      firstName: [],
+      lastName: [],
       email: [],
       password: [],
     };
+
+    // Sanitize input
+    const _firstName = firstName && firstName.trim(); // eslint-disable-line no-underscore-dangle
+
+    if (!_firstName) {
+      errors.firstName.push('First name is required!');
+    } else if (_firstName.length > MAX_CHARS) {
+      errors.firstName.push(`Must be no more than ${MAX_CHARS} characters!`);
+    }
+
+    // Sanitize input
+    const _lastName = lastName && lastName.trim(); // eslint-disable-line no-underscore-dangle
+
+    if (!_lastName) {
+      errors.lastName.push('Last name is required!');
+    } else if (_lastName.length > MAX_CHARS) {
+      errors.lastName.push(`Must be no more than ${MAX_CHARS} characters!`);
+    }
 
     // Sanitize input
     const _email = email && email.trim(); // eslint-disable-line no-underscore-dangle
@@ -99,13 +135,13 @@ class LoginForm extends React.PureComponent {
     }
 
     // Get field values
-    const { email, password } = this.state;
+    const fields = pick(this.state, FIELDS);
 
     // Clear previous errors if any
     this.clearErrors();
 
     // Validate fields
-    const errors = this.validateFields({ email, password });
+    const errors = this.validateFields(fields);
 
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
@@ -117,31 +153,63 @@ class LoginForm extends React.PureComponent {
     }
 
     // Pass event up to parent component
-    onSuccessHook({ email, password });
+    onSuccessHook(fields);
   }
 
   render() {
     const { disabled } = this.props;
-    const { email, password, errors } = this.state;
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      errors,
+    } = this.state;
 
+    const firstNameErrors = ErrorHandling.getFieldErrors(errors, 'firstName');
+    const lastNameErrors = ErrorHandling.getFieldErrors(errors, 'lastName');
     const emailErrors = ErrorHandling.getFieldErrors(errors, 'email');
     const passwordErrors = ErrorHandling.getFieldErrors(errors, 'password');
 
     return (
       <LogoHeaderBackground
-        testID="LoginScreen"
+        testID="signupScrollView"
         theme="green"
       >
         <FlexOne>
           <Block>
             <TextField
-              testID="loginInputEmail"
+              testID="signupFieldFirstName"
+              label={I18n.t('First name')}
+              value={firstName}
+              error={firstNameErrors}
+              size="ML"
+              autoFocus
+              onChangeText={(value) => {
+                this.handleChange({ fieldName: 'firstName', value });
+              }}
+            />
+          </Block>
+          <Block>
+            <TextField
+              testID="signupFieldLastName"
+              label={I18n.t('Last name')}
+              value={lastName}
+              error={lastNameErrors}
+              size="ML"
+              onChangeText={(value) => {
+                this.handleChange({ fieldName: 'lastName', value });
+              }}
+            />
+          </Block>
+          <Block>
+            <TextField
+              testID="signupFieldEmail"
               label={I18n.t('E-mail')}
               value={email}
               error={emailErrors}
               size="ML"
               keyboardType="email-address"
-              autoFocus
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'email', value });
               }}
@@ -149,7 +217,7 @@ class LoginForm extends React.PureComponent {
           </Block>
           <Block>
             <TextField
-              testID="loginInputPassword"
+              testID="signupFieldPassword"
               label={I18n.t('Password')}
               value={password}
               error={passwordErrors}
@@ -160,12 +228,20 @@ class LoginForm extends React.PureComponent {
               }}
             />
           </Block>
+          <Block>
+            <Text.M>{I18n.t('By signing up, you are agreeing to the')} </Text.M>
+            <Link
+              text={I18n.t('Terms and conditions')}
+              href="https://www.sportyspots.com/terms.html"
+              color={Colors.actionYellow}
+            />
+          </Block>
         </FlexOne>
         <Block>
           <RaisedButton
-            testID="loginSubmitButton"
+            testID="signupButtonSubmit"
             status="default"
-            label={I18n.t('Login')}
+            label={I18n.t('Signup')}
             disabled={disabled}
             onPress={this.handleSubmit}
           />
@@ -175,7 +251,7 @@ class LoginForm extends React.PureComponent {
   }
 }
 
-LoginForm.propTypes = {
+SignupForm.propTypes = {
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
   onClientCancelHook: PropTypes.func,
@@ -183,7 +259,7 @@ LoginForm.propTypes = {
   onSuccessHook: PropTypes.func,
 };
 
-LoginForm.defaultProps = {
+SignupForm.defaultProps = {
   disabled: false,
   onBeforeHook: () => {},
   onClientCancelHook: () => {},
@@ -191,4 +267,4 @@ LoginForm.defaultProps = {
   onSuccessHook: () => {},
 };
 
-export default LoginForm;
+export default SignupForm;
