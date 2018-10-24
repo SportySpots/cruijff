@@ -5,7 +5,7 @@ import StackBackHeader from '../StackBackHeader';
 import LoggedInRoute from '../LoggedInRoute';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
-import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
+import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
 import ProfileDetailsScreen from '../../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../../Screens/Profile/ProfileEditScreen';
 import UserMenu from '../../Components/Profile/UserMenu';
@@ -59,7 +59,7 @@ const ProfileNav = StackNavigator({
       <LoggedInRoute
         navigation={navigation}
         component={ProfileEditScreen}
-        overlay={ProfileSignupScreen}
+        overlay={LoggedOutScreen}
       />
     ),
     navigationOptions: ({ navigation }) => ({
@@ -72,7 +72,7 @@ const ProfileNav = StackNavigator({
     screen: () => (
       <LoggedInRoute
         component={ProfileDetailsScreen}
-        overlay={ProfileSignupScreen}
+        overlay={LoggedOutScreen}
       />
     ),
     navigationOptions: ({ navigation }) => ({

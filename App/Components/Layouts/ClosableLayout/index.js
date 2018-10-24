@@ -23,13 +23,12 @@ export const Title = styled(Text.L)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: move to Layouts folder
-const FormLayout = ({
+const ClosableLayout = ({
   children,
   theme,
   title,
   closable,
-  onLeave,
+  onClose,
 }) => {
   const isWhiteTheme = theme === 'white';
 
@@ -43,7 +42,7 @@ const FormLayout = ({
           {title}
         </Title>
         {closable && (
-          <TouchableOpacity onPress={onLeave}>
+          <TouchableOpacity onPress={onClose}>
             <Icon
               name="close"
               size={Fonts.style.L.fontSize}
@@ -57,7 +56,7 @@ const FormLayout = ({
   );
 };
 
-FormLayout.propTypes = {
+ClosableLayout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func,
@@ -65,14 +64,14 @@ FormLayout.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
   title: PropTypes.string,
   closable: PropTypes.bool,
-  onLeave: PropTypes.func,
+  onClose: PropTypes.func,
 };
 
-FormLayout.defaultProps = {
+ClosableLayout.defaultProps = {
   theme: 'black',
   title: '',
   closable: true,
-  onLeave: () => {},
+  onClose: () => {},
 };
 
-export default FormLayout;
+export default ClosableLayout;

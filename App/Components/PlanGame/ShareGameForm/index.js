@@ -7,7 +7,7 @@ import Colors from '../../../Themes/Colors';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
-import FormLayout from '../FormLayout';
+import ClosableLayout from '../../Layouts/ClosableLayout';
 import Footer from '../../DarkFooter';
 import ShareGameButton from '../../Games/ShareGameButton';
 import InviteOnly from '../InviteOnly';
@@ -72,7 +72,7 @@ class ShareGameForm extends React.PureComponent {
 
     return (
       <FullHeight>
-        <FormLayout
+        <ClosableLayout
           theme="white"
           title={`${I18n.t('Activity created')}!`}
           closable={false}
@@ -94,7 +94,7 @@ class ShareGameForm extends React.PureComponent {
             isPublic={isPublic}
             onPress={(value) => { this.handleChange({ fieldName: 'isPublic', value }); }}
           />
-        </FormLayout>
+        </ClosableLayout>
         <Footer
           numPages={4}
           currentPage={3}

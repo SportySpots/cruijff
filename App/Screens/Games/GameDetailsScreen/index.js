@@ -52,7 +52,7 @@ class GameDetailsScreen extends React.PureComponent {
 
   handleRSVPLoggedOut = () => {
     const { navigation } = this.props;
-    navigation.navigate('ProfileSignupScreen');
+    navigation.navigate('LoggedOutScreen');
   }
 
   render() {

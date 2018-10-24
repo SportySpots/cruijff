@@ -5,11 +5,11 @@ import Swiper from 'react-native-swiper';
 import extend from 'lodash/extend';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
-import FormLayout from '../../../Components/PlanGame/FormLayout';
-import Footer from '../../../Components/DarkFooter';
-import SportDateTimeSlide from '../../../Components/PlanGame/SportDateTimeSlide/';
-import SpotSlide from '../../../Components/PlanGame/SpotSlide';
-import DescriptionSlide from '../../../Components/PlanGame/DescriptionSlide';
+import ClosableLayout from '../../Layouts/ClosableLayout';
+import Footer from '../../DarkFooter';
+import SportDateTimeSlide from '../../PlanGame/SportDateTimeSlide/';
+import SpotSlide from '../../PlanGame/SpotSlide';
+import DescriptionSlide from '../../PlanGame/DescriptionSlide';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -223,10 +223,10 @@ class PlanGameForm extends React.Component {
             title,
           }) => (
             <FullHeight key={id}>
-              <FormLayout
+              <ClosableLayout
                 theme={theme}
                 title={I18n.t(title)}
-                onLeave={onLeave}
+                onClose={onLeave}
               >
                 <Comp
                   onChange={this.handleChange}
@@ -235,7 +235,7 @@ class PlanGameForm extends React.Component {
                   {...rest}
                 />
 
-              </FormLayout>
+              </ClosableLayout>
             </FullHeight>
           ))}
         </Swiper>

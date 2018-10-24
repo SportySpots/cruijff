@@ -4,7 +4,7 @@ import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
-import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
+import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
 import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
 import CancelGameScreen from '../../Screens/Games/CancelGameScreen';
 import EditGameScreen from '../../Screens/Games/EditGameScreen';
@@ -18,7 +18,7 @@ import { headerTitleStyle } from './style';
 //------------------------------------------------------------------------------
 const handleSuccessAuth = (navigation) => {
   // After successful auth, go back 2 screens:
-  // --> ProfileSignupScreen --> GameDetailsScreen
+  // --> LoggedOutScreen --> GameDetailsScreen
   navigation.pop(2);
 };
 //------------------------------------------------------------------------------
@@ -86,8 +86,8 @@ const GameDetailsScreens = {
       headerLeft: backBtn(navigation),
     }),
   },
-  ProfileSignupScreen: {
-    screen: ProfileSignupScreen,
+  LoggedOutScreen: {
+    screen: LoggedOutScreen,
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Game details'),
       headerTitleStyle,

@@ -1,28 +1,28 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View, Text } from 'react-native';
-import FormLayout from './index';
+import ClosableLayout from '.';
 
-storiesOf('PlanGame.FormLayout', module)
-  .add('FormLayout black theme', () => (
-    <FormLayout title="I'm the title">
+storiesOf('Layouts.ClosableLayout', module)
+  .add('ClosableLayout black theme', () => (
+    <ClosableLayout title="I'm the title">
       <View>
         <Text>I&apos;m the children</Text>
       </View>
-    </FormLayout>
+    </ClosableLayout>
   ))
-  .add('FormLayout white theme', () => (
-    <FormLayout
+  .add('ClosableLayout white theme', () => (
+    <ClosableLayout
       title="I'm the title"
       theme="white"
     >
       <View>
         <Text>I&apos;m the children</Text>
       </View>
-    </FormLayout>
+    </ClosableLayout>
   ))
-  .add('FormLayout white theme NOT closable', () => (
-    <FormLayout
+  .add('ClosableLayout white theme NOT closable', () => (
+    <ClosableLayout
       title="I'm the title"
       theme="white"
       closable={false}
@@ -30,5 +30,5 @@ storiesOf('PlanGame.FormLayout', module)
       <View>
         <Text>I&apos;m the children</Text>
       </View>
-    </FormLayout>
+    </ClosableLayout>
   ));

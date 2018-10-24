@@ -4,10 +4,10 @@ import { Image, TouchableOpacity, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import DefaultButton from '../../Components/Common/DefaultButton';
-import Text from '../../Components/Common/Text';
-import I18n from '../../I18n/index';
-import images from '../../Themes/Images';
+import DefaultButton from '../../../Components/Common/DefaultButton';
+import Text from '../../../Components/Common/Text';
+import I18n from '../../../I18n/index';
+import images from '../../../Themes/Images';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -40,7 +40,7 @@ const LinkLabel = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileSignupScreen = ({ closable, onClose, navigation }) => [
+const LoggedOutScreen = ({ closable, onClose, navigation }) => [
   closable && (
     <CloseBtnContainer key="close-btn">
       <TouchableOpacity onPress={onClose}>
@@ -71,7 +71,7 @@ const ProfileSignupScreen = ({ closable, onClose, navigation }) => [
   </MainContainer>,
 ];
 
-ProfileSignupScreen.propTypes = {
+LoggedOutScreen.propTypes = {
   closable: PropTypes.bool,
   onClose: PropTypes.func,
   navigation: PropTypes.shape({
@@ -79,9 +79,9 @@ ProfileSignupScreen.propTypes = {
   }).isRequired,
 };
 
-ProfileSignupScreen.defaultProps = {
+LoggedOutScreen.defaultProps = {
   closable: false,
   onClose: () => {},
 };
 
-export default withNavigation(ProfileSignupScreen);
+export default withNavigation(LoggedOutScreen);

@@ -5,7 +5,7 @@ import StackBackHeader from '../StackBackHeader';
 import LoggedInRoute from '../LoggedInRoute';
 import LoginScreen from '../../Screens/LoginScreen';
 import SignupScreen from '../../Screens/SignupScreen';
-import ProfileSignupScreen from '../../Screens/Profile/ProfileSignupScreen';
+import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
 import PlanGameScreen from '../../Screens/Plan/PlanGameScreen';
 import ShareGameScreen from '../../Screens/Plan/ShareGameScreen';
 import { headerTitleStyle } from './style';
@@ -58,7 +58,7 @@ const PlanGameNav = StackNavigator({
       <LoggedInRoute
         component={ShareGameScreen}
         navigation={navigation}
-        overlay={ProfileSignupScreen}
+        overlay={LoggedOutScreen}
         closable
         onClose={() => { navigation.goBack(null); }}
       />
@@ -72,7 +72,7 @@ const PlanGameNav = StackNavigator({
       <LoggedInRoute
         component={PlanGameScreen}
         navigation={navigation}
-        overlay={ProfileSignupScreen}
+        overlay={LoggedOutScreen}
         closable
         onClose={() => { navigation.goBack(null); }}
       />
