@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
-import Block from '../../Components/Common/Block';
 import Spacer from '../../Components/Common/Spacer';
 import Logo from '../../Components/Common/Logo';
 import Text from '../../Components/Common/Text';
@@ -11,7 +10,7 @@ import Text from '../../Components/Common/Text';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled(Block)`
+const Container = styled.View`
   flex: 1;
   background-color: ${({ bgColor }) => (bgColor)}
 `;

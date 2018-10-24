@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from '../../../I18n';
 import TextField from '../TextField';
-import getPalette from '../InputField/utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -14,13 +13,6 @@ const DescriptionField = ({
   error,
   ...rest
 }) => {
-  const {
-    fontColor,
-    baseColor,
-    tintColor,
-    iconColor,
-    lineWidth,
-  } = getPalette(theme);
 
   return (
     <TextField
@@ -30,11 +22,7 @@ const DescriptionField = ({
       error={error}
       multiline
       placeholder={I18n.t('Write extra details about the game here')}
-      fontColor={fontColor}
-      baseColor={baseColor}
-      tintColor={tintColor}
-      iconColor={iconColor}
-      lineWidth={lineWidth}
+      theme={theme}
       {...rest}
     />
   );

@@ -175,8 +175,8 @@ class SignupForm extends React.PureComponent {
     return (
       <LogoHeaderBackground
         testID="signupScrollView"
-        theme="green"
-        // hideLogo
+        // theme="green"
+        hideLogo
       >
         <FlexOne>
           <Block>
@@ -186,7 +186,7 @@ class SignupForm extends React.PureComponent {
               value={firstName}
               error={firstNameErrors}
               size="ML"
-              theme="white"
+              // theme="white"
               autoFocus
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'firstName', value });
@@ -200,7 +200,7 @@ class SignupForm extends React.PureComponent {
               value={lastName}
               error={lastNameErrors}
               size="ML"
-              theme="white"
+              // theme="white"
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'lastName', value });
               }}
@@ -213,7 +213,7 @@ class SignupForm extends React.PureComponent {
               value={email}
               error={emailErrors}
               size="ML"
-              theme="white"
+              // theme="white"
               keyboardType="email-address"
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'email', value });
@@ -227,7 +227,7 @@ class SignupForm extends React.PureComponent {
               value={password}
               error={passwordErrors}
               size="ML"
-              theme="white"
+              // theme="white"
               secureTextEntry
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'password', value });
@@ -235,7 +235,7 @@ class SignupForm extends React.PureComponent {
             />
           </Block>
           <Block>
-            <Text.M style={{ color: Colors.white }}>
+            <Text.M style={{ color: Colors.black }}>
               {I18n.t('By signing up, you are agreeing to the')}
             </Text.M>
             <Link
