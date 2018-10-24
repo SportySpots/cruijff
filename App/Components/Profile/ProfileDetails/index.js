@@ -1,9 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
 import { propType } from 'graphql-anywhere';
-import moment from 'moment';
 import styled from 'styled-components/native';
-import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Block from '../../Common/Block';
@@ -15,10 +12,6 @@ import Avatar from '../../Common/Avatar';
 import ProfileTabs from '../ProfileTabs';
 
 //------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const AVATAR_SIZE = 56;
-//------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Bottom = styled.View`
@@ -26,36 +19,23 @@ const Bottom = styled.View`
   background-color: ${Colors.bgGrey};
 `;
 //------------------------------------------------------------------------------
+const Name = styled(Text.L)`
+  text-align: center;
+`;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ProfileDetails = ({ user }) => [
   <Block key="top">
-    <Row alignItems="center">
-      <Avatar user={user} size={AVATAR_SIZE} />
-      <Spacer size="XXL" />
-      <View>
-        <Text.ML>{user.first_name} {user.last_name}</Text.ML>
-        <Text>{(user.profile && user.profile.country) || ''}</Text>
-      </View>
+    <Row justifyContent="center">
+      <Avatar user={user} size={80} />
     </Row>
+    <Spacer size="XL" />
+    <Name>
+      {user.first_name} {user.last_name}
+    </Name>
   </Block>,
-  <Block key="middle">
-    {user.profile && (
-      <Row>
-        <View style={{ width: AVATAR_SIZE }}>
-          <Text>{I18n.t('Age')}</Text>
-          <Spacer size="M" />
-          <Text.ML>{moment().diff(user.profile.year_of_birth, 'years')}</Text.ML>
-        </View>
-        <Spacer size="XXL" />
-        <View>
-          <Text>{I18n.t('Sports')}</Text>
-          <Spacer size="M" />
-          <Text style={{ color: Colors.black }}>TODO</Text>
-        </View>
-      </Row>
-    )}
-  </Block>,
+  <Spacer key="spacer" size="M" />,
   <Divider key="divider" />,
   <Bottom key="bottom">
     <ProfileTabs user={user} style={{ flex: 1 }} />

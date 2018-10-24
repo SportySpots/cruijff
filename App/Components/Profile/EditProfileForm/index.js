@@ -296,7 +296,7 @@ class EditProfileForm extends React.PureComponent {
             }}
           />
         </Block>
-        <Block>
+        {/* <Block>
           <TextField
             label={I18n.t('Year of birth')}
             value={birthYear}
@@ -308,7 +308,7 @@ class EditProfileForm extends React.PureComponent {
               this.handleChange({ fieldName: 'birthYear', value });
             }}
           />
-        </Block>
+          </Block> */}
       </Top>,
       <Bottom key="bottom">
         <RaisedButton
