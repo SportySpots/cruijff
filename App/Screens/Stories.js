@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react-native';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import LoginScreen from './LoginScreen';
+import LoginScreen from './Auth/LoginScreen';
 import SpotsFilterScreen from './Spots/SpotsFilterScreen';
 import InfoScreen from './InfoScreen';
 import SplashScreen from './SplashScreen';

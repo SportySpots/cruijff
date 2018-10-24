@@ -2,8 +2,8 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
-import LoginScreen from '../../Screens/LoginScreen';
-import SignupScreen from '../../Screens/SignupScreen';
+import LoginScreen from '../../Screens/Auth/LoginScreen';
+import SignupScreen from '../../Screens/Auth/SignupScreen';
 import SplashScreen from '../../Screens/SplashScreen';
 import { headerTitleStyle } from './style';
 

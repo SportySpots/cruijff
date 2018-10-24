@@ -4,13 +4,13 @@ import { TextInput } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
-import DefaultButton from '../Components/Common/DefaultButton';
-import Text from '../Components/Common/Text';
-import I18n from '../I18n/index';
-import userActions, { STATUS } from '../Redux/UserRedux';
-import api from '../Services/SeedorfApi';
-import Colors from '../Themes/Colors';
+import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
+import DefaultButton from '../../../Components/Common/DefaultButton';
+import Text from '../../../Components/Common/Text';
+import I18n from '../../../I18n/index';
+import userActions, { STATUS } from '../../../Redux/UserRedux';
+import api from '../../../Services/SeedorfApi';
+import Colors from '../../../Themes/Colors';
 
 const FieldSet = styled.View`
   margin-top: 16px;
