@@ -118,7 +118,7 @@ class LoginScreen extends React.Component {
                 autoFocus
                 autoCapitalize="none"
                 blurOnSubmit={false}
-                onSubmitEditing={() => { this.passwordField.root.focus(); }}
+                onSubmitEditing={() => { this.passwordField.focus(); }}
               />
             </FieldSet>
             <FieldSet>

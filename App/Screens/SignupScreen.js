@@ -100,7 +100,7 @@ export class _Signup extends Component {
   }
 
   scrollAndFocusRef = (refName) => {
-    this[refName].root.focus();
+    this[refName].focus();
     this.scroll.scrollToFocusedInput(findNodeHandle(this[refName]));
   }
 
