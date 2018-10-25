@@ -97,15 +97,16 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.1.0'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.sportyspots.android"
-        minSdkVersion 23
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 104
-        versionName "1.0.0"
+        versionName "1.0"
+
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -147,20 +148,21 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-image-picker')
-    compile project(':react-native-cookies')
-    compile project(':react-native-code-push')
-    compile project(':react-native-svg')
-    compile project(':react-native-config')
-    compile project(':appcenter-crashes')
-    compile project(':appcenter-analytics')
-    compile project(':appcenter')
-    compile project(':react-native-i18n')
-    compile project(':react-native-vector-icons')
-    compile project(':react-native-device-info')
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile 'com.facebook.react:react-native:+'  // From node_modules
-    compile 'com.android.support:appcompat-v7:26.1.0'
+    implementation project(':react-native-image-picker')
+    implementation project(':react-native-cookies')
+    implementation project(':react-native-code-push')
+    implementation project(':react-native-code-push')
+    implementation project(':react-native-svg')
+    implementation project(':react-native-config')
+    implementation project(':appcenter-crashes')
+    implementation project(':appcenter-analytics')
+    implementation project(':appcenter')
+    implementation project(':react-native-i18n')
+    implementation project(':react-native-vector-icons')
+    implementation project(':react-native-device-info')
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation "com.facebook.react:react-native:+"  // From node_modules
 
     if (project.hasProperty('detoxBuild')) {
         androidTestImplementation(project(path: ":detox"))

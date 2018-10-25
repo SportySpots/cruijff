@@ -9,7 +9,8 @@ if (typeof global.self === 'undefined') {
 }
 
 // Allow/disallow font-scaling in app
-Text.defaultProps.allowFontScaling = true;
+// Text.defaultProps.allowFontScaling = true;
+Text.allowFontScaling = true;
 
 const settings = {
   seedorfRestUrl: Config.SEEDORF_REST_URL,
