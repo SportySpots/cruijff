@@ -13,7 +13,7 @@ import DatePickerField from '../../Common/DatePickerField';
 import TimePickerField from '../../Common/TimePickerField';
 import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
-import DescriptionField from '../../Common/DescriptionField';
+// import DescriptionField from '../../Common/DescriptionField';
 import EditSpotField from '../../Spots/EditSpotField';
 import SpotsList from '../../Spots/SpotsList';
 import Spacer from '../../Common/Spacer';
@@ -365,12 +365,14 @@ class EditGameForm extends React.PureComponent {
                 midHeight
                 onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'description', nativeEvent }); }}
               >
-                <DescriptionField
+                <TextField
                   label={I18n.t('Activity details')}
                   value={description}
                   theme="black"
                   error={descriptionErrors}
                   characterRestriction={DESCRIPTION_MAX_CHARS}
+                  multiline
+                  placeholder={I18n.t('Write extra details about the game here')}
                   onChangeText={(value) => { this.handleChange({ fieldName: 'description', value }); }}
                 />
               </Block>

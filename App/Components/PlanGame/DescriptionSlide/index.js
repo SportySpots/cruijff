@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DescriptionField from '../../Common/DescriptionField';
+import I18n from '../../../I18n';
+import TextField from '../../Common/TextField';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const DescriptionSlide = ({ description, descriptionMaxChars, onChange }) => (
-  <DescriptionField
+  <TextField
     testID="description"
+    label={I18n.t('Write extra details about the game here')}
     value={description}
+    multiline
     characterRestriction={descriptionMaxChars}
     onChangeText={(value) => { onChange({ fieldName: 'description', value }); }}
     theme="white"
