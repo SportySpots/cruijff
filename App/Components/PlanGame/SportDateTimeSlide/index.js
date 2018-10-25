@@ -46,7 +46,6 @@ const SportDateTimeSlide = ({
       size="ML"
       theme="mix"
       onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
-      width={sport ? 12 * (I18n.t(sport.name) || I18n.t(sport.category)).replace(' ', '').length + 32 : 80}
     />
   </Row>,
   <Spacer key="date-spacer" size="S" />,
@@ -61,10 +60,15 @@ const SportDateTimeSlide = ({
       value={date}
       size="ML"
       theme="mix"
+      dateFormat="dddd D MMMM"
       onChange={(value) => { onChange({ fieldName: 'date', value }); }}
-      width={80}
     />
-    <Spacer row size="M" />
+  </Row>,
+  <Spacer key="time-spacer" size="S" />,
+  <Row
+    key="time"
+    alignItems="flex-end"
+  >
     <Label>{I18n.t('at')}</Label>
     <Spacer row size="S" />
     <TimePickerField
@@ -73,10 +77,9 @@ const SportDateTimeSlide = ({
       size="ML"
       theme="mix"
       onChange={(value) => { onChange({ fieldName: 'time', value }); }}
-      width={80}
     />
   </Row>,
-  <Spacer key="time-duration-spacer" size="S" />,
+  <Spacer key="duration-spacer" size="S" />,
   <Row
     key="time-duration"
     alignItems="flex-end"
@@ -90,7 +93,7 @@ const SportDateTimeSlide = ({
       onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
       theme="mix"
       size="ML"
-      width={150}
+      minWidth={150}
     />
   </Row>,
   <Spacer key="capacity-spacer" size="S" />,
@@ -106,7 +109,6 @@ const SportDateTimeSlide = ({
       size="ML"
       theme="mix"
       onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
-      width={80}
     />
     <Spacer row size="S" />
     <Label>{I18n.t('people')}</Label>
