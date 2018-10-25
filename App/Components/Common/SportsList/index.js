@@ -20,8 +20,6 @@ const SportsList = ({ selectedSport, onSportPress }) => (
 
       const numGenerator = makeNumGenerator();
 
-      console.log('SPORTS', data.sports);
-
       return (
         <FlatList
           keyExtractor={item => item.uuid}
