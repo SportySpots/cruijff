@@ -7,29 +7,29 @@ storiesOf('Common.RaisedButton', module)
     <RaisedButton label="label" />
   ))
   .add('RaisedButton primary', () => (
-    <RaisedButton status="primary" label="label" />
+    <RaisedButton variant="primary" label="label" />
   ))
   .add('RaisedButton secondary', () => (
-    <RaisedButton status="secondary" label="label" />
+    <RaisedButton variant="secondary" label="label" />
   ))
   .add('RaisedButton info', () => (
-    <RaisedButton status="info" label="label" />
+    <RaisedButton variant="info" label="label" />
   ))
   .add('RaisedButton warning', () => (
-    <RaisedButton status="warning" label="label" />
+    <RaisedButton variant="warning" label="label" />
   ))
   .add('RaisedButton ghost', () => (
-    <RaisedButton status="ghost" label="label" />
+    <RaisedButton variant="ghost" label="label" />
   ))
   .add('RaisedButton ghost disabled', () => (
-    <RaisedButton status="ghost" disabled label="label" />
+    <RaisedButton variant="ghost" disabled label="label" />
   ))
   .add('RaisedButton disabled', () => (
     <RaisedButton disabled label="label" />
   ))
   .add('RaisedButton primary small', () => (
     <RaisedButton
-      status="primary"
+      variant="primary"
       size="S"
       label="label"
       width={120}

@@ -42,7 +42,7 @@ const CapacityPicker = ({
           <RaisedButton
             key={label}
             label={label}
-            status={value === label ? 'primary' : 'ghost'}
+            variant={value === label ? 'primary' : 'ghost'}
             size="M"
             width={80}
             onPress={() => { onBtnPress(label); }}

@@ -268,7 +268,7 @@ class EditProfileForm extends React.PureComponent {
           </Row>
           <Spacer size="XL" />
           <RaisedButton
-            status="ghost"
+            variant="ghost"
             label={I18n.t('Upload photo')}
             disabled={disabled}
             onPress={this.handleUpload}
@@ -312,7 +312,7 @@ class EditProfileForm extends React.PureComponent {
       </Top>,
       <Bottom key="bottom">
         <RaisedButton
-          status="default"
+          variant="default"
           label={I18n.t('Save')}
           disabled={disabled}
           onPress={this.handleSubmit}

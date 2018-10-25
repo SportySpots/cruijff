@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RaisedButton from '../../../../Components/Common/RaisedButton';
+import RaisedButton from '../../RaisedButton';
 import Row from '../../Row';
 import DialogModal from '../DialogModal';
 
@@ -16,7 +16,7 @@ const ConfirmModal = ({ okBtnLabel, onOk, ...rest }) => {
       <RaisedButton
         label={okBtnLabel}
         size="S"
-        status="primary"
+        variant="primary"
         onPress={onOk}
       />
     </Row>

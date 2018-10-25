@@ -23,22 +23,19 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 const Label = styled(Text.M)`
   color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
-  /* font-weight: bold; */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: use children instead of label
-// TODO: replace 'status' prop with 'variant'
 const RaisedButton = ({
   label,
-  status,
+  variant,
   size,
   disabled,
   width,
   ...rest
 }) => {
-  const palette = getPalette(status);
+  const palette = getPalette(variant);
   const { fontColor, bgColor, borderColor } = palette;
 
   const Root = disabled ? View : TouchableOpacity;
@@ -68,7 +65,7 @@ RaisedButton.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
-  status: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'warning', 'ghost']),
+  variant: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'warning', 'ghost']),
   size: PropTypes.oneOf(['M', 'S']),
   disabled: PropTypes.bool,
   width: PropTypes.oneOfType([
@@ -79,7 +76,7 @@ RaisedButton.propTypes = {
 };
 
 RaisedButton.defaultProps = {
-  status: 'default',
+  variant: 'default',
   size: 'M',
   disabled: false,
   width: '100%',

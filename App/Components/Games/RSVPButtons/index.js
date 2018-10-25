@@ -58,7 +58,7 @@ class RSVPButtons extends React.PureComponent {
         <Row>
           <RaisedButton
             style={{ flex: 1 }}
-            status="primary"
+            variant="primary"
             label={I18n.t("I'm attending")}
             disabled={disabled}
             onPress={() => {
@@ -68,7 +68,7 @@ class RSVPButtons extends React.PureComponent {
           <Spacer row size="L" />
           <RaisedButton
             style={{ flex: 1 }}
-            status="warning"
+            variant="warning"
             label={I18n.t("I'm not attending")}
             disabled={disabled}
             onPress={() => {
@@ -86,7 +86,7 @@ class RSVPButtons extends React.PureComponent {
       return (
         <RaisedButton
           style={{ flex: 1 }}
-          status="ghost"
+          variant="ghost"
           label={I18n.t("I'm not attending")}
           disabled={disabled}
           onPress={this.openAlert}
@@ -98,7 +98,7 @@ class RSVPButtons extends React.PureComponent {
     return (
       <RaisedButton
         style={{ flex: 1 }}
-        status="primary"
+        variant="primary"
         label={I18n.t("I'm attending")}
         disabled={disabled}
         onPress={() => {

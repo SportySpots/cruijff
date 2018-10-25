@@ -9,7 +9,7 @@ import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
 import Block from '../../Common/Block';
-import Spacer from '../../Common/Spacer';
+// import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
 import Link from '../../Common/Link';
 import TextField from '../../Common/TextField';
@@ -248,7 +248,7 @@ class SignupForm extends React.PureComponent {
         <Block>
           <RaisedButton
             testID="signupButtonSubmit"
-            status="default"
+            variant="default"
             label={I18n.t('Signup')}
             disabled={disabled}
             onPress={this.handleSubmit}

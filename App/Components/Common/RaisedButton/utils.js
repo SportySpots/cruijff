@@ -1,7 +1,7 @@
 import Colors from '../../../Themes/Colors';
 
-export const getPalette = (status) => {
-  switch (status) {
+export const getPalette = (variant) => {
+  switch (variant) {
     case 'default':
       return {
         fontColor: Colors.white,
@@ -39,7 +39,7 @@ export const getPalette = (status) => {
         borderColor: Colors.darkGray,
       };
     default:
-      throw new Error('Unknown status');
+      throw new Error('Unknown variant');
   }
 };
 

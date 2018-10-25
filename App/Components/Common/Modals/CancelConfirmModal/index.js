@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RaisedButton from '../../../../Components/Common/RaisedButton';
+import RaisedButton from '../../RaisedButton';
 import Row from '../../Row';
 import Spacer from '../../Spacer';
 import DialogModal from '../DialogModal';
@@ -23,14 +23,14 @@ const CancelConfirmModal = ({
       <RaisedButton
         label={cancelBtnLabel}
         size="S"
-        status="secondary"
+        variant="secondary"
         onPress={onCancel}
       />
       <Spacer row size="M" />
       <RaisedButton
         label={okBtnLabel}
         size="S"
-        status="primary"
+        variant="primary"
         onPress={onOk}
       />
     </Row>

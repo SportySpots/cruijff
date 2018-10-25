@@ -10,7 +10,7 @@ const Container = () => (
     {({ visible, openModal, closeModal }) => (
       <View>
         <RaisedButton
-          status="primary"
+          variant="primary"
           label="Open"
           onPress={openModal}
         />

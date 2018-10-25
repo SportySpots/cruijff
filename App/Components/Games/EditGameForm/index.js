@@ -387,7 +387,7 @@ class EditGameForm extends React.PureComponent {
             </Top>
             <Bottom>
               <RaisedButton
-                status="primary"
+                variant="primary"
                 label={I18n.t('Save')}
                 disabled={disabled}
                 onPress={this.handleSubmit}

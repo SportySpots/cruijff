@@ -167,7 +167,7 @@ class LoginForm extends React.PureComponent {
         <Block>
           <RaisedButton
             testID="loginSubmitButton"
-            status="default"
+            variant="default"
             label={I18n.t('Login')}
             disabled={disabled}
             onPress={this.handleSubmit}
