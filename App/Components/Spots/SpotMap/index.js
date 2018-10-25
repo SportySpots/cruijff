@@ -22,8 +22,8 @@ import {
 const { width: windowWidth } = Dimensions.get('window');
 // -----------------------------------------------------------------------------
 const { GOOGLE_MAPS_IOS_API_KEY, GOOGLE_MAPS_ANDROID_API_KEY } = Secrets;
-const GOOGLE_MAPS_API_KEY =
-  Platform.OS === 'ios' ? GOOGLE_MAPS_IOS_API_KEY : GOOGLE_MAPS_ANDROID_API_KEY;
+const GOOGLE_MAPS_API_KEY = Platform.OS === 'ios'
+  ? GOOGLE_MAPS_IOS_API_KEY : GOOGLE_MAPS_ANDROID_API_KEY;
 // -----------------------------------------------------------------------------
 // STYLE:
 // -----------------------------------------------------------------------------
