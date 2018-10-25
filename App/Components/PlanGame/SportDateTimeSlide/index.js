@@ -46,7 +46,7 @@ const SportDateTimeSlide = ({
       size="ML"
       theme="mix"
       onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
-      width={200}
+      width={sport ? 12 * (I18n.t(sport.name) || I18n.t(sport.category)).replace(' ', '').length + 32 : 80}
     />
   </Row>,
   <Spacer key="date-spacer" size="S" />,
