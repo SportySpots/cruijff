@@ -17,7 +17,11 @@ const SportsList = ({ selectedSport, onSportPress }) => (
     {({ loading, error, data }) => {
       if (loading) { return <CenteredActivityIndicator />; }
       if (error || !data) { return null; }
+
       const numGenerator = makeNumGenerator();
+
+      console.log('SPORTS', data.sports);
+
       return (
         <FlatList
           keyExtractor={item => item.uuid}
@@ -26,9 +30,9 @@ const SportsList = ({ selectedSport, onSportPress }) => (
               testID={`sport_${numGenerator()}`}
               sport={item}
               isSelected={(
-                selectedSport &&
-                selectedSport.uuid &&
-                item.uuid === selectedSport.uuid
+                selectedSport
+                && selectedSport.uuid
+                && item.uuid === selectedSport.uuid
               ) || false}
               onPress={onSportPress}
             />

@@ -21,9 +21,15 @@ export const SPORT_CARD_HEIGHT = (16 * 2) + (1.4 * Fonts.style.M.fontSize);
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SportCard = ({
-  sport, isSelected, onPress, testID,
+  sport,
+  isSelected,
+  onPress,
+  testID,
 }) => (
-  <TouchableOpacity onPress={() => onPress(sport)} testID={testID}>
+  <TouchableOpacity
+    onPress={() => { onPress(sport); }}
+    testID={testID}
+  >
     <Block bgColor={isSelected ? Colors.grass10 : Colors.transparent}>
       <Row>
         <Image source={(
