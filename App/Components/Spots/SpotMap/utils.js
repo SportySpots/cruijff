@@ -1,10 +1,9 @@
 import { showLocation } from 'react-native-map-link';
 
 // ------------------------------------------------------------------------------
-export const getCurrentPosition = (options = {}) =>
-  new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject, options);
-  });
+export const getCurrentPosition = (options = {}) => new Promise((resolve, reject) => {
+  navigator.geolocation.getCurrentPosition(resolve, reject, options);
+});
 // ------------------------------------------------------------------------------
 export const getSpotLocation = spot => ({
   latitude: spot && spot.address && spot.address.lat,
@@ -15,7 +14,7 @@ export const openGoogleMapsLocation = ({ latLng, title = '' }) => {
   showLocation({
     ...latLng,
     title,
-    // force GoogleMaps to use the latLng from the query instead of the title
+    // Force GoogleMaps to use the latLng from the query instead of the title
     googleForceLatLon: true,
   });
 };
