@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import ImageSwiper from './Common/ImageSwiper';
@@ -14,7 +14,7 @@ import Logo from './Common/Logo';
 import Slider from './Common/Slider';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
-import SignupScreen from '../Screens/SignupScreen';
+// import SignupScreen from '../Screens/SignupScreen';
 import NothingFound from './Common/NothingFound';
 
 // TODO: move stories to individual component's folder
@@ -26,7 +26,7 @@ const dummyNavigator = {
   },
 };
 
-const store = createStore(state => state, {
+/* const store = createStore(state => state, {
   user: {
     uuid: 1234,
     initialized: true,
@@ -35,7 +35,7 @@ const store = createStore(state => state, {
     maxDistance: 2.0,
     sports: {},
   },
-});
+}); */
 
 storiesOf('Logo', module)
   .add('Default', () => <Logo />);
@@ -83,11 +83,11 @@ storiesOf('RatingBig', module)
 storiesOf('Slider', module).add('Default', () => <Slider value={0.75} />);
 
 
-storiesOf('SignupScreen', module).add('Default', () => (
+/* storiesOf('SignupScreen', module).add('Default', () => (
   <Provider store={store}>
     <SignupScreen navigation={dummyNavigator} />
   </Provider>
-));
+)); */
 
 storiesOf('NothingFound', module).add('Default', () => (
   <NothingFound
