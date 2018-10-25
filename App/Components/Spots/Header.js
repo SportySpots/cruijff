@@ -39,7 +39,7 @@ const Header = ({ spot, ...props }) => {
         {false && <Spacer />}
         <Subtitle>{spot.sports.map(sport => I18n.t(sport.category)).join(', ')}</Subtitle>
         {spot.distance && <Spacer />}
-        {spot.distance && <Subtitle>{spot.distance} km</Subtitle>}
+        {spot.distance && <Subtitle>{spot.distance} KM</Subtitle>}
         {games.length > 0 && [
           <Spacer key={1} />,
           <Subtitle key={2} style={header.plannedGamesCount}>
