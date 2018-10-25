@@ -80,13 +80,19 @@ class PlanGameForm extends React.Component {
   }
 
   handleChange = ({ fieldName, value }) => {
-    if (!fieldName) {
-      return;
-    }
-    this.setState(
-      { [fieldName]: value },
-      () => { console.log(this.state); },
-    );
+    if (!fieldName) { return; }
+
+    const { curSlide } = this.state;
+
+    // Automatically swipe right after the user selects spot
+    this.setState({
+      [fieldName]: value,
+      curSlide: fieldName === 'spot' ? curSlide + 1 : curSlide,
+    }, () => {
+      if (fieldName === 'spot') {
+        this.swiper.scrollBy(1);
+      }
+    });
   }
 
   get disableNext() {
