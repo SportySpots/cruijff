@@ -1,4 +1,4 @@
-import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, SwitchNavigator, createBottomTabNavigator } from 'react-navigation';
 import {
   SplashNav,
   SpotSearchNav,
@@ -12,7 +12,7 @@ import OnboardingScreen from '../Screens/OnboardingScreen';
 import AskLocation from '../Screens/AskLocationScreen';
 import DebugScreen from '../Screens/DebugScreen';
 
-const MainTabsNav = TabNavigator({
+const MainTabsNav = createBottomTabNavigator({
   SpotSearchTab: { screen: SpotSearchNav },
   GameSearchTab: { screen: GameSearchNav },
   ProfileTab: { screen: ProfileNav },

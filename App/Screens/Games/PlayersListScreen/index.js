@@ -12,25 +12,24 @@ import Text from '../../../Components/Common/Text';
 import Avatar from '../../../Components/Common/Avatar';
 import navigationPropTypes from '../../../PropTypesDefinitions/navigation';
 
-export const BottomNav = ({ screens }) =>
-  React.createElement(new TabNavigator(screens, {
-    tabBarComponent: TabBarTop,
-    tabBarPosition: 'top',
-    tabBarOptions: {
-      style: {
-        backgroundColor: Colors.white,
-      },
-      labelStyle: {
-        color: 'black',
-        fontWeight: '700',
-      },
-      indicatorStyle: {
-        backgroundColor: Colors.primaryGreen,
-        height: 4,
-      },
+export const BottomNav = ({ screens }) => React.createElement(new TabNavigator(screens, {
+  tabBarComponent: TabBarTop,
+  tabBarPosition: 'top',
+  tabBarOptions: {
+    style: {
+      backgroundColor: Colors.white,
     },
-    initialRouteName: 'ATTENDING',
-  }));
+    labelStyle: {
+      color: 'black',
+      fontWeight: '700',
+    },
+    indicatorStyle: {
+      backgroundColor: Colors.primaryGreen,
+      height: 4,
+    },
+  },
+  initialRouteName: 'ATTENDING',
+}));
 
 BottomNav.propTypes = {
   screens: PropTypes.object,

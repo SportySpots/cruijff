@@ -46,10 +46,10 @@ class SpotsListScreen extends React.Component {
     }
 
     const coordsSet = (
-      position &&
-      position.coords &&
-      position.coords.latitude &&
-      position.coords.latitude
+      position
+      && position.coords
+      && position.coords.latitude
+      && position.coords.latitude
     );
     if (!coordsSet) { return; }
     const { latitude, longitude } = position.coords;
@@ -57,9 +57,8 @@ class SpotsListScreen extends React.Component {
   }
 
   handleCardPress = (spot) => {
-    this.props.navigation.navigate('SpotDetailsScreen', {
-      uuid: spot.uuid,
-    });
+    const { navigation } = this.props;
+    navigation.navigate('SpotDetailsScreen', { uuid: spot.uuid });
   }
 
   render() {
