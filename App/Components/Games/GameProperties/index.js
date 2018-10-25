@@ -43,7 +43,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         <Icon name="event" size={22} color={Colors.shade} />
         <Spacer row size="L" />
         <Label>
-          {moment.utc(startTime).format('DD-MM-YYYY')}
+          {moment.utc(startTime).format('dddd, D MMMM')}
         </Label>
       </Row>
       <Spacer size="M" />
