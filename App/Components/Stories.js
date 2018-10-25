@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 // import { Provider } from 'react-redux';
 
 import OnboardingScreen from '../Screens/OnboardingScreen';

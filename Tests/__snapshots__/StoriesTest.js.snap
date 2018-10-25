@@ -45959,7 +45959,7 @@ exports[`Storyshots PlanGame.SportDateTimeSlide SportDateTimeSlide white theme 1
                   >
                     <View>
                       <RCTDatePicker
-                        date={1540480342902}
+                        date={1540482370156}
                         minuteInterval={1}
                         mode="time"
                         onChange={[Function]}

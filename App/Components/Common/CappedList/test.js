@@ -20,7 +20,7 @@ describe('CappedList', () => {
 
     const tree = Capped.toTree().rendered;
 
-    expect(tree).toHaveLength(5);
+    expect(tree).toHaveLength(9); // components + spacers: 5 + 4
     expect(tree[0].type).toBe(Comp);
     expect(tree[0].props).toEqual({ num: 1 });
   });
@@ -36,9 +36,9 @@ describe('CappedList', () => {
 
     const tree = Capped.toTree().rendered;
 
-    expect(tree).toHaveLength(2);
+    expect(tree).toHaveLength(3); // components + spacers: 2 + 1
     expect(tree[0].props).toEqual(data[0]);
-    expect(tree[1].props).toEqual(data[1]);
+    expect(tree[2].props).toEqual(data[1]);
   });
 
   describe('capped (max < data.length)', () => {
@@ -54,10 +54,16 @@ describe('CappedList', () => {
 
       const tree = Capped.toTree().rendered;
 
+      expect(tree).toHaveLength(5); // components + spacers: 3 + 2
+      expect(tree[0].type).toBe(Comp);
+      expect(tree[4].type).toBe(CapComp);
+      expect(tree[4].props.data).toEqual([3, 4, 5]);
+/*
       expect(tree).toHaveLength(3);
       expect(tree[0].type).toBe(Comp);
       expect(tree[2].type).toBe(CapComp);
       expect(tree[2].props.data).toEqual([3, 4, 5]);
+*/
     });
 
     it('works without capComponent', () => {
@@ -69,7 +75,7 @@ describe('CappedList', () => {
 
       const tree = Capped.toTree().rendered;
 
-      expect(tree).toHaveLength(3);
+      expect(tree).toHaveLength(5);
       expect(tree[0].type).toBe(Comp);
       expect(tree[2].type).toBe(Comp);
     });
