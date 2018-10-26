@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import LoginScreen from './Auth/LoginScreen';
 import SpotsFilterScreen from './Spots/SpotsFilterScreen';
-import InfoScreen from './InfoScreen';
+// import InfoScreen from './InfoScreen';
 import SplashScreen from './SplashScreen';
 import SpotsListScreen from './Spots/SpotsListScreen';
 
@@ -40,11 +40,11 @@ storiesOf('Screens', module)
       <SpotsFilterScreen navigation={dummyNavigator} />
     </Provider>
   ))
-  .add('InfoScreen', () => (
+  /* .add('InfoScreen', () => (
     <Provider store={store}>
       <InfoScreen />
     </Provider>
-  ))
+  )) */
   .add('SpotsListScreen', () => (
     <Provider store={store}>
       <SpotsListScreen navigation={dummyNavigator} />

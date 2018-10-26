@@ -4,13 +4,14 @@ import codePush from 'react-native-code-push';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
-import I18n from '../I18n';
-import Colors from '../Themes/Colors';
-import LogoHeaderBackground from '../Backgrounds/LogoHeaderBackground';
-import Text from '../Components/Common/Text';
+import I18n from '../../../I18n';
+import Colors from '../../../Themes/Colors';
+import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
+import Text from '../../../Components/Common/Text';
 
-import navigationPropTypes from '../PropTypesDefinitions/navigation';
+import navigationPropTypes from '../../../PropTypesDefinitions/navigation';
 
+// TODO: refactor
 const Row = styled.View`
   height: 64px;
   padding-vertical: 16px;

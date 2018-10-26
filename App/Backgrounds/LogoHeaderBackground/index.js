@@ -37,6 +37,7 @@ const LogoHeaderBackground = ({
       bgColor={isWhiteTheme ? Colors.white : Colors.secondaryGreen}
     >
       {!hideLogo && [
+        <Spacer key="spacer-top" size="XL" />,
         <View
           key="logo"
           alignItems="center"
@@ -50,7 +51,7 @@ const LogoHeaderBackground = ({
             SPORTYSPOTS
           </Brand>
         </View>,
-        <Spacer key="spacer" size="XL" />,
+        <Spacer key="spacer-bottom" size="XL" />,
       ]}
       <FlexGrow>
         {children}
