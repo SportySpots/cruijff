@@ -5,6 +5,8 @@ const userNameAvatarFragment = gql`
     first_name
     last_name
     profile {
+      id
+      uuid
       avatar
     }
   }

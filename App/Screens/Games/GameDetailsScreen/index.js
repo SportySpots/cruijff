@@ -58,11 +58,13 @@ class GameDetailsScreen extends React.PureComponent {
   render() {
     const { user } = this.props;
 
+    console.log('PROPS', this.props);
+
     return (
       <Query
         query={GET_GAME_DETAILS}
         variables={{ uuid: this.gameUUID }}
-        fetchPolicy="network-only"
+        fetchPolicy="cache-and-network"
       >
         {({
           loading,
@@ -70,6 +72,8 @@ class GameDetailsScreen extends React.PureComponent {
           data,
           refetch,
         }) => {
+          console.log('ERROR', error);
+          console.log('DATA', data);
           if (loading) { return <CenteredActivityIndicator />; }
           if (error || !data || !data.game) {
             return (
