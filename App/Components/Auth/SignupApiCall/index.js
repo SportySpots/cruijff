@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import I18n from '../../../I18n';
 import SeedorfAPI from '../../../Services/SeedorfApi';
+import getErrorMsg from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -19,7 +21,7 @@ class SignupApiCall extends React.PureComponent {
     } = inputFields;
 
     try {
-      const result = await SeedorfAPI.signup({
+      const response = await SeedorfAPI.signup({
         firstName,
         lastName,
         username: email,
@@ -27,13 +29,13 @@ class SignupApiCall extends React.PureComponent {
         password,
       });
 
-      console.log('RESULT', result);
       // Pass event up to parent component
-      if (result && result.problem) {
-        onSignupError({ message: result.data });
+      if (response && response.problem) {
+        const message = getErrorMsg(response.data);
+        onSignupError({ message: I18n.t(message) });
         // 'Wrong username or password'
       } else {
-        onSignupSuccess({ token: result.data.token });
+        onSignupSuccess({ token: response.data.token });
       }
     } catch (exc) {
       onSignupError(exc);

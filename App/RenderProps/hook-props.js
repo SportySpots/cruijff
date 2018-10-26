@@ -1,16 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Toast from 'react-native-root-toast';
+import isString from 'lodash/isString';
 import { disabledPropTypes } from './disabled-props';
-import { messagePropTypes } from './message-props';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const toastConfig = {
+  duration: Toast.durations.LONG,
+  position: Toast.positions.BOTTOM,
+  shadow: true,
+  animation: true,
+  hideOnPress: true,
+  delay: 0,
+};
 //------------------------------------------------------------------------------
 // PROPS AND METHODS PROVIDER:
 //------------------------------------------------------------------------------
 class HookProps extends React.PureComponent {
   handleBefore = (cb) => {
-    const { disabledProps, messageProps } = this.props;
+    const { disabledProps } = this.props;
     disabledProps.disableBtn();
-    messageProps.clearMessages();
     // Allow other components to extend handleBefore default functionality
     if (cb && typeof cb === 'function') { cb(); }
   }
@@ -22,20 +33,25 @@ class HookProps extends React.PureComponent {
 
   handleClientError = () => {
     const { disabledProps } = this.props;
+    // TODO: log error
     disabledProps.enableBtn();
   }
 
   handleServerError = (err) => {
-    const { disabledProps, messageProps } = this.props;
-    // console.log(err);
-    messageProps.setErrorMessage(err.reason || err.message || 'Unexpected error');
+    const { disabledProps } = this.props;
+    console.log('SERVER_ERROR', err);
+    const errorMsg = ((
+      err
+      && ((isString(err.reason) && err.reason) || (isString(err.message) && err.message)))
+      || 'Unexpected error'
+    );
+    Toast.show(errorMsg, toastConfig);
     disabledProps.enableBtn();
   }
 
   handleSuccess = (cb) => {
-    const { disabledProps, messageProps } = this.props;
+    const { disabledProps } = this.props;
     disabledProps.enableBtn();
-    messageProps.clearMessages();
     // Allow other components to extend handleBefore default functionality
     if (cb && typeof cb === 'function') { cb(); }
   }
@@ -58,7 +74,6 @@ class HookProps extends React.PureComponent {
 
 HookProps.propTypes = {
   disabledProps: PropTypes.shape(disabledPropTypes).isRequired,
-  messageProps: PropTypes.shape(messagePropTypes).isRequired,
   children: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
