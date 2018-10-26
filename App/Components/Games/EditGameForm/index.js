@@ -184,7 +184,7 @@ class EditGameForm extends React.PureComponent {
     const {
       game,
       onBeforeHook,
-      onClientCancelHook,
+      // onClientCancelHook,
       onClientErrorHook,
       onSuccessHook,
     } = this.props;
@@ -272,7 +272,7 @@ class EditGameForm extends React.PureComponent {
           showsPagination={false}
         >
           <FullHeight>
-            <Top innerRef={(scroller) => { this.scroller = scroller; }}>
+            <Top ref={(scroller) => { this.scroller = scroller; }}>
               <Block
                 midHeight
                 onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'name', nativeEvent }); }}
