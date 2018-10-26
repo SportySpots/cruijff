@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
 import I18n from '../../../I18n';
+import { client } from '../../../GraphQL';
 import userActions from '../../../Redux/UserRedux';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Menu from '../../Common/Menu';
@@ -13,8 +14,8 @@ import Menu from '../../Common/Menu';
 class UserAdmin extends React.PureComponent {
   handleLogout = () => {
     const { logout, navigation } = this.props;
-    // TODO: reset store
     logout();
+    client.resetStore();
     navigation.navigate('SplashScreen');
   }
 

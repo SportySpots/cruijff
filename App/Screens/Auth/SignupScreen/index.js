@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import I18n from '../../../I18n/index';
+import { client } from '../../../GraphQL';
 import userActions from '../../../Redux/UserRedux';
 import FormProps from '../../../RenderProps/form-props';
 import SignupApiCall from '../../../Components/Auth/SignupApiCall';
@@ -59,7 +60,7 @@ class SignupScreen extends React.PureComponent {
               // Extend formProps.handleSuccess' default functionality
               handleSuccess(() => {
                 setToken(token);
-                // TODO: reset apollo store
+                client.resetStore();
                 onSuccessHook();
               });
             }}
