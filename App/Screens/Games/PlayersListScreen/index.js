@@ -95,6 +95,9 @@ export const GET_GAME_USERS_LIST = gql`
           uuid
           first_name
           last_name
+          profile {
+            avatar
+          }
         }
       }
     }
