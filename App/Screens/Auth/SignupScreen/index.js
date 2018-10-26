@@ -24,15 +24,15 @@ class SignupScreen extends React.PureComponent {
     const { user, onSuccessHook } = this.props;
 
     const userWasLoggedOut = (
-      !user ||
-      !user.uuid ||
-      user.uuid.trim().length === 0
+      !user
+      || !user.uuid
+      || user.uuid.trim().length === 0
     );
 
     const userIsLoggedIn = (
-      nextProps.user &&
-      nextProps.user.uuid &&
-      nextProps.user.uuid.trim().length > 0
+      nextProps.user
+      && nextProps.user.uuid
+      && nextProps.user.uuid.trim().length > 0
     );
 
     // Right after the user is logged in, fire success auth callback
