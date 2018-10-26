@@ -48,7 +48,7 @@ const create = () => {
 
   const signup = ({
     username, email, firstName, lastName, password,
-  }) =>
+  }) => (
     api.post('/auth/registration/', {
       username,
       email,
@@ -56,25 +56,28 @@ const create = () => {
       last_name: lastName,
       password1: password,
       password2: password,
-    });
+    })
+  );
 
-  const login = ({ username, email, password }) =>
+  const login = ({ username, email, password }) => (
     api.post('/auth/login/', {
       username,
       email,
       password,
-    });
+    })
+  );
 
   const updateProfile = ({
     userUUID, firstName, lastName, birthYear,
-  }) =>
+  }) => (
     api.patch(`/users/${userUUID}/`, {
       first_name: firstName,
       last_name: lastName,
       /* profile: {
         year_of_birth: birthYear,
       }, */
-    });
+    })
+  );
 
   const submitRating = (spotUuid, userUuid, rating) => {
     api.post(`/games/${spotUuid}/reactions`, {
@@ -84,7 +87,7 @@ const create = () => {
 
   const createGame = ({
     name, startTZ, startTime, endTZ, endTime, capacity, description,
-  }) =>
+  }) => (
     api.post('/games/', {
       name,
       start_timezone: startTZ,
@@ -95,7 +98,8 @@ const create = () => {
       rsvp_close_time: startTime,
       capacity,
       description,
-    });
+    })
+  );
 
   const setGameSport = ({ gameUUID, sport }) => {
     api.post(`/games/${gameUUID}/sport/`, {
@@ -103,15 +107,17 @@ const create = () => {
     });
   };
 
-  const setGameSpot = ({ gameUUID, spotUUID }) =>
+  const setGameSpot = ({ gameUUID, spotUUID }) => (
     api.post(`/games/${gameUUID}/spot/`, {
       uuid: spotUUID,
-    });
+    })
+  );
 
-  const setGameStatus = ({ gameUUID, status }) =>
+  const setGameStatus = ({ gameUUID, status }) => (
     api.patch(`/games/${gameUUID}/`, {
       status: status.toLowerCase(),
-    });
+    })
+  );
 
   const setGameTimes = ({
     gameUUID,
@@ -119,7 +125,7 @@ const create = () => {
     startTime,
     endTZ,
     endTime,
-  }) =>
+  }) => (
     api.patch(`/games/${gameUUID}/`, {
       start_timezone: startTZ,
       start_time: startTime,
@@ -127,40 +133,48 @@ const create = () => {
       end_time: endTime,
       rsvp_open_time: moment().toISOString(),
       rsvp_close_time: startTime,
-    });
+    })
+  );
 
-  const setGameName = ({ gameUUID, name }) =>
+  const setGameName = ({ gameUUID, name }) => (
     api.patch(`/games/${gameUUID}/`, {
       name,
-    });
+    })
+  );
 
-  const setGameInviteMode = ({ gameUUID, inviteMode }) =>
+  const setGameInviteMode = ({ gameUUID, inviteMode }) => (
     api.patch(`/games/${gameUUID}/`, {
       invite_mode: inviteMode,
-    });
+    })
+  );
 
-  const setGameDescription = ({ gameUUID, description }) =>
+  const setGameDescription = ({ gameUUID, description }) => (
     api.patch(`/games/${gameUUID}/`, {
       description,
-    });
+    })
+  );
 
-  const setGameCapacity = ({ gameUUID, capacity }) =>
+  const setGameCapacity = ({ gameUUID, capacity }) => (
     api.patch(`/games/${gameUUID}/`, {
       capacity,
-    });
+    })
+  );
 
-  const deleteGame = ({ gameUUID }) =>
-    api.delete(`/games/${gameUUID}`);
+  const deleteGame = ({ gameUUID }) => (
+    api.delete(`/games/${gameUUID}`)
+  );
 
-  const setRSVPStatus = ({ gameUUID, status }) =>
+  const setRSVPStatus = ({ gameUUID, status }) => (
     api.post(`/games/${gameUUID}/rsvps/`, {
       status: status.toLowerCase(),
-    });
+    })
+  );
 
-  const updateRSVPStatus = ({ gameUUID, rsvpUUID, status }) =>
+  const updateRSVPStatus = ({ gameUUID, rsvpUUID, status }) => (
     api.patch(`/games/${gameUUID}/rsvps/${rsvpUUID}/`, {
       status: status.toLowerCase(),
-    });
+    })
+  );
 
   // const setGameStartTime = ({ gameUUID, start_date, start_time }) =>
   // api.put(`/games/${gameUUID}/`), {
