@@ -74,6 +74,8 @@ const Title = styled(Text.M)`
   font-size: 22px;
 `;
 //------------------------------------------------------------------------------
+const iconStyle = { backgroundColor: 'transparent' };
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const GameListCard = ({ game }) => {
@@ -115,7 +117,7 @@ const GameListCard = ({ game }) => {
               name="ios-time"
               color={Colors.white}
               size={24}
-              style={{ backgroundColor: 'transparent' }}
+              style={iconStyle}
             />
             <Spacer row size="M" />
             <SmallText>
@@ -126,7 +128,7 @@ const GameListCard = ({ game }) => {
               name="map-marker"
               color={Colors.white}
               size={24}
-              style={{ backgroundColor: 'transparent' }}
+              style={iconStyle}
             />
             <Spacer row size="M" />
             <SmallText>

@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import userNameAvatarFragment from '../../Users/Fragments/userNameAvatar';
 
 const gameFragment = gql`
   fragment gameFragment on GameType {
@@ -16,8 +17,7 @@ const gameFragment = gql`
     }
     organizer {
       uuid
-      first_name
-      last_name
+      ...userNameAvatarFragment
     }
     spot {
       uuid
@@ -49,11 +49,11 @@ const gameFragment = gql`
       status
       user {
         uuid
-        first_name
-        last_name
+        ...userNameAvatarFragment
       }
     }
   }
+  ${userNameAvatarFragment}
 `;
 
 export default gameFragment;

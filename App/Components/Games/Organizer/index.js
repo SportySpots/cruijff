@@ -27,7 +27,7 @@ const Organizer = ({ organizer, textSize, description }) => {
       <Spacer row size="M" />
       <Container>
         <TextSize>
-          {organizer.first_name} {organizer.last_name}
+          {`${organizer.first_name} ${organizer.last_name}`}
           {description ? ` - ${description}` : ''}
         </TextSize>
       </Container>
