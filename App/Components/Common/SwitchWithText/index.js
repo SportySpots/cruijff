@@ -40,7 +40,7 @@ const SwitchWithText = ({
       <Switch
         value={value}
         onValueChange={() => { onChange(!value); }}
-        thumbTintColor={value ? Colors.primaryGreen : Colors.lightGray}
+        thumbColor={value ? Colors.primaryGreen : Colors.lightGray}
       />
     </Right>
   </Row>
