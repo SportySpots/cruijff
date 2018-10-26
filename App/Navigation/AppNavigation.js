@@ -1,4 +1,4 @@
-import { createStackNavigator, SwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
 import {
   SplashNav,
   SpotSearchNav,
@@ -32,7 +32,7 @@ const MainNav = createStackNavigator({
   initialRouteName: 'MainTabs',
 });
 
-const RootNav = SwitchNavigator({
+const RootNav = createSwitchNavigator({
   LocationPermissionScreen: { screen: AskLocation },
   OnboardingScreen: { screen: OnboardingScreen },
   SplashScreen: { screen: SplashNav },
