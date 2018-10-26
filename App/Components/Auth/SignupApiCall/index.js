@@ -33,7 +33,6 @@ class SignupApiCall extends React.PureComponent {
       if (response && response.problem) {
         const message = getErrorMsg(response.data);
         onSignupError({ message: I18n.t(message) });
-        // 'Wrong username or password'
       } else {
         onSignupSuccess({ token: response.data.token });
       }
