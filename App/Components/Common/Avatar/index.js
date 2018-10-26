@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import themeImages from '../../../Themes/Images';
-import userNameAvatarFragment from '../../../GraphQL/Users/Fragments/userNameAvatar';
 import Text from '../Text';
 import userToInitials from './utils';
 
@@ -38,9 +36,9 @@ const Initials = styled(Text.M)`
 //------------------------------------------------------------------------------
 const Avatar = ({ user, text, size }) => {
   const avatar = (
-    user &&
-    user.profile &&
-    user.profile.avatar
+    user
+    && user.profile
+    && user.profile.avatar
   ) ? user.profile.avatar : '';
 
   if (avatar) {
@@ -55,11 +53,11 @@ const Avatar = ({ user, text, size }) => {
   }
 
   const hasName = (
-    user &&
-    user.first_name &&
-    user.first_name.trim().length > 0 &&
-    user.last_name &&
-    user.last_name.trim().length > 0
+    user
+    && user.first_name
+    && user.first_name.trim().length > 0
+    && user.last_name
+    && user.last_name.trim().length > 0
   );
 
   if (hasName) {
@@ -94,7 +92,13 @@ const Avatar = ({ user, text, size }) => {
 };
 
 Avatar.propTypes = {
-  user: propType(userNameAvatarFragment),
+  user: PropTypes.shape({
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    profile: PropTypes.shape({
+      avatar: PropTypes.string,
+    }),
+  }),
   text: PropTypes.string,
   size: PropTypes.number,
 };
