@@ -1,14 +1,16 @@
-// import Fonts from '../../Themes/Fonts';
+import Fonts from '../../Themes/Fonts';
 
 // eslint-disable-next-line
 export const headerTitleStyle = {
-  // fontFamily: Fonts.style.M.fontFamily,
-  // fontSize: Fonts.style.M.fontSize,
-  /* alignSelf: 'center',
-  textAlign: 'center',
-  color: 'red',
-  textColor: 'red',
-  backgroundColor: 'red',
-  borderBottomColor: 'black',
-  borderBottomWidth: 2, */
+  fontFamily: Fonts.style.ML.fontFamily,
+  fontSize: Fonts.style.ML.fontSize,
+  fontWeight: 'normal',
+  /* color: "red",
+  marginHorizontal: 16,
+  textAlign: "center",
+  alignSelf: "center",
+  textColor: "red",
+  backgroundColor: "red",
+  borderBottomColor: "black",
+  borderBottomWidth: 2 */
 };
