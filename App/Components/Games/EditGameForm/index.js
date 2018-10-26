@@ -16,11 +16,11 @@ import CapacityPickerField from '../../Common/CapacityPickerField';
 // import DescriptionField from '../../Common/DescriptionField';
 import EditSpotField from '../../Spots/EditSpotField';
 import SpotsList from '../../Spots/SpotsList';
-import Spacer from '../../Common/Spacer';
+// import Spacer from '../../Common/Spacer';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Divider from '../../Common/Divider';
-import Text from '../../Common/Text';
+// import Text from '../../Common/Text';
 import TextField from '../../Common/TextField';
 import SwitchWithText from '../../Common/SwitchWithText';
 // import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
@@ -184,7 +184,7 @@ class EditGameForm extends React.PureComponent {
     const {
       game,
       onBeforeHook,
-      // onClientCancelHook,
+      onClientCancelHook,
       onClientErrorHook,
       onSuccessHook,
     } = this.props;
@@ -417,6 +417,7 @@ EditGameForm.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
+  onClientCancelHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
 };
@@ -424,6 +425,7 @@ EditGameForm.propTypes = {
 EditGameForm.defaultProps = {
   disabled: false,
   onBeforeHook: () => {},
+  onClientCancelHook: () => {},
   onClientErrorHook: () => {},
   onSuccessHook: () => {},
 };
