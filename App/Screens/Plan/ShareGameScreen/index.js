@@ -6,7 +6,7 @@ import {
   Platform,
   BackHandler,
 } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import { StackActions, NavigationActions } from 'react-navigation';
 import I18n from '../../../I18n';
 import FormProps from '../../../RenderProps/form-props';
 import ShareGameApiCall from '../../../Components/PlanGame/ShareGameApiCall';
@@ -81,12 +81,10 @@ class ShareGameScreen extends React.Component {
                 // Go to games list screen
                 navigation.navigate('GamesListScreen');
                 // Reset stack (otherwise we'll get a back arrow for some wired reason :S)
-                navigation.dispatch(new NavigationActions.reset({
+                navigation.dispatch(StackActions.reset({
                   index: 0,
                   actions: [
-                    NavigationActions.navigate({
-                      routeName: 'GamesListScreen',
-                    }),
+                    NavigationActions.navigate({ routeName: 'GamesListScreen' }),
                   ],
                 }));
                 // Finally go to recently created game
