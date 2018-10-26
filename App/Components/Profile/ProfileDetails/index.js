@@ -32,7 +32,7 @@ const ProfileDetails = ({ user }) => [
     </Row>
     <Spacer size="XL" />
     <Name>
-      {user.first_name} {user.last_name}
+      {`${user.first_name} ${user.last_name}`}
     </Name>
   </Block>,
   <Spacer key="spacer" size="M" />,

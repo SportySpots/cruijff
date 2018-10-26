@@ -1,6 +1,6 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
-import { TabBarTop, TabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n';
@@ -24,8 +24,8 @@ const Container = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ProfileTabs = ({ user }) => (
-  React.createElement(new TabNavigator({
-    spots: {
+  React.createElement(createMaterialTopTabNavigator({
+    Spots: {
       screen: () => (
         <Container>
           <UserSpots spots={(user && user.profile && user.profile.spots) || []} />
@@ -35,14 +35,13 @@ const ProfileTabs = ({ user }) => (
         tabBarLabel: <Label>{I18n.t('My Spots')}</Label>,
       },
     },
-    /* games: {
+    /* Games: {
       screen: () => <UserGames user={user} />,
       navigationOptions: {
         tabBarLabel: I18n.t('Activities'),
       },
     }, */
   }, {
-    tabBarComponent: TabBarTop,
     tabBarPosition: 'top',
     tabBarOptions: {
       style: {
@@ -57,7 +56,7 @@ const ProfileTabs = ({ user }) => (
         height: 4,
       },
     },
-    initialRouteName: 'spots',
+    initialRouteName: 'Spots',
   }))
 );
 

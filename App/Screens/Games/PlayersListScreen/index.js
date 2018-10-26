@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Query } from 'react-apollo';
 import { ScrollView, View } from 'react-native';
-import { TabBarTop, TabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
@@ -12,24 +12,26 @@ import Text from '../../../Components/Common/Text';
 import Avatar from '../../../Components/Common/Avatar';
 import navigationPropTypes from '../../../PropTypesDefinitions/navigation';
 
-export const BottomNav = ({ screens }) => React.createElement(new TabNavigator(screens, {
-  tabBarComponent: TabBarTop,
-  tabBarPosition: 'top',
-  tabBarOptions: {
-    style: {
-      backgroundColor: Colors.white,
+// TODO: refactor
+export const BottomNav = ({ screens }) => (
+  React.createElement(createMaterialTopTabNavigator(screens, {
+    tabBarPosition: 'top',
+    tabBarOptions: {
+      style: {
+        backgroundColor: Colors.white,
+      },
+      labelStyle: {
+        color: 'black',
+        fontWeight: '700',
+      },
+      indicatorStyle: {
+        backgroundColor: Colors.primaryGreen,
+        height: 4,
+      },
     },
-    labelStyle: {
-      color: 'black',
-      fontWeight: '700',
-    },
-    indicatorStyle: {
-      backgroundColor: Colors.primaryGreen,
-      height: 4,
-    },
-  },
-  initialRouteName: 'ATTENDING',
-}));
+    initialRouteName: 'ATTENDING',
+  }))
+);
 
 BottomNav.propTypes = {
   screens: PropTypes.object,
