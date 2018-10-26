@@ -95,6 +95,7 @@ class CancelGameScreen extends React.PureComponent {
                         // Call api to store data into DB
                         cancelGame(inputFields);
                       }}
+                      onAttendeesPress={this.handleAttendeesPress}
                     />
                   )}
                 </CancelGameApiCall>,
