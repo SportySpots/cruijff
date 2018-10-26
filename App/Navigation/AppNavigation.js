@@ -1,4 +1,4 @@
-import { StackNavigator, SwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, SwitchNavigator, createBottomTabNavigator } from 'react-navigation';
 import {
   SplashNav,
   SpotSearchNav,
@@ -25,7 +25,7 @@ const MainTabsNav = createBottomTabNavigator({
   initialRouteName: 'SpotSearchTab',
 });
 
-const MainNav = StackNavigator({
+const MainNav = createStackNavigator({
   MainTabs: { screen: MainTabsNav, navigationOptions: { header: null } },
   PlanScreen: { screen: PlanGameNav, navigationOptions: { header: null } },
 }, {

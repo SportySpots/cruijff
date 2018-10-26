@@ -81,7 +81,7 @@ const SportDateTimeSlide = ({
   </Row>,
   <Spacer key="duration-spacer" size="S" />,
   <Row
-    key="time-duration"
+    key="duration"
     alignItems="flex-end"
   >
     <Label>{I18n.t('during')}</Label>

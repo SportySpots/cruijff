@@ -103,11 +103,11 @@ class SpotsFilterForm extends React.PureComponent {
             description={(
               <Row alignItems="flex-end">
                 <Text.SM style={{ color: Colors.gray }}>
-                  {I18n.t('Shows spots inside')}:
+                  {`${I18n.t('Shows spots inside')}:`}
                 </Text.SM>
                 <Spacer row size="S" />
                 <Text.SM style={{ fontWeight: 'bold' }}>
-                  {maxDistance.toFixed(1).toString().replace('.0', '')} KM
+                  {`${maxDistance.toFixed(1).toString().replace('.0', '')} KM`}
                 </Text.SM>
               </Row>
             )}

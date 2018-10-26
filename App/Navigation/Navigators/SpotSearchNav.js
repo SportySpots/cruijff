@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import SpotsListScreen from '../../Screens/Spots/SpotsListScreen';
@@ -20,7 +20,7 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SpotSearchNav = StackNavigator({
+const SpotSearchNav = createStackNavigator({
   ...GameDetailsScreens,
   SpotDetailsScreen: {
     screen: SpotDetailsScreen,

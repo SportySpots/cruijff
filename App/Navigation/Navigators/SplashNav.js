@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import LoginScreen from '../../Screens/Auth/LoginScreen';
@@ -23,7 +23,7 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SplashNav = StackNavigator({
+const SplashNav = createStackNavigator({
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoginScreen

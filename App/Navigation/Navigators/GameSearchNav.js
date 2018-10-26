@@ -1,4 +1,4 @@
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
 import GameDetailsScreens from './GameDetailsScreens';
 import GamesListScreen from '../../Screens/Games/GamesListScreen';
@@ -6,7 +6,7 @@ import GamesListScreen from '../../Screens/Games/GamesListScreen';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameSearchNav = StackNavigator({
+const GameSearchNav = createStackNavigator({
   ...GameDetailsScreens,
   GamesListScreen: {
     screen: GamesListScreen,
