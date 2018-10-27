@@ -9,7 +9,7 @@ import TextField from '../../Common/TextField';
 const DescriptionSlide = ({ description, descriptionMaxChars, onChange }) => (
   <TextField
     testID="description"
-    label={I18n.t('Write extra details about the game here')}
+    placeholder={I18n.t('Write extra details about the game here')}
     value={description}
     multiline
     characterRestriction={descriptionMaxChars}
