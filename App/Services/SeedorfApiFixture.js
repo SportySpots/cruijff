@@ -55,7 +55,7 @@ export default {
     data: { uuid: 'random-uuid' },
   }),
 
-  submitRating: (spotUuid, userUuid, rating) => ({
+  submitRating: (spotUUID, userUuid, rating) => ({
     ok: true,
     data: {},
   }),

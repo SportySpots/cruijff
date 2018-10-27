@@ -79,8 +79,8 @@ const create = () => {
     })
   );
 
-  const submitRating = (spotUuid, userUuid, rating) => {
-    api.post(`/games/${spotUuid}/reactions`, {
+  const submitRating = (spotUUID, userUuid, rating) => {
+    api.post(`/games/${spotUUID}/reactions`, {
       // todo : construct proper post
     });
   };

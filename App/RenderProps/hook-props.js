@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard, View } from 'react-native';
 import isString from 'lodash/isString';
-import Fonts from '../Themes/Fonts';
-import Colors from '../Themes/Colors';
 import { disabledPropTypes } from './disabled-props';
 import Toast from '../Components/Common/Toast';
 

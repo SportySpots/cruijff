@@ -40,9 +40,9 @@ class GameDetailsScreen extends React.PureComponent {
     return null;
   };
 
-  handleSpotPress = ({ spotUuid }) => {
+  handleSpotPress = ({ spotUUID }) => {
     const { navigation } = this.props;
-    navigation.navigate('SpotDetailsScreen', { uuid: spotUuid });
+    navigation.navigate('SpotDetailsScreen', { uuid: spotUUID });
   }
 
   handleAttendeesPress = () => {

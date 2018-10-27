@@ -68,7 +68,7 @@ const GameProperties = ({ game, onSpotPress }) => {
       <TouchableOpacity
         onPress={() => {
           if (!spot || !spot.uuid) { return; }
-          onSpotPress({ spotUuid: spot.uuid });
+          onSpotPress({ spotUUID: spot.uuid });
         }}
       >
         <Row>
