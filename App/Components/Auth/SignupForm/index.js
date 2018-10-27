@@ -179,7 +179,9 @@ class SignupForm extends React.PureComponent {
         hideLogo
       >
         <FlexOne>
-          <Block>
+          <Block
+            midHeight
+          >
             <TextField
               testID="signupFieldFirstName"
               label={I18n.t('First name')}
@@ -193,7 +195,9 @@ class SignupForm extends React.PureComponent {
               }}
             />
           </Block>
-          <Block>
+          <Block
+            midHeight
+          >
             <TextField
               testID="signupFieldLastName"
               label={I18n.t('Last name')}
@@ -206,7 +210,9 @@ class SignupForm extends React.PureComponent {
               }}
             />
           </Block>
-          <Block>
+          <Block
+            midHeight
+          >
             <TextField
               testID="signupFieldEmail"
               label={I18n.t('E-mail')}
@@ -220,7 +226,9 @@ class SignupForm extends React.PureComponent {
               }}
             />
           </Block>
-          <Block>
+          <Block
+            midHeight
+          >
             <TextField
               testID="signupFieldPassword"
               label={I18n.t('Password')}

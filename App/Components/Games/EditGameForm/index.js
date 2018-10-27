@@ -133,8 +133,6 @@ class EditGameForm extends React.PureComponent {
   }
 
   handleChange = ({ fieldName, value }) => {
-    console.log('FIELD_NAME', fieldName);
-    console.log('VALUE', value);
     if (!fieldName) {
       return;
     }

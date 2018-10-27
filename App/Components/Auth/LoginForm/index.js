@@ -134,7 +134,9 @@ class LoginForm extends React.PureComponent {
         hideLogo
       >
         <FlexOne>
-          <Block>
+          <Block
+            midHeight
+          >
             <TextField
               testID="loginInputEmail"
               label={I18n.t('E-mail')}
@@ -149,7 +151,9 @@ class LoginForm extends React.PureComponent {
               }}
             />
           </Block>
-          <Block>
+          <Block
+            midHeight
+          >
             <TextField
               testID="loginInputPassword"
               label={I18n.t('Password')}
