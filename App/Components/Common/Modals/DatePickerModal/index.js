@@ -10,7 +10,6 @@ import Block from '../../Block';
 import Calendar from '../../Calendar';
 import CancelConfirmModal from '../CancelConfirmModal';
 import datePickerDatePropTypes from '../../../../PropTypesDefinitions/datePickerDate';
-import toTitleCase from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -41,7 +40,7 @@ class DatePickerModal extends React.PureComponent {
       <Row alignItems="center" justifyContent="space-between">
         <Text.ML>{I18n.t('Select a date')}</Text.ML>
         <SelectedDate>
-          {value && toTitleCase(moment(value.dateString).format('ddd, MMM D').replace(/\./g, ''))}
+          {value && moment(value.dateString).format('ddd, MMM D').replace(/\./g, '').toTitleCase()}
         </SelectedDate>
       </Row>
     );

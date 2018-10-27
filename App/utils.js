@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-export const addModelState = (reactComponentInstance, modalName, isOpen=false) => {
+export const addModelState = (reactComponentInstance, modalName, isOpen = false) => {
   reactComponentInstance.modals = reactComponentInstance.modals || {};
   reactComponentInstance.state.modals = reactComponentInstance.state.modals || {};
   const setState = (state) => {

@@ -20,6 +20,7 @@ import config from './config';
 import scopedEval from './scopedEval';
 import globalRefs, { addGlobalRef } from './globalRefs';
 import { getBottomSpace, getStatusBarHeight, ifIphoneX } from './iphoneHelpers';
+import './prototypes'; // prototype extensions
 
 export class App extends Component {
   constructor() {

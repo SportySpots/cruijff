@@ -7,6 +7,7 @@ import styled from 'styled-components/native';
 import moment from 'moment';
 import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n';
+import toTitleCase from '../../../utils';
 import Text from '../../Common/Text';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -43,7 +44,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         <Icon name="event" size={22} color={Colors.shade} />
         <Spacer row size="L" />
         <Label>
-          {moment.utc(startTime).format('dddd, D MMMM')}
+          {moment.utc(startTime).format('dddd, D MMMM').toTitleCase()}
         </Label>
       </Row>
       <Spacer size="M" />
