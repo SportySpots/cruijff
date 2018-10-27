@@ -2,18 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Toast from 'react-native-root-toast';
 import isString from 'lodash/isString';
+import Fonts from '../Themes/Fonts';
+import Colors from '../Themes/Colors';
 import { disabledPropTypes } from './disabled-props';
 
+// TODO: create Common/Toast folder, set config there, then import here
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const toastConfig = {
   duration: Toast.durations.LONG,
-  position: Toast.positions.BOTTOM,
+  position: -0.1,
   shadow: true,
   animation: true,
   hideOnPress: true,
   delay: 0,
+  opacity: 1,
+  containerStyle: {
+    width: '100%',
+    backgroundColor: Colors.black,
+    borderRadius: 0,
+    minHeight: 64,
+    padding: 16,
+  },
+  textStyle: {
+    color: Colors.white,
+    fontFamily: Fonts.style.M.fontFamily,
+    textAlign: 'left',
+  },
 };
 //------------------------------------------------------------------------------
 // PROPS AND METHODS PROVIDER:
@@ -39,7 +55,6 @@ class HookProps extends React.PureComponent {
 
   handleServerError = (err) => {
     const { disabledProps } = this.props;
-    console.log('SERVER_ERROR', err);
     const errorMsg = ((
       err
       && ((isString(err.reason) && err.reason) || (isString(err.message) && err.message)))
