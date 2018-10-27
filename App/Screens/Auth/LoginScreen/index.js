@@ -42,7 +42,7 @@ class LoginScreen extends React.Component {
   }
 
   render() {
-    const { setToken, onSuccessHook } = this.props;
+    const { setToken } = this.props;
 
     return (
       <FormProps>
@@ -61,7 +61,7 @@ class LoginScreen extends React.Component {
               handleSuccess(() => {
                 setToken(token);
                 client.resetStore();
-                onSuccessHook();
+                // See componentWillReceiveProps
               });
             }}
           >
