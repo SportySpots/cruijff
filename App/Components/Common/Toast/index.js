@@ -19,7 +19,7 @@ const Container = styled.TouchableOpacity`
   elevation: 999;
   z-index: 10000;
   min-height: 64px;
-  background-color: ${Colors.black};
+  background-color: ${Colors.negative};
 `;
 //------------------------------------------------------------------------------
 const StyledText = styled(Text.SM)`

@@ -42,6 +42,13 @@ class SignupForm extends React.PureComponent {
       email: [],
       password: [],
     },
+    // Keep track of field position in order to 'scroll to' on error
+    offsetY: {
+      firstName: 0,
+      lastName: 0,
+      email: 0,
+      password: 0,
+    },
   }
 
   clearErrors = () => {
@@ -54,6 +61,17 @@ class SignupForm extends React.PureComponent {
       },
     });
   };
+
+  handleLayout = ({ fieldName, nativeEvent }) => {
+    const { offsetY } = this.state;
+
+    this.setState({
+      offsetY: {
+        ...offsetY,
+        [fieldName]: nativeEvent.layout.y,
+      },
+    });
+  }
 
   handleChange = ({ fieldName, value }) => {
     const { errors } = this.state;
@@ -147,6 +165,11 @@ class SignupForm extends React.PureComponent {
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
       this.setState({ errors });
+      // Scroll to first error field
+      const { offsetY } = this.state;
+      const firstErrorKey = ErrorHandling.getFirstError(errors).key; // 'name', 'attendees', 'description'
+      const y = parseInt(offsetY[firstErrorKey], 10);
+      this.scroller.scrollTo({ x: 0, y });
       // Pass event up to parent component. onClientErrorHook will set 'disabled'
       // value back to 'false' so that the user can re-submit the form
       onClientErrorHook();
@@ -178,9 +201,10 @@ class SignupForm extends React.PureComponent {
         // theme="green"
         hideLogo
       >
-        <FlexOne>
+        <FlexOne ref={(scroller) => { this.scroller = scroller; }}>
           <Block
             midHeight
+            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'firstName', nativeEvent }); }}
           >
             <TextField
               testID="signupFieldFirstName"
@@ -197,6 +221,7 @@ class SignupForm extends React.PureComponent {
           </Block>
           <Block
             midHeight
+            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'lastName', nativeEvent }); }}
           >
             <TextField
               testID="signupFieldLastName"
@@ -212,6 +237,7 @@ class SignupForm extends React.PureComponent {
           </Block>
           <Block
             midHeight
+            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'email', nativeEvent }); }}
           >
             <TextField
               testID="signupFieldEmail"
@@ -228,6 +254,7 @@ class SignupForm extends React.PureComponent {
           </Block>
           <Block
             midHeight
+            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'password', nativeEvent }); }}
           >
             <TextField
               testID="signupFieldPassword"

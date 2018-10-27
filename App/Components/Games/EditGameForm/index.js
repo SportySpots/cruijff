@@ -206,7 +206,6 @@ class EditGameForm extends React.PureComponent {
       spot,
       description,
       isPublic,
-      offsetY,
     } = this.state;
 
     // Clear previous errors if any
@@ -219,6 +218,7 @@ class EditGameForm extends React.PureComponent {
     if (ErrorHandling.hasErrors(errors)) {
       this.setState({ errors });
       // Scroll to first error field
+      const { offsetY } = this.state;
       const firstErrorKey = ErrorHandling.getFirstError(errors).key; // 'name', 'attendees', 'description'
       const y = parseInt(offsetY[firstErrorKey], 10);
       this.scroller.scrollTo({ x: 0, y });
