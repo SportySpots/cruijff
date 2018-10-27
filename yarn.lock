@@ -888,7 +888,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2":
+"@babel/runtime@^7.0.0":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.1.2.tgz#81c89935f4647706fc54541145e6b4ecfef4b8e3"
   dependencies:
@@ -965,6 +965,10 @@
 "@emotion/memoize@^0.6.6":
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.6.6.tgz#004b98298d04c7ca3b4f50ca2035d4f60d2eed1b"
+
+"@rimiti/react-native-toastify@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@rimiti/react-native-toastify/-/react-native-toastify-1.0.0.tgz#1e714777e7c8345653617f381372d0964417ce12"
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -10738,10 +10742,6 @@ react-is@^16.3.1, react-is@^16.3.2, react-is@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
 
-react-is@^16.6.0:
-  version "16.6.0"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
-
 react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -10914,20 +10914,6 @@ react-native-popup-menu@0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/react-native-popup-menu/-/react-native-popup-menu-0.14.0.tgz#8a11e4a78f76f5883fa5eb9d736f0ec2df8765ce"
 
-react-native-root-siblings@^3.0.0:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/react-native-root-siblings/-/react-native-root-siblings-3.1.4.tgz#ff155c5f7a3f84465b700b1995bd4cb62b0f0695"
-  dependencies:
-    react-redux "*"
-    static-container "^1.0.0"
-
-react-native-root-toast@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-root-toast/-/react-native-root-toast-3.0.1.tgz#ad0a37c46bc72971a229c7784df25147004e5538"
-  dependencies:
-    prop-types "^15.5.10"
-    react-native-root-siblings "^3.0.0"
-
 react-native-safe-area-view@0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.11.0.tgz#4f3dda43c2bace37965e7c6aef5fc83d4f19d174"
@@ -11093,18 +11079,6 @@ react-proxy@^1.1.7:
   dependencies:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
-
-react-redux@*:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.1.0.tgz#948b1e2686473d1999092bcfb32d0dc43d33f667"
-  dependencies:
-    "@babel/runtime" "^7.1.2"
-    hoist-non-react-statics "^3.0.0"
-    invariant "^2.2.4"
-    loose-envify "^1.1.0"
-    prop-types "^15.6.1"
-    react-is "^16.6.0"
-    react-lifecycles-compat "^3.0.0"
 
 react-redux@^5.0.6:
   version "5.0.7"
@@ -12389,10 +12363,6 @@ standard-json@^1.0.0:
   resolved "https://registry.yarnpkg.com/standard-json/-/standard-json-1.0.3.tgz#5b5b21d9418810dc5644c113d5163541dcd8faa6"
   dependencies:
     concat-stream "^1.5.0"
-
-static-container@^1.0.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/static-container/-/static-container-1.2.0.tgz#1c6e92b869da47d32abe47f45f50bf39661d9c2f"
 
 static-extend@^0.1.1:
   version "0.1.2"

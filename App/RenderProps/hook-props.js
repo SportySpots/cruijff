@@ -1,42 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Toast from 'react-native-root-toast';
+import { Keyboard, View } from 'react-native';
 import isString from 'lodash/isString';
 import Fonts from '../Themes/Fonts';
 import Colors from '../Themes/Colors';
 import { disabledPropTypes } from './disabled-props';
+import Toast from '../Components/Common/Toast';
 
-// TODO: create Common/Toast folder, set config there, then import here
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const toastConfig = {
-  duration: Toast.durations.LONG,
-  position: -0.1,
-  shadow: true,
-  animation: true,
-  hideOnPress: true,
-  delay: 0,
-  opacity: 1,
-  containerStyle: {
-    width: '100%',
-    backgroundColor: Colors.black,
-    borderRadius: 0,
-    minHeight: 64,
-    padding: 16,
-  },
-  textStyle: {
-    color: Colors.white,
-    fontFamily: Fonts.style.M.fontFamily,
-    textAlign: 'left',
-  },
-};
 //------------------------------------------------------------------------------
 // PROPS AND METHODS PROVIDER:
 //------------------------------------------------------------------------------
 class HookProps extends React.PureComponent {
   handleBefore = (cb) => {
     const { disabledProps } = this.props;
+    Keyboard.dismiss();
     disabledProps.disableBtn();
     // Allow other components to extend handleBefore default functionality
     if (cb && typeof cb === 'function') { cb(); }
@@ -60,7 +37,7 @@ class HookProps extends React.PureComponent {
       && ((isString(err.reason) && err.reason) || (isString(err.message) && err.message)))
       || 'Unexpected error'
     );
-    Toast.show(errorMsg, toastConfig);
+    this.toast.show(errorMsg, 2000);
     disabledProps.enableBtn();
   }
 
@@ -83,7 +60,12 @@ class HookProps extends React.PureComponent {
       handleSuccess: this.handleSuccess,
     };
 
-    return children(api);
+    return (
+      <View style={{ flex: 1 }}>
+        <Toast ref={(toast) => { this.toast = toast; }} />
+        {children(api)}
+      </View>
+    );
   }
 }
 
