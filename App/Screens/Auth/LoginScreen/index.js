@@ -48,6 +48,7 @@ class LoginScreen extends React.Component {
       <FormProps>
         {({
           disabled,
+          errors,
           handleBefore,
           handleClientCancel,
           handleClientError,
@@ -68,13 +69,12 @@ class LoginScreen extends React.Component {
             {({ loginUser }) => (
               <LoginForm
                 disabled={disabled}
+                errors={errors}
                 onBeforeHook={handleBefore}
                 onClientCancelHook={handleClientCancel}
                 onClientErrorHook={handleClientError}
-                onSuccessHook={(inputFields) => {
-                  // Call api to authenticate user
-                  loginUser(inputFields);
-                }}
+                // Call api to authenticate user
+                onSuccessHook={loginUser}
               />
             )}
           </LoginApiCall>

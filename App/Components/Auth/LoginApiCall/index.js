@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import I18n from '../../../I18n';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import getErrorMsg from './utils';
+import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -25,8 +24,8 @@ class LoginApiCall extends React.PureComponent {
       // Pass event up to parent component
       if (response && response.problem) {
         console.log('RESPONSE', response.data);
-        const message = getErrorMsg(response.data);
-        onLoginError({ message: I18n.t(message) });
+        const errors = curateErrors(response.data);
+        onLoginError(errors);
       } else {
         onLoginSuccess({ token: response.data.token });
       }

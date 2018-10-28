@@ -1,4 +1,29 @@
-import ErrorHandling from 'error-handling-utils';
+/**
+ * error = { email: ['This field must be unique.'] }
+*/
+const curateFieldName = (fieldName) => {
+  switch (fieldName) {
+    case 'password1':
+      return 'password';
+    case 'email':
+    case 'username':
+    case 'non_field_errors':
+    default:
+      return 'email';
+  }
+};
+
+/**
+ * error = { email: ['This field must be unique.'] }
+*/
+const curateErrorMsg = (errorMsg) => {
+  switch (errorMsg) {
+    case 'Unable to log in with provided credentials.':
+      return 'Wrong email or password';
+    default:
+      return errorMsg;
+  }
+};
 
 /**
  * errors = {
@@ -6,19 +31,17 @@ import ErrorHandling from 'error-handling-utils';
  *  password1: ['This password is too short. It must contain at least 8 characters.']
  * }
 */
-const getErrorMsg = (errors) => {
-  // { key: 'email', value: 'This field must be unique.' }
-  const { key } = ErrorHandling.getFirstError(errors);
+const curateErrors = (errors) => {
+  const keys = Object.keys(errors);
+  const curatedErrors = {};
 
-  switch (key) {
-    case 'email':
-    case 'username':
-    case 'password1':
-    case 'non_field_errors':
-      return 'Wrong username or password';
-    default:
-      return 'Unexpected error';
-  }
+  keys.forEach((key) => {
+    const arrayError = errors[key];
+    const curatedArray = arrayError.map(errorMsg => (curateErrorMsg(errorMsg)));
+    curatedErrors[curateFieldName(key)] = curatedArray;
+  });
+
+  return curatedErrors;
 };
 
-export default getErrorMsg;
+export default curateErrors;

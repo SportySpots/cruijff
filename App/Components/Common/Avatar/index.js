@@ -96,7 +96,10 @@ Avatar.propTypes = {
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     profile: PropTypes.shape({
-      avatar: PropTypes.string,
+      avatar: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+      ]),
     }),
   }),
   text: PropTypes.string,

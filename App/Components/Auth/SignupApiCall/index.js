@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import I18n from '../../../I18n';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import getErrorMsg from './utils';
+import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -31,8 +30,10 @@ class SignupApiCall extends React.PureComponent {
 
       // Pass event up to parent component
       if (response && response.problem) {
-        const message = getErrorMsg(response.data);
-        onSignupError({ message: I18n.t(message) });
+        console.log('RESPONSE', response.data);
+        const errors = curateErrors(response.data);
+        console.log('CURATED ERRORS', errors);
+        onSignupError(errors);
       } else {
         onSignupSuccess({ token: response.data.token });
       }

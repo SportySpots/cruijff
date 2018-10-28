@@ -34,6 +34,19 @@ class LoginForm extends React.PureComponent {
     },
   }
 
+  componentWillReceiveProps({ errors }) {
+    // Display server side errors coming from the outside
+    if (errors) {
+      this.setState({
+        errors: {
+          email: [],
+          password: [],
+          ...errors,
+        },
+      });
+    }
+  }
+
   clearErrors = () => {
     this.setState({
       errors: {
@@ -184,6 +197,7 @@ class LoginForm extends React.PureComponent {
 
 LoginForm.propTypes = {
   disabled: PropTypes.bool,
+  errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,
   onClientCancelHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
@@ -192,6 +206,7 @@ LoginForm.propTypes = {
 
 LoginForm.defaultProps = {
   disabled: false,
+  errors: null,
   onBeforeHook: () => {},
   onClientCancelHook: () => {},
   onClientErrorHook: () => {},

@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard, View } from 'react-native';
-import isString from 'lodash/isString';
+import { Keyboard } from 'react-native';
 import { disabledPropTypes } from './disabled-props';
-import Toast from '../Components/Common/Toast';
+import { errorPropTypes } from './error-props';
 
 //------------------------------------------------------------------------------
 // PROPS AND METHODS PROVIDER:
 //------------------------------------------------------------------------------
 class HookProps extends React.PureComponent {
   handleBefore = (cb) => {
-    const { disabledProps } = this.props;
+    const { disabledProps, errorProps } = this.props;
     Keyboard.dismiss();
     disabledProps.disableBtn();
+    errorProps.clearErrors();
     // Allow other components to extend handleBefore default functionality
     if (cb && typeof cb === 'function') { cb(); }
   }
@@ -24,24 +24,21 @@ class HookProps extends React.PureComponent {
 
   handleClientError = () => {
     const { disabledProps } = this.props;
-    // TODO: log error
+    // Log errors into service
     disabledProps.enableBtn();
   }
 
-  handleServerError = (err) => {
-    const { disabledProps } = this.props;
-    const errorMsg = ((
-      err
-      && ((isString(err.reason) && err.reason) || (isString(err.message) && err.message)))
-      || 'Unexpected error'
-    );
-    this.toast.show(errorMsg, 2000);
+  handleServerError = (errors) => {
+    const { disabledProps, errorProps } = this.props;
+    // console.log(errors);
+    errorProps.setErrors(errors);
     disabledProps.enableBtn();
   }
 
   handleSuccess = (cb) => {
-    const { disabledProps } = this.props;
+    const { disabledProps, errorProps } = this.props;
     disabledProps.enableBtn();
+    errorProps.clearErrors();
     // Allow other components to extend handleBefore default functionality
     if (cb && typeof cb === 'function') { cb(); }
   }
@@ -52,23 +49,18 @@ class HookProps extends React.PureComponent {
     // Public API
     const api = {
       handleBefore: this.handleBefore,
-      handleClientCancel: this.handleClientCancel,
       handleClientError: this.handleClientError,
       handleServerError: this.handleServerError,
       handleSuccess: this.handleSuccess,
     };
 
-    return (
-      <View style={{ flex: 1 }}>
-        <Toast ref={(toast) => { this.toast = toast; }} />
-        {children(api)}
-      </View>
-    );
+    return children(api);
   }
 }
 
 HookProps.propTypes = {
   disabledProps: PropTypes.shape(disabledPropTypes).isRequired,
+  errorProps: PropTypes.shape(errorPropTypes).isRequired,
   children: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
@@ -82,7 +74,6 @@ export default HookProps;
 //------------------------------------------------------------------------------
 export const hookPropTypes = {
   handleBefore: PropTypes.func.isRequired,
-  handleClientCancel: PropTypes.func.isRequired,
   handleClientError: PropTypes.func.isRequired,
   handleServerError: PropTypes.func.isRequired,
   handleSuccess: PropTypes.func.isRequired,

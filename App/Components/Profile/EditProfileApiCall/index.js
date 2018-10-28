@@ -32,14 +32,15 @@ class EditProfileApiCall extends React.PureComponent {
     }
 
     try {
-      const result = await SeedorfAPI.updateProfile(doc);
-      console.log('RESULT', result);
+      const response = await SeedorfAPI.updateProfile(doc);
 
       // Pass event up to parent component
-      if (result && result.ok) {
-        onEditSuccess();
+      if (response && response.problem) {
+        console.log('RESPONSE', response.data);
+        // const errors = curateErrors(response.data);
+        onEditError(response.data); // TODO: curate errors
       } else {
-        onEditError('Something went wrong :(');
+        onEditSuccess();
       }
     } catch (exc) {
       onEditError(exc);

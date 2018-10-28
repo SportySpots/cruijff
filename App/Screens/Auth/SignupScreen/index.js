@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import I18n from '../../../I18n/index';
 import { client } from '../../../GraphQL';
 import userActions from '../../../Redux/UserRedux';
 import FormProps from '../../../RenderProps/form-props';
@@ -48,6 +47,7 @@ class SignupScreen extends React.PureComponent {
       <FormProps>
         {({
           disabled,
+          errors,
           handleBefore,
           handleClientCancel,
           handleClientError,
@@ -68,6 +68,7 @@ class SignupScreen extends React.PureComponent {
             {({ signupUser }) => (
               <SignupForm
                 disabled={disabled}
+                errors={errors}
                 onBeforeHook={handleBefore}
                 onClientCancelHook={handleClientCancel}
                 onClientErrorHook={handleClientError}
