@@ -26,8 +26,8 @@ const FlexOne = styled.ScrollView`
 // TODO: use KeyboardAwareScrollView
 class LoginForm extends React.PureComponent {
   state = {
-    email: 'federodes@gmail.com',
-    password: 'SportySpots',
+    email: '',
+    password: '',
     errors: {
       email: [],
       password: [],
