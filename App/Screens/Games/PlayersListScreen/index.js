@@ -8,6 +8,7 @@ import { createMaterialTopTabNavigator } from 'react-navigation';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
+import userNameAvatarFragment from '../../../GraphQL/Users/Fragments/userNameAvatar';
 import Text from '../../../Components/Common/Text';
 import Avatar from '../../../Components/Common/Avatar';
 import navigationPropTypes from '../../../PropTypesDefinitions/navigation';
@@ -93,15 +94,12 @@ export const GET_GAME_USERS_LIST = gql`
         created_at
         user {
           uuid
-          first_name
-          last_name
-          profile {
-            avatar
-          }
+          ...userNameAvatarFragment
         }
       }
     }
   }
+  ${userNameAvatarFragment}
 `;
 
 const UserList = ({ navigation }) => (
