@@ -2,19 +2,21 @@ import React from 'react';
 import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { MenuProvider } from 'react-native-popup-menu';
-import { WithApolloMockProvider } from '../App/GraphQL';
+import { ApolloMockProvider, withApolloMockProvider } from '../App/GraphQL';
 import { loadStories } from './storyLoader';
 import ReduxMockProvider from '../App/Redux/ReduxMockProvider';
 
 /* addDecorator(story => (
-  <WithApolloMockProvider>
+  <ApolloMockProvider>
     <ReduxMockProvider>
       <MenuProvider>
         {story()}
       </MenuProvider>
     </ReduxMockProvider>
-  </WithApolloMockProvider>
+  </ApolloMockProvider>
 )); */
+
+// addDecorator(withApolloMockProvider);
 
 // Import stories
 configure(loadStories, module);

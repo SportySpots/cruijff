@@ -4,18 +4,18 @@ import { Provider } from 'react-redux';
 
 import CancelGameScreen from '.';
 import { navigation, store } from './mocks';
-import { WithApolloMockProvider } from '../../../GraphQL';
+import { ApolloMockProvider } from '../../../GraphQL';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 
 describe('CancelGameScreen', () => {
   it('renders', () => {
     const WrappedScreen = renderer.create(
       <Provider store={store}>
-        <WithApolloMockProvider>
+        <ApolloMockProvider>
           <CancelGameScreen
             navigation={navigation}
           />
-        </WithApolloMockProvider>
+        </ApolloMockProvider>
       </Provider>,
     );
     const Screen = WrappedScreen.root.findByType(CancelGameScreen);

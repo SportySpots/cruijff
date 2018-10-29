@@ -71,8 +71,18 @@ export const createMockClient = () => {
   return client;
 };
 
-export const WithApolloMockProvider = ({ children }) => (
+export const ApolloMockProvider = ({ children }) => (
   <ApolloProvider client={createMockClient()}>
     {children}
   </ApolloProvider>
 );
+
+export const withApolloMockProvider = (Component) => {
+  const ApolloComponent = props => (
+    <ApolloMockProvider>
+      <Component {...props} />
+    </ApolloMockProvider>
+  );
+
+  return ApolloComponent;
+};

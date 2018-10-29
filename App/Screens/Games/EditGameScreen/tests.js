@@ -4,18 +4,18 @@ import { Provider } from 'react-redux';
 
 import EditGameScreen from '.';
 import { navigation, store } from './mocks';
-import { WithApolloMockProvider } from '../../../GraphQL';
+import { ApolloMockProvider } from '../../../GraphQL';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 
 describe('EditGameScreen', () => {
   it('renders', () => {
     const WrappedScreen = renderer.create(
       <Provider store={store}>
-        <WithApolloMockProvider>
+        <ApolloMockProvider>
           <EditGameScreen
             navigation={navigation}
           />
-        </WithApolloMockProvider>
+        </ApolloMockProvider>
       </Provider>,
     );
     const Screen = WrappedScreen.root.findByType(EditGameScreen);

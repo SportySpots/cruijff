@@ -1,87 +1,31 @@
 import React from 'react';
-import { TouchableOpacity, Linking, TouchableWithoutFeedback } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native';
 import codePush from 'react-native-code-push';
 import styled from 'styled-components';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
+import Block from '../../../Components/Common/Block';
+import Spacer from '../../../Components/Common/Spacer';
+import Divider from '../../../Components/Common/Divider';
 import Text from '../../../Components/Common/Text';
+import Link from '../../../Components/Common/Link';
 
-import navigationPropTypes from '../../../PropTypesDefinitions/navigation';
-
-// TODO: refactor
-const Row = styled.View`
-  height: 64px;
-  padding-vertical: 16px;
-  flex-direction: row;
-  border-top-width: ${props => (props.first ? '1px' : '0px')};
-  border-top-color: ${Colors.shade};
-  border-bottom-width: 1px;
-  border-bottom-color: ${Colors.shade};
-  margin-horizontal: 16px;
-  `;
-
-const LeftContainer = styled.View`
-  flex: 1;
-  margin-horizontal: 8px;
-  justify-content: center;
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Version = styled(Text.M)`
+  text-align: center;
 `;
-
-const RightContainer = styled.View`
-  width: 32px;
-  margin-horizontal: 8px;
-  justify-content: center;
-`;
-
-const Container = styled.View`
-  flex: 1;
-  margin-top: 56px;
-`;
-
-const VersionContainer = styled.View`
-  flex-direction: row;
-  justify-content: center;
-`;
-
-const Link = ({
-  text,
-  href,
-  icon,
-  first,
-}) => (
-  <Row first={first}>
-    <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} onPress={() => Linking.openURL(href)}>
-      <LeftContainer>
-        <Text.M>{text}</Text.M>
-      </LeftContainer>
-      <RightContainer>
-        <Icon name={icon} size={24} />
-      </RightContainer>
-    </TouchableOpacity>
-  </Row>
-);
-
-Link.propTypes = {
-  first: PropTypes.bool,
-  text: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  icon: PropTypes.any,
-};
-
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 class InfoScreen extends React.Component {
-  static propTypes = {
-    navigation: navigationPropTypes,
-  }
-  constructor(props) {
-    super(props);
-    this.state = {
-      label: '?',
-      version: '?',
-      description: '?',
-      versionTaps: 0,
-    };
+  state = {
+    label: '?',
+    version: '?',
+    description: '?',
+    versionTaps: 0,
   }
 
   componentDidMount() {
@@ -101,35 +45,69 @@ class InfoScreen extends React.Component {
   }
 
   versionPress() {
-    /* go to DebugNav after 10 presses */
-    this.setState({ versionTaps: this.state.versionTaps + 1 });
+    const { navigation } = this.props;
+    const { versionTaps } = this.state;
+
+    // Go to DebugNav after 10 presses
+    this.setState({ versionTaps: versionTaps + 1 });
+
     if (!this.versionTapTimer) {
       this.versionTapTimer = setTimeout(() => {
         this.setState({ versionTaps: 0 });
         this.versionTapTimer = null;
       }, 5000);
     }
-    if (this.state.versionTaps === 10) {
-      this.props.navigation.navigate('DebugNav');
+
+    if (versionTaps === 10) {
+      navigation.navigate('DebugNav');
     }
   }
 
   render() {
+    const { version, label, description } = this.state;
+
     return (
       <LogoHeaderBackground>
-        <TouchableWithoutFeedback onPress={() => this.versionPress()}>
-          <VersionContainer>
-            <Text.M>{this.state.version} {this.state.label} {this.state.description}</Text.M>
-          </VersionContainer>
+        <TouchableWithoutFeedback onPress={() => { this.versionPress(); }}>
+          <Version>
+            {`${I18n.t('Version')} ${version}.${label}.${description}`}
+          </Version>
         </TouchableWithoutFeedback>
-        <Container>
-          <Link first text={I18n.t('Privacy info')} href="https://www.sportyspots.com/privacy.html" icon="perm-identity" />
-          <Link text={I18n.t('Terms and conditions')} href="https://www.sportyspots.com/terms.html" icon="info" />
-          <Link text={I18n.t('Help us to improve the app')} href="https://goo.gl/forms/3oc4XPVkQtXMSKK33" icon="phone-iphone" />
-        </Container>
+        <Spacer size="XXXL" />
+        <Divider />
+        <Block midHeigh>
+          <Link
+            text={I18n.t('Help us to improve the app')}
+            href="https://goo.gl/forms/3oc4XPVkQtXMSKK33"
+            iconName="chat"
+          />
+        </Block>
+        <Divider />
+        <Block midHeigh>
+          <Link
+            text={I18n.t('Privacy info')}
+            href="https://www.sportyspots.com/privacy.html"
+            iconName="account-circle"
+          />
+        </Block>
+        <Divider />
+        <Block midHeigh>
+          <Link
+            text={I18n.t('Terms and conditions')}
+            href="https://www.sportyspots.com/terms.html"
+            iconName="info"
+          />
+        </Block>
+        <Divider />
       </LogoHeaderBackground>
     );
   }
 }
+
+InfoScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default InfoScreen;
