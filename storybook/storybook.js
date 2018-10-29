@@ -6,7 +6,7 @@ import { WithApolloMockProvider } from '../App/GraphQL';
 import { loadStories } from './storyLoader';
 import ReduxMockProvider from '../App/Redux/ReduxMockProvider';
 
-addDecorator(story => (
+/* addDecorator(story => (
   <WithApolloMockProvider>
     <ReduxMockProvider>
       <MenuProvider>
@@ -14,7 +14,7 @@ addDecorator(story => (
       </MenuProvider>
     </ReduxMockProvider>
   </WithApolloMockProvider>
-));
+)); */
 
 // Import stories
 configure(loadStories, module);
