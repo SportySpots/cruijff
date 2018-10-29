@@ -43,7 +43,6 @@
     "prestorybook": "rnstl",
     "reset": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && yarn cache clean && yarn install",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "oldstorybook": "yarn prestorybook && storybook start -p 7007",
     "storybook": "yarn prestorybook && storybook start -p 7007 | react-native start --projectRoot storybook",
     "test:coverage": "TZ=\"UTC\" jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
     "test:updateSnapshot": "TZ=\"UTC\" jest --updateSnapshot",
