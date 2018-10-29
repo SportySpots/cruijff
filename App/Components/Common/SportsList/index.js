@@ -12,38 +12,45 @@ import { makeNumGenerator } from '../../../utils';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SportsList = ({ selectedSport, onSportPress }) => (
-  <Query query={GET_SPORTS}>
-    {({ loading, error, data }) => {
-      if (loading) { return <CenteredActivityIndicator />; }
-      if (error || !data) { return null; }
+const SportsList = ({ selectedSport, onSportPress }) => {
+  const numGenerator = makeNumGenerator();
 
-      const numGenerator = makeNumGenerator();
+  return (
+    <Query query={GET_SPORTS}>
+      {({ loading, error, data }) => {
+        if (loading) { return <CenteredActivityIndicator />; }
+        if (error || !data) { return null; }
 
-      return (
-        <FlatList
-          keyExtractor={item => item.uuid}
-          renderItem={({ item }) => (
-            <SportCard
-              testID={`sport_${numGenerator()}`}
-              sport={item}
-              isSelected={(
-                selectedSport
-                && selectedSport.uuid
-                && item.uuid === selectedSport.uuid
-              ) || false}
-              onPress={onSportPress}
-            />
-          )}
-          data={data.sports}
-          ItemSeparatorComponent={null}
-          // Force list to re-render whenever selected sport changes
-          extraData={selectedSport ? selectedSport.uuid : null}
-        />
-      );
-    }}
-  </Query>
-);
+        return (
+          <FlatList
+            keyExtractor={item => item.uuid}
+            data={data.sports.filter(sport => (
+              sport
+              && sport.category
+              && sport.category.toUpperCase() !== 'OTHERS'
+              && sport.category.toUpperCase() !== 'FITNESS'
+            ))}
+            renderItem={({ item }) => (
+              <SportCard
+                testID={`sport_${numGenerator()}`}
+                sport={item}
+                isSelected={(
+                  selectedSport
+                  && selectedSport.uuid
+                  && item.uuid === selectedSport.uuid
+                ) || false}
+                onPress={onSportPress}
+              />
+            )}
+            ItemSeparatorComponent={null}
+            // Force list to re-render whenever selected sport changes
+            extraData={selectedSport ? selectedSport.uuid : null}
+          />
+        );
+      }}
+    </Query>
+  );
+};
 
 SportsList.propTypes = {
   selectedSport: propType(sportFragment),

@@ -47,7 +47,7 @@ const ProfileEditScreen = ({ user, navigation }) => (
           refetch,
         }) => {
           if (loading) return <CenteredActivityIndicator />;
-          if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
+          if (error) return <Text>{JSON.stringify(error)}</Text>;
           if (!data || !data.user) { return null; }
 
           return (

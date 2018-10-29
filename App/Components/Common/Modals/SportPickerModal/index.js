@@ -25,7 +25,7 @@ const SportPickerModal = ({
       visible={visible}
       onClose={onClose}
       header={header}
-      bodyHeight={8 * SPORT_CARD_HEIGHT}
+      bodyHeight={7 * SPORT_CARD_HEIGHT}
     >
       <ScrollView>
         <SportsList

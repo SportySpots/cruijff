@@ -6,10 +6,11 @@ import styled from 'styled-components/native';
 import I18n from '../I18n/index';
 import Colors from '../Themes/Colors';
 import FieldBackground from '../Backgrounds/FieldBackground';
-import RaisedButton from '../Components/Common/RaisedButton';
 import Block from '../Components/Common/Block';
 import Spacer from '../Components/Common/Spacer';
 import Text from '../Components/Common/Text';
+import RaisedButton from '../Components/Common/RaisedButton';
+import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 import globalRefs, { addGlobalRef } from '../globalRefs';
 
 //------------------------------------------------------------------------------
@@ -61,7 +62,7 @@ class SplashScreen extends React.Component {
     const { firstRun } = this.state;
 
     if (user && !user.initialized) {
-      return <FieldBackground />;
+      return <CenteredActivityIndicator />;
     }
 
     return (

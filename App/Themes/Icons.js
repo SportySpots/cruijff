@@ -7,6 +7,7 @@ const icons = {
   skating: require('../Icons/skating.png'),
   table_tennis: require('../Icons/table_tennis.png'),
   tennis: require('../Icons/tennis.png'),
+  bootcamp: require('../Icons/bootcamp.png'),
 };
 
 export default icons;
