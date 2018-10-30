@@ -167,6 +167,7 @@ class CancelGameForm extends React.PureComponent {
           <Block key="cancel-msg">
             <CancelMsg
               value={cancelMsg}
+              disabled={disabled}
               characterRestriction={MAX_CHARS}
               onChangeText={this.handleCancelMsgChange}
               error={cancelMsgErrors}

@@ -281,6 +281,7 @@ class EditGameForm extends React.PureComponent {
                   error={nameErrors}
                   placeholder={I18n.t('Write here why the activity does not continue')}
                   size="ML"
+                  disabled={disabled}
                   // multiline
                   onChangeText={(value) => { this.handleChange({ fieldName: 'name', value }); }}
                 />
@@ -292,8 +293,8 @@ class EditGameForm extends React.PureComponent {
                 <TextField
                   label={I18n.t('Sport')}
                   value={I18n.t(sport.name) || I18n.t(sport.category)}
-                  disabled
                   size="ML"
+                  disabled // always disabled
                   onChangeText={() => {}}
                 />
               </Block>
@@ -302,6 +303,7 @@ class EditGameForm extends React.PureComponent {
                   label={I18n.t('Date')}
                   value={date}
                   size="ML"
+                  disabled={disabled}
                   theme="transparent"
                   dateFormat="DD/MM/YYYY"
                   boxed
@@ -316,6 +318,7 @@ class EditGameForm extends React.PureComponent {
                       label={I18n.t('Start time')}
                       value={time}
                       size="ML"
+                      disabled={disabled}
                       theme="transparent"
                       boxed
                       onChange={(value) => { this.handleChange({ fieldName: 'time', value }); }}
@@ -329,6 +332,7 @@ class EditGameForm extends React.PureComponent {
                       label={I18n.t('Duration')}
                       value={duration}
                       size="ML"
+                      disabled={disabled}
                       theme="transparent"
                       boxed
                       onChange={(value) => { this.handleChange({ fieldName: 'duration', value }); }}
@@ -346,6 +350,7 @@ class EditGameForm extends React.PureComponent {
                   value={capacity}
                   error={capacityErrors}
                   size="ML"
+                  disabled={disabled}
                   theme="transparent"
                   boxed
                   onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
@@ -355,6 +360,7 @@ class EditGameForm extends React.PureComponent {
               <Block>
                 <EditSpotField
                   spot={spot}
+                  disabled={disabled}
                   onPress={() => { this.swiper.scrollBy(1); }}
                 />
               </Block>
@@ -368,6 +374,7 @@ class EditGameForm extends React.PureComponent {
                   value={description}
                   theme="black"
                   error={descriptionErrors}
+                  disabled={disabled}
                   characterRestriction={DESCRIPTION_MAX_CHARS}
                   multiline
                   placeholder={I18n.t('Write extra details about the game here')}
@@ -379,6 +386,7 @@ class EditGameForm extends React.PureComponent {
                 <SwitchWithText
                   label={I18n.t('This is a private activity')}
                   value={!isPublic}
+                  disabled={disabled}
                   onChange={(value) => { this.handleChange({ fieldName: 'isPublic', value: !value }); }}
                 />
               </Block>

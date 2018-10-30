@@ -213,7 +213,6 @@ class SignupForm extends React.PureComponent {
     return (
       <LogoHeaderBackground
         testID="signupScrollView"
-        // theme="green"
         hideLogo
       >
         <FlexOne ref={(scroller) => { this.scroller = scroller; }}>
@@ -227,7 +226,7 @@ class SignupForm extends React.PureComponent {
               value={firstName}
               error={firstNameErrors}
               size="ML"
-              // theme="white"
+              disabled={disabled}
               autoFocus
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'firstName', value });
@@ -244,7 +243,7 @@ class SignupForm extends React.PureComponent {
               value={lastName}
               error={lastNameErrors}
               size="ML"
-              // theme="white"
+              disabled={disabled}
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'lastName', value });
               }}
@@ -260,7 +259,7 @@ class SignupForm extends React.PureComponent {
               value={email}
               error={emailErrors}
               size="ML"
-              // theme="white"
+              disabled={disabled}
               keyboardType="email-address"
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'email', value });
@@ -277,7 +276,7 @@ class SignupForm extends React.PureComponent {
               value={password}
               error={passwordErrors}
               size="ML"
-              // theme="white"
+              disabled={disabled}
               secureTextEntry
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'password', value });

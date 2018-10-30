@@ -11,7 +11,7 @@ import Menu from '../../Common/Menu';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class UserAdmin extends React.PureComponent {
+class UserMenu extends React.PureComponent {
   handleLogout = () => {
     const { logout, navigation } = this.props;
     logout();
@@ -26,6 +26,10 @@ class UserAdmin extends React.PureComponent {
 
   render() {
     const { user } = this.props;
+
+    if (!user || !user.uuid) {
+      return null;
+    }
 
     const OPTIONS = [
       {
@@ -64,14 +68,18 @@ class UserAdmin extends React.PureComponent {
   }
 }
 
-UserAdmin.propTypes = {
+UserMenu.propTypes = {
   user: PropTypes.shape({
-    uuid: PropTypes.string.isRequired,
-  }).isRequired,
+    uuid: PropTypes.string,
+  }),
   logout: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+};
+
+UserMenu.defaultProps = {
+  user: null,
 };
 
 // Redux integration
@@ -79,4 +87,4 @@ const mapStateToProps = ({ user }) => ({ user });
 const dispatchToProps = { logout: userActions.logout };
 const withRedux = connect(mapStateToProps, dispatchToProps);
 
-export default withRedux(UserAdmin);
+export default withRedux(UserMenu);

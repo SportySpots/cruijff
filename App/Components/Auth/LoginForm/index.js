@@ -143,7 +143,6 @@ class LoginForm extends React.PureComponent {
     return (
       <LogoHeaderBackground
         testID="LoginScreen"
-        // theme="green"
         hideLogo
       >
         <FlexOne>
@@ -156,9 +155,9 @@ class LoginForm extends React.PureComponent {
               value={email}
               error={emailErrors}
               size="ML"
+              disabled={disabled}
               keyboardType="email-address"
               autoFocus
-              // theme="white"
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'email', value });
               }}
@@ -173,8 +172,8 @@ class LoginForm extends React.PureComponent {
               value={password}
               error={passwordErrors}
               size="ML"
+              disabled={disabled}
               secureTextEntry
-              // theme="white"
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'password', value });
               }}
