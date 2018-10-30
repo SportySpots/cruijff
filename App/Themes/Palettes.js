@@ -8,6 +8,8 @@ const getInputPalette = (theme) => {
         baseColor: Colors.black,
         tintColor: Colors.primaryGreen,
         iconColor: Colors.black,
+        disabledColor: Colors.gray,
+        errorColor: Colors.red,
         lineWidth: 1,
       };
     case 'white':
@@ -16,6 +18,8 @@ const getInputPalette = (theme) => {
         baseColor: Colors.white,
         tintColor: Colors.white,
         iconColor: Colors.white,
+        disabledColor: Colors.gray,
+        errorColor: Colors.red,
         lineWidth: 1,
       };
     case 'transparent':
@@ -24,6 +28,8 @@ const getInputPalette = (theme) => {
         baseColor: Colors.black,
         tintColor: Colors.black,
         iconColor: Colors.black,
+        disabledColor: Colors.gray,
+        errorColor: Colors.red,
         lineWidth: 0,
       };
     case 'mix':
@@ -32,6 +38,8 @@ const getInputPalette = (theme) => {
         baseColor: Colors.white,
         tintColor: Colors.white,
         iconColor: Colors.white,
+        disabledColor: Colors.gray,
+        errorColor: Colors.red,
         lineWidth: 1,
       };
     default:

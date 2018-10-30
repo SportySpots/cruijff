@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField as TextFieldMUI } from 'react-native-material-textfield';
 import Fonts from '../../../Themes/Fonts';
-import Colors from '../../../Themes/Colors';
 import getInputPalette from '../../../Themes/Palettes';
 
 //------------------------------------------------------------------------------
@@ -20,6 +19,8 @@ const TextField = ({
     fontColor,
     baseColor,
     tintColor,
+    disabledColor,
+    errorColor,
     lineWidth,
   } = getInputPalette(theme);
 
@@ -29,7 +30,7 @@ const TextField = ({
       labelFontSize={Fonts.style.M.fontSize}
       labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
       labelHeight={1.5 * Fonts.style.M.fontSize}
-      errorColor={Colors.red}
+      errorColor={errorColor}
       animationDuration={150}
       lineWidth={lineWidth}
       disabledLineWidth={0}
@@ -43,7 +44,7 @@ const TextField = ({
         fontWeight: 'normal',
         fontFamily: Fonts.style[size].fontFamily,
         marginTop: 8,
-        color: disabled ? Colors.gray : fontColor,
+        color: disabled ? disabledColor : fontColor,
         ...style,
       }}
       {...rest}

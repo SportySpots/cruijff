@@ -26,6 +26,16 @@ storiesOf('Common.TextField', module)
       />
     </Block>
   ))
+  .add('TextField disabled', () => (
+    <Block>
+      <TextField
+        label="I'm the label"
+        value="I'm the value"
+        disabled
+        containerStyle={containerStyle}
+      />
+    </Block>
+  ))
   .add('TextField with characterRestriction = 20', () => (
     <Block>
       <TextField
@@ -47,11 +57,11 @@ storiesOf('Common.TextField', module)
       />
     </Block>
   ))
-  .add('TextField with white theme size L', () => (
+  .add('TextField with white theme size ML', () => (
     <Block bgColor={Colors.primaryGreen}>
       <TextField
         theme="white"
-        size="L"
+        size="ML"
         label="I'm the label"
         value="I'm the value"
         characterRestriction={20}

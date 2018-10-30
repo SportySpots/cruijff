@@ -15,6 +15,7 @@ class Container extends React.PureComponent {
   render() {
     const {
       theme,
+      error,
       label,
       boxed,
       size,
@@ -24,6 +25,7 @@ class Container extends React.PureComponent {
     return (
       <CapacityPickerField
         theme={theme}
+        error={error}
         label={label}
         boxed={boxed}
         value={value}
@@ -36,6 +38,7 @@ class Container extends React.PureComponent {
 
 Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
+  error: PropTypes.string,
   size: PropTypes.string,
   label: PropTypes.string,
   boxed: PropTypes.bool,
@@ -43,6 +46,7 @@ Container.propTypes = {
 
 Container.defaultProps = {
   theme: 'black',
+  error: '',
   size: 'M',
   label: '',
   boxed: false,
@@ -51,6 +55,9 @@ Container.defaultProps = {
 storiesOf('Common.CapacityPickerField', module)
   .add('CapacityPickerField', () => (
     <Container />
+  ))
+  .add('CapacityPickerField with ERROR', () => (
+    <Container error="I'm the error" />
   ))
   .add('CapacityPickerField white theme', () => (
     <Block bgColor={Colors.primaryGreen}>

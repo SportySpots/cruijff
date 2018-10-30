@@ -35,11 +35,9 @@ class Container extends React.PureComponent {
       size,
       error,
     } = this.props;
-    const { value } = this.state;
 
     return (
       <Block bgColor={bgColor}>
-        <Text>{value}</Text>
         <Dropdown
           theme={theme}
           size={size}
@@ -76,14 +74,12 @@ storiesOf('Common.Dropdown', module)
     <Container
       bgColor={Colors.primaryGreen}
       theme="white"
-      error="Some error msg"
     />
   ))
-  .add('Dropdown with white theme size L', () => (
+  .add('Dropdown with white theme size ML', () => (
     <Container
       bgColor={Colors.primaryGreen}
       theme="white"
-      error="Some error msg"
-      size="L"
+      size="ML"
     />
   ));

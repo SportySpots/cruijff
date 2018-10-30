@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown as DropdownMUI } from 'react-native-material-dropdown';
 import Fonts from '../../../Themes/Fonts';
-import Colors from '../../../Themes/Colors';
 import getInputPalette from '../../../Themes/Palettes';
 
 //------------------------------------------------------------------------------
@@ -24,6 +23,8 @@ const Dropdown = ({
     fontColor,
     baseColor,
     tintColor,
+    disabledColor,
+    errorColor,
     lineWidth,
   } = getInputPalette(theme);
 
@@ -37,7 +38,7 @@ const Dropdown = ({
       labelFontSize={Fonts.style.M.fontSize}
       labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
       labelHeight={1.5 * Fonts.style.M.fontSize}
-      errorColor={Colors.red}
+      errorColor={errorColor}
       animationDuration={150}
       lineWidth={lineWidth}
       disabledLineWidth={0}
@@ -56,7 +57,7 @@ const Dropdown = ({
         fontWeight: 'normal',
         fontFamily: Fonts.style[size].fontFamily,
         marginTop: 8,
-        color: disabled ? Colors.gray : fontColor,
+        color: disabled ? disabledColor : fontColor,
         ...style,
       }}
       {...rest}

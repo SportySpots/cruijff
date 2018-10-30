@@ -22,6 +22,8 @@ const InputField = ({
   comp,
   value,
   theme,
+  disabled,
+  error,
   onPress,
   boxed,
   minWidth,
@@ -29,19 +31,26 @@ const InputField = ({
   ...rest
 }) => {
   const isTextField = comp === 'TextField';
+  const Root = disabled ? View : TouchableOpacity;
   const Comp = isTextField ? TextField : Dropdown;
   const pointerEvents = isTextField ? 'none' : 'auto';
-  const { iconColor } = getInputPalette(theme);
+  const { iconColor, disabledColor, errorColor } = getInputPalette(theme);
+
+  let iColor = iconColor;
+  if (disabled) { iColor = disabledColor; }
+  if (error) { iColor = errorColor; }
 
   if (boxed) {
     return (
-      <TouchableOpacity onPress={onPress} testID={testID}>
+      <Root onPress={onPress} testID={testID}>
         <Row>
           <FlexGrow pointerEvents={pointerEvents}>
             <Comp
               containerStyle={{ width: '100%' }}
               value={value}
+              disabled={disabled}
               theme={theme}
+              error={error}
               {...rest}
             />
           </FlexGrow>
@@ -51,11 +60,11 @@ const InputField = ({
             <Icon
               size={24}
               name="keyboard-arrow-down"
-              color={iconColor}
+              color={iColor}
             />
           </View>
         </Row>
-      </TouchableOpacity>
+      </Root>
     );
   }
 
@@ -65,18 +74,20 @@ const InputField = ({
     : minWidth || 80;
 
   return (
-    <TouchableOpacity onPress={onPress} testID={testID}>
+    <Root onPress={onPress} testID={testID}>
       <Row>
         <Spacer row size="M" />
         <FlexGrow pointerEvents={pointerEvents}>
           <Comp
             value={value}
+            disabled={disabled}
             style={{
               paddingHorizontal: 8,
               textAlign: 'center',
             }}
             containerStyle={{ width }}
             theme={theme}
+            error={error}
             {...rest}
           />
         </FlexGrow>
@@ -86,28 +97,33 @@ const InputField = ({
           <Icon
             size={24}
             name="keyboard-arrow-down"
-            color={iconColor}
+            color={iColor}
           />
         </View>
         <Spacer row size="M" />
       </Row>
-    </TouchableOpacity>
+    </Root>
   );
 };
 
 InputField.propTypes = {
   comp: PropTypes.oneOf(['TextField', 'Dropdown']).isRequired,
   value: PropTypes.string,
+  disabled: PropTypes.bool,
   theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
+  error: PropTypes.string,
   onPress: PropTypes.func,
   boxed: PropTypes.bool,
   minWidth: PropTypes.number,
   testID: PropTypes.string,
+  // Plus all props from TextField and Dropdown comps
 };
 
 InputField.defaultProps = {
   value: '',
+  disabled: false,
   theme: 'black',
+  error: '',
   onPress: () => {},
   boxed: false,
   minWidth: null,

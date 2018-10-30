@@ -23,7 +23,26 @@ storiesOf('Common.InputField', module)
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
+      />
+    </Block>
+  ))
+  .add('InputField TextField comp with ERROR', () => (
+    <Block>
+      <InputField
+        comp="TextField"
+        label="I'm the label"
+        value="I'm the value"
         error="I'm the error"
+      />
+    </Block>
+  ))
+  .add('InputField TextField comp DISABLED', () => (
+    <Block>
+      <InputField
+        comp="TextField"
+        label="I'm the label"
+        value="I'm the value"
+        disabled
       />
     </Block>
   ))
@@ -33,7 +52,28 @@ storiesOf('Common.InputField', module)
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
+        boxed
+      />
+    </Block>
+  ))
+  .add('InputField TextField comp boxed with ERROR', () => (
+    <Block>
+      <InputField
+        comp="TextField"
+        label="I'm the label"
+        value="I'm the value"
         error="I'm the error"
+        boxed
+      />
+    </Block>
+  ))
+  .add('InputField TextField comp boxed DISABLED', () => (
+    <Block>
+      <InputField
+        comp="TextField"
+        label="I'm the label"
+        value="I'm the value"
+        disabled
         boxed
       />
     </Block>
@@ -44,11 +84,40 @@ storiesOf('Common.InputField', module)
         comp="Dropdown"
         label="I'm the label"
         data={data}
+      />
+    </Block>
+  ))
+  .add('InputField Dropdown comp with ERROR', () => (
+    <Block>
+      <InputField
+        comp="Dropdown"
+        label="I'm the label"
+        data={data}
         error="I'm the error"
       />
     </Block>
   ))
+  .add('InputField Dropdown comp DISABLED', () => (
+    <Block>
+      <InputField
+        comp="Dropdown"
+        label="I'm the label"
+        data={data}
+        disabled
+      />
+    </Block>
+  ))
   .add('InputField Dropdown comp boxed', () => (
+    <Block>
+      <InputField
+        comp="Dropdown"
+        label="I'm the label"
+        data={data}
+        boxed
+      />
+    </Block>
+  ))
+  .add('InputField Dropdown comp boxed with ERROR', () => (
     <Block>
       <InputField
         comp="Dropdown"
@@ -59,13 +128,23 @@ storiesOf('Common.InputField', module)
       />
     </Block>
   ))
+  .add('InputField Dropdown comp boxed DISABLED', () => (
+    <Block>
+      <InputField
+        comp="Dropdown"
+        label="I'm the label"
+        data={data}
+        disabled
+        boxed
+      />
+    </Block>
+  ))
   .add('InputField size S', () => (
     <Block>
       <InputField
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
-        error="I'm the error"
         size="S"
       />
     </Block>
@@ -76,7 +155,6 @@ storiesOf('Common.InputField', module)
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
-        error="I'm the error"
         size="ML"
       />
     </Block>
@@ -87,7 +165,6 @@ storiesOf('Common.InputField', module)
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
-        error="I'm the error"
         theme="white"
       />
     </Block>
