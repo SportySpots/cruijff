@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import Dropdown from '.';
