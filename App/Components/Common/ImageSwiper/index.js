@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-swiper';
-import { Image, ViewPropTypes } from 'react-native';
+import { Image } from 'react-native';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ImageSwiper = ({ images, style }) => (
-  <Swiper style={{ flex: 1, ...style }}>
+const ImageSwiper = ({ images }) => (
+  <Swiper style={{ flex: 1 }}>
     {images.map(src => (
       <Image
         key={src}
@@ -20,11 +20,10 @@ const ImageSwiper = ({ images, style }) => (
 
 ImageSwiper.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
-  style: ViewPropTypes.style,
 };
 
 ImageSwiper.defaultProps = {
-  style: {},
+  images: [],
 };
 
 export default ImageSwiper;

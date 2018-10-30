@@ -5,8 +5,8 @@ import { ScrollView } from 'react-native';
 import styled from 'styled-components';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
 import Colors from '../../../Themes/Colors';
-import SpotMapWithLinkFallback from '../../../Components/Spots/SpotMapWithLinkFallback';
-import Header from '../../../Components/Spots/Header';
+import SpotMapWithLinkFallback from '../SpotMapWithLinkFallback';
+import Header from '../Header';
 // import SpotRating from './SpotRating';
 import SpotImages from '../SpotImages';
 import SpotProperties from '../SpotProperties';
@@ -27,7 +27,7 @@ const Block = styled.View`
 //------------------------------------------------------------------------------
 const SpotDetails = ({ spot, userId }) => ( // eslint-disable-line
   <Container>
-    <SpotImages spot={spot} />
+    <SpotImages images={(spot && spot.images) || []} />
     <Block>
       <Header spot={spot} />
     </Block>

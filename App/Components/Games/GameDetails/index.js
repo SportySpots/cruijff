@@ -34,7 +34,10 @@ const GameDetails = ({
   const attendees = getAttendees(game.attendees);
 
   return [
-    <SpotImages key="spot-images" spot={game.spot} />,
+    <SpotImages
+      key="spot-images"
+      images={(game.spot && game.spot.images) || []}
+    />,
     isCanceled && (
       <Block key="alert-warning">
         <AlertMsg

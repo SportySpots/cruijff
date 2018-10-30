@@ -1,3 +1,5 @@
+import Config from 'react-native-config';
+
 /* eslint-disable no-param-reassign */
 export const addModelState = (reactComponentInstance, modalName, isOpen = false) => {
   reactComponentInstance.modals = reactComponentInstance.modals || {};
@@ -24,3 +26,15 @@ export function makeNumGenerator() {
     return i;
   };
 }
+
+const getImageUrl = image => (
+  image.startsWith('http') ? image : `${Config.SEEDORF_HOST}${image}`
+);
+
+const SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/SpotImages/spot-placeholder.png';
+
+export const getSpotImages = images => (
+  images && images.length > 0
+    ? images.map(({ image }) => getImageUrl(image))
+    : [SPOT_IMG]
+);

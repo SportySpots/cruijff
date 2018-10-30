@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
-import getImageUrl from './utils';
+import { getSpotImages } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SpotImage = ({ images, style }) => {
-  const image = images.length > 0
-    ? getImageUrl(images[0].image)
-    : 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/game-placeholder.png';
+  const imgs = getSpotImages(images);
 
   return (
     <Image
-      source={{ uri: image }}
+      source={{ uri: imgs[0] }}
       style={style}
     />
   );
