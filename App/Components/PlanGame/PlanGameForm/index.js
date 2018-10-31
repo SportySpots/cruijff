@@ -10,6 +10,7 @@ import Footer from '../../DarkFooter';
 import SportDateTimeSlide from '../../PlanGame/SportDateTimeSlide/';
 import SpotSlide from '../../PlanGame/SpotSlide';
 import DescriptionSlide from '../../PlanGame/DescriptionSlide';
+import { addGlobalRef } from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -68,6 +69,8 @@ const FullHeight = styled.View`
 class PlanGameForm extends React.Component {
   constructor(props) {
     super(props);
+
+    addGlobalRef('PlanGameForm')(this);
 
     this.state = {
       curSlide: 0,

@@ -215,7 +215,7 @@ class SignupForm extends React.PureComponent {
         testID="signupScrollView"
         hideLogo
       >
-        <FlexOne ref={(scroller) => { this.scroller = scroller; }}>
+        <FlexOne ref={(scroller) => { this.scroller = scroller; }} testID="signupScrollView">
           <Block
             midHeight
             onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'firstName', nativeEvent }); }}
