@@ -138,14 +138,16 @@ class LoginForm extends React.PureComponent {
     const { email, password, errors } = this.state;
 
     const emailErrors = ErrorHandling.getFieldErrors(errors, 'email');
+
     const passwordErrors = ErrorHandling.getFieldErrors(errors, 'password');
 
     return (
       <LogoHeaderBackground
-        testID="LoginScreen"
         hideLogo
       >
-        <FlexOne>
+        <FlexOne
+          testID="LoginScreen"
+        >
           <Block
             midHeight
           >

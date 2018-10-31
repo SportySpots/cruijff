@@ -83,10 +83,11 @@ class GameDetailsScreen extends React.PureComponent {
           const userRSVP = this.getUserRSVP(data.game);
           const userStatus = userRSVP ? userRSVP.status : null;
 
+          addGlobalRef('gameData')(data.game);
+
           return (
             <Container testID="gameDetails">
               <GameDetails
-                ref={addGlobalRef('gameDetails')}
                 game={data.game}
                 user={user}
                 userRSVP={userRSVP}
