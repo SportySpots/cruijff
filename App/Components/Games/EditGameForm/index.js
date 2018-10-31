@@ -159,20 +159,22 @@ class EditGameForm extends React.PureComponent {
     // Sanitize input
     const _name = name && name.trim(); // eslint-disable-line no-underscore-dangle
 
-    if (_name.length > NAME_MAX_CHARS) {
-      errors.name.push(`Must be no more than ${NAME_MAX_CHARS} characters!`);
+    if (!_name) {
+      errors.name.push(I18n.t('Name is required!'));
+    } else if (_name.length > NAME_MAX_CHARS) {
+      errors.name.push(I18n.t('Name is too long'));
     }
 
     // Sanitize input
     const _description = description && description.trim(); // eslint-disable-line no-underscore-dangle
 
     if (_description.length > DESCRIPTION_MAX_CHARS) {
-      errors.description.push(`Must be no more than ${DESCRIPTION_MAX_CHARS} characters!`);
+      errors.description.push(I18n.t('Description is too long'));
     }
 
     const attendees = getAttendees(game.attendees); // [1, 2, 3, 4, 5, 6];
     if (capacity && attendees.length > capacity) {
-      errors.capacity.push('Number of attendees is greater than the number of spots');
+      errors.capacity.push(I18n.t('Number of attendees is greater than the number of spots'));
     }
 
     return errors;
