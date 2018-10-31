@@ -77,18 +77,18 @@ class LoginForm extends React.PureComponent {
     const _email = email && email.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_email) {
-      errors.email.push(I18n.t('Email is required!'));
+      errors.email.push('Email is required!');
     } else if (!isEmail(_email)) {
-      errors.email.push(I18n.t('Please, provide a valid email address!'));
+      errors.email.push('Please, provide a valid email address!');
     } else if (_email.length > MAX_CHARS) {
-      errors.email.push(I18n.t('Email is too long'));
+      errors.email.push('Email is too long');
     }
 
     // Don't sanitize password
     if (!password || password.length === 0) {
-      errors.password.push(I18n.t('Password is required'));
+      errors.password.push('Password is required');
     } else if (password.length > MAX_CHARS) {
-      errors.password.push(I18n.t('Password is too long'));
+      errors.password.push('Password is too long');
     }
 
     return errors;
@@ -137,9 +137,9 @@ class LoginForm extends React.PureComponent {
     const { disabled } = this.props;
     const { email, password, errors } = this.state;
 
-    const emailErrors = ErrorHandling.getFieldErrors(errors, 'email');
-
-    const passwordErrors = ErrorHandling.getFieldErrors(errors, 'password');
+    // Apply translation and concatenate field errors (string)
+    const emailErrors = ErrorHandling.getFieldErrors(errors, 'email', I18n.t);
+    const passwordErrors = ErrorHandling.getFieldErrors(errors, 'password', I18n.t);
 
     return (
       <LogoHeaderBackground

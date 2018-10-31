@@ -5830,10 +5830,10 @@ error-ex@^1.2.0, error-ex@^1.3.1:
   dependencies:
     is-arrayish "^0.2.1"
 
-error-handling-utils@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/error-handling-utils/-/error-handling-utils-1.0.3.tgz#c6e0d72f4f38ebddd827309f30a98caa268eae6d"
-  integrity sha512-QX69PwjYlL0GJXlw7gTjo9zRwbmkkJHuI2ZMpCZvFpIHitDUGW+DZPCImVuOchT4Z8EJ7j7OC6LSPYcmvSuLGg==
+error-handling-utils@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/error-handling-utils/-/error-handling-utils-1.1.0.tgz#03e96cf5c7eac224e10cba9f92aaa3fa4ee8bf83"
+  integrity sha512-1yrJaJjFPd/G9gxg4oC0DTthcLSE03b4OugPkQaZuJL3mIgsG4gZgKVaUXdQdff1CDUFdolykAQKvgAn4jBqVA==
   dependencies:
     lodash "^4.17.10"
 

@@ -160,21 +160,21 @@ class EditGameForm extends React.PureComponent {
     const _name = name && name.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_name) {
-      errors.name.push(I18n.t('Name is required!'));
+      errors.name.push('Name is required!');
     } else if (_name.length > NAME_MAX_CHARS) {
-      errors.name.push(I18n.t('Name is too long'));
+      errors.name.push('Name is too long');
     }
 
     // Sanitize input
     const _description = description && description.trim(); // eslint-disable-line no-underscore-dangle
 
     if (_description.length > DESCRIPTION_MAX_CHARS) {
-      errors.description.push(I18n.t('Description is too long'));
+      errors.description.push('Description is too long');
     }
 
     const attendees = getAttendees(game.attendees); // [1, 2, 3, 4, 5, 6];
     if (capacity && attendees.length > capacity) {
-      errors.capacity.push(I18n.t('Number of attendees is greater than the number of spots'));
+      errors.capacity.push('Number of attendees is greater than the number of spots');
     }
 
     return errors;
@@ -260,9 +260,10 @@ class EditGameForm extends React.PureComponent {
       errors,
     } = this.state;
 
-    const nameErrors = ErrorHandling.getFieldErrors(errors, 'name');
-    const capacityErrors = ErrorHandling.getFieldErrors(errors, 'capacity');
-    const descriptionErrors = ErrorHandling.getFieldErrors(errors, 'description');
+    // Apply translation and concatenate field errors (string)
+    const nameErrors = ErrorHandling.getFieldErrors(errors, 'name', I18n.t);
+    const capacityErrors = ErrorHandling.getFieldErrors(errors, 'capacity', I18n.t);
+    const descriptionErrors = ErrorHandling.getFieldErrors(errors, 'description', I18n.t);
 
     return (
       <FullHeight>

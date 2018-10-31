@@ -74,7 +74,7 @@ class CancelGameForm extends React.PureComponent {
     const _cancelMsg = cancelMsg && cancelMsg.trim(); // eslint-disable-line no-underscore-dangle
 
     if (_cancelMsg.length > MAX_CHARS) {
-      errors.cancelMsg.push(`Must be no more than ${MAX_CHARS} characters!`);
+      errors.cancelMsg.push('Message is too long!');
     }
 
     return errors;
@@ -147,7 +147,9 @@ class CancelGameForm extends React.PureComponent {
     const { cancelMsg, errors } = this.state;
 
     const attendees = getAttendees(game.attendees);
-    const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg');
+
+    // Apply translation and concatenate field errors (string)
+    const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg', I18n.t);
 
     return [
       <Top key="top">
