@@ -29,7 +29,6 @@
   "players needed": "open plekken",
   "full": "vol",
   "Organizer": "Organisator",
-  "Attending": "Aanwezig",
   "Share with friends": "Delen",
 
   "Select": "Kies",
@@ -51,8 +50,8 @@
   "from": "vanaf",
   "to": "tot",
 
-  "attending": "aanwezig",
-  "declined": "afwezig",
+  "Attending": "Aanwezig",
+  "Declined": "Afwezig",
   "invited": "uitgenodigd",
   "Game Details": "Activiteitoverzicht",
   "Players": "Spelers",
@@ -118,7 +117,7 @@
 
   "I'm attending": "Ik doe mee",
   "Player list": "Deelnemers",
-  "Signed up at": "Aangemeld op",
+  "signed up at": "aangemeld op",
   "Profile": "Profiel",
 
   "Hi again!": "Leuk je weer te zien!",
