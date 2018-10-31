@@ -10,7 +10,7 @@ import {
 import NavBar from '../Components/Common/NavBar';
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import AskLocation from '../Screens/AskLocationScreen';
-import DebugScreen from '../Screens/DebugScreen';
+import DebugScreen from '../Screens/Debug/DebugScreen';
 
 const MainTabsNav = createBottomTabNavigator({
   SpotSearchTab: { screen: SpotSearchNav },

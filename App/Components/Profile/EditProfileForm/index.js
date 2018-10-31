@@ -100,18 +100,18 @@ class EditProfileForm extends React.PureComponent {
     const _firstName = firstName && firstName.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_firstName || _firstName.length === 0) {
-      errors.firstName.push('First name is required');
+      errors.firstName.push(I18n.t('First name is required'));
     } else if (_firstName.length > MAX_CHARS) {
-      errors.firstName.push(`Must be no more than ${MAX_CHARS} characters!`);
+      errors.firstName.push(I18n.t('First name is too long'));
     }
 
     // Sanitize input
     const _lastName = lastName && lastName.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_lastName || _lastName.length === 0) {
-      errors.lastName.push('Last name is required');
+      errors.lastName.push(I18n.t('Last name is required'));
     } else if (_lastName.length > MAX_CHARS) {
-      errors.lastName.push(`Must be no more than ${MAX_CHARS} characters!`);
+      errors.lastName.push(I18n.t('Last name is too long'));
     }
 
     // Sanitize input
@@ -123,7 +123,7 @@ class EditProfileForm extends React.PureComponent {
       _birthYear > 9999 ||
       moment().diff(moment(_birthYear, 'YYYY'), 'years') <= 0 // diff between today and the provided year
     )) {
-      errors.birthYear.push('Please, provide a valid year');
+      errors.birthYear.push(I18n.t('Please, provide a valid year'));
     }
 
     return errors;
@@ -280,6 +280,7 @@ class EditProfileForm extends React.PureComponent {
             value={firstName}
             error={firstNameErrors}
             size="ML"
+            disabled={disabled}
             onChangeText={(value) => {
               this.handleChange({ fieldName: 'firstName', value });
             }}
@@ -291,6 +292,7 @@ class EditProfileForm extends React.PureComponent {
             value={lastName}
             error={lastNameErrors}
             size="ML"
+            disabled={disabled}
             onChangeText={(value) => {
               this.handleChange({ fieldName: 'lastName', value });
             }}

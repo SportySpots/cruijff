@@ -1,3 +1,5 @@
+import I18n from '../../../I18n';
+
 /**
  * error = { email: ['This field must be unique.'] }
 */
@@ -19,7 +21,7 @@ const curateFieldName = (fieldName) => {
 const curateErrorMsg = (errorMsg) => {
   switch (errorMsg) {
     case 'Unable to log in with provided credentials.':
-      return 'Wrong email or password';
+      return I18n.t('Wrong email or password');
     default:
       return errorMsg;
   }
