@@ -5,6 +5,7 @@ import { MenuProvider } from 'react-native-popup-menu';
 import { ApolloMockProvider, withApolloMockProvider } from '../App/GraphQL';
 import { loadStories } from './storyLoader';
 import ReduxMockProvider from '../App/Redux/ReduxMockProvider';
+import Block from '../App/Components/Common/Block';
 
 /* addDecorator(story => (
   <ApolloMockProvider>
@@ -15,6 +16,14 @@ import ReduxMockProvider from '../App/Redux/ReduxMockProvider';
     </ReduxMockProvider>
   </ApolloMockProvider>
 )); */
+
+addDecorator(story => (
+  <ReduxMockProvider>
+    <MenuProvider>
+      {story()}
+    </MenuProvider>
+  </ReduxMockProvider>
+));
 
 // addDecorator(withApolloMockProvider);
 
