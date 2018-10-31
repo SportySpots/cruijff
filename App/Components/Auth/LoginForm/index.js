@@ -77,18 +77,18 @@ class LoginForm extends React.PureComponent {
     const _email = email && email.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_email) {
-      errors.email.push('Email is required!');
+      errors.email.push(I18n.t('Email is required!'));
     } else if (!isEmail(_email)) {
-      errors.email.push('Please, provide a valid email address!');
+      errors.email.push(I18n.t('Please, provide a valid email address!'));
     } else if (_email.length > MAX_CHARS) {
-      errors.email.push(`Must be no more than ${MAX_CHARS} characters!`);
+      errors.email.push(I18n.t('Email is too long'));
     }
 
     // Don't sanitize password
     if (!password || password.length === 0) {
-      errors.password.push('Password is required');
+      errors.password.push(I18n.t('Password is required'));
     } else if (password.length > MAX_CHARS) {
-      errors.password.push(`Must be no more than ${MAX_CHARS} characters!`);
+      errors.password.push(I18n.t('Password is too long'));
     }
 
     return errors;
