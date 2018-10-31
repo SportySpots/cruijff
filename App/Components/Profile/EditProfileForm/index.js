@@ -280,6 +280,7 @@ class EditProfileForm extends React.PureComponent {
             value={firstName}
             error={firstNameErrors}
             size="ML"
+            disabled={disabled}
             onChangeText={(value) => {
               this.handleChange({ fieldName: 'firstName', value });
             }}
@@ -291,6 +292,7 @@ class EditProfileForm extends React.PureComponent {
             value={lastName}
             error={lastNameErrors}
             size="ML"
+            disabled={disabled}
             onChangeText={(value) => {
               this.handleChange({ fieldName: 'lastName', value });
             }}
