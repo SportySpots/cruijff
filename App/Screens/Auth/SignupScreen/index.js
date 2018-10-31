@@ -72,10 +72,8 @@ class SignupScreen extends React.PureComponent {
                 onBeforeHook={handleBefore}
                 onClientCancelHook={handleClientCancel}
                 onClientErrorHook={handleClientError}
-                onSuccessHook={(inputFields) => {
-                  // Call api to authenticate user
-                  signupUser(inputFields);
-                }}
+                // Call api to register user
+                onSuccessHook={signupUser}
               />
             )}
           </SignupApiCall>

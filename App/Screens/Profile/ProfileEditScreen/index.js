@@ -69,10 +69,8 @@ const ProfileEditScreen = ({ user, navigation }) => (
                     onBeforeHook={handleBefore}
                     onClientCancelHook={handleClientCancel}
                     onClientErrorHook={handleClientError}
-                    onSuccessHook={(inputFields) => {
-                      // Call api to store data into DB
-                      updateProfile(inputFields);
-                    }}
+                    // Call api to store data into DB
+                    onSuccessHook={updateProfile}
                   />
                 )}
               </EditProfileApiCall>

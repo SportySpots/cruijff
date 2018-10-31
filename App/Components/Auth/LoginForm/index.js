@@ -142,15 +142,9 @@ class LoginForm extends React.PureComponent {
     const passwordErrors = ErrorHandling.getFieldErrors(errors, 'password', I18n.t);
 
     return (
-      <LogoHeaderBackground
-        hideLogo
-      >
-        <FlexOne
-          testID="LoginScreen"
-        >
-          <Block
-            midHeight
-          >
+      <LogoHeaderBackground hideLogo>
+        <FlexOne testID="LoginScreen">
+          <Block midHeight>
             <TextField
               testID="loginInputEmail"
               label={I18n.t('E-mail')}
@@ -165,9 +159,7 @@ class LoginForm extends React.PureComponent {
               }}
             />
           </Block>
-          <Block
-            midHeight
-          >
+          <Block midHeight>
             <TextField
               testID="loginInputPassword"
               label={I18n.t('Password')}

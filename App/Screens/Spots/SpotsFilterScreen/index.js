@@ -52,10 +52,8 @@ const SpotsFilterScreen = ({
                   disabled={disabled}
                   onBeforeHook={handleBefore}
                   onClientCancelHook={handleClientCancel}
-                  onSuccessHook={(inputFields) => {
-                    // Call actions to update redux store
-                    filterSpots(inputFields);
-                  }}
+                  // Call actions to update redux store
+                  onSuccessHook={filterSpots}
                 />
               )}
             </SpotsFilterActionCall>

@@ -47,10 +47,8 @@ const RSVP = ({
               });
             }}
             onClientCancelHook={handleClientCancel}
-            onSuccessHook={(inputFields) => {
-              // Call api to store data into DB
-              updateStatus(inputFields);
-            }}
+            // Call api to store data into DB
+            onSuccessHook={updateStatus}
           />
         )}
       </RSVPApiCall>

@@ -99,10 +99,8 @@ class ShareGameScreen extends React.Component {
                 onBeforeHook={handleBefore}
                 onClientCancelHook={handleClientCancel}
                 onClientErrorHook={handleClientError}
-                onSuccessHook={(inputFields) => {
-                  // Call api to store data into DB
-                  shareGame(inputFields);
-                }}
+                // Call api to store data into DB
+                onSuccessHook={shareGame}
               />
             )}
           </ShareGameApiCall>

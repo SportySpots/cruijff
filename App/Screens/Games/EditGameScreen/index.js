@@ -109,10 +109,8 @@ class EditGameScreen extends React.PureComponent {
                       onBeforeHook={handleBefore}
                       onClientCancelHook={handleClientCancel}
                       onClientErrorHook={handleClientError}
-                      onSuccessHook={(inputFields) => {
-                        // Call api to store data into DB
-                        updateGame(inputFields);
-                      }}
+                      // Call api to store data into DB
+                      onSuccessHook={updateGame}
                     />
                   )}
                 </EditGameApiCall>,

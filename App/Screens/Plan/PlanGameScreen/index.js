@@ -88,11 +88,8 @@ class PlanGameScreen extends React.Component {
                 onBeforeHook={handleBefore}
                 onClientCancelHook={handleClientCancel}
                 onClientErrorHook={handleClientError}
-                onSuccessHook={(inputFields) => {
-                  // Call api to store data into DB
-                  createGame(inputFields);
-                }}
-                // Other props
+                // Call api to store data into DB
+                onSuccessHook={createGame}
                 onLeave={this.handleLeave}
               />
             )}

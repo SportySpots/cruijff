@@ -91,10 +91,8 @@ class CancelGameScreen extends React.PureComponent {
                       onBeforeHook={handleBefore}
                       onClientCancelHook={handleClientCancel}
                       onClientErrorHook={handleClientError}
-                      onSuccessHook={(inputFields) => {
-                        // Call api to store data into DB
-                        cancelGame(inputFields);
-                      }}
+                      // Call api to store data into DB
+                      onSuccessHook={cancelGame}
                       onAttendeesPress={this.handleAttendeesPress}
                     />
                   )}
