@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
-import GameListCard from '../../../Components/Games/GameListCard';
 import curatedGames from './utils';
 // import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 
@@ -23,9 +22,9 @@ const Container = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class GamesListScreen extends React.Component {
-  handleCardPress = (gameId) => {
+  handleGamePress = (game) => {
     const { navigation } = this.props;
-    navigation.navigate('GameDetailsScreen', { uuid: gameId });
+    navigation.navigate('GameDetailsScreen', { uuid: game.uuid });
   }
 
   render() {
@@ -72,15 +71,10 @@ class GamesListScreen extends React.Component {
             <Container testID="GameListScreen">
               <GamesList
                 games={(data && data.games && curatedGames(data.games)) || []}
-                cardComponent={GameListCard}
-                onCardPress={this.handleCardPress}
+                onCardPress={this.handleGamePress}
                 // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
-                contentContainerStyle={{
-                  flexGrow: 1, // centers not found component
-                  paddingVertical: 8,
-                }}
               />
             </Container>
           );

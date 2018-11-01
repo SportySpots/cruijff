@@ -6,7 +6,6 @@ import { propType } from 'graphql-anywhere';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 // import Text from '../../Text';
 import GamesList from '../../Games/GamesList';
-import Card from '../../Games/GameListCard';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -16,11 +15,10 @@ const UserGames = ({ user }) => {
   return (
     <GamesList
       games={(
-        user &&
-        user.profile &&
-        user.profile.games
+        user
+        && user.profile
+        && user.profile.games
       ) || []}
-      cardComponent={Card}
       // onCardPress={this.handleCardPress}
       // FlatList props
       // onRefresh={refetch}
