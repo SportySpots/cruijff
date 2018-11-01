@@ -292,6 +292,7 @@ class SignupForm extends React.PureComponent {
               text={I18n.t('Terms and conditions')}
               href="https://www.sportyspots.com/terms.html"
               color={Colors.actionYellow}
+              underline
             />
           </Block>
         </FlexOne>

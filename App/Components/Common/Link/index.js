@@ -16,6 +16,7 @@ const Link = ({
   color,
   iconName,
   size,
+  underline,
 }) => {
   const TextSize = Text[size];
 
@@ -25,7 +26,14 @@ const Link = ({
         justifyContent="space-between"
         alignItems="center"
       >
-        <TextSize style={{ color }}>
+        <TextSize
+          style={{
+            color,
+            textDecorationLine: underline ? 'underline' : 'none',
+            textDecorationStyle: 'solid',
+            textDecorationColor: color,
+          }}
+        >
           {text}
         </TextSize>
         {!!iconName && (
@@ -46,6 +54,7 @@ Link.propTypes = {
   color: PropTypes.string,
   iconName: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  underline: PropTypes.bool,
 };
 
 Link.defaultProps = {
@@ -54,6 +63,7 @@ Link.defaultProps = {
   color: 'black',
   iconName: '',
   size: 'M',
+  underline: false,
 };
 
 export default Link;
