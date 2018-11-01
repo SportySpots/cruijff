@@ -6,7 +6,7 @@ import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
-import SpotListCardSmallBody from '../SpotListCardSmallBody';
+import SpotHeader from '../SpotHeader';
 import SpotImage from '../SpotImage';
 
 //------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ const SpotListCardSmall = ({ spot, active }) => (
     <Row>
       <FlexGrow>
         <Block>
-          <SpotListCardSmallBody spot={spot} />
+          <SpotHeader spot={spot} withDistance />
         </Block>
       </FlexGrow>
       <SpotImage images={spot.images} style={imgStyle} />

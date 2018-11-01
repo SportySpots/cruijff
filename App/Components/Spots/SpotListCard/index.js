@@ -1,10 +1,62 @@
-/* Card component, this is the Card that is used in a list of many Cards */
+import React from 'react';
+import { propType } from 'graphql-anywhere';
+import styled from 'styled-components';
+import Colors from '../../../Themes/Colors';
+import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
+import BackgroundImage from '../BackgroundImage';
+import SpotHeader from '../SpotHeader';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Outer = styled.View`
+  display: flex;
+  height: 240px;
+  border-radius: 8px;
+  shadow-offset: 1px 1px;
+  shadow-color: ${Colors.shade};
+  shadow-opacity: 0.8;
+  elevation: 2;
+`;
+//------------------------------------------------------------------------------
+const Top = styled.View`
+  flex: 1;
+`;
+//------------------------------------------------------------------------------
+const Bottom = styled.View`
+  height: 80px;
+  background-color: ${Colors.white};
+  padding: 16px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const SpotListCard = ({ spot }) => (
+  <Outer>
+    <Top>
+      <BackgroundImage images={spot.images} top />
+    </Top>
+    <Bottom>
+      <SpotHeader spot={spot} withDistance withGames />
+    </Bottom>
+  </Outer>
+);
+
+SpotListCard.propTypes = {
+  spot: propType(spotFragment).isRequired,
+};
+
+export default SpotListCard;
+
+
+/*
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Config from 'react-native-config';
-import Header from '../Header';
+import SpotHeader from '../SpotHeader';
 import Colors from '../../../Themes/Colors';
 
 export default class SpotListCard extends Component {
@@ -13,7 +65,7 @@ export default class SpotListCard extends Component {
     style: PropTypes.number,
   };
 
-  /* forward setNativeProps to the root (View) so that Card can be used as Touchable */
+  /* forward setNativeProps to the root (View) so that Card can be used as Touchable //
   setNativeProps = (nativeProps) => {
     // eslint-disable-next-line no-underscore-dangle
     this._root.setNativeProps(nativeProps);
@@ -74,7 +126,7 @@ const Img = styled.Image`
   border-top-right-radius: 8px;
 `;
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(SpotHeader)`
   flex: 1;
   flex-direction: column;
   background-color: ${Colors.white};
@@ -82,3 +134,5 @@ const StyledHeader = styled(Header)`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
+
+*/

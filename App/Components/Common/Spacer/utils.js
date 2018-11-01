@@ -4,6 +4,8 @@ const getPixelsFromSize = (size) => {
       return 4;
     case 'M':
       return 8;
+    case 'ML':
+      return 12;
     case 'L':
       return 16;
     case 'XL':

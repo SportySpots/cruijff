@@ -8,7 +8,7 @@ import getInputPalette from '../../../Themes/Palettes';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
-import SpotListCardSmallBody from '../SpotListCardSmallBody';
+import SpotHeader from '../SpotHeader';
 
 //------------------------------------------------------------------------------
 const FlexGrow = styled.View`
@@ -17,7 +17,6 @@ const FlexGrow = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: refactor SpotListCardSmallBody and pass theme
 const EditSpotField = ({
   spot,
   theme,
@@ -31,7 +30,7 @@ const EditSpotField = ({
     <Root onPress={onPress}>
       <Row alignItems="center">
         <FlexGrow>
-          <SpotListCardSmallBody spot={spot} />
+          <SpotHeader spot={spot} gray={disabled} withDistance />
         </FlexGrow>
         <Spacer row size="M" />
         <Icon
@@ -42,7 +41,7 @@ const EditSpotField = ({
       </Row>
     </Root>
   );
-}
+};
 
 EditSpotField.propTypes = {
   spot: propType(spotFragment).isRequired,

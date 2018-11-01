@@ -27,7 +27,7 @@ const Spacer = ({ row, size }) => {
 
 Spacer.propTypes = {
   row: PropTypes.bool,
-  size: PropTypes.oneOf(['S', 'M', 'L', 'XL', 'XXL', 'XXL', 'XXXL']),
+  size: PropTypes.oneOf(['S', 'M', 'ML', 'L', 'XL', 'XXL', 'XXL', 'XXXL']),
 };
 
 Spacer.defaultProps = {

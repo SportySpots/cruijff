@@ -14,8 +14,10 @@ const Container = styled.View`
   bottom: 0;
   left: 0;
   right: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: ${({ top }) => (top ? 0 : 8)}px;
+  border-bottom-right-radius: ${({ top }) => (top ? 0 : 8)}px;
+  border-top-left-radius: ${({ top }) => (top ? 8 : 0)}px;
+  border-top-right-radius: ${({ top }) => (top ? 8 : 0)}px;
 `;
 //------------------------------------------------------------------------------
 const Overlay = styled.View`
@@ -26,24 +28,30 @@ const Overlay = styled.View`
   right: 0;
   background-color: black;
   opacity: .5;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: ${({ top }) => (top ? 0 : 8)}px;
+  border-bottom-right-radius: ${({ top }) => (top ? 0 : 8)}px;
+  border-top-left-radius: ${({ top }) => (top ? 8 : 0)}px;
+  border-top-right-radius: ${({ top }) => (top ? 8 : 0)}px;
 `;
-//------------------------------------------------------------------------------
-const imgStyle = {
-  flex: 1,
-  borderBottomLeftRadius: 8,
-  borderBottomRightRadius: 8,
-};
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const BackgroundImage = ({ images }) => (
-  <Container>
-    <SpotImage images={images} style={imgStyle} />
-    <Overlay />
-  </Container>
-);
+const BackgroundImage = ({ images, top }) => {
+  const imgStyle = {
+    flex: 1,
+    borderBottomLeftRadius: top ? 0 : 8,
+    borderBottomRightRadius: top ? 0 : 8,
+    borderTopLeftRadius: top ? 8 : 0,
+    borderTopRightRadius: top ? 8 : 0,
+  };
+
+  return (
+    <Container top={top}>
+      <SpotImage images={images} style={imgStyle} />
+      <Overlay top={top} />
+    </Container>
+  );
+}
 
 BackgroundImage.propTypes = {
   images: PropTypes.arrayOf(
@@ -51,10 +59,12 @@ BackgroundImage.propTypes = {
       image: PropTypes.string,
     }),
   ),
+  top: PropTypes.bool,
 };
 
 BackgroundImage.defaultProps = {
   images: [],
+  top: false,
 };
 
 export default BackgroundImage;

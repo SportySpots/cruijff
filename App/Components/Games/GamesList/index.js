@@ -37,9 +37,7 @@ const GamesList = ({
       </TouchableOpacity>
     )}
     keyExtractor={item => item.uuid}
-    ItemSeparatorComponent={() => (
-      <Spacer size="M" />
-    )}
+    ItemSeparatorComponent={() => (<Spacer size="ML" />)}
     {...rest}
   />
 );

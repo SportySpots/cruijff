@@ -16,7 +16,7 @@ import curatedGames from './utils';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   flex: 1;
-  padding: 0 4px;
+  padding: 0 8px;
   background-color: ${Colors.concrete};
 `;
 //------------------------------------------------------------------------------

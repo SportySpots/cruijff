@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Block from '../../Common/Block';
-import SpotListCardSmallBody from './index';
+import SpotHeader from '.';
 
 const StyledView = styled.View`
   height: 80px;
@@ -18,26 +18,33 @@ const dummyNavigator = {
   },
 };
 
-const Container = () => (
+const Container = props => (
   <Query
     query={GET_SPOT_DETAILS}
     variables={{ uuid: dummyNavigator.state.params.spotId }}
   >
     {({ loading, error, data }) =>
-    (loading || error ? null : (
-      <Block bgColor={colors.lightGray}>
-        <StyledView>
-          <SpotListCardSmallBody
-            spot={data.spot}
-          />
-        </StyledView>
-      </Block>
-    ))}
+      (loading || error ? null : (
+        <Block bgColor={colors.lightGray}>
+          <StyledView>
+            <SpotHeader
+              spot={data.spot}
+              {...props}
+            />
+          </StyledView>
+        </Block>
+      ))}
   </Query>
 );
 
 
-storiesOf('Spots.SpotListCardSmallBody', module)
-  .add('SpotListCardSmallBody default', () => (
+storiesOf('Spots.SpotHeader', module)
+  .add('SpotHeader default', () => (
     <Container />
+  ))
+  .add('SpotHeader withDistance withGames', () => (
+    <Container withDistance withGames />
+  ))
+  .add('SpotHeader withDistance withGames gray', () => (
+    <Container withDistance withGames gray />
   ));

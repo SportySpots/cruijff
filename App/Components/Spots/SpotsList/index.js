@@ -65,9 +65,9 @@ const SpotsList = ({
         };
 
         const spots = (
-          data &&
-          data.spots &&
-          curatedSpots(data.spots).map((spot) => {
+          data
+          && data.spots
+          && curatedSpots(data.spots).map((spot) => {
             if (!userCoords || !spot.address) { return spot; }
             const latLng = getSpotLocation(spot);
             const distance = rounded(geolib.getDistance(userCoords, latLng) / 1000);
@@ -94,7 +94,7 @@ const SpotsList = ({
               </TouchableOpacity>
             )}
             ListEmptyComponent={(<NothingFound icon="map-marker" text={I18n.t('No spots found')} />)}
-            ItemSeparatorComponent={() => (<Spacer size="M" />)}
+            ItemSeparatorComponent={() => (<Spacer size="ML" />)}
             showsVerticalScrollIndicator={false}
             onRefresh={refetch}
             refreshing={loading}

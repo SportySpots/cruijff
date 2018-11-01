@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
 import Colors from '../../../Themes/Colors';
 import SpotMapWithLinkFallback from '../SpotMapWithLinkFallback';
-import Header from '../Header';
+import SpotHeader from '../SpotHeader';
 // import SpotRating from './SpotRating';
 import SpotImages from '../SpotImages';
 import SpotProperties from '../SpotProperties';
@@ -29,7 +29,7 @@ const SpotDetails = ({ spot, userId }) => ( // eslint-disable-line
   <Container>
     <SpotImages images={(spot && spot.images) || []} />
     <Block>
-      <Header spot={spot} />
+      <SpotHeader spot={spot} withDistance withGames />
     </Block>
     {/* <SpotRating spot={spot} userId={userId} /> */}
     <SpotMapWithLinkFallback spot={spot} />

@@ -29,8 +29,6 @@ const Outer = styled.View`
   shadow-color: ${Colors.shade};
   shadow-opacity: 0.8;
   elevation: 2;
-  margin-vertical: 4px;
-  margin-horizontal: 4px;
 `;
 //------------------------------------------------------------------------------
 const Top = styled.View`
