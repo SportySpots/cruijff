@@ -7,6 +7,7 @@ import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
+import { TopLayout, BottomLayout } from '../../Layouts/TopBottomLayout';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 // import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
@@ -35,22 +36,6 @@ const NAME_MAX_CHARS = 120;
 const DESCRIPTION_MAX_CHARS = 300;
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-// TODO: introduce TopBottomLayout to hold body and button container
-const Top = styled.ScrollView`
-  flex: 1;
-  background-color: ${Colors.white}
-`;
-//------------------------------------------------------------------------------
-const Bottom = styled.View`
-  display: flex;
-  justify-content: center;
-  height: 88px;
-  background-color: ${Colors.white}
-  border-top-width: 0.5px;
-  border-color: ${Colors.lightGray}
-  padding-horizontal: 16px;
-`;
 //------------------------------------------------------------------------------
 const Half = styled.View`
   flex: 1;
@@ -273,7 +258,7 @@ class EditGameForm extends React.PureComponent {
           showsPagination={false}
         >
           <FullHeight>
-            <Top ref={(scroller) => { this.scroller = scroller; }}>
+            <TopLayout ref={(scroller) => { this.scroller = scroller; }}>
               <Block
                 midHeight
                 onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'name', nativeEvent }); }}
@@ -393,15 +378,15 @@ class EditGameForm extends React.PureComponent {
                   onChange={(value) => { this.handleChange({ fieldName: 'isPublic', value: !value }); }}
                 />
               </Block>
-            </Top>
-            <Bottom>
+            </TopLayout>
+            <BottomLayout>
               <RaisedButton
                 variant="primary"
                 label={I18n.t('Save')}
                 disabled={disabled}
                 onPress={this.handleSubmit}
               />
-            </Bottom>
+            </BottomLayout>
           </FullHeight>
           <SpotsContainer>
             <SpotsList

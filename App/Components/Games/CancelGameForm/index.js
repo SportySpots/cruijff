@@ -2,43 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert } from 'react-native';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import GameProperties from '../GameProperties';
-import ClickableAttendees from '../ClickableAttendees';
-import CancelMsg from '../CancelMsg';
+import { TopLayout, BottomLayout } from '../../Layouts/TopBottomLayout';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
 import Label from '../../Common/Label';
 import AlertMsg from '../../Common/AlertMsg';
 import RaisedButton from '../../Common/RaisedButton';
+import GameProperties from '../GameProperties';
+import ClickableAttendees from '../ClickableAttendees';
+import CancelMsg from '../CancelMsg';
 import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const MAX_CHARS = 120;
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-// TODO: introduce TopBottomLayout to hold body and button container
-const Top = styled.ScrollView`
-  flex: 1;
-  background-color: ${Colors.white}
-`;
-//------------------------------------------------------------------------------
-const Bottom = styled.View`
-  display: flex;
-  justify-content: center;
-  height: 88px;
-  background-color: ${Colors.white}
-  border-top-width: 0.5px;
-  border-color: ${Colors.lightGray}
-  padding-horizontal: 16px;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -152,7 +133,7 @@ class CancelGameForm extends React.PureComponent {
     const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg', I18n.t);
 
     return [
-      <Top key="top">
+      <TopLayout key="top">
         <Block>
           <GameProperties game={game} />
         </Block>
@@ -185,8 +166,8 @@ class CancelGameForm extends React.PureComponent {
             </Block>,
           ],
         ]}
-      </Top>,
-      <Bottom key="bottom">
+      </TopLayout>,
+      <BottomLayout key="bottom">
         <RaisedButton
           testID="cancelGameFormCancelButton"
           variant="warning"
@@ -194,7 +175,7 @@ class CancelGameForm extends React.PureComponent {
           disabled={disabled}
           onPress={this.handleSubmit}
         />
-      </Bottom>,
+      </BottomLayout>,
     ];
   }
 }
@@ -219,4 +200,3 @@ CancelGameForm.defaultProps = {
 };
 
 export default CancelGameForm;
-

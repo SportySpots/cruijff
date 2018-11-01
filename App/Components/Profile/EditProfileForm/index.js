@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import isNumber from 'lodash/isNumber';
 import moment from 'moment';
-import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
 import ImagePicker from 'react-native-image-picker';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
+import { TopLayout, BottomLayout } from '../../Layouts/TopBottomLayout';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -20,24 +19,6 @@ import RaisedButton from '../../Common/RaisedButton';
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const MAX_CHARS = 120;
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-// TODO: introduce TopBottomLayout to hold body and button container
-const Top = styled.ScrollView`
-  flex: 1;
-  background-color: ${Colors.white}
-`;
-//------------------------------------------------------------------------------
-const Bottom = styled.View`
-  display: flex;
-  justify-content: center;
-  height: 88px;
-  background-color: ${Colors.white}
-  border-top-width: 0.5px;
-  border-color: ${Colors.lightGray}
-  padding-horizontal: 16px;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -262,7 +243,7 @@ class EditProfileForm extends React.PureComponent {
     const birthYearErrors = ErrorHandling.getFieldErrors(errors, 'birthYear', I18n.t);
 
     return [
-      <Top key="top">
+      <TopLayout key="top">
         <Block>
           <Row justifyContent="center">
             <Avatar user={user} size={80} />
@@ -312,15 +293,15 @@ class EditProfileForm extends React.PureComponent {
             }}
           />
           </Block> */}
-      </Top>,
-      <Bottom key="bottom">
+      </TopLayout>,
+      <BottomLayout key="bottom">
         <RaisedButton
           variant="default"
           label={I18n.t('Save')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />
-      </Bottom>,
+      </BottomLayout>,
     ];
   }
 }

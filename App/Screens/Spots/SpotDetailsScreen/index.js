@@ -13,14 +13,12 @@ import SpotDetails from '../../../Components/Spots/SpotDetails';
 const SpotDetailsScreen = ({ navigation, userId }) => (
   <Query
     query={GET_SPOT_DETAILS}
-    variables={{
-      uuid: navigation.state.params.uuid,
-    }}
+    variables={{ uuid: navigation.state.params.uuid }}
     fetchPolicy="cache-and-network"
   >
     {({ loading, error, data }) => {
       if (loading) return <CenteredActivityIndicator />;
-      if (error) return <Text>Error :( {JSON.stringify(error)}</Text>;
+      if (error) return <Text>{JSON.stringify(error)}</Text>;
 
       return (
         <SpotDetails

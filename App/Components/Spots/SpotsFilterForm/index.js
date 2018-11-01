@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
+import { TopLayout, BottomLayout } from '../../Layouts/TopBottomLayout';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Divider from '../../Common/Divider';
@@ -14,24 +14,6 @@ import SliderWithText from '../../Common/SliderWithText';
 import SwitchWithText from '../../Common/SwitchWithText';
 import RaisedButton from '../../Common/RaisedButton';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-// TODO: introduce TopBottomLayout to hold body and button container
-const Top = styled.ScrollView`
-  flex: 1;
-  background-color: ${Colors.white}
-`;
-//------------------------------------------------------------------------------
-const Bottom = styled.View`
-  display: flex;
-  justify-content: center;
-  height: 88px;
-  background-color: ${Colors.white}
-  border-top-width: 0.5px;
-  border-color: ${Colors.lightGray}
-  padding-horizontal: 16px;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -92,7 +74,7 @@ class SpotsFilterForm extends React.PureComponent {
     const { maxDistance, allSports, selectedSportIds } = this.state;
 
     return [
-      <Top key="top">
+      <TopLayout key="top">
         <Block>
           <SliderWithText
             minimumValue={0}
@@ -140,15 +122,15 @@ class SpotsFilterForm extends React.PureComponent {
             ),
           ])}
         </Block>
-      </Top>,
-      <Bottom key="bottom">
+      </TopLayout>,
+      <BottomLayout key="bottom">
         <RaisedButton
           variant="default"
           label={I18n.t('View spots')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />
-      </Bottom>,
+      </BottomLayout>,
     ];
   }
 }

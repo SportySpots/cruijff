@@ -83,7 +83,7 @@ class GamesListScreen extends React.Component {
                 }}
               />
             </Container>
-         );
+          );
         }}
       </Query>
     );
