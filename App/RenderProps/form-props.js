@@ -24,6 +24,7 @@ const FormProps = ({ children }) => (
                 setErrors: errorProps.setErrors,
                 clearErrors: errorProps.clearErrors,
                 handleBefore: hookProps.handleBefore,
+                handleClientCancel: hookProps.handleClientCancel,
                 handleClientError: hookProps.handleClientError,
                 handleServerError: hookProps.handleServerError,
                 handleSuccess: hookProps.handleSuccess,
