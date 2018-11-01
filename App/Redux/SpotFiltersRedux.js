@@ -18,7 +18,7 @@ export default Creators;
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  maxDistance: 4,
+  maxDistance: 20,
   allSports: true,
   selectedSportIds: [],
 });
