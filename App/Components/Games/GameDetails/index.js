@@ -5,14 +5,15 @@ import I18n from '../../../I18n/index';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
-import GameProperties from '../GameProperties';
-import Organizer from '../Organizer';
-import ClickableAttendees from '../ClickableAttendees';
-import OpenSpots from '../OpenSpots';
-import ShareGameButton from '../ShareGameButton';
 import Block from '../../Common/Block';
 import Label from '../../Common/Label';
 import AlertMsg from '../../Common/AlertMsg';
+import GameProperties from '../GameProperties';
+import Organizer from '../Organizer';
+import DescriptionReadMore from '../DescriptionReadMore';
+import ClickableAttendees from '../ClickableAttendees';
+import OpenSpots from '../OpenSpots';
+import ShareGameButton from '../ShareGameButton';
 import RSVP from '../RSVP';
 import { getAttendees } from '../utils';
 
@@ -57,6 +58,12 @@ const GameDetails = ({
         description={game.description}
       />
     </Block>,
+    !!game.description && game.description.length > 0 && [
+      <Block key="game-description">
+        <Label>{I18n.t('Description')}</Label>
+        <DescriptionReadMore description={game.description} />
+      </Block>,
+    ],
     attendees.length > 0 && [
       <Block key="game-attendees">
         <Label>{I18n.t('Attending')}</Label>

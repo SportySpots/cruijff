@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import { ScrollView } from 'react-native';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
@@ -32,88 +33,75 @@ const SportDateTimeSlide = ({
   duration,
   capacity,
   onChange,
-}) => [
-  <Spacer key="sport-spacer" size="XL" />,
-  <Row
-    key="sport"
-    alignItems="flex-end"
-  >
-    <Label>{I18n.t('I want to play')}</Label>
-    <Spacer row size="S" />
-    <SportPickerField
-      testID="pickSport"
-      value={sport}
-      size="ML"
-      theme="mix"
-      onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
-    />
-  </Row>,
-  <Spacer key="date-spacer" size="S" />,
-  <Row
-    key="date"
-    alignItems="flex-end"
-  >
-    <Label>{I18n.t('on')}</Label>
-    <Spacer row size="S" />
-    <DatePickerField
-      testID="pickDate"
-      value={date}
-      size="ML"
-      theme="mix"
-      dateFormat="dddd D MMMM"
-      onChange={(value) => { onChange({ fieldName: 'date', value }); }}
-    />
-  </Row>,
-  <Spacer key="time-spacer" size="S" />,
-  <Row
-    key="time"
-    alignItems="flex-end"
-  >
-    <Label>{I18n.t('at')}</Label>
-    <Spacer row size="S" />
-    <TimePickerField
-      testID="pickTime"
-      value={time}
-      size="ML"
-      theme="mix"
-      onChange={(value) => { onChange({ fieldName: 'time', value }); }}
-    />
-  </Row>,
-  <Spacer key="duration-spacer" size="S" />,
-  <Row
-    key="duration"
-    alignItems="flex-end"
-  >
-    <Label>{I18n.t('during')}</Label>
-    <Spacer row size="S" />
-    <DurationPickerField
-      testID="pickDuration"
-      label=""
-      value={duration}
-      onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
-      theme="mix"
-      size="ML"
-      minWidth={150}
-    />
-  </Row>,
-  <Spacer key="capacity-spacer" size="S" />,
-  <Row
-    key="capacity"
-    alignItems="flex-end"
-  >
-    <Label>{I18n.t('with')}</Label>
-    <Spacer row size="S" />
-    <CapacityPickerField
-      testID="pickCapacity"
-      value={capacity}
-      size="ML"
-      theme="mix"
-      onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
-    />
-    <Spacer row size="S" />
-    <Label>{I18n.t('people')}</Label>
-  </Row>,
-];
+}) => (
+  <ScrollView>
+    <Spacer size="XL" />
+    <Row alignItems="flex-end">
+      <Label>{I18n.t('I want to play')}</Label>
+      <Spacer row size="S" />
+      <SportPickerField
+        testID="pickSport"
+        value={sport}
+        size="ML"
+        theme="mix"
+        onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
+      />
+    </Row>
+    <Spacer size="S" />
+    <Row alignItems="flex-end">
+      <Label>{I18n.t('on')}</Label>
+      <Spacer row size="S" />
+      <DatePickerField
+        testID="pickDate"
+        value={date}
+        size="ML"
+        theme="mix"
+        dateFormat="dddd D MMMM"
+        onChange={(value) => { onChange({ fieldName: 'date', value }); }}
+      />
+    </Row>
+    <Spacer size="S" />
+    <Row alignItems="flex-end">
+      <Label>{I18n.t('at')}</Label>
+      <Spacer row size="S" />
+      <TimePickerField
+        testID="pickTime"
+        value={time}
+        size="ML"
+        theme="mix"
+        onChange={(value) => { onChange({ fieldName: 'time', value }); }}
+      />
+    </Row>
+    <Spacer size="S" />
+    <Row alignItems="flex-end">
+      <Label>{I18n.t('during')}</Label>
+      <Spacer row size="S" />
+      <DurationPickerField
+        testID="pickDuration"
+        label=""
+        value={duration}
+        onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
+        theme="mix"
+        size="ML"
+        minWidth={150}
+      />
+    </Row>
+    <Spacer size="S" />
+    <Row alignItems="flex-end">
+      <Label>{I18n.t('with')}</Label>
+      <Spacer row size="S" />
+      <CapacityPickerField
+        testID="pickCapacity"
+        value={capacity}
+        size="ML"
+        theme="mix"
+        onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
+      />
+      <Spacer row size="S" />
+      <Label>{I18n.t('people')}</Label>
+    </Row>
+  </ScrollView>
+);
 
 SportDateTimeSlide.propTypes = {
   sport: propType(sportFragment),

@@ -7,15 +7,15 @@ import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import ClosableLayout from '../../Layouts/ClosableLayout';
 import Footer from '../../DarkFooter';
-import SportDateTimeSlide from '../../PlanGame/SportDateTimeSlide/';
-import SpotSlide from '../../PlanGame/SpotSlide';
-import DescriptionSlide from '../../PlanGame/DescriptionSlide';
+import SportDateTimeSlide from '../SportDateTimeSlide';
+import SpotSlide from '../SpotSlide';
+import DescriptionSlide from '../DescriptionSlide';
 import { addGlobalRef } from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const DESCRIPTION_MAX_CHARS = 300;
+const DESCRIPTION_MAX_CHARS = 2000;
 
 const SLIDES = [
   {
