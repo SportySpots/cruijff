@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dimensions, View } from 'react-native';
+import { Dimensions, View, ScrollView } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
@@ -13,10 +13,6 @@ import Spacer from '../../Components/Common/Spacer';
 const { width: fullWidth, height: fullHeight } = Dimensions.get('window');
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-const Container = styled.View`
-  flex: 1;
-`;
 //------------------------------------------------------------------------------
 const BgContainer = styled.View`
   background-color: ${Colors.primaryGreen}
@@ -32,7 +28,7 @@ const FlexGrow = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const FieldBackground = ({ children }) => (
-  <Container>
+  <ScrollView contentContainerStyle={{ flex: 1 }}>
     <BgContainer>
       <Svg width={fullWidth} height={fullHeight}>
         <Path
@@ -56,7 +52,7 @@ const FieldBackground = ({ children }) => (
     <FlexGrow>
       {children}
     </FlexGrow>
-  </Container>
+  </ScrollView>
 );
 
 FieldBackground.propTypes = {

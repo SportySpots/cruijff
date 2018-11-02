@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../Themes/Colors';
 import Spacer from '../../Components/Common/Spacer';
@@ -9,11 +9,6 @@ import Text from '../../Components/Common/Text';
 
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-const Container = styled.View`
-  flex: 1;
-  background-color: ${({ bgColor }) => (bgColor)}
-`;
 //------------------------------------------------------------------------------
 const Brand = styled(Text.L)`
   color: ${({ color }) => (color)};
@@ -33,8 +28,11 @@ const LogoHeaderBackground = ({
   const isWhiteTheme = theme === 'white';
 
   return (
-    <Container
-      bgColor={isWhiteTheme ? Colors.white : Colors.secondaryGreen}
+    <ScrollView
+      contentContainerStyle={{
+        flex: 1,
+        backgroundColor: isWhiteTheme ? Colors.white : Colors.secondaryGreen,
+      }}
     >
       <Spacer size="XL" />
       {!hideLogo && [
@@ -56,7 +54,7 @@ const LogoHeaderBackground = ({
       <FlexGrow>
         {children}
       </FlexGrow>
-    </Container>
+    </ScrollView>
   );
 };
 
