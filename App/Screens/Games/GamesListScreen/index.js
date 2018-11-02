@@ -39,7 +39,7 @@ class GamesListScreen extends React.Component {
       <Query
         query={GET_GAMES_LIST}
         variables={variables}
-        fetchPolicy="cache-and-network"
+        fetchPolicy="network-only"
       >
         {({
           error,

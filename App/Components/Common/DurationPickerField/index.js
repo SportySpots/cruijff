@@ -17,7 +17,7 @@ const DURATION_OPTIONS = [
   { number: '2,5', unit: 'hours', value: 150 },
   { number: '3', unit: 'hours', value: 180 },
   { number: '4', unit: 'hours', value: 240 },
-  { unit: 'Undetermined', value: '' },
+  // { unit: 'Undetermined', value: '' },
 ];
 //------------------------------------------------------------------------------
 const data = DURATION_OPTIONS.map(({ number, unit, value }) => (
