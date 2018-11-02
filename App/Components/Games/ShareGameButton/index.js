@@ -12,13 +12,17 @@ class ShareGameButton extends React.PureComponent {
   handleShare = () => {
     const { gameUUID } = this.props;
 
+    const title = 'SportySpots';
+    const message = I18n.t('You have been invited to a SportySpots game:');
     const url = `https://${config.deeplinkHost}/games/${gameUUID}`;
-    const message = `${I18n.t('You have been invited to a SportySpots game:')} ${url}`;
+    // const message = `${I18n.t('You have been invited to a SportySpots game:')} ${url}`;
 
-    Share.share(
-      { message, title: 'SportySpots' },
-      { dialogTitle: I18n.t('share') },
-    );
+    const content = { title, message, url };
+    const options = { dialogTitle: I18n.t('share'), subject: title };
+
+    Share.share(content, options)
+      .then((res) => { console.log(res); })
+      .catch((err) => { console.log(err); });
   }
 
   render() {
