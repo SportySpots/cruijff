@@ -5,13 +5,11 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../App/Backgrounds/FieldBackground/stories');
-  require('../App/Backgrounds/LogoHeaderBackground/stories');
+  require('../App/Components/Common/Modals/ImageModal/stories');
 }
 
 const stories = [
-  '../App/Backgrounds/FieldBackground/stories',
-  '../App/Backgrounds/LogoHeaderBackground/stories',
+  '../App/Components/Common/Modals/ImageModal/stories',
 ];
 
 module.exports = {

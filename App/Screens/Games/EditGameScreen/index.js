@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { Platform, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
+import I18n from '../../../I18n';
+import themeImages from '../../../Themes/Images';
 import FormProps from '../../../RenderProps/form-props';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import EditGameApiCall from '../../../Components/Games/EditGameApiCall';
 import EditGameForm from '../../../Components/Games/EditGameForm';
-import EditGameDoneModal from '../../../Components/Games/EditGameDoneModal';
+import ImageModal from '../../../Components/Common/Modals/ImageModal';
 import { addModelState } from '../../../utils';
 
 //------------------------------------------------------------------------------
@@ -82,16 +84,24 @@ class EditGameScreen extends React.PureComponent {
 
               // Only display cancel form if user is the organizer of the activity
               const isOrganizer = (
-                user &&
-                user.uuid &&
-                data.game.organizer &&
-                data.game.organizer.uuid &&
-                user.uuid === data.game.organizer.uuid
+                user
+                && user.uuid
+                && data.game.organizer
+                && data.game.organizer.uuid
+                && user.uuid === data.game.organizer.uuid
               );
 
               if (!isOrganizer) {
                 return null;
               }
+
+              const handleModalClose = () => {
+                editDoneModal.hide();
+                // Refetch activity data
+                refetch();
+                // Redirect user to activity display screen
+                navigation.goBack(null);
+              };
 
               return [
                 <EditGameApiCall
@@ -114,16 +124,16 @@ class EditGameScreen extends React.PureComponent {
                     />
                   )}
                 </EditGameApiCall>,
-                <EditGameDoneModal
+                <ImageModal
                   key="modal"
+                  modalComponent="ConfirmModal"
+                  src={themeImages.activitySuccessVisual}
+                  title={I18n.t('The activity has been updated')}
+                  subtitle={I18n.t('All attendees will receive an update email')}
                   visible={editDoneModal.isVisible}
-                  onClose={() => {
-                    editDoneModal.hide();
-                    // Refetch activity data
-                    refetch();
-                    // Redirect user to activity display screen
-                    navigation.goBack(null);
-                  }}
+                  okBtnLabel={I18n.t('Ok')}
+                  onClose={handleModalClose}
+                  onOk={handleModalClose}
                 />,
               ];
             }}

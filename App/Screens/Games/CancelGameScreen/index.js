@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
+import I18n from '../../../I18n';
+import themeImages from '../../../Themes/Images';
 import FormProps from '../../../RenderProps/form-props';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import CancelGameApiCall from '../../../Components/Games/CancelGameApiCall';
 import CancelGameForm from '../../../Components/Games/CancelGameForm';
-import CancelGameDoneModal from '../../../Components/Games/CancelGameDoneModal';
+import ImageModal from '../../../Components/Common/Modals/ImageModal';
 import { addModelState } from '../../../utils';
 
 //------------------------------------------------------------------------------
@@ -64,16 +66,24 @@ class CancelGameScreen extends React.PureComponent {
 
               // Only display cancel form if user is the organizer of the activity
               const isOrganizer = (
-                user &&
-                user.uuid &&
-                data.game.organizer &&
-                data.game.organizer.uuid &&
-                user.uuid === data.game.organizer.uuid
+                user
+                && user.uuid
+                && data.game.organizer
+                && data.game.organizer.uuid
+                && user.uuid === data.game.organizer.uuid
               );
 
               if (!isOrganizer) {
                 return null;
               }
+
+              const handleModalClose = () => {
+                cancelDoneModal.hide();
+                // Refetch activity data
+                refetch();
+                // Redirect user to activity display screen
+                navigation.goBack(null);
+              };
 
               return [
                 <CancelGameApiCall
@@ -97,16 +107,15 @@ class CancelGameScreen extends React.PureComponent {
                     />
                   )}
                 </CancelGameApiCall>,
-                <CancelGameDoneModal
+                <ImageModal
                   key="modal"
+                  modalComponent="ConfirmModal"
+                  src={themeImages.activityCancelledVisual}
+                  title={I18n.t('The activity is cancelled')}
                   visible={cancelDoneModal.isVisible}
-                  onClose={() => {
-                    cancelDoneModal.hide();
-                    // Refetch activity data
-                    refetch();
-                    // Redirect user to activity display screen
-                    navigation.goBack(null);
-                  }}
+                  okBtnLabel={I18n.t('Ok')}
+                  onClose={handleModalClose}
+                  onOk={handleModalClose}
                 />,
               ];
             }}
