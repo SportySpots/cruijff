@@ -6,7 +6,6 @@ import { storiesOf } from '@storybook/react-native';
 
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import ImageSwiper from './Common/ImageSwiper';
-import SecondaryButton from './Common/SecondaryButton';
 import FlatButton from './Common/FlatButton';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
@@ -40,7 +39,6 @@ storiesOf('Logo', module)
   .add('Default', () => <Logo />);
 
 storiesOf('Basic components', module)
-  .add('SecondaryButton', () => <SecondaryButton text="Press me please" />)
   .add('FlatButton', () => <FlatButton text="SUBMIT" />);
 
 storiesOf('Text', module)
