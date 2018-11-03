@@ -4,7 +4,7 @@ import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import SpotsListScreen from '../../Screens/Spots/SpotsListScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
-import SpotsHeaderBtn from '../../Components/Spots/HeaderBtn';
+import HeaderBtn from '../../Components/Common/HeaderBtn';
 import GameDetailsScreens from './GameDetailsScreens';
 import SpotFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
 import { headerTitleStyle } from './style';
@@ -37,8 +37,8 @@ const SpotSearchNav = createStackNavigator({
       headerTitleStyle,
       headerLeft: null,
       headerRight: (
-        <SpotsHeaderBtn
-          icon="close"
+        <HeaderBtn
+          iconName="close"
           onPress={() => { navigation.goBack(null); }}
         />
       ),
@@ -50,8 +50,8 @@ const SpotSearchNav = createStackNavigator({
       headerTitle: I18n.t('Find a spot'),
       headerTitleStyle,
       headerRight: (
-        <SpotsHeaderBtn
-          icon="filter-list"
+        <HeaderBtn
+          iconName="filter-list"
           onPress={() => { navigation.navigate('SpotsFilterScreen'); }}
         />
       ),

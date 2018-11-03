@@ -9,6 +9,7 @@ const Row = styled.View`
   flex-direction: row;
   align-items: ${(({ alignItems }) => (alignItems))};
   justify-content: ${(({ justifyContent }) => (justifyContent))};
+  width: ${({ width }) => (width)}
 `;
 
 Row.propTypes = {
@@ -26,11 +27,13 @@ Row.propTypes = {
     'space-around',
     'space-evenly',
   ]),
+  width: PropTypes.string,
 };
 
 Row.defaultProps = {
   alignItems: 'stretch',
   justifyContent: 'flex-start',
+  width: '100%',
 };
 
 export default Row;

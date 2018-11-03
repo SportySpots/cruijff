@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import Row from '../../Common/Row';
+import Row from '../Row';
 import Menu from '.';
 
 const options = [
