@@ -4,8 +4,8 @@ import Permissions from 'react-native-permissions';
 
 // default is Amsterdam center
 const DEFAULT_LOCATION = {
-  lat: 52.379189,
-  lng: 4.899431,
+  latitude: 52.379189,
+  longitude: 4.899431,
 };
 
 /*
@@ -41,8 +41,8 @@ const LocationContext = React.createContext();
 const getCurrentPosition = () => new Promise((resolve, reject) => {
   navigator.geolocation.getCurrentPosition(
     result => resolve({
-      lat: result.coords.latitude,
-      lng: result.coords.longitude,
+      latitude: result.coords.latitude,
+      longitude: result.coords.longitude,
     }), reject,
   );
 });
@@ -120,3 +120,9 @@ export class LocationProvider extends React.Component {
 
 export const LocationConsumer = LocationContext.Consumer;
 
+export const locationPropTypes = {
+  location: PropTypes.shape({
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+  }),
+};

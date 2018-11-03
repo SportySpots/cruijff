@@ -8,6 +8,7 @@ import HeaderBtn from '../../Components/Common/HeaderBtn';
 import GameDetailsScreens from './GameDetailsScreens';
 import SpotFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
 import { headerTitleStyle } from './style';
+import { LocationConsumer } from '../../Context/Location';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -45,7 +46,12 @@ const SpotSearchNav = createStackNavigator({
     }),
   },
   SpotsListScreen: {
-    screen: SpotsListScreen,
+    // eslint-disable-next-line react/prop-types
+    screen: ({ navigation }) => (
+      <LocationConsumer>
+        {({ location }) => <SpotsListScreen location={location} navigation={navigation} /> }
+      </LocationConsumer>
+    ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Find a spot'),
       headerTitleStyle,
