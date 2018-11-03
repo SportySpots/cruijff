@@ -29,24 +29,23 @@ class OnboardingScreen extends React.Component {
     globalRefs.OnBoardingScreen = this;
     // super.componentDidMount();
   }
+
   render() {
-    const { navigation } = this.props;
+    const { onSuccessHook } = this.props;
     return (
       <ScreenSlider
         data={data}
         style={{ flex: 1 }}
         renderItem={({ item }) => <Onboarding {...item} />}
         footerText={(item, index) => I18n.t(index < data.length - 1 ? 'continue' : 'lets go')}
-        onDone={() => navigation.navigate('LocationPermissionScreen')}
+        onDone={onSuccessHook}
       />
     );
   }
 }
 
 OnboardingScreen.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
+  onSuccessHook: PropTypes.func.isRequired,
 };
 
 export default OnboardingScreen;

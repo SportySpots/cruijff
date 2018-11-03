@@ -2,47 +2,25 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { View, Image, TouchableHighlight } from 'react-native';
 import styled from 'styled-components';
-import Permissions from 'react-native-permissions';
-import { connect } from 'react-redux';
 import Images from '../Themes/Images';
 import I18n from '../I18n/index';
-import locationActions from '../Redux/LocationRedux';
 import Colors from '../Themes/Colors';
 import Fonts from '../Themes/Fonts';
 import Text from '../Components/Common/Text';
-import navigationPropTypes from '../PropTypesDefinitions/navigation';
 
-export default connect(null, { updateLocation: locationActions.updateLocation })(class AskLocation extends React.PureComponent {
+export default class AskLocationScreen extends React.PureComponent {
   static propTypes = {
-    navigation: navigationPropTypes.isRequired,
-    updateLocation: PropTypes.func.isRequired,
+    askPermission: PropTypes.func.isRequired,
+    onSuccessHook: PropTypes.func.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = { checked: false }; // has location permission been checked?
-  }
-
   async ask() {
-    await Permissions.request('location'); // one of: 'authorized', 'denied', 'restricted', or 'undetermined'
-    this.props.updateLocation();
-    this.props.navigation.navigate('MainNav');
-  }
-
-  componentWillMount() {
-    Permissions.check('location').then((response) => {
-      if (response === 'denied' || response === 'undetermined') {
-        this.setState({ checked: true });
-      } else {
-        this.props.navigation.navigate('MainNav');
-      }
-    }).catch(() => {
-      this.props.navigation.navigate('MainNav');
-    });
+    const { askPermission, onSuccessHook } = this.props;
+    await askPermission();
+    onSuccessHook();
   }
 
   render() {
-    if (!this.state.checked) return null;
     return (
       <Container>
         <Container>
@@ -63,7 +41,7 @@ export default connect(null, { updateLocation: locationActions.updateLocation })
             {/* <WhiteText>{I18n.t('share-your-location')}</WhiteText> */}
           </View>
           <HorizontalView>
-            <TouchableHighlight onPress={() => this.ask()} accessibilityLabel="Ask location button">
+            <TouchableHighlight onPress={() => this.ask()}>
               <View>
                 <ButtonText>
                   {I18n.t('continue').toUpperCase()}
@@ -75,7 +53,8 @@ export default connect(null, { updateLocation: locationActions.updateLocation })
       </Container>
     );
   }
-});
+}
+
 
 const Container = styled.View`
   flex: 1;

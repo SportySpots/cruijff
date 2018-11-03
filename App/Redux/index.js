@@ -4,7 +4,6 @@ import configureStore from './CreateStore';
 
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
-  location: require('./LocationRedux').reducer,
   user: require('./UserRedux').reducer,
   spotFilters: require('./SpotFiltersRedux').reducer,
 });
