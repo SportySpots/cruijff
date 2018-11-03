@@ -7,11 +7,8 @@ import Row from '../Row';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const HeaderBtn = ({ iconName, onPress, ...rest }) => (
-  <TouchableOpacity
-    onPress={onPress}
-    {...rest}
-  >
+const HeaderBtn = ({ iconName, onPress }) => (
+  <TouchableOpacity onPress={onPress}>
     <Row
       justifyContent="center"
       alignItems="center"
@@ -25,7 +22,6 @@ const HeaderBtn = ({ iconName, onPress, ...rest }) => (
 HeaderBtn.propTypes = {
   iconName: PropTypes.string.isRequired,
   onPress: PropTypes.func,
-  // Plus all TouchableOpacity props
 };
 
 HeaderBtn.defaultProps = {

@@ -68,6 +68,7 @@ class AdminMenu extends React.PureComponent {
 
           return (
             <Menu
+              testID="gameAdminMenuTrigger"
               menuName="display-game-menu"
               triggerName="display-game-trigger"
               options={OPTIONS}

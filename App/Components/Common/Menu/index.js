@@ -39,10 +39,7 @@ const Menu = ({ menuName, triggerName, options }) => (
   <MenuNative name={menuName}>
     <MenuTrigger menuName={triggerName}>
       <View pointerEvents="none">
-        <HeaderBtn
-          testID="gameAdminMenuTrigger"
-          iconName="more-vert"
-        />
+        <HeaderBtn iconName="more-vert" />
       </View>
     </MenuTrigger>
     <MenuOptions customStyles={optionsStyles}>
