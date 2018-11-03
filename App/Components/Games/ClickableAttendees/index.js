@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import Row from '../../Common/Row';
 import Attendees from '../Attendees';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const FlexGrow = styled.View`
+  flex-grow: 1; /* full width */
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -16,12 +23,11 @@ const ClickableAttendees = ({ attendees, maxLength, onAttendeesPress }) => {
 
   return (
     <TouchableOpacity onPress={onAttendeesPress}>
-      <Row
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Attendees attendees={attendees} maxLength={maxLength} />
-        <MaterialIcon
+      <Row alignItems="center">
+        <FlexGrow>
+          <Attendees attendees={attendees} maxLength={maxLength} />
+        </FlexGrow>
+        <Icon
           name="chevron-right"
           size={30}
           color={Colors.black}
