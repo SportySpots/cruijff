@@ -21,10 +21,6 @@ const Container = styled(ScrollView)`
   background-color: ${Colors.concrete};
 `;
 //------------------------------------------------------------------------------
-const MinHeight = styled.View`
-  min-height: 100px;
-`;
-//------------------------------------------------------------------------------
 const GamesContainer = styled.View`
   padding: 0 8px;
 `;
@@ -63,21 +59,20 @@ class SpotDetailsScreen extends React.PureComponent {
                 userId={userId}
                 onGamePress={this.handleGamePress}
               />
-              <MinHeight>
-                <Block>
-                  <Text.ML>{I18n.t('Games')}</Text.ML>
-                </Block>
-                <GamesContainer>
-                  <GamesList
-                    games={games}
-                    onCardPress={this.handleGamePress}
-                    contentContainerStyle={{
-                      flexGrow: 1, // centers not-found-component
-                      paddingBottom: 8,
-                    }}
-                  />
-                </GamesContainer>
-              </MinHeight>
+              <Block>
+                <Text.ML>{I18n.t('Games')}</Text.ML>
+              </Block>
+              <GamesContainer>
+                <GamesList
+                  games={games}
+                  onCardPress={this.handleGamePress}
+                  contentContainerStyle={{
+                    flexGrow: 1, // centers not-found-component
+                    paddingBottom: 8,
+                    minHeight: 200,
+                  }}
+                />
+              </GamesContainer>
             </Container>
           );
         }}
