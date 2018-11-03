@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
+import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Row from '../Row';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const StyledRow = styled(Row)`
+  width: 60px;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const HeaderBtn = ({ iconName, onPress }) => (
   <TouchableOpacity onPress={onPress}>
-    <Row
+    <StyledRow
       justifyContent="center"
       alignItems="center"
-      width="60px"
     >
       <Icon size={32} name={iconName} color="black" />
-    </Row>
+    </StyledRow>
   </TouchableOpacity>
 );
 
