@@ -19,8 +19,9 @@ import Colors from './Themes/Colors';
 import config from './config';
 import scopedEval from './scopedEval';
 import globalRefs, { addGlobalRef } from './globalRefs';
-import { getBottomSpace, getStatusBarHeight, ifIphoneX } from './iphoneHelpers';
-import './prototypes'; // prototype extensions
+import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
+import './prototypes';
+import { LocationProvider } from './Context/Location'; // prototype extensions
 
 export class App extends Component {
   constructor() {
@@ -126,15 +127,17 @@ export class App extends Component {
         ref={addGlobalRef('apolloProvider')}
         client={this.client}
       >
-        <Provider store={this.store}>
-          <MenuProvider>
-            <AppRootView>
-              <StatusBar barStyle="light-content" />
-              <ConnectionCheck />
-              <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
-            </AppRootView>
-          </MenuProvider>
-        </Provider>
+        <LocationProvider>
+          <Provider store={this.store}>
+            <MenuProvider>
+              <AppRootView>
+                <StatusBar barStyle="light-content" />
+                <ConnectionCheck />
+                <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
+              </AppRootView>
+            </MenuProvider>
+          </Provider>
+        </LocationProvider>
       </ApolloProvider>
     );
   }

@@ -1,10 +1,5 @@
-// import initStoryshots from '@storybook/addon-storyshots';
-//
-// initStoryshots({
-//   storyKindRegex: /^((?!.*?(SportDateTimeForm|PlanGameScreen|TimePickerField)).)*$/
-// });
+import initStoryshots from '@storybook/addon-storyshots';
 
-it('works', () => {
-  expect(1).toBe(1);
+initStoryshots({
+  storyKindRegex: /^((?!.*?(SportDateTimeForm|PlanGameScreen|TimePickerField|SportDateTimeSlide)).)*$/,
 });
-
