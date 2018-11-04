@@ -88,7 +88,7 @@ const GameListCard = ({ game }) => {
 
   const isCanceled = status === 'CANCELED';
   const attendees = getAttendees(game.attendees);
-  const formattedStartTime = moment.utc(startTime).format('D-MM HH:mm');
+  const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
 
   return (
     <Outer isCanceled={isCanceled}>

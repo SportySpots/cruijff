@@ -96,6 +96,7 @@ class PlanGameForm extends React.Component {
       if (fieldName === 'spot') {
         this.swiper.scrollBy(1);
       }
+      console.log('STATE', this.state);
     });
   }
 
