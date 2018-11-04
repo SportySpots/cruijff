@@ -68,13 +68,14 @@ const create = () => {
   );
 
   const updateProfile = ({
-    userUUID, firstName, lastName, birthYear,
+    userUUID, firstName, lastName, birthYear, avatar,
   }) => (
     api.patch(`/users/${userUUID}/`, {
       first_name: firstName,
       last_name: lastName,
       /* profile: {
-        year_of_birth: birthYear,
+        avatar,
+        // year_of_birth: birthYear,
       }, */
     })
   );
