@@ -14,7 +14,7 @@ storiesOf('Common.Link', module)
       <Link
         text="I'm the text"
         href="I'm the href"
-        iconName="security-account"
+        iconName="account-circle"
       />
     </Block>
   ));

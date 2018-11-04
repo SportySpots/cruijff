@@ -35,10 +35,15 @@ const optionsStyles = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Menu = ({ menuName, triggerName, options }) => (
+const Menu = ({
+  menuName,
+  triggerName,
+  options,
+  testID,
+}) => (
   <MenuNative name={menuName}>
     <MenuTrigger menuName={triggerName}>
-      <View pointerEvents="none">
+      <View pointerEvents="none" testID={testID}>
         <HeaderBtn iconName="more-vert" />
       </View>
     </MenuTrigger>
@@ -71,10 +76,12 @@ Menu.propTypes = {
       onPress: PropTypes.func.isRequired,
     }),
   ),
+  testID: PropTypes.string,
 };
 
 Menu.defaultProps = {
   options: [],
+  testID: '',
 };
 
 export default Menu;
