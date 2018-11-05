@@ -1,7 +1,8 @@
 import moment from 'moment';
 
+// startTime is UTC date (not moment)
 export const getDate = (startTime) => {
-  const startDate = moment.utc(startTime).startOf('day'); // moment object
+  const startDate = moment.utc(startTime).startOf('day'); // moment UTC object
 
   return {
     year: startDate.year(),
@@ -12,26 +13,12 @@ export const getDate = (startTime) => {
   };
 };
 
-// TODO: sum offset
-// See how timepicer works
-export const getTime = (startTime) => {
-  return new Date(startTime);
-  // const date = new Date(startTime);
-  // new Date.UTC(startTime)
-  // return new Date(moment.utc(startTime).toISOString());
-  // moment.utc(startTime).format('HH:mm')
-  /* const startTimeUTC = Date.UTC(
-    date.getUTCFullYear(),
-    date.getUTCMonth(),
-    date.getUTCDate(),
-    date.getUTCHours(),
-    date.getUTCMinutes(),
-    date.getUTCSeconds(),
-  ); */
+// startTime is UTC date (not moment)
+export const getTime = startTime => (
+  new Date(moment.utc(startTime).toISOString())
+);
 
-  // return new Date(startTimeUTC);
-};
-
+// startTime and endTime are UTC dates (not moment)
 export const getDuration = (startTime, endTime) => {
   const start = moment.utc(startTime);
   const end = moment.utc(endTime);

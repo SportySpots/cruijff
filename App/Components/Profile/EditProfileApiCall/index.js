@@ -31,6 +31,8 @@ class EditProfileApiCall extends React.PureComponent {
       doc.birthYear = parseInt(inputFields.birthYear, 10);
     }
 
+    console.log('DOC', doc);
+
     try {
       const response = await SeedorfAPI.updateProfile(doc);
 

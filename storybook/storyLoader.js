@@ -11,6 +11,7 @@ function loadStories() {
   require('../App/Components/Auth/SignupForm/stories');
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/Avatar/stories');
+  require('../App/Components/Common/AvatarPicker/stories');
   require('../App/Components/Common/Block/stories');
   require('../App/Components/Common/Calendar/stories');
   require('../App/Components/Common/CapacityPicker/stories');
@@ -116,6 +117,7 @@ const stories = [
   '../App/Components/Auth/SignupForm/stories',
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/Avatar/stories',
+  '../App/Components/Common/AvatarPicker/stories',
   '../App/Components/Common/Block/stories',
   '../App/Components/Common/Calendar/stories',
   '../App/Components/Common/CapacityPicker/stories',

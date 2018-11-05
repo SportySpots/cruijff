@@ -35,9 +35,9 @@ class PlanGameApiCall extends React.PureComponent {
     console.log('USER_TZ', userTZ);
     console.log('DATE', date);
     console.log('TIME', time);
-    console.log('START_DATE', startDate.toISOString()); // '2018-10-06T00:00:00.000Z'
-    console.log('START_TIME', startTime.toISOString()); // '2018-10-06T13:15:00.000Z'
-    console.log('END_TIME', endTime ? endTime.toISOString() : null); // '2018-10-06T14:15:00.000Z'
+    console.log('START_DATE', startDate.format()); // '2018-10-06T00:00:00.000Z'
+    console.log('START_TIME', startTime.format()); // '2018-10-06T13:15:00.000Z'
+    console.log('END_TIME', endTime ? endTime.format() : null); // '2018-10-06T14:15:00.000Z'
 
     // TODO: replace this with a single endpoint
     try {
@@ -45,16 +45,17 @@ class PlanGameApiCall extends React.PureComponent {
       const result = await SeedorfAPI.createGame({
         name,
         startTZ: userTZ,
-        startTime: startTime.toISOString(),
+        startTime: startTime.format(),
         endTZ: userTZ,
-        endTime: endTime ? endTime.toISOString() : null,
+        endTime: endTime ? endTime.format() : null,
         capacity,
         description,
       });
       const gameUUID = result.data.uuid;
 
       // Set sport
-      await SeedorfAPI.setGameSport({ gameUUID, sport });
+      const sportResult = await SeedorfAPI.setGameSport({ gameUUID, sport });
+      console.log('SPORT_RESULT', sportResult);
 
       // Set spot
       await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });

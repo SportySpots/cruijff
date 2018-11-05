@@ -3548,6 +3548,63 @@ exports[`Storyshots Common.Avatar Avatar with USER 1`] = `
 </RCTScrollView>
 `;
 
+exports[`Storyshots Common.AvatarPicker AvatarPicker with USER 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flex": 1,
+            },
+            undefined,
+            undefined,
+            undefined,
+          ]
+        }
+      />
+      <RCTSafeAreaView
+        pointerEvents="box-none"
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          onLayout={[Function]}
+          pointerEvents="box-none"
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        />
+      </RCTSafeAreaView>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
 exports[`Storyshots Common.Block Block 1`] = `
 <RCTScrollView
   contentContainerStyle={
@@ -4269,7 +4326,6 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     style={
                       Object {
                         "alignItems": "center",
-                        "backgroundColor": undefined,
                         "height": 32,
                         "opacity": 1,
                         "width": 32,
@@ -4289,7 +4345,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                             "marginTop": 6,
                           },
                           Object {
-                            "color": "#00adf5",
+                            "color": "#d9e1e8",
                           },
                         ]
                       }
@@ -4329,6 +4385,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     style={
                       Object {
                         "alignItems": "center",
+                        "backgroundColor": undefined,
                         "height": 32,
                         "opacity": 1,
                         "width": 32,
@@ -4346,6 +4403,9 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                             "fontSize": 16,
                             "fontWeight": "300",
                             "marginTop": 6,
+                          },
+                          Object {
+                            "color": "#00adf5",
                           },
                         ]
                       }
@@ -25773,7 +25833,7 @@ exports[`Storyshots Common.Link Link with icon 1`] = `
                   ]
                 }
               >
-                ?
+                
               </Text>
             </View>
           </View>
@@ -25904,6 +25964,7 @@ exports[`Storyshots Common.Menu Menu 1`] = `
                   >
                     <View
                       pointerEvents="none"
+                      testID=""
                     >
                       <View
                         accessible={true}
@@ -42773,7 +42834,6 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 style={
                                   Object {
                                     "alignItems": "center",
-                                    "backgroundColor": undefined,
                                     "height": 32,
                                     "opacity": 1,
                                     "width": 32,
@@ -42793,7 +42853,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                         "marginTop": 6,
                                       },
                                       Object {
-                                        "color": "#00adf5",
+                                        "color": "#d9e1e8",
                                       },
                                     ]
                                   }
@@ -42833,6 +42893,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 style={
                                   Object {
                                     "alignItems": "center",
+                                    "backgroundColor": undefined,
                                     "height": 32,
                                     "opacity": 1,
                                     "width": 32,
@@ -42850,6 +42911,9 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                         "fontSize": 16,
                                         "fontWeight": "300",
                                         "marginTop": 6,
+                                      },
+                                      Object {
+                                        "color": "#00adf5",
                                       },
                                     ]
                                   }

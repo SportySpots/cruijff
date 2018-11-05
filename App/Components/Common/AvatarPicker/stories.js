@@ -1,18 +1,18 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
-import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import EditProfileForm from '.';
+import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import AvatarPicker from '.';
 
-storiesOf('Profile.EditProfileForm', module)
-  .add('EditProfileForm', () => (
+storiesOf('Common.AvatarPicker', module)
+  .add('AvatarPicker with USER', () => (
     <Query
-      query={GET_USER_DETAILS}
+      query={GET_GAME_DETAILS}
       variables={{ uuid: '455' }}
     >
       {({ loading, error, data }) =>
         (loading || error ? null : (
-          <EditProfileForm user={data.user} />
+          <AvatarPicker user={data.game.organizer} />
         ))
       }
     </Query>

@@ -9,6 +9,7 @@ import InputField from '../InputField';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// time is in local timezone
 const TimePickerField = ({ value, onChange, ...rest }) => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => console.log('rendering', value) || [
