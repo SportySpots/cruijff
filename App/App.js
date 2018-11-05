@@ -23,7 +23,7 @@ import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import './prototypes';
 import { LocationProvider } from './Context/Location'; // prototype extensions
 
-export class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.store = createStore();
