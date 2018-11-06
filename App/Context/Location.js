@@ -120,6 +120,12 @@ export class LocationProvider extends React.Component {
 
 export const LocationConsumer = LocationContext.Consumer;
 
+export const withLocation = Component => props => (
+  <LocationConsumer>
+    {locationProps => <Component {...props} {...locationProps} />}
+  </LocationConsumer>
+);
+
 export const locationPropTypes = {
   location: PropTypes.shape({
     latitude: PropTypes.number.isRequired,
