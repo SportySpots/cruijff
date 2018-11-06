@@ -67,20 +67,19 @@ const create = () => {
     })
   );
 
-  const updateProfile = ({
-    userUUID, firstName, lastName, birthYear, avatar,
-  }) => (
+  const updateUserName = ({ userUUID, firstName, lastName }) => (
     api.patch(`/users/${userUUID}/`, {
       first_name: firstName,
       last_name: lastName,
-      /* profile: {
-        avatar,
-        // year_of_birth: birthYear,
-      }, */
     })
   );
 
-  const submitRating = (spotUUID, userUuid, rating) => {
+  const updateUserAvatar = ({ userUUID, userProfileUUID, avatar }) => {
+    api.setHeaders({ 'Content-Type': 'multipart/form-data' });
+    api.patch(`/user/${userUUID}/profile/${userProfileUUID}/`, { avatar });
+  };
+
+  const submitRating = ({ spotUUID, userUUUID, rating }) => {
     api.post(`/games/${spotUUID}/reactions`, {
       // todo : construct proper post
     });
@@ -213,7 +212,8 @@ const create = () => {
     deleteGame,
     signup,
     login,
-    updateProfile,
+    updateUserName,
+    updateUserAvatar,
     submitRating,
     verifyToken,
     setRSVPStatus,
