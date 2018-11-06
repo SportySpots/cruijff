@@ -3,13 +3,23 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import ErrorHandling from 'error-handling-utils';
 import ImagePicker from 'react-native-image-picker';
+import styled from 'styled-components';
 import I18n from '../../../I18n';
+import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Row from '../Row';
 import Spacer from '../Spacer';
+import Text from '../Text';
 import Avatar from '../Avatar';
 import RaisedButton from '../RaisedButton';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const ErrorMsg = styled(Text)`
+  color: ${Colors.negative};
+  text-align: center;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -22,7 +32,7 @@ class AvatarPickerForm extends React.PureComponent {
 
     // Initialize state based on current user data
     this.state = {
-      uri: avatar || null,
+      avatar: avatar || '',
       errors: {
         avatar: [],
       },
@@ -78,13 +88,12 @@ class AvatarPickerForm extends React.PureComponent {
         console.log('User tapped custom button: ', response.customButton);
         onClientCancelHook();
       } else {
-        const { uri, data } = response;
-        // const source = { uri: response.uri };
+        const { data } = response;
 
-        // You can also display the image using data:
+        // You can display the image using data:
         // const source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-        this.setState({ uri });
+        this.setState({ avatar: data });
         // Pass event up to parent component. onClientSuccessHook will set 'disabled'
         // value back to 'false' so that the user can re-submit the form
         onSuccessHook(data);
@@ -94,20 +103,23 @@ class AvatarPickerForm extends React.PureComponent {
 
   render() {
     const { user, disabled } = this.props;
-    const { uri, errors } = this.state;
+    const { avatar, errors } = this.state;
 
     // Set user based on state values
-    const usr = Object.assign({}, user, { profile: { avatar: { uri } } });
+    const usr = Object.assign({}, user, { profile: { avatar } });
 
     // Apply translation and concatenate field errors (string)
     const avatarErrors = ErrorHandling.getFieldErrors(errors, 'avatar', I18n.t);
 
-    // TODO: implement error msg
     return [
       <Row key="avatar" justifyContent="center">
         <Avatar user={usr} size={80} />
       </Row>,
       <Spacer key="spacer" size="XL" />,
+      !!avatarErrors && avatarErrors.length > 0 && [
+        <ErrorMsg key="error">{avatarErrors}</ErrorMsg>,
+        <Spacer key="spacer" size="XL" />,
+      ],
       <RaisedButton
         key="button"
         variant="ghost"
