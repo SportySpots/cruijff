@@ -72,13 +72,20 @@ export class UserProvider extends React.Component {
 
   signup = async ({
     firstName, lastName, email, password,
-  }) => api.signup({
-    firstName,
-    lastName,
-    username: email,
-    email,
-    password,
-  })
+  }) => {
+    const result = await api.signup({
+      firstName,
+      lastName,
+      username: email,
+      email,
+      password,
+    });
+    if (result.ok) {
+      await this.setToken(result.data.token);
+      await this.refresh();
+    }
+    return result;
+  }
 
   login = async (email, password) => {
     const result = await api.login({
