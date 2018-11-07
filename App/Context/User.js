@@ -15,9 +15,25 @@ import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 
 const UserContext = React.createContext();
 
+export const userPropTypes = {
+  user: PropTypes.shape({
+    uuid: PropTypes.string.isRequired,
+    profile: PropTypes.any.isRequired,
+  }),
+  signup: PropTypes.func,
+  login: PropTypes.func,
+  logout: PropTypes.func,
+  refresh: PropTypes.func,
+};
+
 export class UserProvider extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    mockUser: userPropTypes.user,
+  }
+
+  static defaultProps = {
+    mockUser: null,
   }
 
   setToken = async (token) => {
@@ -92,7 +108,11 @@ export class UserProvider extends React.Component {
   };
 
   render() {
-    const { user } = this.state;
+    const { mockUser } = this.props;
+    let { user } = this.state;
+    if (mockUser) {
+      user = mockUser;
+    }
     if (user === undefined) {
       return null;
     }
@@ -121,13 +141,3 @@ export const withUser = Component => props => (
   </UserConsumer>
 );
 
-export const userPropTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string.isRequired,
-    profile: PropTypes.any.isRequired,
-  }),
-  signup: PropTypes.func,
-  login: PropTypes.func,
-  logout: PropTypes.func,
-  refresh: PropTypes.func,
-};
