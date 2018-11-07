@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 // import I18n from '../../../I18n/index';
-import { client } from '../../../GraphQL';
-import userActions from '../../../Redux/UserRedux';
 import FormProps from '../../../RenderProps/form-props';
 import LoginApiCall from '../../../Components/Auth/LoginApiCall';
 import LoginForm from '../../../Components/Auth/LoginForm';
+import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -22,19 +20,8 @@ class LoginScreen extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { user, onSuccessHook } = this.props;
-
-    const userWasLoggedOut = (
-      !user
-      || !user.uuid
-      || user.uuid.trim().length === 0
-    );
-
-    const userIsLoggedIn = (
-      nextProps.user
-      && nextProps.user.uuid
-      && nextProps.user.uuid.trim().length > 0
-    );
-
+    const userWasLoggedOut = !user;
+    const userIsLoggedIn = !!nextProps.user;
     // Right after the user is logged in, fire success auth callback
     if (userWasLoggedOut && userIsLoggedIn) {
       onSuccessHook();
@@ -42,8 +29,6 @@ class LoginScreen extends React.Component {
   }
 
   render() {
-    const { setToken } = this.props;
-
     return (
       <FormProps>
         {({
@@ -57,14 +42,7 @@ class LoginScreen extends React.Component {
         }) => (
           <LoginApiCall
             onLoginError={handleServerError}
-            onLoginSuccess={({ token }) => {
-              // Extend formProps.handleSuccess' default functionality
-              handleSuccess(() => {
-                setToken(token);
-                client.resetStore();
-                // See componentWillReceiveProps
-              });
-            }}
+            onLoginSuccess={handleSuccess}
           >
             {({ loginUser }) => (
               <LoginForm
@@ -85,13 +63,10 @@ class LoginScreen extends React.Component {
 }
 
 LoginScreen.propTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string,
-  }).isRequired,
+  user: userPropTypes.user.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  setToken: PropTypes.func.isRequired,
   onSuccessHook: PropTypes.func,
 };
 
@@ -99,9 +74,5 @@ LoginScreen.defaultProps = {
   onSuccessHook: () => {},
 };
 
-// TODO: we need a user provider at top level to avoid using redux over and over again
-const mapStateToProps = ({ user }) => ({ user });
-const dispatchToProps = { setToken: userActions.setToken };
-const withRedux = connect(mapStateToProps, dispatchToProps);
 
-export default withRedux(LoginScreen);
+export default withUser(LoginScreen);

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SeedorfAPI from '../../../Services/SeedorfApi';
 import curateErrors from './utils';
+import { withUser, userPropTypes } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -11,15 +11,11 @@ import curateErrors from './utils';
  */
 class LoginApiCall extends React.PureComponent {
   handleLogin = async (inputFields) => {
-    const { onLoginError, onLoginSuccess } = this.props;
+    const { onLoginError, onLoginSuccess, login } = this.props;
     const { email, password } = inputFields;
 
     try {
-      const response = await SeedorfAPI.login({
-        username: email,
-        email,
-        password,
-      });
+      const response = await login(email, password);
 
       // Pass event up to parent component
       if (response && response.problem) {
@@ -27,7 +23,7 @@ class LoginApiCall extends React.PureComponent {
         const errors = curateErrors(response.data);
         onLoginError(errors);
       } else {
-        onLoginSuccess({ token: response.data.token });
+        onLoginSuccess();
       }
     } catch (exc) {
       onLoginError(exc);
@@ -53,6 +49,7 @@ LoginApiCall.propTypes = {
   ]).isRequired,
   onLoginError: PropTypes.func,
   onLoginSuccess: PropTypes.func,
+  login: userPropTypes.login.isRequired,
 };
 
 LoginApiCall.defaultProps = {
@@ -60,4 +57,4 @@ LoginApiCall.defaultProps = {
   onLoginSuccess: () => {},
 };
 
-export default LoginApiCall;
+export default withUser(LoginApiCall);

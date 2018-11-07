@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { withUser, userPropTypes } from '../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -18,7 +18,7 @@ const LoggedInRoute = ({
 }) => {
   const childProps = { user, ...rest };
   // In case user is not logged in, render overlay component
-  if (!user || !user.uuid) {
+  if (!user) {
     return <Overlay {...childProps} />;
   }
   // ...Otherwise, render requested component
@@ -26,19 +26,13 @@ const LoggedInRoute = ({
 };
 
 LoggedInRoute.propTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string,
-  }),
+  user: userPropTypes.user.isRequired,
   component: PropTypes.func.isRequired,
   overlay: PropTypes.func,
 };
 
 LoggedInRoute.defaultProps = {
-  user: null,
   overlay: () => {},
 };
 
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(LoggedInRoute);
+export default withUser(LoggedInRoute);

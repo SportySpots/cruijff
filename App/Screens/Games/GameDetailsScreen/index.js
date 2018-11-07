@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
-import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
@@ -11,6 +10,7 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import NothingFound from '../../../Components/Common/NothingFound';
 import GameDetails from '../../../Components/Games/GameDetails';
 import { addGlobalRef } from '../../../globalRefs';
+import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -114,15 +114,7 @@ GameDetailsScreen.propTypes = {
     }).isRequired,
   }).isRequired,
   // TODO: use userFragment
-  user: PropTypes.object, // eslint-disable-line
+  user: userPropTypes.user.isRequired,
 };
 
-GameDetailsScreen.defaultProps = {
-  user: null,
-};
-
-// Redux integration
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(GameDetailsScreen);
+export default withUser(GameDetailsScreen);

@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
 
 import CancelGameScreen from '.';
 import { navigation, store } from './mocks';
@@ -10,13 +9,11 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 describe('CancelGameScreen', () => {
   it('renders', () => {
     const WrappedScreen = renderer.create(
-      <Provider store={store}>
-        <ApolloMockProvider>
-          <CancelGameScreen
-            navigation={navigation}
-          />
-        </ApolloMockProvider>
-      </Provider>,
+      <ApolloMockProvider>
+        <CancelGameScreen
+          navigation={navigation}
+        />
+      </ApolloMockProvider>
     );
     const Screen = WrappedScreen.root.findByType(CancelGameScreen);
     expect(Screen.instance.props).toHaveProperty('navigation', navigation);

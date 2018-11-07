@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
 
 // import LoginScreen from './Auth/LoginScreen';
 // import SpotsFilterScreen from './Spots/SpotsFilterScreen';
@@ -26,9 +25,7 @@ const store = createStore(state => state, {
 
 storiesOf('Screens', module)
   .add('SplashScreen', () => (
-    <Provider store={store}>
-      <SplashScreen user={{ initialized: true }} navigation={dummyNavigator} />
-    </Provider>
+    <SplashScreen user={{ initialized: true }} navigation={dummyNavigator} />
   ));
   /* .add('LoginScreen', () => (
     <Provider store={store}>

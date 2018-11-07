@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AsyncStorage, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import I18n from '../I18n/index';
 import Colors from '../Themes/Colors';
@@ -12,6 +11,7 @@ import Text from '../Components/Common/Text';
 import RaisedButton from '../Components/Common/RaisedButton';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 import globalRefs, { addGlobalRef } from '../globalRefs';
+import { userPropTypes, withUser } from '../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -61,9 +61,9 @@ class SplashScreen extends React.Component {
     const { navigation, user } = this.props;
     const { firstRun } = this.state;
 
-    if (user && !user.initialized) {
-      return <CenteredActivityIndicator />;
-    }
+    // if (user) {
+    //   return <CenteredActivityIndicator />;
+    // }
 
     return (
       <FieldBackground>
@@ -98,21 +98,10 @@ class SplashScreen extends React.Component {
 }
 
 SplashScreen.propTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string,
-    initialized: PropTypes.bool,
-  }),
+  user: userPropTypes.user.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-SplashScreen.defaultProps = {
-  user: null,
-};
-
-// TODO: we need a user provider at top level to avoid using redux over and over again
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(SplashScreen);
+export default withUser(SplashScreen);

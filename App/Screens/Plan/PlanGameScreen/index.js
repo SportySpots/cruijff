@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import {
   Alert,
   Keyboard,
@@ -12,6 +11,7 @@ import FormProps from '../../../RenderProps/form-props';
 import PlanGameApiCall from '../../../Components/PlanGame/PlanGameApiCall';
 import PlanGameForm from '../../../Components/PlanGame/PlanGameForm';
 import { addGlobalRef } from '../../../globalRefs';
+import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -105,14 +105,7 @@ PlanGameScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  user: PropTypes.shape({
-    claims: PropTypes.shape({
-      username: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
+  user: userPropTypes.user.isRequired,
 };
 
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(PlanGameScreen);
+export default withUser(PlanGameScreen);

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components';
@@ -13,6 +12,7 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import GamesList from '../../../Components/Games/GamesList';
 import SpotDetails from '../../../Components/Spots/SpotDetails';
 import curatedGames from './utils';
+import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -35,7 +35,7 @@ class SpotDetailsScreen extends React.PureComponent {
   }
 
   render() {
-    const { navigation, userId } = this.props;
+    const { navigation, user } = this.props;
 
     return (
       <Query
@@ -56,7 +56,7 @@ class SpotDetailsScreen extends React.PureComponent {
             <Container>
               <SpotDetails
                 spot={spot}
-                userId={userId}
+                userId={user.uuid}
                 onGamePress={this.handleGamePress}
               />
               <Block>
@@ -89,13 +89,7 @@ SpotDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  userId: PropTypes.string,
+  user: userPropTypes.user.isRequired,
 };
 
-SpotDetailsScreen.defaultProps = {
-  userId: null,
-};
-
-const withRedux = connect(state => ({ userId: state.user.uuid }));
-
-export default withRedux(SpotDetailsScreen);
+export default withUser(SpotDetailsScreen);

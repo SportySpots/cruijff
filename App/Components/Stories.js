@@ -1,8 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-// import { createStore } from 'redux';
-// import { Provider } from 'react-redux';
 
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import ImageSwiper from './Common/ImageSwiper';
@@ -12,7 +10,6 @@ import Logo from './Common/Logo';
 import Slider from './Common/Slider';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
-// import SignupScreen from '../Screens/SignupScreen';
 import NothingFound from './Common/NothingFound';
 
 // TODO: move stories to individual component's folder
@@ -23,17 +20,6 @@ const dummyNavigator = {
     routes: [{ routeName: 'test' }],
   },
 };
-
-/* const store = createStore(state => state, {
-  user: {
-    uuid: 1234,
-    initialized: true,
-  },
-  spotFilters: {
-    maxDistance: 2.0,
-    sports: {},
-  },
-}); */
 
 storiesOf('Logo', module)
   .add('Default', () => <Logo />);

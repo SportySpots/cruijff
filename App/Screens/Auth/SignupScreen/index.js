@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { client } from '../../../GraphQL';
-import userActions from '../../../Redux/UserRedux';
 import FormProps from '../../../RenderProps/form-props';
 import SignupApiCall from '../../../Components/Auth/SignupApiCall';
 import SignupForm from '../../../Components/Auth/SignupForm';
+import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -22,17 +20,8 @@ class SignupScreen extends React.PureComponent {
   componentWillReceiveProps(nextProps) {
     const { user, onSuccessHook } = this.props;
 
-    const userWasLoggedOut = (
-      !user
-      || !user.uuid
-      || user.uuid.trim().length === 0
-    );
-
-    const userIsLoggedIn = (
-      nextProps.user
-      && nextProps.user.uuid
-      && nextProps.user.uuid.trim().length > 0
-    );
+    const userWasLoggedOut = !user;
+    const userIsLoggedIn = !!nextProps.user;
 
     // Right after the user is logged in, fire success auth callback
     if (userWasLoggedOut && userIsLoggedIn) {
@@ -41,8 +30,6 @@ class SignupScreen extends React.PureComponent {
   }
 
   render() {
-    const { setToken } = this.props;
-
     return (
       <FormProps>
         {({
@@ -56,14 +43,7 @@ class SignupScreen extends React.PureComponent {
         }) => (
           <SignupApiCall
             onSignupError={handleServerError}
-            onSignupSuccess={({ token }) => {
-              // Extend formProps.handleSuccess' default functionality
-              handleSuccess(() => {
-                setToken(token);
-                client.resetStore();
-                // See componentWillReceiveProps
-              });
-            }}
+            onSignupSuccess={handleSuccess}
           >
             {({ signupUser }) => (
               <SignupForm
@@ -84,13 +64,10 @@ class SignupScreen extends React.PureComponent {
 }
 
 SignupScreen.propTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string,
-  }).isRequired,
+  user: userPropTypes.user.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  setToken: PropTypes.func.isRequired,
   onSuccessHook: PropTypes.func,
 };
 
@@ -98,9 +75,4 @@ SignupScreen.defaultProps = {
   onSuccessHook: () => {},
 };
 
-// TODO: we need a user provider at top level to avoid using redux over and over again
-const mapStateToProps = ({ user }) => ({ user });
-const dispatchToProps = { setToken: userActions.setToken };
-const withRedux = connect(mapStateToProps, dispatchToProps);
-
-export default withRedux(SignupScreen);
+export default withUser(SignupScreen);

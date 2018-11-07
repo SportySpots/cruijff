@@ -1,8 +1,6 @@
 import React from 'react';
-import { propType } from 'graphql-anywhere';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
-import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -10,6 +8,7 @@ import Divider from '../../Common/Divider';
 import Text from '../../Common/Text';
 import Avatar from '../../Common/Avatar';
 import ProfileTabs from '../ProfileTabs';
+import { userPropTypes } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -43,7 +42,7 @@ const ProfileDetails = ({ user }) => [
 ];
 
 ProfileDetails.propTypes = {
-  user: propType(userDetailsFragment).isRequired,
+  user: userPropTypes.user.isRequired,
 };
 
 export default ProfileDetails;
