@@ -116,7 +116,7 @@ class SignupForm extends React.PureComponent {
     const _firstName = firstName && firstName.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_firstName) {
-      errors.firstName.push('First name is required!');
+      errors.firstName.push('First name is required');
     } else if (_firstName.length > MAX_CHARS) {
       errors.firstName.push('First name is too long');
     }
@@ -125,7 +125,7 @@ class SignupForm extends React.PureComponent {
     const _lastName = lastName && lastName.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_lastName) {
-      errors.lastName.push('Last name is required!');
+      errors.lastName.push('Last name is required');
     } else if (_lastName.length > MAX_CHARS) {
       errors.lastName.push('Last name is too long');
     }
@@ -134,9 +134,9 @@ class SignupForm extends React.PureComponent {
     const _email = email && email.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_email) {
-      errors.email.push('Email is required!');
+      errors.email.push('Email is required');
     } else if (!isEmail(_email)) {
-      errors.email.push('Please, provide a valid email address!');
+      errors.email.push('Please provide a valid email address');
     } else if (_email.length > MAX_CHARS) {
       errors.email.push('Email is too long');
     }

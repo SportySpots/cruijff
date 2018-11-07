@@ -113,6 +113,17 @@
   "No spots found": "Geen spots gevonden...",
   "No games found": "Geen activiteiten gevonden...",
 
+  "Login": "Login",
+  "login": "login",
+  "First name is required": "Voornaam is vereist",
+  "First name is too long": "Voornaam is te lang",
+  "Last name is required": "Achternaam is vereist",
+  "Last name is too long": "Achternaam is te lang",
+  "Email is required": "E-mailadres is vereist",
+  "Please provide a valid email address": "Vul een geldig e-mailadres in",
+  "Email is too long": "E-mailadres is te lang",
+  "Password is required": "Wachtwoord is vereist",
+  "Password is too long": "Wachtwoord is te lang",
   "Wrong username or password": "Geen geldige e-mail of wachtwoord",
   "Wrong email or password": "Geen geldige e-mail of wachtwoord",
 
