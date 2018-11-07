@@ -28,7 +28,7 @@ class AvatarPickerForm extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    const { avatar } = props.user;
+    const { avatar } = props.user.profile;
 
     // Initialize state based on current user data
     this.state = {
@@ -92,11 +92,11 @@ class AvatarPickerForm extends React.PureComponent {
 
         // You can display the image using data:
         // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-        this.setState({ avatar: data });
+        const base64avatar = `data:image/jpeg;base64,${data}`;
+        this.setState({ avatar: base64avatar });
         // Pass event up to parent component. onClientSuccessHook will set 'disabled'
         // value back to 'false' so that the user can re-submit the form
-        onSuccessHook(data);
+        onSuccessHook(base64avatar);
       }
     });
   }

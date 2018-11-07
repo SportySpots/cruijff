@@ -46,7 +46,7 @@ const Avatar = ({ user, text, size }) => {
     return (
       <Circle size={size}>
         <StyledImage
-          source={{ uri: `data:image/jpeg;base64,${avatar}` }}
+          source={{ uri: avatar }}
           size={size}
         />
       </Circle>

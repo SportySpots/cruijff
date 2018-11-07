@@ -39,6 +39,7 @@ const ProfileEditScreen = ({ user, navigation }) => (
       <Query
         query={GET_USER_DETAILS}
         variables={{ uuid: user.uuid }}
+        fetchPolicy="network-only"
       >
         {({
           loading,

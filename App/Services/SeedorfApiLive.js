@@ -74,16 +74,15 @@ const create = () => {
     })
   );
 
-  const updateUserAvatar = ({ userUUID, userProfileUUID, avatar }) => {
-    api.setHeaders({ 'Content-Type': 'multipart/form-data' });
-    api.patch(`/user/${userUUID}/profile/${userProfileUUID}/`, { avatar });
-  };
+  const updateUserAvatar = ({ userUUID, userProfileUUID, avatar }) => (
+    api.patch(`/users/${userUUID}/profile/${userProfileUUID}/`, { avatar })
+  );
 
-  const submitRating = ({ spotUUID, userUUUID, rating }) => {
+  const submitRating = ({ spotUUID, userUUUID, rating }) => (
     api.post(`/games/${spotUUID}/reactions`, {
       // todo : construct proper post
-    });
-  };
+    })
+  );
 
   const createGame = ({
     name, startTZ, startTime, endTZ, endTime, capacity, description,
@@ -101,11 +100,11 @@ const create = () => {
     })
   );
 
-  const setGameSport = ({ gameUUID, sport }) => {
+  const setGameSport = ({ gameUUID, sport }) => (
     api.post(`/games/${gameUUID}/sport/`, {
       uuid: sport.uuid,
-    });
-  };
+    })
+  );
 
   const setGameSpot = ({ gameUUID, spotUUID }) => (
     api.post(`/games/${gameUUID}/spot/`, {

@@ -42,21 +42,20 @@ class EditProfileApiCall extends React.PureComponent {
       const resName = await SeedorfAPI.updateUserName({ userUUID, firstName, lastName });
       // Pass event up to parent component in case of error
       if (resName && resName.problem) {
-        console.log('RESPONSE NAME', resName.data);
         // const errors = curateErrors(response.data);
         onEditError(resName.data); // TODO: curate errors
         return;
       }
 
-      const resAvatar = await SeedorfAPI.updateUserAvatar({ userUUID, userProfileUUID, avatar });
-      // Pass event up to parent component in case of error
-      if (resAvatar && resAvatar.problem) {
-        console.log('RESPONSE AVATAR', resAvatar.data);
-        // const errors = curateErrors(response.data);
-        onEditError(resAvatar.data); // TODO: curate errors
-        return;
+      if (avatar.substr(0, 4) === 'data') {
+        const resAvatar = await SeedorfAPI.updateUserAvatar({userUUID, userProfileUUID, avatar});
+        // Pass event up to parent component in case of error
+        if (resAvatar && resAvatar.problem) {
+          // const errors = curateErrors(response.data);
+          onEditError(resAvatar.data); // TODO: curate errors
+          return;
+        }
       }
-
       onEditSuccess();
     } catch (exc) {
       onEditError(exc);

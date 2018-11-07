@@ -28,6 +28,8 @@ const ProfileDetailsScreen = ({ user }) => (
   <Query
     query={GET_USER_DETAILS}
     variables={{ uuid: user.uuid }}
+    fetchPolicy="network-only"
+
   >
     {({ loading, error, data }) => {
       if (loading) return <CenteredActivityIndicator />;
