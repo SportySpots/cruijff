@@ -5,11 +5,11 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../App/Components/Common/Tag/stories');
+  require('../App/Components/Spots/SpotsFilterFlap/stories');
 }
 
 const stories = [
-  '../App/Components/Common/Tag/stories',
+  '../App/Components/Spots/SpotsFilterFlap/stories',
 ];
 
 module.exports = {

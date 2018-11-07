@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'react-apollo';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import SpotsList from '../../../Components/Spots/SpotsList';
 import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
+import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
+import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.View`
+const Outer = styled.View`
   flex: 1;
+`;
+//------------------------------------------------------------------------------
+const Inner = styled.View`
   padding: 0 8px;
-  background-color: ${Colors.concrete};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -28,19 +31,39 @@ class SpotsListScreen extends React.Component {
 
   render() {
     const {
-      maxDistance, allSports, selectedSportIds, location,
+      maxDistance, allSports, selectedSportIds, flapIsOpen, closeFlap, location,
     } = this.props;
 
     return (
-      <Container testID="SpotsListScreen">
-        <SpotsList
-          cardComponent="SpotListCard"
-          sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
-          userCoords={location}
-          maxDistance={maxDistance} // km
-          onCardPress={this.handleCardPress}
-        />
-      </Container>
+      <Outer testID="SpotsListScreen">
+        {flapIsOpen && (
+          <TopLayout>
+            <SpotsFilterFlap
+              maxDistance={maxDistance}
+              allSports={allSports}
+              selectedSportIds={selectedSportIds}
+              onClose={closeFlap}
+            />
+          </TopLayout>
+        )}
+        <BottomLayout
+          contentContainerStyle={{
+            flex: 1,
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Inner>
+            <SpotsList
+              cardComponent="SpotListCard"
+              sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
+              userCoords={location}
+              maxDistance={maxDistance} // km
+              onCardPress={this.handleCardPress}
+            />
+          </Inner>
+        </BottomLayout>
+      </Outer>
     );
   }
 }

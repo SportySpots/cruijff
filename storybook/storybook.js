@@ -5,14 +5,21 @@ import { MenuProvider } from 'react-native-popup-menu';
 import { ApolloMockProvider } from '../App/GraphQL';
 import { loadStories } from './storyLoader';
 import ReduxMockProvider from '../App/Redux/ReduxMockProvider';
+import { LocationProvider } from '../App/Context/Location';
+import { SpotFiltersProvider } from '../App/Context/SpotFilters';
+
 
 addDecorator(story => (
   <ApolloMockProvider>
-    <ReduxMockProvider>
-      <MenuProvider>
-        {story()}
-      </MenuProvider>
-    </ReduxMockProvider>
+    <LocationProvider>
+      <SpotFiltersProvider>
+        <ReduxMockProvider>
+          <MenuProvider>
+            {story()}
+          </MenuProvider>
+        </ReduxMockProvider>
+      </SpotFiltersProvider>
+    </LocationProvider>
   </ApolloMockProvider>
 ));
 
