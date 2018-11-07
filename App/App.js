@@ -15,6 +15,7 @@ import AppNavigation from './Navigation/AppNavigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
 import { UserProvider } from './Context/User';
+import { SpotFiltersProvider } from './Context/SpotFilters';
 
 import globalRefs, { addGlobalRef } from './globalRefs';
 import { setupDetoxConnection } from './detoxHelpers';
@@ -87,15 +88,17 @@ class App extends Component {
         client={this.client}
       >
         <UserProvider>
-          <LocationProvider>
-            <MenuProvider>
-              <AppRootView>
-                <StatusBar barStyle="light-content" />
-                <ConnectionCheck />
-                <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
-              </AppRootView>
-            </MenuProvider>
-          </LocationProvider>
+          <SpotFiltersProvider>
+            <LocationProvider>
+              <MenuProvider>
+                <AppRootView>
+                  <StatusBar barStyle="light-content" />
+                  <ConnectionCheck />
+                  <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
+                </AppRootView>
+              </MenuProvider>
+            </LocationProvider>
+          </SpotFiltersProvider>
         </UserProvider>
       </ApolloProvider>
     );

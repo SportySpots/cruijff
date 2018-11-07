@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
+import { withSpotFilters, spotFiltersPropTypes } from '../../../Context/SpotFilters';
 import FormProps from '../../../RenderProps/form-props';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
@@ -68,12 +68,7 @@ SpotsFilterScreen.propTypes = {
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
-  maxDistance: PropTypes.number.isRequired,
-  allSports: PropTypes.bool.isRequired,
-  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  ...spotFiltersPropTypes,
 };
 
-const mapStateToProps = ({ spotFilters }) => (spotFilters);
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(SpotsFilterScreen);
+export default withSpotFilters(SpotsFilterScreen);
