@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import CancelGameScreen from '.';
-import { navigation, store } from './mocks';
+import { navigation } from './mocks';
 import { ApolloMockProvider } from '../../../GraphQL';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 

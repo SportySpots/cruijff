@@ -17,7 +17,6 @@ class SpotsFilterActionCall extends React.PureComponent {
 
     const { maxDistance, allSports, selectedSportIds } = inputFields;
 
-    // Save data into redux store.
     setMaxDistance({ maxDistance });
     setAllSports({ allSports });
     setSports({ selectedSportIds });

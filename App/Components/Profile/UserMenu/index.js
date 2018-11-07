@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import I18n from '../../../I18n';
-import { client } from '../../../GraphQL';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Menu from '../../Common/Menu';
 import { userPropTypes, withUser } from '../../../Context/User';
@@ -14,7 +13,6 @@ class UserMenu extends React.PureComponent {
   handleLogout = () => {
     const { logout, navigation } = this.props;
     logout();
-    client.resetStore();
     navigation.navigate('SplashScreen');
   }
 

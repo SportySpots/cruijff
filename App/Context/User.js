@@ -107,6 +107,7 @@ export class UserProvider extends React.Component {
     this.setState({ user: null });
     client.setToken(null);
     api.setToken(null);
+    client.resetStore();
     await AsyncStorage.removeItem('TOKEN');
   }
 

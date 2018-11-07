@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
 import Row from '../../Common/Row';
-import { navigation, store } from './mocks';
+import { navigation } from './mocks';
 import AdminMenu from '.';
 
 storiesOf('Games.AdminMenu', module)
