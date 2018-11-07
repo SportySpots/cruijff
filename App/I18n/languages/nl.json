@@ -81,7 +81,13 @@
   "E-mail address in use": "E-mail adres al in gebruik",
   "Password needs to be at least 8 characters":
     "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
-
+  "This password is too common":
+    "Wachtwoord is niet uniek genoeg",
+  "This password is entirely numeric": "Wachtwoord mag niet alleen uit getallen bestaan",
+  "Name is required": "Naam is vereist",
+  "Name is too long": "Naam is te lang",
+  "Description is too long": "Beschrijving is te lang",
+  "Number of attendees is greater than the number of spots": "Aantal deelnemers is hoger dan aantal plaatsen",
   "share-your-location": "Locatie delen",
   "onboarding-ask-location":
     "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
@@ -126,7 +132,8 @@
   "Password is too long": "Wachtwoord is te lang",
   "Wrong username or password": "Geen geldige e-mail of wachtwoord",
   "Wrong email or password": "Geen geldige e-mail of wachtwoord",
-
+  "Please provide a valid year": "Voer een geldig jaartal in",
+  
   "I'm attending": "Ik doe mee",
   "Player list": "Deelnemers",
   "signed up at": "aangemeld op",
@@ -208,5 +215,6 @@
   "Year of birth": "Geboortejaar",
   "Version": "Versie",
   "Read more": "Lees meer",
-  "Read less": "Lees minder"
+  "Read less": "Lees minder",
+  "Upload photo": "Foto uploaden"
 }

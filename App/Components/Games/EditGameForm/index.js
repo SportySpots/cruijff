@@ -145,7 +145,7 @@ class EditGameForm extends React.PureComponent {
     const _name = name && name.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_name) {
-      errors.name.push('Name is required!');
+      errors.name.push('Name is required');
     } else if (_name.length > NAME_MAX_CHARS) {
       errors.name.push('Name is too long');
     }

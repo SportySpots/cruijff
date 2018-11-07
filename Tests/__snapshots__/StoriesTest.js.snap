@@ -4385,7 +4385,6 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     style={
                       Object {
                         "alignItems": "center",
-                        "backgroundColor": undefined,
                         "height": 32,
                         "opacity": 1,
                         "width": 32,
@@ -4405,7 +4404,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                             "marginTop": 6,
                           },
                           Object {
-                            "color": "#00adf5",
+                            "color": "#d9e1e8",
                           },
                         ]
                       }
@@ -4452,6 +4451,9 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                             "fontWeight": "300",
                             "marginTop": 6,
                           },
+                          Object {
+                            "color": "#d9e1e8",
+                          },
                         ]
                       }
                     >
@@ -4497,6 +4499,9 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                             "fontWeight": "300",
                             "marginTop": 6,
                           },
+                          Object {
+                            "color": "#d9e1e8",
+                          },
                         ]
                       }
                     >
@@ -4524,6 +4529,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     style={
                       Object {
                         "alignItems": "center",
+                        "backgroundColor": undefined,
                         "height": 32,
                         "opacity": 1,
                         "width": 32,
@@ -4541,6 +4547,9 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                             "fontSize": 16,
                             "fontWeight": "300",
                             "marginTop": 6,
+                          },
+                          Object {
+                            "color": "#00adf5",
                           },
                         ]
                       }
@@ -42893,7 +42902,6 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 style={
                                   Object {
                                     "alignItems": "center",
-                                    "backgroundColor": undefined,
                                     "height": 32,
                                     "opacity": 1,
                                     "width": 32,
@@ -42913,7 +42921,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                         "marginTop": 6,
                                       },
                                       Object {
-                                        "color": "#00adf5",
+                                        "color": "#d9e1e8",
                                       },
                                     ]
                                   }
@@ -42960,6 +42968,9 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                         "fontWeight": "300",
                                         "marginTop": 6,
                                       },
+                                      Object {
+                                        "color": "#d9e1e8",
+                                      },
                                     ]
                                   }
                                 >
@@ -43005,6 +43016,9 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                         "fontWeight": "300",
                                         "marginTop": 6,
                                       },
+                                      Object {
+                                        "color": "#d9e1e8",
+                                      },
                                     ]
                                   }
                                 >
@@ -43032,6 +43046,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 style={
                                   Object {
                                     "alignItems": "center",
+                                    "backgroundColor": undefined,
                                     "height": 32,
                                     "opacity": 1,
                                     "width": 32,
@@ -43049,6 +43064,9 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                         "fontSize": 16,
                                         "fontWeight": "300",
                                         "marginTop": 6,
+                                      },
+                                      Object {
+                                        "color": "#00adf5",
                                       },
                                     ]
                                   }

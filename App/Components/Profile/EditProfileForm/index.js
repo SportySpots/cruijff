@@ -105,7 +105,7 @@ class EditProfileForm extends React.PureComponent {
       _birthYear > 9999 ||
       moment().diff(moment(_birthYear, 'YYYY'), 'years') <= 0 // diff between today and the provided year
     )) {
-      errors.birthYear.push('Please, provide a valid year');
+      errors.birthYear.push('Please provide a valid year');
     }
 
     return errors;
