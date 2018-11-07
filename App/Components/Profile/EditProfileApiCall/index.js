@@ -8,9 +8,10 @@ import SeedorfAPI from '../../../Services/SeedorfApi';
 //------------------------------------------------------------------------------
 const FIELDS = [
   'userUUID',
+  'userProfileUUID',
   'firstName',
   'lastName',
-  'birthYear',
+  // 'birthYear',
   'avatar',
   // TODO: add remaining fields
 ];
@@ -24,26 +25,39 @@ const FIELDS = [
 class EditProfileApiCall extends React.PureComponent {
   handleUpdate = async (inputFields) => {
     const { onEditError, onEditSuccess } = this.props;
+    const {
+      userUUID,
+      userProfileUUID,
+      firstName,
+      lastName,
+      avatar,
+    } = inputFields;
 
-    const doc = pick(inputFields, FIELDS);
     // Make sure birthYear is numeric
-    if (inputFields.birthYear) {
+    /* if (inputFields.birthYear) {
       doc.birthYear = parseInt(inputFields.birthYear, 10);
-    }
-
-    console.log('DOC', doc);
+    } */
 
     try {
-      const response = await SeedorfAPI.updateProfile(doc);
-
-      // Pass event up to parent component
-      if (response && response.problem) {
-        console.log('RESPONSE', response.data);
+      const resName = await SeedorfAPI.updateUserName({ userUUID, firstName, lastName });
+      // Pass event up to parent component in case of error
+      if (resName && resName.problem) {
+        console.log('RESPONSE NAME', resName.data);
         // const errors = curateErrors(response.data);
-        onEditError(response.data); // TODO: curate errors
-      } else {
-        onEditSuccess();
+        onEditError(resName.data); // TODO: curate errors
+        return;
       }
+
+      const resAvatar = await SeedorfAPI.updateUserAvatar({ userUUID, userProfileUUID, avatar });
+      // Pass event up to parent component in case of error
+      if (resAvatar && resAvatar.problem) {
+        console.log('RESPONSE AVATAR', resAvatar.data);
+        // const errors = curateErrors(response.data);
+        onEditError(resAvatar.data); // TODO: curate errors
+        return;
+      }
+
+      onEditSuccess();
     } catch (exc) {
       onEditError(exc);
     }

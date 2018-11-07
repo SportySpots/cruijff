@@ -39,13 +39,14 @@ const Avatar = ({ user, text, size }) => {
     user
     && user.profile
     && user.profile.avatar
+    && user.profile.avatar.length > 0
   ) ? user.profile.avatar : '';
 
   if (avatar) {
     return (
       <Circle size={size}>
         <StyledImage
-          source={avatar}
+          source={{ uri: `data:image/jpeg;base64,${avatar}` }}
           size={size}
         />
       </Circle>
@@ -96,10 +97,7 @@ Avatar.propTypes = {
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     profile: PropTypes.shape({
-      avatar: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-      ]),
+      avatar: PropTypes.string,
     }),
   }),
   text: PropTypes.string,

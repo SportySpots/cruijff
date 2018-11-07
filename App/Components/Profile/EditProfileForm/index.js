@@ -155,6 +155,7 @@ class EditProfileForm extends React.PureComponent {
     // Pass event up to parent component
     onSuccessHook({
       userUUID: user.uuid,
+      userProfileUUID: user.profile.uuid,
       firstName,
       lastName,
       birthYear,
@@ -164,6 +165,7 @@ class EditProfileForm extends React.PureComponent {
 
   render() {
     const { user, disabled } = this.props;
+    console.log('USER', user);
     const {
       firstName,
       lastName,
