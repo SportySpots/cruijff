@@ -20,8 +20,9 @@ import config from './config';
 import scopedEval from './scopedEval';
 import globalRefs, { addGlobalRef } from './globalRefs';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
-import './prototypes';
-import { LocationProvider } from './Context/Location'; // prototype extensions
+import './prototypes'; // prototype extensions
+import { LocationProvider } from './Context/Location';
+import { SpotFiltersProvider } from './Context/SpotFilters';
 
 class App extends Component {
   constructor() {
@@ -128,15 +129,17 @@ class App extends Component {
         client={this.client}
       >
         <LocationProvider>
-          <Provider store={this.store}>
-            <MenuProvider>
-              <AppRootView>
-                <StatusBar barStyle="light-content" />
-                <ConnectionCheck />
-                <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
-              </AppRootView>
-            </MenuProvider>
-          </Provider>
+          <SpotFiltersProvider>
+            <Provider store={this.store}>
+              <MenuProvider>
+                <AppRootView>
+                  <StatusBar barStyle="light-content" />
+                  <ConnectionCheck />
+                  <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
+                </AppRootView>
+              </MenuProvider>
+            </Provider>
+          </SpotFiltersProvider>
         </LocationProvider>
       </ApolloProvider>
     );

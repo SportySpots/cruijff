@@ -5,7 +5,6 @@ import configureStore from './CreateStore';
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
   user: require('./UserRedux').reducer,
-  spotFilters: require('./SpotFiltersRedux').reducer,
 });
 
 export let reduxStore = null;
