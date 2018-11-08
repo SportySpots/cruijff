@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'react-apollo';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
@@ -19,8 +20,6 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // TODO: replace Container with Layout comp
 // TODO: get rid of geolocation call, use user data from query instead
-@withLocation
-@connect(state => state.spotFilters, null)
 class SpotsListScreen extends React.Component {
   handleCardPress = (spot) => {
     const { navigation } = this.props;
@@ -56,12 +55,15 @@ SpotsListScreen.propTypes = {
   selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default SpotsListScreen;
+const mapStateToProps = state => state.spotFilters;
+const withRedux = connect(mapStateToProps, null);
 
-// const mapStateToProps = state => state.spotFilters;
-// const withRedux = connect(mapStateToProps, null);
-//
-// export default withRedux(SpotsListScreen);
+const enhance = compose(
+  withLocation,
+  withRedux,
+);
+
+export default enhance(SpotsListScreen);
 
 /*
 import React from 'react';
