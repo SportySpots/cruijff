@@ -102,8 +102,6 @@ class LoginForm extends React.PureComponent {
       onSuccessHook,
     } = this.props;
 
-    console.log('SUBMIT!!!!');
-
     // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
     // value to 'true' so that the user cannot re-submit the form
     try {
@@ -130,7 +128,7 @@ class LoginForm extends React.PureComponent {
       onClientErrorHook();
       return;
     }
-console.log('FORM SUCC');
+
     // Pass event up to parent component
     onSuccessHook({ email, password });
   }
@@ -182,10 +180,7 @@ console.log('FORM SUCC');
             variant="default"
             label={I18n.t('Login')}
             disabled={disabled}
-            onPress={() => {
-              console.log('PRESS');
-              this.handleSubmit();
-            }}
+            onPress={this.handleSubmit}
           />
         </Block>
       </LogoHeaderBackground>

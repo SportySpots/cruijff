@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import curateErrors from './utils';
-import { userPropTypes, withUser } from '../../../Context/User';
+import { withUser, userPropTypes } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
