@@ -144,7 +144,6 @@ export const UserConsumer = UserContext.Consumer;
 
 export const withUser = Component => props => (
   <UserConsumer>
-    {UserProps => <Component {...props} {...UserProps} />}
+    {userProps => <Component {...props} {...userProps} />}
   </UserConsumer>
 );
-

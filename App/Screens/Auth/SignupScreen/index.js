@@ -64,7 +64,7 @@ class SignupScreen extends React.PureComponent {
 }
 
 SignupScreen.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -72,6 +72,7 @@ SignupScreen.propTypes = {
 };
 
 SignupScreen.defaultProps = {
+  user: null,
   onSuccessHook: () => {},
 };
 

@@ -66,11 +66,15 @@ class UserMenu extends React.PureComponent {
 }
 
 UserMenu.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
   logout: userPropTypes.logout.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+};
+
+UserMenu.defaultProps = {
+  user: null,
 };
 
 export default withUser(UserMenu);

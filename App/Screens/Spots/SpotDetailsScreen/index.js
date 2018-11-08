@@ -56,7 +56,7 @@ class SpotDetailsScreen extends React.PureComponent {
             <Container>
               <SpotDetails
                 spot={spot}
-                userId={user.uuid}
+                userId={(user && user.uuid) || null}
                 onGamePress={this.handleGamePress}
               />
               <Block>
@@ -89,7 +89,11 @@ SpotDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
+};
+
+SpotDetailsScreen.defaultProps = {
+  user: null,
 };
 
 export default withUser(SpotDetailsScreen);

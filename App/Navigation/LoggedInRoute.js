@@ -26,12 +26,13 @@ const LoggedInRoute = ({
 };
 
 LoggedInRoute.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
   component: PropTypes.func.isRequired,
   overlay: PropTypes.func,
 };
 
 LoggedInRoute.defaultProps = {
+  user: null,
   overlay: () => {},
 };
 
