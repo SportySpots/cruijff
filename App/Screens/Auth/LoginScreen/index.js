@@ -63,7 +63,7 @@ class LoginScreen extends React.Component {
 }
 
 LoginScreen.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -71,8 +71,8 @@ LoginScreen.propTypes = {
 };
 
 LoginScreen.defaultProps = {
+  user: null,
   onSuccessHook: () => {},
 };
-
 
 export default withUser(LoginScreen);
