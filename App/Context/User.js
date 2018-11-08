@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import { AsyncStorage } from 'react-native';
 import { Buffer } from 'buffer';
 import api from '../Services/SeedorfApi';
 import { client } from '../GraphQL';
+import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 
 /*
@@ -16,10 +18,7 @@ import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 const UserContext = React.createContext();
 
 export const userPropTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string.isRequired,
-    profile: PropTypes.any.isRequired,
-  }),
+  user: propType(userDetailsFragment),
   signup: PropTypes.func,
   login: PropTypes.func,
   logout: PropTypes.func,

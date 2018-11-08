@@ -4,7 +4,7 @@ import { Query } from 'react-apollo';
 import I18n from '../../../I18n';
 import Menu from '../../Common/Menu';
 import GET_GAME_ORGANIZER from '../../../GraphQL/Games/Queries/GET_GAME_ORGANIZER';
-import { userPropTypes, withUser } from '../../../Context/User';
+import { withUser, userPropTypes } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -81,7 +81,7 @@ class AdminMenu extends React.PureComponent {
 }
 
 AdminMenu.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -93,6 +93,10 @@ AdminMenu.propTypes = {
     goBack: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
   }).isRequired,
+};
+
+AdminMenu.defaultProps = {
+  user: null,
 };
 
 export default withUser(AdminMenu);
