@@ -43,6 +43,7 @@ const BackgroundImage = ({ images, top }) => {
     borderBottomRightRadius: top ? 0 : 8,
     borderTopLeftRadius: top ? 8 : 0,
     borderTopRightRadius: top ? 8 : 0,
+    overflow: 'hidden',
   };
 
   return (
