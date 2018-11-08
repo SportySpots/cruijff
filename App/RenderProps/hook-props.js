@@ -10,6 +10,7 @@ import { errorPropTypes } from './error-props';
 class HookProps extends React.PureComponent {
   handleBefore = (cb) => {
     const { disabledProps, errorProps } = this.props;
+    console.log('HANDLE BEFOREEE');
     Keyboard.dismiss();
     disabledProps.disableBtn();
     errorProps.clearErrors();

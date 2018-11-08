@@ -87,7 +87,7 @@ export class UserProvider extends React.Component {
     return result;
   }
 
-  login = async (email, password) => {
+  login = async ({ email, password }) => {
     const result = await api.login({
       username: email,
       email,
