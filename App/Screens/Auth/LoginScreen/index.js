@@ -9,7 +9,7 @@ import { userPropTypes, withUser } from '../../../Context/User';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: can we get rid of componentWillMount and componentWillReceiveProps?
+// TODO: can we get rid of componentWillMount?
 class LoginScreen extends React.Component {
   componentWillMount() {
     const { user, navigation } = this.props;

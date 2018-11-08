@@ -98,10 +98,14 @@ class SplashScreen extends React.Component {
 }
 
 SplashScreen.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+};
+
+SplashScreen.defaultProps = {
+  user: null,
 };
 
 export default withUser(SplashScreen);
