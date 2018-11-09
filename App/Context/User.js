@@ -7,6 +7,7 @@ import api from '../Services/SeedorfApi';
 import { client } from '../GraphQL';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
+import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 
 /*
   user:
@@ -117,12 +118,15 @@ export class UserProvider extends React.Component {
   render() {
     const { mockUser } = this.props;
     let { user } = this.state;
+
     if (mockUser) {
       user = mockUser;
     }
+
     if (user === undefined) {
-      return null;
+      return <CenteredActivityIndicator />;
     }
+
     const { children } = this.props;
     return (
       <UserContext.Provider

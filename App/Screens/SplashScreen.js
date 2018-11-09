@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AsyncStorage, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
+import { withUser, userPropTypes } from '../Context/User';
 import I18n from '../I18n/index';
 import Colors from '../Themes/Colors';
 import FieldBackground from '../Backgrounds/FieldBackground';
@@ -9,9 +10,7 @@ import Block from '../Components/Common/Block';
 import Spacer from '../Components/Common/Spacer';
 import Text from '../Components/Common/Text';
 import RaisedButton from '../Components/Common/RaisedButton';
-import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 import globalRefs, { addGlobalRef } from '../globalRefs';
-import { userPropTypes, withUser } from '../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -39,6 +38,10 @@ class SplashScreen extends React.Component {
     firstRun: null,
   }
 
+  componentWillMount() {
+    this.forwardIfLoggedIn(this.props);
+  }
+
   async componentDidMount() {
     globalRefs.SplashScreen = this;
     const firstRun = !await AsyncStorage.getItem('firstRunDone');
@@ -52,7 +55,7 @@ class SplashScreen extends React.Component {
 
   forwardIfLoggedIn = (props) => {
     const { navigation } = this.props;
-    if (props.user.uuid) {
+    if (props.user && props.user.uuid) {
       navigation.navigate('MainNav');
     }
   };
@@ -60,10 +63,6 @@ class SplashScreen extends React.Component {
   render() {
     const { navigation, user } = this.props;
     const { firstRun } = this.state;
-
-    // if (user) {
-    //   return <CenteredActivityIndicator />;
-    // }
 
     return (
       <FieldBackground>
