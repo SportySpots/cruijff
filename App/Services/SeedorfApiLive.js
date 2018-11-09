@@ -94,7 +94,7 @@ const create = () => {
       end_timezone: endTZ,
       end_time: endTime,
       rsvp_open_time: moment().toISOString(),
-      rsvp_close_time: endTime, // startTime,
+      rsvp_close_time: startTime, // endTime
       capacity,
       description,
     })
