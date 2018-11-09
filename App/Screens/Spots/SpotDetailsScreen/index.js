@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
@@ -12,7 +13,6 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import GamesList from '../../../Components/Games/GamesList';
 import SpotDetails from '../../../Components/Spots/SpotDetails';
 import curatedGames from './utils';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
