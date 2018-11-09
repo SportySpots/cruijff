@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import { withUser, userPropTypes } from '../../../Context/User';
 import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
 import EditProfileApiCall from '../../../Components/Profile/EditProfileApiCall';
 import EditProfileForm from '../../../Components/Profile/EditProfileForm';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -28,32 +28,30 @@ const ProfileEditScreen = ({ user, refresh, navigation }) => (
       handleServerError,
       handleSuccess,
     }) => (
-
-      <Container>
-        <EditProfileApiCall
-          onEditError={handleServerError}
-          onEditSuccess={() => {
-            // Extend formProps.handleSuccess' default functionality
-            handleSuccess(() => {
-              refresh();
-              navigation.goBack(null);
-            });
-          }}
-        >
-          {({ updateProfile }) => (
+      <EditProfileApiCall
+        onEditError={handleServerError}
+        onEditSuccess={() => {
+          // Extend formProps.handleSuccess' default functionality
+          handleSuccess(() => {
+            refresh();
+            navigation.goBack(null);
+          });
+        }}
+      >
+        {({ updateProfile }) => (
+          <Container>
             <EditProfileForm
               user={user}
               disabled={disabled}
               onBeforeHook={handleBefore}
               onClientCancelHook={handleClientCancel}
               onClientErrorHook={handleClientError}
-                    // Call api to store data into DB
+              // Call api to store data into DB
               onSuccessHook={updateProfile}
             />
-          )}
-        </EditProfileApiCall>
-      </Container>
-
+          </Container>
+        )}
+      </EditProfileApiCall>
     )}
   </FormProps>
 );

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
@@ -10,7 +11,6 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import NothingFound from '../../../Components/Common/NothingFound';
 import GameDetails from '../../../Components/Games/GameDetails';
 import { addGlobalRef } from '../../../globalRefs';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -113,8 +113,11 @@ GameDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  // TODO: use userFragment
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
+};
+
+GameDetailsScreen.defaultProps = {
+  user: null,
 };
 
 export default withUser(GameDetailsScreen);

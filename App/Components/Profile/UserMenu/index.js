@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Menu from '../../Common/Menu';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

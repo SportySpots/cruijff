@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withUser, userPropTypes } from '../../../Context/User';
 import FormProps from '../../../RenderProps/form-props';
 import SignupApiCall from '../../../Components/Auth/SignupApiCall';
 import SignupForm from '../../../Components/Auth/SignupForm';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

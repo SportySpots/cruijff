@@ -56,7 +56,7 @@ class SpotDetailsScreen extends React.PureComponent {
             <Container>
               <SpotDetails
                 spot={spot}
-                userId={(user && user.uuid) || null}
+                userUUID={(user && user.uuid) || null}
                 onGamePress={this.handleGamePress}
               />
               <Block>

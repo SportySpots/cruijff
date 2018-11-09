@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import I18n from '../../../I18n/index';
+import { withUser, userPropTypes } from '../../../Context/User';
 import FormProps from '../../../RenderProps/form-props';
 import LoginApiCall from '../../../Components/Auth/LoginApiCall';
 import LoginForm from '../../../Components/Auth/LoginForm';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -20,8 +20,10 @@ class LoginScreen extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { user, onSuccessHook } = this.props;
+
     const userWasLoggedOut = !user;
     const userIsLoggedIn = !!nextProps.user;
+
     // Right after the user is logged in, fire success auth callback
     if (userWasLoggedOut && userIsLoggedIn) {
       onSuccessHook();

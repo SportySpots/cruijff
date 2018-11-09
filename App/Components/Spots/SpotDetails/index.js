@@ -13,9 +13,9 @@ import SpotProperties from '../SpotProperties';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// <SpotRating spot={spot} userId={userId} />
+// <SpotRating spot={spot} userUUID={userUUID} />
 // eslint-disable-next-line
-const SpotDetails = ({ spot, userId }) => [
+const SpotDetails = ({ spot, userUUID }) => [
   <SpotImages key="spot-images" images={(spot && spot.images) || []} />,
   <Block key="spot-header" bgColor={Colors.white}>
     <SpotHeader spot={spot} withDistance withGames />
@@ -26,12 +26,12 @@ const SpotDetails = ({ spot, userId }) => [
 
 SpotDetails.propTypes = {
   spot: propType(spotDetailsFragment).isRequired,
-  userId: PropTypes.string,
+  userUUID: PropTypes.string,
   onGamePress: PropTypes.func,
 };
 
 SpotDetails.defaultProps = {
-  userId: null,
+  userUUID: null,
   onGamePress: () => {},
 };
 

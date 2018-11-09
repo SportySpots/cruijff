@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { userPropTypes } from '../../../Context/User';
 import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
@@ -8,7 +9,6 @@ import Divider from '../../Common/Divider';
 import Text from '../../Common/Text';
 import Avatar from '../../Common/Avatar';
 import ProfileTabs from '../ProfileTabs';
-import { userPropTypes } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
