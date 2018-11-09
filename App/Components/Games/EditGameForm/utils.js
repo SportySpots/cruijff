@@ -15,7 +15,7 @@ export const getDate = (startTime) => {
 
 // startTime is UTC date (not moment)
 export const getTime = startTime => (
-  new Date(moment.utc(startTime).toISOString())
+  moment.utc(startTime).toDate()
 );
 
 // startTime and endTime are UTC dates (not moment)
