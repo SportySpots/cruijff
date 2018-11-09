@@ -4389,7 +4389,6 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": undefined,
                     "height": 32,
                     "opacity": 1,
                     "width": 32,
@@ -4409,7 +4408,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                         "marginTop": 6,
                       },
                       Object {
-                        "color": "#00adf5",
+                        "color": "#d9e1e8",
                       },
                     ]
                   }
@@ -4438,6 +4437,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
+                    "backgroundColor": undefined,
                     "height": 32,
                     "opacity": 1,
                     "width": 32,
@@ -4455,6 +4455,9 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                         "fontSize": 16,
                         "fontWeight": "300",
                         "marginTop": 6,
+                      },
+                      Object {
+                        "color": "#00adf5",
                       },
                     ]
                   }
@@ -42319,7 +42322,6 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                             style={
                               Object {
                                 "alignItems": "center",
-                                "backgroundColor": undefined,
                                 "height": 32,
                                 "opacity": 1,
                                 "width": 32,
@@ -42339,7 +42341,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                     "marginTop": 6,
                                   },
                                   Object {
-                                    "color": "#00adf5",
+                                    "color": "#d9e1e8",
                                   },
                                 ]
                               }
@@ -42368,6 +42370,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                             style={
                               Object {
                                 "alignItems": "center",
+                                "backgroundColor": undefined,
                                 "height": 32,
                                 "opacity": 1,
                                 "width": 32,
@@ -42385,6 +42388,9 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                     "fontSize": 16,
                                     "fontWeight": "300",
                                     "marginTop": 6,
+                                  },
+                                  Object {
+                                    "color": "#00adf5",
                                   },
                                 ]
                               }
@@ -47826,6 +47832,110 @@ exports[`Storyshots Profile.UserMenu UserMenu 1`] = `
         }
       >
         <View />
+        <View>
+          <View
+            collapsable={false}
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={null}
+            >
+              <View
+                ctx={
+                  Object {
+                    "menuActions": Object {
+                      "_getOpenedMenu": [Function],
+                      "_notify": [Function],
+                      "closeMenu": [Function],
+                      "isMenuOpen": [Function],
+                      "openMenu": [Function],
+                      "toggleMenu": [Function],
+                    },
+                    "menuRegistry": Object {
+                      "getAll": [Function],
+                      "getMenu": [Function],
+                      "setOptionsCustomStyles": [Function],
+                      "subscribe": [Function],
+                      "unsubscribe": [Function],
+                      "updateLayoutInfo": [Function],
+                    },
+                  }
+                }
+                style={
+                  Array [
+                    undefined,
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  pointerEvents="none"
+                  testID=""
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      alignItems="center"
+                      justifyContent="center"
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "center",
+                            "width": 60,
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "black",
+                              "fontSize": 32,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "Material Icons",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   </View>
