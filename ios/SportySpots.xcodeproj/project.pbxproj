@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,7 @@
 		C53418F820B7015400B83EC1 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C53418F520B7013B00B83EC1 /* libRCTLinking.a */; };
 		C540905120B35AF700B2F4D7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C540905020B35AF700B2F4D7 /* libz.tbd */; };
 		C546E6ED20C7FBD600D989CD /* libRNCookieManagerIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C546E6E320C7F86000D989CD /* libRNCookieManagerIOS.a */; };
+		C55607322196E36C0078A441 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C556072B2196E3370078A441 /* libRNImagePicker.a */; };
 		C56DE1CE2193528800E5CCFA /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C56DE1CD2193528800E5CCFA /* Ionicons.ttf */; };
 		C56E8098208750E300C8ABD1 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C56E8091208750C300C8ABD1 /* libReactNativePermissions.a */; };
 		C59849B020B4D62E007E4149 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F220A420B364A80061201B /* libRNSVG.a */; };
@@ -321,6 +322,13 @@
 			remoteGlobalIDString = 1BD725DA1CF77A8B005DBD79;
 			remoteInfo = RNCookieManagerIOS;
 		};
+		C556072A2196E3370078A441 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C55606F52196E3370078A441 /* RNImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
+			remoteInfo = RNImagePicker;
+		};
 		C56DE1C321934E0A00E5CCFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 60156BAB0A914A0BAE3016A6 /* RNVectorIcons.xcodeproj */;
@@ -514,6 +522,7 @@
 		C540905020B35AF700B2F4D7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C546E6B420C7F86000D989CD /* RNCookieManagerIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCookieManagerIOS.xcodeproj; path = "../node_modules/react-native-cookies/ios/RNCookieManagerIOS.xcodeproj"; sourceTree = "<group>"; };
 		C547091720B4AF0C0069EC5A /* SportySpots.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SportySpots.entitlements; path = SportySpots/SportySpots.entitlements; sourceTree = "<group>"; };
+		C55606F52196E3370078A441 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		C56DE1CD2193528800E5CCFA /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		C56E8065208750C300C8ABD1 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 		C578F574217B822900AE2FA0 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
@@ -546,10 +555,17 @@
 				01BBA985344540D186F75485 /* libAppCenterReactNative.a in Frameworks */,
 				7DFB6ACEE1464620A3290A3D /* libAppCenterReactNativeAnalytics.a in Frameworks */,
 				9A1F22C6D7CE423B96A42953 /* libAppCenterReactNativeCrashes.a in Frameworks */,
-				C59849E220B4D71C007E4149 /* libCodePush.a in Frameworks */,
 				B8DD8C92670A4098B4B96E8B /* libcxxreact.a in Frameworks */,
 				D6F01FDBDBBF4385B690C818 /* libjschelpers.a in Frameworks */,
 				182E2F67990C45DF47CA174F /* libPods-SportySpots.a in Frameworks */,
+				3BB1B22670D2403199422819 /* libReact.a in Frameworks */,
+				53C53EABB0014D82B53C5E3F /* libReactNativeConfig.a in Frameworks */,
+				DBD03076B3294A24AFCF040F /* libRNDeviceInfo.a in Frameworks */,
+				B1BDAAF240D346359AAF0F00 /* libRNVectorIcons.a in Frameworks */,
+				3EB52BA2387B477F81D304E0 /* libyoga.a in Frameworks */,
+				C540905120B35AF700B2F4D7 /* libz.tbd in Frameworks */,
+				C55607322196E36C0078A441 /* libRNImagePicker.a in Frameworks */,
+				C59849E220B4D71C007E4149 /* libCodePush.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -562,15 +578,9 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
-				3BB1B22670D2403199422819 /* libReact.a in Frameworks */,
-				53C53EABB0014D82B53C5E3F /* libReactNativeConfig.a in Frameworks */,
 				C56E8098208750E300C8ABD1 /* libReactNativePermissions.a in Frameworks */,
 				C546E6ED20C7FBD600D989CD /* libRNCookieManagerIOS.a in Frameworks */,
-				DBD03076B3294A24AFCF040F /* libRNDeviceInfo.a in Frameworks */,
 				C59849B020B4D62E007E4149 /* libRNSVG.a in Frameworks */,
-				B1BDAAF240D346359AAF0F00 /* libRNVectorIcons.a in Frameworks */,
-				3EB52BA2387B477F81D304E0 /* libyoga.a in Frameworks */,
-				C540905120B35AF700B2F4D7 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +734,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C55606F52196E3370078A441 /* RNImagePicker.xcodeproj */,
 				C578F574217B822900AE2FA0 /* RNDeviceInfo.xcodeproj */,
 				45DEF27CCB2F42D29D0384DD /* AppCenterReactNative.xcodeproj */,
 				33C9202AB5B946588B207215 /* AppCenterReactNativeAnalytics.xcodeproj */,
@@ -837,6 +848,14 @@
 			isa = PBXGroup;
 			children = (
 				C546E6E320C7F86000D989CD /* libRNCookieManagerIOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C55606F62196E3370078A441 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C556072B2196E3370078A441 /* libRNImagePicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1030,7 +1049,7 @@
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SportySpots" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1124,6 +1143,10 @@
 				{
 					ProductGroup = C56DE1C521934E0A00E5CCFA /* Products */;
 					ProjectRef = 017A2DA4C050493A9B355DA7 /* RNI18n.xcodeproj */;
+				},
+				{
+					ProductGroup = C55606F62196E3370078A441 /* Products */;
+					ProjectRef = C55606F52196E3370078A441 /* RNImagePicker.xcodeproj */;
 				},
 				{
 					ProductGroup = C5F2207220B364A70061201B /* Products */;
@@ -1406,6 +1429,13 @@
 			remoteRef = C546E6E220C7F86000D989CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C556072B2196E3370078A441 /* libRNImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImagePicker.a;
+			remoteRef = C556072A2196E3370078A441 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C56DE1C421934E0A00E5CCFA /* libRNVectorIcons-tvOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1665,7 +1695,11 @@
 				);
 				INFOPLIST_FILE = SportySpotsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1713,7 +1747,11 @@
 				);
 				INFOPLIST_FILE = SportySpotsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1764,7 +1802,15 @@
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1808,6 +1854,11 @@
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native/Libraries/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportyspots.ios;
 				PRODUCT_NAME = sportyspots;
