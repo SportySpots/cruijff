@@ -59,7 +59,8 @@ class PlanGameApiCall extends React.PureComponent {
       console.log('SPORT_RESPONSE', sportResponse);
 
       // Set spot
-      await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
+      const spotResponse = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
+      console.log('SPOT_RESPONSE', spotResponse);
 
       // Set game status to 'planned'
       const res = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
