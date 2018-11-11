@@ -114,6 +114,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "SportySpots"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
