@@ -63,8 +63,8 @@ class PlanGameApiCall extends React.PureComponent {
       console.log('SPOT_RESPONSE', spotResponse);
 
       // Set game status to 'planned'
-      const res = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
-      console.log('CREATED GAME', res.data);
+      const statusResponse = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
+      console.log('CREATED GAME', statusResponse);
 
 
       // Pass event up to parent component
