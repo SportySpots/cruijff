@@ -8,7 +8,6 @@ import { client } from '../GraphQL';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
-
 /*
   user:
     undefined - not checked yet
@@ -45,22 +44,25 @@ export class UserProvider extends React.Component {
   }
 
   async componentWillMount() {
-    const firstRun = !await AsyncStorage.getItem('firstRunDone');
-    await AsyncStorage.setItem('firstRunDone', 'true');
-    this.setState({ firstRun });
+    const { mockUser } = this.props;
+    if (!mockUser) {
+      const firstRun = !await AsyncStorage.getItem('firstRunDone');
+      await AsyncStorage.setItem('firstRunDone', 'true');
+      this.setState({firstRun});
 
-    const token = await AsyncStorage.getItem('TOKEN');
+      const token = await AsyncStorage.getItem('TOKEN');
 
-    if (token) {
-      const verifyTokenResult = await SeedorfAPI.verifyToken(token);
-      if (verifyTokenResult.ok) {
-        await this.setToken(token);
-        this.refresh();
-        return;
+      if (token) {
+        const verifyTokenResult = await SeedorfAPI.verifyToken(token);
+        if (verifyTokenResult.ok) {
+          await this.setToken(token);
+          this.refresh();
+          return;
+        }
       }
-    }
 
-    this.logout();
+      this.logout();
+    }
   }
 
   refresh = async () => {
