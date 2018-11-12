@@ -22,8 +22,10 @@ const Container = ({ children }) => (
   </ModalProps>
 );
 
+console.log(PropTypes.node);
+
 Container.propTypes = {
-  children: PropTypes.oneOf([
+  children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func,
   ]).isRequired,

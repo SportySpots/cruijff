@@ -4554,29 +4554,6 @@ exports[`Storyshots Screenslider ScreenSlider 1`] = `
 </View>
 `;
 
-exports[`Storyshots Slider Default 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "flexBasis": 0,
-        "flexGrow": 1,
-        "flexShrink": 1,
-        "justifyContent": "center",
-      },
-    ]
-  }
->
-  <ActivityIndicator
-    animating={true}
-    color="#009f36"
-    hidesWhenStopped={true}
-    size="large"
-  />
-</View>
-`;
-
 exports[`Storyshots Spots.BackgroundImage BackgroundImage 1`] = `
 <View
   style={

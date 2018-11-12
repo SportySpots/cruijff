@@ -7,7 +7,6 @@ import ImageSwiper from './Common/ImageSwiper';
 import FlatButton from './Common/FlatButton';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
-import Slider from './Common/Slider';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
 import NothingFound from './Common/NothingFound';
@@ -41,7 +40,7 @@ storiesOf('Text', module)
   .add('Medium text', () => <Text.M>Medium size</Text.M>)
   .add('Large text', () => <Text.L>Large size</Text.L>);
 
-storiesOf('Onboarding', module).add('Default', () => <OnboardingScreen navigation={dummyNavigator} />);
+storiesOf('Onboarding', module).add('Default', () => <OnboardingScreen onSuccessHook={() => null} navigation={dummyNavigator} />);
 
 storiesOf('ImageSwiper', module).add('Default', () => (
   <ImageSwiper
@@ -61,9 +60,6 @@ storiesOf('RatingBig', module)
   .add('1', () => <RatingBig rating={1} />)
   .add('3', () => <RatingBig rating={3} />)
   .add('4.5', () => <RatingBig rating={4.5} />);
-
-storiesOf('Slider', module).add('Default', () => <Slider value={0.75} />);
-
 
 /* storiesOf('SignupScreen', module).add('Default', () => (
   <Provider store={store}>
