@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AsyncStorage, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { withUser, userPropTypes } from '../Context/User';
 import I18n from '../I18n/index';
@@ -10,7 +10,7 @@ import Block from '../Components/Common/Block';
 import Spacer from '../Components/Common/Spacer';
 import Text from '../Components/Common/Text';
 import RaisedButton from '../Components/Common/RaisedButton';
-import globalRefs, { addGlobalRef } from '../globalRefs';
+import globalRefs from '../globalRefs';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -34,24 +34,9 @@ const LinkLabel = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class SplashScreen extends React.Component {
-  componentWillMount() {
-    this.forwardIfLoggedIn(this.props);
-  }
-
   async componentDidMount() {
     globalRefs.SplashScreen = this;
   }
-
-  componentWillReceiveProps(props) {
-    this.forwardIfLoggedIn(props);
-  }
-
-  forwardIfLoggedIn = (props) => {
-    const { navigation } = this.props;
-    if (props.user && props.user.uuid) {
-      navigation.navigate('MainNav');
-    }
-  };
 
   render() {
     const { navigation, user, firstRun } = this.props;
@@ -97,8 +82,15 @@ SplashScreen.propTypes = {
 };
 
 SplashScreen.defaultProps = {
-  firstRun: false,
   user: null,
+  firstRun: false,
 };
 
 export default withUser(SplashScreen);
+
+/* componentWillMount() {
+  const { navigation, user } = this.props;
+  if (user && user.uuid) {
+    navigation.navigate('MainNav');
+  }
+} */

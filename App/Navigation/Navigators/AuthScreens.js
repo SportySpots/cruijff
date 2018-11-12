@@ -1,10 +1,10 @@
 import React from 'react';
-import { createStackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
-import SplashScreen from '../../Screens/SplashScreen';
-import LoginScreen from '../../Screens/Auth/LoginScreen';
 import StackBackHeader from '../StackBackHeader';
 import LoggedOutRoute from '../LoggedOutRoute';
+import LoginScreen from '../../Screens/Auth/LoginScreen';
+import SignupScreen from '../../Screens/Auth/SignupScreen';
+import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
 import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
@@ -18,9 +18,8 @@ const handleLoggedIn = (navigation) => {
 //------------------------------------------------------------------------------
 const handleSuccessAuth = (navigation) => {
   // After successful auth, go back 2 screens:
-  // --> LoginScreen --> MainNave
-  navigation.pop(1);
-  navigation.navigate('MainNav');
+  // --> LoggedOutScreen --> <Original>Screen
+  navigation.pop(2);
 };
 //------------------------------------------------------------------------------
 const backBtn = navigation => (
@@ -31,7 +30,7 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SplashNav = createStackNavigator({
+const AuthScreens = {
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoggedOutRoute
@@ -48,20 +47,36 @@ const SplashNav = createStackNavigator({
       headerLeft: backBtn(navigation),
     }),
   },
-  SplashScreen: {
+  SignupScreen: {
     screen: ({ navigation }) => (
       <LoggedOutRoute
         navigation={navigation}
-        component={SplashScreen}
+        component={SignupScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
+        // Child component props
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
+      />
+    ),
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Sign up'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
+  },
+  LoggedOutScreen: {
+    screen: ({ navigation }) => (
+      <LoggedOutRoute
+        navigation={navigation}
+        component={LoggedOutScreen}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
       />
     ),
-    navigationOptions: { header: null },
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('Game details'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
   },
-}, {
-  // Default config for all screens
-  initialRouteName: 'SplashScreen',
-  tabBarComponent: () => null,
-});
+};
 
-export default SplashNav;
+export default AuthScreens;

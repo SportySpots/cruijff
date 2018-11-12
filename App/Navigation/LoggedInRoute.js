@@ -16,11 +16,13 @@ const LoggedInRoute = ({
   overlay: Overlay,
   ...rest
 }) => {
-  const childProps = { user, ...rest };
-  // In case user is not logged in, render overlay component
+  const childProps = { ...rest };
+
+  // In case user is NOT logged in, render overlay component
   if (!user) {
     return <Overlay {...childProps} />;
   }
+
   // ...Otherwise, render requested component
   return <Component {...childProps} />;
 };

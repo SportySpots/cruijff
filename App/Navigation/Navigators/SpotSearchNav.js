@@ -7,6 +7,7 @@ import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import HeaderBtn from '../../Components/Common/HeaderBtn';
 import GameDetailsScreens from './GameDetailsScreens';
 import SpotFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
+import AuthScreens from './AuthScreens';
 import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
@@ -21,6 +22,7 @@ const backBtn = navigation => (
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SpotSearchNav = createStackNavigator({
+  ...AuthScreens,
   ...GameDetailsScreens,
   SpotDetailsScreen: {
     screen: SpotDetailsScreen,
@@ -45,7 +47,6 @@ const SpotSearchNav = createStackNavigator({
     }),
   },
   SpotsListScreen: {
-    // eslint-disable-next-line react/prop-types
     screen: SpotsListScreen,
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Find a spot'),
