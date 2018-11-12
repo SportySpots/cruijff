@@ -4,6 +4,10 @@ console.error = (...args) => {
   throw new Error(args);
 };
 
+console.warn = (...args) => {
+  throw new Error(args);
+};
+
 initStoryshots({
   storyKindRegex: /^((?!.*?(SportDateTimeForm|PlanGameScreen|TimePickerField|SportDateTimeSlide)).)*$/,
 });

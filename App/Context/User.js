@@ -20,7 +20,7 @@ import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndi
     false     - first time user opens the app
 */
 
-const UserContext = React.createContext();
+export const UserContext = React.createContext();
 
 export const userPropTypes = {
   user: propType(userDetailsFragment),
@@ -37,7 +37,7 @@ export class UserProvider extends React.Component {
     firstRun: undefined,
   }
 
-  setToken = async (token) => {
+  static async setToken(token) {
     await AsyncStorage.setItem('TOKEN', token);
     SeedorfAPI.setToken(token);
     client.setToken(token);
@@ -48,7 +48,7 @@ export class UserProvider extends React.Component {
     if (!mockUser) {
       const firstRun = !await AsyncStorage.getItem('firstRunDone');
       await AsyncStorage.setItem('firstRunDone', 'true');
-      this.setState({firstRun});
+      this.setState({ firstRun });
 
       const token = await AsyncStorage.getItem('TOKEN');
 
@@ -65,7 +65,7 @@ export class UserProvider extends React.Component {
     }
   }
 
-  refresh = async () => {
+  async refresh() {
     const token = await AsyncStorage.getItem('TOKEN');
     const claims = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
     const { uuid } = claims;
@@ -77,9 +77,9 @@ export class UserProvider extends React.Component {
     this.setState({ user: queryResult.data.user });
   }
 
-  signup = async ({
+  async signup({
     firstName, lastName, email, password,
-  }) => {
+  }) {
     const result = await SeedorfAPI.signup({
       firstName,
       lastName,
@@ -94,7 +94,7 @@ export class UserProvider extends React.Component {
     return result;
   }
 
-  login = async ({ email, password }) => {
+  async login({ email, password }) {
     const result = await SeedorfAPI.login({
       username: email,
       email,
@@ -110,7 +110,7 @@ export class UserProvider extends React.Component {
     return result;
   }
 
-  logout = async () => {
+  async logout() {
     this.setState({ user: null });
     client.setToken(null);
     SeedorfAPI.setToken(null);
@@ -119,13 +119,7 @@ export class UserProvider extends React.Component {
   }
 
   render() {
-    const { mockUser } = this.props;
-    const { firstRun } = this.state;
-    let { user } = this.state;
-
-    if (mockUser) {
-      user = mockUser;
-    }
+    const { firstRun, user } = this.state;
 
     if (user === undefined || firstRun === undefined) {
       return <CenteredActivityIndicator />;
@@ -138,10 +132,10 @@ export class UserProvider extends React.Component {
         value={{
           user,
           firstRun,
-          signup: this.signup,
-          login: this.login,
-          logout: this.logout,
-          refresh: this.refresh,
+          signup: this.signup.bind(this),
+          login: this.login.bind(this),
+          logout: this.logout.bind(this),
+          refresh: this.refresh.bind(this),
         }}
       >
         {children}
@@ -152,11 +146,6 @@ export class UserProvider extends React.Component {
 
 UserProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  mockUser: userPropTypes.user,
-};
-
-UserProvider.defaultProps = {
-  mockUser: null,
 };
 
 export const UserConsumer = UserContext.Consumer;
