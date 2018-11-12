@@ -75,6 +75,8 @@ const SpotsList = ({
           })
         ) || [];
 
+        console.log('SPOTS', spots);
+
         return (
           <FlatList
             data={spots}

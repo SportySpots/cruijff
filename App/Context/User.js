@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { AsyncStorage } from 'react-native';
 import { Buffer } from 'buffer';
-import api from '../Services/SeedorfApi';
+import SeedorfAPI from '../Services/SeedorfApi';
 import { client } from '../GraphQL';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
@@ -14,12 +14,18 @@ import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndi
     undefined - not checked yet
     null      - user not logged in
     object    - the current logged in user object
+
+  firstRun:
+    undefined - not checked yet
+    true      - onboarding already done
+    false     - first time user opens the app
 */
 
 const UserContext = React.createContext();
 
 export const userPropTypes = {
   user: propType(userDetailsFragment),
+  firstRun: PropTypes.bool,
   signup: PropTypes.func,
   login: PropTypes.func,
   logout: PropTypes.func,
@@ -27,35 +33,34 @@ export const userPropTypes = {
 };
 
 export class UserProvider extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    mockUser: userPropTypes.user,
-  }
-
-  static defaultProps = {
-    mockUser: null,
+  state = {
+    user: undefined,
+    firstRun: undefined,
   }
 
   setToken = async (token) => {
     await AsyncStorage.setItem('TOKEN', token);
-    api.setToken(token);
+    SeedorfAPI.setToken(token);
     client.setToken(token);
   }
 
-  initialize = async () => {
+  async componentWillMount() {
+    const firstRun = !await AsyncStorage.getItem('firstRunDone');
+    await AsyncStorage.setItem('firstRunDone', 'true');
+    this.setState({ firstRun });
+
     const token = await AsyncStorage.getItem('TOKEN');
+
     if (token) {
-      const verifyTokenResult = await api.verifyToken(token);
+      const verifyTokenResult = await SeedorfAPI.verifyToken(token);
       if (verifyTokenResult.ok) {
         await this.setToken(token);
-        return this.refresh();
+        this.refresh();
+        return;
       }
     }
-    return this.logout();
-  }
 
-  componentWillMount() {
-    this.initialize();
+    this.logout();
   }
 
   refresh = async () => {
@@ -73,7 +78,7 @@ export class UserProvider extends React.Component {
   signup = async ({
     firstName, lastName, email, password,
   }) => {
-    const result = await api.signup({
+    const result = await SeedorfAPI.signup({
       firstName,
       lastName,
       username: email,
@@ -88,7 +93,7 @@ export class UserProvider extends React.Component {
   }
 
   login = async ({ email, password }) => {
-    const result = await api.login({
+    const result = await SeedorfAPI.login({
       username: email,
       email,
       password,
@@ -106,32 +111,31 @@ export class UserProvider extends React.Component {
   logout = async () => {
     this.setState({ user: null });
     client.setToken(null);
-    api.setToken(null);
+    SeedorfAPI.setToken(null);
     client.resetStore();
     await AsyncStorage.removeItem('TOKEN');
   }
 
-  state = {
-    user: undefined,
-  };
-
   render() {
     const { mockUser } = this.props;
+    const { firstRun } = this.state;
     let { user } = this.state;
 
     if (mockUser) {
       user = mockUser;
     }
 
-    if (user === undefined) {
+    if (user === undefined || firstRun === undefined) {
       return <CenteredActivityIndicator />;
     }
 
     const { children } = this.props;
+
     return (
       <UserContext.Provider
         value={{
           user,
+          firstRun,
           signup: this.signup,
           login: this.login,
           logout: this.logout,
@@ -143,6 +147,15 @@ export class UserProvider extends React.Component {
     );
   }
 }
+
+UserProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  mockUser: userPropTypes.user,
+};
+
+UserProvider.defaultProps = {
+  mockUser: null,
+};
 
 export const UserConsumer = UserContext.Consumer;
 

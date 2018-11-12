@@ -34,19 +34,12 @@ const LinkLabel = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class SplashScreen extends React.Component {
-  state = {
-    firstRun: null,
-  }
-
   componentWillMount() {
     this.forwardIfLoggedIn(this.props);
   }
 
   async componentDidMount() {
     globalRefs.SplashScreen = this;
-    const firstRun = !await AsyncStorage.getItem('firstRunDone');
-    await AsyncStorage.setItem('firstRunDone', 'true');
-    this.setState({ firstRun });
   }
 
   componentWillReceiveProps(props) {
@@ -61,8 +54,7 @@ class SplashScreen extends React.Component {
   };
 
   render() {
-    const { navigation, user } = this.props;
-    const { firstRun } = this.state;
+    const { navigation, user, firstRun } = this.props;
 
     return (
       <FieldBackground>
@@ -98,12 +90,14 @@ class SplashScreen extends React.Component {
 
 SplashScreen.propTypes = {
   user: userPropTypes.user,
+  firstRun: userPropTypes.firstRun,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 
 SplashScreen.defaultProps = {
+  firstRun: false,
   user: null,
 };
 
