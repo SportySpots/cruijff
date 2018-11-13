@@ -12,7 +12,7 @@ import Text from '../../Common/Text';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.View`
-  padding: 32px 32px 0 32px;
+  padding: 32px 16px 0 16px;
   flex: 1; /* full height */
   background-color: ${({ bgColor }) => (bgColor)}
 `;
