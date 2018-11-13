@@ -47,8 +47,11 @@ class EditProfileApiCall extends React.PureComponent {
         return;
       }
 
+      console.log('AVATAR', avatar);
+
       if (avatar.substr(0, 4) === 'data') {
-        const resAvatar = await SeedorfAPI.updateUserAvatar({userUUID, userProfileUUID, avatar});
+        console.log('IN', avatar.substr(0, 4));
+        const resAvatar = await SeedorfAPI.updateUserAvatar({ userUUID, userProfileUUID, avatar });
         // Pass event up to parent component in case of error
         if (resAvatar && resAvatar.problem) {
           // const errors = curateErrors(response.data);

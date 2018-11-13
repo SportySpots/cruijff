@@ -34,11 +34,11 @@ const ProfileDetails = ({ user }) => [
       {`${user.first_name} ${user.last_name}`}
     </Name>
   </Block>,
-  <Spacer key="spacer" size="M" />,
+  /* <Spacer key="spacer" size="M" />,
   <Divider key="divider" />,
   <Bottom key="bottom">
     <ProfileTabs user={user} style={{ flex: 1 }} />
-  </Bottom>,
+  </Bottom>, */
 ];
 
 ProfileDetails.propTypes = {
