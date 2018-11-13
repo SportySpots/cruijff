@@ -37,7 +37,8 @@ export class UserProvider extends React.Component {
     firstRun: undefined,
   }
 
-  static async setToken(token) {
+  // eslint-disable-next-line class-methods-use-this
+  async setToken(token) {
     await AsyncStorage.setItem('TOKEN', token);
     SeedorfAPI.setToken(token);
     client.setToken(token);
