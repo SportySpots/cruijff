@@ -4,24 +4,21 @@ import { getStorybookUI, configure, addDecorator } from '@storybook/react-native
 import { MenuProvider } from 'react-native-popup-menu';
 import { ApolloMockProvider } from '../App/GraphQL';
 import { loadStories } from './storyLoader';
-import { UserProvider } from '../App/Context/User';
-
-const mockUser = {
-  uuid: '12345',
-  profile: {
-    first_name: 'Mock',
-    last_name: 'User',
-    avatar: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Abraham_de_Vries_-_Portret_van_een_onbekende_man%2C_mogelijk_de_koopman_Adriaen_van_der_Tock_%281584-85-1661%29_-_10539_A_B_-_Museum_Rotterdam.jpg',
-  },
-};
+import { MockUserProvider } from '../App/Context/MockUser';
+import { LocationProvider } from '../App/Context/Location';
+import { SpotFiltersProvider } from '../App/Context/SpotFilters';
 
 addDecorator(story => (
   <ApolloMockProvider>
-    <UserProvider mockUser={mockUser}>
-      <MenuProvider>
-        {story()}
-      </MenuProvider>
-    </UserProvider>
+    <MockUserProvider>
+      <LocationProvider>
+        <SpotFiltersProvider>
+          <MenuProvider>
+            {story()}
+          </MenuProvider>
+        </SpotFiltersProvider>
+      </LocationProvider>
+    </MockUserProvider>
   </ApolloMockProvider>
 ));
 
@@ -34,4 +31,3 @@ const StorybookUI = getStorybookUI({ port: 7007, onDeviceUI: true });
 AppRegistry.registerComponent('SportySpots', () => StorybookUI);
 
 export default StorybookUI;
-

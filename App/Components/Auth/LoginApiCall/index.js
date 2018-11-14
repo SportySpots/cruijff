@@ -15,7 +15,7 @@ class LoginApiCall extends React.PureComponent {
     const { email, password } = inputFields;
 
     try {
-      const response = await login(email, password);
+      const response = await login({ email, password });
 
       // Pass event up to parent component
       if (response && response.problem) {

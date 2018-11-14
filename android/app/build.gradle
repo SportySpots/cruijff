@@ -114,7 +114,6 @@ android {
         missingDimensionStrategy "minReactNative", "minReactNative46" //read note
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-
     }
     signingConfigs {
     }
@@ -148,15 +147,15 @@ android {
 }
 
 dependencies {
+    compile project(':appcenter-crashes')
+    compile project(':appcenter-analytics')
+    compile project(':appcenter')
+
     implementation project(':react-native-image-picker')
     implementation project(':react-native-cookies')
     implementation project(':react-native-code-push')
-    implementation project(':react-native-code-push')
     implementation project(':react-native-svg')
     implementation project(':react-native-config')
-    implementation project(':appcenter-crashes')
-    implementation project(':appcenter-analytics')
-    implementation project(':appcenter')
     implementation project(':react-native-i18n')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-device-info')

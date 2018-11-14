@@ -68,7 +68,8 @@ function loadStories() {
   require('../App/Components/Games/Organizer/stories');
   require('../App/Components/Games/ShareGameButton/stories');
   require('../App/Components/Layouts/ClosableLayout/stories');
-  require('../App/Components/Layouts/TopBottomLayout/stories');
+  require('../App/Components/Layouts/FixedBottomLayout/stories');
+  require('../App/Components/Layouts/FixedTopLayout/stories');
   require('../App/Components/PlanGame/DescriptionSlide/stories');
   require('../App/Components/PlanGame/InviteOnly/stories');
   require('../App/Components/PlanGame/ShareGameForm/stories');
@@ -90,6 +91,7 @@ function loadStories() {
   require('../App/Components/Spots/SpotListCardSmall/stories');
   require('../App/Components/Spots/SpotMap/stories');
   require('../App/Components/Spots/SpotProperties/stories');
+  require('../App/Components/Spots/SpotsFilterFlap/stories');
   require('../App/Components/Spots/SpotsList/stories');
   require('../App/Components/Stories');
   require('../App/Screens/Auth/LoggedOutScreen/stories');
@@ -175,7 +177,8 @@ const stories = [
   '../App/Components/Games/Organizer/stories',
   '../App/Components/Games/ShareGameButton/stories',
   '../App/Components/Layouts/ClosableLayout/stories',
-  '../App/Components/Layouts/TopBottomLayout/stories',
+  '../App/Components/Layouts/FixedBottomLayout/stories',
+  '../App/Components/Layouts/FixedTopLayout/stories',
   '../App/Components/PlanGame/DescriptionSlide/stories',
   '../App/Components/PlanGame/InviteOnly/stories',
   '../App/Components/PlanGame/ShareGameForm/stories',
@@ -197,6 +200,7 @@ const stories = [
   '../App/Components/Spots/SpotListCardSmall/stories',
   '../App/Components/Spots/SpotMap/stories',
   '../App/Components/Spots/SpotProperties/stories',
+  '../App/Components/Spots/SpotsFilterFlap/stories',
   '../App/Components/Spots/SpotsList/stories',
   '../App/Components/Stories',
   '../App/Screens/Auth/LoggedOutScreen/stories',

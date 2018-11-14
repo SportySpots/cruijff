@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AsyncStorage, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
+import { withUser, userPropTypes } from '../Context/User';
 import I18n from '../I18n/index';
 import Colors from '../Themes/Colors';
 import FieldBackground from '../Backgrounds/FieldBackground';
@@ -9,9 +10,7 @@ import Block from '../Components/Common/Block';
 import Spacer from '../Components/Common/Spacer';
 import Text from '../Components/Common/Text';
 import RaisedButton from '../Components/Common/RaisedButton';
-import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
-import globalRefs, { addGlobalRef } from '../globalRefs';
-import { userPropTypes, withUser } from '../Context/User';
+import globalRefs from '../globalRefs';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -35,35 +34,12 @@ const LinkLabel = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class SplashScreen extends React.Component {
-  state = {
-    firstRun: null,
-  }
-
   async componentDidMount() {
     globalRefs.SplashScreen = this;
-    const firstRun = !await AsyncStorage.getItem('firstRunDone');
-    await AsyncStorage.setItem('firstRunDone', 'true');
-    this.setState({ firstRun });
   }
-
-  componentWillReceiveProps(props) {
-    this.forwardIfLoggedIn(props);
-  }
-
-  forwardIfLoggedIn = (props) => {
-    const { navigation } = this.props;
-    if (props.user.uuid) {
-      navigation.navigate('MainNav');
-    }
-  };
 
   render() {
-    const { navigation, user } = this.props;
-    const { firstRun } = this.state;
-
-    // if (user) {
-    //   return <CenteredActivityIndicator />;
-    // }
+    const { navigation, user, firstRun } = this.props;
 
     return (
       <FieldBackground>
@@ -98,10 +74,23 @@ class SplashScreen extends React.Component {
 }
 
 SplashScreen.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
+  firstRun: userPropTypes.firstRun,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 
+SplashScreen.defaultProps = {
+  user: null,
+  firstRun: false,
+};
+
 export default withUser(SplashScreen);
+
+/* componentWillMount() {
+  const { navigation, user } = this.props;
+  if (user && user.uuid) {
+    navigation.navigate('MainNav');
+  }
+} */

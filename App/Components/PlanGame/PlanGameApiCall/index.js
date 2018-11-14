@@ -42,7 +42,7 @@ class PlanGameApiCall extends React.PureComponent {
     // TODO: replace this with a single endpoint
     try {
       // Create game
-      const result = await SeedorfAPI.createGame({
+      const gameResponse = await SeedorfAPI.createGame({
         name,
         startTZ: userTZ,
         startTime: startTime.format(),
@@ -51,18 +51,20 @@ class PlanGameApiCall extends React.PureComponent {
         capacity,
         description,
       });
-      const gameUUID = result.data.uuid;
+      const gameUUID = gameResponse.data.uuid;
+      console.log('GAME_RESPONSE', gameResponse);
 
       // Set sport
-      const sportResult = await SeedorfAPI.setGameSport({ gameUUID, sport });
-      console.log('SPORT_RESULT', sportResult);
+      const sportResponse = await SeedorfAPI.setGameSport({ gameUUID, sport });
+      console.log('SPORT_RESPONSE', sportResponse);
 
       // Set spot
-      await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
+      const spotResponse = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
+      console.log('SPOT_RESPONSE', spotResponse);
 
       // Set game status to 'planned'
-      const res = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
-      console.log('CREATED GAME', res.data);
+      const statusResponse = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
+      console.log('CREATED GAME', statusResponse);
 
 
       // Pass event up to parent component

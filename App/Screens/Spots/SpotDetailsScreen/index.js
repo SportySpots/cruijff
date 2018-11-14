@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
@@ -12,7 +13,6 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import GamesList from '../../../Components/Games/GamesList';
 import SpotDetails from '../../../Components/Spots/SpotDetails';
 import curatedGames from './utils';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -49,6 +49,7 @@ class SpotDetailsScreen extends React.PureComponent {
           if (!data || !data.spot) return null;
 
           const { spot } = data;
+          console.log('SPOT_DETAILS', spot);
           // Filter passed games
           const games = (spot.games && curatedGames(spot.games)) || [];
 
@@ -56,7 +57,7 @@ class SpotDetailsScreen extends React.PureComponent {
             <Container>
               <SpotDetails
                 spot={spot}
-                userId={user.uuid}
+                userUUID={(user && user.uuid) || null}
                 onGamePress={this.handleGamePress}
               />
               <Block>
@@ -89,7 +90,11 @@ SpotDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
+};
+
+SpotDetailsScreen.defaultProps = {
+  user: null,
 };
 
 export default withUser(SpotDetailsScreen);

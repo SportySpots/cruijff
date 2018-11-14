@@ -6,10 +6,11 @@ target 'SportySpots' do
   # use_frameworks!
 
   # Pods for SportySpots
-  pod 'AppCenter/Crashes', '> 1.1.0'
-  pod 'AppCenter/Analytics', '> 1.1.0'
-  pod 'AppCenterReactNativeShared', '> 1.1.0'
+  pod 'AppCenter/Crashes', '~> 1.10.0'
+  pod 'AppCenter/Analytics', '~> 1.10.0'
+  pod 'AppCenterReactNativeShared', '~> 1.9.0'
 
-  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+  # pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
+  platform :ios, '9.0'
 end

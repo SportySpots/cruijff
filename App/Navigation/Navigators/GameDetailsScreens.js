@@ -2,9 +2,6 @@ import React from 'react';
 import { Alert, Keyboard } from 'react-native';
 import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
-import LoginScreen from '../../Screens/Auth/LoginScreen';
-import SignupScreen from '../../Screens/Auth/SignupScreen';
-import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
 import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
 import CancelGameScreen from '../../Screens/Games/CancelGameScreen';
 import EditGameScreen from '../../Screens/Games/EditGameScreen';
@@ -15,12 +12,6 @@ import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
-//------------------------------------------------------------------------------
-const handleSuccessAuth = (navigation) => {
-  // After successful auth, go back 2 screens:
-  // --> LoggedOutScreen --> GameDetailsScreen
-  navigation.pop(2);
-};
 //------------------------------------------------------------------------------
 const handleEditGameLeave = (navigation) => {
   Keyboard.dismiss();
@@ -56,40 +47,6 @@ const GameDetailsScreens = {
     screen: SpotDetailsScreen,
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('Spot details'),
-      headerTitleStyle,
-      headerLeft: backBtn(navigation),
-    }),
-  },
-  LoginScreen: {
-    screen: ({ navigation }) => (
-      <LoginScreen
-        navigation={navigation}
-        onSuccessHook={() => { handleSuccessAuth(navigation); }}
-      />
-    ),
-    navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Hi again!'),
-      headerTitleStyle,
-      headerLeft: backBtn(navigation),
-    }),
-  },
-  SignupScreen: {
-    screen: ({ navigation }) => (
-      <SignupScreen
-        navigation={navigation}
-        onSuccessHook={() => { handleSuccessAuth(navigation); }}
-      />
-    ),
-    navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Sign up'),
-      headerTitleStyle,
-      headerLeft: backBtn(navigation),
-    }),
-  },
-  LoggedOutScreen: {
-    screen: LoggedOutScreen,
-    navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Game details'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

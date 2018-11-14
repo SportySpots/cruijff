@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
-// import { View } from 'react-native';
 import moment from 'moment';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
+import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
 import curatedGames from './utils';
-// import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -30,30 +28,24 @@ class GamesListScreen extends React.Component {
   render() {
     const variables = {
       offset: 0,
-      limit: 100,
+      limit: 10,
       ordering: 'start_time',
       start_time__gte: moment().startOf('day').toISOString(),
     };
 
     return (
-      <Query
+      <QueryCatchErrors
         query={GET_GAMES_LIST}
         variables={variables}
-        fetchPolicy="network-only"
+        fetchPolicy="cache-and-network"
       >
         {({
-          error,
           loading,
           data,
           refetch,
-          // fetchMore,
+          fetchMore,
         }) => {
-          if (error) {
-            console.log('error', error);
-            return null;
-          }
-
-          /* const loadMore = () => {
+          const loadMore = () => {
             fetchMore({
               variables: {
                 offset: (data && data.games && data.games.length) || 0,
@@ -65,7 +57,7 @@ class GamesListScreen extends React.Component {
                 });
               },
             });
-          }; */
+          };
 
           return (
             <Container testID="GameListScreen">
@@ -75,11 +67,13 @@ class GamesListScreen extends React.Component {
                 // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
+                onEndReached={loadMore}
+                onEndReachedThreshold={0.1}
               />
             </Container>
           );
         }}
-      </Query>
+      </QueryCatchErrors>
     );
   }
 }

@@ -51,7 +51,7 @@ const SpotHeader = ({
 
   return (
     <View>
-      <Name gray={gray}>{name}</Name>
+      <Name gray={gray} numberOfLines={1}>{name}</Name>
       <Row>
         {/* [
           <Rating key="rating" rating={spot.rating || 4} />,

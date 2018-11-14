@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FormProps from '../../../RenderProps/form-props';
-import RSVPApiCall from '../../../Components/Games/RSVPApiCall';
-import RSVPButtons from '../../../Components/Games/RSVPButtons';
+import RSVPApiCall from '../RSVPApiCall';
+import RSVPButtons from '../RSVPButtons';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

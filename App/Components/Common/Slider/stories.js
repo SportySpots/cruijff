@@ -14,15 +14,18 @@ class Container extends React.PureComponent {
   }
 
   render() {
-    const { initialValue, ...rest } = this.props;
+    const {
+      initialValue, minimumValue, maximumValue, ...rest
+    } = this.props;
     const { value } = this.state;
-
     return (
       <Block>
         <Text>{value}</Text>
         <Spacer size="M" />
         <Slider
           value={value}
+          minimumValue={minimumValue}
+          maximumValue={maximumValue}
           onValueChange={this.handleChange}
           {...rest}
         />

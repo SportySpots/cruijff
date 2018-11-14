@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
-import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Menu from '../../Common/Menu';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -43,34 +41,25 @@ class UserMenu extends React.PureComponent {
     ];
 
     return (
-      <Query
-        query={GET_USER_DETAILS}
-        variables={{ uuid: user.uuid }}
-      >
-        {({ loading, error, data }) => {
-          if (loading || error || !data || !data.user) {
-            return null;
-          }
-
-          return (
-            <Menu
-              menuName="user-profile-menu"
-              triggerName="user-profile-trigger"
-              options={OPTIONS}
-            />
-          );
-        }}
-      </Query>
+      <Menu
+        menuName="user-profile-menu"
+        triggerName="user-profile-trigger"
+        options={OPTIONS}
+      />
     );
   }
 }
 
 UserMenu.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
   logout: userPropTypes.logout.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+};
+
+UserMenu.defaultProps = {
+  user: null,
 };
 
 export default withUser(UserMenu);

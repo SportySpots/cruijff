@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { withUser, userPropTypes } from '../../../Context/User';
 import Colors from '../../../Themes/Colors';
 import ProfileDetails from '../../../Components/Profile/ProfileDetails';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:

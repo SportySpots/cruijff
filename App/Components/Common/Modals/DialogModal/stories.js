@@ -34,7 +34,7 @@ const Container = ({ header, children }) => {
 
 Container.propTypes = {
   header: PropTypes.func,
-  children: PropTypes.oneOf([
+  children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func,
   ]).isRequired,
@@ -44,7 +44,7 @@ Container.defaultProps = {
   header: null,
 };
 
-const header = <Text>I&apos;m the Header</Text>;
+const header = () => <Text>I&apos;m the Header</Text>;
 
 storiesOf('Modals.DialogModal', module)
   .add('DialogModal', () => (

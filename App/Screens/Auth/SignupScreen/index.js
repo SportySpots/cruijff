@@ -3,68 +3,44 @@ import PropTypes from 'prop-types';
 import FormProps from '../../../RenderProps/form-props';
 import SignupApiCall from '../../../Components/Auth/SignupApiCall';
 import SignupForm from '../../../Components/Auth/SignupForm';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: can we get rid of componentWillMount and componentWillReceiveProps?
-class SignupScreen extends React.PureComponent {
-  componentWillMount() {
-    const { user, navigation } = this.props;
-    if (user && user.uuid) {
-      navigation.navigate('MainNav');
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { user, onSuccessHook } = this.props;
-
-    const userWasLoggedOut = !user;
-    const userIsLoggedIn = !!nextProps.user;
-
-    // Right after the user is logged in, fire success auth callback
-    if (userWasLoggedOut && userIsLoggedIn) {
-      onSuccessHook();
-    }
-  }
-
-  render() {
-    return (
-      <FormProps>
-        {({
-          disabled,
-          errors,
-          handleBefore,
-          handleClientCancel,
-          handleClientError,
-          handleServerError,
-          handleSuccess,
-        }) => (
-          <SignupApiCall
-            onSignupError={handleServerError}
-            onSignupSuccess={handleSuccess}
-          >
-            {({ signupUser }) => (
-              <SignupForm
-                disabled={disabled}
-                errors={errors}
-                onBeforeHook={handleBefore}
-                onClientCancelHook={handleClientCancel}
-                onClientErrorHook={handleClientError}
-                // Call api to register user
-                onSuccessHook={signupUser}
-              />
-            )}
-          </SignupApiCall>
+const SignupScreen = ({ onSuccessHook }) => (
+  <FormProps>
+    {({
+      disabled,
+      errors,
+      handleBefore,
+      handleClientCancel,
+      handleClientError,
+      handleServerError,
+      handleSuccess,
+    }) => (
+      <SignupApiCall
+        onSignupError={handleServerError}
+        onSignupSuccess={() => {
+          handleSuccess(onSuccessHook);
+        }}
+      >
+        {({ signupUser }) => (
+          <SignupForm
+            disabled={disabled}
+            errors={errors}
+            onBeforeHook={handleBefore}
+            onClientCancelHook={handleClientCancel}
+            onClientErrorHook={handleClientError}
+            // Call api to register user
+            onSuccessHook={signupUser}
+          />
         )}
-      </FormProps>
-    );
-  }
-}
+      </SignupApiCall>
+    )}
+  </FormProps>
+);
 
 SignupScreen.propTypes = {
-  user: userPropTypes.user.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -75,4 +51,4 @@ SignupScreen.defaultProps = {
   onSuccessHook: () => {},
 };
 
-export default withUser(SignupScreen);
+export default SignupScreen;

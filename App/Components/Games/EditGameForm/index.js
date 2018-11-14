@@ -7,7 +7,7 @@ import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import { TopLayout, BottomLayout } from '../../Layouts/TopBottomLayout';
+import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 // import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
@@ -365,7 +365,7 @@ class EditGameForm extends React.PureComponent {
                   disabled={disabled}
                   characterRestriction={DESCRIPTION_MAX_CHARS}
                   multiline
-                  placeholder={I18n.t('Write extra details about the game here')}
+                  placeholder={I18n.t('Write extra details about the activity')}
                   onChangeText={(value) => { this.handleChange({ fieldName: 'description', value }); }}
                 />
               </Block>

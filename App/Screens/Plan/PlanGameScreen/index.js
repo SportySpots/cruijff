@@ -6,12 +6,12 @@ import {
   Platform,
   BackHandler,
 } from 'react-native';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n/index';
 import FormProps from '../../../RenderProps/form-props';
 import PlanGameApiCall from '../../../Components/PlanGame/PlanGameApiCall';
 import PlanGameForm from '../../../Components/PlanGame/PlanGameForm';
 import { addGlobalRef } from '../../../globalRefs';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -52,7 +52,7 @@ class PlanGameScreen extends React.Component {
   render() {
     const { navigation, user } = this.props;
 
-    const username = (user && user.claims && user.claims.username) || '';
+    const username = (user && user.first_name) || '';
 
     return (
       <FormProps>

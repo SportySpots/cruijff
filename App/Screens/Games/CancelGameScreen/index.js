@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
+import { withUser, userPropTypes } from '../../../Context/User';
+import { addModelState } from '../../../utils';
 import I18n from '../../../I18n';
 import themeImages from '../../../Themes/Images';
 import FormProps from '../../../RenderProps/form-props';
@@ -9,8 +11,6 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import CancelGameApiCall from '../../../Components/Games/CancelGameApiCall';
 import CancelGameForm from '../../../Components/Games/CancelGameForm';
 import ImageModal from '../../../Components/Common/Modals/ImageModal';
-import { addModelState } from '../../../utils';
-import { userPropTypes, withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -138,22 +138,3 @@ CancelGameScreen.propTypes = {
 };
 
 export default withUser(CancelGameScreen);
-
-/*
-                <CancelGame
-                  key="form"
-                  game={data.game}
-                  // Form props
-                  disabled={disabled}
-                  onBeforeHook={handleBefore}
-                  onClientCancelHook={handleClientCancel}
-                  onClientErrorHook={handleClientError}
-                  onServerErrorHook={handleServerError}
-                  onSuccessHook={() => {
-                    // Extend FormProps.handleSuccess default functionality
-                    handleSuccess(cancelDoneModal.show);
-                  }}
-                  // Other props
-                  onAttendeesPress={this.handleAttendeesPress}
-                />,
-*/
