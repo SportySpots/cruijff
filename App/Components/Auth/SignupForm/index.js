@@ -211,102 +211,101 @@ class SignupForm extends React.PureComponent {
     const emailErrors = ErrorHandling.getFieldErrors(errors, 'email', I18n.t);
     const passwordErrors = ErrorHandling.getFieldErrors(errors, 'password', I18n.t);
 
-    return (
-      <LogoHeaderBackground
+    return [
+      <FlexOne
+        key="top"
+        ref={(scroller) => { this.scroller = scroller; }}
         testID="signupScrollView"
-        hideLogo
       >
-        <FlexOne ref={(scroller) => { this.scroller = scroller; }} testID="signupScrollView">
-          <Block
-            midHeight
-            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'firstName', nativeEvent }); }}
-          >
-            <TextField
-              testID="signupFieldFirstName"
-              label={I18n.t('First name')}
-              value={firstName}
-              error={firstNameErrors}
-              size="ML"
-              disabled={disabled}
-              autoFocus
-              onChangeText={(value) => {
-                this.handleChange({ fieldName: 'firstName', value });
-              }}
-            />
-          </Block>
-          <Block
-            midHeight
-            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'lastName', nativeEvent }); }}
-          >
-            <TextField
-              testID="signupFieldLastName"
-              label={I18n.t('Last name')}
-              value={lastName}
-              error={lastNameErrors}
-              size="ML"
-              disabled={disabled}
-              onChangeText={(value) => {
-                this.handleChange({ fieldName: 'lastName', value });
-              }}
-            />
-          </Block>
-          <Block
-            midHeight
-            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'email', nativeEvent }); }}
-          >
-            <TextField
-              testID="signupFieldEmail"
-              label={I18n.t('E-mail')}
-              value={email}
-              error={emailErrors}
-              size="ML"
-              disabled={disabled}
-              keyboardType="email-address"
-              onChangeText={(value) => {
-                this.handleChange({ fieldName: 'email', value });
-              }}
-            />
-          </Block>
-          <Block
-            midHeight
-            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'password', nativeEvent }); }}
-          >
-            <TextField
-              testID="signupFieldPassword"
-              label={I18n.t('Password')}
-              value={password}
-              error={passwordErrors}
-              size="ML"
-              disabled={disabled}
-              secureTextEntry
-              onChangeText={(value) => {
-                this.handleChange({ fieldName: 'password', value });
-              }}
-            />
-          </Block>
-          <Block>
-            <Text.M style={{ color: Colors.black }}>
-              {I18n.t('By signing up, you are agreeing to the')}
-            </Text.M>
-            <Link
-              text={I18n.t('Terms and conditions')}
-              href="https://www.sportyspots.com/terms.html"
-              color={Colors.actionYellow}
-              underline
-            />
-          </Block>
-        </FlexOne>
-        <Block>
-          <RaisedButton
-            testID="signupButtonSubmit"
-            variant="default"
-            label={I18n.t('Signup')}
+        <Block
+          midHeight
+          onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'firstName', nativeEvent }); }}
+        >
+          <TextField
+            testID="signupFieldFirstName"
+            label={I18n.t('First name')}
+            value={firstName}
+            error={firstNameErrors}
+            size="ML"
             disabled={disabled}
-            onPress={this.handleSubmit}
+            autoFocus
+            onChangeText={(value) => {
+              this.handleChange({ fieldName: 'firstName', value });
+            }}
           />
         </Block>
-      </LogoHeaderBackground>
-    );
+        <Block
+          midHeight
+          onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'lastName', nativeEvent }); }}
+        >
+          <TextField
+            testID="signupFieldLastName"
+            label={I18n.t('Last name')}
+            value={lastName}
+            error={lastNameErrors}
+            size="ML"
+            disabled={disabled}
+            onChangeText={(value) => {
+              this.handleChange({ fieldName: 'lastName', value });
+            }}
+          />
+        </Block>
+        <Block
+          midHeight
+          onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'email', nativeEvent }); }}
+        >
+          <TextField
+            testID="signupFieldEmail"
+            label={I18n.t('E-mail')}
+            value={email}
+            error={emailErrors}
+            size="ML"
+            disabled={disabled}
+            keyboardType="email-address"
+            onChangeText={(value) => {
+              this.handleChange({ fieldName: 'email', value });
+            }}
+          />
+        </Block>
+        <Block
+          midHeight
+          onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'password', nativeEvent }); }}
+        >
+          <TextField
+            testID="signupFieldPassword"
+            label={I18n.t('Password')}
+            value={password}
+            error={passwordErrors}
+            size="ML"
+            disabled={disabled}
+            secureTextEntry
+            onChangeText={(value) => {
+              this.handleChange({ fieldName: 'password', value });
+            }}
+          />
+        </Block>
+        <Block>
+          <Text.M style={{ color: Colors.black }}>
+            {I18n.t('By signing up, you are agreeing to the')}
+          </Text.M>
+          <Link
+            text={I18n.t('Terms and conditions')}
+            href="https://www.sportyspots.com/terms.html"
+            color={Colors.actionYellow}
+            underline
+          />
+        </Block>
+      </FlexOne>,
+      <Block key="bottom">
+        <RaisedButton
+          testID="signupButtonSubmit"
+          variant="default"
+          label={I18n.t('Signup')}
+          disabled={disabled}
+          onPress={this.handleSubmit}
+        />
+      </Block>,
+    ];
   }
 }
 

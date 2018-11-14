@@ -5,7 +5,6 @@ import ErrorHandling from 'error-handling-utils';
 import isEmail from 'validator/lib/isEmail';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
-import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
 import Block from '../../Common/Block';
 import TextField from '../../Common/TextField';
 import RaisedButton from '../../Common/RaisedButton';
@@ -141,50 +140,48 @@ class LoginForm extends React.PureComponent {
     const emailErrors = ErrorHandling.getFieldErrors(errors, 'email', I18n.t);
     const passwordErrors = ErrorHandling.getFieldErrors(errors, 'password', I18n.t);
 
-    return (
-      <LogoHeaderBackground hideLogo>
-        <FlexOne testID="LoginScreen">
-          <Block midHeight>
-            <TextField
-              testID="loginInputEmail"
-              label={I18n.t('E-mail')}
-              value={email}
-              error={emailErrors}
-              size="ML"
-              disabled={disabled}
-              keyboardType="email-address"
-              autoFocus
-              onChangeText={(value) => {
-                this.handleChange({ fieldName: 'email', value });
-              }}
-            />
-          </Block>
-          <Block midHeight>
-            <TextField
-              testID="loginInputPassword"
-              label={I18n.t('Password')}
-              value={password}
-              error={passwordErrors}
-              size="ML"
-              disabled={disabled}
-              secureTextEntry
-              onChangeText={(value) => {
-                this.handleChange({ fieldName: 'password', value });
-              }}
-            />
-          </Block>
-        </FlexOne>
-        <Block>
-          <RaisedButton
-            testID="loginSubmitButton"
-            variant="default"
-            label={I18n.t('Login')}
+    return [
+      <FlexOne key="top" testID="LoginScreen">
+        <Block midHeight>
+          <TextField
+            testID="loginInputEmail"
+            label={I18n.t('E-mail')}
+            value={email}
+            error={emailErrors}
+            size="ML"
             disabled={disabled}
-            onPress={this.handleSubmit}
+            keyboardType="email-address"
+            autoFocus
+            onChangeText={(value) => {
+              this.handleChange({ fieldName: 'email', value });
+            }}
           />
         </Block>
-      </LogoHeaderBackground>
-    );
+        <Block midHeight>
+          <TextField
+            testID="loginInputPassword"
+            label={I18n.t('Password')}
+            value={password}
+            error={passwordErrors}
+            size="ML"
+            disabled={disabled}
+            secureTextEntry
+            onChangeText={(value) => {
+              this.handleChange({ fieldName: 'password', value });
+            }}
+          />
+        </Block>
+      </FlexOne>,
+      <Block key="bottom">
+        <RaisedButton
+          testID="loginSubmitButton"
+          variant="default"
+          label={I18n.t('Login')}
+          disabled={disabled}
+          onPress={this.handleSubmit}
+        />
+      </Block>,
+    ];
   }
 }
 
