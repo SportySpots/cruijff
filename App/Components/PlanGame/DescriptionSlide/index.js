@@ -11,7 +11,7 @@ const DescriptionSlide = ({ description, descriptionMaxChars, onChange }) => (
   <ScrollView>
     <TextField
       testID="description"
-      placeholder={I18n.t('Write extra details about the game here')}
+      placeholder={I18n.t('Write extra details about the activity')}
       value={description}
       multiline
       characterRestriction={descriptionMaxChars}

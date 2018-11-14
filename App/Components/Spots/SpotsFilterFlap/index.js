@@ -71,14 +71,17 @@ const SpotsFilterFlap = ({
 );
 
 SpotsFilterFlap.propTypes = {
-  maxDistance: PropTypes.number.isRequired,
-  allSports: PropTypes.bool.isRequired,
-  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  maxDistance: PropTypes.number,
+  allSports: PropTypes.bool,
+  selectedSportIds: PropTypes.arrayOf(PropTypes.string),
   // onClose: PropTypes.func,
 };
 
-/* SpotsFilterFlap.defaultProps = {
-  onClose: () => {},
-}; */
+SpotsFilterFlap.defaultProps = {
+  maxDistance: 20,
+  allSports: true,
+  selectedSportIds: [],
+  // onClose: () => {},
+};
 
 export default SpotsFilterFlap;

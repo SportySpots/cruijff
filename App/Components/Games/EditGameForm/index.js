@@ -365,7 +365,7 @@ class EditGameForm extends React.PureComponent {
                   disabled={disabled}
                   characterRestriction={DESCRIPTION_MAX_CHARS}
                   multiline
-                  placeholder={I18n.t('Write extra details about the game here')}
+                  placeholder={I18n.t('Write extra details about the activity')}
                   onChangeText={(value) => { this.handleChange({ fieldName: 'description', value }); }}
                 />
               </Block>
