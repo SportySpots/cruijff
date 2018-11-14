@@ -29,8 +29,8 @@ const Container = styled.View`
   overflow: hidden;
 `;
 //------------------------------------------------------------------------------
-const FlexGrow = styled.View`
-  flex-grow: 1; /* take all remaining width */
+const FlexOne = styled.View`
+  flex: 1; /* take all remaining width */
 `;
 //------------------------------------------------------------------------------
 const imgStyle = {
@@ -44,11 +44,11 @@ const imgStyle = {
 const SpotListCardSmall = ({ spot, active }) => (
   <Container active={active}>
     <Row>
-      <FlexGrow>
+      <FlexOne>
         <Block>
           <SpotHeader spot={spot} withDistance />
         </Block>
-      </FlexGrow>
+      </FlexOne>
       <SpotImage images={spot.images} style={imgStyle} />
     </Row>
   </Container>

@@ -25,16 +25,16 @@ const Container = ({ active }) => (
     variables={{ uuid: dummyNavigator.state.params.spotId }}
   >
     {({ loading, error, data }) =>
-    (loading || error ? null : (
-      <Block bgColor={colors.lightGray}>
-        <StyledView>
-          <SpotListCardSmall
-            spot={data.spot}
-            active={active}
-          />
-        </StyledView>
-      </Block>
-    ))}
+      (loading || error ? null : (
+        <Block bgColor={colors.lightGray}>
+          <StyledView>
+            <SpotListCardSmall
+              spot={data.spot}
+              active={active}
+            />
+          </StyledView>
+        </Block>
+      ))}
   </Query>
 );
 
