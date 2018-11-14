@@ -7,7 +7,7 @@ import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import { TopLayout, BottomLayout } from '../../Layouts/TopBottomLayout';
+import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 // import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';

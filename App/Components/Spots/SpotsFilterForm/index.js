@@ -4,7 +4,7 @@ import { propType } from 'graphql-anywhere';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
-import { TopLayout, BottomLayout } from '../../Layouts/TopBottomLayout';
+import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Divider from '../../Common/Divider';

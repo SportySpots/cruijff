@@ -1,45 +1,84 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { TouchableOpacity } from 'react-native';
+import { Query } from 'react-apollo';
+// import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
-import Colors from '../../../Themes/Colors';
-import { withSpotFilters, spotFiltersPropTypes } from '../../../Context/SpotFilters';
-import Block from '../../Common/Block';
+import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import Row from '../../Common/Row';
-import Divider from '../../Common/Divider';
 import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
 import Tag from '../../Common/Tag';
-import HeaderBtn from '../../Common/HeaderBtn';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Flap = styled(Block)`
-  border: 1px solid ${Colors.gray};
-`;
-//------------------------------------------------------------------------------
 const FlexOne = styled.View`
   flex: 1;
+  overflow: hidden;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SpotsFilterFlap = ({ maxDistance, allSports, selectedSportIds }) => (
-  <Flap bgColor={Colors.white}>
-    <Row>
-      <Text>{`${I18n.t('Filter')}:`}</Text>
-      <Spacer row size="S" />
-      <FlexOne>
-        <Tag text={`< ${maxDistance.toString()}km`} status="warning" />
-      </FlexOne>
-      <HeaderBtn iconName="close" />
-    </Row>
-  </Flap>
+const SpotsFilterFlap = ({
+  maxDistance,
+  allSports,
+  selectedSportIds,
+  // onClose,
+}) => (
+  <Query query={GET_SPORTS}>
+    {({ loading, error, data }) => {
+      if (loading || error || !data || !data.sports) {
+        return null;
+      }
+
+      // console.log('DATA.SPORTS', data.sports);
+      // console.log('SELECTED_SPORT_IDS', selectedSportIds);
+
+      return (
+        <Row alignItems="center">
+          <Text.M>{`${I18n.t('Filter')} :`}</Text.M>
+          <Spacer row size="M" />
+          <FlexOne>
+            <Row>
+              <Tag value={`< ${maxDistance.toFixed(1).toString().replace('.0', '')}km`} status="warning" />
+              <Spacer row size="M" />
+              {allSports ? (
+                <Tag value={I18n.t('All sports')} status="success" />
+              ) : (
+                selectedSportIds.map((sportId, index) => [
+                  <Tag
+                    key="tag"
+                    value={I18n.t(data.sports.find(sport => sport.id === sportId).category)}
+                    status="success"
+                  />,
+                  // Don't add spacer in case it's the last item
+                  index !== selectedSportIds.length - 1 && (
+                    <Spacer key="spacer" row size="M" />
+                  ),
+                ])
+              )}
+            </Row>
+          </FlexOne>
+          {/* <TouchableOpacity onPress={onClose}>
+            <Icon size={24} name="close" color="black" />
+              </TouchableOpacity> */}
+        </Row>
+      );
+    }}
+  </Query>
 );
 
 SpotsFilterFlap.propTypes = {
-  ...spotFiltersPropTypes,
+  maxDistance: PropTypes.number.isRequired,
+  allSports: PropTypes.bool.isRequired,
+  selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // onClose: PropTypes.func,
 };
 
-export default withSpotFilters(SpotsFilterFlap);
+/* SpotsFilterFlap.defaultProps = {
+  onClose: () => {},
+}; */
+
+export default SpotsFilterFlap;

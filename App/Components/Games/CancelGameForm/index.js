@@ -5,7 +5,7 @@ import { propType } from 'graphql-anywhere';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import { TopLayout, BottomLayout } from '../../Layouts/TopBottomLayout';
+import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
 import Label from '../../Common/Label';

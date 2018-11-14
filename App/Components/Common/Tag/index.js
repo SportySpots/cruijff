@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
-import Block from '../Block';
 import Row from '../Row';
 import getPalette from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const StyledBlock = styled(Block)`
+const Container = styled.View`
+  padding: 4px 8px;
   border-radius: 4px;
+  background-color: ${({ bgColor }) => (bgColor)};
 `;
 //------------------------------------------------------------------------------
 // TODO: replace this with Text.M[color]
@@ -28,9 +29,9 @@ const Tag = ({ status, value }) => {
 
   return (
     <Row>
-      <StyledBlock midHeight bgColor={bgColor}>
+      <Container bgColor={bgColor}>
         <Message>{value}</Message>
-      </StyledBlock>
+      </Container>
     </Row>
   );
 };
