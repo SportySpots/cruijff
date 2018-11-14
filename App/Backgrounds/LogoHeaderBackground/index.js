@@ -14,8 +14,8 @@ const Brand = styled(Text.L)`
   color: ${({ color }) => (color)};
 `;
 //------------------------------------------------------------------------------
-const FlexGrow = styled.View`
-  flex-grow: 1;
+const FlexOne = styled.View`
+  flex: 1;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -51,9 +51,9 @@ const LogoHeaderBackground = ({
         </View>,
         <Spacer key="spacer" size="XL" />,
       ]}
-      <FlexGrow>
+      <FlexOne>
         {children}
-      </FlexGrow>
+      </FlexOne>
     </ScrollView>
   );
 };
