@@ -22,8 +22,16 @@ const Inner = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: replace Container with Layout comp
-// TODO: get rid of geolocation call, use user data from query instead
 class SpotsListScreen extends React.Component {
+  state = {
+    displayFlap: true,
+  }
+
+  handleScroll = (event) => {
+    const offset = event.nativeEvent.contentOffset.y;
+    this.setState({ displayFlap: offset <= 40 });
+  }
+
   handleCardPress = (spot) => {
     const { navigation } = this.props;
     navigation.navigate('SpotDetailsScreen', { uuid: spot.uuid });
@@ -38,10 +46,11 @@ class SpotsListScreen extends React.Component {
       // closeFlap,
       location,
     } = this.props;
+    const { displayFlap } = this.state;
 
     return (
       <Outer testID="SpotsListScreen">
-        {(!allSports || maxDistance < 20) && (
+        {displayFlap && (!allSports || maxDistance < 20) && (
           <TopLayout>
             <SpotsFilterFlap
               maxDistance={maxDistance}
@@ -65,6 +74,8 @@ class SpotsListScreen extends React.Component {
               userCoords={location}
               maxDistance={maxDistance} // km
               onCardPress={this.handleCardPress}
+              // FlatList props
+              onScroll={this.handleScroll}
             />
           </Inner>
         </BottomLayout>
