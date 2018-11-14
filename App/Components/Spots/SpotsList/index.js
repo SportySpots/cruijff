@@ -64,6 +64,7 @@ const SpotsList = ({
           });
         };
 
+        // Curate games and attach distance
         const spots = (
           data
           && data.spots
@@ -74,8 +75,6 @@ const SpotsList = ({
             return Object.assign({}, spot, { distance });
           })
         ) || [];
-
-        console.log('SPOTS', spots);
 
         return (
           <FlatList
