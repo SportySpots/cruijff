@@ -4,7 +4,7 @@ import { getStorybookUI, configure, addDecorator } from '@storybook/react-native
 import { MenuProvider } from 'react-native-popup-menu';
 import { ApolloMockProvider } from '../App/GraphQL';
 import { loadStories } from './storyLoader';
-import MockUserProvider from '../App/Context/MockUser';
+import { MockUserProvider } from '../App/Context/MockUser';
 
 addDecorator(story => (
   <ApolloMockProvider>
