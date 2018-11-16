@@ -10,6 +10,7 @@ import CancelConfirmModal from '../CancelConfirmModal';
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const MAX_CAPACITY = 1000;
+const MIN_CAPACITY = 2;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -17,7 +18,7 @@ class CapacityPickerModal extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value ? parseInt(props.value, 10) : 0,
+      value: props.value ? parseInt(props.value, 10) : MIN_CAPACITY,
     };
   }
 
@@ -33,7 +34,7 @@ class CapacityPickerModal extends React.PureComponent {
 
   decrease = () => {
     this.setState(prevState => (
-      { value: prevState.value > 0 ? prevState.value - 1 : 0 }
+      { value: prevState.value > MIN_CAPACITY ? prevState.value - 1 : MIN_CAPACITY }
     ));
   }
 
@@ -79,7 +80,7 @@ CapacityPickerModal.propTypes = {
 };
 
 CapacityPickerModal.defaultProps = {
-  value: 0,
+  value: MIN_CAPACITY,
   visible: false,
   onSelect: () => {},
   onClose: () => {},

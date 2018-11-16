@@ -30,9 +30,10 @@ const GameDetails = ({
   onRSVPLoggedOut,
   onRSVPSuccess,
 }) => {
-  const isCanceled = game.status === 'CANCELED';
   const hasCapacity = game.capacity && game.capacity > 0;
   const attendees = getAttendees(game.attendees);
+  const isCanceled = game.status === 'CANCELED';
+  const isFull = game.capacity && game.capacity > 0 && game.capacity === attendees.length;
 
   return [
     <SpotImages
@@ -73,13 +74,13 @@ const GameDetails = ({
         />
       </Block>,
     ],
-    hasCapacity && [
+    (hasCapacity && !isFull) && [
       <Block key="open-spots">
         <Label>{I18n.t('Open spots')}</Label>
         <OpenSpots game={game} />
       </Block>,
     ],
-    !isCanceled && (
+    (!isCanceled && (!isFull || (isFull && userStatus === 'ATTENDING'))) && (
       <Block key="rsvp">
         <Label>
           {I18n.t(!userStatus ? 'Do you join?' : 'Edit presence')}
