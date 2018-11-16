@@ -244,15 +244,11 @@ exports[`Storyshots Games.AdminMenu AdminMenu 1`] = `null`;
 
 exports[`Storyshots Games.Attendees Attendees 1`] = `null`;
 
-exports[`Storyshots Games.Attendees Attendees maxLength 2 1`] = `null`;
-
 exports[`Storyshots Games.CancelGameForm CancelGameForm 1`] = `null`;
 
 exports[`Storyshots Games.CancelMsg CancelMsg 1`] = `null`;
 
 exports[`Storyshots Games.ClickableAttendees ClickableAttendees 1`] = `null`;
-
-exports[`Storyshots Games.ClickableAttendees ClickableAttendees maxLength 2 1`] = `null`;
 
 exports[`Storyshots Games.EditGameForm EditGameForm 1`] = `null`;
 

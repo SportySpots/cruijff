@@ -6,28 +6,59 @@ import Avatar from '../../Common/Avatar';
 import CappedList from '../../Common/CappedList';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
+import getPixelsFromSize from '../../Common/Spacer/utils';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const SPACER_SIZE = 'M';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Attendees = ({ attendees, maxLength }) => {
-  if (attendees.length === 0) {
-    return null;
+class Attendees extends React.PureComponent {
+  state = {
+    width: 0,
   }
 
-  return (
-    <Row>
-      <CappedList
-        max={maxLength}
-        data={attendees}
-        keyExtractor={({ user }) => (user.uuid)}
-        component={({ user }) => <Avatar user={user} />}
-        capComponent={({ data }) => <Avatar key="cap" text={`+${data.length}`} />}
-        ItemSeparatorComponent={() => <Spacer row size="M" />}
-      />
-    </Row>
-  );
-};
+  handleLayout = ({ nativeEvent }) => {
+    this.setState({ width: nativeEvent.layout.width });
+  }
+
+  render() {
+    const { attendees } = this.props;
+    const { width } = this.state;
+
+    if (attendees.length === 0) {
+      return null;
+    }
+
+    // Determine how many avatars fit on the parent container
+    let maxAvatars = 0;
+
+    if (Avatar.size() <= width) {
+      maxAvatars = 1;
+    }
+
+    const diff = width - Avatar.size(); // remove first avatar. Then we can only add space + avatar
+    const space = getPixelsFromSize(SPACER_SIZE);
+    if (diff > 0) {
+      maxAvatars = 1 + parseInt(diff / (space + Avatar.size()), 10);
+    }
+
+    return (
+      <Row onLayout={this.handleLayout}>
+        <CappedList
+          max={maxAvatars}
+          data={attendees}
+          keyExtractor={({ user }) => (user.uuid)}
+          component={({ user }) => <Avatar user={user} />}
+          capComponent={({ data }) => <Avatar key="cap" text={`+${data.length}`} />}
+          ItemSeparatorComponent={() => <Spacer row size={SPACER_SIZE} />}
+        />
+      </Row>
+    );
+  }
+}
 
 Attendees.propTypes = {
   attendees: PropTypes.arrayOf(
@@ -36,12 +67,10 @@ Attendees.propTypes = {
       user: propType(userNameAvatarFragment),
     }),
   ),
-  maxLength: PropTypes.number,
 };
 
 Attendees.defaultProps = {
   attendees: [],
-  maxLength: 7,
 };
 
 export default Attendees;
