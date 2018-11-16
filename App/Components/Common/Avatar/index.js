@@ -7,6 +7,10 @@ import Text from '../Text';
 import userToInitials from './utils';
 
 //------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const DEFAULT_AVATAR_SIZE = 40;
+//------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Circle = styled.View`
@@ -34,63 +38,68 @@ const Initials = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Avatar = ({ user, text, size }) => {
-  const avatar = (
-    user
-    && user.profile
-    && user.profile.avatar
-    && user.profile.avatar.length > 0
-  ) ? user.profile.avatar : '';
+class Avatar extends React.PureComponent {
+  static size = () => DEFAULT_AVATAR_SIZE
 
-  if (avatar) {
+  render() {
+    const { user, text, size } = this.props;
+    const avatar = (
+      user
+      && user.profile
+      && user.profile.avatar
+      && user.profile.avatar.length > 0
+    ) ? user.profile.avatar : '';
+
+    if (avatar) {
+      return (
+        <Circle size={size}>
+          <StyledImage
+            source={{ uri: avatar }}
+            size={size}
+          />
+        </Circle>
+      );
+    }
+
+    const hasName = (
+      user
+      && user.first_name
+      && user.first_name.trim().length > 0
+      && user.last_name
+      && user.last_name.trim().length > 0
+    );
+
+    if (hasName) {
+      return (
+        <Circle size={size}>
+          <Initials size={size}>
+            {userToInitials(user)}
+          </Initials>
+        </Circle>
+      );
+    }
+
+    if (text && text.trim().length > 0) {
+      return (
+        <Circle size={size}>
+          <Text.SM style={{ color: Colors.white }}>
+            {text}
+          </Text.SM>
+        </Circle>
+      );
+    }
+
+    // If no user and no text, display default avatar
     return (
-      <Circle size={size}>
+      <Circle bgColor={Colors.transparent} size={size}>
         <StyledImage
-          source={{ uri: avatar }}
+          source={themeImages.spotOpenCircle}
           size={size}
         />
       </Circle>
     );
   }
-
-  const hasName = (
-    user
-    && user.first_name
-    && user.first_name.trim().length > 0
-    && user.last_name
-    && user.last_name.trim().length > 0
-  );
-
-  if (hasName) {
-    return (
-      <Circle size={size}>
-        <Initials size={size}>
-          {userToInitials(user)}
-        </Initials>
-      </Circle>
-    );
-  }
-
-  if (text && text.trim().length > 0) {
-    return (
-      <Circle size={size}>
-        <Text.SM style={{ color: Colors.white }}>
-          {text}
-        </Text.SM>
-      </Circle>
-    );
-  }
-
-  // If no user and no text, display default avatar
-  return (
-    <Circle bgColor={Colors.transparent} size={size}>
-      <StyledImage
-        source={themeImages.spotOpenCircle}
-        size={size}
-      />
-    </Circle>
-  );
-};
+}
 
 Avatar.propTypes = {
   user: PropTypes.shape({
@@ -107,7 +116,7 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   user: null,
   text: '',
-  size: 40,
+  size: DEFAULT_AVATAR_SIZE,
 };
 
 export default Avatar;

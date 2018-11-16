@@ -16,7 +16,7 @@ const FlexGrow = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ClickableAttendees = ({ attendees, maxLength, onAttendeesPress }) => {
+const ClickableAttendees = ({ attendees, onAttendeesPress }) => {
   if (attendees.length === 0) {
     return null;
   }
@@ -25,7 +25,7 @@ const ClickableAttendees = ({ attendees, maxLength, onAttendeesPress }) => {
     <TouchableOpacity onPress={onAttendeesPress}>
       <Row alignItems="center">
         <FlexGrow>
-          <Attendees attendees={attendees} maxLength={maxLength} />
+          <Attendees attendees={attendees} />
         </FlexGrow>
         <Icon
           name="chevron-right"
@@ -44,13 +44,11 @@ ClickableAttendees.propTypes = {
       user: PropTypes.object, // TODO: use userFragment instead
     }),
   ),
-  maxLength: PropTypes.number,
   onAttendeesPress: PropTypes.func,
 };
 
 ClickableAttendees.defaultProps = {
   attendees: [],
-  maxLength: 7,
   onAttendeesPress: () => {},
 };
 
