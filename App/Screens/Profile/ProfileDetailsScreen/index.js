@@ -1,15 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import { propType } from 'graphql-anywhere';
-import { Query } from 'react-apollo';
-import { connect } from 'react-redux';
 import styled from 'styled-components/native';
+import { withUser, userPropTypes } from '../../../Context/User';
 import Colors from '../../../Themes/Colors';
-// import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
-import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import Text from '../../../Components/Common/Text';
 import ProfileDetails from '../../../Components/Profile/ProfileDetails';
-import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -22,38 +15,14 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: we shouldn't be querying userData here. That should be top level
-// userData provider
 const ProfileDetailsScreen = ({ user }) => (
-  <Query
-    query={GET_USER_DETAILS}
-    variables={{ uuid: user.uuid }}
-    fetchPolicy="network-only"
-
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <CenteredActivityIndicator />;
-      if (error) return <Text>{JSON.stringify(error)}</Text>;
-      if (!data || !data.user) { return null; }
-
-      return (
-        <Container testID="ProfileDetailsScreen">
-          <ProfileDetails user={data.user} />
-        </Container>
-      );
-    }}
-  </Query>
+  <Container testID="ProfileDetailsScreen">
+    <ProfileDetails user={user} />
+  </Container>
 );
 
 ProfileDetailsScreen.propTypes = {
-  // TODO: implement userProvider and use userDetailsFragment
-  user: PropTypes.shape({
-    uuid: PropTypes.string.isRequired,
-  }).isRequired,
+  user: userPropTypes.user.isRequired,
 };
 
-// Redux integration
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(ProfileDetailsScreen);
+export default withUser(ProfileDetailsScreen);

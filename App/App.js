@@ -4,72 +4,32 @@ import Crashes from 'appcenter-crashes';
 
 import codePush from 'react-native-code-push';
 import { ApolloProvider } from 'react-apollo';
-import { Provider } from 'react-redux';
 
 import { StatusBar, Linking } from 'react-native';
 import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components';
-
-import { createClient, createMockClient } from './GraphQL/index';
-import createStore from './Redux';
-
+import config from './config';
+import { createClient, createMockClient } from './GraphQL';
 import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation from './Navigation/AppNavigation';
-import Colors from './Themes/Colors';
-import config from './config';
-import scopedEval from './scopedEval';
-import globalRefs, { addGlobalRef } from './globalRefs';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
-import './prototypes';
-import { LocationProvider } from './Context/Location'; // prototype extensions
+import { LocationProvider } from './Context/Location';
+import { UserProvider } from './Context/User';
+import { SpotFiltersProvider } from './Context/SpotFilters';
+
+import globalRefs, { addGlobalRef } from './globalRefs';
+import { setupDetoxConnection } from './detoxHelpers';
+
+import Colors from './Themes/Colors';
 
 class App extends Component {
   constructor() {
     super();
-    this.store = createStore();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
     this.state = { hasInitialized: false };
 
     if (config.testBuild) {
-      try {
-        console.warn('running a test image. not good if in production');
-        console.log('config', config);
-
-        // eslint-disable-next-line no-undef
-        const ws = new WebSocket(config.testHostUrl);
-
-        ws.onopen = () => {
-          console.log('RN <-> detox connected');
-        };
-
-        ws.onmessage = (e) => {
-          // a message was received
-          const result = scopedEval(e.data);
-          Promise.resolve(result.response).then((val) => {
-            try {
-              ws.send(JSON.stringify({ hasError: false, error: null, response: val }));
-            } catch (err) {
-              ws.send(JSON.stringify({
-                hasError: false,
-                response: 'cannot jsonify',
-                error: null,
-              }));
-            }
-          });
-        };
-
-        ws.onerror = (e) => {
-          // an error occurred
-          console.warn(e.message);
-        };
-
-        ws.onclose = (e) => {
-          // connection closed
-          console.log(e.code, e.reason);
-        };
-      } catch (e) {
-        console.warn(e);
-      }
+      setupDetoxConnection();
     }
   }
 
@@ -127,17 +87,19 @@ class App extends Component {
         ref={addGlobalRef('apolloProvider')}
         client={this.client}
       >
-        <LocationProvider>
-          <Provider store={this.store}>
-            <MenuProvider>
-              <AppRootView>
-                <StatusBar barStyle="light-content" />
-                <ConnectionCheck />
-                <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
-              </AppRootView>
-            </MenuProvider>
-          </Provider>
-        </LocationProvider>
+        <UserProvider>
+          <SpotFiltersProvider>
+            <LocationProvider>
+              <MenuProvider>
+                <AppRootView>
+                  <StatusBar barStyle="light-content" />
+                  <ConnectionCheck />
+                  <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
+                </AppRootView>
+              </MenuProvider>
+            </LocationProvider>
+          </SpotFiltersProvider>
+        </UserProvider>
       </ApolloProvider>
     );
   }

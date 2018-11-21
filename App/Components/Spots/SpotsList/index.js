@@ -31,7 +31,7 @@ const SpotsList = ({
   // Set query variables
   const variables = {
     offset: 0,
-    limit: 20,
+    limit: 10,
     sports__ids: sportsIds, // empty array will return all spots
     distance: `${parseInt(1000 * maxDistance, 10)}:${userCoords.latitude}:${userCoords.longitude}`,
   };
@@ -64,6 +64,7 @@ const SpotsList = ({
           });
         };
 
+        // Curate games and attach distance
         const spots = (
           data
           && data.spots

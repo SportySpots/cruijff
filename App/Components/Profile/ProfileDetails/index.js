@@ -1,8 +1,7 @@
 import React from 'react';
-import { propType } from 'graphql-anywhere';
 import styled from 'styled-components/native';
+import { userPropTypes } from '../../../Context/User';
 import Colors from '../../../Themes/Colors';
-import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -35,15 +34,15 @@ const ProfileDetails = ({ user }) => [
       {`${user.first_name} ${user.last_name}`}
     </Name>
   </Block>,
-  <Spacer key="spacer" size="M" />,
+  /* <Spacer key="spacer" size="M" />,
   <Divider key="divider" />,
   <Bottom key="bottom">
     <ProfileTabs user={user} style={{ flex: 1 }} />
-  </Bottom>,
+  </Bottom>, */
 ];
 
 ProfileDetails.propTypes = {
-  user: propType(userDetailsFragment).isRequired,
+  user: userPropTypes.user.isRequired,
 };
 
 export default ProfileDetails;

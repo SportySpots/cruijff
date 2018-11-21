@@ -1,4 +1,5 @@
 import { AppRegistry } from 'react-native';
+import './App/prototypes';
 import App from './App/App';
 
 // https://github.com/apollographql/apollo-client/issues/3236

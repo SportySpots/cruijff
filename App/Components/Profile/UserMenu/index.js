@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
-import { connect } from 'react-redux';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
-import { client } from '../../../GraphQL';
-import userActions from '../../../Redux/UserRedux';
-import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import Menu from '../../Common/Menu';
 
 //------------------------------------------------------------------------------
@@ -15,7 +11,6 @@ class UserMenu extends React.PureComponent {
   handleLogout = () => {
     const { logout, navigation } = this.props;
     logout();
-    client.resetStore();
     navigation.navigate('SplashScreen');
   }
 
@@ -46,33 +41,18 @@ class UserMenu extends React.PureComponent {
     ];
 
     return (
-      <Query
-        query={GET_USER_DETAILS}
-        variables={{ uuid: user.uuid }}
-      >
-        {({ loading, error, data }) => {
-          if (loading || error || !data || !data.user) {
-            return null;
-          }
-
-          return (
-            <Menu
-              menuName="user-profile-menu"
-              triggerName="user-profile-trigger"
-              options={OPTIONS}
-            />
-          );
-        }}
-      </Query>
+      <Menu
+        menuName="user-profile-menu"
+        triggerName="user-profile-trigger"
+        options={OPTIONS}
+      />
     );
   }
 }
 
 UserMenu.propTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string,
-  }),
-  logout: PropTypes.func.isRequired,
+  user: userPropTypes.user,
+  logout: userPropTypes.logout.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -82,9 +62,4 @@ UserMenu.defaultProps = {
   user: null,
 };
 
-// Redux integration
-const mapStateToProps = ({ user }) => ({ user });
-const dispatchToProps = { logout: userActions.logout };
-const withRedux = connect(mapStateToProps, dispatchToProps);
-
-export default withRedux(UserMenu);
+export default withUser(UserMenu);

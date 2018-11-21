@@ -133,7 +133,7 @@
   "Wrong username or password": "Geen geldige e-mail of wachtwoord",
   "Wrong email or password": "Geen geldige e-mail of wachtwoord",
   "Please provide a valid year": "Voer een geldig jaartal in",
-  
+
   "I'm attending": "Ik doe mee",
   "Player list": "Deelnemers",
   "signed up at": "aangemeld op",
@@ -216,5 +216,7 @@
   "Version": "Versie",
   "Read more": "Lees meer",
   "Read less": "Lees minder",
-  "Upload photo": "Foto uploaden"
+  "Upload photo": "Foto uploaden",
+  "Write extra details about the activity": "Schrijf hier extra details over de activiteit",
+  "This is a private activity": "Dit is een privéactiviteit"
 }

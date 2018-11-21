@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Platform, BackHandler } from 'react-native';
-import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
+import { userPropTypes, withUser } from '../../../Context/User';
+import { addModelState } from '../../../utils';
 import I18n from '../../../I18n';
 import themeImages from '../../../Themes/Images';
 import FormProps from '../../../RenderProps/form-props';
@@ -11,7 +12,6 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import EditGameApiCall from '../../../Components/Games/EditGameApiCall';
 import EditGameForm from '../../../Components/Games/EditGameForm';
 import ImageModal from '../../../Components/Common/Modals/ImageModal';
-import { addModelState } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -152,17 +152,12 @@ EditGameScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: PropTypes.object, // eslint-disable-line
+  user: userPropTypes.user.isRequired,
   onLeave: PropTypes.func,
 };
 
 EditGameScreen.defaultProps = {
-  user: null,
   onLeave: () => {},
 };
 
-// Redux integration
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(EditGameScreen);
+export default withUser(EditGameScreen);

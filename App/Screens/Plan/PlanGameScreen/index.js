@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import {
   Alert,
   Keyboard,
   Platform,
   BackHandler,
 } from 'react-native';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n/index';
 import FormProps from '../../../RenderProps/form-props';
 import PlanGameApiCall from '../../../Components/PlanGame/PlanGameApiCall';
@@ -52,7 +52,7 @@ class PlanGameScreen extends React.Component {
   render() {
     const { navigation, user } = this.props;
 
-    const username = (user && user.claims && user.claims.username) || '';
+    const username = (user && user.first_name) || '';
 
     return (
       <FormProps>
@@ -105,14 +105,7 @@ PlanGameScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  user: PropTypes.shape({
-    claims: PropTypes.shape({
-      username: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
+  user: userPropTypes.user.isRequired,
 };
 
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(PlanGameScreen);
+export default withUser(PlanGameScreen);

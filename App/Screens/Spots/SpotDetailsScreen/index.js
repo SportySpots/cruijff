@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
@@ -35,7 +35,7 @@ class SpotDetailsScreen extends React.PureComponent {
   }
 
   render() {
-    const { navigation, userId } = this.props;
+    const { navigation, user } = this.props;
 
     return (
       <Query
@@ -49,6 +49,7 @@ class SpotDetailsScreen extends React.PureComponent {
           if (!data || !data.spot) return null;
 
           const { spot } = data;
+          console.log('SPOT_DETAILS', spot);
           // Filter passed games
           const games = (spot.games && curatedGames(spot.games)) || [];
 
@@ -56,7 +57,7 @@ class SpotDetailsScreen extends React.PureComponent {
             <Container>
               <SpotDetails
                 spot={spot}
-                userId={userId}
+                userUUID={(user && user.uuid) || null}
                 onGamePress={this.handleGamePress}
               />
               <Block>
@@ -89,13 +90,11 @@ SpotDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  userId: PropTypes.string,
+  user: userPropTypes.user,
 };
 
 SpotDetailsScreen.defaultProps = {
-  userId: null,
+  user: null,
 };
 
-const withRedux = connect(state => ({ userId: state.user.uuid }));
-
-export default withRedux(SpotDetailsScreen);
+export default withUser(SpotDetailsScreen);

@@ -4,15 +4,21 @@ import { getStorybookUI, configure, addDecorator } from '@storybook/react-native
 import { MenuProvider } from 'react-native-popup-menu';
 import { ApolloMockProvider } from '../App/GraphQL';
 import { loadStories } from './storyLoader';
-import ReduxMockProvider from '../App/Redux/ReduxMockProvider';
+import { MockUserProvider } from '../App/Context/MockUser';
+import { LocationProvider } from '../App/Context/Location';
+import { SpotFiltersProvider } from '../App/Context/SpotFilters';
 
 addDecorator(story => (
   <ApolloMockProvider>
-    <ReduxMockProvider>
-      <MenuProvider>
-        {story()}
-      </MenuProvider>
-    </ReduxMockProvider>
+    <MockUserProvider>
+      <LocationProvider>
+        <SpotFiltersProvider>
+          <MenuProvider>
+            {story()}
+          </MenuProvider>
+        </SpotFiltersProvider>
+      </LocationProvider>
+    </MockUserProvider>
   </ApolloMockProvider>
 ));
 
@@ -25,4 +31,3 @@ const StorybookUI = getStorybookUI({ port: 7007, onDeviceUI: true });
 AppRegistry.registerComponent('SportySpots', () => StorybookUI);
 
 export default StorybookUI;
-

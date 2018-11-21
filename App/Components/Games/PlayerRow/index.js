@@ -16,7 +16,7 @@ import Avatar from '../../Common/Avatar';
 // COMPONENT:
 //------------------------------------------------------------------------------
 const PlayerRow = ({ player }) => {
-  const { user, createdAt } = player;
+  const { user, created_at: createdAt } = player;
 
   return (
     <Block>
@@ -27,7 +27,7 @@ const PlayerRow = ({ player }) => {
           <Text.M>{`${user.first_name} ${user.last_name}`}</Text.M>
           <Text.SM style={{ color: Colors.gray }}>
             {`${I18n.t('signed up at')} `}
-            {moment.utc(createdAt).format('d MMMM HH:mm')}
+            {moment.utc(createdAt).local().format('D MMMM HH:mm')}
           </Text.SM>
         </View>
       </Row>
@@ -38,7 +38,7 @@ const PlayerRow = ({ player }) => {
 PlayerRow.propTypes = {
   player: PropTypes.shape({
     user: propType(userDetailsFragment).isRequired,
-    createdAt: PropTypes.instanceOf(Date).isRequired,
+    created_at: PropTypes.instanceOf(Date).isRequired,
   }).isRequired,
 };
 

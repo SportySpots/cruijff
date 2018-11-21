@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as spotFiltersActions from '../../../Redux/SpotFiltersRedux';
+import { withSpotFilters, spotFiltersPropTypes } from '../../../Context/SpotFilters';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -18,10 +17,9 @@ class SpotsFilterActionCall extends React.PureComponent {
 
     const { maxDistance, allSports, selectedSportIds } = inputFields;
 
-    // Save data into redux store.
-    setMaxDistance(maxDistance);
-    setAllSports(allSports);
-    setSports(selectedSportIds);
+    setMaxDistance({ maxDistance });
+    setAllSports({ allSports });
+    setSports({ selectedSportIds });
 
     // Pass event up to parent component
     onFilterSuccess();
@@ -46,9 +44,7 @@ SpotsFilterActionCall.propTypes = {
   ]).isRequired,
   // onFilterError: PropTypes.func,
   onFilterSuccess: PropTypes.func,
-  setMaxDistance: PropTypes.func.isRequired,
-  setAllSports: PropTypes.func.isRequired,
-  setSports: PropTypes.func.isRequired,
+  ...spotFiltersPropTypes,
 };
 
 SpotsFilterActionCall.defaultProps = {
@@ -56,11 +52,4 @@ SpotsFilterActionCall.defaultProps = {
   onFilterSuccess: () => {},
 };
 
-const mapDispatchToProps = {
-  setMaxDistance: spotFiltersActions.default.setMaxDistance,
-  setAllSports: spotFiltersActions.default.setAllSports,
-  setSports: spotFiltersActions.default.setSports,
-};
-const withRedux = connect(null, mapDispatchToProps);
-
-export default withRedux(SpotsFilterActionCall);
+export default withSpotFilters(SpotsFilterActionCall);

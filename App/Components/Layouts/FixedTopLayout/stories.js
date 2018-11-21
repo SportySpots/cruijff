@@ -3,8 +3,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { TopLayout, BottomLayout } from '.';
 
-storiesOf('Layouts.ClosableLayout', module)
-  .add('ClosableLayout black theme', () => [
+storiesOf('Layouts.FixedTopLayout', module)
+  .add('FixedTopLayout', () => [
     <TopLayout key="top">
       <View>
         <Text>I&apos;m in the top layout</Text>

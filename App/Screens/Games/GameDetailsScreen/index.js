@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
-import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
+import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
+import { client } from '../../../GraphQL';
+import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import NothingFound from '../../../Components/Common/NothingFound';
@@ -95,7 +97,13 @@ class GameDetailsScreen extends React.PureComponent {
                 onSpotPress={this.handleSpotPress}
                 onAttendeesPress={this.handleAttendeesPress}
                 onRSVPLoggedOut={this.handleRSVPLoggedOut}
-                onRSVPSuccess={refetch}
+                onRSVPSuccess={async () => {
+                  refetch();
+                  await client.query({
+                    query: GET_GAMES_LIST,
+                    fetchPolicy: 'network-only',
+                  });
+                }}
               />
             </Container>
           );
@@ -113,16 +121,11 @@ GameDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  // TODO: use userFragment
-  user: PropTypes.object, // eslint-disable-line
+  user: userPropTypes.user,
 };
 
 GameDetailsScreen.defaultProps = {
   user: null,
 };
 
-// Redux integration
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(GameDetailsScreen);
+export default withUser(GameDetailsScreen);

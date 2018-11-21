@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import I18n from '../../../I18n';
 import Menu from '../../Common/Menu';
 import GET_GAME_ORGANIZER from '../../../GraphQL/Games/Queries/GET_GAME_ORGANIZER';
+import { withUser, userPropTypes } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -81,9 +81,7 @@ class AdminMenu extends React.PureComponent {
 }
 
 AdminMenu.propTypes = {
-  user: PropTypes.shape({
-    uuid: PropTypes.string,
-  }),
+  user: userPropTypes.user,
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -101,8 +99,4 @@ AdminMenu.defaultProps = {
   user: null,
 };
 
-// TODO: we need a user provider at top level to avoid using redux over and over again
-const mapStateToProps = ({ user }) => ({ user });
-const withRedux = connect(mapStateToProps, null);
-
-export default withRedux(AdminMenu);
+export default withUser(AdminMenu);

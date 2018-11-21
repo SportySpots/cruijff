@@ -1,18 +1,26 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
-import StackBackHeader from '../StackBackHeader';
-import LoginScreen from '../../Screens/Auth/LoginScreen';
-import SignupScreen from '../../Screens/Auth/SignupScreen';
 import SplashScreen from '../../Screens/SplashScreen';
+import LoginScreen from '../../Screens/Auth/LoginScreen';
+import StackBackHeader from '../StackBackHeader';
+import LoggedOutRoute from '../LoggedOutRoute';
 import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
+const handleLoggedIn = (navigation) => {
+  // In case the user is logged in when trying to access a logged out route,
+  // redirect to MainNav
+  navigation.navigate('MainNav');
+};
+//------------------------------------------------------------------------------
 const handleSuccessAuth = (navigation) => {
-  // After successful auth, go back to splash screen
-  navigation.goBack(null);
+  // After successful auth, go back 2 screens:
+  // --> LoginScreen --> MainNave
+  navigation.pop(1);
+  navigation.navigate('MainNav');
 };
 //------------------------------------------------------------------------------
 const backBtn = navigation => (
@@ -26,8 +34,11 @@ const backBtn = navigation => (
 const SplashNav = createStackNavigator({
   LoginScreen: {
     screen: ({ navigation }) => (
-      <LoginScreen
+      <LoggedOutRoute
         navigation={navigation}
+        component={LoginScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
+        // Child component props
         onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
@@ -37,21 +48,14 @@ const SplashNav = createStackNavigator({
       headerLeft: backBtn(navigation),
     }),
   },
-  SignupScreen: {
+  SplashScreen: {
     screen: ({ navigation }) => (
-      <SignupScreen
+      <LoggedOutRoute
         navigation={navigation}
-        onSuccessHook={() => { handleSuccessAuth(navigation); }}
+        component={SplashScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
       />
     ),
-    navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Sign up'),
-      headerTitleStyle,
-      headerLeft: backBtn(navigation),
-    }),
-  },
-  SplashScreen: {
-    screen: SplashScreen,
     navigationOptions: { header: null },
   },
 }, {
