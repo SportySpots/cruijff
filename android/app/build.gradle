@@ -104,8 +104,8 @@ android {
         applicationId "com.sportyspots.android"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 104
-        versionName "1.0"
+        versionCode 105
+        versionName "1.2"
 
         ndk {
             abiFilters "armeabi-v7a", "x86"
