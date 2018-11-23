@@ -14,8 +14,6 @@ const SpotImage = ({
 }) => {
   const imgs = getSpotImages({ images, height, width });
 
-  console.log('IMGS', imgs);
-
   return (
     <Image
       source={{ uri: imgs[0] }}

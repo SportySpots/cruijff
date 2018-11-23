@@ -1,4 +1,4 @@
-const userToInitials = (user) => {
+export const userToInitials = (user) => {
   if (!user || !user.first_name || !user.last_name) {
     return '?'; // unknown user
   }
@@ -6,4 +6,10 @@ const userToInitials = (user) => {
   return `${user.first_name.substr(0, 1)}${user.last_name.substr(0, 1)}`;
 };
 
-export default userToInitials;
+export const convertS3ToImgix = ({ image, height, width }) => (
+  image.replace('https://sportyspots-prd.s3.amazonaws.com', 'http://sportyspots.imgix.net')
+    .concat('?auto=compress')
+    .concat(height ? `&h=${height}` : '')
+    .concat(width ? `&w=${width}` : '')
+    .concat('&fm=png&fit=facearea&faceindex=1&facepad=2.5&usm=20')
+);
