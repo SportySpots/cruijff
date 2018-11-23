@@ -1,22 +1,30 @@
 import Colors from '../../../Themes/Colors';
 
-const getPalette = (status) => {
+const getPalette = (status, reverse) => {
   switch (status) {
     case 'success':
       return {
-        bgColor: Colors.grass,
+        fontColor: !reverse ? Colors.white : Colors.grass,
+        bgColor: !reverse ? Colors.grass : Colors.white,
+        borderColor: Colors.grass,
       };
     case 'error':
       return {
-        bgColor: Colors.negative,
+        fontColor: !reverse ? Colors.white : Colors.negative,
+        bgColor: !reverse ? Colors.negative : Colors.white,
+        borderColor: Colors.negative,
       };
     case 'warning':
       return {
-        bgColor: Colors.notify,
+        fontColor: !reverse ? Colors.white : Colors.notify,
+        bgColor: !reverse ? Colors.notify : Colors.white,
+        borderColor: Colors.notify,
       };
     case 'info':
       return {
-        bgColor: Colors.info,
+        fontColor: !reverse ? Colors.white : Colors.info,
+        bgColor: !reverse ? Colors.info : Colors.white,
+        borderColor: Colors.info,
       };
     default:
       throw new Error('Unknown status');
