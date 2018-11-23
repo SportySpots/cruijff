@@ -10,8 +10,8 @@ import Attendees from '../Attendees';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const FlexGrow = styled.View`
-  flex-grow: 1; /* full width */
+const FlexOne = styled.View`
+  flex: 1; /* full width */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -24,9 +24,9 @@ const ClickableAttendees = ({ attendees, onAttendeesPress }) => {
   return (
     <TouchableOpacity onPress={onAttendeesPress}>
       <Row alignItems="center">
-        <FlexGrow>
+        <FlexOne>
           <Attendees attendees={attendees} />
-        </FlexGrow>
+        </FlexOne>
         <Icon
           name="chevron-right"
           size={30}
