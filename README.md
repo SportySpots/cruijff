@@ -6,6 +6,104 @@
 Android: [![Build status](https://build.appcenter.ms/v0.1/apps/a040d989-6713-458b-8692-5cc9c14b0f0f/branches/master/badge)](https://appcenter.ms)
 [![Build status](https://build.appcenter.ms/v0.1/apps/ad2b18a6-2a59-48b8-8e73-8614df116aa8/branches/master/badge)](https://appcenter.ms)
 
+## Setting up React Native environment on Ubuntu 18.04
+
+Read the following docs before starting!! Below you'll find some extra help.
+
+* https://facebook.github.io/react-native/docs/getting-started.html
+
+* https://www.techomoro.com/how-to-install-and-setup-react-native-on-ubuntu-17-10/
+
+* https://medium.com/@chad_morrow/getting-started-with-react-native-on-ubuntu-from-scratch-f622c8677d1e
+
+### Installing Java
+
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+sudo apt-get install oracle-java8-set-default
+
+Source: https://medium.com/@aashimad1/install-android-studio-in-ubuntu-b8aed675849f
+
+### Installing watchman
+
+```
+> sudo apt-get update
+> sudo apt-get upgrade
+> git clone https://github.com/facebook/watchman.git
+> cd watchman/
+> git checkout v4.9.0
+> sudo apt-get install -y autoconf automake build-essential python-dev libssl-dev libtool pkg-config
+> ./autogen.sh
+> ./configure
+> make
+> sudo make install
+
+> echo "fs.inotify.max_user_watches=524288" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p && echo "fs.inotify.max_queued_events=524288" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p && echo "fs.inotify.max_user_instances=524288" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+```
+
+Source: https://facebook.github.io/watchman/docs/install.html#buildinstall
+
+Troubleshooting:
+https://github.com/facebook/watchman/issues/163
+https://askubuntu.com/questions/716431/inotify-max-user-watches-value-resets-on-reboot-how-to-change-it-permanently
+https://unix.stackexchange.com/questions/13751/kernel-inotify-watch-limit-reached
+
+### Install adb
+
+If you get ```/bin/sh: 1: adb: not found``` error, install adb:
+
+```
+sudo apt-get update
+sudo apt-get install adb
+```
+
+source: https://github.com/facebook/react-native/issues/11413
+
+### adb version mismatch
+
+If you get the following error:
+
+```
+ADB server didn't ACK
+* failed to start daemon *
+error: cannot connect to daemon`
+```
+
+You need to make sure that the adb version installed globally and the one used by the Android SDK match. In order to do so,
+either point or copy Android sdk adb to usr/bin to solve adb mismatch versions:
+
+pointing (didn't test this! probably iOS)
+```
+sudo ln -sf ~/Library/Android/sdk/platform-tools/adb /usr/local/bin
+```
+
+copy
+```
+sudo cp ~/Android/Sdk/platform-tools/adb /usr/bin
+```
+
+source: https://github.com/expo/expo-cli/issues/153
+
+### Create local.properties file inside android folder
+
+Add the following code to the local.properties field based on the location of you android sdk. Replace YOUR_USERNAME accordingly!
+
+```
+sdk.dir = /home/<YOUR_USERNAME>/Android/Sdk
+```
+
+### Create .env file in root folder
+
+Create a .env file from .env.example placing it in the root of the project
+
+### Genymotion devices
+
+When creating a new device make sure to choose a device with android version >= 8.1
+
 ## Get started
 
 ### Prerequisites
