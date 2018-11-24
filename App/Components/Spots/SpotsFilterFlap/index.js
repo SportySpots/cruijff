@@ -36,12 +36,18 @@ const SpotsFilterFlap = ({
 
       // console.log('DATA.SPORTS', data.sports);
       // console.log('SELECTED_SPORT_IDS', selectedSportIds);
-      const tags = [
-        { index: 'distance', value: `< ${maxDistance.toFixed(1).toString().replace('.0', '')}km`, status: 'warning' },
-      ];
+      const tags = [{
+        index: 'distance',
+        value: `< ${maxDistance.toFixed(1).toString().replace('.0', '')}km`,
+        status: 'warning', // 'success'
+      }];
 
       if (allSports) {
-        tags.push({ index: 'all-sports', value: I18n.t('All sports'), status: 'success' });
+        tags.push({
+          index: 'all-sports',
+          value: I18n.t('All sports'),
+          status: 'success',
+        });
       } else {
         selectedSportIds.forEach((sportId) => {
           tags.push({
