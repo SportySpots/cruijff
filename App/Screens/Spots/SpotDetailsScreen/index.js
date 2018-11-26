@@ -49,7 +49,6 @@ class SpotDetailsScreen extends React.PureComponent {
           if (!data || !data.spot) return null;
 
           const { spot } = data;
-          console.log('SPOT_DETAILS', spot);
           // Filter passed games
           const games = (spot.games && curatedGames(spot.games)) || [];
 

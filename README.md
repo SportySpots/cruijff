@@ -18,10 +18,12 @@ Read the following docs before starting!! Below you'll find some extra help.
 
 ### Installing Java
 
+```
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
+```
 
 Source: https://medium.com/@aashimad1/install-android-studio-in-ubuntu-b8aed675849f
 

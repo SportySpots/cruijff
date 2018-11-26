@@ -1,5 +1,6 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
+import { Dimensions } from 'react-native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import CommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components';
@@ -19,11 +20,18 @@ import GameCanceledFlag from '../GameCanceledFlag';
 import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const CARD_HEIGHT = 232;
+const CARD_HEIGHT_CANCELED = 270;
+const CARD_WIDTH = Dimensions.get('window').width; // aprox, we are not considering the padding from the parent container
+const HEADER_HEIGHT = 58;
+//------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Outer = styled.View`
   display: flex;
-  height: ${({ isCanceled }) => (isCanceled ? '270px' : '232px')};
+  height: ${({ height }) => (height)}px;
   border-radius: 8px;
   shadow-offset: 1px 1px;
   shadow-color: ${Colors.shade};
@@ -32,7 +40,7 @@ const Outer = styled.View`
 `;
 //------------------------------------------------------------------------------
 const Top = styled.View`
-  height: 58px;
+  height: ${HEADER_HEIGHT}px;
   padding-horizontal: 16px;
   display: flex;
   flex-direction: row;
@@ -89,9 +97,10 @@ const GameListCard = ({ game }) => {
   const isCanceled = status === 'CANCELED';
   const attendees = getAttendees(game.attendees);
   const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
+  const cardHeight = isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT;
 
   return (
-    <Outer isCanceled={isCanceled}>
+    <Outer height={cardHeight}>
       <Top>
         <Organizer organizer={organizer} textSize="M" />
         <DotSpacer />
@@ -100,7 +109,11 @@ const GameListCard = ({ game }) => {
         </Text.M>
       </Top>
       <Bottom>
-        <BackgroundImage images={spot.images} />
+        <BackgroundImage
+          images={spot.images}
+          height={cardHeight - HEADER_HEIGHT}
+          width={CARD_WIDTH}
+        />
         {isCanceled && [
           <Spacer key="spacer" size="L" />,
           <GameCanceledFlag key="cancel-flag" />,

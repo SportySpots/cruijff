@@ -6,8 +6,13 @@ import { getSpotImages } from '../../../utils';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const SpotImage = ({ images, style }) => {
-  const imgs = getSpotImages(images);
+const SpotImage = ({
+  images,
+  height,
+  width,
+  style,
+}) => {
+  const imgs = getSpotImages({ images, height, width });
 
   return (
     <Image
@@ -23,6 +28,8 @@ SpotImage.propTypes = {
       image: PropTypes.string,
     }),
   ),
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
   style: PropTypes.object, // eslint-disable-line
 };
 

@@ -27,14 +27,42 @@ export function makeNumGenerator() {
   };
 }
 
+const convertS3ToImgix = ({ image, height, width }) => (
+  image.replace('https://s3.amazonaws.com/sportyspots-prd', 'http://sportyspots.imgix.net')
+    .concat('?auto=compress')
+    .concat(height ? `&h=${height}` : '')
+    .concat(width ? `&w=${width}` : '')
+);
+
+const getImageUrl = ({ image, height, width }) => (
+  image.startsWith('http') // TODO: this should be https://s3.amazonaws.com/sportyspots-
+    ? convertS3ToImgix({ image, height, width })
+    : `${Config.SEEDORF_HOST}${image}`
+);
+
+const DEFAULT_SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/spot-placeholder.png';
+
+export const getSpotImages = ({ images, height, width }) => {
+  if (!height || !width) {
+    throw new Error('Height | width is not defined');
+  }
+
+  return images && images.length > 0
+    ? images.map(({ image }) => getImageUrl({ image, height, width }))
+    : [DEFAULT_SPOT_IMG];
+};
+
+
+/*
 const getImageUrl = image => (
   image.startsWith('http') ? image : `${Config.SEEDORF_HOST}${image}`
 );
 
-const SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/SpotImages/spot-placeholder.png';
+const DEFAULT_SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/SpotImages/spot-placeholder.png';
 
 export const getSpotImages = images => (
   images && images.length > 0
     ? images.map(({ image }) => getImageUrl(image))
-    : [SPOT_IMG]
+    : [DEFAULT_SPOT_IMG]
 );
+*/

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import themeImages from '../../../Themes/Images';
 import Text from '../Text';
-import userToInitials from './utils';
+import { userToInitials, convertS3ToImgix } from './utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -43,6 +43,7 @@ class Avatar extends React.PureComponent {
 
   render() {
     const { user, text, size } = this.props;
+
     const avatar = (
       user
       && user.profile
@@ -54,7 +55,7 @@ class Avatar extends React.PureComponent {
       return (
         <Circle size={size}>
           <StyledImage
-            source={{ uri: avatar }}
+            source={{ uri: convertS3ToImgix({ image: avatar, height: size, width: size }) }}
             size={size}
           />
         </Circle>

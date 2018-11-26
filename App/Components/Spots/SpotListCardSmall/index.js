@@ -49,7 +49,12 @@ const SpotListCardSmall = ({ spot, active }) => (
           <SpotHeader spot={spot} withDistance />
         </Block>
       </FlexOne>
-      <SpotImage images={spot.images} style={imgStyle} />
+      <SpotImage
+        images={spot.images}
+        height={SIZE}
+        width={SIZE}
+        style={imgStyle}
+      />
     </Row>
   </Container>
 );

@@ -36,7 +36,13 @@ const Overlay = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const BackgroundImage = ({ images, top }) => {
+const BackgroundImage = ({
+  images,
+  height,
+  width,
+  top,
+  withOverlay,
+}) => {
   const imgStyle = {
     flex: 1,
     borderBottomLeftRadius: top ? 0 : 8,
@@ -48,11 +54,16 @@ const BackgroundImage = ({ images, top }) => {
 
   return (
     <Container top={top}>
-      <SpotImage images={images} style={imgStyle} />
-      <Overlay top={top} />
+      <SpotImage
+        images={images}
+        height={height}
+        width={width}
+        style={imgStyle}
+      />
+      {withOverlay && <Overlay top={top} />}
     </Container>
   );
-}
+};
 
 BackgroundImage.propTypes = {
   images: PropTypes.arrayOf(
@@ -60,12 +71,16 @@ BackgroundImage.propTypes = {
       image: PropTypes.string,
     }),
   ),
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
   top: PropTypes.bool,
+  withOverlay: PropTypes.bool,
 };
 
 BackgroundImage.defaultProps = {
   images: [],
   top: false,
+  withOverlay: true,
 };
 
 export default BackgroundImage;
