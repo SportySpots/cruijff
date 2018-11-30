@@ -34,6 +34,7 @@ function loadStories() {
   require('../App/Components/Common/Modals/ImageModal/stories');
   require('../App/Components/Common/Modals/Modal/stories');
   require('../App/Components/Common/Modals/SportPickerModal/stories');
+  require('../App/Components/Common/Modals/SpotPickerModal/stories');
   require('../App/Components/Common/NavBar/stories');
   require('../App/Components/Common/NavBarButton/stories');
   require('../App/Components/Common/NavDot/stories');
@@ -47,6 +48,7 @@ function loadStories() {
   require('../App/Components/Common/SportCard/stories');
   require('../App/Components/Common/SportPickerField/stories');
   require('../App/Components/Common/SportsList/stories');
+  require('../App/Components/Common/SpotPickerField/stories');
   require('../App/Components/Common/SwitchWithText/stories');
   require('../App/Components/Common/Tag/stories');
   require('../App/Components/Common/TextField/stories');
@@ -83,7 +85,6 @@ function loadStories() {
   require('../App/Components/Profile/UserSpots/stories');
   require('../App/Components/ScreenSlider/stories');
   require('../App/Components/Spots/BackgroundImage/stories');
-  require('../App/Components/Spots/EditSpotField/stories');
   require('../App/Components/Spots/SpotHeader/stories');
   require('../App/Components/Spots/SpotImage/stories');
   require('../App/Components/Spots/SpotLink/stories');
@@ -143,6 +144,7 @@ const stories = [
   '../App/Components/Common/Modals/ImageModal/stories',
   '../App/Components/Common/Modals/Modal/stories',
   '../App/Components/Common/Modals/SportPickerModal/stories',
+  '../App/Components/Common/Modals/SpotPickerModal/stories',
   '../App/Components/Common/NavBar/stories',
   '../App/Components/Common/NavBarButton/stories',
   '../App/Components/Common/NavDot/stories',
@@ -156,6 +158,7 @@ const stories = [
   '../App/Components/Common/SportCard/stories',
   '../App/Components/Common/SportPickerField/stories',
   '../App/Components/Common/SportsList/stories',
+  '../App/Components/Common/SpotPickerField/stories',
   '../App/Components/Common/SwitchWithText/stories',
   '../App/Components/Common/Tag/stories',
   '../App/Components/Common/TextField/stories',
@@ -192,7 +195,6 @@ const stories = [
   '../App/Components/Profile/UserSpots/stories',
   '../App/Components/ScreenSlider/stories',
   '../App/Components/Spots/BackgroundImage/stories',
-  '../App/Components/Spots/EditSpotField/stories',
   '../App/Components/Spots/SpotHeader/stories',
   '../App/Components/Spots/SpotImage/stories',
   '../App/Components/Spots/SpotLink/stories',

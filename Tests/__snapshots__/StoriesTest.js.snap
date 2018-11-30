@@ -320,6 +320,8 @@ exports[`Storyshots Modals.Modal Modal no footer overflow children 1`] = `null`;
 
 exports[`Storyshots Modals.SportPickerModal SportPickerModal 1`] = `null`;
 
+exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `null`;
+
 exports[`Storyshots NothingFound Default 1`] = `null`;
 
 exports[`Storyshots Onboarding Default 1`] = `null`;
@@ -396,8 +398,6 @@ exports[`Storyshots Screenslider ScreenSlider 1`] = `null`;
 
 exports[`Storyshots Spots.BackgroundImage BackgroundImage 1`] = `null`;
 
-exports[`Storyshots Spots.EditSpotField EditSpotField default 1`] = `null`;
-
 exports[`Storyshots Spots.SpotHeader SpotHeader default 1`] = `null`;
 
 exports[`Storyshots Spots.SpotHeader SpotHeader withDistance withGames 1`] = `null`;
@@ -415,6 +415,8 @@ exports[`Storyshots Spots.SpotListCardSmall SpotListCardSmall active 1`] = `null
 exports[`Storyshots Spots.SpotListCardSmall SpotListCardSmall default 1`] = `null`;
 
 exports[`Storyshots Spots.SpotMap SpotMap 1`] = `null`;
+
+exports[`Storyshots Spots.SpotPickerField SpotPickerField default 1`] = `null`;
 
 exports[`Storyshots Spots.SpotProperties SpotProperties 1`] = `null`;
 

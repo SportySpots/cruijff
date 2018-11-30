@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import Swiper from 'react-native-swiper';
 import extend from 'lodash/extend';
+import pick from 'lodash/pick';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import ClosableLayout from '../../Layouts/ClosableLayout';
@@ -17,11 +18,12 @@ import { addGlobalRef } from '../../../globalRefs';
 //------------------------------------------------------------------------------
 const DESCRIPTION_MAX_CHARS = 2000;
 
-const SLIDES = [
+let SLIDES = [];
+const genSlides = ({ username }) => [
   {
     id: 'sportDateTimeSlide',
     Comp: SportDateTimeSlide,
-    title: 'Plan a game',
+    section: 'Plan a game',
     theme: 'white',
     fields: ['sport', 'date', 'time', 'duration', 'capacity'],
     requiredFields: ['sport', 'date', 'time'],
@@ -37,7 +39,7 @@ const SLIDES = [
   {
     id: 'spotSlide',
     Comp: SpotSlide,
-    title: 'Pick a spot',
+    section: 'Pick a spot',
     theme: 'black',
     fields: ['spot'],
     requiredFields: ['spot'],
@@ -48,12 +50,13 @@ const SLIDES = [
   {
     id: 'descriptionSlide',
     Comp: DescriptionSlide,
-    title: 'Describe the game',
+    section: 'Describe the game',
     theme: 'white',
-    fields: ['description'],
+    fields: ['title', 'description'],
     requiredFields: [],
     restrictions: [{ fieldName: 'description', upperBound: DESCRIPTION_MAX_CHARS }],
     initState: {
+      title: `${username}'s game`,
       description: '',
     },
   },
@@ -72,6 +75,9 @@ class PlanGameForm extends React.Component {
     super(props);
 
     addGlobalRef('PlanGameForm')(this);
+
+    const { username } = props;
+    SLIDES = genSlides({ username });
 
     this.state = {
       curSlide: 0,
@@ -174,7 +180,6 @@ class PlanGameForm extends React.Component {
     // Otherwise, gather input field values and pass event up to parent component
     } else {
       const {
-        username,
         onBeforeHook,
         onClientCancelHook,
         // onClientErrorHook,
@@ -190,28 +195,17 @@ class PlanGameForm extends React.Component {
         return; // return silently
       }
 
-      // Get field values
-      const {
-        sport,
-        date,
-        time,
-        duration,
-        capacity,
-        spot,
-        description,
-      } = this.state;
-
       // Pass event up to parent component
-      onSuccessHook({
-        name: `${username}'s game`,
-        sport,
-        date,
-        time,
-        duration,
-        capacity,
-        spot,
-        description,
-      });
+      onSuccessHook(pick(this.state, [
+        'title',
+        'sport',
+        'date',
+        'time',
+        'duration',
+        'capacity',
+        'spot',
+        'description',
+      ]));
     }
   }
 
@@ -231,12 +225,12 @@ class PlanGameForm extends React.Component {
             id,
             Comp,
             theme,
-            title,
+            section,
           }) => (
             <FullHeight key={id}>
               <ClosableLayout
                 theme={theme}
-                title={I18n.t(title)}
+                title={I18n.t(section)}
                 onClose={onLeave}
               >
                 <Comp

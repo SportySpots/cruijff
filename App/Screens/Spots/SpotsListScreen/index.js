@@ -23,14 +23,14 @@ const Inner = styled.View`
 //------------------------------------------------------------------------------
 // TODO: replace Container with Layout comp
 class SpotsListScreen extends React.Component {
-  state = {
+  /* state = {
     displayFlap: true,
   }
 
   handleScroll = (event) => {
     const offset = event.nativeEvent.contentOffset.y;
     this.setState({ displayFlap: offset <= 40 });
-  }
+  } */
 
   handleCardPress = (spot) => {
     const { navigation } = this.props;
@@ -46,11 +46,11 @@ class SpotsListScreen extends React.Component {
       // closeFlap,
       location,
     } = this.props;
-    const { displayFlap } = this.state;
+    // const { displayFlap } = this.state;
 
     return (
       <Outer testID="SpotsListScreen">
-        {displayFlap && (!allSports || maxDistance < 20) && (
+        {(!allSports || maxDistance < 20) && (
           <TopLayout>
             <SpotsFilterFlap
               maxDistance={maxDistance}

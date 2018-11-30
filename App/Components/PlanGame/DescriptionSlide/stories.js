@@ -7,6 +7,11 @@ import DescriptionSlide from './index';
 storiesOf('PlanGame.DescriptionSlide', module)
   .add('DescriptionSlide white theme', () => (
     <Block bgColor={Colors.primaryGreen}>
-      <DescriptionSlide theme="white" descriptionMaxChars={100} description="random description"/>
+      <DescriptionSlide
+        theme="white"
+        descriptionMaxChars={100}
+        description="random description"
+        title="I'm the title"
+      />
     </Block>
   ));
