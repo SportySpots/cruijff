@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment-timezone';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import {
-  getUserTZ,
-  setDate,
-  setStartTime,
-  setEndTime,
-} from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -25,19 +20,16 @@ class PlanGameApiCall extends React.PureComponent {
       description,
     } = inputFields;
 
-
     // Get user timezone, startTime and endTime from date, time and duration
-    const userTZ = getUserTZ();
-    const startDate = setDate(date); // beginning of the selected date (moment object)
-    const startTime = setStartTime(startDate, time); // moment object
-    const endTime = duration ? setEndTime(startTime, duration) : null; // moment object
-
-    console.log('USER_TZ', userTZ);
-    console.log('DATE', date);
-    console.log('TIME', time);
-    console.log('START_DATE', startDate.format()); // '2018-10-06T00:00:00.000Z'
-    console.log('START_TIME', startTime.format()); // '2018-10-06T13:15:00.000Z'
-    console.log('END_TIME', endTime ? endTime.format() : null); // '2018-10-06T14:15:00.000Z'
+    const userTZ = moment.tz.guess();
+    const startTime = moment.utc([
+      date.year(),
+      date.month(),
+      date.date(),
+      time.hour(),
+      time.minute(),
+    ]);
+    const endTime = startTime.clone().add(duration, 'minutes');
 
     // TODO: replace this with a single endpoint
     try {
@@ -45,9 +37,9 @@ class PlanGameApiCall extends React.PureComponent {
       const gameResponse = await SeedorfAPI.createGame({
         name,
         startTZ: userTZ,
-        startTime: startTime.format(),
+        startTime: startTime.toISOString(),
         endTZ: userTZ,
-        endTime: endTime ? endTime.format() : null,
+        endTime: endTime ? endTime.toISOString() : null,
         capacity,
         description,
       });

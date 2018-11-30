@@ -8,6 +8,8 @@ import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
+import moment from 'moment';
+
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 // import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
@@ -70,12 +72,16 @@ class EditGameForm extends React.PureComponent {
       invite_mode: inviteMode,
     } = game;
 
+    const startMoment = startTime ? moment.utc(startTime) : null;
+    const endMoment = endTime ? moment.utc(endTime) : null;
+
+
     this.state = {
       name,
       sport,
-      date: startTime ? getDate(startTime) : null,
-      time: startTime ? getTime(startTime) : null,
-      duration: startTime && endTime ? getDuration(startTime, endTime) : null,
+      date: startMoment.clone().startOf('day'),
+      time: startMoment.clone(),
+      duration: startTime && endTime ? endMoment.diff(startMoment, 'minutes') : null,
       capacity,
       spot,
       description: description || '',

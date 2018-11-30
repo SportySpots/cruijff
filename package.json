@@ -131,6 +131,7 @@
     "jest-snapshot": "^23.6.0",
     "lint-staged": "^7.3.0",
     "mocha": "^5.2.0",
+    "mockdate": "^2.0.2",
     "mockery": "^2.1.0",
     "react-dom": "16.5.2",
     "react-native-cli": "2.0.1",
