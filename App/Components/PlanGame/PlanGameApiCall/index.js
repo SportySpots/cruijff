@@ -15,7 +15,7 @@ class PlanGameApiCall extends React.PureComponent {
   handleCreate = async (inputFields) => {
     const { onPlanSuccess, onPlanError } = this.props;
     const {
-      name,
+      title,
       sport,
       date,
       time,
@@ -43,7 +43,7 @@ class PlanGameApiCall extends React.PureComponent {
     try {
       // Create game
       const gameResponse = await SeedorfAPI.createGame({
-        name,
+        title,
         startTZ: userTZ,
         startTime: startTime.format(),
         endTZ: userTZ,
