@@ -9,25 +9,25 @@ import InputField from '../InputField';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// time is in local timezone
+// in/output are UTC moments
 const TimePickerField = ({ value, onChange, ...rest }) => (
   <ModalProps>
     {({ visible, openModal, closeModal }) => console.log('rendering', value) || [
       <InputField
         key="input-field"
         comp="TextField"
-        value={value ? moment(value).format('HH:mm') : I18n.t('Select')}
+        value={value ? value.clone().local().format('HH:mm') : I18n.t('Select')}
         onPress={openModal}
         {...rest}
       />,
       <TimePickerModal
         key="modal"
         mode="time"
-        date={value || new Date()}
+        date={value ? value.clone().local().toDate() : new Date()}
         isVisible={visible}
         onConfirm={(date) => {
           // Pass event up to parent component
-          onChange(date);
+          onChange(moment(date).utc());
           closeModal();
         }}
         onCancel={closeModal}
@@ -37,13 +37,13 @@ const TimePickerField = ({ value, onChange, ...rest }) => (
 );
 
 TimePickerField.propTypes = {
-  value: PropTypes.instanceOf(Date),
+  value: PropTypes.instanceOf(moment),
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };
 
 TimePickerField.defaultProps = {
-  value: new Date(),
+  value: moment.utc(),
   onChange: () => {},
 };
 

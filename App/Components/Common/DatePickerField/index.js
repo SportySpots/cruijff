@@ -21,7 +21,7 @@ const DatePickerField = ({
       <InputField
         key="input-field"
         comp="TextField"
-        value={value ? moment(value.dateString).format(dateFormat).toTitleCase() : I18n.t('Select')}
+        value={value ? value.clone().local().format(dateFormat).toTitleCase() : I18n.t('Select')}
         onPress={openModal}
         {...rest}
       />,
@@ -44,7 +44,7 @@ const DatePickerField = ({
 );
 
 DatePickerField.propTypes = {
-  value: datePickerDatePropTypes,
+  value: PropTypes.instanceOf(moment),
   onChange: PropTypes.func,
   dateFormat: PropTypes.string,
   // Plus all InputField props (theme, size)

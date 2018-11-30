@@ -40,7 +40,12 @@ class DatePickerModal extends React.PureComponent {
       <Row alignItems="center" justifyContent="space-between">
         <Text.ML>{I18n.t('Select a date')}</Text.ML>
         <SelectedDate>
-          {value && moment(value.dateString).format('ddd, MMM D').replace(/\./g, '').toTitleCase()}
+          {value && value.clone()
+            .local()
+            .format('ddd, MMM D')
+            .replace(/\./g, '')
+            .toTitleCase()
+          }
         </SelectedDate>
       </Row>
     );
@@ -67,7 +72,7 @@ class DatePickerModal extends React.PureComponent {
 }
 
 DatePickerModal.propTypes = {
-  value: datePickerDatePropTypes,
+  value: PropTypes.instanceOf(moment),
   visible: PropTypes.bool,
   onSelect: PropTypes.func,
   onClose: PropTypes.func,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import { setDate, setStartTime, setEndTime } from '../../PlanGame/PlanGameApiCall/utils';
+import moment from 'moment/moment';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -21,14 +21,14 @@ class EditGameApiCall extends React.PureComponent {
       isPublic,
     } = inputFields;
 
-    // Get startTime and endTime from date, time and duration
-    const startDate = setDate(date); // beginning of the selected date (moment object)
-    const startTime = setStartTime(startDate, time); // moment object
-    const endTime = duration ? setEndTime(startTime, duration) : null; // moment object
-
-    console.log('START_DATE', startDate.toISOString()); // '2018-10-06T00:00:00.000Z'
-    console.log('START_TIME', startTime.toISOString()); // '2018-10-06T13:15:00.000Z'
-    console.log('END_TIME', endTime ? endTime.toISOString() : null); // '2018-10-06T14:15:00.000Z'
+    const startTime = moment.utc([
+      date.year(),
+      date.month(),
+      date.date(),
+      time.hour(),
+      time.minute(),
+    ]);
+    const endTime = startTime.clone().add(duration, 'minutes');
 
     try {
       // Set name

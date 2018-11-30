@@ -1,8 +1,9 @@
 import React from 'react';
 import { Calendar as NativeCalendar } from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 import Colors from '../../../Themes/Colors';
-import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -39,13 +40,17 @@ const theme = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Calendar = ({ value, ...rest }) => {
+const Calendar = ({ value, onDayPress, ...rest }) => {
   const markedDates = value ? ({
     [value.dateString]: {
       selected: true,
       disableTouchEvent: true,
     },
   }) : {};
+
+  if (value && (!(value instanceof moment) || !value.isUTC())) {
+    throw new TypeError('Calendar: Invalid input value. Use a moment instance with UTC timezone');
+  }
 
   return (
     <NativeCalendar
@@ -60,23 +65,24 @@ const Calendar = ({ value, ...rest }) => {
         />
       )}
       markedDates={markedDates}
-      current={(
-        value
-          ? value.dateString
-          : (new Date()).toISOString().slice(0, 10)
-      )}
-      minDate={(new Date()).toISOString().slice(0, 10)}
+      current={(value || moment()).clone().local().toDate()}
+      onDayPress={(r) => {
+        // convert the selected day to a moment UTC
+        // moment uses month 0: january, NativeCalendar month 1: january
+        onDayPress(moment.utc([r.year, r.month - 1, r.day]));
+      }}
+      minDate={moment().local().startOf('day').toDate()}
       {...rest}
     />
   );
 };
 
 Calendar.propTypes = {
-  value: datePickerDatePropTypes,
+  value: PropTypes.instanceOf(moment),
   // Plus all props from native Calendar
 };
 
 Calendar.defaultProps = {
-  value: null,
+  value: moment.utc(),
 };
 export default Calendar;
