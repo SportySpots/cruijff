@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import Swiper from 'react-native-swiper';
+import moment from 'moment';
 import extend from 'lodash/extend';
 import styled from 'styled-components';
+import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n/index';
 import ClosableLayout from '../../Layouts/ClosableLayout';
 import Footer from '../../DarkFooter';
@@ -25,13 +27,26 @@ const SLIDES = [
     theme: 'white',
     fields: ['sport', 'date', 'time', 'duration', 'capacity'],
     requiredFields: ['sport', 'date', 'time'],
+    errorFields: ['dateTime'],
     initState: {
       sport: null,
       date: null,
       time: null,
-      // duration: null,
-      duration: 90,
+      duration: 90, // null,
       capacity: null,
+    },
+    validateFields: ({ date, time }) => {
+      if (date && time) {
+        const hours = time.hours();
+        const minutes = time.minutes();
+        const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
+        const now = moment();
+
+        if (dateTime.diff(now) < 0) {
+          return { dateTime: 'Please, select a valid date and time' };
+        }
+      }
+      return null;
     },
   },
   {
@@ -52,10 +67,11 @@ const SLIDES = [
     theme: 'white',
     fields: ['description'],
     requiredFields: [],
-    restrictions: [{ fieldName: 'description', upperBound: DESCRIPTION_MAX_CHARS }],
+    errorFields: ['description'],
     initState: {
       description: '',
     },
+    validateFields: ({ description }) => (description.length > DESCRIPTION_MAX_CHARS),
   },
 ];
 //------------------------------------------------------------------------------
@@ -75,6 +91,9 @@ class PlanGameForm extends React.Component {
 
     this.state = {
       curSlide: 0,
+      errors: {
+        dateTime: [],
+      },
     };
 
     // Attach slide's initial state to component's state
@@ -83,14 +102,20 @@ class PlanGameForm extends React.Component {
     });
   }
 
+  clearErrors = () => {
+    this.setState({ errors: { dateTime: [] } });
+  };
+
   handleChange = ({ fieldName, value }) => {
     if (!fieldName) { return; }
 
-    const { curSlide } = this.state;
+    const { curSlide, errors } = this.state;
 
     // Automatically swipe right after the user selects spot
     this.setState({
       [fieldName]: value,
+      errors: fieldName === ('date' || fieldName === 'time')
+        ? ErrorHandling.clearErrors(errors, 'dateTime') : errors,
       curSlide: fieldName === 'spot' ? curSlide + 1 : curSlide,
     }, () => {
       if (fieldName === 'spot') {
@@ -103,8 +128,8 @@ class PlanGameForm extends React.Component {
   get disableNext() {
     const { curSlide } = this.state;
 
-    // Get required fields and restrictions for the current slide
-    const { requiredFields, restrictions } = SLIDES[curSlide];
+    // Get required fields for the current slide
+    const { requiredFields } = SLIDES[curSlide];
 
     // Disable next btn (return 'true') if at least on of the required fields isn't set
     for (let i = 0; i < requiredFields.length; i += 1) {
@@ -114,15 +139,15 @@ class PlanGameForm extends React.Component {
       }
     }
 
-    // Disable next btn (return 'true') if restrictions aren't satisfied
-    if (restrictions) {
-      for (let i = 0; i < restrictions.length; i += 1) {
-        const { fieldName, upperBound } = restrictions[i];
-        if (this.state[fieldName].length > upperBound) { // eslint-disable-line
-          return true;
-        }
-      }
-    }
+    // // Disable next btn (return 'true') if restrictions aren't satisfied
+    // if (restrictions) {
+    //   for (let i = 0; i < restrictions.length; i += 1) {
+    //     const { fieldName, upperBound } = restrictions[i];
+    //     if (this.state[fieldName].length > upperBound) { // eslint-disable-line
+    //       return true;
+    //     }
+    //   }
+    // }
 
     // Enable btn otherwise (all required fields are set and restrictions met)
     return false;
@@ -162,7 +187,27 @@ class PlanGameForm extends React.Component {
   handleNext = async () => {
     Keyboard.dismiss();
 
-    const { curSlide } = this.state;
+    const { curSlide, date, time } = this.state;
+
+    this.clearErrors();
+
+    if (curSlide === 0) {
+      // if (date && time) {
+      //   const hours = time.hours();
+      //   const minutes = time.minutes();
+      //   const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
+      //   const diff = dateTime.diff(NOW);
+
+      //   if (diff < 0) {
+      //     this.setState({
+      //       errors: {
+      //         dateTime: 'Please, select a valid date and time',
+      //       },
+      //     });
+      //     return;
+      //   }
+      // }
+    }
 
     // If it's NOT the last slide, increment slide counter and slide forward one position
     if (curSlide !== SLIDES.length - 1) {
@@ -170,49 +215,49 @@ class PlanGameForm extends React.Component {
         prevState => ({ curSlide: prevState.curSlide + 1 }),
         () => { this.swiper.scrollBy(1); },
       );
+      return;
+    }
 
     // Otherwise, gather input field values and pass event up to parent component
-    } else {
-      const {
-        username,
-        onBeforeHook,
-        onClientCancelHook,
-        // onClientErrorHook,
-        onSuccessHook,
-      } = this.props;
+    const {
+      username,
+      onBeforeHook,
+      onClientCancelHook,
+      // onClientErrorHook,
+      onSuccessHook,
+    } = this.props;
 
-      // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
-      // value to 'true' so that the user cannot re-submit the form
-      try {
-        onBeforeHook();
-      } catch (exc) {
-        onClientCancelHook();
-        return; // return silently
-      }
-
-      // Get field values
-      const {
-        sport,
-        date,
-        time,
-        duration,
-        capacity,
-        spot,
-        description,
-      } = this.state;
-
-      // Pass event up to parent component
-      onSuccessHook({
-        name: `${username}'s game`,
-        sport,
-        date,
-        time,
-        duration,
-        capacity,
-        spot,
-        description,
-      });
+    // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
+    // value to 'true' so that the user cannot re-submit the form
+    try {
+      onBeforeHook();
+    } catch (exc) {
+      onClientCancelHook();
+      return; // return silently
     }
+
+    // Get field values
+    const {
+      sport,
+      // date,
+      // time,
+      duration,
+      capacity,
+      spot,
+      description,
+    } = this.state;
+
+    // Pass event up to parent component
+    onSuccessHook({
+      name: `${username}'s game`,
+      sport,
+      date,
+      time,
+      duration,
+      capacity,
+      spot,
+      description,
+    });
   }
 
   render() {
