@@ -5,7 +5,7 @@ import I18n from '../../../I18n/index';
 import ModalProps from '../../../RenderProps/modal-props';
 import InputField from '../InputField';
 import DatePickerModal from '../Modals/DatePickerModal';
-import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
+
 
 //------------------------------------------------------------------------------
 // COMPONENT:

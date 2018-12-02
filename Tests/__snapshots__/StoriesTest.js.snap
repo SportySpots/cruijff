@@ -230,6 +230,8 @@ exports[`Storyshots Common.TextField TextField with white theme 1`] = `null`;
 
 exports[`Storyshots Common.TextField TextField with white theme size ML 1`] = `null`;
 
+exports[`Storyshots Common.TextField TextField with white theme with ERROR 1`] = `null`;
+
 exports[`Storyshots DarkFooter DarkFooter NO Back button 1`] = `null`;
 
 exports[`Storyshots DarkFooter DarkFooter default 1`] = `null`;

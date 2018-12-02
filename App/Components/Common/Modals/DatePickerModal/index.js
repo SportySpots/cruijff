@@ -9,7 +9,6 @@ import Row from '../../Row';
 import Block from '../../Block';
 import Calendar from '../../Calendar';
 import CancelConfirmModal from '../CancelConfirmModal';
-import datePickerDatePropTypes from '../../../../PropTypesDefinitions/datePickerDate';
 
 //------------------------------------------------------------------------------
 // STYLE:
