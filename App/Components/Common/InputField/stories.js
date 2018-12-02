@@ -23,6 +23,8 @@ storiesOf('Common.InputField', module)
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
+        prefix="prefix"
+        suffix="suffix"
       />
     </Block>
   ))

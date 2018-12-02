@@ -4,8 +4,10 @@ import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import getInputPalette from '../../../Themes/Palettes';
+import Fonts from '../../../Themes/Fonts';
 import Row from '../Row';
 import Spacer from '../Spacer';
+import Text from '../Text';
 import TextField from '../TextField';
 import Dropdown from '../Dropdown';
 
@@ -25,6 +27,8 @@ const FlexGrow = styled.View`
 const InputField = ({
   comp,
   value,
+  prefix,
+  suffix,
   theme,
   disabled,
   error,
@@ -32,13 +36,14 @@ const InputField = ({
   boxed,
   minWidth,
   testID,
+  size,
   ...rest
 }) => {
   const isTextField = comp === 'TextField';
   const Root = disabled ? View : TouchableOpacity;
   const Comp = isTextField ? TextField : Dropdown;
   const pointerEvents = isTextField ? 'none' : 'auto';
-  const { iconColor, disabledColor, errorColor } = getInputPalette(theme);
+  const { baseColor, iconColor, disabledColor, errorColor } = getInputPalette(theme);
 
   let iColor = iconColor;
   if (disabled) { iColor = disabledColor; }
@@ -54,6 +59,7 @@ const InputField = ({
               value={value}
               disabled={disabled}
               theme={theme}
+              size={size}
               error={error}
               {...rest}
             />
@@ -79,11 +85,19 @@ const InputField = ({
     (error && 6 * error.replace(' ', '').length) || MIN_WIDTH,
   );
 
+  const TextSize = Text[size];
+
   return (
     <Root onPress={onPress} testID={testID}>
       <Row>
-        <Spacer row size="M" />
-        <FlexGrow pointerEvents={pointerEvents}>
+        <View>
+          <Spacer size="XXL" />
+          <TextSize style={{ color: baseColor }}>
+            {prefix}
+          </TextSize>
+        </View>
+        <Spacer row size="ML" />
+        <View pointerEvents={pointerEvents}>
           <Comp
             value={value}
             disabled={disabled}
@@ -93,10 +107,11 @@ const InputField = ({
             }}
             containerStyle={{ width }}
             theme={theme}
+            size={size}
             error={error}
             {...rest}
           />
-        </FlexGrow>
+        </View>
         {/* Add custom carret */}
         <View>
           <Spacer size="XXL" />
@@ -106,7 +121,13 @@ const InputField = ({
             color={iColor}
           />
         </View>
-        <Spacer row size="M" />
+        <Spacer row size="ML" />
+        <View>
+          <Spacer size="XXL" />
+          <TextSize style={{ color: baseColor }}>
+            {suffix}
+          </TextSize>
+        </View>
       </Row>
     </Root>
   );
@@ -115,8 +136,11 @@ const InputField = ({
 InputField.propTypes = {
   comp: PropTypes.oneOf(['TextField', 'Dropdown']).isRequired,
   value: PropTypes.string,
+  prefix: PropTypes.string,
+  suffix: PropTypes.string,
   disabled: PropTypes.bool,
   theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
+  size: PropTypes.oneOf(Object.keys(Fonts.style)),
   error: PropTypes.string,
   onPress: PropTypes.func,
   boxed: PropTypes.bool,
@@ -127,8 +151,11 @@ InputField.propTypes = {
 
 InputField.defaultProps = {
   value: '',
+  prefix: '',
+  suffix: '',
   disabled: false,
   theme: 'black',
+  size: 'M',
   error: '',
   onPress: () => {},
   boxed: false,
