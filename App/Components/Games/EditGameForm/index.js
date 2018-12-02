@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components/native';
 import ErrorHandling from 'error-handling-utils';
+import moment from 'moment';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
-import moment from 'moment';
-
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 // import SportPickerField from '../../Common/SportPickerField';
 import DatePickerField from '../../Common/DatePickerField';
@@ -25,7 +24,6 @@ import TextField from '../../Common/TextField';
 import SwitchWithText from '../../Common/SwitchWithText';
 import RaisedButton from '../../Common/RaisedButton';
 import { getAttendees } from '../utils';
-import { getDate, getTime, getDuration } from './utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -65,7 +63,7 @@ class EditGameForm extends React.PureComponent {
     const startMoment = startTime ? moment.utc(startTime) : null;
     const endMoment = endTime ? moment.utc(endTime) : null;
 
-
+    // TODO: handle case when startMoment is null
     this.state = {
       name,
       sport,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SeedorfAPI from '../../../Services/SeedorfApi';
 import moment from 'moment/moment';
+import SeedorfAPI from '../../../Services/SeedorfApi';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

@@ -1,4 +1,4 @@
-import moment from 'moment-timezone';
+/* import moment from 'moment-timezone';
 
 export const getUserTZ = () => (moment.tz.guess());
 
@@ -18,4 +18,4 @@ export const setStartTime = (startDate, time) => {
 // startTime is moment UTC, duration is minutes
 export const setEndTime = (startTime, duration) => (
   startTime.clone().add(duration, 'minutes') // moment UTC object
-);
+); */

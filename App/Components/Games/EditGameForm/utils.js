@@ -1,4 +1,4 @@
-import moment from 'moment';
+/* import moment from 'moment';
 
 // startTime is UTC date (not moment)
 export const getDate = (startTime) => {
@@ -24,3 +24,4 @@ export const getDuration = (startTime, endTime) => {
   const end = moment.utc(endTime);
   return parseInt(end.diff(start, 'minutes'), 10);
 };
+*/
