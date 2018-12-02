@@ -20,54 +20,58 @@ const Label = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: move to common folder
-const DarkFooterButton = ({
-  text,
-  disabled,
-  isBack,
-  ...rest
-}) => {
-  const WrapperElement = disabled ? View : TouchableOpacity;
-  const iconSize = 1.5 * Fonts.style.M.fontSize;
+class DarkFooterButton extends React.PureComponent {
+  render() {
+    const {
+      text,
+      disabled,
+      isBack,
+      ...rest
+    } = this.props;
 
-  return (
-    <WrapperElement {...rest}>
-      <Row
-        justifyContent="center"
-        alignItems="center"
-      >
-        {isBack && [
-          <Icon
-            key="icon"
-            name="chevron-left"
-            size={iconSize}
-            color={disabled ? Colors.gray : Colors.white}
-          />,
-          <Spacer
-            key="spacer"
-            row
-            size="S"
-          />,
-        ]}
-        <Label disabled={disabled}>
-          {text.toUpperCase()}
-        </Label>
-        {!isBack && [
-          <Spacer
-            key="spacer"
-            row
-            size="S"
-          />,
-          <Icon
-            key="icon"
-            name="chevron-right"
-            size={iconSize}
-            color={disabled ? Colors.gray : Colors.white}
-          />,
-        ]}
-      </Row>
-    </WrapperElement>
-  );
-};
+    const WrapperElement = disabled ? View : TouchableOpacity;
+    const iconSize = 1.5 * Fonts.style.M.fontSize;
+
+    return (
+      <WrapperElement {...rest}>
+        <Row
+          justifyContent="center"
+          alignItems="center"
+        >
+          {isBack && [
+            <Icon
+              key="icon"
+              name="chevron-left"
+              size={iconSize}
+              color={disabled ? Colors.gray : Colors.white}
+            />,
+            <Spacer
+              key="spacer"
+              row
+              size="S"
+            />,
+          ]}
+          <Label disabled={disabled}>
+            {text.toUpperCase()}
+          </Label>
+          {!isBack && [
+            <Spacer
+              key="spacer"
+              row
+              size="S"
+            />,
+            <Icon
+              key="icon"
+              name="chevron-right"
+              size={iconSize}
+              color={disabled ? Colors.gray : Colors.white}
+            />,
+          ]}
+        </Row>
+      </WrapperElement>
+    );
+  }
+}
 
 DarkFooterButton.propTypes = {
   text: PropTypes.string,

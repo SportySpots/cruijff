@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { ScrollView } from 'react-native';
+import moment from 'moment';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
@@ -16,7 +17,6 @@ import Spacer from '../../Common/Spacer';
 import getPixelsFromSize from '../../Common/Spacer/utils';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
-import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -112,12 +112,12 @@ const SportDateTimeSlide = ({
       </Row>
     </ScrollView>
   );
-}
+};
 
 SportDateTimeSlide.propTypes = {
   sport: propType(sportFragment),
-  date: datePickerDatePropTypes,
-  time: PropTypes.instanceOf(Date),
+  date: PropTypes.instanceOf(moment),
+  time: PropTypes.instanceOf(moment),
   duration: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
