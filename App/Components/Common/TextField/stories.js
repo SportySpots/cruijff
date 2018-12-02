@@ -57,6 +57,18 @@ storiesOf('Common.TextField', module)
       />
     </Block>
   ))
+  .add('TextField with white theme with ERROR', () => (
+    <Block bgColor={Colors.primaryGreen}>
+      <TextField
+        theme="white"
+        label="I'm the label"
+        value="I'm the value"
+        error="I'm the error"
+        characterRestriction={20}
+        containerStyle={containerStyle}
+      />
+    </Block>
+  ))
   .add('TextField with white theme size ML', () => (
     <Block bgColor={Colors.primaryGreen}>
       <TextField

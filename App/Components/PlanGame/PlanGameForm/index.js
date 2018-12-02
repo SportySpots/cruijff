@@ -18,7 +18,7 @@ import { addGlobalRef } from '../../../globalRefs';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const DESCRIPTION_MAX_CHARS = 10; // 2000;
+const DESCRIPTION_MAX_CHARS = 2000;
 
 let SLIDES = [];
 const genSlides = ({ username }) => [

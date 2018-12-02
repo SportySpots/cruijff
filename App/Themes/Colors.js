@@ -40,6 +40,7 @@ const colors = {
   darkGray: '#979797',
   link: '#ccc',
   lightSkyBlue: '#87CEFA',
+  orange: 'orange',
 };
 
 export default colors;
