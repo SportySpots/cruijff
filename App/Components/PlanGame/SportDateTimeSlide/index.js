@@ -13,6 +13,7 @@ import TimePickerField from '../../Common/TimePickerField';
 import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
 import Spacer from '../../Common/Spacer';
+import getPixelsFromSize from '../../Common/Spacer/utils';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDate';
@@ -22,7 +23,7 @@ import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDat
 //------------------------------------------------------------------------------
 export const Label = styled(Text.ML)`
   color: ${Colors.white};
-  margin-bottom: 12px;
+  margin-top: ${getPixelsFromSize('XXL')}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -42,7 +43,7 @@ const SportDateTimeSlide = ({
   return (
     <ScrollView>
       <Spacer size="XL" />
-      <Row alignItems="flex-end">
+      <Row alignItems="flex-start">
         <Label>{I18n.t('I want to play')}</Label>
         <Spacer row size="S" />
         <SportPickerField
@@ -54,7 +55,7 @@ const SportDateTimeSlide = ({
         />
       </Row>
       <Spacer size="S" />
-      <Row alignItems="flex-end">
+      <Row alignItems="flex-start">
         <Label>{I18n.t('on')}</Label>
         <Spacer row size="S" />
         <DatePickerField
@@ -68,7 +69,7 @@ const SportDateTimeSlide = ({
         />
       </Row>
       <Spacer size="S" />
-      <Row alignItems="flex-end">
+      <Row alignItems="flex-start">
         <Label>{I18n.t('at')}</Label>
         <Spacer row size="S" />
         <TimePickerField
@@ -81,7 +82,7 @@ const SportDateTimeSlide = ({
         />
       </Row>
       <Spacer size="S" />
-      <Row alignItems="flex-end">
+      <Row alignItems="flex-start">
         <Label>{I18n.t('during')}</Label>
         <Spacer row size="S" />
         <DurationPickerField
@@ -95,7 +96,7 @@ const SportDateTimeSlide = ({
         />
       </Row>
       <Spacer size="S" />
-      <Row alignItems="flex-end">
+      <Row alignItems="flex-start">
         <Label>{I18n.t('with')}</Label>
         <Spacer row size="S" />
         <CapacityPickerField
