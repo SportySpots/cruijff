@@ -41,16 +41,17 @@ const theme = {
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Calendar = ({ value, onDayPress, ...rest }) => {
+  if (value && (!(value instanceof moment) || !value.isUTC())) {
+    throw new TypeError('Calendar: Invalid input value. Use a moment instance with UTC timezone');
+  }
+
+  // Highlight selected date
   const markedDates = value ? ({
-    [value.dateString]: {
+    [value.format('YYYY-MM-DD')]: {
       selected: true,
       disableTouchEvent: true,
     },
   }) : {};
-
-  if (value && (!(value instanceof moment) || !value.isUTC())) {
-    throw new TypeError('Calendar: Invalid input value. Use a moment instance with UTC timezone');
-  }
 
   return (
     <NativeCalendar
