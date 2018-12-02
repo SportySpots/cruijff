@@ -10,6 +10,10 @@ import TextField from '../TextField';
 import Dropdown from '../Dropdown';
 
 //------------------------------------------------------------------------------
+// CONST:
+//------------------------------------------------------------------------------
+const MIN_WIDTH = 80;
+//------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const FlexGrow = styled.View`
@@ -69,9 +73,11 @@ const InputField = ({
   }
 
   // Dynamic width based on content
-  const width = value
-    ? 12 * value.replace(' ', '').length + 32
-    : minWidth || 80;
+  const width = Math.max(
+    minWidth || MIN_WIDTH,
+    (value && 12 * value.replace(' ', '').length + 32) || MIN_WIDTH,
+    (error && 6 * error.replace(' ', '').length) || MIN_WIDTH,
+  );
 
   return (
     <Root onPress={onPress} testID={testID}>

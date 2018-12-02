@@ -21,6 +21,7 @@ import datePickerDatePropTypes from '../../../PropTypesDefinitions/datePickerDat
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+// TODO: replace Label with prexif/suffix props at InputField comp
 export const Label = styled(Text.ML)`
   color: ${Colors.white};
   margin-top: ${getPixelsFromSize('XXL')}px;
