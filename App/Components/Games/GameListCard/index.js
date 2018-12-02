@@ -63,13 +63,6 @@ const Container = styled.View`
   padding: 16px;
 `;
 //------------------------------------------------------------------------------
-const Overflow = styled.View`
-  height: 30px;
-  overflow: hidden;
-  /* Hack to limit the height of the container and avoid the overflow */
-  border: 0px solid white;
-`;
-//------------------------------------------------------------------------------
 const SmallText = styled(Text.SM)`
   color: ${Colors.white};
 `;
@@ -119,9 +112,7 @@ const GameListCard = ({ game }) => {
           <GameCanceledFlag key="cancel-flag" />,
         ]}
         <Container>
-          <Overflow>
-            <Title>{name}</Title>
-          </Overflow>
+          <Title numberOfLines={2}>{name}</Title>
           <Spacer size="M" />
           <Row>
             <IonIcon
