@@ -121,6 +121,9 @@ SportDateTimeSlide.propTypes = {
     PropTypes.string,
   ]),
   capacity: PropTypes.number,
+  errors: PropTypes.shape({
+    dateTime: PropTypes.arrayOf(String),
+  }),
   onChange: PropTypes.func,
 };
 
@@ -130,6 +133,7 @@ SportDateTimeSlide.defaultProps = {
   time: null,
   duration: null,
   capacity: null,
+  errors: {},
   onChange: () => {},
 };
 

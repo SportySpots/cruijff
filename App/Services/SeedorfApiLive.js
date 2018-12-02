@@ -85,10 +85,10 @@ const create = () => {
   );
 
   const createGame = ({
-    name, startTZ, startTime, endTZ, endTime, capacity, description,
+    title, startTZ, startTime, endTZ, endTime, capacity, description,
   }) => (
     api.post('/games/', {
-      name,
+      name: title,
       start_timezone: startTZ,
       start_time: startTime,
       end_timezone: endTZ,

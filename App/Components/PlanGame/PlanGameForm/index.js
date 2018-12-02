@@ -4,6 +4,7 @@ import { Keyboard } from 'react-native';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
 import extend from 'lodash/extend';
+import pick from 'lodash/pick';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n/index';
@@ -17,17 +18,20 @@ import { addGlobalRef } from '../../../globalRefs';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const DESCRIPTION_MAX_CHARS = 2000;
+const DESCRIPTION_MAX_CHARS = 10; // 2000;
 
-const SLIDES = [
+let SLIDES = [];
+const genSlides = ({ username }) => [
   {
     id: 'sportDateTimeSlide',
     Comp: SportDateTimeSlide,
-    title: 'Plan a game',
+    section: 'Plan a game',
     theme: 'white',
     fields: ['sport', 'date', 'time', 'duration', 'capacity'],
     requiredFields: ['sport', 'date', 'time'],
-    errorFields: ['dateTime'],
+    errors: {
+      dateTime: [],
+    },
     initState: {
       sport: null,
       date: null,
@@ -36,6 +40,7 @@ const SLIDES = [
       capacity: null,
     },
     validateFields: ({ date, time }) => {
+      const errors = { dateTime: [] };
       if (date && time) {
         const hours = time.hours();
         const minutes = time.minutes();
@@ -43,35 +48,46 @@ const SLIDES = [
         const now = moment();
 
         if (dateTime.diff(now) < 0) {
-          return { dateTime: 'Please, select a valid date and time' };
+          errors.dateTime.push('Please, select a valid date and time');
         }
       }
-      return null;
+      return errors;
     },
   },
   {
     id: 'spotSlide',
     Comp: SpotSlide,
-    title: 'Pick a spot',
+    section: 'Pick a spot',
     theme: 'black',
     fields: ['spot'],
     requiredFields: ['spot'],
+    // errors: {},
     initState: {
       spot: null,
     },
+    // validateFields: () => ({}),
   },
   {
     id: 'descriptionSlide',
     Comp: DescriptionSlide,
-    title: 'Describe the game',
+    section: 'Describe the game',
     theme: 'white',
-    fields: ['description'],
+    fields: ['title', 'description'],
     requiredFields: [],
-    errorFields: ['description'],
+    errors: {
+      description: [],
+    },
     initState: {
+      title: `${username}'s game`,
       description: '',
     },
-    validateFields: ({ description }) => (description.length > DESCRIPTION_MAX_CHARS),
+    validateFields: ({ description }) => {
+      const errors = { description: [] };
+      if (description.length > DESCRIPTION_MAX_CHARS) {
+        errors.description.push('Description is too long');
+      }
+      return errors;
+    },
   },
 ];
 //------------------------------------------------------------------------------
@@ -89,21 +105,35 @@ class PlanGameForm extends React.Component {
 
     addGlobalRef('PlanGameForm')(this);
 
+    const { username } = props;
+    SLIDES = genSlides({ username });
+
     this.state = {
       curSlide: 0,
-      errors: {
-        dateTime: [],
-      },
+      errors: this.initErrors(),
     };
 
     // Attach slide's initial state to component's state
     SLIDES.forEach(({ initState }) => {
       extend(this.state, Object.assign({}, initState));
     });
+
+    console.log('INIT STATE', this.state);
+  }
+
+  initErrors = () => {
+    const errs = {};
+    SLIDES.forEach(({ errors }) => {
+      if (errors) {
+        extend(errs, Object.assign({}, errors));
+      }
+    });
+    console.log('INIT ERRORS', errs);
+    return errs;
   }
 
   clearErrors = () => {
-    this.setState({ errors: { dateTime: [] } });
+    this.setState({ errors: this.initErrors() });
   };
 
   handleChange = ({ fieldName, value }) => {
@@ -114,8 +144,9 @@ class PlanGameForm extends React.Component {
     // Automatically swipe right after the user selects spot
     this.setState({
       [fieldName]: value,
-      errors: fieldName === ('date' || fieldName === 'time')
-        ? ErrorHandling.clearErrors(errors, 'dateTime') : errors,
+      errors: (fieldName === 'date' || fieldName === 'time')
+        ? ErrorHandling.clearErrors(errors, 'dateTime')
+        : ErrorHandling.clearErrors(errors, fieldName),
       curSlide: fieldName === 'spot' ? curSlide + 1 : curSlide,
     }, () => {
       if (fieldName === 'spot') {
@@ -124,6 +155,19 @@ class PlanGameForm extends React.Component {
       console.log('STATE', this.state);
     });
   }
+
+  validateFields = (errorFields) => {
+    // Initialize errors
+    const errors = this.initErrors();
+
+    SLIDES.forEach(({ validateFields }) => {
+      if (validateFields && typeof validateFields === 'function') {
+        extend(errors, Object.assign({}, validateFields(errorFields)));
+      }
+    });
+
+    return errors;
+  };
 
   get disableNext() {
     const { curSlide } = this.state;
@@ -138,16 +182,6 @@ class PlanGameForm extends React.Component {
         return true;
       }
     }
-
-    // // Disable next btn (return 'true') if restrictions aren't satisfied
-    // if (restrictions) {
-    //   for (let i = 0; i < restrictions.length; i += 1) {
-    //     const { fieldName, upperBound } = restrictions[i];
-    //     if (this.state[fieldName].length > upperBound) { // eslint-disable-line
-    //       return true;
-    //     }
-    //   }
-    // }
 
     // Enable btn otherwise (all required fields are set and restrictions met)
     return false;
@@ -187,26 +221,18 @@ class PlanGameForm extends React.Component {
   handleNext = async () => {
     Keyboard.dismiss();
 
-    const { curSlide, date, time } = this.state;
+    const { curSlide } = this.state;
 
+    // Clear previous errors if any
     this.clearErrors();
 
-    if (curSlide === 0) {
-      // if (date && time) {
-      //   const hours = time.hours();
-      //   const minutes = time.minutes();
-      //   const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
-      //   const diff = dateTime.diff(NOW);
+    // Validate fields
+    const errors = this.validateFields(pick(this.state, ['date', 'time', 'description']));
 
-      //   if (diff < 0) {
-      //     this.setState({
-      //       errors: {
-      //         dateTime: 'Please, select a valid date and time',
-      //       },
-      //     });
-      //     return;
-      //   }
-      // }
+    // In case of errors, display on UI and return handler to parent component
+    if (ErrorHandling.hasErrors(errors)) {
+      this.setState({ errors });
+      return;
     }
 
     // If it's NOT the last slide, increment slide counter and slide forward one position
@@ -220,7 +246,6 @@ class PlanGameForm extends React.Component {
 
     // Otherwise, gather input field values and pass event up to parent component
     const {
-      username,
       onBeforeHook,
       onClientCancelHook,
       // onClientErrorHook,
@@ -236,28 +261,17 @@ class PlanGameForm extends React.Component {
       return; // return silently
     }
 
-    // Get field values
-    const {
-      sport,
-      // date,
-      // time,
-      duration,
-      capacity,
-      spot,
-      description,
-    } = this.state;
-
     // Pass event up to parent component
-    onSuccessHook({
-      name: `${username}'s game`,
-      sport,
-      date,
-      time,
-      duration,
-      capacity,
-      spot,
-      description,
-    });
+    onSuccessHook(pick(this.state, [
+      'title',
+      'sport',
+      'date',
+      'time',
+      'duration',
+      'capacity',
+      'spot',
+      'description',
+    ]));
   }
 
   render() {
@@ -276,12 +290,12 @@ class PlanGameForm extends React.Component {
             id,
             Comp,
             theme,
-            title,
+            section,
           }) => (
             <FullHeight key={id}>
               <ClosableLayout
                 theme={theme}
-                title={I18n.t(title)}
+                title={I18n.t(section)}
                 onClose={onLeave}
               >
                 <Comp
