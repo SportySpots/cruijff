@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import Block from '../../Common/Block';
 import Label from '../../Common/Label';
+import Text from '../../Common/Text';
 import AlertMsg from '../../Common/AlertMsg';
 import GameProperties from '../GameProperties';
 import Organizer from '../Organizer';
@@ -17,6 +19,12 @@ import ShareGameButton from '../ShareGameButton';
 import RSVP from '../RSVP';
 import { getAttendees } from '../utils';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const NoOpenSpots = styled(Text.M)`
+  font-family: Rajdhani-Regular;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -74,10 +82,15 @@ const GameDetails = ({
         />
       </Block>,
     ],
-    (hasCapacity && !isFull) && [
+    hasCapacity && [
       <Block key="open-spots">
         <Label>{I18n.t('Open spots')}</Label>
         <OpenSpots game={game} />
+        {isFull && (
+          <NoOpenSpots>
+            {I18n.t('No open spots available')}
+          </NoOpenSpots>
+        )}
       </Block>,
     ],
     (!isCanceled && (!isFull || (isFull && userStatus === 'ATTENDING'))) && (
