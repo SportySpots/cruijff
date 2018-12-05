@@ -163,7 +163,7 @@ class EditGameForm extends React.PureComponent {
       const now = moment();
 
       if (dateTime.diff(now) < 0) {
-        errors.dateTime.push('Please, select a valid date and time');
+        errors.dateTime.push('Please select a date-time in the future');
       }
     }
 
@@ -298,14 +298,11 @@ class EditGameForm extends React.PureComponent {
               onChangeText={() => {}}
             />
           </Block>
-          <Block
-            midHeight
-            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'dateTime', nativeEvent }); }}
-          >
+          <Block midHeight>
             <DatePickerField
               label={I18n.t('Date')}
               value={date}
-              error={dateTimeErrors}
+              // error={dateTimeErrors}
               size="ML"
               disabled={disabled}
               theme="transparent"
@@ -315,7 +312,7 @@ class EditGameForm extends React.PureComponent {
             />
           </Block>
           <Divider />
-          <Row>
+          <Row onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'dateTime', nativeEvent }); }}>
             <Half>
               <Block midHeight>
                 <TimePickerField

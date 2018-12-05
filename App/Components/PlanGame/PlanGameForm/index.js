@@ -48,7 +48,7 @@ const genSlides = ({ username }) => [
         const now = moment();
 
         if (dateTime.diff(now) < 0) {
-          errors.dateTime.push('Please, select a valid date and time');
+          errors.dateTime.push('Please select a date-time in the future');
         }
       }
       return errors;
@@ -58,7 +58,7 @@ const genSlides = ({ username }) => [
     id: 'spotSlide',
     Comp: SpotSlide,
     section: 'Pick a spot',
-    theme: 'black',
+    theme: 'white',
     fields: ['spot'],
     requiredFields: ['spot'],
     // errors: {},
