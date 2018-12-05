@@ -48,7 +48,7 @@ const genSlides = ({ username }) => [
         const now = moment();
 
         if (dateTime.diff(now) < 0) {
-          errors.dateTime.push('Please select a date-time in the future');
+          errors.dateTime.push('Select a date-time in the future');
         }
       }
       return errors;
