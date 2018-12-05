@@ -4,15 +4,11 @@ import { propType } from 'graphql-anywhere';
 import isNumber from 'lodash/isNumber';
 import moment from 'moment';
 import ErrorHandling from 'error-handling-utils';
-import ImagePicker from 'react-native-image-picker';
 import I18n from '../../../I18n';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 import Block from '../../Common/Block';
-import Row from '../../Common/Row';
-import Spacer from '../../Common/Spacer';
 import TextField from '../../Common/TextField';
-import Avatar from '../../Common/Avatar';
 import RaisedButton from '../../Common/RaisedButton';
 import AvatarPicker from '../../Common/AvatarPicker';
 
@@ -170,7 +166,6 @@ class EditProfileForm extends React.PureComponent {
       firstName,
       lastName,
       birthYear,
-      avatar,
       errors,
     } = this.state;
 

@@ -7,9 +7,11 @@ export const userToInitials = (user) => {
 };
 
 export const convertS3ToImgix = ({ image, height, width }) => (
-  image.replace('https://sportyspots-prd.s3.amazonaws.com', 'http://sportyspots.imgix.net')
-    .concat('?auto=compress')
-    .concat(height ? `&h=${height}` : '')
-    .concat(width ? `&w=${width}` : '')
-    .concat('&fm=png&fit=facearea&faceindex=1&facepad=2.5&usm=20')
+  image.startsWith('https://sportyspots-prd.s3.amazonaws.com')
+    ? image.replace('https://sportyspots-prd.s3.amazonaws.com', 'http://sportyspots.imgix.net')
+      .concat('?auto=compress')
+      .concat(height ? `&h=${height}` : '')
+      .concat(width ? `&w=${width}` : '')
+      .concat('&fm=png&fit=facearea&faceindex=1&facepad=2.5&usm=20')
+    : image
 );
