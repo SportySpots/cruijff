@@ -25,7 +25,7 @@ const Container = styled.View`
   shadow-color: ${Colors.shade};
   shadow-opacity: 0.8;
   elevation: 2;
-  border: ${({ active }) => (!active ? 1 : 1.5)}px solid ${({ active }) => (!active ? Colors.shade : Colors.primaryGreen)};
+  border: ${({ active }) => (!active ? 1 : 2)}px solid ${({ active }) => (!active ? Colors.shade : Colors.actionYellow)};
   overflow: hidden;
 `;
 //------------------------------------------------------------------------------
