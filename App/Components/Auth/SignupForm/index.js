@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import pick from 'lodash/pick';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
-import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
 import Block from '../../Common/Block';
 // import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';

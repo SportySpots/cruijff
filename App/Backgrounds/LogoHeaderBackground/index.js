@@ -10,12 +10,13 @@ import Text from '../../Components/Common/Text';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Brand = styled(Text.L)`
-  color: ${({ color }) => (color)};
+const Container = styled.View`
+  flex: 1;
+  background-color: ${({ isWhiteTheme }) => (isWhiteTheme ? Colors.white : Colors.secondaryGreen)};
 `;
 //------------------------------------------------------------------------------
-const FlexOne = styled.View`
-  flex: 1;
+const Brand = styled(Text.L)`
+  color: ${({ color }) => (color)};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -28,33 +29,28 @@ const LogoHeaderBackground = ({
   const isWhiteTheme = theme === 'white';
 
   return (
-    <ScrollView
-      contentContainerStyle={{
-        flex: 1,
-        backgroundColor: isWhiteTheme ? Colors.white : Colors.secondaryGreen,
-      }}
-    >
-      <Spacer size="XL" />
-      {!hideLogo && [
-        <View
-          key="logo"
-          alignItems="center"
-        >
-          <Logo scale={1} />
-          <Spacer size="L" />
-          <Brand
-            color={isWhiteTheme ? Colors.black : Colors.white}
-            bold
+    <Container isWhiteTheme={isWhiteTheme}>
+      <ScrollView>
+        <Spacer size="XL" />
+        {!hideLogo && [
+          <View
+            key="logo"
+            alignItems="center"
           >
-            SPORTYSPOTS
-          </Brand>
-        </View>,
-        <Spacer key="spacer" size="XL" />,
-      ]}
-      <FlexOne>
+            <Logo scale={1} />
+            <Spacer size="L" />
+            <Brand
+              color={isWhiteTheme ? Colors.black : Colors.white}
+              bold
+            >
+              SPORTYSPOTS
+            </Brand>
+          </View>,
+          <Spacer key="spacer" size="XL" />,
+        ]}
         {children}
-      </FlexOne>
-    </ScrollView>
+      </ScrollView>
+    </Container>
   );
 };
 
