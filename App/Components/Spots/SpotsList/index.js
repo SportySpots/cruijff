@@ -42,6 +42,7 @@ const SpotsList = ({
     <QueryCatchErrors
       query={GET_SPOTS}
       variables={variables}
+      // TODO: pass ordering var in order to get results sorted by distance (closest first)
       fetchPolicy="cache-and-network"
     >
       {({

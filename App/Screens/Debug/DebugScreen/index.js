@@ -1,52 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { ScrollView, View } from 'react-native';
+import Colors from '../../../Themes/Colors';
 import Block from '../../../Components/Common/Block';
+import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import { log } from '../../../config';
 
 //------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const StyledBlock = styled(Block)`
-  flex: 1;
-`;
-//------------------------------------------------------------------------------
-const FlexOne = styled.View`
-  flex: 1;
-`;
-//------------------------------------------------------------------------------
-const Line = styled.View`
-  margin-bottom: 8px;
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const DebugScreen = ({ navigation }) => (
-  <StyledBlock bgColor="white">
-    <RaisedButton
-      variant="default"
-      label="Back"
-      onPress={() => { navigation.navigate('MainNav'); }}
-    />
-    <FlexOne>
+  <ScrollView
+    contentContainerStyle={{
+      flex: 1,
+      backgroundColor: Colors.white,
+    }}
+  >
+    <Block>
+      <RaisedButton
+        variant="default"
+        label="Back"
+        onPress={() => { navigation.navigate('MainNav'); }}
+      />
       {log.map((item, idx) => {
         const { logTime, ...args } = item;
-        return (
+        return [
           // eslint-disable-next-line react/no-array-index-key
-          <Line key={idx}>
+          <View key={idx}>
             <Text.S selectable>{logTime}</Text.S>
             {Object.keys(args).map(innerIdx => (
               <Text.S key={innerIdx} selectable>
                 {JSON.stringify(args[innerIdx])}
               </Text.S>
             ))}
-          </Line>
-        );
+          </View>,
+          // eslint-disable-next-line react/no-array-index-key
+          <Spacer key={`${idx}-spacer`} size="M" />,
+        ];
       })}
-    </FlexOne>
-  </StyledBlock>
+    </Block>
+  </ScrollView>
 );
 
 DebugScreen.propTypes = {
