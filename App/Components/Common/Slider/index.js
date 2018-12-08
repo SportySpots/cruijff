@@ -24,11 +24,7 @@ class Slider extends React.Component {
         maximumValue={maximumValue}
         minimumTrackTintColor={Colors.primaryGreen}
         thumbTintColor={Colors.primaryGreen}
-        trackStyle={{ height: 1 }}
-        style={{
-          height: 20,
-          marginHorizontal: -10,
-        }}
+        style={{ marginHorizontal: -10 }}
         {...rest}
       />,
       <Row
