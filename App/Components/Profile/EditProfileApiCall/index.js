@@ -1,20 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import pick from 'lodash/pick';
 import SeedorfAPI from '../../../Services/SeedorfApi';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const FIELDS = [
-  'userUUID',
-  'userProfileUUID',
-  'firstName',
-  'lastName',
-  // 'birthYear',
-  'avatar',
-  // TODO: add remaining fields
-];
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
