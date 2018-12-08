@@ -24,6 +24,7 @@ const DebugScreen = ({ navigation }) => (
         label="Back"
         onPress={() => { navigation.navigate('MainNav'); }}
       />
+      <Spacer size="M" />
       {log.map((item, idx) => {
         const { logTime, ...args } = item;
         return [
