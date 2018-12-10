@@ -85,6 +85,7 @@ function loadStories() {
   require('../App/Components/Profile/UserSpots/stories');
   require('../App/Components/ScreenSlider/stories');
   require('../App/Components/Spots/BackgroundImage/stories');
+  require('../App/Components/Spots/SpotAmenities/stories');
   require('../App/Components/Spots/SpotHeader/stories');
   require('../App/Components/Spots/SpotImage/stories');
   require('../App/Components/Spots/SpotLink/stories');
@@ -195,6 +196,7 @@ const stories = [
   '../App/Components/Profile/UserSpots/stories',
   '../App/Components/ScreenSlider/stories',
   '../App/Components/Spots/BackgroundImage/stories',
+  '../App/Components/Spots/SpotAmenities/stories',
   '../App/Components/Spots/SpotHeader/stories',
   '../App/Components/Spots/SpotImage/stories',
   '../App/Components/Spots/SpotLink/stories',

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, TouchableOpacity } from 'react-native';
+import { ScrollView, Image, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n/index';
@@ -12,12 +12,6 @@ import Spacer from '../../../Components/Common/Spacer';
 
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-const MainContainer = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`;
 //------------------------------------------------------------------------------
 const Center = styled.View`
   align-items: center;
@@ -40,7 +34,14 @@ const LoggedOutScreen = ({ closable, onClose, navigation }) => (
     closable={closable}
     onClose={onClose}
   >
-    <MainContainer key="content">
+    <ScrollView
+      key="content"
+      contentContainerStyle={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       <Center>
         <Image source={images.createProfileAvatar} />
         <Spacer size="XXL" />
@@ -63,7 +64,7 @@ const LoggedOutScreen = ({ closable, onClose, navigation }) => (
       >
         <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
       </TouchableOpacity>
-    </MainContainer>
+    </ScrollView>
   </ClosableLayout>
 );
 

@@ -1,4 +1,37 @@
 import React from 'react';
+import I18n from '../../../I18n';
+import Block from '../../Common/Block';
+import Row from '../../Common/Row';
+import Divider from '../../Common/Divider';
+import Text from '../../Common/Text';
+
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const Amenities = ({ amenities }) => {
+  const array = [];
+
+  Object.keys(amenities).forEach((key) => {
+    array.push([
+      <Block key={key} midHeight>
+        <Row>
+          <Text.M>{I18n.t(key)}</Text.M>
+          <Text.M b>{amenities[key]}</Text.M>
+        </Row>
+      </Block>,
+      <Divider key={`${key}-divider`} />,
+    ]);
+  });
+
+  return array;
+};
+
+
+export default Amenities;
+
+
+/*
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import I18n from '../../I18n';
 import Fonts from '../../Themes/Fonts';
@@ -40,3 +73,5 @@ const style = StyleSheet.create({
     marginRight: 16,
   },
 });
+
+*/
