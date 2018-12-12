@@ -20,16 +20,16 @@ const Container = styled.View`
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const buttons = [{
-  id: 'find',
-  label: 'find',
+  id: 'spots',
+  label: 'navBarSpots',
   route: 'SpotSearchTab',
   icon: {
     set: MaterialIcon,
     name: 'search',
   },
 }, {
-  id: 'join',
-  label: 'join',
+  id: 'activities',
+  label: 'navBarActivities',
   route: 'GameSearchTab',
   icon: {
     set: MaterialIcon,
@@ -38,7 +38,7 @@ const buttons = [{
 }, {
   id: 'organize',
   main: true,
-  label: 'Organize',
+  label: 'navBarOrganize',
   route: 'PlanScreen',
   icon: {
     set: MaterialCommunityIcon,
@@ -46,7 +46,7 @@ const buttons = [{
   },
 }, {
   id: 'profile',
-  label: 'profile',
+  label: 'navBarProfile',
   route: 'ProfileTab',
   icon: {
     set: MaterialIcon,
@@ -54,7 +54,7 @@ const buttons = [{
   },
 }, {
   id: 'info',
-  label: 'info',
+  label: 'navBarInfo',
   route: 'InfoTab',
   icon: {
     set: MaterialIcon,

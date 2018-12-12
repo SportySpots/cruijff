@@ -17,13 +17,28 @@
   "Skating": "Skaten",
   "Beach_volleyball": "Beachvolleybal",
   "Boules": "Jeu de boules",
-  "find": "Spots",
-  "join": "Activiteiten",
-  "info": "Info",
-  "Info": "Info",
+
+  "navBarSpots": "Spots",
+  "navBarActivities": "Activiteiten",
+  "navBarOrganize": "Organiseer",
+  "navBarProfile": "Profiel",
+  "navBarInfo": "Info",
+
+  "infoScreenTitle": "Info",
+  "infoScreenAppVersion": "Versie",
+  "infoScreenFeedback": "Help ons de app te verbeteren",
+  "infoScreenPrivacy": "Privacy informatie",
+  "infoScreenTerms": "Algemene voorwaarden",
+
+
+
+  "profileScreenTitle": "Profiel",
+
+
+
+
   "Plan a game": "Plan een activiteit",
   "plan a game": "plan een activiteit",
-  "profile": "Profiel",
   "settings": "Instellingen",
 
   "players needed": "open plekken",
@@ -108,8 +123,8 @@
   "Log out": "Uitloggen",
   "Find a spot": "Vind een spot",
   "Enter a valid e-mail address": "Ongeldig e-mail adres, of deze is al in gebruik",
-  "Privacy info": "Privacy informatie",
-  "Terms and conditions": "Algemene voorwaarden",
+
+
   "games": "activiteiten",
   "Games": "Activiteiten",
   "Find a game": "Vind een activiteit",
@@ -137,7 +152,6 @@
   "I'm attending": "Ik doe mee",
   "Player list": "Deelnemers",
   "signed up at": "aangemeld op",
-  "Profile": "Profiel",
 
   "Hi again!": "Leuk je weer te zien!",
 
@@ -213,7 +227,7 @@
   "Age": "Leeftijd",
   "Sports": "Sporten",
   "Year of birth": "Geboortejaar",
-  "Version": "Versie",
+
   "Read more": "Lees meer",
   "Read less": "Lees minder",
   "Upload photo": "Foto uploaden",

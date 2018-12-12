@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
+import moment from 'moment';
 import styled from 'styled-components/native';
+import I18nNative from 'react-native-i18n';
 import { withUser, userPropTypes } from '../Context/User';
 import I18n from '../I18n/index';
 import Colors from '../Themes/Colors';
 import FieldBackground from '../Backgrounds/FieldBackground';
 import Block from '../Components/Common/Block';
+import Row from '../Components/Common/Row';
 import Spacer from '../Components/Common/Spacer';
 import Text from '../Components/Common/Text';
 import RaisedButton from '../Components/Common/RaisedButton';
 import globalRefs from '../globalRefs';
+
+console.log('I18n', I18n);
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -34,12 +39,25 @@ const LinkLabel = styled(Text.M)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class SplashScreen extends React.Component {
+  state = {
+    locale: I18nNative.locale,
+  }
+
   async componentDidMount() {
     globalRefs.SplashScreen = this;
   }
 
+  handleLocaleChange = (locale) => {
+    console.log('HANDLE LOCALE CHANGE', locale);
+    this.setState({ locale });
+    I18nNative.locale = locale;
+    moment.locale(locale);
+  }
+
   render() {
     const { navigation, user, firstRun } = this.props;
+    // Force app to re-render
+    console.log('NEW LOCALE!!!', this.state.locale);
 
     return (
       <FieldBackground>
@@ -47,6 +65,15 @@ class SplashScreen extends React.Component {
           {I18n.t('Discover sport locations and activities near you')}
         </Label>
         <FlexOne />
+        <Row>
+          <TouchableOpacity onPress={() => { this.handleLocaleChange('en'); }}>
+            <Text>EN</Text>
+          </TouchableOpacity>
+          <Spacer row size="L" />
+          <TouchableOpacity onPress={() => { this.handleLocaleChange('nl'); }}>
+            <Text>NL</Text>
+          </TouchableOpacity>
+        </Row>
         <Block>
           <RaisedButton
             testID="start"
