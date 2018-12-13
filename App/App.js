@@ -21,9 +21,13 @@ import globalRefs, { addGlobalRef } from './globalRefs';
 import { setupDetoxConnection } from './detoxHelpers';
 
 import Colors from './Themes/Colors';
+import firebase from 'react-native-firebase';
+
 
 class App extends Component {
   constructor() {
+    setTimeout(() => firebase.analytics().logEvent('boot'), 10000);
+    setTimeout(() => firebase.analytics().logEvent('bsdfsd'), 10000);
     super();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
     this.state = { hasInitialized: false };

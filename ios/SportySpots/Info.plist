@@ -49,7 +49,7 @@
 		<string>armv7</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows $(PRODUCT_NAME) to enable you to capture your selfies and set them as your profile avatars.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

@@ -9,12 +9,15 @@ buildscript {
         supportLibVersion = "27.1.1"
     }
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
+        // classpath 'com.android.tools.build:gradle:4.10.3'
 
+        // for firebase support
+        classpath 'com.google.gms:google-services:4.0.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -24,7 +27,7 @@ allprojects {
     repositories {
         configurations.all {
             resolutionStrategy {
-                force "com.google.android.gms:play-services-gcm:12.0.1"
+                //force "com.google.android.gms:play-services-gcm:12.0.1"
                 force "com.android.support:support-annotations:26.1.0"
             }
         }
@@ -37,8 +40,8 @@ allprojects {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
-        jcenter()
         google()
+        jcenter()
     }
 
     // force libs to use recent buildtools
