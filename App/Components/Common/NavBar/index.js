@@ -21,7 +21,7 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 const buttons = [{
   id: 'spots',
-  label: 'navBarSpots',
+  label: 'navBar.spots',
   route: 'SpotSearchTab',
   icon: {
     set: MaterialIcon,
@@ -29,7 +29,7 @@ const buttons = [{
   },
 }, {
   id: 'activities',
-  label: 'navBarActivities',
+  label: 'navBar.activities',
   route: 'GameSearchTab',
   icon: {
     set: MaterialIcon,
@@ -38,7 +38,7 @@ const buttons = [{
 }, {
   id: 'organize',
   main: true,
-  label: 'navBarOrganize',
+  label: 'navBar.organize',
   route: 'PlanScreen',
   icon: {
     set: MaterialCommunityIcon,
@@ -46,7 +46,7 @@ const buttons = [{
   },
 }, {
   id: 'profile',
-  label: 'navBarProfile',
+  label: 'navBar.profile',
   route: 'ProfileTab',
   icon: {
     set: MaterialIcon,
@@ -54,7 +54,7 @@ const buttons = [{
   },
 }, {
   id: 'info',
-  label: 'navBarInfo',
+  label: 'navBar.info',
   route: 'InfoTab',
   icon: {
     set: MaterialIcon,

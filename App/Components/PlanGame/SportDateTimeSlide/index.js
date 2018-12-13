@@ -34,7 +34,7 @@ const SportDateTimeSlide = ({
       <SportPickerField
         testID="pickSport"
         value={sport}
-        prefix={I18n.t('I want to play')}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.selectSport')}
         size="ML"
         theme="mix"
         onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
@@ -43,7 +43,7 @@ const SportDateTimeSlide = ({
       <DatePickerField
         testID="pickDate"
         value={date}
-        prefix={I18n.t('on')}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.selectDate')}
         // error={dateTimeErrors}
         size="ML"
         theme="mix"
@@ -54,7 +54,7 @@ const SportDateTimeSlide = ({
       <TimePickerField
         testID="pickTime"
         value={time}
-        prefix={I18n.t('at')}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.selectTime')}
         error={dateTimeErrors}
         size="ML"
         theme="mix"
@@ -65,7 +65,7 @@ const SportDateTimeSlide = ({
         testID="pickDuration"
         label=""
         value={duration}
-        prefix={I18n.t('during')}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.selectDuration')}
         onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
         theme="mix"
         size="ML"
@@ -75,8 +75,8 @@ const SportDateTimeSlide = ({
       <CapacityPickerField
         testID="pickCapacity"
         value={capacity}
-        prefix={I18n.t('with')}
-        suffix={I18n.t('people')}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.selectCapacity.prefix')}
+        suffix={I18n.t('planGameScreen.sportDateTimeSlide.selectCapacity.suffix')}
         size="ML"
         theme="mix"
         onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}

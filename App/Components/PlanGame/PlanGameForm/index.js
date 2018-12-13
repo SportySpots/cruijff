@@ -25,7 +25,7 @@ const genSlides = ({ username }) => [
   {
     id: 'sportDateTimeSlide',
     Comp: SportDateTimeSlide,
-    section: 'Plan a game',
+    section: 'planGameScreen.sportDateTimeSlide.title',
     theme: 'white',
     fields: ['sport', 'date', 'time', 'duration', 'capacity'],
     requiredFields: ['sport', 'date', 'time'],
@@ -57,7 +57,7 @@ const genSlides = ({ username }) => [
   {
     id: 'spotSlide',
     Comp: SpotSlide,
-    section: 'Pick a spot',
+    section: 'planGameScreen.spotSlide.title',
     theme: 'white',
     fields: ['spot'],
     requiredFields: ['spot'],
@@ -70,7 +70,7 @@ const genSlides = ({ username }) => [
   {
     id: 'descriptionSlide',
     Comp: DescriptionSlide,
-    section: 'Describe the game',
+    section: 'planGameScreen.descriptionSlide.title',
     theme: 'white',
     fields: ['title', 'description'],
     requiredFields: [],
@@ -198,13 +198,13 @@ class PlanGameForm extends React.Component {
 
     switch (curSlide) {
       case 0:
-        return 'Spot';
+        return 'planGameScreen.sportDateTimeSlide.btnLabel';
       case 1:
-        return 'Description';
+        return 'planGameScreen.spotSlide.btnLabel';
       case 2:
-        return 'Invite';
+        return 'planGameScreen.descriptionSlide.btnLabel';
       default:
-        return 'Next';
+        return 'shareGameScreen.btnLabel';
     }
   }
 

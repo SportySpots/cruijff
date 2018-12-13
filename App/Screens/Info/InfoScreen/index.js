@@ -70,14 +70,14 @@ class InfoScreen extends React.Component {
       <LogoHeaderBackground>
         <TouchableWithoutFeedback onPress={() => { this.versionPress(); }}>
           <Version>
-            {`${I18n.t('infoScreenAppVersion')} ${version}`}
+            {`${I18n.t('infoScreen.appVersion')} ${version}`}
           </Version>
         </TouchableWithoutFeedback>
         <Spacer size="XXXL" />
         <Divider />
         <Block midHeigh>
           <Link
-            text={I18n.t('infoScreenFeedback')}
+            text={I18n.t('infoScreen.feedback')}
             href="https://goo.gl/forms/3oc4XPVkQtXMSKK33"
             iconName="chat"
           />
@@ -85,7 +85,7 @@ class InfoScreen extends React.Component {
         <Divider />
         <Block midHeigh>
           <Link
-            text={I18n.t('infoScreenPrivacy')}
+            text={I18n.t('infoScreen.privacy')}
             href="https://www.sportyspots.com/privacy.html"
             iconName="account-circle"
           />
@@ -93,7 +93,7 @@ class InfoScreen extends React.Component {
         <Divider />
         <Block midHeigh>
           <Link
-            text={I18n.t('infoScreenTerms')}
+            text={I18n.t('infoScreen.terms')}
             href="https://www.sportyspots.com/terms.html"
             iconName="info"
           />

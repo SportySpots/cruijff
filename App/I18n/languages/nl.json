@@ -18,27 +18,58 @@
   "Beach_volleyball": "Beachvolleybal",
   "Boules": "Jeu de boules",
 
-  "navBarSpots": "Spots",
-  "navBarActivities": "Activiteiten",
-  "navBarOrganize": "Organiseer",
-  "navBarProfile": "Profiel",
-  "navBarInfo": "Info",
+  "splashScreen" : {
+    "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
+    "btnLabel": "Start met ontdekken",
+    "loginLink": "Heb je al een account? Log in"
+  },
+  "navBar": {
+    "spots": "Spots",
+    "activities": "Activiteiten",
+    "organize": "Organiseer",
+    "profile": "Profiel",
+    "info": "Info"
+  },
+  "infoScreen": {
+    "title": "Info",
+    "appVersion": "Versie",
+    "feedback": "Help ons de app te verbeteren",
+    "privacy": "Privacy informatie",
+    "terms": "Algemene voorwaarden"
+  },
+  "profileScreen": {
+    "title": "Profiel"
+  },
+  "planGameScreen": {
+    "sportDateTimeSlide": {
+      "title": "Plan een activiteit",
+      "btnLabel": "Spot",
+      "selectSport": "Ik plan",
+      "selectDate": "op",
+      "selectTime": "om",
+      "selectDuration": "voor",
+      "selectCapacity": {
+        "prefix": "met",
+        "suffix": "personen"
+      }
+    },
+    "spotSlide": {
+      "title": "Kies een locatie",
+      "btnLabel": "Omschrijving"
+    },
+    "descriptionSlide": {
+      "title": "Omschrijving",
+      "btnLabel": "Uitnodigen"
+    }
+  },
+  "shareGameScreen": {
+    "title": "Activiteit gecreeerd",
+    "btnLabel": "Sluit",
+    "invite": "uitnodigen via"
+  },
 
-  "infoScreenTitle": "Info",
-  "infoScreenAppVersion": "Versie",
-  "infoScreenFeedback": "Help ons de app te verbeteren",
-  "infoScreenPrivacy": "Privacy informatie",
-  "infoScreenTerms": "Algemene voorwaarden",
 
 
-
-  "profileScreenTitle": "Profiel",
-
-
-
-
-  "Plan a game": "Plan een activiteit",
-  "plan a game": "plan een activiteit",
   "settings": "Instellingen",
 
   "players needed": "open plekken",
@@ -49,9 +80,9 @@
   "Select": "Kies",
   "Select a date": "Kies een datum",
   "Choose sport": "Kies sport",
-  "Pick a spot": "Kies een locatie",
-  "Describe the game": "Omschrijving",
-  "Activity created": "Activiteit gecreeerd",
+
+
+
   "Share": "Delen",
   "Copy": "Kopiëren",
   "This event is invite-only": "Dit is event is alleen op uitnodiging",
@@ -72,8 +103,8 @@
   "Players": "Spelers",
   "spot-details": "Spotoverzicht",
   "Profile Edit": "Profiel aanpassen",
-  "Start discovering": "Start met ontdekken",
-  "Already signed up? Log in": "Heb je al een account? Log in",
+
+
   "hi-sport": "Hoi sporter!",
   "join-a-game": "Ontdek en doe mee",
   "plan-a-game": "Plan een potje",
@@ -155,9 +186,9 @@
 
   "Hi again!": "Leuk je weer te zien!",
 
-  "people": "personen",
 
-  "Discover sport locations and activities near you": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
+
+
 
   "capacity": "personen",
 
@@ -172,7 +203,7 @@
   "Location": "Locatie",
   "Filter Spots": "Filter Spots",
 
-  "with": "met",
+
 
   "Are you sure you want to cancel this game?": "Weet je zeker dat je deze activiteit wilt annuleren?",
 
@@ -209,12 +240,11 @@
   "Ok": "Ok",
   "Spot": "Spot",
   "Edit presence": "Wijzigen aanwezigheid",
-  "invite via": "uitnodigen via",
-  "Close": "Sluit",
-  "Description": "Beschrijving",
-  "during": "voor",
-  "at": "om",
-  "Invite": "Uitnodigen",
+
+
+
+
+
   "Activity name": "Naam activiteit",
   "Activity details": "Activiteit details",
   "Date": "Datum",

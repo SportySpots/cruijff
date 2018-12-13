@@ -14,8 +14,8 @@ const SpotImage = ({
 }) => {
   const imgs = getSpotImages({ images, height, width });
 
-  console.log('IMG IMGIX', images[0]);
-  console.log('IMG', imgs[0]);
+  // console.log('IMG IMGIX', images[0]);
+  // console.log('IMG', imgs[0]);
 
   return (
     <Image

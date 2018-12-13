@@ -51,6 +51,9 @@ class Avatar extends React.PureComponent {
       && user.profile.avatar.length > 0
     ) ? user.profile.avatar : '';
 
+    // console.log('avatar', avatar);
+    // console.log('converted', convertS3ToImgix({ image: avatar, height: size, width: size }));
+
     if (avatar) {
       return (
         <Circle size={size}>

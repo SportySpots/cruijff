@@ -15,8 +15,6 @@ import Text from '../Components/Common/Text';
 import RaisedButton from '../Components/Common/RaisedButton';
 import globalRefs from '../globalRefs';
 
-console.log('I18n', I18n);
-
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -62,7 +60,7 @@ class SplashScreen extends React.Component {
     return (
       <FieldBackground>
         <Label testID="splashText">
-          {I18n.t('Discover sport locations and activities near you')}
+          {I18n.t('splashScreen.title')}
         </Label>
         <FlexOne />
         <Row>
@@ -78,8 +76,8 @@ class SplashScreen extends React.Component {
           <RaisedButton
             testID="start"
             variant="default"
-            label={I18n.t('Start discovering')}
-            accessibilityLabel={I18n.t('Start discovering')}
+            label={I18n.t('splashScreen.btnLabel')}
+            accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
               navigation.navigate(firstRun ? 'OnboardingScreen' : 'MainNav');
             }}
@@ -90,7 +88,7 @@ class SplashScreen extends React.Component {
               testID="splashLoginButton"
               onPress={() => { navigation.navigate('LoginScreen'); }}
             >
-              <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
+              <LinkLabel>{I18n.t('splashScreen.loginLink')}</LinkLabel>
             </TouchableOpacity>
           )}
         </Block>
