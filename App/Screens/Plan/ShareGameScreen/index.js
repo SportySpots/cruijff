@@ -35,12 +35,16 @@ class ShareGameScreen extends React.Component {
     const { navigation } = this.props;
 
     Alert.alert(
-      I18n.t('Confirm'),
-      I18n.t('Are you sure you want to cancel this game?'),
+      I18n.t('shareGameScreen.leaveAlert.header'),
+      I18n.t('shareGameScreen.leaveAlert.body'),
       [
-        { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
         {
-          text: I18n.t('Yes'),
+          text: I18n.t('shareGameScreen.leaveAlert.footer.cancelBtnLabel'),
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {
+          text: I18n.t('shareGameScreen.leaveAlert.footer.okBtnLabel'),
           onPress: () => {
             // Go back to the beginning of the stack
             navigation.popToTop();

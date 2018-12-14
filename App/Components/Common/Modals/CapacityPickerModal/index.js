@@ -43,7 +43,7 @@ class CapacityPickerModal extends React.PureComponent {
     const { value } = this.state;
 
     const header = (
-      <Text.ML>{I18n.t('Choose amount players')}</Text.ML>
+      <Text.ML>{I18n.t('capacityPickerModal.header')}</Text.ML>
     );
 
     return (
@@ -51,8 +51,8 @@ class CapacityPickerModal extends React.PureComponent {
         visible={visible}
         onClose={onClose}
         header={header}
-        okBtnLabel={I18n.t('Ok')}
-        cancelBtnLabel={I18n.t('Cancel')}
+        okBtnLabel={I18n.t('capacityPickerModal.footer.okBtnLabel')}
+        cancelBtnLabel={I18n.t('capacityPickerModal.footer.cancelBtnLabel')}
         onOk={() => { onSelect(value); }}
         onCancel={onClose}
       >

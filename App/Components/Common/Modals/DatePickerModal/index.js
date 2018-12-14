@@ -37,7 +37,7 @@ class DatePickerModal extends React.PureComponent {
 
     const header = (
       <Row alignItems="center" justifyContent="space-between">
-        <Text.ML>{I18n.t('Select a date')}</Text.ML>
+        <Text.ML>{I18n.t('datePickerModal.header')}</Text.ML>
         <SelectedDate>
           {value && value.clone()
             .local()
@@ -54,8 +54,8 @@ class DatePickerModal extends React.PureComponent {
         visible={visible}
         onClose={onClose}
         header={header}
-        okBtnLabel={I18n.t('Ok')}
-        cancelBtnLabel={I18n.t('Cancel')}
+        okBtnLabel={I18n.t('datePickerModal.footer.okBtnLabel')}
+        cancelBtnLabel={I18n.t('datePickerModal.footer.cancelBtnLabel')}
         onOk={() => { onSelect(value); }}
         onCancel={onClose}
       >

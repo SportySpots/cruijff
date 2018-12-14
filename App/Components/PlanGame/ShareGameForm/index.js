@@ -101,7 +101,7 @@ class ShareGameForm extends React.PureComponent {
           onNext={this.handleNext}
           disableNext={disabled}
           showBack={false}
-          buttonNextText={I18n.t('shareGameScreen.btnLabel')}
+          buttonNextText={I18n.t('shareGameScreen.footer.nextBtnLabel')}
         />
       </FullHeight>
     );

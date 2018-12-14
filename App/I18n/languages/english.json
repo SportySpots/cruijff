@@ -45,6 +45,14 @@
   },
 
   "planGameScreen": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to cancel this activity?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
     "sportDateTimeSlide": {
       "title": "Plan an activity",
       "footer": {
@@ -124,6 +132,14 @@
   },
 
   "shareGameScreen": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to cancel this activity?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
     "title": "Activity created",
     "footer": {
       "nextBtnLabel": "Close",
@@ -131,6 +147,48 @@
     },
     "invite": "invite via"
   },
+
+  "inviteOnly": {
+    "checkboxLabel": "This event is invite-only"
+  },
+
+  "sportPickerField": {
+    "defaultValue": "Select"
+  },
+
+  "sportPickerModal": {
+    "header": "Choose a sport"
+  },
+
+  "datePickerField": {
+    "defaultValue": "Select"
+  },
+
+  "datePickerModal": {
+    "header": "Select a date",
+    "footer": {
+      "okBtnLabel": "Ok",
+      "cancelBtnLabel": "Cancel"
+    }
+  },
+
+  "timePickerField": {
+    "defaultValue": "Select"
+  },
+
+  "durationPickerField": {
+    "minutes": "minutes",
+    "hours": "hours"
+  },
+
+  "capacityPickerModal": {
+    "header": "Choose amount of players",
+    "footer": {
+      "okBtnLabel": "Ok",
+      "cancelBtnLabel": "Cancel"
+    }
+  },
+
 
 
 
@@ -144,12 +202,11 @@
 
   "Select": "Kies",
   "Select a date": "Kies een datum",
-  "Choose sport": "Kies sport",
 
 
   "Share": "Delen",
   "Copy": "Kopiëren",
-  "This event is invite-only": "Dit is event is alleen op uitnodiging",
+
 
   "back": "terug",
   "continue": "doorgaan",

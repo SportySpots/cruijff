@@ -12,11 +12,11 @@ import InputField from '../InputField';
 // in/output are UTC moments
 const TimePickerField = ({ value, onChange, ...rest }) => (
   <ModalProps>
-    {({ visible, openModal, closeModal }) => /* console.log('rendering', value) || */ [
+    {({ visible, openModal, closeModal }) => [
       <InputField
         key="input-field"
         comp="TextField"
-        value={value ? value.clone().local().format('HH:mm') : I18n.t('Select')}
+        value={value ? value.clone().local().format('HH:mm') : I18n.t('timePickerField.defaultValue')}
         onPress={openModal}
         {...rest}
       />,

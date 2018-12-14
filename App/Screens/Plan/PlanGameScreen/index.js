@@ -38,11 +38,18 @@ class PlanGameScreen extends React.Component {
     const { navigation } = this.props;
 
     Alert.alert(
-      I18n.t('Confirm'),
-      I18n.t('Are you sure you want to cancel this game?'),
+      I18n.t('planGameScreen.leaveAlert.header'),
+      I18n.t('planGameScreen.leaveAlert.body'),
       [
-        { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
-        { text: I18n.t('Yes'), onPress: () => { navigation.goBack(null); } },
+        {
+          text: I18n.t('planGameScreen.leaveAlert.footer.cancelBtnLabel'),
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {
+          text: I18n.t('planGameScreen.leaveAlert.footer.okBtnLabel'),
+          onPress: () => { navigation.goBack(null); },
+        },
       ],
     );
 

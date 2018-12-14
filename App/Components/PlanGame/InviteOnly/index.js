@@ -31,7 +31,7 @@ const InviteOnly = ({ isPublic, onPress }) => (
     />
     <Spacer row size="L" />
     <StyledRow>
-      <Label>{I18n.t('This event is invite-only')}</Label>
+      <Label>{I18n.t('inviteOnly.checkboxLabel')}</Label>
     </StyledRow>
   </Row>
 );
