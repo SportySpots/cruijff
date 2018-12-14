@@ -41,7 +41,22 @@
   },
 
   "profileScreen": {
-    "title": "Profile"
+    "navigation": {
+      "title": "Profile"
+    }
+  },
+
+  "spotsListScreen": {
+    "navigation": {
+      "title": "Find a spot"
+    }
+  },
+
+  "spotHeader": {
+    "activities": {
+      "one": "activity",
+      "other": "activities"
+    }
   },
 
   "planGameScreen": {

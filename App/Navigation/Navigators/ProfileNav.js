@@ -45,7 +45,7 @@ const ProfileNav = createStackNavigator({
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('profileScreen.title'),
+      headerTitle: I18n.t('profileScreen.navigation.title'),
       headerTitleStyle,
       headerRight: <UserMenu navigation={navigation} />,
     }),

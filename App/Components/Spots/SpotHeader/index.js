@@ -75,7 +75,7 @@ const SpotHeader = ({
         {withGames && !!games && games.length > 0 && [
           <DotSpacer key="spacer" />,
           <Games key="games" gray={gray}>
-            {`${games.length} ${I18n.t('games').toTitleCase()}`}
+            {`${games.length} ${I18n.t('spotHeader.activities', { count: games.length }).toTitleCase()}`}
           </Games>,
         ]}
       </Row>
