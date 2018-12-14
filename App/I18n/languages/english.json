@@ -76,6 +76,11 @@
     "btnLabel": "View spots"
   },
 
+  "spotsFilterFlap": {
+    "label": "Filter",
+    "allSports": "All sports"
+  },
+
   "planGameScreen": {
     "leaveAlert": {
       "header": "Confirm",

@@ -45,7 +45,7 @@ const SpotsFilterFlap = ({
       if (allSports) {
         tags.push({
           index: 'all-sports',
-          value: I18n.t('All sports'),
+          value: I18n.t('spotsFilterFlap.allSports'),
           status: 'success',
         });
       } else {
@@ -60,7 +60,7 @@ const SpotsFilterFlap = ({
 
       return (
         <Row alignItems="center">
-          <Text.M>{`${I18n.t('Filter')} :`}</Text.M>
+          <Text.M>{`${I18n.t('spotsFilterFlap.label')} :`}</Text.M>
           <Spacer row size="M" />
           <FlexOne>
             <FlatList
