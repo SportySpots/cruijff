@@ -59,6 +59,23 @@
     }
   },
 
+  "spotsFilterScreen": {
+    "navigation": {
+      "title": "Filter spots"
+    },
+    "slider": {
+      "label": "Location",
+      "description": "Shows spots inside"
+    },
+    "switch": {
+      "allSports": {
+        "label": "All sports",
+        "description": "Filter on type of sport"
+      }
+    },
+    "btnLabel": "View spots"
+  },
+
   "planGameScreen": {
     "leaveAlert": {
       "header": "Confirm",
@@ -215,8 +232,6 @@
   "Organizer": "Organisator",
   "Share with friends": "Delen",
 
-  "Select": "Kies",
-  "Select a date": "Kies een datum",
 
 
   "Share": "Delen",
@@ -319,11 +334,7 @@
 
   "Hi again!": "Leuk je weer te zien!",
 
-  "people": "personen",
 
-
-
-  "capacity": "personen",
 
   "You have been invited to a SportySpots game:": "Je bent uitgenodigd om mee te doen met een potje op SportySpots:",
 
@@ -336,7 +347,6 @@
   "Location": "Locatie",
   "Filter Spots": "Filter Spots",
 
-  "with": "met",
 
   "Are you sure you want to cancel this game?": "Weet je zeker dat je deze activiteit wilt annuleren?",
 
@@ -361,19 +371,16 @@
   "The activity is cancelled": "Je activiteit is geannuleerd",
   "Canceled": "Geannuleerd",
   "This activity is canceled": "Deze activiteit is geannuleerd",
-  "minutes": "minuten",
-  "hours": "uur",
+
   "Undetermined": "Onbepaald",
-  "Choose amount players": "Kies aantal spelers",
+
   "Are you 100% sure": "Weet je het 100% zeker",
   "All attendees will receive an email with your reason for cancellation": "Alle aanwezigen ontvangen een email met jouw rede van annuleren",
   "Back": "Terug",
   "Hell yes": "Jazeker",
-  "Cancel": "Annuleer",
-  "Ok": "Ok",
-  "Spot": "Spot",
+
   "Edit presence": "Wijzigen aanwezigheid",
-  "Description": "Beschrijving",
+
 
   "Activity name": "Naam activiteit",
   "Activity details": "Activiteit details",

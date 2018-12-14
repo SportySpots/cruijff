@@ -6,7 +6,7 @@ import SpotsListScreen from '../../Screens/Spots/SpotsListScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
 import HeaderBtn from '../../Components/Common/HeaderBtn';
 import GameDetailsScreens from './GameDetailsScreens';
-import SpotFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
+import SpotsFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
 import AuthScreens from './AuthScreens';
 import { headerTitleStyle } from './style';
 
@@ -33,9 +33,9 @@ const SpotSearchNav = createStackNavigator({
     }),
   },
   SpotsFilterScreen: {
-    screen: SpotFilterScreen,
+    screen: SpotsFilterScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Filter spots'),
+      headerTitle: I18n.t('spotsFilterScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: null,
       headerRight: (
