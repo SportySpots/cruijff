@@ -7,7 +7,7 @@ import extend from 'lodash/extend';
 import pick from 'lodash/pick';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import ClosableLayout from '../../Layouts/ClosableLayout';
 import Footer from '../../DarkFooter';
 import SportDateTimeSlide from '../SportDateTimeSlide';
@@ -48,7 +48,7 @@ const genSlides = ({ username }) => [
         const now = moment();
 
         if (dateTime.diff(now) < 0) {
-          errors.dateTime.push('Select a date-time in the future');
+          errors.dateTime.push('planGameScreen.sportDateTimeSlide.fields.time.errors.pastDateTime');
         }
       }
       return errors;
@@ -78,13 +78,13 @@ const genSlides = ({ username }) => [
       description: [],
     },
     initState: {
-      title: `${username}'s game`,
+      title: I18n.t('planGameScreen.descriptionSlide.fields.title.defaultValue', { username }),
       description: '',
     },
     validateFields: ({ description }) => {
       const errors = { description: [] };
       if (description.length > DESCRIPTION_MAX_CHARS) {
-        errors.description.push('Description is too long');
+        errors.description.push('planGameScreen.descriptionSlide.fields.description.errors.tooLong');
       }
       return errors;
     },
@@ -198,13 +198,13 @@ class PlanGameForm extends React.Component {
 
     switch (curSlide) {
       case 0:
-        return 'planGameScreen.sportDateTimeSlide.btnLabel';
+        return 'planGameScreen.sportDateTimeSlide.footer.nextBtnLabel';
       case 1:
-        return 'planGameScreen.spotSlide.btnLabel';
+        return 'planGameScreen.spotSlide.footer.nextBtnLabel';
       case 2:
-        return 'planGameScreen.descriptionSlide.btnLabel';
+        return 'planGameScreen.descriptionSlide.footer.nextBtnLabel';
       default:
-        return 'shareGameScreen.btnLabel';
+        return 'shareGameScreen.footer.nextBtnLabel';
     }
   }
 

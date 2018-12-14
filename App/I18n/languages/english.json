@@ -23,6 +23,7 @@
     "btnLabel": "Start discovering",
     "loginLink": "Already signed up? Log in"
   },
+
   "navBar": {
     "spots": "Spots",
     "activities": "Activities",
@@ -30,41 +31,104 @@
     "profile": "Profile",
     "info": "Info"
   },
+
   "infoScreen": {
     "title": "Info",
-    "iappVersion": "Version",
-    "ifeedback": "Help us to improve the app",
-    "iprivacy": "Privacy info",
+    "appVersion": "Version",
+    "feedback": "Help us to improve the app",
+    "privacy": "Privacy info",
     "iterms": "Terms and conditions"
   },
+
   "profileScreen": {
     "title": "Profile"
   },
+
   "planGameScreen": {
     "sportDateTimeSlide": {
       "title": "Plan an activity",
-      "btnLabel": "Spot",
-      "selectSport": "I want to play",
-      "selectDate": "on",
-      "selectTime": "at",
-      "selectDuration": "during",
-      "selectCapacity": {
-        "prefix": "with",
-        "suffix": "people"
+      "footer": {
+        "nextBtnLabel": "Spot",
+        "backBtnLabel": "Back"
+      },
+      "fields": {
+        "sport": {
+          "prefix": "I want to play",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "date": {
+          "prefix": "on",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "time": {
+          "prefix": "at",
+          "suffix": "",
+          "label": "",
+          "placeholder": "",
+          "errors": {
+            "pastDateTime": "Select a date-time in the future"
+          }
+        },
+        "duration": {
+          "prefix": "during",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "capacity": {
+          "prefix": "with",
+          "suffix": "people",
+          "label": "",
+          "placeholder": ""
+        }
       }
     },
     "spotSlide": {
       "title": "Pick a spot",
-      "btnLabel": "Description"
+      "footer": {
+        "nextBtnLabel": "Description",
+        "backBtnLabel": "Back"
+      }
     },
     "descriptionSlide": {
       "title": "Describe the activity",
-      "btnLabel": "Invite"
+      "footer": {
+        "nextBtnLabel": "Invite",
+        "backBtnLabel": "Back"
+      },
+      "fields": {
+        "title": {
+          "prefix": "",
+          "suffix": "",
+          "label": "Title",
+          "placeholder": "Title",
+          "defaultValue": "%{username}'s game"
+        },
+        "description": {
+          "prefix": "",
+          "suffix": "",
+          "label": "Description",
+          "placeholder": "Write extra details about the activity",
+          "errors": {
+            "required": "",
+            "tooShort": "",
+            "tooLong": "Description is too long"
+          }
+        }
+      }
     }
   },
+
   "shareGameScreen": {
     "title": "Activity created",
-    "btnLabel": "Next",
+    "footer": {
+      "nextBtnLabel": "Close",
+      "backBtnLabel": ""
+    },
     "invite": "invite via"
   },
 
@@ -237,8 +301,6 @@
   "Ok": "Ok",
   "Spot": "Spot",
   "Edit presence": "Wijzigen aanwezigheid",
-  "invite via": "uitnodigen via",
-  "Close": "Sluit",
   "Description": "Beschrijving",
 
   "Activity name": "Naam activiteit",
