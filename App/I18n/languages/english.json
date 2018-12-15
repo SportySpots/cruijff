@@ -49,8 +49,7 @@
   "spotsListScreen": {
     "navigation": {
       "title": "Find a spot"
-    },
-    "noResults": "No spots found"
+    }
   },
 
   "spotsList": {
@@ -75,7 +74,7 @@
     "switch": {
       "allSports": {
         "label": "All sports",
-        "description": "Filter on type of sport"
+        "description": "Filter on sport's type"
       }
     },
     "btnLabel": "View spots"
@@ -89,12 +88,20 @@
   "spotDetailsScreen": {
     "navigation": {
       "title": "Spot details"
-    },
-    "activities": "Activities"
+    }
   },
 
   "spotDetails": {
     "activities": "Activities"
+  },
+
+  "spotLink": {
+    "error": "Oops! The map couldn't be loaded :(",
+    "link": {
+      "prefix": "Click ",
+      "anchor": "here",
+      "suffix": " to see the spot's location on Google Maps"
+    }
   },
 
   "gamesListScreen": {
