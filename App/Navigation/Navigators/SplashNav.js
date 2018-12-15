@@ -43,7 +43,7 @@ const SplashNav = createStackNavigator({
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Hi again!'),
+      headerTitle: I18n.t('loginScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

@@ -426,9 +426,40 @@
     }
   },
 
+  "loginScreen": {
+    "navigation": {
+      "title": "Hi again!"
+    }
+  },
 
+  "loginForm": {
+    "fields": {
+      "email": {
+        "label": "E-mail",
+        "placeholder": "",
+        "errors": {
+          "required": "Email is required",
+          "invalid": "Please provide a valid email",
+          "tooLong": "Email is too long"
+        }
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "",
+        "errors": {
+          "required": "Password is required",
+          "tooLong": "Password is too long"
+        }
+      }
+    },
+    "btnLabel": "Login"
+  },
 
-
+  "loggedOutScreen": {
+    "navigation": {
+      "title": "Authenticate"
+    }
+  },
 
   "settings": "Instellingen",
 
