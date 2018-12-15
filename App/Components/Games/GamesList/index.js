@@ -15,6 +15,7 @@ import GameListCard from '../GameListCard';
 const GamesList = ({
   games,
   onCardPress,
+  refreshing,
   ...rest
 }) => (
   <FlatList
@@ -33,13 +34,14 @@ const GamesList = ({
         <GameListCard game={game} />
       </TouchableOpacity>
     )}
-    ListEmptyComponent={<NothingFound icon="calendar-plus" text={I18n.t('gamesList.noResults')} />}
+    ListEmptyComponent={!refreshing && <NothingFound icon="calendar-plus" text={I18n.t('gamesList.noResults')} />}
     ItemSeparatorComponent={() => (<Spacer size="ML" />)}
     onEndReachedThreshold={0.1}
     contentContainerStyle={{
       flexGrow: 1, // centers not-found-component
       paddingVertical: 8,
     }}
+    refreshing={refreshing}
     {...rest}
   />
 );
@@ -47,11 +49,13 @@ const GamesList = ({
 GamesList.propTypes = {
   games: PropTypes.arrayOf(propType(gameFragment)),
   onCardPress: PropTypes.func,
+  refreshing: PropTypes.bool,
 };
 
 GamesList.defaultProps = {
   games: [],
   onCardPress: () => {},
+  refreshing: false,
 };
 
 export default GamesList;

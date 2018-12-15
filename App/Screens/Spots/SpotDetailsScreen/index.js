@@ -40,10 +40,6 @@ class SpotDetailsScreen extends React.PureComponent {
           if (error) return <Text>{JSON.stringify(error)}</Text>;
           if (!data || !data.spot) return null;
 
-          // const { spot } = data;
-          // // Filter passed games
-          // const games = (spot.games && curatedGames(spot.games)) || [];
-
           return (
             <Container>
               <SpotDetails
@@ -51,20 +47,6 @@ class SpotDetailsScreen extends React.PureComponent {
                 userUUID={(user && user.uuid) || null}
                 onGamePress={this.handleGamePress}
               />
-              {/* <Block>
-                <Text.ML>{I18n.t('Games')}</Text.ML>
-              </Block>
-              <GamesContainer>
-                <GamesList
-                  games={games}
-                  onCardPress={this.handleGamePress}
-                  contentContainerStyle={{
-                    flexGrow: 1, // centers not-found-component
-                    paddingBottom: 8,
-                    minHeight: 200,
-                  }}
-                />
-              </GamesContainer> */}
             </Container>
           );
         }}
