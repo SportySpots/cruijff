@@ -166,6 +166,11 @@
     "datePrefix": "signed up on"
   },
 
+  "adminMenu": {
+    "edit": "Edit activity",
+    "cancel": "Cancel activity"
+  },
+
   "planGameScreen": {
     "leaveAlert": {
       "header": "Confirm",
