@@ -55,7 +55,7 @@ class CancelGameForm extends React.PureComponent {
     const _cancelMsg = cancelMsg && cancelMsg.trim(); // eslint-disable-line no-underscore-dangle
 
     if (_cancelMsg.length > MAX_CHARS) {
-      errors.cancelMsg.push('Message is too long!');
+      errors.cancelMsg.push('cancelGameForm.fields.cancelMsg.errors.tooLong');
     }
 
     return errors;
@@ -99,11 +99,11 @@ class CancelGameForm extends React.PureComponent {
 
     // Display confirm alert
     Alert.alert(
-      I18n.t('Confirm'),
-      I18n.t('Are you sure you want to cancel this game?'),
+      I18n.t('cancelGameForm.confirmAlert.header'),
+      I18n.t('cancelGameForm.confirmAlert.body'),
       [
         {
-          text: I18n.t('No'),
+          text: I18n.t('cancelGameForm.confirmAlert.footer.cancelBtnLabel'),
           onPress: () => {
             // Pass event up to parent component. onClientErrorHook will set 'disabled'
             // value back to 'false' so that the user can re-submit the form
@@ -112,7 +112,7 @@ class CancelGameForm extends React.PureComponent {
           style: 'cancel',
         },
         {
-          text: I18n.t('Yes'),
+          text: I18n.t('cancelGameForm.confirmAlert.footer.okBtnLabel'),
           onPress: () => {
             // Pass event up to parent component. onSuccessHook 'disabled'
             // value back to 'false' so that the user can re-submit the form
@@ -140,7 +140,7 @@ class CancelGameForm extends React.PureComponent {
         {attendees.length > 0 && [
           <Divider key="divider-game-attendees" />,
           <Block key="game-attendees">
-            <Label>{I18n.t('Attending')}</Label>
+            <Label>{I18n.t('cancelGameForm.attending')}</Label>
             <ClickableAttendees
               attendees={attendees}
               onAttendeesPress={onAttendeesPress}
@@ -160,7 +160,7 @@ class CancelGameForm extends React.PureComponent {
             <Divider key="divider-alert-warning" />,
             <Block key="alert-warning">
               <AlertMsg
-                value={`${I18n.t('All attendees will receive an email update with your reason for cancellation')}.`}
+                value={I18n.t('cancelGameForm.alertMsg')}
                 status="warning"
               />
             </Block>,
@@ -171,7 +171,7 @@ class CancelGameForm extends React.PureComponent {
         <RaisedButton
           testID="cancelGameFormCancelButton"
           variant="warning"
-          label={I18n.t('Cancel this activity')}
+          label={I18n.t('cancelGameForm.btnLabel')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />

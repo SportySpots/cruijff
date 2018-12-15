@@ -17,11 +17,18 @@ const handleEditGameLeave = (navigation) => {
   Keyboard.dismiss();
 
   Alert.alert(
-    I18n.t('Confirm'),
-    I18n.t('Are you sure you want to leave the edition?'),
+    I18n.t('cancelGameScreen.leaveAlert.header'),
+    I18n.t('cancelGameScreen.leaveAlert.body'),
     [
-      { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
-      { text: I18n.t('Yes'), onPress: () => { navigation.goBack(null); } },
+      {
+        text: I18n.t('cancelGameScreen.leaveAlert.footer.cancelBtnLabel'),
+        onPress: () => null,
+        style: 'cancel',
+      },
+      {
+        text: I18n.t('cancelGameScreen.leaveAlert.footer.okBtnLabel'),
+        onPress: () => { navigation.goBack(null); },
+      },
     ],
   );
 };
@@ -54,7 +61,7 @@ const GameDetailsScreens = {
   CancelGameScreen: {
     screen: CancelGameScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Cancel activity'),
+      headerTitle: I18n.t('cancelGameScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

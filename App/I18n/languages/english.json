@@ -171,6 +171,51 @@
     "cancel": "Cancel activity"
   },
 
+  "cancelGameScreen": {
+    "navigation": {
+      "title": "Cancel activity"
+    },
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to leave the edition?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "successCancelModal": {
+      "title": "The activity is cancelled",
+      "okBtnLabel": "Ok"
+    },
+    "attending": "Attending"
+  },
+
+  "cancelGameForm": {
+    "fields": {
+      "cancelMsg": {
+        "errors": {
+          "tooLong": "Message is too long!"
+        }
+      }
+    },
+    "confirmAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to cancel this activity?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "attending": "Attending",
+    "alertMsg": "All attendees will receive an email update with your reason for cancellation.",
+    "btnLabel": "Cancel activity"
+  },
+
+  "cancelMsg": {
+    "label": "Cancellation reason",
+    "placeholder": "Write here why the activity does not continue"
+  },
+
   "planGameScreen": {
     "leaveAlert": {
       "header": "Confirm",
