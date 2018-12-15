@@ -175,6 +175,67 @@
     "cancel": "Cancel activity"
   },
 
+  "editGameScreen": {
+    "navigation": {
+      "title": "Edit activity"
+    },
+    "editSuccessModal": {
+      "title": "The activity has been updated",
+      "subtitle": "All attendees will receive an update email",
+      "okBtnLabel": "Ok"
+    }
+  },
+
+  "editGameForm": {
+    "fields": {
+      "title": {
+        "label": "Activity title",
+        "placeholder": "Title",
+        "errors": {
+          "required": "Title is required",
+          "tooLong": "Title is too long"
+        }
+      },
+      "sport": {
+        "label": "Sport",
+        "placeholder": ""
+      },
+      "date": {
+        "label": "Date",
+        "placeholder": ""
+      },
+      "time": {
+        "label": "Start time",
+        "placeholder": "",
+        "errors": {
+          "pastDateTime": "Select a date-time in the future"
+        }
+      },
+      "duration": {
+        "label": "Duration",
+        "placeholder": ""
+      },
+      "capacity": {
+        "label": "Number of players",
+        "placeholder": "",
+        "errors": {
+          "noFit": "Number of attendees is greater than the number of spots"
+        }
+      },
+      "description": {
+        "label": "Activity details",
+        "placeholder": "Write extra details about the activity",
+        "errors": {
+          "tooLong": "Description is too long"
+        }
+      },
+      "isPublic": {
+        "label": "This is a private activity"
+      }
+    },
+    "btnLabel": "Save"
+  },
+
   "cancelGameScreen": {
     "navigation": {
       "title": "Cancel activity"

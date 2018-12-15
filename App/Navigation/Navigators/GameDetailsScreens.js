@@ -74,7 +74,7 @@ const GameDetailsScreens = {
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Edit activity'),
+      headerTitle: I18n.t('editGameScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtnConfirm(navigation),
     }),
