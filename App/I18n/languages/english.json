@@ -114,6 +114,10 @@
     "noResults": "No activities found"
   },
 
+  "gameCanceledFlag": {
+    "text": "Canceled"
+  },
+
   "gameDetailsScreen": {
     "navigation": {
       "title": "Activity details"
