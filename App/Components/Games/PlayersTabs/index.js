@@ -26,7 +26,7 @@ const PlayersTabs = ({ attendees, absents }) => (
         <PlayersList players={attendees} />
       ),
       navigationOptions: {
-        tabBarLabel: <Label>{I18n.t('Attending')}</Label>,
+        tabBarLabel: <Label>{I18n.t('playersTabs.attending')}</Label>,
       },
     },
     Declining: {
@@ -34,7 +34,7 @@ const PlayersTabs = ({ attendees, absents }) => (
         <PlayersList players={absents} />
       ),
       navigationOptions: {
-        tabBarLabel: <Label>{I18n.t('Declined')}</Label>,
+        tabBarLabel: <Label>{I18n.t('playersTabs.declined')}</Label>,
       },
     },
   }, {

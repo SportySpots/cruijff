@@ -151,6 +151,21 @@
     "unattendingBtnLabel": "I'm not attending"
   },
 
+  "playersListScreen": {
+    "navigation": {
+      "title": "Players list"
+    }
+  },
+
+  "playersTabs": {
+    "attending": "Attending",
+    "declined": "Declined"
+  },
+
+  "playerRow": {
+    "datePrefix": "signed up on"
+  },
+
   "planGameScreen": {
     "leaveAlert": {
       "header": "Confirm",

@@ -49,7 +49,7 @@ class GameDetailsScreen extends React.PureComponent {
 
   handleAttendeesPress = () => {
     const { navigation } = this.props;
-    navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
+    navigation.navigate('GamePlayersScreen', { uuid: this.gameUUID });
   }
 
   handleRSVPLoggedOut = () => {

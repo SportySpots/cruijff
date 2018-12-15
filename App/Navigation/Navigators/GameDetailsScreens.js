@@ -6,7 +6,7 @@ import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
 import CancelGameScreen from '../../Screens/Games/CancelGameScreen';
 import EditGameScreen from '../../Screens/Games/EditGameScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
-import PlayerList from '../../Screens/Games/PlayersListScreen';
+import PlayersList from '../../Screens/Games/PlayersListScreen';
 import AdminMenu from '../../Components/Games/AdminMenu';
 import { headerTitleStyle } from './style';
 
@@ -72,10 +72,10 @@ const GameDetailsScreens = {
       headerLeft: backBtnConfirm(navigation),
     }),
   },
-  GamePlayerScreen: {
-    screen: PlayerList,
+  GamePlayersScreen: {
+    screen: PlayersList,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Player list'),
+      headerTitle: I18n.t('playersListScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
