@@ -49,7 +49,8 @@
   "spotsListScreen": {
     "navigation": {
       "title": "Find a spot"
-    }
+    },
+    "noResults": "No spots found"
   },
 
   "spotHeader": {
@@ -79,6 +80,13 @@
   "spotsFilterFlap": {
     "label": "Filter",
     "allSports": "All sports"
+  },
+
+  "gamesListScreen": {
+    "navigation": {
+      "title": "Find an activity"
+    },
+    "noResults": "No activities found"
   },
 
   "planGameScreen": {

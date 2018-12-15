@@ -33,7 +33,7 @@ const GamesList = ({
         <GameListCard game={game} />
       </TouchableOpacity>
     )}
-    ListEmptyComponent={<NothingFound icon="calendar-plus" text={I18n.t('No games found')} />}
+    ListEmptyComponent={<NothingFound icon="calendar-plus" text={I18n.t('gamesListScreen.noResults')} />}
     ItemSeparatorComponent={() => (<Spacer size="ML" />)}
     onEndReachedThreshold={0.1}
     contentContainerStyle={{

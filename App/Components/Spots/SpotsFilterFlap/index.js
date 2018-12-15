@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 import { FlatList } from 'react-native';
 // import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
