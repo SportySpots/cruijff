@@ -27,7 +27,7 @@ const SpotSearchNav = createStackNavigator({
   SpotDetailsScreen: {
     screen: SpotDetailsScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Spot details'),
+      headerTitle: I18n.t('spotDetailsScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

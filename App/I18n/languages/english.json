@@ -53,6 +53,10 @@
     "noResults": "No spots found"
   },
 
+  "spotsList": {
+    "noResults": "No spots found"
+  },
+
   "spotHeader": {
     "activities": {
       "one": "activity",
@@ -82,10 +86,24 @@
     "allSports": "All sports"
   },
 
+  "spotDetailsScreen": {
+    "navigation": {
+      "title": "Spot details"
+    },
+    "activities": "Activities"
+  },
+
+  "spotDetails": {
+    "activities": "Activities"
+  },
+
   "gamesListScreen": {
     "navigation": {
       "title": "Find an activity"
-    },
+    }
+  },
+
+  "gamesList": {
     "noResults": "No activities found"
   },
 
