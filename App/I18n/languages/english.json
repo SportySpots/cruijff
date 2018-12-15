@@ -104,11 +104,6 @@
     }
   },
 
-  "descriptionReadMore": {
-    "readMore": "Read more",
-    "readLess": "Read less"
-  },
-
   "gamesListScreen": {
     "navigation": {
       "title": "Find an activity"
@@ -136,6 +131,24 @@
     "join": "Do you join?",
     "edit": "Edit presence",
     "share": "Share with friends"
+  },
+
+  "descriptionReadMore": {
+    "readMore": "Read more",
+    "readLess": "Read less"
+  },
+
+  "rsvpButtons": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to stop attending?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "attendingBtnLabel": "I'm attending",
+    "unattendingBtnLabel": "I'm not attending"
   },
 
   "planGameScreen": {
