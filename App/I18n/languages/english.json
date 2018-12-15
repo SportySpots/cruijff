@@ -107,6 +107,25 @@
     "noResults": "No activities found"
   },
 
+  "gameDetailsScreen": {
+    "navigation": {
+      "title": "Activity details"
+    },
+    "notFound": "Activity not found"
+  },
+
+  "gameDetails": {
+    "cancelMsg": "This activity is canceled",
+    "organizer": "Organizer",
+    "description": "Description",
+    "attending": "Attending",
+    "openSpots": "Open spots",
+    "fullMsg": "No open spots available",
+    "join": "Do you join?",
+    "edit": "Edit presence",
+    "share": "Share with friends"
+  },
+
   "planGameScreen": {
     "leaveAlert": {
       "header": "Confirm",

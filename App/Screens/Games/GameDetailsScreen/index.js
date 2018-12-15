@@ -77,7 +77,7 @@ class GameDetailsScreen extends React.PureComponent {
             return (
               <NothingFound
                 icon="calendar-plus"
-                text={I18n.t('Game not found')}
+                text={I18n.t('gameDetailsScreen.notFound')}
               />
             );
           }

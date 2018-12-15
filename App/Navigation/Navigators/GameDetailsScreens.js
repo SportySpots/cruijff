@@ -46,7 +46,7 @@ const GameDetailsScreens = {
   SpotDetailsScreen: {
     screen: SpotDetailsScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Spot details'),
+      headerTitle: I18n.t('spotDetailsScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
@@ -83,7 +83,7 @@ const GameDetailsScreens = {
   GameDetailsScreen: {
     screen: GameDetailsScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Game details'),
+      headerTitle: I18n.t('gameDetailsScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
       headerRight: <AdminMenu navigation={navigation} />,
