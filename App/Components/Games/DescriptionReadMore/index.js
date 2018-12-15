@@ -52,7 +52,7 @@ class DescriptionReadMore extends React.PureComponent {
         <Text.SM>{visibleDescription}</Text.SM>
         <Spacer size="M" />
         <TouchableOpacity onPress={this.triggerExpanded}>
-          <Trigger>{I18n.t(`Read ${expanded ? 'less' : 'more'}`)}</Trigger>
+          <Trigger>{I18n.t(expanded ? 'descriptionReadMore.readLess' : 'descriptionReadMore.readMore')}</Trigger>
         </TouchableOpacity>
       </View>
     );
