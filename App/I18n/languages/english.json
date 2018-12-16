@@ -592,6 +592,27 @@
     "noSpots": "No spots found"
   },
 
+  "askLocationScreen": {
+    "title": "Share location",
+    "subtitle": "We would like to ask you to share your location so that we can show you all the activities in your area.",
+    "nextBtnLabel": "continue"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "settings": "Instellingen",
 
   "players needed": "open plekken",

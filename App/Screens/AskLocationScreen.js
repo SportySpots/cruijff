@@ -32,8 +32,8 @@ export default class AskLocationScreen extends React.PureComponent {
             />
           </ImageContainer>
           <TextContainer>
-            <Title>{I18n.t('share-your-location')}</Title>
-            <Paragraph>{I18n.t('onboarding-ask-location')}</Paragraph>
+            <Title>{I18n.t('askLocationScreen.title')}</Title>
+            <Paragraph>{I18n.t('askLocationScreen.subtitle')}</Paragraph>
           </TextContainer>
         </Container>
         <Footer>
@@ -44,7 +44,7 @@ export default class AskLocationScreen extends React.PureComponent {
             <TouchableHighlight onPress={() => this.ask()}>
               <View>
                 <ButtonText>
-                  {I18n.t('continue').toUpperCase()}
+                  {I18n.t('askLocationScreen.nextBtnLabel').toUpperCase()}
                 </ButtonText>
               </View>
             </TouchableHighlight>
