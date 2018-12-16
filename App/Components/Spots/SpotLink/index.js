@@ -51,7 +51,9 @@ const SpotLink = ({ spot }) => {
       <Spacer size="M" />
       <Text>
         {I18n.t('spotLink.link.prefix')}
+        &nbsp;
         {link}
+        &nbsp;
         {I18n.t('spotLink.link.suffix')}
       </Text>
     </Block>

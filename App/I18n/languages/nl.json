@@ -131,59 +131,59 @@
 
   "spotDetailsScreen": {
     "navigation": {
-      "title": "Spot details"
+      "title": "Spot overzicht"
     }
   },
 
   "spotDetails": {
-    "activities": "Activities"
+    "activities": "Activiteiten"
   },
 
   "spotLink": {
     "error": "Oops! The map couldn't be loaded :(",
     "link": {
-      "prefix": "Click ",
+      "prefix": "Click",
       "anchor": "here",
-      "suffix": " to see the spot's location on Google Maps"
+      "suffix": "to see the spot's location on Google Maps"
     }
   },
 
   "gamesListScreen": {
     "navigation": {
-      "title": "Find an activity"
+      "title": "Vind een activiteit"
     }
   },
 
   "gamesList": {
-    "noResults": "No activities found"
+    "noResults": "Geen activiteiten gevonden..."
   },
 
   "gameCanceledFlag": {
-    "text": "Canceled"
+    "text": "Geannuleerd"
   },
 
   "gameDetailsScreen": {
     "navigation": {
-      "title": "Activity details"
+      "title": "Activiteit details"
     },
-    "notFound": "Activity not found"
+    "notFound": "Spel niet gevonden"
   },
 
   "gameDetails": {
-    "cancelMsg": "This activity is canceled.",
-    "organizer": "Organizer",
-    "description": "Description",
-    "attending": "Attending",
-    "openSpots": "Open spots",
-    "fullMsg": "No open spots available",
-    "join": "Do you join?",
-    "edit": "Edit presence",
-    "share": "Share with friends"
+    "cancelMsg": "Deze activiteit is geannuleerd.",
+    "organizer": "Organisator",
+    "description": "Beschrijving",
+    "attending": "Aanwezig",
+    "openSpots": "Open plekken",
+    "fullMsg": "Geen open plekken beschikbaar",
+    "join": "Doe je mee?",
+    "edit": "Wijzigen aanwezigheid",
+    "share": "Delen"
   },
 
   "descriptionReadMore": {
-    "readMore": "Read more",
-    "readLess": "Read less"
+    "readMore": "Lees meer",
+    "readLess": "Lees minder"
   },
 
   "rsvpButtons": {

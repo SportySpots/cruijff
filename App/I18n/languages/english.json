@@ -142,9 +142,9 @@
   "spotLink": {
     "error": "Oops! The map couldn't be loaded :(",
     "link": {
-      "prefix": "Click ",
+      "prefix": "Click",
       "anchor": "here",
-      "suffix": " to see the spot's location on Google Maps"
+      "suffix": "to see the spot's location on Google Maps"
     }
   },
 
