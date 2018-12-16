@@ -52,7 +52,7 @@ const SpotDetails = ({ spot, onGamePress, userUUID }) => {
       />
     </GamesContainer>,
   ];
-}
+};
 
 SpotDetails.propTypes = {
   spot: propType(spotDetailsFragment).isRequired,

@@ -74,7 +74,7 @@ class ShareGameForm extends React.PureComponent {
       <FullHeight>
         <ClosableLayout
           theme="white"
-          title={`${I18n.t('shareGameScreen.title')}!`}
+          title={I18n.t('shareGameScreen.title')}
           closable={false}
         >
           <Spacer size="XXXL" />

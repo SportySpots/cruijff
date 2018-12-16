@@ -60,7 +60,7 @@ const SpotsFilterFlap = ({
 
       return (
         <Row alignItems="center">
-          <Text.M>{`${I18n.t('spotsFilterFlap.label')} :`}</Text.M>
+          <Text.M>{I18n.t('spotsFilterFlap.label')}</Text.M>
           <Spacer row size="M" />
           <FlexOne>
             <FlatList

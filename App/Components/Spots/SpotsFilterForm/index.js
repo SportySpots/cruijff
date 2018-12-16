@@ -85,7 +85,7 @@ class SpotsFilterForm extends React.PureComponent {
             description={(
               <Row alignItems="flex-end">
                 <Text.SM style={{ color: Colors.gray }}>
-                  {`${I18n.t('spotsFilterScreen.slider.description')}:`}
+                  {I18n.t('spotsFilterScreen.slider.description')}
                 </Text.SM>
                 <Spacer row size="S" />
                 <Text.SM style={{ fontWeight: 'bold' }}>

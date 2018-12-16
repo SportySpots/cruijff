@@ -113,7 +113,7 @@
     },
     "slider": {
       "label": "Location",
-      "description": "Shows spots inside"
+      "description": "Shows spots inside:"
     },
     "switch": {
       "allSports": {
@@ -125,7 +125,7 @@
   },
 
   "spotsFilterFlap": {
-    "label": "Filter",
+    "label": "Filter :",
     "allSports": "All sports"
   },
 
@@ -421,7 +421,7 @@
         "cancelBtnLabel": "No"
       }
     },
-    "title": "Activity created",
+    "title": "Activity created!",
     "footer": {
       "nextBtnLabel": "Close",
       "backBtnLabel": ""
@@ -583,7 +583,14 @@
     "dialogTitle": "share"
   },
 
+  "profileTabs": {
+    "spots": "My spots",
+    "activities": "My activities"
+  },
 
+  "userSpots": {
+    "noSpots": "No spots found"
+  },
 
   "settings": "Instellingen",
 

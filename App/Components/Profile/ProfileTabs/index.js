@@ -32,13 +32,13 @@ const ProfileTabs = ({ user }) => (
         </Container>
       ),
       navigationOptions: {
-        tabBarLabel: <Label>{I18n.t('My Spots')}</Label>,
+        tabBarLabel: <Label>{I18n.t('profileTabs.spots')}</Label>,
       },
     },
     /* Games: {
       screen: () => <UserGames user={user} />,
       navigationOptions: {
-        tabBarLabel: I18n.t('Activities'),
+        tabBarLabel: I18n.t('profileTabs.activities'),
       },
     }, */
   }, {

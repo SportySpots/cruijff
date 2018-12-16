@@ -46,7 +46,7 @@ const DescriptionSlide = ({
       />
     </ScrollView>
   );
-}
+};
 
 DescriptionSlide.propTypes = {
   title: PropTypes.string.isRequired,
