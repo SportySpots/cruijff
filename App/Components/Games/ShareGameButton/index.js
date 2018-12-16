@@ -13,7 +13,6 @@ class ShareGameButton extends React.PureComponent {
     const { gameUUID } = this.props;
 
     const title = 'SportySpots';
-    // const message = I18n.t('You have been invited to a SportySpots game:');
     const url = `https://${config.deeplinkHost}/games/${gameUUID}`;
     const message = `${I18n.t('shareGameButton.msg')} ${url}`;
 
