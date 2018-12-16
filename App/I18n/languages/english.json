@@ -37,13 +37,57 @@
     "appVersion": "Version",
     "feedback": "Help us to improve the app",
     "privacy": "Privacy info",
-    "iterms": "Terms and conditions"
+    "terms": "Terms and conditions"
   },
 
   "profileScreen": {
     "navigation": {
       "title": "Profile"
     }
+  },
+
+  "userMenu": {
+    "edit": "Edit",
+    "logout": "Log out"
+  },
+
+  "editProfileScreen": {
+    "navigation": {
+      "title": "Edit profile"
+    }
+  },
+
+  "editProfileForm": {
+    "fields": {
+      "firstName": {
+        "label": "First name",
+        "placeholder": "",
+        "errors": {
+          "required": "First name is required",
+          "tooLong": "First name is too long"
+        }
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "",
+        "errors": {
+          "required": "Last name is required",
+          "tooLong": "Last name is too long"
+        }
+      },
+      "birthYear": {
+        "label": "Year of birth",
+        "placeholder": "",
+        "errors": {
+          "invalid": "Please provide a valid year"
+        }
+      }
+    },
+    "btnLabel": "Save"
+  },
+
+  "avatarPickerForm": {
+    "btnLabel": "Upload photo"
   },
 
   "spotsListScreen": {

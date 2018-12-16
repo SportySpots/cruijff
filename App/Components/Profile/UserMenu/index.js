@@ -29,12 +29,12 @@ class UserMenu extends React.PureComponent {
     const OPTIONS = [
       {
         id: 'edit',
-        text: I18n.t('Edit'),
+        text: I18n.t('userMenu.edit'),
         onPress: this.handleEdit,
       },
       {
         id: 'logout',
-        text: I18n.t('Log out'),
+        text: I18n.t('userMenu.logout'),
         danger: true,
         onPress: this.handleLogout,
       },
