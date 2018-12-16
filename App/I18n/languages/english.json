@@ -428,8 +428,12 @@
 
   "loggedOutScreen": {
     "navigation": {
-      "title": "Authenticate"
-    }
+      "title": "Sign up"
+    },
+    "title": "Sign up!",
+    "subtitle": "Sign up and start sporting",
+    "signupBtnLabel": "Register",
+    "loginLink": "Already signed up? Log in"
   },
 
   "loginScreen": {
@@ -460,7 +464,7 @@
         }
       }
     },
-    "btnLabel": "Login"
+    "btnLabel": "Log in"
   },
 
   "signupScreen": {
@@ -514,7 +518,7 @@
       "prefix": "By signing up, you are agreeing to the",
       "link": "Terms and conditions"
     },
-    "btnLabel": "Login"
+    "btnLabel": "Sign up for free"
   },
 
 
@@ -559,25 +563,13 @@
   "onboarding-3":
     "Plan je favoriete sport op de perfecte plek met je vrienden of andere sporters.",
 
-  "E-mail": "E-mail",
-  "Password": "Wachtwoord",
-  "Username": "Gebruikersnaam",
 
-  "Sign up": "Aanmelden",
-  "Signup": "Aanmelden",
+
+
   "Sign up and start sporting": "Meld je aan om te beginnen met sporten",
   "Register": "Registreren",
 
-  "E-mail address in use": "E-mail adres al in gebruik",
-  "Password needs to be at least 8 characters":
-    "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
-  "This password is too common":
-    "Wachtwoord is niet uniek genoeg",
-  "This password is entirely numeric": "Wachtwoord mag niet alleen uit getallen bestaan",
-  "Name is required": "Naam is vereist",
-  "Name is too long": "Naam is te lang",
-  "Description is too long": "Beschrijving is te lang",
-  "Number of attendees is greater than the number of spots": "Aantal deelnemers is hoger dan aantal plaatsen",
+
   "share-your-location": "Locatie delen",
   "onboarding-ask-location":
     "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
@@ -585,66 +577,28 @@
   "First name": "Voornaam",
   "Last name": "Achternaam",
 
-  "Open spots": "Open plekken",
-  "I'm not attending": "Ik doe niet mee",
-  "Game details": "Speloverzicht",
+
   "Edit": "Wijzigen",
   "Delete": "Verwijderen",
-  "Confirm": "Bevestigen",
-  "Are you sure you want to stop attending?": "Weet je zeker dat je niet meer meedoet?",
-  "No": "Nee",
-  "Yes": "Ja",
-  "Save": "Opslaan",
+
   "Log out": "Uitloggen",
   "Find a spot": "Vind een spot",
   "Enter a valid e-mail address": "Ongeldig e-mail adres, of deze is al in gebruik",
   "Privacy info": "Privacy informatie",
 
-  "games": "activiteiten",
-  "Games": "Activiteiten",
-  "Find a game": "Vind een activiteit",
+
   "You have been invited to a SportySptos game": "Je bent uitgenodigd voor een potje via SportySpots",
 
-  "Spot details": "Spot overzicht",
-  "No spots found": "Geen spots gevonden...",
-  "No games found": "Geen activiteiten gevonden...",
 
-  "Login": "Login",
-  "login": "login",
-  "First name is required": "Voornaam is vereist",
-  "First name is too long": "Voornaam is te lang",
-  "Last name is required": "Achternaam is vereist",
-  "Last name is too long": "Achternaam is te lang",
-  "Email is required": "E-mailadres is vereist",
-  "Please provide a valid email address": "Vul een geldig e-mailadres in",
-  "Email is too long": "E-mailadres is te lang",
-  "Password is required": "Wachtwoord is vereist",
-  "Password is too long": "Wachtwoord is te lang",
-  "Wrong username or password": "Geen geldige e-mail of wachtwoord",
-  "Wrong email or password": "Geen geldige e-mail of wachtwoord",
-  "Please provide a valid year": "Voer een geldig jaartal in",
-
-  "I'm attending": "Ik doe mee",
-  "Player list": "Deelnemers",
-  "signed up at": "aangemeld op",
-
-  "Hi again!": "Leuk je weer te zien!",
 
 
 
   "You have been invited to a SportySpots game:": "Je bent uitgenodigd om mee te doen met een potje op SportySpots:",
 
-  "By signing up, you are agreeing to the": "Door je aan te melden ga je akkoord met de",
 
 
 
-  "View spots": "Bekijk spots",
-  "Shows spots inside": "Laat spots zien binnen",
-  "Location": "Locatie",
-  "Filter Spots": "Filter Spots",
 
-
-  "Are you sure you want to cancel this game?": "Weet je zeker dat je deze activiteit wilt annuleren?",
 
   "Game not found": "Spel niet gevonden",
 
@@ -652,21 +606,6 @@
 
   "Oops, something went wrong": "Oeps, er is iets mis gegaan",
 
-  "Activities": "Activiteiten",
-
-  "Filter on type of sport" : "Filter op type sport",
-  "All sports": "Alle sporten",
-
-  "Other": "Overig",
-  "Cancel activity": "Annuleer activiteit",
-  "Cancel this activity": "Annuleer deze activiteit",
-  "Cancellation reason": "Reden van annuleren",
-  "Edit activity": "Bewerk activiteit",
-  "All attendees will receive an email update with your reason for cancellation": "Alle aanwezigen ontvangen een update per mail met jouw reden van annuleren",
-  "Write here why the activity does not continue": "Schrijf hier waarom de activiteit niet doorgaat",
-  "The activity is cancelled": "Je activiteit is geannuleerd",
-  "Canceled": "Geannuleerd",
-  "This activity is canceled": "Deze activiteit is geannuleerd",
 
   "Undetermined": "Onbepaald",
 
@@ -675,28 +614,8 @@
   "Back": "Terug",
   "Hell yes": "Jazeker",
 
-  "Edit presence": "Wijzigen aanwezigheid",
 
 
-  "Activity name": "Naam activiteit",
-  "Activity details": "Activiteit details",
-  "Date": "Datum",
-  "Start time": "Start tijd",
-  "Duration": "Duur",
-  "Number of players": "Aantal spelers",
-  "The activity has been updated": "De activiteit is aangepast",
-  "All attendees will receive an update email": "All aangemelden ontvangen een update email",
-  "My Spots": "Mijn Spots",
-  "Age": "Leeftijd",
-  "Sports": "Sporten",
-  "Year of birth": "Geboortejaar",
-
-  "Read more": "Lees meer",
-  "Read less": "Lees minder",
   "Upload photo": "Foto uploaden",
-  "Write extra details about the activity": "Schrijf hier extra details over de activiteit",
-  "This is a private activity": "Dit is een privéactiviteit",
-  "Title": "Titel",
-  "Select a date-time in the future": "Selecteer een datum-tijd in de toekomst",
-  "No open spots available": "Geen open plekken beschikbaar"
+
 }
