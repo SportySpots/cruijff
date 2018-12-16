@@ -188,44 +188,44 @@
 
   "rsvpButtons": {
     "leaveAlert": {
-      "header": "Confirm",
-      "body": "Are you sure you want to stop attending?",
+      "header": "Bevestigen",
+      "body": "Weet je zeker dat je niet meer meedoet?",
       "footer": {
-        "okBtnLabel": "Yes",
-        "cancelBtnLabel": "No"
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
       }
     },
-    "attendingBtnLabel": "I'm attending",
-    "unattendingBtnLabel": "I'm not attending"
+    "attendingBtnLabel": "Ik doe mee",
+    "unattendingBtnLabel": "Ik doe niet mee"
   },
 
   "playersListScreen": {
     "navigation": {
-      "title": "Players list"
+      "title": "Deelnemers"
     }
   },
 
   "playersTabs": {
-    "attending": "Attending",
-    "declined": "Declined"
+    "attending": "Aanwezig",
+    "declined": "Afwezig"
   },
 
   "playerRow": {
-    "datePrefix": "signed up on"
+    "datePrefix": "aangemeld op"
   },
 
   "adminMenu": {
-    "edit": "Edit activity",
-    "cancel": "Cancel activity"
+    "edit": "Bewerk activiteit",
+    "cancel": "Annuleer activiteit"
   },
 
   "editGameScreen": {
     "navigation": {
-      "title": "Edit activity"
+      "title": "Bewerk activiteit"
     },
     "editSuccessModal": {
-      "title": "The activity has been updated",
-      "subtitle": "All attendees will receive an update email",
+      "title": "De activiteit is aangepast",
+      "subtitle": "All aangemelden ontvangen een update email",
       "okBtnLabel": "Ok"
     }
   },
@@ -233,11 +233,11 @@
   "editGameForm": {
     "fields": {
       "title": {
-        "label": "Activity title",
-        "placeholder": "Title",
+        "label": "Naam activiteit",
+        "placeholder": "Titel",
         "errors": {
-          "required": "Title is required",
-          "tooLong": "Title is too long"
+          "required": "Naam is vereist",
+          "tooLong": "Naam is te lang"
         }
       },
       "sport": {
@@ -245,167 +245,167 @@
         "placeholder": ""
       },
       "date": {
-        "label": "Date",
+        "label": "Datum",
         "placeholder": ""
       },
       "time": {
-        "label": "Start time",
+        "label": "Start tijd",
         "placeholder": "",
         "errors": {
-          "pastDateTime": "Select a date-time in the future"
+          "pastDateTime": "Selecteer een datum-tijd in de toekomst"
         }
       },
       "duration": {
-        "label": "Duration",
+        "label": "Duur",
         "placeholder": ""
       },
       "capacity": {
-        "label": "Number of players",
+        "label": "Aantal spelers",
         "placeholder": "",
         "errors": {
-          "noFit": "Number of attendees is greater than the number of spots"
+          "noFit": "Aantal deelnemers is hoger dan aantal plaatsen"
         }
       },
       "description": {
-        "label": "Activity details",
-        "placeholder": "Write extra details about the activity",
+        "label": "Activiteit details",
+        "placeholder": "Schrijf hier extra details over de activiteit",
         "errors": {
-          "tooLong": "Description is too long"
+          "tooLong": "Beschrijving is te lang"
         }
       },
       "isPublic": {
-        "label": "This is a private activity"
+        "label": "Dit is een privéactiviteit"
       }
     },
-    "btnLabel": "Save"
+    "btnLabel": "Opslaan"
   },
 
   "cancelGameScreen": {
     "navigation": {
-      "title": "Cancel activity"
+      "title": "Annuleer activiteit"
     },
     "leaveAlert": {
-      "header": "Confirm",
+      "header": "Bevestigen",
       "body": "Are you sure you want to leave the edition?",
       "footer": {
-        "okBtnLabel": "Yes",
-        "cancelBtnLabel": "No"
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
       }
     },
     "successCancelModal": {
-      "title": "The activity is cancelled",
+      "title": "Je activiteit is geannuleerd",
       "okBtnLabel": "Ok"
     },
-    "attending": "Attending"
+    "attending": "Aanwezig"
   },
 
   "cancelGameForm": {
     "fields": {
       "cancelMsg": {
         "errors": {
-          "tooLong": "Message is too long!"
+          "tooLong": "Bericht is te lang!"
         }
       }
     },
     "confirmAlert": {
-      "header": "Confirm",
-      "body": "Are you sure you want to cancel this activity?",
+      "header": "Bevestigen",
+      "body": "Weet je zeker dat je deze activiteit wilt annuleren?",
       "footer": {
-        "okBtnLabel": "Yes",
-        "cancelBtnLabel": "No"
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
       }
     },
-    "attending": "Attending",
-    "alertMsg": "All attendees will receive an email update with your reason for cancellation.",
-    "btnLabel": "Cancel activity"
+    "attending": "Aanwezig",
+    "alertMsg": "Alle aanwezigen ontvangen een update per mail met jouw reden van annuleren.",
+    "btnLabel": "Annuleer activiteit"
   },
 
   "cancelMsg": {
-    "label": "Cancellation reason",
-    "placeholder": "Write here why the activity does not continue"
+    "label": "Reden van annuleren",
+    "placeholder": "Schrijf hier waarom de activiteit niet doorgaat"
   },
 
   "planGameScreen": {
     "leaveAlert": {
-      "header": "Confirm",
-      "body": "Are you sure you want to cancel this activity?",
+      "header": "Bevestigen",
+      "body": "Weet je zeker dat je deze activiteit wilt annuleren?",
       "footer": {
-        "okBtnLabel": "Yes",
-        "cancelBtnLabel": "No"
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
       }
     },
     "sportDateTimeSlide": {
-      "title": "Plan an activity",
+      "title": "Plan een activiteit",
       "footer": {
         "nextBtnLabel": "Spot",
-        "backBtnLabel": "Back"
+        "backBtnLabel": "Terug"
       },
       "fields": {
         "sport": {
-          "prefix": "I want to play",
+          "prefix": "Ik plan",
           "suffix": "",
           "label": "",
           "placeholder": ""
         },
         "date": {
-          "prefix": "on",
+          "prefix": "op",
           "suffix": "",
           "label": "",
           "placeholder": ""
         },
         "time": {
-          "prefix": "at",
+          "prefix": "om",
           "suffix": "",
           "label": "",
           "placeholder": "",
           "errors": {
-            "pastDateTime": "Select a date-time in the future"
+            "pastDateTime": "Selecteer een datum-tijd in de toekomst"
           }
         },
         "duration": {
-          "prefix": "during",
+          "prefix": "voor",
           "suffix": "",
           "label": "",
           "placeholder": ""
         },
         "capacity": {
-          "prefix": "with",
-          "suffix": "people",
+          "prefix": "met",
+          "suffix": "personen",
           "label": "",
           "placeholder": ""
         }
       }
     },
     "spotSlide": {
-      "title": "Pick a spot",
+      "title": "Vind een spot",
       "footer": {
-        "nextBtnLabel": "Description",
-        "backBtnLabel": "Back"
+        "nextBtnLabel": "Beschrijving",
+        "backBtnLabel": "Terug"
       }
     },
     "descriptionSlide": {
-      "title": "Describe the activity",
+      "title": "Omschrijving",
       "footer": {
-        "nextBtnLabel": "Invite",
-        "backBtnLabel": "Back"
+        "nextBtnLabel": "Uitnodigen",
+        "backBtnLabel": "Terug"
       },
       "fields": {
         "title": {
           "prefix": "",
           "suffix": "",
-          "label": "Title",
-          "placeholder": "Title",
+          "label": "Titel",
+          "placeholder": "Titel",
           "defaultValue": "%{username}'s game"
         },
         "description": {
           "prefix": "",
           "suffix": "",
-          "label": "Description",
-          "placeholder": "Write extra details about the activity",
+          "label": "Beschrijving",
+          "placeholder": "Schrijf hier extra details over de activiteit",
           "errors": {
             "required": "",
             "tooShort": "",
-            "tooLong": "Description is too long"
+            "tooLong": "Beschrijving is te lang"
           }
         }
       }
