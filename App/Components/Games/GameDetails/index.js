@@ -51,7 +51,7 @@ const GameDetails = ({
     isCanceled && (
       <Block key="alert-warning">
         <AlertMsg
-          value={`${I18n.t('gameDetails.cancelMsg')}.`}
+          value={I18n.t('gameDetails.cancelMsg')}
           status="error"
         />
       </Block>

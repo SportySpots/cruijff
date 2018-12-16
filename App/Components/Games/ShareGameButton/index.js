@@ -15,10 +15,10 @@ class ShareGameButton extends React.PureComponent {
     const title = 'SportySpots';
     // const message = I18n.t('You have been invited to a SportySpots game:');
     const url = `https://${config.deeplinkHost}/games/${gameUUID}`;
-    const message = `${I18n.t('You have been invited to a SportySpots game:')} ${url}`;
+    const message = `${I18n.t('shareGameButton.msg')} ${url}`;
 
     const content = { title, message, url };
-    const options = { dialogTitle: I18n.t('share'), subject: title };
+    const options = { dialogTitle: I18n.t('shareGameButton.dialogTitle'), subject: title };
 
     Share.share(content, options)
       .then((res) => { console.log(res); })

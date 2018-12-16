@@ -170,7 +170,7 @@
   },
 
   "gameDetails": {
-    "cancelMsg": "This activity is canceled",
+    "cancelMsg": "This activity is canceled.",
     "organizer": "Organizer",
     "description": "Description",
     "attending": "Attending",
@@ -577,6 +577,12 @@
     "nextBtnLabel": "continue",
     "backBtnLabel": "back"
   },
+
+  "shareGameButton": {
+    "msg": "You have been invited to a SportySpots game:",
+    "dialogTitle": "share"
+  },
+
 
 
   "settings": "Instellingen",

@@ -292,7 +292,7 @@ class EditGameForm extends React.PureComponent {
           >
             <TextField
               label={I18n.t('editGameForm.fields.sport.label')}
-              value={I18n.t(sport.name) || I18n.t(sport.category)}
+              value={(sport.name && I18n.t(sport.name)) || (sport.category && I18n.t(sport.category))}
               size="ML"
               disabled // always disabled
               onChangeText={() => {}}
