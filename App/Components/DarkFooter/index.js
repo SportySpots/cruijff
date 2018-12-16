@@ -83,11 +83,11 @@ DarkFooter.propTypes = {
 };
 
 DarkFooter.defaultProps = {
-  buttonNextText: I18n.t('continue'),
+  buttonNextText: I18n.t('darkFooter.nextBtnLabel'),
   showNext: true,
   onNext: () => {},
   disableNext: false,
-  buttonBackText: I18n.t('back'),
+  buttonBackText: I18n.t('darkFooter.backBtnLabel'),
   onBack: () => {},
   showBack: true,
   disableBack: false,

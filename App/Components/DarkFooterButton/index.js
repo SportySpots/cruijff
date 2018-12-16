@@ -45,21 +45,13 @@ class DarkFooterButton extends React.PureComponent {
               size={iconSize}
               color={disabled ? Colors.gray : Colors.white}
             />,
-            <Spacer
-              key="spacer"
-              row
-              size="S"
-            />,
+            <Spacer key="spacer" row size="S" />,
           ]}
           <Label disabled={disabled}>
             {text.toUpperCase()}
           </Label>
           {!isBack && [
-            <Spacer
-              key="spacer"
-              row
-              size="S"
-            />,
+            <Spacer key="spacer" row size="S" />,
             <Icon
               key="icon"
               name="chevron-right"

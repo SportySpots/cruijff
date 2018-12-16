@@ -5,7 +5,7 @@ import api from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
-import FlatButton from '../../Common/FlatButton';
+// import FlatButton from '../../Common/FlatButton';
 import Row from '../../Common/Row';
 import Block from '../../Common/Block';
 import RatingBig from '../../Common/RatingBig';
@@ -53,10 +53,10 @@ class SpotRating extends React.PureComponent {
             rating={rating}
             onPress={i => this.setState({ rating: i })}
           />
-          <FlatButton
+          {/* <FlatButton
             text={I18n.t(userRating ? 'thank you' : 'submit').toUpperCase()}
             onPress={this.submitRating}
-          />
+          /> */}
         </Row>
       </Block>
     );

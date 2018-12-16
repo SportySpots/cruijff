@@ -470,6 +470,10 @@
     }
   },
 
+  "spotPickerModal": {
+    "header": "Pick a spot"
+  },
+
   "loggedOutScreen": {
     "navigation": {
       "title": "Sign up"
@@ -565,8 +569,14 @@
     "btnLabel": "Sign up for free"
   },
 
+  "connectionCheck": {
+    "noConnection": "No connection"
+  },
 
-
+  "darkFooter": {
+    "nextBtnLabel": "continue",
+    "backBtnLabel": "back"
+  },
 
 
   "settings": "Instellingen",

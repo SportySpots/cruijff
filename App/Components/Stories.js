@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react-native';
 
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import ImageSwiper from './Common/ImageSwiper';
-import FlatButton from './Common/FlatButton';
 import Text from './Common/Text';
 import Logo from './Common/Logo';
 import Rating from './Common/Rating';
@@ -23,8 +22,6 @@ const dummyNavigator = {
 storiesOf('Logo', module)
   .add('Default', () => <Logo />);
 
-storiesOf('Basic components', module)
-  .add('FlatButton', () => <FlatButton text="SUBMIT" />);
 
 storiesOf('Text', module)
   .add('All sizes', () => (
