@@ -97,7 +97,7 @@
   },
 
   "spotsList": {
-    "noResults": "No spots found"
+    "noResults": "No spots found..."
   },
 
   "spotHeader": {
@@ -155,7 +155,7 @@
   },
 
   "gamesList": {
-    "noResults": "No activities found"
+    "noResults": "No activities found..."
   },
 
   "gameCanceledFlag": {
