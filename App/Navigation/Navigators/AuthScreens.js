@@ -58,7 +58,7 @@ const AuthScreens = {
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Sign up'),
+      headerTitle: I18n.t('signupScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

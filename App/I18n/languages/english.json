@@ -426,6 +426,12 @@
     }
   },
 
+  "loggedOutScreen": {
+    "navigation": {
+      "title": "Authenticate"
+    }
+  },
+
   "loginScreen": {
     "navigation": {
       "title": "Hi again!"
@@ -440,7 +446,9 @@
         "errors": {
           "required": "Email is required",
           "invalid": "Please provide a valid email",
-          "tooLong": "Email is too long"
+          "tooLong": "Email is too long",
+          "wrongCredentials": "Wrong email or password",
+          "unknown": "Something bad happened"
         }
       },
       "password": {
@@ -455,11 +463,63 @@
     "btnLabel": "Login"
   },
 
-  "loggedOutScreen": {
+  "signupScreen": {
     "navigation": {
-      "title": "Authenticate"
+      "title": "Sign up"
     }
   },
+
+  "signupForm": {
+    "fields": {
+      "firstName": {
+        "label": "First name",
+        "placeholder": "",
+        "errors": {
+          "required": "First name is required",
+          "tooLong": "First name is too long"
+        }
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "",
+        "errors": {
+          "required": "Last name is required",
+          "tooLong": "Last name is too long"
+        }
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "",
+        "errors": {
+          "required": "Email is required",
+          "invalid": "Please provide a valid email",
+          "tooLong": "Email is too long",
+          "inUse": "Email address in use"
+        }
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "",
+        "errors": {
+          "required": "Password is required",
+          "tooLong": "Password is too long",
+          "tooShort": "Password needs to be at least 8 characters",
+          "tooCommon": "This password is too common",
+          "numeric": "This password is entirely numeric",
+          "unknown": "Something bad happened"
+        }
+      }
+    },
+    "terms": {
+      "prefix": "By signing up, you are agreeing to the",
+      "link": "Terms and conditions"
+    },
+    "btnLabel": "Login"
+  },
+
+
+
+
 
   "settings": "Instellingen",
 

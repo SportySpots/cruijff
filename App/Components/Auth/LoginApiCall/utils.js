@@ -19,9 +19,9 @@ const curateFieldName = (fieldName) => {
 const curateErrorMsg = (errorMsg) => {
   switch (errorMsg) {
     case 'Unable to log in with provided credentials.':
-      return 'Wrong email or password';
+      return 'loginForm.fields.email.errors.wrongCredentials';
     default:
-      return errorMsg;
+      return 'loginForm.fields.email.errors.unknown';
   }
 };
 
