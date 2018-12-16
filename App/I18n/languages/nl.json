@@ -414,27 +414,27 @@
 
   "shareGameScreen": {
     "leaveAlert": {
-      "header": "Confirm",
-      "body": "Are you sure you want to cancel this activity?",
+      "header": "Bevestigen",
+      "body": "Weet je zeker dat je deze activiteit wilt annuleren?",
       "footer": {
-        "okBtnLabel": "Yes",
-        "cancelBtnLabel": "No"
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
       }
     },
-    "title": "Activity created!",
+    "title": "Activiteit gecreeerd!",
     "footer": {
-      "nextBtnLabel": "Close",
+      "nextBtnLabel": "Sluit",
       "backBtnLabel": ""
     },
-    "invite": "invite via"
+    "invite": "uitnodigen via"
   },
 
   "inviteOnly": {
-    "checkboxLabel": "This event is invite-only"
+    "checkboxLabel": "Dit is event is alleen op uitnodiging"
   },
 
   "sportPickerField": {
-    "defaultValue": "Select"
+    "defaultValue": "Kies"
   },
 
   "sportPickerModal": {
@@ -442,51 +442,51 @@
   },
 
   "datePickerField": {
-    "defaultValue": "Select"
+    "defaultValue": "Kies"
   },
 
   "datePickerModal": {
-    "header": "Select a date",
+    "header": "Kies een datum",
     "footer": {
       "okBtnLabel": "Ok",
-      "cancelBtnLabel": "Cancel"
+      "cancelBtnLabel": "Annuleer"
     }
   },
 
   "timePickerField": {
-    "defaultValue": "Select"
+    "defaultValue": "Kies"
   },
 
   "durationPickerField": {
-    "minutes": "minutes",
-    "hours": "hours"
+    "minutes": "minuten",
+    "hours": "uur"
   },
 
   "capacityPickerModal": {
-    "header": "Choose amount of players",
+    "header": "Kies aantal spelers",
     "footer": {
       "okBtnLabel": "Ok",
-      "cancelBtnLabel": "Cancel"
+      "cancelBtnLabel": "Annuleer"
     }
   },
 
   "spotPickerModal": {
-    "header": "Pick a spot"
+    "header": "Kies een locatie"
   },
 
   "loggedOutScreen": {
     "navigation": {
-      "title": "Sign up"
+      "title": "Aanmelden"
     },
-    "title": "Sign up!",
-    "subtitle": "Sign up and start sporting",
-    "signupBtnLabel": "Register",
-    "loginLink": "Already signed up? Log in"
+    "title": "Aanmelden!",
+    "subtitle": "Meld je aan om te beginnen met sporten",
+    "signupBtnLabel": "Registreren",
+    "loginLink": "Heb je al een account? Log in"
   },
 
   "loginScreen": {
     "navigation": {
-      "title": "Hi again!"
+      "title": "Leuk je weer te zien!"
     }
   },
 
@@ -496,19 +496,19 @@
         "label": "E-mail",
         "placeholder": "",
         "errors": {
-          "required": "Email is required",
-          "invalid": "Please provide a valid email",
-          "tooLong": "Email is too long",
-          "wrongCredentials": "Wrong email or password",
-          "unknown": "Something bad happened"
+          "required": "E-mailadres is vereist",
+          "invalid": "Vul een geldig e-mailadres in",
+          "tooLong": "E-mailadres is te lang",
+          "wrongCredentials": "Geen geldige e-mail of wachtwoord",
+          "unknown": "Iets slecht is gebeurd"
         }
       },
       "password": {
-        "label": "Password",
+        "label": "Wachtwoord",
         "placeholder": "",
         "errors": {
-          "required": "Password is required",
-          "tooLong": "Password is too long"
+          "required": "Wachtwoord is vereist",
+          "tooLong": "Wachtwoord is te lang"
         }
       }
     },
@@ -517,48 +517,48 @@
 
   "signupScreen": {
     "navigation": {
-      "title": "Sign up"
+      "title": "Aanmelden"
     }
   },
 
   "signupForm": {
     "fields": {
       "firstName": {
-        "label": "First name",
+        "label": "Voornaam",
         "placeholder": "",
         "errors": {
-          "required": "First name is required",
-          "tooLong": "First name is too long"
+          "required": "Voornaam is vereist",
+          "tooLong": "Voornaam is te lang"
         }
       },
       "lastName": {
-        "label": "Last name",
+        "label": "Achternaam",
         "placeholder": "",
         "errors": {
-          "required": "Last name is required",
-          "tooLong": "Last name is too long"
+          "required": "Achternaam is vereist",
+          "tooLong": "Achternaam is te lang"
         }
       },
       "email": {
         "label": "E-mail",
         "placeholder": "",
         "errors": {
-          "required": "Email is required",
-          "invalid": "Please provide a valid email",
-          "tooLong": "Email is too long",
-          "inUse": "Email address in use"
+          "required": "E-mailadres is vereist",
+          "invalid": "Vul een geldig e-mailadres in",
+          "tooLong": "E-mailadres is te lang",
+          "inUse": "E-mailadres in gebruik"
         }
       },
       "password": {
-        "label": "Password",
+        "label": "Wachtwoord",
         "placeholder": "",
         "errors": {
-          "required": "Password is required",
-          "tooLong": "Password is too long",
-          "tooShort": "Password needs to be at least 8 characters",
-          "tooCommon": "This password is too common",
-          "numeric": "This password is entirely numeric",
-          "unknown": "Something bad happened"
+          "required": "Wachtwoord is vereist",
+          "tooLong": "Wachtwoord is te lang",
+          "tooShort": "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
+          "tooCommon": "Wachtwoord is niet uniek genoeg",
+          "numeric": "Wachtwoord mag niet alleen uit getallen bestaan",
+          "unknown": "Iets slecht is gebeurd"
         }
       }
     },
