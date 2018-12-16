@@ -598,7 +598,26 @@
     "nextBtnLabel": "continue"
   },
 
+  "OnboardingScreen": {
+    "hiSporter": {
+      "title": "Hi sporter!",
+      "text": "Nice that you participate with SportySpots. Have fun with sports!"
+    },
+    "joinGame": {
+      "title": "Join a game",
+      "text": "Discover sports locations and activities near you."
+    },
+    "planGame": {
+      "title": "Plan a game",
+      "text": "Plan your favorite sport in the perfect place with your friends or other sporters."
+    },
+    "nextBtnLabel": "continue",
+    "lastBtnLabel": "let's go"
+  },
 
+  "queryCatchErrors": {
+    "errorMsg": "Oops, something went wrong"
+  },
 
 
 
@@ -692,18 +711,5 @@
 
   "Do you join?": "Doe je mee?",
 
-  "Oops, something went wrong": "Oeps, er is iets mis gegaan",
-
-
-  "Undetermined": "Onbepaald",
-
-  "Are you 100% sure": "Weet je het 100% zeker",
-  "All attendees will receive an email with your reason for cancellation": "Alle aanwezigen ontvangen een email met jouw rede van annuleren",
-  "Back": "Terug",
-  "Hell yes": "Jazeker",
-
-
-
-  "Upload photo": "Foto uploaden",
 
 }
