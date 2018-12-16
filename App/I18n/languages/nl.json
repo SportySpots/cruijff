@@ -438,7 +438,7 @@
   },
 
   "sportPickerModal": {
-    "header": "Choose a sport"
+    "header": "Kies sport"
   },
 
   "datePickerField": {
@@ -563,327 +563,59 @@
       }
     },
     "terms": {
-      "prefix": "By signing up, you are agreeing to the",
-      "link": "Terms and conditions"
+      "prefix": "Door je aan te melden ga je akkoord met de",
+      "link": "Algemene voorwaarden"
     },
-    "btnLabel": "Sign up for free"
+    "btnLabel": "Sign up"
   },
 
   "connectionCheck": {
-    "noConnection": "No connection"
+    "noConnection": "Geen connectie"
   },
 
   "darkFooter": {
-    "nextBtnLabel": "continue",
-    "backBtnLabel": "back"
+    "nextBtnLabel": "doorgaan",
+    "backBtnLabel": "terug"
   },
 
   "shareGameButton": {
-    "msg": "You have been invited to a SportySpots game:",
-    "dialogTitle": "share"
+    "msg": "Je bent uitgenodigd om mee te doen met een potje op SportySpots:",
+    "dialogTitle": "delen"
   },
 
   "profileTabs": {
-    "spots": "My spots",
-    "activities": "My activities"
+    "spots": "Mijn Spots",
+    "activities": "Mijn activiteiten"
   },
 
   "userSpots": {
-    "noSpots": "No spots found"
+    "noSpots": "Geen spots gevonden..."
   },
 
   "askLocationScreen": {
-    "title": "Share location",
-    "subtitle": "We would like to ask you to share your location so that we can show you all the activities in your area.",
-    "nextBtnLabel": "continue"
+    "title": "Locatie delen",
+    "subtitle": "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
+    "nextBtnLabel": "doorgaan"
   },
 
   "OnboardingScreen": {
     "hiSporter": {
-      "title": "Hi sporter!",
-      "text": "Nice that you participate with SportySpots. Have fun with sports!"
+      "title": "Hoi sporter!",
+      "text": "Leuk dat je meedoet met SportySpots. Veel plezier met sporten!"
     },
     "joinGame": {
-      "title": "Join a game",
-      "text": "Discover sports locations and activities near you."
+      "title": "Ontdek en doe mee",
+      "text": "Ontdek sportplekken en activiteiten bij jou in de de buurt."
     },
     "planGame": {
-      "title": "Plan a game",
-      "text": "Plan your favorite sport in the perfect place with your friends or other sporters."
+      "title": "Plan een potje",
+      "text": "Plan je favoriete sport op de perfecte plek met je vrienden of andere sporters."
     },
-    "nextBtnLabel": "continue",
+    "nextBtnLabel": "doorgaan",
     "lastBtnLabel": "let's go"
   },
 
   "queryCatchErrors": {
-    "errorMsg": "Oops, something went wrong"
+    "errorMsg": "Oeps, er is iets mis gegaan"
   }
-}
-
-
-{
-  // "BASKETBALL": "Basketbal",
-  // "BOOTCAMP": "Bootcamp",
-  // "SOCCER": "Voetbal",
-  // "TENNIS": "Tennis",
-  // "FITNESS": "Fitness",
-  // "OTHERS": "Overig",
-  // "SKATING": "Skaten",
-  // "BEACH_VOLLEYBALL": "Beachvolleybal",
-  // "BOULES": "Jeu de boules",
-  // "Basketball": "Basketbal",
-  // "Bootcamp": "Bootcamp",
-  // "Soccer": "Voetbal",
-  // "Tennis": "Tennis",
-  // "Fitness": "Fitness",
-  // "Others": "Overig",
-  // "Skating": "Skaten",
-  // "Beach_volleyball": "Beachvolleybal",
-  // "Boules": "Jeu de boules",
-
-  // "splashScreen" : {
-  //   "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
-  //   "btnLabel": "Start met ontdekken",
-  //   "loginLink": "Heb je al een account? Log in"
-  // },
-  // "navBar": {
-  //   "spots": "Spots",
-  //   "activities": "Activiteiten",
-  //   "organize": "Organiseer",
-  //   "profile": "Profiel",
-  //   "info": "Info"
-  // },
-  // "infoScreen": {
-  //   "title": "Info",
-  //   "appVersion": "Versie",
-  //   "feedback": "Help ons de app te verbeteren",
-  //   "privacy": "Privacy informatie",
-  //   "terms": "Algemene voorwaarden"
-  // },
-  // "profileScreen": {
-  //   "title": "Profiel"
-  // },
-  "planGameScreen": {
-    "sportDateTimeSlide": {
-      "title": "Plan een activiteit",
-      "btnLabel": "Spot",
-      "selectSport": "Ik plan",
-      "selectDate": "op",
-      "selectTime": "om",
-      "selectDuration": "voor",
-      "selectCapacity": {
-        "prefix": "met",
-        "suffix": "personen"
-      }
-    },
-    "spotSlide": {
-      "title": "Kies een locatie",
-      "btnLabel": "Omschrijving"
-    },
-    "descriptionSlide": {
-      "title": "Omschrijving",
-      "btnLabel": "Uitnodigen"
-    }
-  },
-  "shareGameScreen": {
-    "title": "Activiteit gecreeerd",
-    "btnLabel": "Sluit",
-    "invite": "uitnodigen via"
-  },
-
-
-
-  "settings": "Instellingen",
-
-  "players needed": "open plekken",
-  "full": "vol",
-  "Organizer": "Organisator",
-  "Share with friends": "Delen",
-
-  "Select": "Kies",
-  "Select a date": "Kies een datum",
-  "Choose sport": "Kies sport",
-
-
-
-  "Share": "Delen",
-  "Copy": "Kopiëren",
-  "This event is invite-only": "Dit is event is alleen op uitnodiging",
-
-  "back": "terug",
-  "continue": "doorgaan",
-  "done": "klaar",
-
-
-
-  "Attending": "Aanwezig",
-  "Declined": "Afwezig",
-  "invited": "uitgenodigd",
-  "Game Details": "Activiteitoverzicht",
-  "Players": "Spelers",
-  "spot-details": "Spotoverzicht",
-  "Profile Edit": "Profiel aanpassen",
-
-
-  "hi-sport": "Hoi sporter!",
-  "join-a-game": "Ontdek en doe mee",
-  "plan-a-game": "Plan een potje",
-  "onboarding-1":
-    "Leuk dat je meedoet met SportySpots. Veel plezier met sporten!",
-  "onboarding-2":
-    "Ontdek sportplekken en activiteiten bij jou in de de buurt.",
-  "onboarding-3":
-    "Plan je favoriete sport op de perfecte plek met je vrienden of andere sporters.",
-
-  "E-mail": "E-mail",
-  "Password": "Wachtwoord",
-  "Username": "Gebruikersnaam",
-
-  "Sign up": "Aanmelden",
-  "Signup": "Aanmelden",
-  "Sign up and start sporting": "Meld je aan om te beginnen met sporten",
-  "Register": "Registreren",
-
-  "E-mail address in use": "E-mail adres al in gebruik",
-  "Password needs to be at least 8 characters":
-    "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
-  "This password is too common":
-    "Wachtwoord is niet uniek genoeg",
-  "This password is entirely numeric": "Wachtwoord mag niet alleen uit getallen bestaan",
-  "Name is required": "Naam is vereist",
-  "Name is too long": "Naam is te lang",
-  "Description is too long": "Beschrijving is te lang",
-  "Number of attendees is greater than the number of spots": "Aantal deelnemers is hoger dan aantal plaatsen",
-  "share-your-location": "Locatie delen",
-  "onboarding-ask-location":
-    "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
-
-  "First name": "Voornaam",
-  "Last name": "Achternaam",
-
-  "Open spots": "Open plekken",
-  "I'm not attending": "Ik doe niet mee",
-  "Game details": "Speloverzicht",
-  "Edit": "Wijzigen",
-  "Delete": "Verwijderen",
-  "Confirm": "Bevestigen",
-  "Are you sure you want to stop attending?": "Weet je zeker dat je niet meer meedoet?",
-  "No": "Nee",
-  "Yes": "Ja",
-  "Save": "Opslaan",
-  "Log out": "Uitloggen",
-  "Find a spot": "Vind een spot",
-  "Enter a valid e-mail address": "Ongeldig e-mail adres, of deze is al in gebruik",
-
-
-  "games": "activiteiten",
-  "Games": "Activiteiten",
-  "Find a game": "Vind een activiteit",
-  "You have been invited to a SportySptos game": "Je bent uitgenodigd voor een potje via SportySpots",
-
-  "Spot details": "Spot overzicht",
-  "No spots found": "Geen spots gevonden...",
-  "No games found": "Geen activiteiten gevonden...",
-
-  "Login": "Login",
-  "login": "login",
-  "First name is required": "Voornaam is vereist",
-  "First name is too long": "Voornaam is te lang",
-  "Last name is required": "Achternaam is vereist",
-  "Last name is too long": "Achternaam is te lang",
-  "Email is required": "E-mailadres is vereist",
-  "Please provide a valid email address": "Vul een geldig e-mailadres in",
-  "Email is too long": "E-mailadres is te lang",
-  "Password is required": "Wachtwoord is vereist",
-  "Password is too long": "Wachtwoord is te lang",
-  "Wrong username or password": "Geen geldige e-mail of wachtwoord",
-  "Wrong email or password": "Geen geldige e-mail of wachtwoord",
-  "Please provide a valid year": "Voer een geldig jaartal in",
-
-  "I'm attending": "Ik doe mee",
-  "Player list": "Deelnemers",
-  "signed up at": "aangemeld op",
-
-  "Hi again!": "Leuk je weer te zien!",
-
-
-
-
-
-  "capacity": "personen",
-
-  "You have been invited to a SportySpots game:": "Je bent uitgenodigd om mee te doen met een potje op SportySpots:",
-
-  "By signing up, you are agreeing to the": "Door je aan te melden ga je akkoord met de",
-
-  "Organize": "Organiseer",
-
-  "View spots": "Bekijk spots",
-  "Shows spots inside": "Laat spots zien binnen",
-  "Location": "Locatie",
-  "Filter Spots": "Filter Spots",
-
-
-
-  "Are you sure you want to cancel this game?": "Weet je zeker dat je deze activiteit wilt annuleren?",
-
-  "Game not found": "Spel niet gevonden",
-  "Help us to improve the app": "Help ons de app te verbeteren",
-  "Do you join?": "Doe je mee?",
-
-  "Oops, something went wrong": "Oeps, er is iets mis gegaan",
-
-  "Activities": "Activiteiten",
-
-  "Filter on type of sport" : "Filter op type sport",
-  "All sports": "Alle sporten",
-
-  "Other": "Overig",
-  "Cancel activity": "Annuleer activiteit",
-  "Cancel this activity": "Annuleer deze activiteit",
-  "Cancellation reason": "Reden van annuleren",
-  "Edit activity": "Bewerk activiteit",
-  "All attendees will receive an email update with your reason for cancellation": "Alle aanwezigen ontvangen een update per mail met jouw reden van annuleren",
-  "Write here why the activity does not continue": "Schrijf hier waarom de activiteit niet doorgaat",
-  "The activity is cancelled": "Je activiteit is geannuleerd",
-  "Canceled": "Geannuleerd",
-  "This activity is canceled": "Deze activiteit is geannuleerd",
-  "minutes": "minuten",
-  "hours": "uur",
-  "Undetermined": "Onbepaald",
-  "Choose amount players": "Kies aantal spelers",
-  "Are you 100% sure": "Weet je het 100% zeker",
-  "All attendees will receive an email with your reason for cancellation": "Alle aanwezigen ontvangen een email met jouw rede van annuleren",
-  "Back": "Terug",
-  "Hell yes": "Jazeker",
-  "Cancel": "Annuleer",
-  "Ok": "Ok",
-  "Spot": "Spot",
-  "Edit presence": "Wijzigen aanwezigheid",
-
-
-
-
-
-  "Activity name": "Naam activiteit",
-  "Activity details": "Activiteit details",
-  "Date": "Datum",
-  "Start time": "Start tijd",
-  "Duration": "Duur",
-  "Number of players": "Aantal spelers",
-  "The activity has been updated": "De activiteit is aangepast",
-  "All attendees will receive an update email": "All aangemelden ontvangen een update email",
-  "My Spots": "Mijn Spots",
-  "Age": "Leeftijd",
-  "Sports": "Sporten",
-  "Year of birth": "Geboortejaar",
-
-  "Read more": "Lees meer",
-  "Read less": "Lees minder",
-  "Upload photo": "Foto uploaden",
-  "Write extra details about the activity": "Schrijf hier extra details over de activiteit",
-  "This is a private activity": "Dit is een privéactiviteit",
-  "Title": "Titel",
-  "Select a date-time in the future": "Selecteer een datum-tijd in de toekomst",
-  "No open spots available": "Geen open plekken beschikbaar"
 }
