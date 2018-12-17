@@ -3,11 +3,14 @@
 import I18n, { getLanguages } from 'react-native-i18n';
 
 // Set locale based on user/phone settings
-getLanguages().then((lang) => {
-  console.log(lang); // ['en-US', 'en']
-  I18n.locale = (lang && lang.length > 0 && lang[0]) || 'nl';
-});
-// I18n.locale = 'nl';
+if (getLanguages) {
+  getLanguages().then((lang) => {
+    console.log(lang); // ['en-US', 'en']
+    I18n.locale = (lang && lang.length > 0 && lang[0]) || 'nl';
+  });
+} else {
+  I18n.locale = 'nl';
+}
 
 // Enable fallbacks if you want `en-US` and `en-GB` to fallback to `en`
 I18n.fallbacks = true;
