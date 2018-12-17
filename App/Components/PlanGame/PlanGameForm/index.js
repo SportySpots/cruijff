@@ -139,7 +139,7 @@ class PlanGameForm extends React.Component {
   handleChange = ({ fieldName, value }) => {
     if (!fieldName) { return; }
 
-    const { curSlide, errors } = this.state;
+    const { errors } = this.state;
 
     // Automatically swipe right after the user selects spot
     this.setState({
@@ -147,13 +147,21 @@ class PlanGameForm extends React.Component {
       errors: (fieldName === 'date' || fieldName === 'time')
         ? ErrorHandling.clearErrors(errors, 'dateTime')
         : ErrorHandling.clearErrors(errors, fieldName),
-      curSlide: fieldName === 'spot' ? curSlide + 1 : curSlide,
-    }, () => {
-      if (fieldName === 'spot') {
-        this.swiper.scrollBy(1);
-      }
-      console.log('STATE', this.state);
     });
+
+    // // Automatically swipe right after the user selects spot
+    // this.setState({
+    //   [fieldName]: value,
+    //   errors: (fieldName === 'date' || fieldName === 'time')
+    //     ? ErrorHandling.clearErrors(errors, 'dateTime')
+    //     : ErrorHandling.clearErrors(errors, fieldName),
+    //   curSlide: fieldName === 'spot' ? curSlide + 1 : curSlide,
+    // }, () => {
+    //   if (fieldName === 'spot') {
+    //     this.swiper.scrollBy(1);
+    //   }
+    //   console.log('STATE', this.state);
+    // });
   }
 
   validateFields = (errorFields) => {
