@@ -286,7 +286,7 @@
     },
     "leaveAlert": {
       "header": "Confirm",
-      "body": "Are you sure you want to leave the edition?",
+      "body": "Are you sure you want to leave? Changes will not be saved.",
       "footer": {
         "okBtnLabel": "Yes",
         "cancelBtnLabel": "No"
@@ -328,7 +328,7 @@
   "planGameScreen": {
     "leaveAlert": {
       "header": "Confirm",
-      "body": "Are you sure you want to cancel this activity?",
+      "body": "Are you sure you want to leave? Changes will not be saved.",
       "footer": {
         "okBtnLabel": "Yes",
         "cancelBtnLabel": "No"
@@ -601,7 +601,7 @@
   "OnboardingScreen": {
     "hiSporter": {
       "title": "Hi sporter!",
-      "text": "Nice that you participate with SportySpots. Have fun with sports!"
+      "text": "Thanks for joining SportySpots. Happy sporting!"
     },
     "joinGame": {
       "title": "Join a game",

@@ -286,7 +286,7 @@
     },
     "leaveAlert": {
       "header": "Bevestigen",
-      "body": "Are you sure you want to leave the edition?",
+      "body": "Weet je het zeker dat je terug wil gaan? Aanpassingen worden niet opgeslagen.",
       "footer": {
         "okBtnLabel": "Ja",
         "cancelBtnLabel": "Nee"
@@ -328,7 +328,7 @@
   "planGameScreen": {
     "leaveAlert": {
       "header": "Bevestigen",
-      "body": "Weet je zeker dat je deze activiteit wilt annuleren?",
+      "body": "Weet je het zeker dat je terug wil gaan? Aanpassingen worden niet opgeslagen.",
       "footer": {
         "okBtnLabel": "Ja",
         "cancelBtnLabel": "Nee"
