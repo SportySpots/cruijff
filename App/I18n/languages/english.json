@@ -211,7 +211,8 @@
   },
 
   "playerRow": {
-    "datePrefix": "signed up on"
+    "signedUpOn": "Signed up on",
+    "signedOutOn": "Signed out on"
   },
 
   "adminMenu": {

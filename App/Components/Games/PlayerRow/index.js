@@ -26,7 +26,7 @@ const PlayerRow = ({ player }) => {
         <View>
           <Text.M>{`${user.first_name} ${user.last_name}`}</Text.M>
           <Text.SM style={{ color: Colors.gray }}>
-            {I18n.t('playerRow.datePrefix')}
+            {I18n.t(player.status === 'ATTENDING' ? 'playerRow.signedUpOn' : 'playerRow.signedOutOn')}
             &nbsp;
             {moment.utc(createdAt).local().format('D MMMM HH:mm')}
           </Text.SM>
