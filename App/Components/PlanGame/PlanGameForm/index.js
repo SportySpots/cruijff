@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
 import extend from 'lodash/extend';
@@ -299,19 +299,21 @@ class PlanGameForm extends React.Component {
             Comp,
             theme,
             section,
-          }) => (
+          }, index) => (
             <FullHeight key={id}>
               <ClosableLayout
                 theme={theme}
                 title={I18n.t(section)}
                 onClose={onLeave}
               >
-                <Comp
-                  onChange={this.handleChange}
-                  descriptionMaxChars={DESCRIPTION_MAX_CHARS}
-                  // Pass down all state values: sport, date, time, etc.
-                  {...rest}
-                />
+                {index === curSlide ? (
+                  <Comp
+                    onChange={this.handleChange}
+                    descriptionMaxChars={DESCRIPTION_MAX_CHARS}
+                    // Pass down all state values: sport, date, time, etc.
+                    {...rest}
+                  />
+                ) : <View />}
 
               </ClosableLayout>
             </FullHeight>

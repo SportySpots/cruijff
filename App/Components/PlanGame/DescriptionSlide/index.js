@@ -40,6 +40,7 @@ const DescriptionSlide = ({
         value={description}
         error={descriptionErrors}
         multiline
+        autoFocus
         characterRestriction={descriptionMaxChars}
         onChangeText={(value) => { onChange({ fieldName: 'description', value }); }}
         theme="white"
