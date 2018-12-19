@@ -6,7 +6,7 @@
   "FITNESS": "Fitness",
   "OTHERS": "Others",
   "SKATING": "Skating",
-  "BEACH_VOLLEYBALL": "Beach Volleyball",
+  "BEACH_VOLLEYBALL": "Beach volleyball",
   "BOULES": "Jeu de boules",
   "Basketball": "Basketball",
   "Bootcamp": "Bootcamp",
@@ -15,7 +15,7 @@
   "Fitness": "Fitness",
   "Others": "Others",
   "Skating": "Skating",
-  "Beach_volleyball": "Beach Volleyball",
+  "Beach_volleyball": "Beach volleyball",
   "Boules": "Jeu de boules",
 
   "splashScreen": {
@@ -118,7 +118,7 @@
     "switch": {
       "allSports": {
         "label": "All sports",
-        "description": "Filter on sport's type"
+        "description": "Filter on sport type"
       }
     },
     "btnLabel": "View spots"
@@ -201,7 +201,7 @@
 
   "playersListScreen": {
     "navigation": {
-      "title": "Players list"
+      "title": "Participants"
     }
   },
 
