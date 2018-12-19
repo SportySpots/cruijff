@@ -26,9 +26,16 @@ import firebase from 'react-native-firebase';
 
 class App extends Component {
   constructor() {
-    setTimeout(() => firebase.analytics().logEvent('boot'), 10000);
-    setTimeout(() => firebase.analytics().logEvent('bsdfsd'), 10000);
     super();
+    (async () => {
+      try {
+        const fcmToken = await firebase.messaging().getToken();
+        console.log('fcmToken', fcmToken);
+        // User has authorised
+      } catch (error) {
+        // User has rejected permissions
+      }
+    })();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
     this.state = { hasInitialized: false };
 
