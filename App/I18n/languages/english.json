@@ -264,7 +264,7 @@
         "label": "Number of players",
         "placeholder": "",
         "errors": {
-          "noFit": "Number of attendees is greater than the number of spots"
+          "noFit": "Number of attendees is greater than the number of available spots"
         }
       },
       "description": {
@@ -606,7 +606,7 @@
     },
     "joinGame": {
       "title": "Join a game",
-      "text": "Discover sports locations and activities near you."
+      "text": "Discover sport locations and activities near you."
     },
     "planGame": {
       "title": "Plan a game",
