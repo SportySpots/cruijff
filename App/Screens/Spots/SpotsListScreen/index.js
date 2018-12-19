@@ -72,7 +72,7 @@ class SpotsListScreen extends React.Component {
               cardComponent="SpotListCard"
               sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
               userCoords={location}
-              maxDistance={maxDistance} // km
+              maxDistance={20000} // km todo: revert to maxDistance
               onCardPress={this.handleCardPress}
               // FlatList props
               onScroll={this.handleScroll}
