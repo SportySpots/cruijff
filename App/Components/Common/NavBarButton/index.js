@@ -48,7 +48,7 @@ const NavBarButton = ({
       <Center>
         <Icon
           name={icon.name}
-          size={24}
+          size={main ? 32 : 24}
           color={color}
         />
         <Label color={color}>

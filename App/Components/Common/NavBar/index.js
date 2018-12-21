@@ -26,14 +26,15 @@ const buttons = [{
   icon: {
     set: MaterialIcon,
     name: 'search',
+    // name: 'place',
   },
 }, {
   id: 'activities',
   label: 'navBar.activities',
   route: 'GameSearchTab',
   icon: {
-    set: MaterialIcon,
-    name: 'flag',
+    set: MaterialCommunityIcon,
+    name: 'account-group',
   },
 }, {
   id: 'organize',
@@ -42,7 +43,8 @@ const buttons = [{
   route: 'PlanScreen',
   icon: {
     set: MaterialCommunityIcon,
-    name: 'plus-box',
+    name: 'soccer-field',
+    // name: 'calendar-plus',
   },
 }, {
   id: 'profile',
