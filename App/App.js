@@ -6,7 +6,9 @@ import codePush from 'react-native-code-push';
 import { ApolloProvider } from 'react-apollo';
 
 import { StatusBar, Linking } from 'react-native';
+import Config from 'react-native-config';
 import { MenuProvider } from 'react-native-popup-menu';
+import RNUxcam from 'react-native-ux-cam';
 import styled from 'styled-components';
 import config from './config';
 import { createClient, createMockClient } from './GraphQL';
@@ -21,6 +23,8 @@ import globalRefs, { addGlobalRef } from './globalRefs';
 import { setupDetoxConnection } from './detoxHelpers';
 
 import Colors from './Themes/Colors';
+
+RNUxcam.startWithKey(Config.UXCAM_KEY);
 
 class App extends Component {
   constructor() {

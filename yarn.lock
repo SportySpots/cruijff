@@ -9124,6 +9124,11 @@ react-native-tab-view@^1.0.0:
   dependencies:
     prop-types "^15.6.1"
 
+react-native-ux-cam@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-ux-cam/-/react-native-ux-cam-5.0.0.tgz#e88f3a6b7b7c696a03fbc037402c29f90cf086fd"
+  integrity sha512-FwO5qPon0RTz1WZYQ5NnCf4a7E4JjTYylC4xfmATObU+rKZY0km0byAfq+7pgjfoYzTs/2VN5EzFErNwnV5mBQ==
+
 react-native-vector-icons@^6.0.2:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.1.0.tgz#770a3f8ced692d75deb3afbb9829195ceed1eedd"
