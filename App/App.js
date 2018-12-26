@@ -24,7 +24,15 @@ import { setupDetoxConnection } from './detoxHelpers';
 
 import Colors from './Themes/Colors';
 
-RNUxcam.startWithKey(Config.UXCAM_KEY);
+// Only enable uxcam on production
+const { UXCAM_KEY } = Config;
+if (!__DEV__) {
+  if (!UXCAM_KEY) {
+    throw new Error('UXCAM_KEY env var missing');
+  } else {
+    RNUxcam.startWithKey(UXCAM_KEY);
+  }
+}
 
 class App extends Component {
   constructor() {
