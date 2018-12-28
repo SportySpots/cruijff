@@ -112,6 +112,7 @@ class NavBar extends React.Component {
             testID={`navbarButton_${btn.id}`}
             key={btn.id}
             btnLabel={I18n.t(btn.label)}
+            route={btn.route}
             icon={btn.icon}
             active={this.curRoute === btn.route}
             main={!!btn.main}

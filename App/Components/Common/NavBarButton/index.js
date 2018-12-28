@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, StyleSheet } from 'react-native';
+import firebase from 'react-native-firebase';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
@@ -33,6 +34,7 @@ const Label = styled(Text.S)`
 //------------------------------------------------------------------------------
 const NavBarButton = ({
   btnLabel,
+  route,
   main,
   icon,
   active,
@@ -44,7 +46,14 @@ const NavBarButton = ({
   const color = main ? Colors.white : baseColor;
 
   return (
-    <Button main={main} onPress={onPress} {...otherProps}>
+    <Button
+      main={main}
+      onPress={() => {
+        firebase.analytics().logEvent(`navbar_btn_press_${route}`);
+        onPress();
+      }}
+      {...otherProps}
+    >
       <Center>
         <Icon
           name={icon.name}
@@ -61,6 +70,7 @@ const NavBarButton = ({
 
 NavBarButton.propTypes = {
   btnLabel: PropTypes.string,
+  route: PropTypes.string,
   icon: PropTypes.shape({
     set: PropTypes.any,
     name: PropTypes.string,
@@ -72,6 +82,7 @@ NavBarButton.propTypes = {
 
 NavBarButton.defaultProps = {
   btnLabel: '',
+  route: '',
   active: false,
   main: false,
   onPress: () => {},
