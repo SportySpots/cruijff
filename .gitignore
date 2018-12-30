@@ -25,6 +25,7 @@ project.xcworkspace
 # Android Releases
 android/app/release
 android/app/debug
+android/app/google-services.json
 
 # Android/IntelliJ
 #
