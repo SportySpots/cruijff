@@ -1,9 +1,15 @@
 // @flow
+import I18n, { getLanguages } from 'react-native-i18n';
+import moment from 'moment';
 
-import I18n from 'react-native-i18n';
-
-// todo: set locale based on user/phone settings
-I18n.locale = 'nl';
+// Set locale based on user/phone settings
+if (getLanguages) {
+  getLanguages().then((langs) => { // langs = ['en-US', 'en']
+    I18n.locale = (langs && langs.length > 0 && langs[0]) || 'nl';
+  });
+} else {
+  I18n.locale = 'nl';
+}
 
 // Enable fallbacks if you want `en-US` and `en-GB` to fallback to `en`
 I18n.fallbacks = true;
@@ -151,4 +157,19 @@ switch (languageCode) {
   case 'zu':
     I18n.translations.zu = require('./languages/zu.json');
     break;
+  default:
+    I18n.translations.en = require('./languages/english.json');
+}
+
+switch (languageCode) {
+  case 'nl':
+    require('moment/locale/nl');
+    moment.locale('nl');
+    break;
+  case 'es':
+    require('moment/locale/es');
+    moment.locale('es');
+    break;
+  default:
+    moment.locale('en');
 }

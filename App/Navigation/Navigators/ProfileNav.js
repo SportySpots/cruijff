@@ -32,7 +32,7 @@ const ProfileNav = createStackNavigator({
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Profile Edit'),
+      headerTitle: I18n.t('editProfileScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
@@ -45,7 +45,7 @@ const ProfileNav = createStackNavigator({
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Profile'),
+      headerTitle: I18n.t('profileScreen.navigation.title'),
       headerTitleStyle,
       headerRight: <UserMenu navigation={navigation} />,
     }),

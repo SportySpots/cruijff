@@ -42,7 +42,7 @@ const AuthScreens = {
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Hi again!'),
+      headerTitle: I18n.t('loginScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
@@ -58,7 +58,7 @@ const AuthScreens = {
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Sign up'),
+      headerTitle: I18n.t('signupScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
@@ -72,7 +72,7 @@ const AuthScreens = {
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Game details'),
+      headerTitle: I18n.t('loggedOutScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),

@@ -17,209 +17,606 @@
   "Skating": "Skaten",
   "Beach_volleyball": "Beachvolleybal",
   "Boules": "Jeu de boules",
-  "find": "Spots",
-  "join": "Activiteiten",
-  "info": "Info",
-  "Info": "Info",
-  "Plan a game": "Plan een activiteit",
-  "plan a game": "plan een activiteit",
-  "profile": "Profiel",
-  "settings": "Instellingen",
 
-  "players needed": "open plekken",
-  "full": "vol",
-  "Organizer": "Organisator",
-  "Share with friends": "Delen",
+  "splashScreen": {
+    "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
+    "btnLabel": "Start met ontdekken",
+    "loginLink": "Heb je al een account? Log in"
+  },
 
-  "Select": "Kies",
-  "Select a date": "Kies een datum",
-  "Choose sport": "Kies sport",
-  "Pick a spot": "Kies een locatie",
-  "Describe the game": "Omschrijving",
-  "Activity created": "Activiteit gecreeerd",
-  "Share": "Delen",
-  "Copy": "Kopiëren",
-  "This event is invite-only": "Dit is event is alleen op uitnodiging",
+  "navBar": {
+    "spots": "Spots",
+    "activities": "Activiteiten",
+    "organize": "Organiseer",
+    "profile": "Profiel",
+    "info": "Info"
+  },
 
-  "back": "terug",
-  "continue": "doorgaan",
-  "done": "klaar",
+  "infoScreen": {
+    "title": "Info",
+    "appVersion": "Versie",
+    "feedback": "Help ons de app te verbeteren",
+    "privacy": "Privacy informatie",
+    "terms": "Algemene voorwaarden"
+  },
 
-  "I want to play": "Ik plan",
-  "on": "op",
-  "from": "vanaf",
-  "to": "tot",
+  "profileScreen": {
+    "navigation": {
+      "title": "Profiel"
+    }
+  },
 
-  "Attending": "Aanwezig",
-  "Declined": "Afwezig",
-  "invited": "uitgenodigd",
-  "Game Details": "Activiteitoverzicht",
-  "Players": "Spelers",
-  "spot-details": "Spotoverzicht",
-  "Profile Edit": "Profiel aanpassen",
-  "Start discovering": "Start met ontdekken",
-  "Already signed up? Log in": "Heb je al een account? Log in",
-  "hi-sport": "Hoi sporter!",
-  "join-a-game": "Ontdek en doe mee",
-  "plan-a-game": "Plan een potje",
-  "onboarding-1":
-    "Leuk dat je meedoet met SportySpots. Veel plezier met sporten!",
-  "onboarding-2":
-    "Ontdek sportplekken en activiteiten bij jou in de de buurt.",
-  "onboarding-3":
-    "Plan je favoriete sport op de perfecte plek met je vrienden of andere sporters.",
+  "userMenu": {
+    "edit": "Wijzigen",
+    "logout": "Uitloggen"
+  },
 
-  "E-mail": "E-mail",
-  "Password": "Wachtwoord",
-  "Username": "Gebruikersnaam",
+  "editProfileScreen": {
+    "navigation": {
+      "title": "Profiel aanpassen"
+    }
+  },
 
-  "Sign up": "Aanmelden",
-  "Signup": "Aanmelden",
-  "Sign up and start sporting": "Meld je aan om te beginnen met sporten",
-  "Register": "Registreren",
+  "editProfileForm": {
+    "fields": {
+      "firstName": {
+        "label": "Voornaam",
+        "placeholder": "",
+        "errors": {
+          "required": "Voornaam is vereist",
+          "tooLong": "Voornaam is te lang"
+        }
+      },
+      "lastName": {
+        "label": "Achternaam",
+        "placeholder": "",
+        "errors": {
+          "required": "Achternaam is vereist",
+          "tooLong": "Achternaam is te lang"
+        }
+      },
+      "birthYear": {
+        "label": "Geboortejaar",
+        "placeholder": "",
+        "errors": {
+          "invalid": "Voer een geldig jaartal in"
+        }
+      }
+    },
+    "btnLabel": "Opslaan"
+  },
 
-  "E-mail address in use": "E-mail adres al in gebruik",
-  "Password needs to be at least 8 characters":
-    "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
-  "This password is too common":
-    "Wachtwoord is niet uniek genoeg",
-  "This password is entirely numeric": "Wachtwoord mag niet alleen uit getallen bestaan",
-  "Name is required": "Naam is vereist",
-  "Name is too long": "Naam is te lang",
-  "Description is too long": "Beschrijving is te lang",
-  "Number of attendees is greater than the number of spots": "Aantal deelnemers is hoger dan aantal plaatsen",
-  "share-your-location": "Locatie delen",
-  "onboarding-ask-location":
-    "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
+  "avatarPickerForm": {
+    "btnLabel": "Foto uploaden"
+  },
 
-  "First name": "Voornaam",
-  "Last name": "Achternaam",
+  "spotsListScreen": {
+    "navigation": {
+      "title": "Vind een spot"
+    }
+  },
 
-  "Open spots": "Open plekken",
-  "I'm not attending": "Ik doe niet mee",
-  "Game details": "Speloverzicht",
-  "Edit": "Wijzigen",
-  "Delete": "Verwijderen",
-  "Confirm": "Bevestigen",
-  "Are you sure you want to stop attending?": "Weet je zeker dat je niet meer meedoet?",
-  "No": "Nee",
-  "Yes": "Ja",
-  "Save": "Opslaan",
-  "Log out": "Uitloggen",
-  "Find a spot": "Vind een spot",
-  "Enter a valid e-mail address": "Ongeldig e-mail adres, of deze is al in gebruik",
-  "Privacy info": "Privacy informatie",
-  "Terms and conditions": "Algemene voorwaarden",
-  "games": "activiteiten",
-  "Games": "Activiteiten",
-  "Find a game": "Vind een activiteit",
-  "You have been invited to a SportySptos game": "Je bent uitgenodigd voor een potje via SportySpots",
+  "spotsList": {
+    "noResults": "Geen spots gevonden..."
+  },
 
-  "Spot details": "Spot overzicht",
-  "No spots found": "Geen spots gevonden...",
-  "No games found": "Geen activiteiten gevonden...",
+  "spotHeader": {
+    "activities": {
+      "one": "activiteit",
+      "other": "activiteiten"
+    }
+  },
 
-  "Login": "Login",
-  "login": "login",
-  "First name is required": "Voornaam is vereist",
-  "First name is too long": "Voornaam is te lang",
-  "Last name is required": "Achternaam is vereist",
-  "Last name is too long": "Achternaam is te lang",
-  "Email is required": "E-mailadres is vereist",
-  "Please provide a valid email address": "Vul een geldig e-mailadres in",
-  "Email is too long": "E-mailadres is te lang",
-  "Password is required": "Wachtwoord is vereist",
-  "Password is too long": "Wachtwoord is te lang",
-  "Wrong username or password": "Geen geldige e-mail of wachtwoord",
-  "Wrong email or password": "Geen geldige e-mail of wachtwoord",
-  "Please provide a valid year": "Voer een geldig jaartal in",
+  "spotsFilterScreen": {
+    "navigation": {
+      "title": "Filter spots"
+    },
+    "slider": {
+      "label": "Locatie",
+      "description": "Laat spots zien binnen:"
+    },
+    "switch": {
+      "allSports": {
+        "label": "Alle sporten",
+        "description": "Filter op type sport"
+      }
+    },
+    "btnLabel": "Bekijk spots"
+  },
 
-  "I'm attending": "Ik doe mee",
-  "Player list": "Deelnemers",
-  "signed up at": "aangemeld op",
-  "Profile": "Profiel",
+  "spotsFilterFlap": {
+    "label": "Filter :",
+    "allSports": "Alle sporten"
+  },
 
-  "Hi again!": "Leuk je weer te zien!",
+  "spotDetailsScreen": {
+    "navigation": {
+      "title": "Spot overzicht"
+    }
+  },
 
-  "people": "personen",
+  "spotDetails": {
+    "activities": "Activiteiten"
+  },
 
-  "Discover sport locations and activities near you": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
+  "spotLink": {
+    "error": "Oops! The map couldn't be loaded :(",
+    "link": {
+      "prefix": "Click",
+      "anchor": "here",
+      "suffix": "to see the spot's location on Google Maps"
+    }
+  },
 
-  "capacity": "personen",
+  "gamesListScreen": {
+    "navigation": {
+      "title": "Vind een activiteit"
+    }
+  },
 
-  "You have been invited to a SportySpots game:": "Je bent uitgenodigd om mee te doen met een potje op SportySpots:",
+  "gamesList": {
+    "noResults": "Geen activiteiten gevonden..."
+  },
 
-  "By signing up, you are agreeing to the": "Door je aan te melden ga je akkoord met de",
+  "gameCanceledFlag": {
+    "text": "Geannuleerd"
+  },
 
-  "Organize": "Organiseer",
+  "gameDetailsScreen": {
+    "navigation": {
+      "title": "Activiteit details"
+    },
+    "notFound": "Spel niet gevonden"
+  },
 
-  "View spots": "Bekijk spots",
-  "Shows spots inside": "Laat spots zien binnen",
-  "Location": "Locatie",
-  "Filter Spots": "Filter Spots",
+  "gameDetails": {
+    "cancelMsg": "Deze activiteit is geannuleerd.",
+    "organizer": "Organisator",
+    "description": "Beschrijving",
+    "attending": "Aanwezig",
+    "openSpots": "Open plekken",
+    "fullMsg": "Geen open plekken beschikbaar",
+    "join": "Doe je mee?",
+    "edit": "Wijzigen aanwezigheid",
+    "share": "Delen"
+  },
 
-  "with": "met",
+  "descriptionReadMore": {
+    "readMore": "Lees meer",
+    "readLess": "Lees minder"
+  },
 
-  "Are you sure you want to cancel this game?": "Weet je zeker dat je deze activiteit wilt annuleren?",
+  "rsvpButtons": {
+    "leaveAlert": {
+      "header": "Bevestigen",
+      "body": "Weet je zeker dat je niet meer meedoet?",
+      "footer": {
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
+      }
+    },
+    "attendingBtnLabel": "Ik doe mee",
+    "unattendingBtnLabel": "Ik doe niet mee"
+  },
 
-  "Game not found": "Spel niet gevonden",
-  "Help us to improve the app": "Help ons de app te verbeteren",
-  "Do you join?": "Doe je mee?",
+  "playersListScreen": {
+    "navigation": {
+      "title": "Deelnemers"
+    }
+  },
 
-  "Oops, something went wrong": "Oeps, er is iets mis gegaan",
+  "playersTabs": {
+    "attending": "Aanwezig",
+    "declined": "Afwezig"
+  },
 
-  "Activities": "Activiteiten",
+  "playerRow": {
+    "signedUpOn": "Aangemeld op",
+    "signedOutOn": "Afgemeld op"
+  },
 
-  "Filter on type of sport" : "Filter op type sport",
-  "All sports": "Alle sporten",
+  "adminMenu": {
+    "edit": "Bewerk activiteit",
+    "cancel": "Annuleer activiteit"
+  },
 
-  "Other": "Overig",
-  "Cancel activity": "Annuleer activiteit",
-  "Cancel this activity": "Annuleer deze activiteit",
-  "Cancellation reason": "Reden van annuleren",
-  "Edit activity": "Bewerk activiteit",
-  "All attendees will receive an email update with your reason for cancellation": "Alle aanwezigen ontvangen een update per mail met jouw reden van annuleren",
-  "Write here why the activity does not continue": "Schrijf hier waarom de activiteit niet doorgaat",
-  "The activity is cancelled": "Je activiteit is geannuleerd",
-  "Canceled": "Geannuleerd",
-  "This activity is canceled": "Deze activiteit is geannuleerd",
-  "minutes": "minuten",
-  "hours": "uur",
-  "Undetermined": "Onbepaald",
-  "Choose amount players": "Kies aantal spelers",
-  "Are you 100% sure": "Weet je het 100% zeker",
-  "All attendees will receive an email with your reason for cancellation": "Alle aanwezigen ontvangen een email met jouw rede van annuleren",
-  "Back": "Terug",
-  "Hell yes": "Jazeker",
-  "Cancel": "Annuleer",
-  "Ok": "Ok",
-  "Spot": "Spot",
-  "Edit presence": "Wijzigen aanwezigheid",
-  "invite via": "uitnodigen via",
-  "Close": "Sluit",
-  "Description": "Beschrijving",
-  "during": "voor",
-  "at": "om",
-  "Invite": "Uitnodigen",
-  "Activity name": "Naam activiteit",
-  "Activity details": "Activiteit details",
-  "Date": "Datum",
-  "Start time": "Start tijd",
-  "Duration": "Duur",
-  "Number of players": "Aantal spelers",
-  "The activity has been updated": "De activiteit is aangepast",
-  "All attendees will receive an update email": "All aangemelden ontvangen een update email",
-  "My Spots": "Mijn Spots",
-  "Age": "Leeftijd",
-  "Sports": "Sporten",
-  "Year of birth": "Geboortejaar",
-  "Version": "Versie",
-  "Read more": "Lees meer",
-  "Read less": "Lees minder",
-  "Upload photo": "Foto uploaden",
-  "Write extra details about the activity": "Schrijf hier extra details over de activiteit",
-  "This is a private activity": "Dit is een privéactiviteit",
-  "Title": "Titel",
-  "Select a date-time in the future": "Selecteer een datum-tijd in de toekomst",
-  "No open spots available": "Geen open plekken beschikbaar"
+  "editGameScreen": {
+    "navigation": {
+      "title": "Bewerk activiteit"
+    },
+    "editSuccessModal": {
+      "title": "De activiteit is aangepast",
+      "subtitle": "All aangemelden ontvangen een update email",
+      "okBtnLabel": "Ok"
+    }
+  },
+
+  "editGameForm": {
+    "fields": {
+      "title": {
+        "label": "Naam activiteit",
+        "placeholder": "Titel",
+        "errors": {
+          "required": "Naam is vereist",
+          "tooLong": "Naam is te lang"
+        }
+      },
+      "sport": {
+        "label": "Sport",
+        "placeholder": ""
+      },
+      "date": {
+        "label": "Datum",
+        "placeholder": ""
+      },
+      "time": {
+        "label": "Start tijd",
+        "placeholder": "",
+        "errors": {
+          "pastDateTime": "Selecteer een datum-tijd in de toekomst"
+        }
+      },
+      "duration": {
+        "label": "Duur",
+        "placeholder": ""
+      },
+      "capacity": {
+        "label": "Aantal spelers",
+        "placeholder": "",
+        "errors": {
+          "noFit": "Aantal deelnemers is hoger dan aantal plaatsen"
+        }
+      },
+      "description": {
+        "label": "Activiteit details",
+        "placeholder": "Schrijf hier extra details over de activiteit",
+        "errors": {
+          "tooLong": "Beschrijving is te lang"
+        }
+      },
+      "isPublic": {
+        "label": "Dit is een privéactiviteit"
+      }
+    },
+    "btnLabel": "Opslaan"
+  },
+
+  "cancelGameScreen": {
+    "navigation": {
+      "title": "Annuleer activiteit"
+    },
+    "leaveAlert": {
+      "header": "Bevestigen",
+      "body": "Weet je het zeker dat je terug wil gaan? Aanpassingen worden niet opgeslagen.",
+      "footer": {
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
+      }
+    },
+    "successCancelModal": {
+      "title": "Je activiteit is geannuleerd",
+      "okBtnLabel": "Ok"
+    },
+    "attending": "Aanwezig"
+  },
+
+  "cancelGameForm": {
+    "fields": {
+      "cancelMsg": {
+        "errors": {
+          "tooLong": "Bericht is te lang!"
+        }
+      }
+    },
+    "confirmAlert": {
+      "header": "Bevestigen",
+      "body": "Weet je zeker dat je deze activiteit wilt annuleren?",
+      "footer": {
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
+      }
+    },
+    "attending": "Aanwezig",
+    "alertMsg": "Alle aanwezigen ontvangen een update per mail met jouw reden van annuleren.",
+    "btnLabel": "Annuleer activiteit"
+  },
+
+  "cancelMsg": {
+    "label": "Reden van annuleren",
+    "placeholder": "Schrijf hier waarom de activiteit niet doorgaat"
+  },
+
+  "planGameScreen": {
+    "leaveAlert": {
+      "header": "Bevestigen",
+      "body": "Weet je het zeker dat je terug wil gaan? Aanpassingen worden niet opgeslagen.",
+      "footer": {
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
+      }
+    },
+    "sportDateTimeSlide": {
+      "title": "Plan een activiteit",
+      "footer": {
+        "nextBtnLabel": "Spot",
+        "backBtnLabel": "Terug"
+      },
+      "fields": {
+        "sport": {
+          "prefix": "Ik plan",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "date": {
+          "prefix": "op",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "time": {
+          "prefix": "om",
+          "suffix": "",
+          "label": "",
+          "placeholder": "",
+          "errors": {
+            "pastDateTime": "Selecteer een datum-tijd in de toekomst"
+          }
+        },
+        "duration": {
+          "prefix": "voor",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "capacity": {
+          "prefix": "met",
+          "suffix": "personen",
+          "label": "",
+          "placeholder": ""
+        }
+      }
+    },
+    "spotSlide": {
+      "title": "Vind een spot",
+      "footer": {
+        "nextBtnLabel": "Beschrijving",
+        "backBtnLabel": "Terug"
+      }
+    },
+    "descriptionSlide": {
+      "title": "Omschrijving",
+      "footer": {
+        "nextBtnLabel": "Uitnodigen",
+        "backBtnLabel": "Terug"
+      },
+      "fields": {
+        "title": {
+          "prefix": "",
+          "suffix": "",
+          "label": "Titel",
+          "placeholder": "Titel",
+          "defaultValue": "%{username}'s game"
+        },
+        "description": {
+          "prefix": "",
+          "suffix": "",
+          "label": "Beschrijving",
+          "placeholder": "Schrijf hier extra details over de activiteit",
+          "errors": {
+            "required": "",
+            "tooShort": "",
+            "tooLong": "Beschrijving is te lang"
+          }
+        }
+      }
+    }
+  },
+
+  "shareGameScreen": {
+    "leaveAlert": {
+      "header": "Bevestigen",
+      "body": "Weet je zeker dat je deze activiteit wilt annuleren?",
+      "footer": {
+        "okBtnLabel": "Ja",
+        "cancelBtnLabel": "Nee"
+      }
+    },
+    "title": "Activiteit gecreeerd!",
+    "footer": {
+      "nextBtnLabel": "Sluit",
+      "backBtnLabel": ""
+    },
+    "invite": "Deel deze activiteit"
+  },
+
+  "inviteOnly": {
+    "checkboxLabel": "Dit is event is alleen op uitnodiging"
+  },
+
+  "sportPickerField": {
+    "defaultValue": "Kies"
+  },
+
+  "sportPickerModal": {
+    "header": "Kies sport"
+  },
+
+  "datePickerField": {
+    "defaultValue": "Kies"
+  },
+
+  "datePickerModal": {
+    "header": "Kies een datum",
+    "footer": {
+      "okBtnLabel": "Ok",
+      "cancelBtnLabel": "Annuleer"
+    }
+  },
+
+  "timePickerField": {
+    "defaultValue": "Kies"
+  },
+
+  "durationPickerField": {
+    "minutes": "minuten",
+    "hours": "uur"
+  },
+
+  "capacityPickerModal": {
+    "header": "Kies aantal spelers",
+    "footer": {
+      "okBtnLabel": "Ok",
+      "cancelBtnLabel": "Annuleer"
+    }
+  },
+
+  "spotPickerModal": {
+    "header": "Kies een locatie"
+  },
+
+  "loggedOutScreen": {
+    "navigation": {
+      "title": "Aanmelden"
+    },
+    "title": "Aanmelden!",
+    "subtitle": "Meld je aan om te beginnen met sporten",
+    "signupBtnLabel": "Registreren",
+    "loginLink": "Heb je al een account? Log in"
+  },
+
+  "loginScreen": {
+    "navigation": {
+      "title": "Leuk je weer te zien!"
+    }
+  },
+
+  "loginForm": {
+    "fields": {
+      "email": {
+        "label": "E-mail",
+        "placeholder": "",
+        "errors": {
+          "required": "E-mailadres is vereist",
+          "invalid": "Vul een geldig e-mailadres in",
+          "tooLong": "E-mailadres is te lang",
+          "wrongCredentials": "Geen geldige e-mail of wachtwoord",
+          "unknown": "Iets slecht is gebeurd"
+        }
+      },
+      "password": {
+        "label": "Wachtwoord",
+        "placeholder": "",
+        "errors": {
+          "required": "Wachtwoord is vereist",
+          "tooLong": "Wachtwoord is te lang"
+        }
+      }
+    },
+    "btnLabel": "Log in"
+  },
+
+  "signupScreen": {
+    "navigation": {
+      "title": "Aanmelden"
+    }
+  },
+
+  "signupForm": {
+    "fields": {
+      "firstName": {
+        "label": "Voornaam",
+        "placeholder": "",
+        "errors": {
+          "required": "Voornaam is vereist",
+          "tooLong": "Voornaam is te lang"
+        }
+      },
+      "lastName": {
+        "label": "Achternaam",
+        "placeholder": "",
+        "errors": {
+          "required": "Achternaam is vereist",
+          "tooLong": "Achternaam is te lang"
+        }
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "",
+        "errors": {
+          "required": "E-mailadres is vereist",
+          "invalid": "Vul een geldig e-mailadres in",
+          "tooLong": "E-mailadres is te lang",
+          "inUse": "E-mailadres in gebruik"
+        }
+      },
+      "password": {
+        "label": "Wachtwoord",
+        "placeholder": "",
+        "errors": {
+          "required": "Wachtwoord is vereist",
+          "tooLong": "Wachtwoord is te lang",
+          "tooShort": "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
+          "tooCommon": "Wachtwoord is niet uniek genoeg",
+          "numeric": "Wachtwoord mag niet alleen uit getallen bestaan",
+          "unknown": "Iets slecht is gebeurd"
+        }
+      }
+    },
+    "terms": {
+      "prefix": "Door je aan te melden ga je akkoord met de",
+      "link": "Algemene voorwaarden"
+    },
+    "btnLabel": "Sign up"
+  },
+
+  "connectionCheck": {
+    "noConnection": "Geen connectie"
+  },
+
+  "darkFooter": {
+    "nextBtnLabel": "doorgaan",
+    "backBtnLabel": "terug"
+  },
+
+  "shareGameButton": {
+    "msg": "Je bent uitgenodigd om mee te doen met een potje op SportySpots:",
+    "dialogTitle": "delen"
+  },
+
+  "profileTabs": {
+    "spots": "Mijn Spots",
+    "activities": "Mijn activiteiten"
+  },
+
+  "userSpots": {
+    "noSpots": "Geen spots gevonden..."
+  },
+
+  "askLocationScreen": {
+    "title": "Locatie delen",
+    "subtitle": "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
+    "nextBtnLabel": "doorgaan"
+  },
+
+  "OnboardingScreen": {
+    "hiSporter": {
+      "title": "Hoi sporter!",
+      "text": "Leuk dat je meedoet met SportySpots. Veel plezier met sporten!"
+    },
+    "joinGame": {
+      "title": "Ontdek en doe mee",
+      "text": "Ontdek sportplekken en activiteiten bij jou in de de buurt."
+    },
+    "planGame": {
+      "title": "Plan een potje",
+      "text": "Plan je favoriete sport op de perfecte plek met je vrienden of andere sporters."
+    },
+    "nextBtnLabel": "doorgaan",
+    "lastBtnLabel": "let's go"
+  },
+
+  "queryCatchErrors": {
+    "errorMsg": "Oeps, er is iets mis gegaan"
+  }
 }

@@ -15,10 +15,10 @@ const CancelMsg = ({
   <TextField
     value={value}
     onChangeText={onChangeText}
-    label={I18n.t('Cancellation reason')}
+    label={I18n.t('cancelMsg.label')}
     error={error}
     multiline
-    placeholder={I18n.t('Write here why the activity does not continue')}
+    placeholder={I18n.t('cancelMsg.placeholder')}
     {...rest}
   />
 );

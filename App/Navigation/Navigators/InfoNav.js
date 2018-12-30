@@ -10,7 +10,7 @@ const InfoNav = createStackNavigator({
   InfoScreen: {
     screen: InfoScreen,
     navigationOptions: () => ({
-      headerTitle: I18n.t('Info'),
+      headerTitle: I18n.t('infoScreen.title'),
       headerTitleStyle,
     }),
   },

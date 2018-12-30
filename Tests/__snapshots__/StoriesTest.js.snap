@@ -10,8 +10,6 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
 
 exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white theme 1`] = `null`;
 
-exports[`Storyshots Basic components FlatButton 1`] = `null`;
-
 exports[`Storyshots Common.AlertMsg AlertMsg error 1`] = `null`;
 
 exports[`Storyshots Common.AlertMsg AlertMsg info 1`] = `null`;

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Linking, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../../Themes/Colors';
 import Fonts from '../../../Themes/Fonts';
 import Row from '../Row';
@@ -14,11 +15,13 @@ const Link = ({
   text,
   href,
   color,
+  iconSet,
   iconName,
   size,
   underline,
 }) => {
   const TextSize = Text[size];
+  const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
     <TouchableOpacity onPress={() => { Linking.openURL(href); }}>
@@ -52,6 +55,7 @@ Link.propTypes = {
   text: PropTypes.string,
   href: PropTypes.string,
   color: PropTypes.string,
+  iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
   iconName: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
   underline: PropTypes.bool,
@@ -61,6 +65,7 @@ Link.defaultProps = {
   text: '',
   href: '',
   color: 'black',
+  iconSet: 'MaterialIcon',
   iconName: '',
   size: 'M',
   underline: false,

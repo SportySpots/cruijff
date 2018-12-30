@@ -40,11 +40,18 @@ class RSVPButtons extends React.PureComponent {
 
   openAlert = () => {
     Alert.alert(
-      I18n.t('Confirm'),
-      I18n.t('Are you sure you want to stop attending?'),
+      I18n.t('rsvpButtons.leaveAlert.header'),
+      I18n.t('rsvpButtons.leaveAlert.body'),
       [
-        { text: I18n.t('No'), onPress: () => { console.log('Cancel Pressed'); }, style: 'cancel' },
-        { text: I18n.t('Yes'), onPress: () => { this.handlePress(RSVP_STATUSES.DECLINED); } },
+        {
+          text: I18n.t('rsvpButtons.leaveAlert.footer.cancelBtnLabel'),
+          onPress: () => {},
+          style: 'cancel',
+        },
+        {
+          text: I18n.t('rsvpButtons.leaveAlert.footer.okBtnLabel'),
+          onPress: () => { this.handlePress(RSVP_STATUSES.DECLINED); },
+        },
       ],
     );
   }
@@ -59,7 +66,7 @@ class RSVPButtons extends React.PureComponent {
           <RaisedButton
             style={{ flex: 1 }}
             variant="primary"
-            label={I18n.t("I'm attending")}
+            label={I18n.t('rsvpButtons.attendingBtnLabel')}
             disabled={disabled}
             onPress={() => {
               this.handlePress(RSVP_STATUSES.ATTENDING);
@@ -69,7 +76,7 @@ class RSVPButtons extends React.PureComponent {
           <RaisedButton
             style={{ flex: 1 }}
             variant="warning"
-            label={I18n.t("I'm not attending")}
+            label={I18n.t('rsvpButtons.unattendingBtnLabel')}
             disabled={disabled}
             onPress={() => {
               this.handlePress(RSVP_STATUSES.DECLINED);
@@ -87,7 +94,7 @@ class RSVPButtons extends React.PureComponent {
         <RaisedButton
           style={{ flex: 1 }}
           variant="ghost"
-          label={I18n.t("I'm not attending")}
+          label={I18n.t('rsvpButtons.unattendingBtnLabel')}
           disabled={disabled}
           onPress={this.openAlert}
         />
@@ -99,7 +106,7 @@ class RSVPButtons extends React.PureComponent {
       <RaisedButton
         style={{ flex: 1 }}
         variant="primary"
-        label={I18n.t("I'm attending")}
+        label={I18n.t('rsvpButtons.attendingBtnLabel')}
         disabled={disabled}
         onPress={() => {
           this.handlePress(RSVP_STATUSES.ATTENDING);

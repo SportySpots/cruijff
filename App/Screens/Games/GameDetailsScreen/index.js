@@ -49,7 +49,7 @@ class GameDetailsScreen extends React.PureComponent {
 
   handleAttendeesPress = () => {
     const { navigation } = this.props;
-    navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
+    navigation.navigate('GamePlayersScreen', { uuid: this.gameUUID });
   }
 
   handleRSVPLoggedOut = () => {
@@ -77,7 +77,7 @@ class GameDetailsScreen extends React.PureComponent {
             return (
               <NothingFound
                 icon="calendar-plus"
-                text={I18n.t('Game not found')}
+                text={I18n.t('gameDetailsScreen.notFound')}
               />
             );
           }

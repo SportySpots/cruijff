@@ -24,8 +24,8 @@ const DescriptionSlide = ({
       <Spacer size="XL" />
       <TextField
         // testID="title"
-        label={I18n.t('Title')}
-        placeholder={I18n.t('Title')}
+        label={I18n.t('planGameScreen.descriptionSlide.fields.title.label')}
+        placeholder={I18n.t('planGameScreen.descriptionSlide.fields.title.placeholder')}
         value={title}
         // characterRestriction={titleMaxChars}
         onChangeText={(value) => { onChange({ fieldName: 'title', value }); }}
@@ -35,18 +35,19 @@ const DescriptionSlide = ({
       <Spacer size="XL" />
       <TextField
         testID="description"
-        label={I18n.t('Description')}
-        placeholder={I18n.t('Write extra details about the activity')}
+        label={I18n.t('planGameScreen.descriptionSlide.fields.description.label')}
+        placeholder={I18n.t('planGameScreen.descriptionSlide.fields.description.placeholder')}
         value={description}
         error={descriptionErrors}
         multiline
+        autoFocus
         characterRestriction={descriptionMaxChars}
         onChangeText={(value) => { onChange({ fieldName: 'description', value }); }}
         theme="white"
       />
     </ScrollView>
   );
-}
+};
 
 DescriptionSlide.propTypes = {
   title: PropTypes.string.isRequired,

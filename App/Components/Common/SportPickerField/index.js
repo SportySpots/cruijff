@@ -16,7 +16,7 @@ const SportPickerField = ({ value, onChange, ...rest }) => (
       <InputField
         key="input-field"
         comp="TextField"
-        value={(value && (I18n.t(value.name) || I18n.t(value.category))) || I18n.t('Select')}
+        value={(value && (I18n.t(value.name) || I18n.t(value.category))) || I18n.t('sportPickerField.defaultValue')}
         onPress={openModal}
         {...rest}
       />,

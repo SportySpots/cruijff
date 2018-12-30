@@ -76,18 +76,18 @@ class LoginForm extends React.PureComponent {
     const _email = email && email.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_email) {
-      errors.email.push('Email is required');
+      errors.email.push('loginForm.fields.email.errors.required');
     } else if (!isEmail(_email)) {
-      errors.email.push('Please provide a valid email address');
+      errors.email.push('loginForm.fields.email.errors.invalid');
     } else if (_email.length > MAX_CHARS) {
-      errors.email.push('Email is too long');
+      errors.email.push('loginForm.fields.email.errors.tooLong');
     }
 
     // Don't sanitize password
     if (!password || password.length === 0) {
-      errors.password.push('Password is required');
+      errors.password.push('loginForm.fields.password.errors.required');
     } else if (password.length > MAX_CHARS) {
-      errors.password.push('Password is too long');
+      errors.password.push('loginForm.fields.password.errors.tooLong');
     }
 
     return errors;
@@ -145,7 +145,7 @@ class LoginForm extends React.PureComponent {
         <Block midHeight>
           <TextField
             testID="loginInputEmail"
-            label={I18n.t('E-mail')}
+            label={I18n.t('loginForm.fields.email.label')}
             value={email}
             error={emailErrors}
             size="ML"
@@ -160,7 +160,7 @@ class LoginForm extends React.PureComponent {
         <Block midHeight>
           <TextField
             testID="loginInputPassword"
-            label={I18n.t('Password')}
+            label={I18n.t('loginForm.fields.password.label')}
             value={password}
             error={passwordErrors}
             size="ML"
@@ -176,7 +176,7 @@ class LoginForm extends React.PureComponent {
         <RaisedButton
           testID="loginSubmitButton"
           variant="default"
-          label={I18n.t('Login')}
+          label={I18n.t('loginForm.btnLabel')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />

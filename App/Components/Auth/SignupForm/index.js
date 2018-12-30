@@ -115,36 +115,36 @@ class SignupForm extends React.PureComponent {
     const _firstName = firstName && firstName.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_firstName) {
-      errors.firstName.push('First name is required');
+      errors.firstName.push('signupForm.fields.firstName.errors.required');
     } else if (_firstName.length > MAX_CHARS) {
-      errors.firstName.push('First name is too long');
+      errors.firstName.push('signupForm.fields.firstName.errors.tooLong');
     }
 
     // Sanitize input
     const _lastName = lastName && lastName.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_lastName) {
-      errors.lastName.push('Last name is required');
+      errors.lastName.push('signupForm.fields.lastName.errors.required');
     } else if (_lastName.length > MAX_CHARS) {
-      errors.lastName.push('Last name is too long');
+      errors.lastName.push('signupForm.fields.lastName.errors.tooLong');
     }
 
     // Sanitize input
     const _email = email && email.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_email) {
-      errors.email.push('Email is required');
+      errors.email.push('signupForm.fields.email.errors.required');
     } else if (!isEmail(_email)) {
-      errors.email.push('Please provide a valid email address');
+      errors.email.push('signupForm.fields.email.errors.invalid');
     } else if (_email.length > MAX_CHARS) {
-      errors.email.push('Email is too long');
+      errors.email.push('signupForm.fields.email.errors.tooLong');
     }
 
     // Don't sanitize password
     if (!password || password.length === 0) {
-      errors.password.push('Password is required');
+      errors.password.push('signupForm.fields.password.errors.required');
     } else if (password.length > MAX_CHARS) {
-      errors.password.push('Password is too long');
+      errors.password.push('signupForm.fields.password.errors.tooLong');
     }
 
     return errors;
@@ -222,7 +222,7 @@ class SignupForm extends React.PureComponent {
         >
           <TextField
             testID="signupFieldFirstName"
-            label={I18n.t('First name')}
+            label={I18n.t('signupForm.fields.firstName.label')}
             value={firstName}
             error={firstNameErrors}
             size="ML"
@@ -239,7 +239,7 @@ class SignupForm extends React.PureComponent {
         >
           <TextField
             testID="signupFieldLastName"
-            label={I18n.t('Last name')}
+            label={I18n.t('signupForm.fields.lastName.label')}
             value={lastName}
             error={lastNameErrors}
             size="ML"
@@ -255,7 +255,7 @@ class SignupForm extends React.PureComponent {
         >
           <TextField
             testID="signupFieldEmail"
-            label={I18n.t('E-mail')}
+            label={I18n.t('signupForm.fields.email.label')}
             value={email}
             error={emailErrors}
             size="ML"
@@ -272,7 +272,7 @@ class SignupForm extends React.PureComponent {
         >
           <TextField
             testID="signupFieldPassword"
-            label={I18n.t('Password')}
+            label={I18n.t('signupForm.fields.password.label')}
             value={password}
             error={passwordErrors}
             size="ML"
@@ -285,10 +285,10 @@ class SignupForm extends React.PureComponent {
         </Block>
         <Block>
           <Text.M style={{ color: Colors.black }}>
-            {I18n.t('By signing up, you are agreeing to the')}
+            {I18n.t('signupForm.terms.prefix')}
           </Text.M>
           <Link
-            text={I18n.t('Terms and conditions')}
+            text={I18n.t('signupForm.terms.link')}
             href="https://www.sportyspots.com/terms.html"
             color={Colors.actionYellow}
             underline
@@ -299,7 +299,7 @@ class SignupForm extends React.PureComponent {
         <RaisedButton
           testID="signupButtonSubmit"
           variant="default"
-          label={I18n.t('Signup')}
+          label={I18n.t('signupForm.btnLabel')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />

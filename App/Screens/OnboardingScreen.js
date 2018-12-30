@@ -8,18 +8,18 @@ import globalRefs from '../globalRefs';
 
 const data = [
   {
-    title: I18n.t('hi-sport'),
-    text: I18n.t('onboarding-1'),
+    title: I18n.t('OnboardingScreen.hiSporter.title'),
+    text: I18n.t('OnboardingScreen.hiSporter.text'),
     image: Images.illustrationWizard1,
   },
   {
-    title: I18n.t('join-a-game'),
-    text: I18n.t('onboarding-2'),
+    title: I18n.t('OnboardingScreen.joinGame.title'),
+    text: I18n.t('OnboardingScreen.joinGame.text'),
     image: Images.illustrationWizard2,
   },
   {
-    title: I18n.t('plan-a-game'),
-    text: I18n.t('onboarding-3'),
+    title: I18n.t('OnboardingScreen.planGame.title'),
+    text: I18n.t('OnboardingScreen.planGame.text'),
     image: Images.illustrationWizard3,
   },
 ];
@@ -37,7 +37,7 @@ class OnboardingScreen extends React.Component {
         data={data}
         style={{ flex: 1 }}
         renderItem={({ item }) => <Onboarding {...item} />}
-        footerText={(item, index) => I18n.t(index < data.length - 1 ? 'continue' : 'lets go')}
+        footerText={(item, index) => I18n.t(index < data.length - 1 ? 'OnboardingScreen.nextBtnLabel' : 'OnboardingScreen.lastBtnLabel')}
         onDone={onSuccessHook}
       />
     );

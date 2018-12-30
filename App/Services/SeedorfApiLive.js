@@ -78,6 +78,10 @@ const create = () => {
     api.patch(`/users/${userUUID}/profile/${userProfileUUID}/`, { avatar })
   );
 
+  const updateUserLanguage = ({ userUUID, userProfileUUID, language }) => (
+    api.patch(`/users/${userUUID}/profile/${userProfileUUID}/`, { language })
+  );
+
   const submitRating = ({ spotUUID, userUUUID, rating }) => (
     api.post(`/games/${spotUUID}/reactions`, {
       // todo : construct proper post
@@ -213,6 +217,7 @@ const create = () => {
     login,
     updateUserName,
     updateUserAvatar,
+    updateUserLanguage,
     submitRating,
     verifyToken,
     setRSVPStatus,

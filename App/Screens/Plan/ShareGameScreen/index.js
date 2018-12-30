@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Alert,
+  // Alert,
   Keyboard,
   Platform,
   BackHandler,
 } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
-import I18n from '../../../I18n';
+// import I18n from '../../../I18n';
 import FormProps from '../../../RenderProps/form-props';
 import ShareGameApiCall from '../../../Components/PlanGame/ShareGameApiCall';
 import ShareGameForm from '../../../Components/PlanGame/ShareGameForm';
@@ -34,22 +34,31 @@ class ShareGameScreen extends React.Component {
 
     const { navigation } = this.props;
 
-    Alert.alert(
-      I18n.t('Confirm'),
-      I18n.t('Are you sure you want to cancel this game?'),
-      [
-        { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
-        {
-          text: I18n.t('Yes'),
-          onPress: () => {
-            // Go back to the beginning of the stack
-            navigation.popToTop();
-            // Go back to main tabs navigation
-            navigation.goBack(null);
-          },
-        },
-      ],
-    );
+    // Go back to the beginning of the stack
+    navigation.popToTop();
+    // Go back to main tabs navigation
+    navigation.goBack(null);
+
+    // Alert.alert(
+    //   I18n.t('shareGameScreen.leaveAlert.header'),
+    //   I18n.t('shareGameScreen.leaveAlert.body'),
+    //   [
+    //     {
+    //       text: I18n.t('shareGameScreen.leaveAlert.footer.cancelBtnLabel'),
+    //       onPress: () => null,
+    //       style: 'cancel',
+    //     },
+    //     {
+    //       text: I18n.t('shareGameScreen.leaveAlert.footer.okBtnLabel'),
+    //       onPress: () => {
+    //         // Go back to the beginning of the stack
+    //         navigation.popToTop();
+    //         // Go back to main tabs navigation
+    //         navigation.goBack(null);
+    //       },
+    //     },
+    //   ],
+    // );
 
     // Need this for android back handler btn to work
     return true;
