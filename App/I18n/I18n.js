@@ -4,11 +4,11 @@ import moment from 'moment';
 import { LocaleConfig } from 'react-native-calendars';
 
 // Set locale based on user/phone settings
-if (getLanguages) {
+try {
   getLanguages().then((langs) => { // langs = ['en-US', 'en']
     I18n.locale = (langs && langs.length > 0 && langs[0]) || 'en';
   });
-} else {
+} catch (e) {
   I18n.locale = 'en';
 }
 
