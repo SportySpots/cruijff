@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard, View } from 'react-native';
+import firebase from 'react-native-firebase';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
 import extend from 'lodash/extend';
@@ -230,6 +231,8 @@ class PlanGameForm extends React.Component {
     Keyboard.dismiss();
 
     const { curSlide } = this.state;
+
+    firebase.analytics().logEvent(`plan_activity_footer_next_btn_press_idx_${curSlide}`);
 
     // Clear previous errors if any
     this.clearErrors();

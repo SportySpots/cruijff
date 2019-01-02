@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import firebase from 'react-native-firebase';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import I18n from '../../../I18n';
@@ -49,6 +50,8 @@ class ShareGameForm extends React.PureComponent {
       // onClientErrorHook,
       onSuccessHook,
     } = this.props;
+
+    firebase.analytics().logEvent('share_activity_footer_next_btn_press');
 
     // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
     // value to 'true' so that the user cannot re-submit the form

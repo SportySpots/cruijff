@@ -6,12 +6,13 @@ import codePush from 'react-native-code-push';
 import { ApolloProvider } from 'react-apollo';
 
 import { StatusBar, Linking } from 'react-native';
+import firebase from 'react-native-firebase';
 import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components';
 import config from './config';
 import { createClient, createMockClient } from './GraphQL';
 import ConnectionCheck from './Components/Common/ConnectionCheck';
-import AppNavigation from './Navigation/AppNavigation';
+import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
 import { UserProvider } from './Context/User';
@@ -25,6 +26,15 @@ import Colors from './Themes/Colors';
 class App extends Component {
   constructor() {
     super();
+    (async () => {
+      try {
+        const fcmToken = await firebase.messaging().getToken();
+        console.log('fcmToken', fcmToken);
+        // User has authorised
+      } catch (error) {
+        // User has rejected permissions
+      }
+    })();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
     this.state = { hasInitialized: false };
 
@@ -94,7 +104,21 @@ class App extends Component {
                 <AppRootView>
                   <StatusBar barStyle="light-content" />
                   <ConnectionCheck />
-                  <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
+                  <AppNavigation
+                    ref={(ref) => {
+                      this.router = ref;
+                      globalRefs.rootNavigator = ref;
+                    }}
+                    initialRouteName="RootNav"
+                    // See: https://reactnavigation.org/docs/en/screen-tracking.html
+                    onNavigationStateChange={(prevState, currState) => {
+                      const currScreen = getActiveRouteName(currState);
+                      const prevScreen = getActiveRouteName(prevState);
+                      if (prevScreen !== currScreen) {
+                        firebase.analytics().setCurrentScreen(currScreen);
+                      }
+                    }}
+                  />
                 </AppRootView>
               </MenuProvider>
             </LocationProvider>
