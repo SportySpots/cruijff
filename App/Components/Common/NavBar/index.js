@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
+import firebase from 'react-native-firebase';
 // import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -91,6 +92,7 @@ class NavBar extends React.Component {
   handlePress = (btn) => {
     const { navigation } = this.props;
     if (this.curRoute !== btn.route) {
+      firebase.analytics().logEvent(`navbar_btn_press_${btn.route}`);
       // Go back to the begining of the stack
       navigation.popToTop();
       // Jump to the requested route.

@@ -6,12 +6,13 @@ import codePush from 'react-native-code-push';
 import { ApolloProvider } from 'react-apollo';
 
 import { StatusBar, Linking } from 'react-native';
+import firebase from 'react-native-firebase';
 import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components';
 import config from './config';
 import { createClient, createMockClient } from './GraphQL';
 import ConnectionCheck from './Components/Common/ConnectionCheck';
-import AppNavigation from './Navigation/AppNavigation';
+import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
 import { UserProvider } from './Context/User';
@@ -21,8 +22,6 @@ import globalRefs, { addGlobalRef } from './globalRefs';
 import { setupDetoxConnection } from './detoxHelpers';
 
 import Colors from './Themes/Colors';
-import firebase from 'react-native-firebase';
-
 
 class App extends Component {
   constructor() {
@@ -105,7 +104,21 @@ class App extends Component {
                 <AppRootView>
                   <StatusBar barStyle="light-content" />
                   <ConnectionCheck />
-                  <AppNavigation ref={(ref) => { this.router = ref; globalRefs.rootNavigator = ref; }} initialRouteName="RootNav" />
+                  <AppNavigation
+                    ref={(ref) => {
+                      this.router = ref;
+                      globalRefs.rootNavigator = ref;
+                    }}
+                    initialRouteName="RootNav"
+                    // See: https://reactnavigation.org/docs/en/screen-tracking.html
+                    onNavigationStateChange={(prevState, currState) => {
+                      const currScreen = getActiveRouteName(currState);
+                      const prevScreen = getActiveRouteName(prevState);
+                      if (prevScreen !== currScreen) {
+                        firebase.analytics().setCurrentScreen(currScreen);
+                      }
+                    }}
+                  />
                 </AppRootView>
               </MenuProvider>
             </LocationProvider>

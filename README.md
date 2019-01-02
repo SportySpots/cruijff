@@ -246,3 +246,19 @@ Convery base64 key to binary key
 ```bash
 openssl base64 -d -A -in symmetric_base64_key.key -out symmetric_binary_key.key
 ```
+
+### Firebase
+
+1. download google-services.json from Firebase project and add it to /android/app/
+2. enable debug mode and logs:
+```
+>> adb shell setprop debug.firebase.analytics.app io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage
+>> adb shell setprop log.tag.FA VERBOSE
+>> adb shell setprop log.tag.FA-SVC VERBOSE
+>> adb logcat -v time -s FA FA-SVC
+```
+
+This behavior persists until you explicitly disable Debug mode by executing the following command:
+```
+adb shell setprop debug.firebase.analytics.app .none.
+```
