@@ -17,6 +17,8 @@
 
 #import "RCTLinkingManager.h"
 
+#import <Firebase.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -31,7 +33,8 @@
 
   [AppCenterReactNative register];  // Initialize AppCenter
 
-
+  [FIRApp configure];
+  
     #ifdef DEBUG
         jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
     #else
