@@ -15,4 +15,4 @@ function toTitleCase(str) {
     .join(' ');
 }
 
-String.prototype.toTitleCase = toTitleCase; // eslint-disable-line
+String.prototype.toTitleCase = toTitleCase; // eslint-disable-line no-extend-native
