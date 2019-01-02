@@ -128,10 +128,10 @@ class EditGameScreen extends React.PureComponent {
                   key="modal"
                   modalComponent="ConfirmModal"
                   src={themeImages.activitySuccessVisual}
-                  title={I18n.t('The activity has been updated')}
-                  subtitle={I18n.t('All attendees will receive an update email')}
+                  title={I18n.t('editGameScreen.editSuccessModal.title')}
+                  subtitle={I18n.t('editGameScreen.editSuccessModal.subtitle')}
                   visible={editDoneModal.isVisible}
-                  okBtnLabel={I18n.t('Ok')}
+                  okBtnLabel={I18n.t('editGameScreen.editSuccessModal.okBtnLabel')}
                   onClose={handleModalClose}
                   onOk={handleModalClose}
                 />,

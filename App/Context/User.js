@@ -5,6 +5,7 @@ import { AsyncStorage } from 'react-native';
 import { Buffer } from 'buffer';
 import SeedorfAPI from '../Services/SeedorfApi';
 import { client } from '../GraphQL';
+import I18n from '../I18n';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
@@ -63,7 +64,7 @@ export class UserProvider extends React.Component {
     this.logout();
   }
 
-  refresh = async () => {
+  queryUser = async () => {
     const token = await AsyncStorage.getItem('TOKEN');
     const claims = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
     const { uuid } = claims;
@@ -72,7 +73,30 @@ export class UserProvider extends React.Component {
       query: GET_USER_DETAILS,
       variables: { uuid },
     });
-    this.setState({ user: queryResult.data.user });
+    return queryResult.data.user;
+  }
+
+  refresh = async () => {
+    const user = await this.queryUser();
+    this.setState({ user });
+  }
+
+  setUserLanguage = async () => {
+    const user = await this.queryUser();
+    // console.log('SET USER LANG!!!!');
+    // console.log('user.uuid', user.uuid);
+    // console.log('user.profile.uuid', user.profile.uuid);
+    // console.log('I18n.locale', I18n.locale);
+    try {
+      const res = await SeedorfAPI.updateUserLanguage({
+        userUUID: user.uuid,
+        userProfileUUID: user.profile.uuid,
+        language: I18n.locale.substr(0, 2),
+      });
+      console.log('RESPONSE SET LANG', res);
+    } catch (exc) {
+      console.log(exc);
+    }
   }
 
   signup = async ({
@@ -88,6 +112,7 @@ export class UserProvider extends React.Component {
     if (result.ok) {
       await setToken(result.data.token);
       await this.refresh();
+      await this.setUserLanguage();
     }
     return result;
   }

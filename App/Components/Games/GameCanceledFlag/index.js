@@ -29,7 +29,7 @@ const WhiteText = styled(Text.M)`
 const GameCanceledFlag = () => (
   <Outer>
     <Inner>
-      <WhiteText>{I18n.t('Canceled')}</WhiteText>
+      <WhiteText>{I18n.t('gameCanceledFlag.text')}</WhiteText>
     </Inner>
   </Outer>
 );

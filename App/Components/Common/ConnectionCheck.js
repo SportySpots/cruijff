@@ -35,7 +35,7 @@ class ConnectionCheck extends React.Component {
 
     return (
       <View>
-        <Text>{I18n.t('No connection')}</Text>
+        <Text>{I18n.t('connectionCheck.noConnection')}</Text>
       </View>
     );
   }

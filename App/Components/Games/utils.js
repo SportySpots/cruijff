@@ -11,4 +11,3 @@ export const mapMax = (maxNum, data, fn, fnElse) => {
   returnArr.push(fnElse());
   return returnArr;
 };
-

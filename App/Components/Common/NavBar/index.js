@@ -21,33 +21,35 @@ const Container = styled.View`
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const buttons = [{
-  id: 'find',
-  label: 'find',
+  id: 'spots',
+  label: 'navBar.spots',
   route: 'SpotSearchTab',
   icon: {
     set: MaterialIcon,
     name: 'search',
+    // name: 'place',
   },
 }, {
-  id: 'join',
-  label: 'join',
+  id: 'activities',
+  label: 'navBar.activities',
   route: 'GameSearchTab',
   icon: {
-    set: MaterialIcon,
-    name: 'flag',
+    set: MaterialCommunityIcon,
+    name: 'account-group',
   },
 }, {
   id: 'organize',
   main: true,
-  label: 'Organize',
+  label: 'navBar.organize',
   route: 'PlanScreen',
   icon: {
     set: MaterialCommunityIcon,
-    name: 'plus-box',
+    name: 'soccer-field',
+    // name: 'calendar-plus',
   },
 }, {
   id: 'profile',
-  label: 'profile',
+  label: 'navBar.profile',
   route: 'ProfileTab',
   icon: {
     set: MaterialIcon,
@@ -55,7 +57,7 @@ const buttons = [{
   },
 }, {
   id: 'info',
-  label: 'info',
+  label: 'navBar.info',
   route: 'InfoTab',
   icon: {
     set: MaterialIcon,

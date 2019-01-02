@@ -123,7 +123,7 @@ class AvatarPickerForm extends React.PureComponent {
       <RaisedButton
         key="button"
         variant="ghost"
-        label={I18n.t('Upload photo')}
+        label={I18n.t('avatarPickerForm.btnLabel')}
         disabled={disabled}
         onPress={this.handleUpload}
       />,

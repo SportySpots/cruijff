@@ -14,7 +14,7 @@ const GameSearchNav = createStackNavigator({
   GamesListScreen: {
     screen: GamesListScreen,
     navigationOptions: () => ({
-      headerTitle: I18n.t('Find a game'),
+      headerTitle: I18n.t('gamesListScreen.navigation.title'),
       headerTitleStyle,
     }),
   },

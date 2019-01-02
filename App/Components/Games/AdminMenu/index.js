@@ -31,12 +31,12 @@ class AdminMenu extends React.PureComponent {
     const OPTIONS = [
       {
         id: 'edit',
-        text: I18n.t('Edit activity'),
+        text: I18n.t('adminMenu.edit'),
         onPress: this.handleEdit,
       },
       {
         id: 'cancel',
-        text: I18n.t('Cancel activity'),
+        text: I18n.t('adminMenu.cancel'),
         danger: true,
         onPress: this.handleCancel,
       },

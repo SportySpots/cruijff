@@ -81,11 +81,11 @@ class SpotsFilterForm extends React.PureComponent {
             maximumValue={20}
             value={maxDistance}
             onValueChange={this.handleDistanceChange}
-            label={I18n.t('Location')}
+            label={I18n.t('spotsFilterScreen.slider.label')}
             description={(
               <Row alignItems="flex-end">
                 <Text.SM style={{ color: Colors.gray }}>
-                  {`${I18n.t('Shows spots inside')}:`}
+                  {I18n.t('spotsFilterScreen.slider.description')}
                 </Text.SM>
                 <Spacer row size="S" />
                 <Text.SM style={{ fontWeight: 'bold' }}>
@@ -98,8 +98,8 @@ class SpotsFilterForm extends React.PureComponent {
         <Divider />
         <Block>
           <SwitchWithText
-            label={I18n.t('All sports')}
-            description={I18n.t('Filter on type of sport')}
+            label={I18n.t('spotsFilterScreen.switch.allSports.label')}
+            description={I18n.t('spotsFilterScreen.switch.allSports.description')}
             value={allSports}
             onChange={this.handleAllSportsChange}
           />
@@ -126,7 +126,7 @@ class SpotsFilterForm extends React.PureComponent {
       <BottomLayout key="bottom">
         <RaisedButton
           variant="default"
-          label={I18n.t('View spots')}
+          label={I18n.t('spotsFilterScreen.btnLabel')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />

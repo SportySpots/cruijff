@@ -77,7 +77,7 @@ class ShareGameForm extends React.PureComponent {
       <FullHeight>
         <ClosableLayout
           theme="white"
-          title={`${I18n.t('Activity created')}!`}
+          title={I18n.t('shareGameScreen.title')}
           closable={false}
         >
           <Spacer size="XXXL" />
@@ -88,7 +88,7 @@ class ShareGameForm extends React.PureComponent {
               color={Colors.white}
             />
             <Spacer row size="L" />
-            <Subtitle>{I18n.t('invite via')}</Subtitle>
+            <Subtitle>{I18n.t('shareGameScreen.invite')}</Subtitle>
           </Row>
           <Spacer size="XXL" />
           <ShareGameButton gameUUID={gameUUID} />
@@ -104,7 +104,7 @@ class ShareGameForm extends React.PureComponent {
           onNext={this.handleNext}
           disableNext={disabled}
           showBack={false}
-          buttonNextText={I18n.t('Close')}
+          buttonNextText={I18n.t('shareGameScreen.footer.nextBtnLabel')}
         />
       </FullHeight>
     );

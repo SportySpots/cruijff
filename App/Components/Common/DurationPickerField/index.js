@@ -20,9 +20,10 @@ const DURATION_OPTIONS = [
   // { unit: 'Undetermined', value: '' },
 ];
 //------------------------------------------------------------------------------
-const data = DURATION_OPTIONS.map(({ number, unit, value }) => (
-  { label: number ? `${number} ${I18n.t(unit)}` : I18n.t(unit), value }
-));
+const data = DURATION_OPTIONS.map(({ number, unit, value }) => {
+  const i18nUnit = I18n.t(`durationPickerField.${unit}`);
+  return { label: number ? `${number} ${i18nUnit}` : i18nUnit, value };
+});
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------

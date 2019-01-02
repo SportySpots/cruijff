@@ -51,7 +51,7 @@ const GameDetails = ({
     isCanceled && (
       <Block key="alert-warning">
         <AlertMsg
-          value={`${I18n.t('This activity is canceled')}.`}
+          value={I18n.t('gameDetails.cancelMsg')}
           status="error"
         />
       </Block>
@@ -61,7 +61,7 @@ const GameDetails = ({
     </Block>,
     <SpotMapWithLinkFallback key="spot-map" spot={game.spot} />,
     <Block key="game-organizer">
-      <Label>{I18n.t('Organizer')}</Label>
+      <Label>{I18n.t('gameDetails.organizer')}</Label>
       <Organizer
         organizer={game.organizer}
         description={game.description}
@@ -69,13 +69,13 @@ const GameDetails = ({
     </Block>,
     !!game.description && game.description.length > 0 && [
       <Block key="game-description">
-        <Label>{I18n.t('Description')}</Label>
+        <Label>{I18n.t('gameDetails.description')}</Label>
         <DescriptionReadMore description={game.description} />
       </Block>,
     ],
     attendees.length > 0 && [
       <Block key="game-attendees">
-        <Label>{I18n.t('Attending')}</Label>
+        <Label>{I18n.t('gameDetails.attending')}</Label>
         <ClickableAttendees
           attendees={attendees}
           onAttendeesPress={onAttendeesPress}
@@ -84,11 +84,11 @@ const GameDetails = ({
     ],
     hasCapacity && [
       <Block key="open-spots">
-        <Label>{I18n.t('Open spots')}</Label>
+        <Label>{I18n.t('gameDetails.openSpots')}</Label>
         <OpenSpots game={game} />
         {isFull && (
           <NoOpenSpots>
-            {I18n.t('No open spots available')}
+            {I18n.t('gameDetails.fullMsg')}
           </NoOpenSpots>
         )}
       </Block>,
@@ -96,7 +96,7 @@ const GameDetails = ({
     (!isCanceled && (!isFull || (isFull && userStatus === 'ATTENDING'))) && (
       <Block key="rsvp">
         <Label>
-          {I18n.t(!userStatus ? 'Do you join?' : 'Edit presence')}
+          {I18n.t(!userStatus ? 'gameDetails.join' : 'gameDetails.edit')}
         </Label>
         <RSVP
           gameUUID={game.uuid}
@@ -109,7 +109,7 @@ const GameDetails = ({
       </Block>
     ),
     <Block key="share">
-      <Label>{I18n.t('Share with friends')}</Label>
+      <Label>{I18n.t('gameDetails.share')}</Label>
       <ShareGameButton gameUUID={game.uuid} />
     </Block>,
   ];

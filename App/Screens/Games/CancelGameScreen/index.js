@@ -29,7 +29,7 @@ class CancelGameScreen extends React.PureComponent {
 
   handleAttendeesPress = () => {
     const { navigation } = this.props;
-    navigation.navigate('GamePlayerScreen', { uuid: this.gameUUID });
+    navigation.navigate('GamePlayersScreen', { uuid: this.gameUUID });
   }
 
   render() {
@@ -111,9 +111,9 @@ class CancelGameScreen extends React.PureComponent {
                   key="modal"
                   modalComponent="ConfirmModal"
                   src={themeImages.activityCancelledVisual}
-                  title={I18n.t('The activity is cancelled')}
+                  title={I18n.t('cancelGameScreen.successCancelModal.title')}
                   visible={cancelDoneModal.isVisible}
-                  okBtnLabel={I18n.t('Ok')}
+                  okBtnLabel={I18n.t('cancelGameScreen.successCancelModal.okBtnLabel')}
                   onClose={handleModalClose}
                   onOk={handleModalClose}
                 />,

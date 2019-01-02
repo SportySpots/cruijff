@@ -6,7 +6,7 @@ import GameDetailsScreen from '../../Screens/Games/GameDetailsScreen';
 import CancelGameScreen from '../../Screens/Games/CancelGameScreen';
 import EditGameScreen from '../../Screens/Games/EditGameScreen';
 import SpotDetailsScreen from '../../Screens/Spots/SpotDetailsScreen';
-import PlayerList from '../../Screens/Games/PlayersListScreen';
+import PlayersList from '../../Screens/Games/PlayersListScreen';
 import AdminMenu from '../../Components/Games/AdminMenu';
 import { headerTitleStyle } from './style';
 
@@ -17,11 +17,18 @@ const handleEditGameLeave = (navigation) => {
   Keyboard.dismiss();
 
   Alert.alert(
-    I18n.t('Confirm'),
-    I18n.t('Are you sure you want to leave the edition?'),
+    I18n.t('cancelGameScreen.leaveAlert.header'),
+    I18n.t('cancelGameScreen.leaveAlert.body'),
     [
-      { text: I18n.t('No'), onPress: () => null, style: 'cancel' },
-      { text: I18n.t('Yes'), onPress: () => { navigation.goBack(null); } },
+      {
+        text: I18n.t('cancelGameScreen.leaveAlert.footer.cancelBtnLabel'),
+        onPress: () => null,
+        style: 'cancel',
+      },
+      {
+        text: I18n.t('cancelGameScreen.leaveAlert.footer.okBtnLabel'),
+        onPress: () => { navigation.goBack(null); },
+      },
     ],
   );
 };
@@ -46,7 +53,7 @@ const GameDetailsScreens = {
   SpotDetailsScreen: {
     screen: SpotDetailsScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Spot details'),
+      headerTitle: I18n.t('spotDetailsScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
@@ -54,7 +61,7 @@ const GameDetailsScreens = {
   CancelGameScreen: {
     screen: CancelGameScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Cancel activity'),
+      headerTitle: I18n.t('cancelGameScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
@@ -67,15 +74,15 @@ const GameDetailsScreens = {
       />
     ),
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Edit activity'),
+      headerTitle: I18n.t('editGameScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtnConfirm(navigation),
     }),
   },
-  GamePlayerScreen: {
-    screen: PlayerList,
+  GamePlayersScreen: {
+    screen: PlayersList,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Player list'),
+      headerTitle: I18n.t('playersListScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
@@ -83,7 +90,7 @@ const GameDetailsScreens = {
   GameDetailsScreen: {
     screen: GameDetailsScreen,
     navigationOptions: ({ navigation }) => ({
-      headerTitle: I18n.t('Game details'),
+      headerTitle: I18n.t('gameDetailsScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
       headerRight: <AdminMenu navigation={navigation} />,

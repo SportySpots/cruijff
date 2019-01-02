@@ -4,25 +4,17 @@ import { Query } from 'react-apollo';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components';
 import { withUser, userPropTypes } from '../../../Context/User';
-import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
-import Block from '../../../Components/Common/Block';
 import Text from '../../../Components/Common/Text';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import GamesList from '../../../Components/Games/GamesList';
 import SpotDetails from '../../../Components/Spots/SpotDetails';
-import curatedGames from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled(ScrollView)`
   background-color: ${Colors.concrete};
-`;
-//------------------------------------------------------------------------------
-const GamesContainer = styled.View`
-  padding: 0 8px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -48,31 +40,13 @@ class SpotDetailsScreen extends React.PureComponent {
           if (error) return <Text>{JSON.stringify(error)}</Text>;
           if (!data || !data.spot) return null;
 
-          const { spot } = data;
-          // Filter passed games
-          const games = (spot.games && curatedGames(spot.games)) || [];
-
           return (
             <Container>
               <SpotDetails
-                spot={spot}
+                spot={data.spot}
                 userUUID={(user && user.uuid) || null}
                 onGamePress={this.handleGamePress}
               />
-              <Block>
-                <Text.ML>{I18n.t('Games')}</Text.ML>
-              </Block>
-              <GamesContainer>
-                <GamesList
-                  games={games}
-                  onCardPress={this.handleGamePress}
-                  contentContainerStyle={{
-                    flexGrow: 1, // centers not-found-component
-                    paddingBottom: 8,
-                    minHeight: 200,
-                  }}
-                />
-              </GamesContainer>
             </Container>
           );
         }}

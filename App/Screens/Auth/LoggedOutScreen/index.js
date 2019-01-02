@@ -45,15 +45,15 @@ const LoggedOutScreen = ({ closable, onClose, navigation }) => (
       <Center>
         <Image source={images.createProfileAvatar} />
         <Spacer size="XXL" />
-        <Text.L>{`${I18n.t('Sign up')}!`}</Text.L>
+        <Text.L>{I18n.t('loggedOutScreen.title')}</Text.L>
         <Spacer size="XXL" />
-        <Text.M>{I18n.t('Sign up and start sporting')}</Text.M>
+        <Text.M>{I18n.t('loggedOutScreen.subtitle')}</Text.M>
       </Center>
       <Spacer size="L" />
       <ButtonContainer>
         <RaisedButton
           testID="profileButtonSignup"
-          label={I18n.t('Register')}
+          label={I18n.t('loggedOutScreen.signupBtnLabel')}
           variant="default"
           onPress={() => { navigation.navigate('SignupScreen'); }}
         />
@@ -62,7 +62,7 @@ const LoggedOutScreen = ({ closable, onClose, navigation }) => (
       <TouchableOpacity
         onPress={() => { navigation.navigate('LoginScreen'); }}
       >
-        <LinkLabel>{I18n.t('Already signed up? Log in')}</LinkLabel>
+        <LinkLabel>{I18n.t('loggedOutScreen.loginLink')}</LinkLabel>
       </TouchableOpacity>
     </ScrollView>
   </ClosableLayout>

@@ -1,31 +1,622 @@
 {
-  "signIn": "Sign In",
-  "logOut": "Log Out",
-  "api": "API",
-  "locale": "I18n Locale",
-  "rnVectorIcons": "RN Vector Icons",
-  "loginWithFacebook": "Login with Facebook",
-  "forgotPassword": "Forgot Password",
-  "username": "Username",
-  "password": "Password",
-  "welcome": "Welcome",
-  "login": "Login",
-  "noItems": "No Items",
-  "search": "Search",
+  "BASKETBALL": "Basketball",
+  "BOOTCAMP": "Bootcamp",
+  "SOCCER": "Soccer",
+  "TENNIS": "Tennis",
+  "FITNESS": "Fitness",
+  "OTHERS": "Others",
+  "SKATING": "Skating",
+  "BEACH_VOLLEYBALL": "Beach volleyball",
+  "BOULES": "Jeu de boules",
+  "Basketball": "Basketball",
+  "Bootcamp": "Bootcamp",
+  "Soccer": "Soccer",
+  "Tennis": "Tennis",
+  "Fitness": "Fitness",
+  "Others": "Others",
+  "Skating": "Skating",
+  "Beach_volleyball": "Beach volleyball",
+  "Boules": "Jeu de boules",
 
-  "continue": "continue",
-  "lets go": "let's go",
-  "cancel": "Cancel",
-  "allow": "Allow",
-  "hi-sport": "Hi Sport!",
-  "join-a-game": "Join a game",
-  "plan-a-game": "Plan a game",
-  "onboarding-1":
-    "Thanks for joining the yet to become biggest free sportclub in the world. \n Happy sporting!",
-  "onboarding-2":
-    "Browse the list all Sportyspots near you. Tap the 'Join a game' icon to find organized games near you",
-  "onboarding-3":
-    "Tap the 'plan a game' icon to organize a game of your favorite sport with your friends or other players",
+  "splashScreen": {
+    "title": "Discover sport locations and activities near you",
+    "btnLabel": "Start discovering",
+    "loginLink": "Already signed up? Log in"
+  },
 
-  "share-your-location": "Share your location"
+  "navBar": {
+    "spots": "Spots",
+    "activities": "Activities",
+    "organize": "Organize",
+    "profile": "Profile",
+    "info": "Info"
+  },
+
+  "infoScreen": {
+    "title": "Info",
+    "appVersion": "Version",
+    "feedback": "Help us to improve the app",
+    "privacy": "Privacy info",
+    "terms": "Terms and conditions"
+  },
+
+  "profileScreen": {
+    "navigation": {
+      "title": "Profile"
+    }
+  },
+
+  "userMenu": {
+    "edit": "Edit",
+    "logout": "Log out"
+  },
+
+  "editProfileScreen": {
+    "navigation": {
+      "title": "Edit profile"
+    }
+  },
+
+  "editProfileForm": {
+    "fields": {
+      "firstName": {
+        "label": "First name",
+        "placeholder": "",
+        "errors": {
+          "required": "First name is required",
+          "tooLong": "First name is too long"
+        }
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "",
+        "errors": {
+          "required": "Last name is required",
+          "tooLong": "Last name is too long"
+        }
+      },
+      "birthYear": {
+        "label": "Year of birth",
+        "placeholder": "",
+        "errors": {
+          "invalid": "Please provide a valid year"
+        }
+      }
+    },
+    "btnLabel": "Save"
+  },
+
+  "avatarPickerForm": {
+    "btnLabel": "Upload photo"
+  },
+
+  "spotsListScreen": {
+    "navigation": {
+      "title": "Find a spot"
+    }
+  },
+
+  "spotsList": {
+    "noResults": "No spots found..."
+  },
+
+  "spotHeader": {
+    "activities": {
+      "one": "activity",
+      "other": "activities"
+    }
+  },
+
+  "spotsFilterScreen": {
+    "navigation": {
+      "title": "Filter spots"
+    },
+    "slider": {
+      "label": "Location",
+      "description": "Shows spots inside:"
+    },
+    "switch": {
+      "allSports": {
+        "label": "All sports",
+        "description": "Filter on sport type"
+      }
+    },
+    "btnLabel": "View spots"
+  },
+
+  "spotsFilterFlap": {
+    "label": "Filter :",
+    "allSports": "All sports"
+  },
+
+  "spotDetailsScreen": {
+    "navigation": {
+      "title": "Spot details"
+    }
+  },
+
+  "spotDetails": {
+    "activities": "Activities"
+  },
+
+  "spotLink": {
+    "error": "Oops! The map couldn't be loaded :(",
+    "link": {
+      "prefix": "Click",
+      "anchor": "here",
+      "suffix": "to see the spot's location on Google Maps"
+    }
+  },
+
+  "gamesListScreen": {
+    "navigation": {
+      "title": "Find an activity"
+    }
+  },
+
+  "gamesList": {
+    "noResults": "No activities found..."
+  },
+
+  "gameCanceledFlag": {
+    "text": "Canceled"
+  },
+
+  "gameDetailsScreen": {
+    "navigation": {
+      "title": "Activity details"
+    },
+    "notFound": "Activity not found"
+  },
+
+  "gameDetails": {
+    "cancelMsg": "This activity is canceled.",
+    "organizer": "Organizer",
+    "description": "Description",
+    "attending": "Attending",
+    "openSpots": "Open spots",
+    "fullMsg": "No open spots available",
+    "join": "Do you join?",
+    "edit": "Edit presence",
+    "share": "Share with friends"
+  },
+
+  "descriptionReadMore": {
+    "readMore": "Read more",
+    "readLess": "Read less"
+  },
+
+  "rsvpButtons": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to stop attending?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "attendingBtnLabel": "I'm attending",
+    "unattendingBtnLabel": "I'm not attending"
+  },
+
+  "playersListScreen": {
+    "navigation": {
+      "title": "Participants"
+    }
+  },
+
+  "playersTabs": {
+    "attending": "Attending",
+    "declined": "Declined"
+  },
+
+  "playerRow": {
+    "signedUpOn": "Signed up on",
+    "signedOutOn": "Signed out on"
+  },
+
+  "adminMenu": {
+    "edit": "Edit activity",
+    "cancel": "Cancel activity"
+  },
+
+  "editGameScreen": {
+    "navigation": {
+      "title": "Edit activity"
+    },
+    "editSuccessModal": {
+      "title": "The activity has been updated",
+      "subtitle": "All attendees will receive an update email",
+      "okBtnLabel": "Ok"
+    }
+  },
+
+  "editGameForm": {
+    "fields": {
+      "title": {
+        "label": "Activity title",
+        "placeholder": "Title",
+        "errors": {
+          "required": "Title is required",
+          "tooLong": "Title is too long"
+        }
+      },
+      "sport": {
+        "label": "Sport",
+        "placeholder": ""
+      },
+      "date": {
+        "label": "Date",
+        "placeholder": ""
+      },
+      "time": {
+        "label": "Start time",
+        "placeholder": "",
+        "errors": {
+          "pastDateTime": "Select a date-time in the future"
+        }
+      },
+      "duration": {
+        "label": "Duration",
+        "placeholder": ""
+      },
+      "capacity": {
+        "label": "Number of players",
+        "placeholder": "",
+        "errors": {
+          "noFit": "Number of attendees is greater than the number of available spots"
+        }
+      },
+      "description": {
+        "label": "Activity details",
+        "placeholder": "Write extra details about the activity",
+        "errors": {
+          "tooLong": "Description is too long"
+        }
+      },
+      "isPublic": {
+        "label": "This is a private activity"
+      }
+    },
+    "btnLabel": "Save"
+  },
+
+  "cancelGameScreen": {
+    "navigation": {
+      "title": "Cancel activity"
+    },
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to leave? Changes will not be saved.",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "successCancelModal": {
+      "title": "The activity is cancelled",
+      "okBtnLabel": "Ok"
+    },
+    "attending": "Attending"
+  },
+
+  "cancelGameForm": {
+    "fields": {
+      "cancelMsg": {
+        "errors": {
+          "tooLong": "Message is too long!"
+        }
+      }
+    },
+    "confirmAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to cancel this activity?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "attending": "Attending",
+    "alertMsg": "All attendees will receive an email update with your reason for cancellation.",
+    "btnLabel": "Cancel activity"
+  },
+
+  "cancelMsg": {
+    "label": "Cancellation reason",
+    "placeholder": "Write here why the activity does not continue"
+  },
+
+  "planGameScreen": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to leave? Changes will not be saved.",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "sportDateTimeSlide": {
+      "title": "Plan an activity",
+      "footer": {
+        "nextBtnLabel": "Spot",
+        "backBtnLabel": "Back"
+      },
+      "fields": {
+        "sport": {
+          "prefix": "I want to play",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "date": {
+          "prefix": "on",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "time": {
+          "prefix": "at",
+          "suffix": "",
+          "label": "",
+          "placeholder": "",
+          "errors": {
+            "pastDateTime": "Select a date-time in the future"
+          }
+        },
+        "duration": {
+          "prefix": "during",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "capacity": {
+          "prefix": "with",
+          "suffix": "people",
+          "label": "",
+          "placeholder": ""
+        }
+      }
+    },
+    "spotSlide": {
+      "title": "Pick a spot",
+      "footer": {
+        "nextBtnLabel": "Description",
+        "backBtnLabel": "Back"
+      }
+    },
+    "descriptionSlide": {
+      "title": "Describe the activity",
+      "footer": {
+        "nextBtnLabel": "Invite",
+        "backBtnLabel": "Back"
+      },
+      "fields": {
+        "title": {
+          "prefix": "",
+          "suffix": "",
+          "label": "Title",
+          "placeholder": "Title",
+          "defaultValue": "%{username}'s game"
+        },
+        "description": {
+          "prefix": "",
+          "suffix": "",
+          "label": "Description",
+          "placeholder": "Write extra details about the activity",
+          "errors": {
+            "required": "",
+            "tooShort": "",
+            "tooLong": "Description is too long"
+          }
+        }
+      }
+    }
+  },
+
+  "shareGameScreen": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to cancel this activity?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "title": "Activity created!",
+    "footer": {
+      "nextBtnLabel": "Close",
+      "backBtnLabel": ""
+    },
+    "invite": "Share this activity"
+  },
+
+  "inviteOnly": {
+    "checkboxLabel": "This event is invite-only"
+  },
+
+  "sportPickerField": {
+    "defaultValue": "Select"
+  },
+
+  "sportPickerModal": {
+    "header": "Choose a sport"
+  },
+
+  "datePickerField": {
+    "defaultValue": "Select"
+  },
+
+  "datePickerModal": {
+    "header": "Select a date",
+    "footer": {
+      "okBtnLabel": "Ok",
+      "cancelBtnLabel": "Cancel"
+    }
+  },
+
+  "timePickerField": {
+    "defaultValue": "Select"
+  },
+
+  "durationPickerField": {
+    "minutes": "minutes",
+    "hours": "hours"
+  },
+
+  "capacityPickerModal": {
+    "header": "Choose amount of players",
+    "footer": {
+      "okBtnLabel": "Ok",
+      "cancelBtnLabel": "Cancel"
+    }
+  },
+
+  "spotPickerModal": {
+    "header": "Pick a spot"
+  },
+
+  "loggedOutScreen": {
+    "navigation": {
+      "title": "Sign up"
+    },
+    "title": "Sign up!",
+    "subtitle": "Sign up and start sporting",
+    "signupBtnLabel": "Register",
+    "loginLink": "Already signed up? Log in"
+  },
+
+  "loginScreen": {
+    "navigation": {
+      "title": "Hi again!"
+    }
+  },
+
+  "loginForm": {
+    "fields": {
+      "email": {
+        "label": "E-mail",
+        "placeholder": "",
+        "errors": {
+          "required": "Email is required",
+          "invalid": "Please provide a valid email",
+          "tooLong": "Email is too long",
+          "wrongCredentials": "Wrong email or password",
+          "unknown": "Something bad happened"
+        }
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "",
+        "errors": {
+          "required": "Password is required",
+          "tooLong": "Password is too long"
+        }
+      }
+    },
+    "btnLabel": "Log in"
+  },
+
+  "signupScreen": {
+    "navigation": {
+      "title": "Sign up"
+    }
+  },
+
+  "signupForm": {
+    "fields": {
+      "firstName": {
+        "label": "First name",
+        "placeholder": "",
+        "errors": {
+          "required": "First name is required",
+          "tooLong": "First name is too long"
+        }
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "",
+        "errors": {
+          "required": "Last name is required",
+          "tooLong": "Last name is too long"
+        }
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "",
+        "errors": {
+          "required": "Email is required",
+          "invalid": "Please provide a valid email",
+          "tooLong": "Email is too long",
+          "inUse": "Email address in use"
+        }
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "",
+        "errors": {
+          "required": "Password is required",
+          "tooLong": "Password is too long",
+          "tooShort": "Password needs to be at least 8 characters",
+          "tooCommon": "This password is too common",
+          "numeric": "This password is entirely numeric",
+          "unknown": "Something bad happened"
+        }
+      }
+    },
+    "terms": {
+      "prefix": "By signing up, you are agreeing to the",
+      "link": "Terms and conditions"
+    },
+    "btnLabel": "Sign up for free"
+  },
+
+  "connectionCheck": {
+    "noConnection": "No connection"
+  },
+
+  "darkFooter": {
+    "nextBtnLabel": "continue",
+    "backBtnLabel": "back"
+  },
+
+  "shareGameButton": {
+    "msg": "You have been invited to a SportySpots game:",
+    "dialogTitle": "share"
+  },
+
+  "profileTabs": {
+    "spots": "My spots",
+    "activities": "My activities"
+  },
+
+  "userSpots": {
+    "noSpots": "No spots found..."
+  },
+
+  "askLocationScreen": {
+    "title": "Share location",
+    "subtitle": "We would like to ask you to share your location so that we can show you all the activities in your area.",
+    "nextBtnLabel": "continue"
+  },
+
+  "OnboardingScreen": {
+    "hiSporter": {
+      "title": "Hi sporter!",
+      "text": "Thanks for joining SportySpots. Happy sporting!"
+    },
+    "joinGame": {
+      "title": "Join a game",
+      "text": "Discover sport locations and activities near you."
+    },
+    "planGame": {
+      "title": "Plan a game",
+      "text": "Plan your favorite sport in the perfect place with your friends or other sporters."
+    },
+    "nextBtnLabel": "continue",
+    "lastBtnLabel": "let's go"
+  },
+
+  "queryCatchErrors": {
+    "errorMsg": "Oops, something went wrong"
+  }
 }

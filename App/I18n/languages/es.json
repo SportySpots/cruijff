@@ -1,1 +1,622 @@
-{}
+{
+  "BASKETBALL": "Basquet",
+  "BOOTCAMP": "Bootcamp",
+  "SOCCER": "Futbol",
+  "TENNIS": "Tenis",
+  "FITNESS": "Fitness",
+  "OTHERS": "Otros",
+  "SKATING": "Skate",
+  "BEACH_VOLLEYBALL": "Voley playa",
+  "BOULES": "Bochas",
+  "Basketball": "Basquet",
+  "Bootcamp": "Bootcamp",
+  "Soccer": "Futbol",
+  "Tennis": "Tenis",
+  "Fitness": "Fitness",
+  "Others": "Otros",
+  "Skating": "Skate",
+  "Beach_volleyball": "Voley playa",
+  "Boules": "Bochas",
+
+  "splashScreen": {
+    "title": "Descubre centros deportivos y actividades cerca tuyo",
+    "btnLabel": "Empezar a descubrir",
+    "loginLink": "Ya registrado? Iniciar sesión"
+  },
+
+  "navBar": {
+    "spots": "Spots",
+    "activities": "Actividades",
+    "organize": "Organiza",
+    "profile": "Perfil",
+    "info": "Info"
+  },
+
+  "infoScreen": {
+    "title": "Información",
+    "appVersion": "Version",
+    "feedback": "Ayúdanos a mejorar la aplicación",
+    "privacy": "Información sobre privacidad",
+    "terms": "Términos y condiciones"
+  },
+
+  "profileScreen": {
+    "navigation": {
+      "title": "Perfil"
+    }
+  },
+
+  "userMenu": {
+    "edit": "Editar",
+    "logout": "Cerrar sesión"
+  },
+
+  "editProfileScreen": {
+    "navigation": {
+      "title": "Editar perfil"
+    }
+  },
+
+  "editProfileForm": {
+    "fields": {
+      "firstName": {
+        "label": "Nombre",
+        "placeholder": "",
+        "errors": {
+          "required": "Nombre es requerido",
+          "tooLong": "Nombre es muy largo"
+        }
+      },
+      "lastName": {
+        "label": "Apellido",
+        "placeholder": "",
+        "errors": {
+          "required": "Apellido es requerido",
+          "tooLong": "Apellido es muy largo"
+        }
+      },
+      "birthYear": {
+        "label": "Año de nacimiento",
+        "placeholder": "",
+        "errors": {
+          "invalid": "Por favor proporcione un año válido"
+        }
+      }
+    },
+    "btnLabel": "Guardar"
+  },
+
+  "avatarPickerForm": {
+    "btnLabel": "Subir foto"
+  },
+
+  "spotsListScreen": {
+    "navigation": {
+      "title": "Encontrar un spot"
+    }
+  },
+
+  "spotsList": {
+    "noResults": "No se encontraron spots..."
+  },
+
+  "spotHeader": {
+    "activities": {
+      "one": "actividad",
+      "other": "actividades"
+    }
+  },
+
+  "spotsFilterScreen": {
+    "navigation": {
+      "title": "Filtrar spots"
+    },
+    "slider": {
+      "label": "Ubicación",
+      "description": "Mostrar spots dentro de:"
+    },
+    "switch": {
+      "allSports": {
+        "label": "Todos los deportes",
+        "description": "Filtrar por tipo de deporte"
+      }
+    },
+    "btnLabel": "Ver spots"
+  },
+
+  "spotsFilterFlap": {
+    "label": "Filtrar :",
+    "allSports": "Todos los deportes"
+  },
+
+  "spotDetailsScreen": {
+    "navigation": {
+      "title": "Detalles del spot"
+    }
+  },
+
+  "spotDetails": {
+    "activities": "Actividades"
+  },
+
+  "spotLink": {
+    "error": "Ups! El mapa no se pudo cargar :(",
+    "link": {
+      "prefix": "Haz clic",
+      "anchor": "aquí",
+      "suffix": "para ver la ubicación del spot en Google Maps"
+    }
+  },
+
+  "gamesListScreen": {
+    "navigation": {
+      "title": "Encontrar una actividad"
+    }
+  },
+
+  "gamesList": {
+    "noResults": "No se encontraron actividades..."
+  },
+
+  "gameCanceledFlag": {
+    "text": "Cancelado"
+  },
+
+  "gameDetailsScreen": {
+    "navigation": {
+      "title": "Detalles de la actividad"
+    },
+    "notFound": "Actividad no encontrada"
+  },
+
+  "gameDetails": {
+    "cancelMsg": "Esta actividad está cancelada.",
+    "organizer": "Organizador",
+    "description": "Descripción",
+    "attending": "Participantes",
+    "openSpots": "Lugares disponibles",
+    "fullMsg": "No hay lugares disponibles",
+    "join": "Te apuntas?",
+    "edit": "Editar presencia",
+    "share": "Compartir con amigos"
+  },
+
+  "descriptionReadMore": {
+    "readMore": "Leer más",
+    "readLess": "Leer menos"
+  },
+
+  "rsvpButtons": {
+    "leaveAlert": {
+      "header": "Confirmar",
+      "body": "Seguro que quieres desapuntarte?",
+      "footer": {
+        "okBtnLabel": "Si",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "attendingBtnLabel": "Apuntarme",
+    "unattendingBtnLabel": "No puedo asistir"
+  },
+
+  "playersListScreen": {
+    "navigation": {
+      "title": "Participantes"
+    }
+  },
+
+  "playersTabs": {
+    "attending": "Apuntados",
+    "declined": "No asisten"
+  },
+
+  "playerRow": {
+    "signedUpOn": "Apuntado el",
+    "signedOutOn": "Desapuntado el"
+  },
+
+  "adminMenu": {
+    "edit": "Editar actividad",
+    "cancel": "Cancelar actividad"
+  },
+
+  "editGameScreen": {
+    "navigation": {
+      "title": "Editar actividad"
+    },
+    "editSuccessModal": {
+      "title": "La actividad ha sido actualizada",
+      "subtitle": "Todos los asistentes recibirán un email de actualización",
+      "okBtnLabel": "Ok"
+    }
+  },
+
+  "editGameForm": {
+    "fields": {
+      "title": {
+        "label": "Título de la actividad",
+        "placeholder": "Título",
+        "errors": {
+          "required": "Título es requerido",
+          "tooLong": "Título es muy largo"
+        }
+      },
+      "sport": {
+        "label": "Deporte",
+        "placeholder": ""
+      },
+      "date": {
+        "label": "Fecha",
+        "placeholder": ""
+      },
+      "time": {
+        "label": "Hora de inicio",
+        "placeholder": "",
+        "errors": {
+          "pastDateTime": "Seleccione fecha-hora en el futuro"
+        }
+      },
+      "duration": {
+        "label": "Duración",
+        "placeholder": ""
+      },
+      "capacity": {
+        "label": "Número de participantes",
+        "placeholder": "",
+        "errors": {
+          "noFit": "El número de asistentes es mayor que el número de plazas disponibles"
+        }
+      },
+      "description": {
+        "label": "Detalles de la actividad",
+        "placeholder": "Describe la actividad a realizar",
+        "errors": {
+          "tooLong": "Descripción es muy larga"
+        }
+      },
+      "isPublic": {
+        "label": "Esta es una actividad privada"
+      }
+    },
+    "btnLabel": "Guardar"
+  },
+
+  "cancelGameScreen": {
+    "navigation": {
+      "title": "Cancelar actividad"
+    },
+    "leaveAlert": {
+      "header": "Confirmar",
+      "body": "Estás seguro que quieres irte? Los cambios no se guardarán.",
+      "footer": {
+        "okBtnLabel": "Si",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "successCancelModal": {
+      "title": "La actividad ha sido cancelada",
+      "okBtnLabel": "Ok"
+    },
+    "attending": "Apuntados"
+  },
+
+  "cancelGameForm": {
+    "fields": {
+      "cancelMsg": {
+        "errors": {
+          "tooLong": "Mensaje es muy largo!"
+        }
+      }
+    },
+    "confirmAlert": {
+      "header": "Confirmar",
+      "body": "Seguro que quieres cancelar esta actividad?",
+      "footer": {
+        "okBtnLabel": "Si",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "attending": "Apuntados",
+    "alertMsg": "Todos los apuntados recibirán un correo con el motivo de la cancelación.",
+    "btnLabel": "Cancelar actividad"
+  },
+
+  "cancelMsg": {
+    "label": "Razon de cancelación",
+    "placeholder": "Escribe aquí por qué la actividad no continúa"
+  },
+
+  "planGameScreen": {
+    "leaveAlert": {
+      "header": "Confirmar",
+      "body": "Estás seguro que quieres irte? Los cambios no se guardarán.",
+      "footer": {
+        "okBtnLabel": "Si",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "sportDateTimeSlide": {
+      "title": "Organizar una actividad",
+      "footer": {
+        "nextBtnLabel": "Spot",
+        "backBtnLabel": "Atrás"
+      },
+      "fields": {
+        "sport": {
+          "prefix": "Planeo",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "date": {
+          "prefix": "el",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "time": {
+          "prefix": "a las",
+          "suffix": "",
+          "label": "",
+          "placeholder": "",
+          "errors": {
+            "pastDateTime": "Seleccione fecha-hora en el futuro"
+          }
+        },
+        "duration": {
+          "prefix": "durante",
+          "suffix": "",
+          "label": "",
+          "placeholder": ""
+        },
+        "capacity": {
+          "prefix": "con",
+          "suffix": "personas",
+          "label": "",
+          "placeholder": ""
+        }
+      }
+    },
+    "spotSlide": {
+      "title": "Elegir spot",
+      "footer": {
+        "nextBtnLabel": "Descripción",
+        "backBtnLabel": "Atrás"
+      }
+    },
+    "descriptionSlide": {
+      "title": "Describe la actividad",
+      "footer": {
+        "nextBtnLabel": "Invitar",
+        "backBtnLabel": "Atrás"
+      },
+      "fields": {
+        "title": {
+          "prefix": "",
+          "suffix": "",
+          "label": "Título",
+          "placeholder": "Título",
+          "defaultValue": "%{username}'s game"
+        },
+        "description": {
+          "prefix": "",
+          "suffix": "",
+          "label": "Descripción",
+          "placeholder": "Describe la actividad",
+          "errors": {
+            "required": "",
+            "tooShort": "",
+            "tooLong": "Descripción es muy larga"
+          }
+        }
+      }
+    }
+  },
+
+  "shareGameScreen": {
+    "leaveAlert": {
+      "header": "Confirmar",
+      "body": "Seguro que quieres cancelar esta actividad?",
+      "footer": {
+        "okBtnLabel": "Si",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "title": "Actividad creada!",
+    "footer": {
+      "nextBtnLabel": "Cerrar",
+      "backBtnLabel": ""
+    },
+    "invite": "Compartir esta actividad"
+  },
+
+  "inviteOnly": {
+    "checkboxLabel": "Este evento es solo via invitación"
+  },
+
+  "sportPickerField": {
+    "defaultValue": "Seleccionar"
+  },
+
+  "sportPickerModal": {
+    "header": "Elegir deporte"
+  },
+
+  "datePickerField": {
+    "defaultValue": "Seleccionar"
+  },
+
+  "datePickerModal": {
+    "header": "Seleccionar fecha",
+    "footer": {
+      "okBtnLabel": "Ok",
+      "cancelBtnLabel": "Cancelar"
+    }
+  },
+
+  "timePickerField": {
+    "defaultValue": "Seleccionar"
+  },
+
+  "durationPickerField": {
+    "minutes": "minutos",
+    "hours": "horas"
+  },
+
+  "capacityPickerModal": {
+    "header": "Número de participantes",
+    "footer": {
+      "okBtnLabel": "Ok",
+      "cancelBtnLabel": "Cancelar"
+    }
+  },
+
+  "spotPickerModal": {
+    "header": "Elegir spot"
+  },
+
+  "loggedOutScreen": {
+    "navigation": {
+      "title": "Regístrate"
+    },
+    "title": "Regístrate!",
+    "subtitle": "Regístrate y comienza a divertirte",
+    "signupBtnLabel": "Registrarse",
+    "loginLink": "Ya registrado? Iniciar sesión"
+  },
+
+  "loginScreen": {
+    "navigation": {
+      "title": "Hola de nuevo!"
+    }
+  },
+
+  "loginForm": {
+    "fields": {
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "",
+        "errors": {
+          "required": "Correo es requerido",
+          "invalid": "Por favor proporciona un correo electrónico válido",
+          "tooLong": "Correo es muy largo",
+          "wrongCredentials": "Correo o contraseña equivocada",
+          "unknown": "Algo malo sucedio"
+        }
+      },
+      "password": {
+        "label": "Contraseña",
+        "placeholder": "",
+        "errors": {
+          "required": "Contraseña es requerida",
+          "tooLong": "Contraseña es muy larga"
+        }
+      }
+    },
+    "btnLabel": "Iniciar sesión"
+  },
+
+  "signupScreen": {
+    "navigation": {
+      "title": "Bienvenido!"
+    }
+  },
+
+  "signupForm": {
+    "fields": {
+      "firstName": {
+        "label": "Nombre",
+        "placeholder": "",
+        "errors": {
+          "required": "Nombre es requerido",
+          "tooLong": "Nombre es muy largo"
+        }
+      },
+      "lastName": {
+        "label": "Apellido",
+        "placeholder": "",
+        "errors": {
+          "required": "Apellido es requerido",
+          "tooLong": "Apellido es muy largo"
+        }
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "",
+        "errors": {
+          "required": "Correo es requerido",
+          "invalid": "Por favor proporciona un correo electrónico válido",
+          "tooLong": "Correo es muy largo",
+          "inUse": "El correo electrónico ya ha sido registrado"
+        }
+      },
+      "password": {
+        "label": "Contraseña",
+        "placeholder": "",
+        "errors": {
+          "required": "Contraseña es requerida",
+          "tooLong": "Contraseña es muy larga",
+          "tooShort": "Contraseña debe tener al menos 8 caracteres",
+          "tooCommon": "Esta contraseña es demasiado común",
+          "numeric": "Esta contraseña es enteramente numérica",
+          "unknown": "Algo malo sucedio"
+        }
+      }
+    },
+    "terms": {
+      "prefix": "Al registrarte, estás aceptando los",
+      "link": "Términos y condiciones"
+    },
+    "btnLabel": "Registrarse gratis"
+  },
+
+  "connectionCheck": {
+    "noConnection": "Sin conexión"
+  },
+
+  "darkFooter": {
+    "nextBtnLabel": "continuar",
+    "backBtnLabel": "atrás"
+  },
+
+  "shareGameButton": {
+    "msg": "Has sido invitado a una actividad de SportySpots:",
+    "dialogTitle": "compartir"
+  },
+
+  "profileTabs": {
+    "spots": "Mis spots",
+    "activities": "Mis actividades"
+  },
+
+  "userSpots": {
+    "noSpots": "No se encontraron spots..."
+  },
+
+  "askLocationScreen": {
+    "title": "Comparte ubicación",
+    "subtitle": "Nos gustaría pedirte que compartas tu ubicación para que podamos mostrarte todas las actividades en tu área.",
+    "nextBtnLabel": "continuar"
+  },
+
+  "OnboardingScreen": {
+    "hiSporter": {
+      "title": "Hola deportista!",
+      "text": "Gracias por unirte a SportySpots. Diviértete!"
+    },
+    "joinGame": {
+      "title": "Unirse a un juego",
+      "text": "Descubre centros deportivos y actividades cerca tuyo."
+    },
+    "planGame": {
+      "title": "Organiza una actividad",
+      "text": "Planea tu deporte favorito en el lugar perfecto con tus amigos u otros deportistas."
+    },
+    "nextBtnLabel": "continuar",
+    "lastBtnLabel": "vamos"
+  },
+
+  "queryCatchErrors": {
+    "errorMsg": "Huy! Algo salió mal"
+  }
+}

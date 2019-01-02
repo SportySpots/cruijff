@@ -41,17 +41,20 @@ const SpotLink = ({ spot }) => {
         handleLocationBtnPress({ latLng, title: spot.name });
       }}
     >
-      {I18n.t('here')}
+      {I18n.t('spotLink.link.anchor')}
     </Text>
   );
 
   return (
     <Block>
-      <Text.M>{I18n.t("Oops! The map couldn't be loaded :(")}</Text.M>
+      <Text.M>{I18n.t('spotLink.error')}</Text.M>
       <Spacer size="M" />
       <Text>
-        {I18n.t('Click')} {link}{' '}
-        {I18n.t("to see the spot's location on Google Maps")}
+        {I18n.t('spotLink.link.prefix')}
+        &nbsp;
+        {link}
+        &nbsp;
+        {I18n.t('spotLink.link.suffix')}
       </Text>
     </Block>
   );

@@ -19,15 +19,15 @@ const curateFieldName = (fieldName) => {
 const curateErrorMsg = (errorMsg) => {
   switch (errorMsg) {
     case 'This field must be unique.':
-      return 'E-mail address in use';
+      return 'signupForm.fields.email.errors.inUse';
     case 'This password is too short. It must contain at least 8 characters.':
-      return 'Password needs to be at least 8 characters';
+      return 'signupForm.fields.password.errors.tooShort';
     case 'This password is too common.':
-      return 'This password is too common';
+      return 'signupForm.fields.password.errors.tooCommon';
     case 'This password is entirely numeric.':
-      return 'This password is entirely numeric';
+      return 'signupForm.fields.password.errors.numeric';
     default:
-      return errorMsg;
+      return 'signupForm.fields.password.errors.unknown';
   }
 };
 

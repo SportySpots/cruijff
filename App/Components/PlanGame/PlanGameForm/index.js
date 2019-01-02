@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import firebase from 'react-native-firebase';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
@@ -8,7 +8,7 @@ import extend from 'lodash/extend';
 import pick from 'lodash/pick';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import ClosableLayout from '../../Layouts/ClosableLayout';
 import Footer from '../../DarkFooter';
 import SportDateTimeSlide from '../SportDateTimeSlide';
@@ -26,7 +26,7 @@ const genSlides = ({ username }) => [
   {
     id: 'sportDateTimeSlide',
     Comp: SportDateTimeSlide,
-    section: 'Plan a game',
+    section: 'planGameScreen.sportDateTimeSlide.title',
     theme: 'white',
     fields: ['sport', 'date', 'time', 'duration', 'capacity'],
     requiredFields: ['sport', 'date', 'time'],
@@ -49,7 +49,7 @@ const genSlides = ({ username }) => [
         const now = moment();
 
         if (dateTime.diff(now) < 0) {
-          errors.dateTime.push('Select a date-time in the future');
+          errors.dateTime.push('planGameScreen.sportDateTimeSlide.fields.time.errors.pastDateTime');
         }
       }
       return errors;
@@ -58,7 +58,7 @@ const genSlides = ({ username }) => [
   {
     id: 'spotSlide',
     Comp: SpotSlide,
-    section: 'Pick a spot',
+    section: 'planGameScreen.spotSlide.title',
     theme: 'white',
     fields: ['spot'],
     requiredFields: ['spot'],
@@ -71,7 +71,7 @@ const genSlides = ({ username }) => [
   {
     id: 'descriptionSlide',
     Comp: DescriptionSlide,
-    section: 'Describe the game',
+    section: 'planGameScreen.descriptionSlide.title',
     theme: 'white',
     fields: ['title', 'description'],
     requiredFields: [],
@@ -79,13 +79,13 @@ const genSlides = ({ username }) => [
       description: [],
     },
     initState: {
-      title: `${username}'s game`,
+      title: I18n.t('planGameScreen.descriptionSlide.fields.title.defaultValue', { username }),
       description: '',
     },
     validateFields: ({ description }) => {
       const errors = { description: [] };
       if (description.length > DESCRIPTION_MAX_CHARS) {
-        errors.description.push('Description is too long');
+        errors.description.push('planGameScreen.descriptionSlide.fields.description.errors.tooLong');
       }
       return errors;
     },
@@ -140,7 +140,7 @@ class PlanGameForm extends React.Component {
   handleChange = ({ fieldName, value }) => {
     if (!fieldName) { return; }
 
-    const { curSlide, errors } = this.state;
+    const { errors } = this.state;
 
     // Automatically swipe right after the user selects spot
     this.setState({
@@ -148,13 +148,21 @@ class PlanGameForm extends React.Component {
       errors: (fieldName === 'date' || fieldName === 'time')
         ? ErrorHandling.clearErrors(errors, 'dateTime')
         : ErrorHandling.clearErrors(errors, fieldName),
-      curSlide: fieldName === 'spot' ? curSlide + 1 : curSlide,
-    }, () => {
-      if (fieldName === 'spot') {
-        this.swiper.scrollBy(1);
-      }
-      console.log('STATE', this.state);
     });
+
+    // // Automatically swipe right after the user selects spot
+    // this.setState({
+    //   [fieldName]: value,
+    //   errors: (fieldName === 'date' || fieldName === 'time')
+    //     ? ErrorHandling.clearErrors(errors, 'dateTime')
+    //     : ErrorHandling.clearErrors(errors, fieldName),
+    //   curSlide: fieldName === 'spot' ? curSlide + 1 : curSlide,
+    // }, () => {
+    //   if (fieldName === 'spot') {
+    //     this.swiper.scrollBy(1);
+    //   }
+    //   console.log('STATE', this.state);
+    // });
   }
 
   validateFields = (errorFields) => {
@@ -199,13 +207,13 @@ class PlanGameForm extends React.Component {
 
     switch (curSlide) {
       case 0:
-        return 'Spot';
+        return 'planGameScreen.sportDateTimeSlide.footer.nextBtnLabel';
       case 1:
-        return 'Description';
+        return 'planGameScreen.spotSlide.footer.nextBtnLabel';
       case 2:
-        return 'Invite';
+        return 'planGameScreen.descriptionSlide.footer.nextBtnLabel';
       default:
-        return 'Next';
+        return 'shareGameScreen.footer.nextBtnLabel';
     }
   }
 
@@ -294,19 +302,21 @@ class PlanGameForm extends React.Component {
             Comp,
             theme,
             section,
-          }) => (
+          }, index) => (
             <FullHeight key={id}>
               <ClosableLayout
                 theme={theme}
                 title={I18n.t(section)}
                 onClose={onLeave}
               >
-                <Comp
-                  onChange={this.handleChange}
-                  descriptionMaxChars={DESCRIPTION_MAX_CHARS}
-                  // Pass down all state values: sport, date, time, etc.
-                  {...rest}
-                />
+                {index === curSlide ? (
+                  <Comp
+                    onChange={this.handleChange}
+                    descriptionMaxChars={DESCRIPTION_MAX_CHARS}
+                    // Pass down all state values: sport, date, time, etc.
+                    {...rest}
+                  />
+                ) : <View />}
 
               </ClosableLayout>
             </FullHeight>
