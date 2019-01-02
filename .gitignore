@@ -39,7 +39,6 @@ android/.settings/
 android/app/.classpath
 android/app/.project
 android/app/.settings/
-android/app/google-services.json
 
 # node.js
 #

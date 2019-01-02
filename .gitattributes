@@ -3,3 +3,5 @@
 .env.prd filter=git-crypt diff=git-crypt
 .env.stg filter=git-crypt diff=git-crypt
 .env.tst filter=git-crypt diff=git-crypt
+android/app/google-services.json filter=git-crypt diff=git-crypt
+ios/GoogleService-Info.plist filter=git-crypt diff=git-crypt
