@@ -1,4 +1,5 @@
 import '../storybook/setup_faker';
+import './Mocks/firebase';
 
 // Mock your external modules here if needed
 jest
