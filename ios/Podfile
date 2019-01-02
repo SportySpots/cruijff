@@ -13,4 +13,6 @@ target 'SportySpots' do
   # pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
   platform :ios, '9.0'
+  pod 'RNLanguages', :path => '../node_modules/react-native-languages'
+
 end
