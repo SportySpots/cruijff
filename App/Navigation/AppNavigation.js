@@ -73,3 +73,15 @@ const RootNav = createSwitchNavigator({
 });
 
 export default RootNav;
+
+export const getActiveRouteName = (navigationState) => {
+  if (!navigationState) {
+    return null;
+  }
+  const route = navigationState.routes[navigationState.index];
+  // Dive into nested navigators
+  if (route.routes) {
+    return getActiveRouteName(route);
+  }
+  return route.routeName;
+};

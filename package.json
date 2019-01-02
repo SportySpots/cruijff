@@ -83,6 +83,7 @@
     "react-native-config": "^0.11.5",
     "react-native-cookies": "^3.3.0",
     "react-native-device-info": "0.24.2",
+    "react-native-firebase": "^5.1.1",
     "react-native-google-static-map": "^0.1.13",
     "react-native-i18n": "2.0.15",
     "react-native-image-picker": "^0.27.1",
@@ -144,7 +145,8 @@
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/Tests/Setup.js"
+      "<rootDir>/Tests/Setup.js",
+      "<rootDir>/Tests/Mocks/*"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
