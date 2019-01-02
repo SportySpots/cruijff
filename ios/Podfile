@@ -11,6 +11,7 @@ target 'SportySpots' do
   pod 'AppCenterReactNativeShared', '~> 1.9.0'
   pod 'Firebase/Core', '~> 5.11.0'
   pod 'GoogleAppMeasurement', '~> 5.3.0'
+  pod 'Firebase/Messaging', '~> 5.11.0'
 
   # pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
