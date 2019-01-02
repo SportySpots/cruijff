@@ -44,15 +44,12 @@
 			</dict>
 		</dict>
 	</dict>
-<<<<<<< HEAD
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
-=======
->>>>>>> 737db0a6d140d5dce61325adb37d95b271aa1613
 	<key>NSCameraUsageDescription</key>
 	<string>This allows $(PRODUCT_NAME) to enable you to capture your selfies and set them as your profile avatars.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
