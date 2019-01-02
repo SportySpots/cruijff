@@ -39,3 +39,5 @@ jest.mock('../node_modules/react-native-calendars/src/calendar/img/next.png', ()
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/previous.png', () => jest.fn());
 
 String.prototype.toTitleCase = jest.fn(); // eslint-disable-line no-extend-native
+
+jest.mock('react-native-languages', () => jest.fn());

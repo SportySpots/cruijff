@@ -44,6 +44,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string/>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows $(PRODUCT_NAME) to enable you to capture your selfies and set them as your profile avatars.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

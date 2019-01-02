@@ -88,6 +88,7 @@
     "react-native-i18n": "2.0.15",
     "react-native-image-picker": "^0.27.1",
     "react-native-keyboard-aware-scroll-view": "^0.7.4",
+    "react-native-languages": "^3.0.2",
     "react-native-map-link": "^2.1.1",
     "react-native-material-dropdown": "^0.11.1",
     "react-native-material-textfield": "^0.12.0",

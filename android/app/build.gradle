@@ -147,6 +147,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-languages')
     compile project(':react-native-firebase')
     compile project(':appcenter-crashes')
     compile project(':appcenter-analytics')
