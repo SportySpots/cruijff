@@ -1,14 +1,15 @@
 // @flow
 import I18n, { getLanguages } from 'react-native-i18n';
 import moment from 'moment';
+import { LocaleConfig } from 'react-native-calendars';
 
 // Set locale based on user/phone settings
 if (getLanguages) {
   getLanguages().then((langs) => { // langs = ['en-US', 'en']
-    I18n.locale = (langs && langs.length > 0 && langs[0]) || 'nl';
+    I18n.locale = (langs && langs.length > 0 && langs[0]) || 'en';
   });
 } else {
-  I18n.locale = 'nl';
+  I18n.locale = 'en';
 }
 
 // Enable fallbacks if you want `en-US` and `en-GB` to fallback to `en`
@@ -19,10 +20,10 @@ I18n.translations = {
   en: require('./languages/english.json'),
 };
 
-const languageCode = I18n.locale.substr(0, 2);
+const langCode = I18n.locale.substr(0, 2);
 
 // All other translations for the app goes to the respective language file:
-switch (languageCode) {
+switch (langCode) {
   case 'af':
     I18n.translations.af = require('./languages/af.json');
     break;
@@ -161,7 +162,7 @@ switch (languageCode) {
     I18n.translations.en = require('./languages/english.json');
 }
 
-switch (languageCode) {
+switch (langCode) {
   case 'nl':
     require('moment/locale/nl');
     moment.locale('nl');
@@ -173,3 +174,25 @@ switch (languageCode) {
   default:
     moment.locale('en');
 }
+
+const calendarLocaleConfig = (locale) => {
+  const momentLocale = moment.localeData(locale);
+  const {
+    monthsShort,
+    weekdays,
+    weekdaysShort,
+    weekdaysMin,
+  } = momentLocale._config; // eslint-disable-line no-underscore-dangle
+
+  return {
+    monthNames: momentLocale.months().map(m => m.toTitleCase()),
+    monthNamesShort: monthsShort,
+    dayNames: weekdays,
+    dayNamesShort: weekdaysMin || weekdaysShort,
+  };
+};
+
+// Set calendar lang base on user locale
+moment.locale([langCode, 'en']);
+LocaleConfig.locales[langCode] = calendarLocaleConfig(langCode);
+LocaleConfig.defaultLocale = langCode;
