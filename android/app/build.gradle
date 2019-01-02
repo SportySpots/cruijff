@@ -147,6 +147,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-ux-cam')
     compile project(':appcenter-crashes')
     compile project(':appcenter-analytics')
     compile project(':appcenter')

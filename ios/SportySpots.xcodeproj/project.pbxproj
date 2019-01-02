@@ -5,7 +5,6 @@
 	};
 	objectVersion = 50;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -61,6 +60,7 @@
 		DFED606B7C4148368E88A160 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69BF53A2F1CB4E3DA757BD2B /* Octicons.ttf */; };
 		F056B8C37B2E49829B716F3B /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6998ED899FF4BAEAD867F1D /* MaterialCommunityIcons.ttf */; };
 		FC4E8623CB524FB3B7167A1D /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0849CCB852DC4C40AFAA4753 /* Feather.ttf */; };
+		2242BEC6AB55447E86AA6CAD /* libRNUxcam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F0DECDD68142858AD7000A /* libRNUxcam.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -552,6 +552,8 @@
 		FD0A0B473C934BA3B9AC6F50 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		FDB3554EE8114D4CBC6CCD8E /* Rajdhani-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-SemiBold.ttf"; path = "../assets/fonts/Rajdhani-SemiBold.ttf"; sourceTree = "<group>"; };
 		FF410FCE334F4F1C8D5DFA53 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		0CA937148CDF496DAAC96E2C /* RNUxcam.xcodeproj */ = {isa = PBXFileReference; name = "RNUxcam.xcodeproj"; path = "../node_modules/react-native-ux-cam/ios/RNUxcam.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		32F0DECDD68142858AD7000A /* libRNUxcam.a */ = {isa = PBXFileReference; name = "libRNUxcam.a"; path = "libRNUxcam.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -596,6 +598,7 @@
 				C546E6ED20C7FBD600D989CD /* libRNCookieManagerIOS.a in Frameworks */,
 				C59849B020B4D62E007E4149 /* libRNSVG.a in Frameworks */,
 				5E121DAB978BBE14ECBAD82C /* libPods-SportySpots.a in Frameworks */,
+				2242BEC6AB55447E86AA6CAD /* libRNUxcam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +785,7 @@
 				C5F2207120B364A70061201B /* RNSVG.xcodeproj */,
 				C59ABE7B202DA778008B5166 /* RNSVG.xcodeproj */,
 				60156BAB0A914A0BAE3016A6 /* RNVectorIcons.xcodeproj */,
+				0CA937148CDF496DAAC96E2C /* RNUxcam.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1720,6 +1724,7 @@
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-ux-cam/ios",
 				);
 				INFOPLIST_FILE = SportySpotsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1730,6 +1735,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1772,6 +1778,7 @@
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios",
 					"$(SRCROOT)/../node_modules/react-native-cookies/ios/RNCookieManagerIOS",
+					"$(SRCROOT)/../node_modules/react-native-ux-cam/ios",
 				);
 				INFOPLIST_FILE = SportySpotsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1782,6 +1789,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1824,6 +1832,7 @@
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native/Libraries/**",
+					"$(SRCROOT)/../node_modules/react-native-ux-cam/ios",
 				);
 				INFOPLIST_FILE = SportySpots/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
