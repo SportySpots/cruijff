@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import { createMockClient } from '../../../GraphQL';
-import RaisedButton from '../../Common/RaisedButton';
-// import CancelMsg from '../CancelMsg';
 import CancelGameForm from '.';
 
 describe('CancelGameForm', () => {
@@ -31,8 +29,8 @@ describe('CancelGameForm', () => {
       />,
     );
 
-    expect(wrapper.find(RaisedButton).length).toBe(1);
-    wrapper.find(RaisedButton).first().props().onPress();
+    expect(wrapper.find('RaisedButton').length).toBe(1);
+    wrapper.find('RaisedButton').first().props().onPress();
 
     expect(handleBefore).toBeCalled();
     expect(handleClientCancel).toBeCalled();
