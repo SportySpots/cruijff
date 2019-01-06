@@ -6,6 +6,7 @@ import CancelGameForm from '.';
 
 describe('CancelGameForm', () => {
   let game;
+
   beforeAll(async () => {
     const mockClient = createMockClient();
     const res = await mockClient.query({
@@ -29,7 +30,7 @@ describe('CancelGameForm', () => {
       />,
     );
 
-    expect(wrapper.find('RaisedButton').length).toBe(1);
+    expect(wrapper.find('RaisedButton')).toHaveLength(1);
     wrapper.find('RaisedButton').first().props().onPress();
 
     expect(handleBefore).toBeCalled();
