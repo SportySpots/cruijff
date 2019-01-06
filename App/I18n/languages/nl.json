@@ -491,6 +491,16 @@
     }
   },
 
+  "loginSocialScreen": {
+    "googlePlusBtnLabel": "Sign in with Google",
+    "facebookBtnLabel": "Sign in with facebook",
+    "emailBtnLabel": "Sign in with email"
+  },
+
+  "orDivider": {
+    "txt": "Or"
+  },
+
   "loginForm": {
     "fields": {
       "email": {

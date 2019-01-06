@@ -128,6 +128,8 @@ exports[`Storyshots Common.NavDot NavDot default 1`] = `null`;
 
 exports[`Storyshots Common.NavDots Default 1`] = `null`;
 
+exports[`Storyshots Common.OrDivider OrDivider 1`] = `null`;
+
 exports[`Storyshots Common.RaisedButton RaisedButton default 1`] = `null`;
 
 exports[`Storyshots Common.RaisedButton RaisedButton default with icon 1`] = `null`;
@@ -367,6 +369,8 @@ exports[`Storyshots RatingBig 3 1`] = `null`;
 exports[`Storyshots RatingBig 4.5 1`] = `null`;
 
 exports[`Storyshots Screen.Auth LoginScreen 1`] = `null`;
+
+exports[`Storyshots Screen.Auth LoginSocialScreen 1`] = `null`;
 
 exports[`Storyshots Screen.Auth SignupScreen 1`] = `null`;
 

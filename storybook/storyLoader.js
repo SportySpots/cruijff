@@ -39,6 +39,7 @@ function loadStories() {
   require('../App/Components/Common/NavBarButton/stories');
   require('../App/Components/Common/NavDot/stories');
   require('../App/Components/Common/NavDots/stories');
+  require('../App/Components/Common/OrDivider/stories');
   require('../App/Components/Common/RaisedButton/stories');
   require('../App/Components/Common/RoundButton/stories');
   require('../App/Components/Common/Row/stories');
@@ -98,6 +99,7 @@ function loadStories() {
   require('../App/Components/Stories');
   require('../App/Screens/Auth/LoggedOutScreen/stories');
   require('../App/Screens/Auth/LoginScreen/stories');
+  require('../App/Screens/Auth/LoginSocialScreen/stories');
   require('../App/Screens/Auth/SignupScreen/stories');
   require('../App/Screens/Debug/DebugScreen/stories');
   require('../App/Screens/Games/CancelGameScreen/stories');
@@ -150,6 +152,7 @@ const stories = [
   '../App/Components/Common/NavBarButton/stories',
   '../App/Components/Common/NavDot/stories',
   '../App/Components/Common/NavDots/stories',
+  '../App/Components/Common/OrDivider/stories',
   '../App/Components/Common/RaisedButton/stories',
   '../App/Components/Common/RoundButton/stories',
   '../App/Components/Common/Row/stories',
@@ -209,6 +212,7 @@ const stories = [
   '../App/Components/Stories',
   '../App/Screens/Auth/LoggedOutScreen/stories',
   '../App/Screens/Auth/LoginScreen/stories',
+  '../App/Screens/Auth/LoginSocialScreen/stories',
   '../App/Screens/Auth/SignupScreen/stories',
   '../App/Screens/Debug/DebugScreen/stories',
   '../App/Screens/Games/CancelGameScreen/stories',

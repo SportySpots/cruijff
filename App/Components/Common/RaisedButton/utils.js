@@ -38,6 +38,18 @@ export const getPalette = (variant) => {
         bgColor: Colors.white,
         borderColor: Colors.darkGray,
       };
+    case 'facebook':
+      return {
+        fontColor: Colors.white,
+        bgColor: Colors.facebook,
+        borderColor: Colors.facebook,
+      };
+    case 'google':
+      return {
+        fontColor: Colors.black,
+        bgColor: Colors.white,
+        borderColor: Colors.shade,
+      };
     default:
       throw new Error('Unknown variant');
   }

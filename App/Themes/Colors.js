@@ -41,6 +41,7 @@ const colors = {
   link: '#ccc',
   lightSkyBlue: '#87CEFA',
   orange: 'orange',
+  facebook: '#3B5998',
 };
 
 export default colors;
