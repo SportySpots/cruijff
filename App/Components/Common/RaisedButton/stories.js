@@ -6,6 +6,12 @@ storiesOf('Common.RaisedButton', module)
   .add('RaisedButton default', () => (
     <RaisedButton label="label" />
   ))
+  .add('RaisedButton default with icon', () => (
+    <RaisedButton
+      label="label"
+      iconName="bug-report"
+    />
+  ))
   .add('RaisedButton primary', () => (
     <RaisedButton variant="primary" label="label" />
   ))

@@ -130,6 +130,8 @@ exports[`Storyshots Common.NavDots Default 1`] = `null`;
 
 exports[`Storyshots Common.RaisedButton RaisedButton default 1`] = `null`;
 
+exports[`Storyshots Common.RaisedButton RaisedButton default with icon 1`] = `null`;
+
 exports[`Storyshots Common.RaisedButton RaisedButton disabled 1`] = `null`;
 
 exports[`Storyshots Common.RaisedButton RaisedButton ghost 1`] = `null`;

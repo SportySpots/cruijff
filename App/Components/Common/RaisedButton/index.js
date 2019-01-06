@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
+import Spacer from '../Spacer';
 import { getPalette, getPixelsFromSize } from './utils';
 
 //------------------------------------------------------------------------------
@@ -11,6 +14,7 @@ import { getPalette, getPixelsFromSize } from './utils';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: ${({ disabled, bgColor }) => (disabled ? Colors.lightGray : bgColor)};
@@ -29,6 +33,8 @@ const Label = styled(Text.M)`
 //------------------------------------------------------------------------------
 const RaisedButton = ({
   label,
+  iconSet,
+  iconName,
   variant,
   size,
   disabled,
@@ -39,6 +45,7 @@ const RaisedButton = ({
   const { fontColor, bgColor, borderColor } = palette;
 
   const Root = disabled ? View : TouchableOpacity;
+  const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
     <Root {...rest}>
@@ -49,10 +56,16 @@ const RaisedButton = ({
         width={width}
         disabled={disabled}
       >
-        <Label
-          fontColor={fontColor}
-          disabled={disabled}
-        >
+        {!!iconName && [
+          <Icon
+            key="icon"
+            name={iconName}
+            size={24}
+            color={fontColor}
+          />,
+          <Spacer key="spacer" row size="L" />,
+        ]}
+        <Label fontColor={fontColor} disabled={disabled}>
           {label}
         </Label>
       </Container>
@@ -65,6 +78,8 @@ RaisedButton.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
+  iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
+  iconName: PropTypes.string,
   variant: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'warning', 'ghost']),
   size: PropTypes.oneOf(['M', 'S']),
   disabled: PropTypes.bool,
@@ -76,6 +91,8 @@ RaisedButton.propTypes = {
 };
 
 RaisedButton.defaultProps = {
+  iconSet: 'MaterialIcon',
+  iconName: '',
   variant: 'default',
   size: 'M',
   disabled: false,
