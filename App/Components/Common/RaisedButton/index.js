@@ -35,6 +35,7 @@ const RaisedButton = ({
   label,
   iconSet,
   iconName,
+  iconSize,
   variant,
   size,
   disabled,
@@ -60,7 +61,7 @@ const RaisedButton = ({
           <Icon
             key="icon"
             name={iconName}
-            size={24}
+            size={iconSize}
             color={fontColor}
           />,
           <Spacer key="spacer" row size="L" />,
@@ -80,6 +81,7 @@ RaisedButton.propTypes = {
   ]).isRequired,
   iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
   iconName: PropTypes.string,
+  iconSize: PropTypes.number,
   variant: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'warning', 'ghost', 'facebook']),
   size: PropTypes.oneOf(['M', 'S']),
   disabled: PropTypes.bool,
@@ -93,6 +95,7 @@ RaisedButton.propTypes = {
 RaisedButton.defaultProps = {
   iconSet: 'MaterialIcon',
   iconName: '',
+  iconSize: 24,
   variant: 'default',
   size: 'M',
   disabled: false,

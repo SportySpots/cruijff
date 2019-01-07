@@ -43,7 +43,8 @@ const LoginSocialScreen = ({ onSuccessHook }) => (
             <RaisedButton
               label={I18n.t('loginSocialScreen.googlePlusBtnLabel')}
               iconSet="MaterialCommunityIcon"
-              iconName="google-plus"
+              iconName="google"
+              iconSize={20}
               variant="google"
             />
             <Spacer size="XXL" />
