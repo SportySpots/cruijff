@@ -532,6 +532,12 @@
     }
   },
 
+  "signupSocialScreen": {
+    "googlePlusBtnLabel": "Sign up with Google",
+    "facebookBtnLabel": "Sign up with facebook",
+    "emailBtnLabel": "Sign up with email"
+  },
+
   "signupForm": {
     "fields": {
       "firstName": {

@@ -101,6 +101,7 @@ function loadStories() {
   require('../App/Screens/Auth/LoginScreen/stories');
   require('../App/Screens/Auth/LoginSocialScreen/stories');
   require('../App/Screens/Auth/SignupScreen/stories');
+  require('../App/Screens/Auth/SignupSocialScreen/stories');
   require('../App/Screens/Debug/DebugScreen/stories');
   require('../App/Screens/Games/CancelGameScreen/stories');
   require('../App/Screens/Games/EditGameScreen/stories');
@@ -214,6 +215,7 @@ const stories = [
   '../App/Screens/Auth/LoginScreen/stories',
   '../App/Screens/Auth/LoginSocialScreen/stories',
   '../App/Screens/Auth/SignupScreen/stories',
+  '../App/Screens/Auth/SignupSocialScreen/stories',
   '../App/Screens/Debug/DebugScreen/stories',
   '../App/Screens/Games/CancelGameScreen/stories',
   '../App/Screens/Games/EditGameScreen/stories',
