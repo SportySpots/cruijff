@@ -26,19 +26,20 @@
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
         android:screenOrientation="portrait"
         android:windowSoftInputMode="adjustResize"
-        android:launchMode="singleTop" >
+        android:launchMode="singleTask" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         <!-- https://developer.android.com/training/app-links/deep-linking#adding-filters -->
+        <!-- https://rnfirebase.io/docs/v5.x.x/links/android -->
         <intent-filter android:label="SportySpots">
-          <action android:name="android.intent.action.VIEW" />
+        <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="https"
-                android:host="@string/DEEPLINK_HOST"
-                android:pathPrefix="/games" />
+          <data android:scheme="https" android:host="@string/DEEPLINK_HOST" android:pathPrefix="/games" />
+          <data android:host="sportyspots.page.link" android:scheme="http"/>
+          <data android:host="sportyspots.page.link" android:scheme="https"/>
         </intent-filter>
       </activity>
 

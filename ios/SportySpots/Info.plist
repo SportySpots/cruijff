@@ -20,6 +20,19 @@
 	<string>1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>firebase-dynamic-link</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.sportyspots.ios</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>6</string>
 	<key>CodePushDeploymentKey</key>
@@ -44,12 +57,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows $(PRODUCT_NAME) to enable you to capture your selfies and set them as your profile avatars.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

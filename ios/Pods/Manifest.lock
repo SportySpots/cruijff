@@ -11,6 +11,9 @@ PODS:
     - FirebaseAnalytics (= 5.3.0)
   - Firebase/CoreOnly (5.11.0):
     - FirebaseCore (= 5.1.6)
+  - Firebase/DynamicLinks (5.11.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (= 3.1.1)
   - Firebase/Messaging (5.11.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.2.1)
@@ -26,6 +29,10 @@ PODS:
   - FirebaseAnalyticsInterop (1.1.0)
   - FirebaseCore (5.1.6):
     - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseDynamicLinks (3.1.1):
+    - FirebaseAnalytics (~> 5.1)
+    - FirebaseAnalyticsInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
   - FirebaseInstanceID (3.3.0):
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
@@ -73,6 +80,7 @@ DEPENDENCIES:
   - AppCenter/Crashes (~> 1.10.0)
   - AppCenterReactNativeShared (~> 1.9.0)
   - Firebase/Core (~> 5.11.0)
+  - Firebase/DynamicLinks (~> 5.11.0)
   - Firebase/Messaging (~> 5.11.0)
   - GoogleAppMeasurement (~> 5.3.0)
 
@@ -84,6 +92,7 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
     - FirebaseCore
+    - FirebaseDynamicLinks
     - FirebaseInstanceID
     - FirebaseMessaging
     - GoogleAppMeasurement
@@ -98,6 +107,7 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
   FirebaseAnalyticsInterop: e5f21be9af6548372e2f0815834ff909bff395a2
   FirebaseCore: d16552f06821489ce1affe2e5e3e5593402ddfe3
+  FirebaseDynamicLinks: 000130a3fc3d81ac7322731b895009f3199ef584
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   FirebaseMessaging: 0f14a264b0d7f867e8eff5d3556bc5d0d4e57888
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
@@ -105,6 +115,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 07a5d26de3598cb0b042c77f8ad4ea4d81451dc7
+PODFILE CHECKSUM: 354fa7723b76d0bc893c74606945a3b509fa3e93
 
 COCOAPODS: 1.5.3

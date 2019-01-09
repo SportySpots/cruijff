@@ -9,6 +9,7 @@
 		<string>applinks:sportyspots.com</string>
 		<string>applinks:www.sportyspots.com</string>
 		<string>webcredentials:sportyspots.com</string>
+		<string>applinks:sportyspots.page.link</string>
 	</array>
 </dict>
 </plist>
