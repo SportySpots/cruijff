@@ -5,7 +5,7 @@ import Crashes from 'appcenter-crashes';
 import codePush from 'react-native-code-push';
 import { ApolloProvider } from 'react-apollo';
 
-import { StatusBar, Linking } from 'react-native';
+import { StatusBar } from 'react-native';
 import firebase from 'react-native-firebase';
 import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components';
@@ -48,27 +48,40 @@ class App extends Component {
       this.setState({ hasInitialized: true });
     });
 
-    // this handles the case where the app is closed and is launched via Universal Linking.
-    Linking.getInitialURL()
+    firebase.links().getInitialLink()
       .then((url) => {
         if (url) {
-          // Alert.alert('GET INIT URL','initial url  ' + url)
-          console.log('LINKING: initial url:', url);
-          const uuid = url.replace(`https://${config.deeplinkHost}/games/`, '');
-          this.router._navigation.navigate('GameDetailsScreen', { // eslint-disable-line no-underscore-dangle
-            uuid,
-          });
+          console.log('LINKING: App opened from', url);
+        } else {
+          console.log('LINKING: App not opened through url');
         }
-      })
-      .catch(console.log);
+      });
 
-    // This listener handles the case where the app is woken up from the Universal or Deep Linking
-    Linking.addEventListener('url', this.appWokeUp);
+    firebase.links().onLink((url) => {
+      console.log('LINKING: App received link: ', url);
+    });
+
+    // this handles the case where the app is closed and is launched via Universal Linking.
+    // Linking.getInitialURL()
+    //   .then((url) => {
+    //     if (url) {
+    //       // Alert.alert('GET INIT URL','initial url  ' + url)
+    //       console.log('LINKING: initial url:', url);
+    //       const uuid = url.replace(`https://${config.deeplinkHost}/games/`, '');
+    //       this.router._navigation.navigate('GameDetailsScreen', { // eslint-disable-line no-underscore-dangle
+    //         uuid,
+    //       });
+    //     }
+    //   })
+    //   .catch(console.log);
+    //
+    // // This listener handles the case where the app is woken up from the Universal or Deep Linking
+    // Linking.addEventListener('url', this.appWokeUp);
   }
 
 
   componentWillUnmount() {
-    Linking.removeEventListener('url', this.appWokeUp);
+    // Linking.removeEventListener('url', this.appWokeUp);
   }
 
   appWokeUp = (event) => {
