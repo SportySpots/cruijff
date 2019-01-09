@@ -224,15 +224,17 @@ exports[`Storyshots Common.TextField TextField 1`] = `null`;
 
 exports[`Storyshots Common.TextField TextField disabled 1`] = `null`;
 
+exports[`Storyshots Common.TextField TextField with MIX theme 1`] = `null`;
+
+exports[`Storyshots Common.TextField TextField with WHITE theme 1`] = `null`;
+
+exports[`Storyshots Common.TextField TextField with WHITE theme with ERROR 1`] = `null`;
+
 exports[`Storyshots Common.TextField TextField with characterRestriction = 20 1`] = `null`;
 
 exports[`Storyshots Common.TextField TextField with error 1`] = `null`;
 
-exports[`Storyshots Common.TextField TextField with white theme 1`] = `null`;
-
 exports[`Storyshots Common.TextField TextField with white theme size ML 1`] = `null`;
-
-exports[`Storyshots Common.TextField TextField with white theme with ERROR 1`] = `null`;
 
 exports[`Storyshots DarkFooter DarkFooter NO Back button 1`] = `null`;
 
