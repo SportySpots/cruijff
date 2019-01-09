@@ -2,17 +2,17 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import SignupForm from '.';
+import SignupEmailScreen from '.';
 
-storiesOf('Auth.SignupForm', module)
-  .add('SignupForm', () => (
+storiesOf('Screen.Auth', module)
+  .add('SignupEmailScreen', () => (
     <Query
       query={GET_USER_DETAILS}
       variables={{ uuid: 455 }}
     >
       {({ loading, error, data }) =>
         (loading || error ? null : (
-          <SignupForm user={data.user} />
+          <SignupEmailScreen user={data.user} />
         ))
       }
     </Query>

@@ -7,8 +7,8 @@
 function loadStories() {
   require('../App/Backgrounds/FieldBackground/stories');
   require('../App/Backgrounds/LogoHeaderBackground/stories');
-  require('../App/Components/Auth/LoginForm/stories');
-  require('../App/Components/Auth/SignupForm/stories');
+  require('../App/Components/Auth/LoginEmailForm/stories');
+  require('../App/Components/Auth/SignupEmailForm/stories');
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/Avatar/stories');
   require('../App/Components/Common/AvatarPicker/stories');
@@ -98,10 +98,10 @@ function loadStories() {
   require('../App/Components/Spots/SpotsList/stories');
   require('../App/Components/Stories');
   require('../App/Screens/Auth/LoggedOutScreen/stories');
+  require('../App/Screens/Auth/LoginEmailScreen/stories');
   require('../App/Screens/Auth/LoginScreen/stories');
-  require('../App/Screens/Auth/LoginSocialScreen/stories');
+  require('../App/Screens/Auth/SignupEmailScreen/stories');
   require('../App/Screens/Auth/SignupScreen/stories');
-  require('../App/Screens/Auth/SignupSocialScreen/stories');
   require('../App/Screens/Debug/DebugScreen/stories');
   require('../App/Screens/Games/CancelGameScreen/stories');
   require('../App/Screens/Games/EditGameScreen/stories');
@@ -121,8 +121,8 @@ function loadStories() {
 const stories = [
   '../App/Backgrounds/FieldBackground/stories',
   '../App/Backgrounds/LogoHeaderBackground/stories',
-  '../App/Components/Auth/LoginForm/stories',
-  '../App/Components/Auth/SignupForm/stories',
+  '../App/Components/Auth/LoginEmailForm/stories',
+  '../App/Components/Auth/SignupEmailForm/stories',
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/Avatar/stories',
   '../App/Components/Common/AvatarPicker/stories',
@@ -212,10 +212,10 @@ const stories = [
   '../App/Components/Spots/SpotsList/stories',
   '../App/Components/Stories',
   '../App/Screens/Auth/LoggedOutScreen/stories',
+  '../App/Screens/Auth/LoginEmailScreen/stories',
   '../App/Screens/Auth/LoginScreen/stories',
-  '../App/Screens/Auth/LoginSocialScreen/stories',
+  '../App/Screens/Auth/SignupEmailScreen/stories',
   '../App/Screens/Auth/SignupScreen/stories',
-  '../App/Screens/Auth/SignupSocialScreen/stories',
   '../App/Screens/Debug/DebugScreen/stories',
   '../App/Screens/Games/CancelGameScreen/stories',
   '../App/Screens/Games/EditGameScreen/stories',

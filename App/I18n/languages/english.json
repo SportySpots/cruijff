@@ -487,11 +487,8 @@
 
   "loginScreen": {
     "navigation": {
-      "title": "Hi again!"
-    }
-  },
-
-  "loginSocialScreen": {
+      "title": "Welcome back!"
+    },
     "googlePlusBtnLabel": "Sign in with Google",
     "facebookBtnLabel": "Sign in with facebook",
     "emailBtnLabel": "Sign in with email"
@@ -501,7 +498,13 @@
     "txt": "Or"
   },
 
-  "loginForm": {
+  "loginEmailScreen": {
+    "navigation": {
+      "title": "Sign in with email"
+    }
+  },
+
+  "loginEmailForm": {
     "fields": {
       "email": {
         "label": "E-mail",
@@ -528,17 +531,20 @@
 
   "signupScreen": {
     "navigation": {
-      "title": "Sign up"
-    }
-  },
-
-  "signupSocialScreen": {
+      "title": "Let's get you an account"
+    },
     "googlePlusBtnLabel": "Sign up with Google",
     "facebookBtnLabel": "Sign up with facebook",
     "emailBtnLabel": "Sign up with email"
   },
 
-  "signupForm": {
+  "signupEmailScreen": {
+    "navigation": {
+      "title": "Sign up with email it is!"
+    }
+  },
+
+  "signupEmailForm": {
     "fields": {
       "firstName": {
         "label": "First name",

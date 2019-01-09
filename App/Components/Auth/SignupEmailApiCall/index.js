@@ -7,9 +7,10 @@ import { withUser, userPropTypes } from '../../../Context/User';
 // COMPONENT:
 //------------------------------------------------------------------------------
 /**
- * @summary Gets input fields from the SignupForm and calls API to authenticate user.
+ * @summary Gets input fields from the SignupEmailForm and calls API to
+ * authenticate the user.
  */
-class SignupApiCall extends React.PureComponent {
+class SignupEmailApiCall extends React.PureComponent {
   handleSignup = async (inputFields) => {
     const { onSignupError, onSignupSuccess, signup } = this.props;
     const {
@@ -53,7 +54,7 @@ class SignupApiCall extends React.PureComponent {
   }
 }
 
-SignupApiCall.propTypes = {
+SignupEmailApiCall.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
@@ -63,9 +64,9 @@ SignupApiCall.propTypes = {
   signup: userPropTypes.signup.isRequired,
 };
 
-SignupApiCall.defaultProps = {
+SignupEmailApiCall.defaultProps = {
   onSignupError: () => {},
   onSignupSuccess: () => {},
 };
 
-export default withUser(SignupApiCall);
+export default withUser(SignupEmailApiCall);

@@ -29,7 +29,7 @@ const FlexOne = styled.ScrollView`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: use KeyboardAwareScrollView
-class SignupForm extends React.PureComponent {
+class SignupEmailForm extends React.PureComponent {
   state = {
     firstName: '',
     lastName: '',
@@ -115,36 +115,36 @@ class SignupForm extends React.PureComponent {
     const _firstName = firstName && firstName.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_firstName) {
-      errors.firstName.push('signupForm.fields.firstName.errors.required');
+      errors.firstName.push('signupEmailForm.fields.firstName.errors.required');
     } else if (_firstName.length > MAX_CHARS) {
-      errors.firstName.push('signupForm.fields.firstName.errors.tooLong');
+      errors.firstName.push('signupEmailForm.fields.firstName.errors.tooLong');
     }
 
     // Sanitize input
     const _lastName = lastName && lastName.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_lastName) {
-      errors.lastName.push('signupForm.fields.lastName.errors.required');
+      errors.lastName.push('signupEmailForm.fields.lastName.errors.required');
     } else if (_lastName.length > MAX_CHARS) {
-      errors.lastName.push('signupForm.fields.lastName.errors.tooLong');
+      errors.lastName.push('signupEmailForm.fields.lastName.errors.tooLong');
     }
 
     // Sanitize input
     const _email = email && email.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_email) {
-      errors.email.push('signupForm.fields.email.errors.required');
+      errors.email.push('signupEmailForm.fields.email.errors.required');
     } else if (!isEmail(_email)) {
-      errors.email.push('signupForm.fields.email.errors.invalid');
+      errors.email.push('signupEmailForm.fields.email.errors.invalid');
     } else if (_email.length > MAX_CHARS) {
-      errors.email.push('signupForm.fields.email.errors.tooLong');
+      errors.email.push('signupEmailForm.fields.email.errors.tooLong');
     }
 
     // Don't sanitize password
     if (!password || password.length === 0) {
-      errors.password.push('signupForm.fields.password.errors.required');
+      errors.password.push('signupEmailForm.fields.password.errors.required');
     } else if (password.length > MAX_CHARS) {
-      errors.password.push('signupForm.fields.password.errors.tooLong');
+      errors.password.push('signupEmailForm.fields.password.errors.tooLong');
     }
 
     return errors;
@@ -222,7 +222,7 @@ class SignupForm extends React.PureComponent {
         >
           <TextField
             testID="signupFieldFirstName"
-            label={I18n.t('signupForm.fields.firstName.label')}
+            label={I18n.t('signupEmailForm.fields.firstName.label')}
             value={firstName}
             error={firstNameErrors}
             size="ML"
@@ -239,7 +239,7 @@ class SignupForm extends React.PureComponent {
         >
           <TextField
             testID="signupFieldLastName"
-            label={I18n.t('signupForm.fields.lastName.label')}
+            label={I18n.t('signupEmailForm.fields.lastName.label')}
             value={lastName}
             error={lastNameErrors}
             size="ML"
@@ -255,7 +255,7 @@ class SignupForm extends React.PureComponent {
         >
           <TextField
             testID="signupFieldEmail"
-            label={I18n.t('signupForm.fields.email.label')}
+            label={I18n.t('signupEmailForm.fields.email.label')}
             value={email}
             error={emailErrors}
             size="ML"
@@ -272,7 +272,7 @@ class SignupForm extends React.PureComponent {
         >
           <TextField
             testID="signupFieldPassword"
-            label={I18n.t('signupForm.fields.password.label')}
+            label={I18n.t('signupEmailForm.fields.password.label')}
             value={password}
             error={passwordErrors}
             size="ML"
@@ -285,10 +285,10 @@ class SignupForm extends React.PureComponent {
         </Block>
         <Block>
           <Text.M style={{ color: Colors.black }}>
-            {I18n.t('signupForm.terms.prefix')}
+            {I18n.t('signupEmailForm.terms.prefix')}
           </Text.M>
           <Link
-            text={I18n.t('signupForm.terms.link')}
+            text={I18n.t('signupEmailForm.terms.link')}
             href="https://www.sportyspots.com/terms.html"
             color={Colors.actionYellow}
             underline
@@ -299,7 +299,7 @@ class SignupForm extends React.PureComponent {
         <RaisedButton
           testID="signupButtonSubmit"
           variant="default"
-          label={I18n.t('signupForm.btnLabel')}
+          label={I18n.t('signupEmailForm.btnLabel')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />
@@ -308,7 +308,7 @@ class SignupForm extends React.PureComponent {
   }
 }
 
-SignupForm.propTypes = {
+SignupEmailForm.propTypes = {
   disabled: PropTypes.bool,
   errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,
@@ -317,7 +317,7 @@ SignupForm.propTypes = {
   onSuccessHook: PropTypes.func,
 };
 
-SignupForm.defaultProps = {
+SignupEmailForm.defaultProps = {
   disabled: false,
   errors: null,
   onBeforeHook: () => {},
@@ -326,4 +326,4 @@ SignupForm.defaultProps = {
   onSuccessHook: () => {},
 };
 
-export default SignupForm;
+export default SignupEmailForm;

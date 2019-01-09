@@ -23,7 +23,7 @@ const FlexOne = styled.ScrollView`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: use KeyboardAwareScrollView
-class LoginForm extends React.PureComponent {
+class LoginEmailForm extends React.PureComponent {
   state = {
     email: '',
     password: '',
@@ -76,18 +76,18 @@ class LoginForm extends React.PureComponent {
     const _email = email && email.trim(); // eslint-disable-line no-underscore-dangle
 
     if (!_email) {
-      errors.email.push('loginForm.fields.email.errors.required');
+      errors.email.push('loginEmailForm.fields.email.errors.required');
     } else if (!isEmail(_email)) {
-      errors.email.push('loginForm.fields.email.errors.invalid');
+      errors.email.push('loginEmailForm.fields.email.errors.invalid');
     } else if (_email.length > MAX_CHARS) {
-      errors.email.push('loginForm.fields.email.errors.tooLong');
+      errors.email.push('loginEmailForm.fields.email.errors.tooLong');
     }
 
     // Don't sanitize password
     if (!password || password.length === 0) {
-      errors.password.push('loginForm.fields.password.errors.required');
+      errors.password.push('loginEmailForm.fields.password.errors.required');
     } else if (password.length > MAX_CHARS) {
-      errors.password.push('loginForm.fields.password.errors.tooLong');
+      errors.password.push('loginEmailForm.fields.password.errors.tooLong');
     }
 
     return errors;
@@ -145,7 +145,7 @@ class LoginForm extends React.PureComponent {
         <Block midHeight>
           <TextField
             testID="loginInputEmail"
-            label={I18n.t('loginForm.fields.email.label')}
+            label={I18n.t('loginEmailForm.fields.email.label')}
             value={email}
             error={emailErrors}
             size="ML"
@@ -160,7 +160,7 @@ class LoginForm extends React.PureComponent {
         <Block midHeight>
           <TextField
             testID="loginInputPassword"
-            label={I18n.t('loginForm.fields.password.label')}
+            label={I18n.t('loginEmailForm.fields.password.label')}
             value={password}
             error={passwordErrors}
             size="ML"
@@ -176,7 +176,7 @@ class LoginForm extends React.PureComponent {
         <RaisedButton
           testID="loginSubmitButton"
           variant="default"
-          label={I18n.t('loginForm.btnLabel')}
+          label={I18n.t('loginEmailForm.btnLabel')}
           disabled={disabled}
           onPress={this.handleSubmit}
         />
@@ -185,7 +185,7 @@ class LoginForm extends React.PureComponent {
   }
 }
 
-LoginForm.propTypes = {
+LoginEmailForm.propTypes = {
   disabled: PropTypes.bool,
   errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,
@@ -194,7 +194,7 @@ LoginForm.propTypes = {
   onSuccessHook: PropTypes.func,
 };
 
-LoginForm.defaultProps = {
+LoginEmailForm.defaultProps = {
   disabled: false,
   errors: null,
   onBeforeHook: () => {},
@@ -203,4 +203,4 @@ LoginForm.defaultProps = {
   onSuccessHook: () => {},
 };
 
-export default LoginForm;
+export default LoginEmailForm;

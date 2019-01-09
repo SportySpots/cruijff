@@ -488,20 +488,33 @@
   "loginScreen": {
     "navigation": {
       "title": "Hola de nuevo!"
+    },
+    "googlePlusBtnLabel": "Iniciar sesión con Google",
+    "facebookBtnLabel": "Iniciar sesión con facebook",
+    "emailBtnLabel": "Iniciar sesión con email"
+  },
+
+  "orDivider": {
+    "txt": "O"
+  },
+
+  "loginEmailScreen": {
+    "navigation": {
+      "title": "Iniciar sesión con email"
     }
   },
 
-  "loginForm": {
+  "loginEmailForm": {
     "fields": {
       "email": {
-        "label": "Correo electrónico",
+        "label": "E-mail",
         "placeholder": "",
         "errors": {
-          "required": "Correo es requerido",
-          "invalid": "Por favor proporciona un correo electrónico válido",
-          "tooLong": "Correo es muy largo",
-          "wrongCredentials": "Correo o contraseña equivocada",
-          "unknown": "Algo malo sucedio"
+          "required": "Email es requerido",
+          "invalid": "Por favor proporciona un email válido",
+          "tooLong": "Email es muy largo",
+          "wrongCredentials": "Email o contraseña equivocados",
+          "unknown": "Algo fue mal"
         }
       },
       "password": {
@@ -518,11 +531,20 @@
 
   "signupScreen": {
     "navigation": {
-      "title": "Bienvenido!"
+      "title": "Hagamos una cuenta para ti!"
+    },
+    "googlePlusBtnLabel": "Registrarse con Google",
+    "facebookBtnLabel": "Registrarse con facebook",
+    "emailBtnLabel": "Registrarse con email"
+  },
+
+  "signupEmailScreen": {
+    "navigation": {
+      "title": "Registrarse con email será!"
     }
   },
 
-  "signupForm": {
+  "signupEmailForm": {
     "fields": {
       "firstName": {
         "label": "Nombre",
@@ -541,13 +563,13 @@
         }
       },
       "email": {
-        "label": "Correo electrónico",
+        "label": "E-mail",
         "placeholder": "",
         "errors": {
-          "required": "Correo es requerido",
-          "invalid": "Por favor proporciona un correo electrónico válido",
-          "tooLong": "Correo es muy largo",
-          "inUse": "El correo electrónico ya ha sido registrado"
+          "required": "Email es requerido",
+          "invalid": "Por favor proporciona un email válido",
+          "tooLong": "Email es muy largo",
+          "inUse": "El email ya ha sido registrado"
         }
       },
       "password": {

@@ -7,9 +7,10 @@ import { withUser, userPropTypes } from '../../../Context/User';
 // COMPONENT:
 //------------------------------------------------------------------------------
 /**
- * @summary Gets input fields from the LoginForm and calls API to authenticate user.
+ * @summary Gets input fields from the LoginEmailForm and calls API to
+ * authenticate the user.
  */
-class LoginApiCall extends React.PureComponent {
+class LoginEmailApiCall extends React.PureComponent {
   handleLogin = async (inputFields) => {
     const { onLoginError, onLoginSuccess, login } = this.props;
     const { email, password } = inputFields;
@@ -42,7 +43,7 @@ class LoginApiCall extends React.PureComponent {
   }
 }
 
-LoginApiCall.propTypes = {
+LoginEmailApiCall.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
@@ -52,9 +53,9 @@ LoginApiCall.propTypes = {
   login: userPropTypes.login.isRequired,
 };
 
-LoginApiCall.defaultProps = {
+LoginEmailApiCall.defaultProps = {
   onLoginError: () => {},
   onLoginSuccess: () => {},
 };
 
-export default withUser(LoginApiCall);
+export default withUser(LoginEmailApiCall);

@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
 import SplashScreen from '../../Screens/SplashScreen';
 import LoginScreen from '../../Screens/Auth/LoginScreen';
+import LoginEmailScreen from '../../Screens/Auth/LoginEmailScreen';
 import StackBackHeader from '../StackBackHeader';
 import LoggedOutRoute from '../LoggedOutRoute';
 import { headerTitleStyle } from './style';
@@ -17,9 +18,9 @@ const handleLoggedIn = (navigation) => {
 };
 //------------------------------------------------------------------------------
 const handleSuccessAuth = (navigation) => {
-  // After successful auth, go back 2 screens:
-  // --> LoginScreen --> MainNave
-  navigation.pop(1);
+  // After successful auth, go back 3 screens:
+  // --> LoginEmailScreen --> LoginEmailScreen --> MainNave
+  navigation.pop(2);
   navigation.navigate('MainNav');
 };
 //------------------------------------------------------------------------------
@@ -32,6 +33,22 @@ const backBtn = navigation => (
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SplashNav = createStackNavigator({
+  LoginEmailScreen: {
+    screen: ({ navigation }) => (
+      <LoggedOutRoute
+        navigation={navigation}
+        component={LoginEmailScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
+        // Child component props
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
+      />
+    ),
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('loginEmailScreen.navigation.title'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
+  },
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoggedOutRoute
@@ -39,7 +56,7 @@ const SplashNav = createStackNavigator({
         component={LoginScreen}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
         // Child component props
-        onSuccessHook={() => { handleSuccessAuth(navigation); }}
+        onSuccessHook={() => {}}
       />
     ),
     navigationOptions: ({ navigation }) => ({

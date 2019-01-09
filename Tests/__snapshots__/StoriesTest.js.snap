@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Auth.LoginForm LoginForm 1`] = `null`;
+exports[`Storyshots Auth.LoginEmailForm LoginEmailForm 1`] = `null`;
 
-exports[`Storyshots Auth.SignupForm SignupForm 1`] = `null`;
+exports[`Storyshots Auth.SignupEmailForm SignupEmailForm 1`] = `null`;
 
 exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `null`;
 
@@ -368,9 +368,11 @@ exports[`Storyshots RatingBig 3 1`] = `null`;
 
 exports[`Storyshots RatingBig 4.5 1`] = `null`;
 
+exports[`Storyshots Screen.Auth LoginEmailScreen 1`] = `null`;
+
 exports[`Storyshots Screen.Auth LoginScreen 1`] = `null`;
 
-exports[`Storyshots Screen.Auth LoginSocialScreen 1`] = `null`;
+exports[`Storyshots Screen.Auth SignupEmailScreen 1`] = `null`;
 
 exports[`Storyshots Screen.Auth SignupScreen 1`] = `null`;
 

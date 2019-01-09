@@ -2,17 +2,17 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import LoginForm from '.';
+import LoginEmailScreen from '.';
 
-storiesOf('Auth.LoginForm', module)
-  .add('LoginForm', () => (
+storiesOf('Screen.Auth', module)
+  .add('LoginEmailScreen', () => (
     <Query
       query={GET_USER_DETAILS}
       variables={{ uuid: 455 }}
     >
       {({ loading, error, data }) =>
         (loading || error ? null : (
-          <LoginForm user={data.user} />
+          <LoginEmailScreen user={data.user} />
         ))
       }
     </Query>

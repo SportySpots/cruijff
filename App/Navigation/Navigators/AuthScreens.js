@@ -3,7 +3,9 @@ import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import LoggedOutRoute from '../LoggedOutRoute';
 import LoginScreen from '../../Screens/Auth/LoginScreen';
+import LoginEmailScreen from '../../Screens/Auth/LoginEmailScreen';
 import SignupScreen from '../../Screens/Auth/SignupScreen';
+import SignupEmailScreen from '../../Screens/Auth/SignupEmailScreen';
 import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
 import { headerTitleStyle } from './style';
 
@@ -17,9 +19,9 @@ const handleLoggedIn = (navigation) => {
 };
 //------------------------------------------------------------------------------
 const handleSuccessAuth = (navigation) => {
-  // After successful auth, go back 2 screens:
-  // --> LoggedOutScreen --> <Original>Screen
-  navigation.pop(2);
+  // After successful auth, go back 3 screens:
+  // --> LoggedOutScreen --> <Original>Screen --> <Original>EmailScreen
+  navigation.pop(3);
 };
 //------------------------------------------------------------------------------
 const backBtn = navigation => (
@@ -31,6 +33,22 @@ const backBtn = navigation => (
 // COMPONENT:
 //------------------------------------------------------------------------------
 const AuthScreens = {
+  LoginEmailScreen: {
+    screen: ({ navigation }) => (
+      <LoggedOutRoute
+        navigation={navigation}
+        component={LoginEmailScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
+        // Child component props
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
+      />
+    ),
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('loginEmailScreen.navigation.title'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
+  },
   LoginScreen: {
     screen: ({ navigation }) => (
       <LoggedOutRoute
@@ -38,11 +56,27 @@ const AuthScreens = {
         component={LoginScreen}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
         // Child component props
-        onSuccessHook={() => { handleSuccessAuth(navigation); }}
+        onSuccessHook={() => {}}
       />
     ),
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('loginScreen.navigation.title'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
+  },
+  SignupEmailScreen: {
+    screen: ({ navigation }) => (
+      <LoggedOutRoute
+        navigation={navigation}
+        component={SignupEmailScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
+        // Child component props
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
+      />
+    ),
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('signupEmailScreen.navigation.title'),
       headerTitleStyle,
       headerLeft: backBtn(navigation),
     }),
@@ -54,7 +88,7 @@ const AuthScreens = {
         component={SignupScreen}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
         // Child component props
-        onSuccessHook={() => { handleSuccessAuth(navigation); }}
+        onSuccessHook={() => {}}
       />
     ),
     navigationOptions: ({ navigation }) => ({
