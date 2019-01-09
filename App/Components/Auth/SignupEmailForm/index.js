@@ -223,6 +223,7 @@ class SignupEmailForm extends React.PureComponent {
           <TextField
             testID="signupFieldFirstName"
             label={I18n.t('signupEmailForm.fields.firstName.label')}
+            placeholder="Mohammed"
             value={firstName}
             error={firstNameErrors}
             size="ML"
@@ -240,6 +241,7 @@ class SignupEmailForm extends React.PureComponent {
           <TextField
             testID="signupFieldLastName"
             label={I18n.t('signupEmailForm.fields.lastName.label')}
+            placeholder="Ali"
             value={lastName}
             error={lastNameErrors}
             size="ML"
@@ -256,6 +258,7 @@ class SignupEmailForm extends React.PureComponent {
           <TextField
             testID="signupFieldEmail"
             label={I18n.t('signupEmailForm.fields.email.label')}
+            placeholder="m.ali@boxinglegends.com"
             value={email}
             error={emailErrors}
             size="ML"
@@ -273,6 +276,7 @@ class SignupEmailForm extends React.PureComponent {
           <TextField
             testID="signupFieldPassword"
             label={I18n.t('signupEmailForm.fields.password.label')}
+            placeholder="••••••••"
             value={password}
             error={passwordErrors}
             size="ML"

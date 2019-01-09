@@ -146,6 +146,7 @@ class LoginEmailForm extends React.PureComponent {
           <TextField
             testID="loginInputEmail"
             label={I18n.t('loginEmailForm.fields.email.label')}
+            placeholder="m.ali@boxinglegends.com"
             value={email}
             error={emailErrors}
             size="ML"
@@ -161,6 +162,7 @@ class LoginEmailForm extends React.PureComponent {
           <TextField
             testID="loginInputPassword"
             label={I18n.t('loginEmailForm.fields.password.label')}
+            placeholder="••••••••"
             value={password}
             error={passwordErrors}
             size="ML"

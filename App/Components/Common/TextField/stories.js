@@ -46,7 +46,7 @@ storiesOf('Common.TextField', module)
       />
     </Block>
   ))
-  .add('TextField with white theme', () => (
+  .add('TextField with WHITE theme', () => (
     <Block bgColor={Colors.primaryGreen}>
       <TextField
         theme="white"
@@ -57,13 +57,24 @@ storiesOf('Common.TextField', module)
       />
     </Block>
   ))
-  .add('TextField with white theme with ERROR', () => (
+  .add('TextField with WHITE theme with ERROR', () => (
     <Block bgColor={Colors.primaryGreen}>
       <TextField
         theme="white"
         label="I'm the label"
         value="I'm the value"
         error="I'm the error"
+        characterRestriction={20}
+        containerStyle={containerStyle}
+      />
+    </Block>
+  ))
+  .add('TextField with MIX theme', () => (
+    <Block bgColor={Colors.primaryGreen}>
+      <TextField
+        theme="mix"
+        label="I'm the label"
+        value="I'm the value"
         characterRestriction={20}
         containerStyle={containerStyle}
       />
