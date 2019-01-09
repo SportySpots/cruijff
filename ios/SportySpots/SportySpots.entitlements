@@ -8,6 +8,7 @@
 	<array>
 		<string>webcredentials:sportyspots.com</string>
 		<string>applinks:link.sportyspots.com</string>
+		<string>applinks:sportyspots.page.link</string>
 	</array>
 </dict>
 </plist>
