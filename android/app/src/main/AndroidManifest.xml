@@ -37,9 +37,9 @@
         <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <!--<data android:scheme="https" android:host="@string/DEEPLINK_HOST" android:pathPrefix="/games" />-->
-          <data android:host="link.sportyspots.com" android:scheme="http"/>
-          <data android:host="link.sportyspots.com" android:scheme="https"/>
+          <data android:scheme="https" android:host="@string/DEEPLINK_HOST" android:pathPrefix="/games" />
+          <data android:host="sportyspots.page.link" android:scheme="http"/>
+          <data android:host="sportyspots.page.link" android:scheme="https"/>
         </intent-filter>
       </activity>
 
