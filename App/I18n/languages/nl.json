@@ -529,6 +529,20 @@
     "btnLabel": "Log in"
   },
 
+  "checkEmailScreen": {
+    "navigation": {
+      "title": "Check je email"
+    },
+    "login": {
+      "title": "Check je email!",
+      "subtitle": "We've sent you a magic login link."
+    },
+    "signup": {
+      "title": "Check je email!",
+      "subtitle": "We've sent you a confirmation email. We know emails, but hey better safe than sorry."
+    }
+  },
+
   "signupScreen": {
     "navigation": {
       "title": "Let's get you an account"

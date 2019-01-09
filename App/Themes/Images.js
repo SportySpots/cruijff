@@ -10,6 +10,9 @@ const images = {
   activityCancelledVisual: require('../Images/activity-cancelled-visual.png'),
   activitySuccessVisual: require('../Images/activity-success-visual.png'),
   activityConfirmVisual: require('../Images/activity-confirm-visual.png'),
+  checkEmail: require('../Images/check-email.png'),
+  locationOnboarding: require('../Images/location-onboarding.png'),
+  locationOnboardingBg: require('../Images/location-onboarding-bg.png'),
 };
 
 export default images;

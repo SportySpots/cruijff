@@ -529,6 +529,20 @@
     "btnLabel": "Iniciar sesión"
   },
 
+  "checkEmailScreen": {
+    "navigation": {
+      "title": "Mira tu email"
+    },
+    "login": {
+      "title": "Mira tu email!",
+      "subtitle": "Te hemos enviado un enlace de inicio de sesión mágico."
+    },
+    "signup": {
+      "title": "Mira tu email!",
+      "subtitle": "Te hemos enviado un correo electrónico de confirmación. Sabemos que correos electrónicos son molestos, pero oye mejor prevenir que lamentar."
+    }
+  },
+
   "signupScreen": {
     "navigation": {
       "title": "Hagamos una cuenta para ti!"

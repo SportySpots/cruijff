@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from '../I18n/index';
 import Images from '../Themes/Images';
-import ScreenSlider from '../Components/ScreenSlider/index';
+import ScreenSlider from '../Components/ScreenSlider';
 import Onboarding from '../Components/Onboarding';
 import globalRefs from '../globalRefs';
 

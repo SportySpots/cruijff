@@ -370,6 +370,10 @@ exports[`Storyshots RatingBig 3 1`] = `null`;
 
 exports[`Storyshots RatingBig 4.5 1`] = `null`;
 
+exports[`Storyshots Screen.Auth CheckEmailScreen LOGIN 1`] = `null`;
+
+exports[`Storyshots Screen.Auth CheckEmailScreen SIGNUP 1`] = `null`;
+
 exports[`Storyshots Screen.Auth LoginEmailScreen 1`] = `null`;
 
 exports[`Storyshots Screen.Auth LoginScreen 1`] = `null`;
