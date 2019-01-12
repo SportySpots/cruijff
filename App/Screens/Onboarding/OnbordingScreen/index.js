@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
 import ScreenSlider from '../../../Components/Common/ScreenSlider';
-import Onboarding from '../../../Components/Onboarding/OnboardingSlide';
+import OnboardingSlide from '../../../Components/Onboarding/OnboardingSlide';
 import globalRefs from '../../../globalRefs';
 
 const data = [
@@ -36,7 +36,7 @@ class OnboardingScreen extends React.Component {
       <ScreenSlider
         data={data}
         style={{ flex: 1 }}
-        renderItem={({ item }) => <Onboarding {...item} />}
+        renderItem={({ item }) => <OnboardingSlide {...item} />}
         footerText={(item, index) => I18n.t(index < data.length - 1 ? 'OnboardingScreen.nextBtnLabel' : 'OnboardingScreen.lastBtnLabel')}
         onDone={onSuccessHook}
       />

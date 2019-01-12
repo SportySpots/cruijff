@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { View, Image, TouchableHighlight } from 'react-native';
 import styled from 'styled-components';
-import Images from '../Themes/Images';
-import I18n from '../I18n/index';
-import Colors from '../Themes/Colors';
-import Fonts from '../Themes/Fonts';
-import Text from '../Components/Common/Text';
+import Images from '../../Themes/Images';
+import I18n from '../../I18n/index';
+import Colors from '../../Themes/Colors';
+import Fonts from '../../Themes/Fonts';
+import Text from '../../Components/Common/Text';
 
 export default class AskLocationScreen extends React.PureComponent {
   static propTypes = {
