@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import I18n from '../I18n/index';
-import Images from '../Themes/Images';
-import ScreenSlider from '../Components/ScreenSlider/index';
-import Onboarding from '../Components/Onboarding';
-import globalRefs from '../globalRefs';
+import I18n from '../../../I18n';
+import Images from '../../../Themes/Images';
+import ScreenSlider from '../../../Components/Common/ScreenSlider';
+import Onboarding from '../../../Components/Onboarding/OnboardingSlide';
+import globalRefs from '../../../globalRefs';
 
 const data = [
   {

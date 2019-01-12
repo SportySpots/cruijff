@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
-import SplashScreen from '../../Screens/SplashScreen';
+import SplashScreen from '../../Screens/Splash/SplashScreen';
 import LoginScreen from '../../Screens/Auth/LoginScreen';
 import StackBackHeader from '../StackBackHeader';
 import LoggedOutRoute from '../LoggedOutRoute';
