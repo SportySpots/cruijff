@@ -116,6 +116,8 @@ exports[`Storyshots Common.Link Link 1`] = `null`;
 
 exports[`Storyshots Common.Link Link with icon 1`] = `null`;
 
+exports[`Storyshots Common.Logo Logo 1`] = `null`;
+
 exports[`Storyshots Common.Menu Menu 1`] = `null`;
 
 exports[`Storyshots Common.NavBar NavBar 1`] = `null`;
