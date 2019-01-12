@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react-native';
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import ImageSwiper from './Common/ImageSwiper';
 import Text from './Common/Text';
-import Logo from './Common/Logo';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
 import NothingFound from './Common/NothingFound';
@@ -18,10 +17,6 @@ const dummyNavigator = {
     routes: [{ routeName: 'test' }],
   },
 };
-
-storiesOf('Logo', module)
-  .add('Default', () => <Logo />);
-
 
 storiesOf('Text', module)
   .add('All sizes', () => (

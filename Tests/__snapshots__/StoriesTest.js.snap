@@ -298,8 +298,6 @@ exports[`Storyshots Layouts.FixedTopLayout FixedTopLayout 1`] = `null`;
 
 exports[`Storyshots Layouts.TopBottomLayout TopBottomLayout black theme 1`] = `null`;
 
-exports[`Storyshots Logo Default 1`] = `null`;
-
 exports[`Storyshots Modals.CancelConfirmModal CancelConfirmModal 1`] = `null`;
 
 exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `null`;
