@@ -5,11 +5,11 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../App/Components/Common/ScreenSlider/stories');
+  require('../App/Screens/Onboarding/OnboardingScreen/stories');
 }
 
 const stories = [
-  '../App/Components/Common/ScreenSlider/stories',
+  '../App/Screens/Onboarding/OnboardingScreen/stories',
 ];
 
 module.exports = {

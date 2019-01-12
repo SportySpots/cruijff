@@ -599,8 +599,8 @@
     "nextBtnLabel": "continue"
   },
 
-  "OnboardingScreen": {
-    "hiSporter": {
+  "onboardingScreen": {
+    "welcome": {
       "title": "Hi sporter!",
       "text": "Thanks for joining SportySpots. Happy sporting!"
     },

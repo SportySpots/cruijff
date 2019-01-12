@@ -4,6 +4,7 @@ import { Keyboard, View } from 'react-native';
 import firebase from 'react-native-firebase';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
+import union from 'lodash/union';
 import extend from 'lodash/extend';
 import pick from 'lodash/pick';
 import styled from 'styled-components';
@@ -142,27 +143,12 @@ class PlanGameForm extends React.Component {
 
     const { errors } = this.state;
 
-    // Automatically swipe right after the user selects spot
     this.setState({
       [fieldName]: value,
       errors: (fieldName === 'date' || fieldName === 'time')
         ? ErrorHandling.clearErrors(errors, 'dateTime')
         : ErrorHandling.clearErrors(errors, fieldName),
     });
-
-    // // Automatically swipe right after the user selects spot
-    // this.setState({
-    //   [fieldName]: value,
-    //   errors: (fieldName === 'date' || fieldName === 'time')
-    //     ? ErrorHandling.clearErrors(errors, 'dateTime')
-    //     : ErrorHandling.clearErrors(errors, fieldName),
-    //   curSlide: fieldName === 'spot' ? curSlide + 1 : curSlide,
-    // }, () => {
-    //   if (fieldName === 'spot') {
-    //     this.swiper.scrollBy(1);
-    //   }
-    //   console.log('STATE', this.state);
-    // });
   }
 
   validateFields = (errorFields) => {
@@ -185,14 +171,16 @@ class PlanGameForm extends React.Component {
     const { requiredFields } = SLIDES[curSlide];
 
     // Disable next btn (return 'true') if at least on of the required fields isn't set
-    for (let i = 0; i < requiredFields.length; i += 1) {
-      const fieldName = requiredFields[i];
-      if (!this.state[fieldName]) { // eslint-disable-line
-        return true;
+    if (requiredFields) {
+      for (let i = 0; i < requiredFields.length; i += 1) {
+        const fieldName = requiredFields[i];
+        if (!this.state[fieldName]) { // eslint-disable-line
+          return true;
+        }
       }
     }
 
-    // Enable btn otherwise (all required fields are set and restrictions met)
+    // Enable btn otherwise (all required fields are set)
     return false;
   }
 
@@ -273,16 +261,8 @@ class PlanGameForm extends React.Component {
     }
 
     // Pass event up to parent component
-    onSuccessHook(pick(this.state, [
-      'title',
-      'sport',
-      'date',
-      'time',
-      'duration',
-      'capacity',
-      'spot',
-      'description',
-    ]));
+    const fields = SLIDES.map(({ fields: fs }) => fs).reduce((result, fs) => union(result, fs), []);
+    onSuccessHook(pick(this.state, fields));
   }
 
   render() {
