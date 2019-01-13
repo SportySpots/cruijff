@@ -19,24 +19,24 @@ const CITIES = [
     id: 'amsterdam',
     name: 'Amsterdam',
     coords: {
-      lat: 52.3547321,
-      lng: 4.8284118,
+      latitude: 52.3547321,
+      longitude: 4.8284118,
     },
   },
   {
     id: 'enschede',
     name: 'Enschede',
     coords: {
-      lat: 52.2233632,
-      lng: 6.7983365,
+      latitude: 52.2233632,
+      longitude: 6.7983365,
     },
   },
   {
     id: 'buenosAires',
     name: 'Buenos Aires',
     coords: {
-      lat: -34.6156624,
-      lng: -58.50351,
+      latitude: -34.6156624,
+      longitude: -58.50351,
     },
   },
 ];

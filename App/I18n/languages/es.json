@@ -594,6 +594,14 @@
   },
 
   "onboardingScreen": {
+    "leaveAlert": {
+      "header": "Confirmar",
+      "body": "Estas seguro que quieres dejar la aplicación?",
+      "footer": {
+        "okBtnLabel": "Si",
+        "cancelBtnLabel": "No"
+      }
+    },
     "welcome": {
       "title": "Hola deportista!",
       "text": "Gracias por unirte a SportySpots. Diviértete!"
