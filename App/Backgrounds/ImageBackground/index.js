@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
-import Row from '../../Common/Row';
-import Block from '../../Common/Block';
-import Spacer from '../../Common/Spacer';
-import Text from '../../Common/Text';
+import Colors from '../../Themes/Colors';
+import Row from '../../Components/Common/Row';
+import Block from '../../Components/Common/Block';
+import Spacer from '../../Components/Common/Spacer';
+import Text from '../../Components/Common/Text';
 
 // TODO: move to background folder
 //------------------------------------------------------------------------------
@@ -35,7 +35,12 @@ const Paragraph = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ImageSlide = ({ title, text, image }) => (
+const ImageBackground = ({
+  image,
+  title,
+  text,
+  children,
+}) => (
   <Container>
     <Spacer size="XXL" />
     <Block>
@@ -48,24 +53,31 @@ const ImageSlide = ({ title, text, image }) => (
       </Row>
     </Block>
     <Spacer size="XXXL" />
-    <TextContainer>
-      <Title>{title}</Title>
-      <Spacer size="XL" />
-      <Paragraph>{text}</Paragraph>
-    </TextContainer>
+    {!!title && !!text && (
+      <TextContainer>
+        <Title>{title}</Title>
+        <Spacer size="XL" />
+        <Paragraph>{text}</Paragraph>
+      </TextContainer>
+    )}
+    {children}
   </Container>
 );
 
-ImageSlide.propTypes = {
+ImageBackground.propTypes = {
+  image: PropTypes.any.isRequired, // eslint-disable-line
   title: PropTypes.string,
   text: PropTypes.string,
-  image: PropTypes.any, // eslint-disable-line
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.node,
+  ]),
 };
 
-ImageSlide.defaultProps = {
+ImageBackground.defaultProps = {
   title: '',
   text: '',
-  image: '',
+  children: null,
 };
 
-export default ImageSlide;
+export default ImageBackground;
