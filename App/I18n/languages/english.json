@@ -593,12 +593,6 @@
     "noSpots": "No spots found..."
   },
 
-  "askLocationScreen": {
-    "title": "Share location",
-    "subtitle": "We would like to ask you to share your location so that we can show you all the activities in your area.",
-    "nextBtnLabel": "continue"
-  },
-
   "onboardingScreen": {
     "welcome": {
       "title": "Hi sporter!",
@@ -614,6 +608,10 @@
     },
     "nextBtnLabel": "continue",
     "lastBtnLabel": "let's go"
+  },
+
+  "locationSlide": {
+    "title": "Choose your sport location:"
   },
 
   "queryCatchErrors": {

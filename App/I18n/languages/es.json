@@ -593,12 +593,6 @@
     "noSpots": "No se encontraron spots..."
   },
 
-  "askLocationScreen": {
-    "title": "Comparte ubicación",
-    "subtitle": "Nos gustaría pedirte que compartas tu ubicación para que podamos mostrarte todas las actividades en tu área.",
-    "nextBtnLabel": "continuar"
-  },
-
   "onboardingScreen": {
     "welcome": {
       "title": "Hola deportista!",
@@ -614,6 +608,10 @@
     },
     "nextBtnLabel": "continuar",
     "lastBtnLabel": "vamos"
+  },
+
+  "locationSlide": {
+    "title": "Elige tu ubicación deportiva:"
   },
 
   "queryCatchErrors": {

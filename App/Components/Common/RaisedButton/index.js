@@ -65,7 +65,9 @@ RaisedButton.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
-  variant: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'warning', 'ghost']),
+  variant: PropTypes.oneOf([
+    'default', 'primary', 'secondary', 'info', 'warning', 'ghost', 'transparent',
+  ]),
   size: PropTypes.oneOf(['M', 'S']),
   disabled: PropTypes.bool,
   width: PropTypes.oneOfType([

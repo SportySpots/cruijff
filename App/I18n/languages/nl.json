@@ -593,12 +593,6 @@
     "noSpots": "Geen spots gevonden..."
   },
 
-  "askLocationScreen": {
-    "title": "Locatie delen",
-    "subtitle": "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
-    "nextBtnLabel": "doorgaan"
-  },
-
   "onboardingScreen": {
     "welcome": {
       "title": "Hoi sporter!",
@@ -614,6 +608,10 @@
     },
     "nextBtnLabel": "doorgaan",
     "lastBtnLabel": "let's go"
+  },
+
+  "locationSlide": {
+    "title": "Choose your sport location:"
   },
 
   "queryCatchErrors": {

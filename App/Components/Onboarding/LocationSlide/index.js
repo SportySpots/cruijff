@@ -1,86 +1,92 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View, Image, TouchableHighlight } from 'react-native';
+import { View, FlatList } from 'react-native';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import Images from '../../../Themes/Images';
 import Colors from '../../../Themes/Colors';
-import Fonts from '../../../Themes/Fonts';
+import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Text from '../../Common/Text';
+import Block from '../../Common/Block';
+import Spacer from '../../Common/Spacer';
+import RaisedButton from '../../Common/RaisedButton';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const CITIES = [
+  {
+    id: 'amsterdam',
+    name: 'Amsterdam',
+    coords: {
+      lat: 52.3547321,
+      lng: 4.8284118,
+    },
+  },
+  {
+    id: 'enschede',
+    name: 'Enschede',
+    coords: {
+      lat: 52.2233632,
+      lng: 6.7983365,
+    },
+  },
+  {
+    id: 'buenosAires',
+    name: 'Buenos Aires',
+    coords: {
+      lat: -34.6156624,
+      lng: -58.50351,
+    },
+  },
+];
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.View`
-  flex: 1;
-  background-color: ${Colors.darkGreen};
-`;
-//------------------------------------------------------------------------------
-const ImageContainer = styled.View`
-  flex: 1;
-  padding-right: 50px;
-  padding-left: 50px;
-  flex-direction: row;
-  align-items: center;
-`;
-//------------------------------------------------------------------------------
-const TextContainer = styled.View`
-  flex: 1;
-`;
-//------------------------------------------------------------------------------
-const Title = styled(Text.L)`
+const Title = styled(Text.ML)`
   color: ${Colors.white};
   text-align: center;
-  margin-horizontal: 48px;
-  margin-bottom: 24px;
-`;
-//------------------------------------------------------------------------------
-const Paragraph = styled(Text.M)`
-  line-height: ${Fonts.style.M.fontSize * 1.5};
-  color: ${Colors.white};
-  text-align: center;
-  margin-horizontal: 50px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class LocationSlide extends React.PureComponent {
-  async ask() {
-    const { askPermission, onSuccessHook } = this.props;
-    await askPermission();
-    onSuccessHook();
-  }
-
-  render() {
-    return (
-      <Container>
-        <Container>
-          <ImageContainer>
-            <Image
-              style={{ flex: 1 }}
-              resizeMode="contain"
-              source={Images.illustrationShareLocation}
-            />
-          </ImageContainer>
-          <TextContainer>
-            <Title>{I18n.t('askLocationScreen.title')}</Title>
-            <Paragraph>{I18n.t('askLocationScreen.subtitle')}</Paragraph>
-          </TextContainer>
-        </Container>
-      </Container>
-    );
-  }
-}
+const LocationSlide = ({ location, onChange }) => (
+  <ImageBackground image={Images.locationOnboardingBg}>
+    <View>
+      <Title>{I18n.t('locationSlide.title')}</Title>
+    </View>
+    <Spacer size="XL" />
+    <Block style={{ flex: 1 }}>
+      <FlatList
+        keyExtractor={item => item.id}
+        data={CITIES}
+        renderItem={({ item }) => (
+          <RaisedButton
+            label={item.name}
+            variant={location && location.id && location.id === item.id ? 'default' : 'transparent'}
+            onPress={() => { onChange({ fieldName: 'location', value: item }); }}
+          />
+        )}
+        ItemSeparatorComponent={() => (<Spacer size="XL" />)}
+        contentContainerStyle={{ flex: 1 }}
+      />
+    </Block>
+  </ImageBackground>
+);
 
 LocationSlide.propTypes = {
+  location: PropTypes.shape({
+    id: PropTypes.string,
+  }),
   onChange: PropTypes.func,
 };
 
 LocationSlide.defaultProps = {
+  location: null,
   onChange: () => {},
 };
 
-export default  LocationSlide;
+export default LocationSlide;
 
 /*
 import PropTypes from 'prop-types';

@@ -9,8 +9,8 @@ import extend from 'lodash/extend';
 import pick from 'lodash/pick';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
+import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../DarkFooter';
-import ImageSlide from '../ImageSlide';
 import LocationSlide from '../LocationSlide';
 import { addGlobalRef } from '../../../globalRefs';
 
@@ -21,7 +21,7 @@ const SLIDES = [
   {
     id: 'welcomeSlide',
     Comp: () => (
-      <ImageSlide
+      <ImageBackground
         title={I18n.t('onboardingScreen.welcome.title')}
         text={I18n.t('onboardingScreen.welcome.text')}
         image={Images.illustrationWizard1}
@@ -31,7 +31,7 @@ const SLIDES = [
   {
     id: 'joinGameSlide',
     Comp: () => (
-      <ImageSlide
+      <ImageBackground
         title={I18n.t('onboardingScreen.joinGame.title')}
         text={I18n.t('onboardingScreen.joinGame.text')}
         image={Images.illustrationWizard2}
@@ -41,7 +41,7 @@ const SLIDES = [
   {
     id: 'planGameSlide',
     Comp: () => (
-      <ImageSlide
+      <ImageBackground
         title={I18n.t('onboardingScreen.planGame.title')}
         text={I18n.t('onboardingScreen.planGame.text')}
         image={Images.illustrationWizard3}

@@ -38,6 +38,12 @@ export const getPalette = (variant) => {
         bgColor: Colors.white,
         borderColor: Colors.darkGray,
       };
+    case 'transparent':
+      return {
+        fontColor: Colors.white,
+        bgColor: Colors.transparent,
+        borderColor: Colors.white,
+      };
     default:
       throw new Error('Unknown variant');
   }

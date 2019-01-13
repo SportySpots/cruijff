@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
+import Block from '../Block';
 import RaisedButton from './index';
 
 storiesOf('Common.RaisedButton', module)
@@ -20,6 +21,11 @@ storiesOf('Common.RaisedButton', module)
   ))
   .add('RaisedButton ghost', () => (
     <RaisedButton variant="ghost" label="label" />
+  ))
+  .add('RaisedButton transparent', () => (
+    <Block bgColor="green">
+      <RaisedButton variant="transparent" label="label" />
+    </Block>
   ))
   .add('RaisedButton ghost disabled', () => (
     <RaisedButton variant="ghost" disabled label="label" />
