@@ -43,7 +43,7 @@ const CITIES = [
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Title = styled(Text.ML)`
+const Title = styled(Text.M)`
   color: ${Colors.white};
   text-align: center;
 `;
@@ -51,11 +51,11 @@ const Title = styled(Text.ML)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const LocationSlide = ({ location, onChange }) => (
-  <ImageBackground image={Images.locationOnboardingBg}>
+  <ImageBackground image={Images.locationOnboarding}>
     <View>
       <Title>{I18n.t('locationSlide.title')}</Title>
     </View>
-    <Spacer size="XL" />
+    <Spacer size="L" />
     <Block style={{ flex: 1 }}>
       <FlatList
         keyExtractor={item => item.id}
