@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import ErrorHandling from 'error-handling-utils';
 import isEmail from 'validator/lib/isEmail';
 import I18n from '../../../I18n';
@@ -118,33 +119,35 @@ class LoginEmailForm extends React.PureComponent {
     // Apply translation and concatenate field errors (string)
     const emailErrors = ErrorHandling.getFieldErrors(errors, 'email', I18n.t);
 
-    return [
-      <Block midHeight key="top" testID="LoginScreen">
-        <TextField
-          testID="loginInputEmail"
-          label={I18n.t('loginEmailForm.fields.email.label')}
-          placeholder={I18n.t('loginEmailForm.fields.email.placeholder')}
-          value={email}
-          error={emailErrors}
-          size="ML"
-          disabled={disabled}
-          keyboardType="email-address"
-          // autoFocus
-          onChangeText={(value) => {
-            this.handleChange({ fieldName: 'email', value });
-          }}
-        />
-      </Block>,
-      <Block key="bottom">
-        <RaisedButton
-          testID="loginSubmitButton"
-          variant="info"
-          label={I18n.t('loginEmailForm.btnLabel')}
-          disabled={disabled}
-          onPress={this.handleSubmit}
-        />
-      </Block>,
-    ];
+    return (
+      <View testID="LoginScreen">
+        <Block midHeight key="top">
+          <TextField
+            testID="loginInputEmail"
+            label={I18n.t('loginEmailForm.fields.email.label')}
+            placeholder={I18n.t('loginEmailForm.fields.email.placeholder')}
+            value={email}
+            error={emailErrors}
+            size="ML"
+            disabled={disabled}
+            keyboardType="email-address"
+            // autoFocus
+            onChangeText={(value) => {
+              this.handleChange({ fieldName: 'email', value });
+            }}
+          />
+        </Block>
+        <Block>
+          <RaisedButton
+            testID="loginSubmitButton"
+            variant="info"
+            label={I18n.t('loginEmailForm.btnLabel')}
+            disabled={disabled}
+            onPress={this.handleSubmit}
+          />
+        </Block>
+      </View>
+    );
   }
 }
 

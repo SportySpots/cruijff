@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
+import Fonts from '../../../Themes/Fonts';
 import Block from '../Block';
 import Row from '../Row';
 import Text from '../Text';
@@ -59,38 +60,43 @@ const WhiteBg = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Flap = ({ title, width }) => (
-  <Relative>
-    <AbsoluteRowHead
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Head midHeight style={{ height: HEIGHT, width }} />
-    </AbsoluteRowHead>
+// TODO: add 'size' prop
+const Flap = ({ title }) => {
+  // Determine flap based on title length (32 = padding)
+  const fontWidth = Fonts.style.M.fontSize * 0.43;
+  const width = title.length * fontWidth + 2 * 32;
 
-    <AbsoluteRectangle />
+  return (
+    <Relative>
+      <AbsoluteRowHead
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Head midHeight style={{ height: HEIGHT, width }} />
+      </AbsoluteRowHead>
 
-    <AbsoluteRowTitle
-      justifyContent="center"
-      alignItems="center"
-    >
-      <WhiteBg style={{ width: width - 3 }}>
-        <Text.M style={{ textAlign: 'center' }}>
-          {title}
-        </Text.M>
-      </WhiteBg>
-    </AbsoluteRowTitle>
-  </Relative>
-);
+      <AbsoluteRectangle />
+
+      <AbsoluteRowTitle
+        justifyContent="center"
+        alignItems="center"
+      >
+        <WhiteBg style={{ width: width - 3 }}>
+          <Text.M style={{ textAlign: 'center' }}>
+            {title}
+          </Text.M>
+        </WhiteBg>
+      </AbsoluteRowTitle>
+    </Relative>
+  );
+}
 
 Flap.propTypes = {
   title: PropTypes.string,
-  width: PropTypes.number,
 };
 
 Flap.defaultProps = {
   title: '',
-  width: 200,
 };
 
 export default Flap;
