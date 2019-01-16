@@ -571,7 +571,7 @@
       },
       "email": {
         "label": "E-mail",
-        "placeholder": "Lionel.Messi@fbbarcelona.es",
+        "placeholder": "Lionel.Messi@fcbarcelona.es",
         "errors": {
           "required": "Email es requerido",
           "invalid": "Por favor proporciona un email válido",

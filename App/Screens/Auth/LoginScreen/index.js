@@ -7,12 +7,12 @@ import FormProps from '../../../RenderProps/form-props';
 import LoginEmailApiCall from '../../../Components/Auth/LoginEmailApiCall';
 import LoginEmailForm from '../../../Components/Auth/LoginEmailForm';
 import Block from '../../../Components/Common/Block';
-import Row from '../../../Components/Common/Row';
+// import Row from '../../../Components/Common/Row';
 import Spacer from '../../../Components/Common/Spacer';
 import OrDivider from '../../../Components/Common/OrDivider';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import Flap from '../../../Components/Common/Flap';
-import NavigateLink from '../../../Components/Common/NavigateLink';
+// import NavigateLink from '../../../Components/Common/NavigateLink';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -26,8 +26,8 @@ const Container = styled.View`
 const FormContainer = styled.View`
   flex: 1;
   background-color: ${Colors.white};
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -86,7 +86,7 @@ const LoginScreen = ({ navigation, onSuccessHook }) => (
                 // Call api to authenticate user
                 onSuccessHook={loginUser}
               />
-              <Block>
+              {/* <Block>
                 <Row justifyContent="center">
                   <NavigateLink
                     screen="SignupScreen"
@@ -95,7 +95,7 @@ const LoginScreen = ({ navigation, onSuccessHook }) => (
                     underline
                   />
                 </Row>
-              </Block>
+              </Block> */}
             </FormContainer>,
           ]}
         </LoginEmailApiCall>

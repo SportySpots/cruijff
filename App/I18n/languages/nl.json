@@ -538,16 +538,16 @@
 
   "signupScreen": {
     "navigation": {
-      "title": "Let's get you an account"
+      "title": "Maak een profiel aan"
     },
-    "googlePlusBtnLabel": "Sign up with Google",
-    "facebookBtnLabel": "Sign up with facebook",
-    "emailBtnLabel": "Sign up with email"
+    "googlePlusBtnLabel": "Meld je aan met Google",
+    "facebookBtnLabel": "Meld je aan met facebook",
+    "emailBtnLabel": "Meld je aan met email"
   },
 
   "signupEmailScreen": {
     "navigation": {
-      "title": "Sign up with email it is!"
+      "title": "Schrijf je in met email"
     }
   },
 
@@ -571,7 +571,7 @@
       },
       "email": {
         "label": "E-mail",
-        "placeholder": "Lionel.Messi@fbbarcelona.es",
+        "placeholder": "Lionel.Messi@fcbarcelona.es",
         "errors": {
           "required": "E-mailadres is vereist",
           "invalid": "Vul een geldig e-mailadres in",
