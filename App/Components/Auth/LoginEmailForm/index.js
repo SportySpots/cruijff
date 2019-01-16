@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import ErrorHandling from 'error-handling-utils';
 import isEmail from 'validator/lib/isEmail';
-import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Block from '../../Common/Block';
 import TextField from '../../Common/TextField';
@@ -16,7 +14,6 @@ const MAX_CHARS = 120;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: use KeyboardAwareScrollView
 class LoginEmailForm extends React.PureComponent {
   state = {
     email: '',
@@ -132,7 +129,7 @@ class LoginEmailForm extends React.PureComponent {
           size="ML"
           disabled={disabled}
           keyboardType="email-address"
-          autoFocus
+          // autoFocus
           onChangeText={(value) => {
             this.handleChange({ fieldName: 'email', value });
           }}
