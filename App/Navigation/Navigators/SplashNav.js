@@ -26,7 +26,7 @@ const backBtn = navigation => (
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SplashNav = createStackNavigator({
-  CheckEmailScreen: {
+  LoginCheckEmailScreen: {
     screen: ({ navigation }) => (
       <LoggedOutRoute
         navigation={navigation}
@@ -47,7 +47,7 @@ const SplashNav = createStackNavigator({
         component={LoginScreen}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
         // Child component props
-        onSuccessHook={() => { navigation.navigate('CheckEmailScreen'); }}
+        onSuccessHook={() => { navigation.navigate('LoginCheckEmailScreen'); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({

@@ -508,7 +508,7 @@
     "fields": {
       "email": {
         "label": "E-mailadres",
-        "placeholder": "",
+        "placeholder": "Vul hier je email adres in",
         "errors": {
           "required": "E-mailadres is vereist",
           "invalid": "Vul een geldig e-mailadres in",
@@ -554,7 +554,7 @@
     "fields": {
       "firstName": {
         "label": "Voornaam",
-        "placeholder": "",
+        "placeholder": "Lionel",
         "errors": {
           "required": "Voornaam is vereist",
           "tooLong": "Voornaam is te lang"
@@ -562,7 +562,7 @@
       },
       "lastName": {
         "label": "Achternaam",
-        "placeholder": "",
+        "placeholder": "Messi",
         "errors": {
           "required": "Achternaam is vereist",
           "tooLong": "Achternaam is te lang"
@@ -570,24 +570,12 @@
       },
       "email": {
         "label": "E-mail",
-        "placeholder": "",
+        "placeholder": "Lionel.Messi@fbbarcelona.es",
         "errors": {
           "required": "E-mailadres is vereist",
           "invalid": "Vul een geldig e-mailadres in",
           "tooLong": "E-mailadres is te lang",
           "inUse": "E-mailadres in gebruik"
-        }
-      },
-      "password": {
-        "label": "Wachtwoord",
-        "placeholder": "",
-        "errors": {
-          "required": "Wachtwoord is vereist",
-          "tooLong": "Wachtwoord is te lang",
-          "tooShort": "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
-          "tooCommon": "Wachtwoord is niet uniek genoeg",
-          "numeric": "Wachtwoord mag niet alleen uit getallen bestaan",
-          "unknown": "Iets slecht is gebeurd"
         }
       }
     },

@@ -554,7 +554,7 @@
     "fields": {
       "firstName": {
         "label": "First name",
-        "placeholder": "",
+        "placeholder": "Lionel",
         "errors": {
           "required": "First name is required",
           "tooLong": "First name is too long"
@@ -562,7 +562,7 @@
       },
       "lastName": {
         "label": "Last name",
-        "placeholder": "",
+        "placeholder": "Messi",
         "errors": {
           "required": "Last name is required",
           "tooLong": "Last name is too long"
@@ -570,24 +570,12 @@
       },
       "email": {
         "label": "E-mail",
-        "placeholder": "",
+        "placeholder": "Lionel.Messi@fbbarcelona.es",
         "errors": {
           "required": "Email is required",
           "invalid": "Please provide a valid email",
           "tooLong": "Email is too long",
           "inUse": "Email address in use"
-        }
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "",
-        "errors": {
-          "required": "Password is required",
-          "tooLong": "Password is too long",
-          "tooShort": "Password needs to be at least 8 characters",
-          "tooCommon": "This password is too common",
-          "numeric": "This password is entirely numeric",
-          "unknown": "Something bad happened"
         }
       }
     },
@@ -595,7 +583,7 @@
       "prefix": "By signing up, you are agreeing to the",
       "link": "Terms and conditions"
     },
-    "btnLabel": "Sign up for free"
+    "btnLabel": "Submit and create account"
   },
 
   "connectionCheck": {
