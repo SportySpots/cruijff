@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Linking, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../../Themes/Colors';
@@ -8,13 +9,14 @@ import Fonts from '../../../Themes/Fonts';
 import Row from '../Row';
 import Text from '../Text';
 
-// TODO: rename to LinkOpenURL
+// TODO: rename to LinkNavigate
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Link = ({
+const NavigateLink = ({
+  navigation,
   text,
-  href,
+  screen,
   color,
   iconSet,
   iconName,
@@ -25,7 +27,7 @@ const Link = ({
   const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
-    <TouchableOpacity onPress={() => { Linking.openURL(href); }}>
+    <TouchableOpacity onPress={() => { navigation.navigate(screen); }}>
       <Row
         justifyContent="space-between"
         alignItems="center"
@@ -52,9 +54,12 @@ const Link = ({
   );
 };
 
-Link.propTypes = {
+NavigateLink.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+  screen: PropTypes.string,
   text: PropTypes.string,
-  href: PropTypes.string,
   color: PropTypes.string,
   iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
   iconName: PropTypes.string,
@@ -62,9 +67,9 @@ Link.propTypes = {
   underline: PropTypes.bool,
 };
 
-Link.defaultProps = {
+NavigateLink.defaultProps = {
+  screen: '',
   text: '',
-  href: '',
   color: 'black',
   iconSet: 'MaterialIcon',
   iconName: '',
@@ -72,4 +77,4 @@ Link.defaultProps = {
   underline: false,
 };
 
-export default Link;
+export default withNavigation(NavigateLink);

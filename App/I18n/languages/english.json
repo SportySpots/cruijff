@@ -491,7 +491,8 @@
     },
     "googlePlusBtnLabel": "Login with Google",
     "facebookBtnLabel": "Login with facebook",
-    "emailSectionTitle": "Login with magic link"
+    "emailSectionTitle": "Login with magic link",
+    "signupLink": "Not yet a member? Sign up"
   },
 
   "orDivider": {

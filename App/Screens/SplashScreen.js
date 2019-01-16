@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
 // import moment from 'moment';
 import styled from 'styled-components/native';
 // import I18nNative from 'react-native-i18n';
@@ -12,7 +11,9 @@ import Block from '../Components/Common/Block';
 // import Row from '../Components/Common/Row';
 import Spacer from '../Components/Common/Spacer';
 import Text from '../Components/Common/Text';
+import Row from '../Components/Common/Row';
 import RaisedButton from '../Components/Common/RaisedButton';
+import NavigateLink from '../Components/Common/NavigateLink';
 import globalRefs from '../globalRefs';
 
 //------------------------------------------------------------------------------
@@ -26,12 +27,6 @@ const Label = styled(Text.ML)`
 //------------------------------------------------------------------------------
 const FlexOne = styled.View`
   flex: 1;
-`;
-//------------------------------------------------------------------------------
-const LinkLabel = styled(Text.M)`
-  color: ${Colors.white}
-  text-align: center;
-  text-decoration-line: underline;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -84,12 +79,15 @@ class SplashScreen extends React.Component {
           />
           <Spacer size="XL" />
           {(!user || !user.uuid) && (
-            <TouchableOpacity
-              testID="splashLoginButton"
-              onPress={() => { navigation.navigate('LoginScreen'); }}
-            >
-              <LinkLabel>{I18n.t('splashScreen.loginLink')}</LinkLabel>
-            </TouchableOpacity>
+            <Row justifyContent="center">
+              <NavigateLink
+                testID="splashLoginButton"
+                screen="LoginScreen"
+                text={I18n.t('splashScreen.loginLink')}
+                color={Colors.white}
+                underline
+              />
+            </Row>
           )}
         </Block>
         <Spacer size="XL" />

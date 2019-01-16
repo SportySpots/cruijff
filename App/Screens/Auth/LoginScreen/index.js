@@ -8,10 +8,12 @@ import FormProps from '../../../RenderProps/form-props';
 import LoginEmailApiCall from '../../../Components/Auth/LoginEmailApiCall';
 import LoginEmailForm from '../../../Components/Auth/LoginEmailForm';
 import Block from '../../../Components/Common/Block';
+import Row from '../../../Components/Common/Row';
 import Spacer from '../../../Components/Common/Spacer';
 import OrDivider from '../../../Components/Common/OrDivider';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import Flap from '../../../Components/Common/Flap';
+import NavigateLink from '../../../Components/Common/NavigateLink';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -89,6 +91,14 @@ const LoginScreen = ({ navigation, onSuccessHook }) => (
                 // Call api to authenticate user
                 onSuccessHook={loginUser}
               />
+              <Row justifyContent="center">
+                <NavigateLink
+                  screen="SignupScreen"
+                  text={I18n.t('loginScreen.signupLink')}
+                  color={Colors.black}
+                  underline
+                />
+              </Row>
             </FormContainer>,
           ]}
         </LoginEmailApiCall>

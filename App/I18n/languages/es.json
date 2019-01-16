@@ -491,7 +491,8 @@
     },
     "googlePlusBtnLabel": "Iniciar sesión con Google",
     "facebookBtnLabel": "Iniciar sesión con facebook",
-    "emailSectionTitle": "Iniciar sesión con link mágico"
+    "emailSectionTitle": "Iniciar sesión con link mágico",
+    "signupLink": "Aún no eres miembro? Regístrate"
   },
 
   "orDivider": {
