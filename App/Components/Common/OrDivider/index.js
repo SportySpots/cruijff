@@ -16,7 +16,7 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 const Line = styled.View`
   border-bottom-width: 2px;
-  border-bottom-color: ${Colors.lightGray};
+  border-bottom-color: ${Colors.silver};
   flex-grow: 1;
 `;
 //------------------------------------------------------------------------------

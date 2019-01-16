@@ -48,7 +48,7 @@ export const getPalette = (variant) => {
       return {
         fontColor: Colors.black,
         bgColor: Colors.white,
-        borderColor: Colors.shade,
+        borderColor: Colors.silver,
       };
     default:
       throw new Error('Unknown variant');

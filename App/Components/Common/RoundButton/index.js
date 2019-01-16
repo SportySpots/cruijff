@@ -13,11 +13,11 @@ const Container = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.lightGray : bgColor)};
+  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : bgColor)};
   height: ${({ size }) => (getPixelsFromSize(size))};
   width: ${({ size }) => (getPixelsFromSize(size))};
   border-radius: ${({ size }) => (getPixelsFromSize(size))};
-  border: 0.3px solid ${({ disabled, borderColor }) => (disabled ? Colors.lightGray : borderColor)};
+  border: 0.3px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : borderColor)};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

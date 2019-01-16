@@ -15,7 +15,7 @@ storiesOf('PlanGame.SpotSlide', module)
     >
       {({ loading, error, data }) =>
         (loading || error ? null : (
-          <Block bgColor={Colors.lightGray}>
+          <Block bgColor={Colors.silver}>
             <SpotSlide
               sport={data.sports[0]}
               onChange={this.handleChange}

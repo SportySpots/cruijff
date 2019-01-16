@@ -288,7 +288,7 @@ class EditGameForm extends React.PureComponent {
           </Block>
           <Block
             midHeight
-            bgColor={Colors.lightGray}
+            bgColor={Colors.silver}
           >
             <TextField
               label={I18n.t('editGameForm.fields.sport.label')}

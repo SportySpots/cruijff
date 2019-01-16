@@ -17,12 +17,12 @@ const Container = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.lightGray : bgColor)};
+  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : bgColor)};
   height: ${({ size }) => (getPixelsFromSize(size).height)};
   width: ${({ width }) => (width || '100%')};
   min-width: 80px;
   border-radius: ${({ size }) => (getPixelsFromSize(size).borderRadius)};
-  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.lightGray : borderColor)};
+  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : borderColor)};
 `;
 //------------------------------------------------------------------------------
 const Label = styled(Text.M)`

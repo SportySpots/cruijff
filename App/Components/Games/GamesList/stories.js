@@ -10,7 +10,7 @@ const Container = () => (
   <Query query={GET_GAMES_LIST}>
     {({ loading, error, data }) =>
       (loading || error ? null : (
-        <Block bgColor={Colors.lightGray}>
+        <Block bgColor={Colors.silver}>
           <GamesList
             games={data.games || []}
             onCardPress={() => {}}

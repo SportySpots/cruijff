@@ -64,7 +64,7 @@ SpotProperties.propTypes = {
 };
 
 SpotProperties.defaultProps = {
-  lineColor: Colors.lightGray,
+  lineColor: Colors.silver,
 };
 
 export default SpotProperties;
