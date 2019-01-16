@@ -491,7 +491,7 @@
     },
     "googlePlusBtnLabel": "Iniciar sesión con Google",
     "facebookBtnLabel": "Iniciar sesión con facebook",
-    "emailBtnLabel": "Iniciar sesión con email"
+    "emailSectionTitle": "Iniciar sesión con link mágico"
   },
 
   "orDivider": {
@@ -507,7 +507,7 @@
   "loginEmailForm": {
     "fields": {
       "email": {
-        "label": "E-mail",
+        "label": "Email",
         "placeholder": "",
         "errors": {
           "required": "Email es requerido",
@@ -516,17 +516,9 @@
           "wrongCredentials": "Email o contraseña equivocados",
           "unknown": "Algo fue mal"
         }
-      },
-      "password": {
-        "label": "Contraseña",
-        "placeholder": "",
-        "errors": {
-          "required": "Contraseña es requerida",
-          "tooLong": "Contraseña es muy larga"
-        }
       }
     },
-    "btnLabel": "Iniciar sesión"
+    "btnLabel": "Enviarme el link mágico de inicio de sesión"
   },
 
   "checkEmailScreen": {

@@ -487,27 +487,27 @@
 
   "loginScreen": {
     "navigation": {
-      "title": "Welcome back!"
+      "title": "Welkom terug!"
     },
-    "googlePlusBtnLabel": "Sign in with Google",
-    "facebookBtnLabel": "Sign in with facebook",
-    "emailBtnLabel": "Sign in with email"
+    "googlePlusBtnLabel": "Login met Google",
+    "facebookBtnLabel": "Login met facebook",
+    "emailSectionTitle": "Login met magic link"
   },
 
   "orDivider": {
-    "txt": "Or"
+    "txt": "Of"
   },
 
   "loginEmailScreen": {
     "navigation": {
-      "title": "Sign in with email"
+      "title": "Login met email"
     }
   },
 
   "loginEmailForm": {
     "fields": {
       "email": {
-        "label": "E-mail",
+        "label": "E-mailadres",
         "placeholder": "",
         "errors": {
           "required": "E-mailadres is vereist",
@@ -516,17 +516,9 @@
           "wrongCredentials": "Geen geldige e-mail of wachtwoord",
           "unknown": "Iets slecht is gebeurd"
         }
-      },
-      "password": {
-        "label": "Wachtwoord",
-        "placeholder": "",
-        "errors": {
-          "required": "Wachtwoord is vereist",
-          "tooLong": "Wachtwoord is te lang"
-        }
       }
     },
-    "btnLabel": "Log in"
+    "btnLabel": "Email mij de magic login link"
   },
 
   "checkEmailScreen": {

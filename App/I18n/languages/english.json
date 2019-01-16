@@ -489,9 +489,9 @@
     "navigation": {
       "title": "Welcome back!"
     },
-    "googlePlusBtnLabel": "Sign in with Google",
-    "facebookBtnLabel": "Sign in with facebook",
-    "emailBtnLabel": "Sign in with email"
+    "googlePlusBtnLabel": "Login with Google",
+    "facebookBtnLabel": "Login with facebook",
+    "emailSectionTitle": "Login with magic link"
   },
 
   "orDivider": {
@@ -500,15 +500,15 @@
 
   "loginEmailScreen": {
     "navigation": {
-      "title": "Sign in with email"
+      "title": "Login with email"
     }
   },
 
   "loginEmailForm": {
     "fields": {
       "email": {
-        "label": "E-mail",
-        "placeholder": "",
+        "label": "Email address",
+        "placeholder": "Enter you email address",
         "errors": {
           "required": "Email is required",
           "invalid": "Please provide a valid email",
@@ -516,17 +516,9 @@
           "wrongCredentials": "Wrong email or password",
           "unknown": "Something bad happened"
         }
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "",
-        "errors": {
-          "required": "Password is required",
-          "tooLong": "Password is too long"
-        }
       }
     },
-    "btnLabel": "Log in"
+    "btnLabel": "Email me the magic login link"
   },
 
   "checkEmailScreen": {
