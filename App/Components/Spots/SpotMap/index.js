@@ -8,12 +8,12 @@ import Colors from '../../../Themes/Colors';
 import spotMapFragment from '../../../GraphQL/Spots/Fragments/spotMap';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
-import Spacer from '../../Common/Spacer';
+// import Spacer from '../../Common/Spacer';
 import RoundButton from '../../Common/RoundButton';
 import {
   getSpotLocation,
   openGoogleMapsLocation,
-  openGoogleMapsDirections,
+  // openGoogleMapsDirections,
 } from './utils';
 
 // -----------------------------------------------------------------------------
@@ -70,14 +70,14 @@ const SpotMap = ({ spot }) => {
       <Absolute>
         <Block>
           <Row>
-            <RoundButton
+            {/* <RoundButton
               status="translucid"
               iconName="directions"
               onPress={() => {
                 openGoogleMapsDirections({ latLng, title: spot.name });
               }}
             />
-            <Spacer row size="M" />
+            <Spacer row size="M" /> */}
             <RoundButton
               status="translucid"
               iconName="google-maps"
