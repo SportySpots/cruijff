@@ -12,7 +12,7 @@ import Spacer from '../../../Components/Common/Spacer';
 import OrDivider from '../../../Components/Common/OrDivider';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import Flap from '../../../Components/Common/Flap';
-// import NavigateLink from '../../../Components/Common/NavigateLink';
+// import LinkNavigate from '../../../Components/Common/LinkNavigate';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -77,6 +77,7 @@ const LoginScreen = ({ navigation, onSuccessHook }) => (
               title={I18n.t('loginScreen.emailSectionTitle')}
             />,
             <FormContainer key="email-form">
+              <Spacer size="M" />
               <LoginEmailForm
                 disabled={disabled}
                 errors={errors}
@@ -88,10 +89,9 @@ const LoginScreen = ({ navigation, onSuccessHook }) => (
               />
               {/* <Block>
                 <Row justifyContent="center">
-                  <NavigateLink
-                    screen="SignupScreen"
+                  <LinkNavigate
+                    to="SignupScreen"
                     text={I18n.t('loginScreen.signupLink')}
-                    color={Colors.black}
                     underline
                   />
                 </Row>

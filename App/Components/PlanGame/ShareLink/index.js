@@ -5,6 +5,7 @@ import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
 import Block from '../../Common/Block';
 
+// TODO: remove if not being used
 // -----------------------------------------------------------------------------
 // STYLE:
 // -----------------------------------------------------------------------------

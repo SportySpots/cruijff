@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import { Linking, TouchableOpacity } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../../Themes/Colors';
@@ -9,14 +8,12 @@ import Fonts from '../../../Themes/Fonts';
 import Row from '../Row';
 import Text from '../Text';
 
-// TODO: rename to LinkNavigate
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const NavigateLink = ({
-  navigation,
+const LinkOpenURL = ({
   text,
-  screen,
+  href,
   color,
   iconSet,
   iconName,
@@ -27,7 +24,7 @@ const NavigateLink = ({
   const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
-    <TouchableOpacity onPress={() => { navigation.navigate(screen); }}>
+    <TouchableOpacity onPress={() => { Linking.openURL(href); }}>
       <Row
         justifyContent="space-between"
         alignItems="center"
@@ -54,12 +51,9 @@ const NavigateLink = ({
   );
 };
 
-NavigateLink.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-  }).isRequired,
-  screen: PropTypes.string,
+LinkOpenURL.propTypes = {
   text: PropTypes.string,
+  href: PropTypes.string,
   color: PropTypes.string,
   iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
   iconName: PropTypes.string,
@@ -67,9 +61,9 @@ NavigateLink.propTypes = {
   underline: PropTypes.bool,
 };
 
-NavigateLink.defaultProps = {
-  screen: '',
+LinkOpenURL.defaultProps = {
   text: '',
+  href: '',
   color: 'black',
   iconSet: 'MaterialIcon',
   iconName: '',
@@ -77,4 +71,4 @@ NavigateLink.defaultProps = {
   underline: false,
 };
 
-export default withNavigation(NavigateLink);
+export default LinkOpenURL;

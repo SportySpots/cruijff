@@ -13,7 +13,7 @@ import Spacer from '../Components/Common/Spacer';
 import Text from '../Components/Common/Text';
 import Row from '../Components/Common/Row';
 import RaisedButton from '../Components/Common/RaisedButton';
-import NavigateLink from '../Components/Common/NavigateLink';
+import LinkNavigate from '../Components/Common/LinkNavigate';
 import globalRefs from '../globalRefs';
 
 //------------------------------------------------------------------------------
@@ -80,9 +80,9 @@ class SplashScreen extends React.Component {
           <Spacer size="XL" />
           {(!user || !user.uuid) && (
             <Row justifyContent="center">
-              <NavigateLink
+              <LinkNavigate
                 testID="splashLoginButton"
-                screen="LoginScreen"
+                to="LoginScreen"
                 text={I18n.t('splashScreen.loginLink')}
                 color={Colors.white}
                 underline

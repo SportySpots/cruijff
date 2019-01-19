@@ -509,7 +509,7 @@
     "fields": {
       "email": {
         "label": "Email address",
-        "placeholder": "Enter you email address",
+        "placeholder": "Enter your email address",
         "errors": {
           "required": "Email is required",
           "invalid": "Please provide a valid email",

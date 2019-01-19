@@ -9,7 +9,7 @@ import Block from '../../../Components/Common/Block';
 import Spacer from '../../../Components/Common/Spacer';
 import Divider from '../../../Components/Common/Divider';
 import Text from '../../../Components/Common/Text';
-import Link from '../../../Components/Common/Link';
+import LinkOpenURL from '../../../Components/Common/LinkOpenURL';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -76,7 +76,7 @@ class InfoScreen extends React.Component {
         <Spacer size="XXXL" />
         <Divider />
         <Block midHeigh>
-          <Link
+          <LinkOpenURL
             text={I18n.t('infoScreen.feedback')}
             href="https://goo.gl/forms/3oc4XPVkQtXMSKK33"
             iconName="chat"
@@ -84,7 +84,7 @@ class InfoScreen extends React.Component {
         </Block>
         <Divider />
         <Block midHeigh>
-          <Link
+          <LinkOpenURL
             text={I18n.t('infoScreen.privacy')}
             href="https://www.sportyspots.com/privacy.html"
             iconSet="MaterialCommunityIcon"
@@ -93,7 +93,7 @@ class InfoScreen extends React.Component {
         </Block>
         <Divider />
         <Block midHeigh>
-          <Link
+          <LinkOpenURL
             text={I18n.t('infoScreen.terms')}
             href="https://www.sportyspots.com/terms.html"
             iconName="info"
