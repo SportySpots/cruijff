@@ -9,7 +9,6 @@ import RatingBig from './Common/RatingBig';
 import NothingFound from './Common/NothingFound';
 
 // TODO: move stories to individual component's folder
-
 storiesOf('Text', module)
   .add('All sizes', () => (
     <View style={{ flex: 1, marginLeft: 20 }}>
@@ -23,7 +22,6 @@ storiesOf('Text', module)
   .add('Small text', () => <Text.S>Small size</Text.S>)
   .add('Medium text', () => <Text.M>Medium size</Text.M>)
   .add('Large text', () => <Text.L>Large size</Text.L>);
-
 
 storiesOf('ImageSwiper', module).add('Default', () => (
   <ImageSwiper

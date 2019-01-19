@@ -122,7 +122,7 @@ function loadStories() {
   require('../App/Screens/Splash/SplashScreen/stories');
   require('../App/Screens/Spots/SpotsFilterScreen/stories');
   require('../App/Screens/Spots/SpotsListScreen/stories');
-  
+
 }
 
 const stories = [
@@ -243,7 +243,7 @@ const stories = [
   '../App/Screens/Splash/SplashScreen/stories',
   '../App/Screens/Spots/SpotsFilterScreen/stories',
   '../App/Screens/Spots/SpotsListScreen/stories',
-  
+
 ];
 
 module.exports = {

@@ -41,3 +41,16 @@ jest.mock('../node_modules/react-native-calendars/src/calendar/img/previous.png'
 String.prototype.toTitleCase = jest.fn(); // eslint-disable-line no-extend-native
 
 jest.mock('react-native-languages', () => jest.fn());
+
+jest.useFakeTimers();
+Date.now = jest.fn(() => 1503187200000);
+
+// jest.mock('react-native/Libraries/Storage/AsyncStorage', () => ({
+//   AsyncStorage: {
+//     setItem: jest.fn(() => Promise.resolve()),
+//     getItem: jest.fn(() => Promise.resolve(JSON.stringify({
+//       latitude: 52.379189,
+//       longitude: 4.899431,
+//     }))),
+//   },
+// }));

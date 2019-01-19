@@ -43,15 +43,17 @@ const ImageBackground = ({
 }) => (
   <Container>
     <Spacer size="XXL" />
-    <Block>
-      <Row alignItems="center">
-        <Image
-          source={image}
-          resizeMode="contain"
-          style={{ flex: 1 }}
-        />
-      </Row>
-    </Block>
+    {!!image && (
+      <Block>
+        <Row alignItems="center">
+          <Image
+            source={image}
+            resizeMode="contain"
+            style={{ flex: 1 }}
+          />
+        </Row>
+      </Block>
+    )}
     <Spacer size="XXXL" />
     {!!title && !!text && (
       <TextContainer>
@@ -65,7 +67,7 @@ const ImageBackground = ({
 );
 
 ImageBackground.propTypes = {
-  image: PropTypes.any.isRequired, // eslint-disable-line
+  image: PropTypes.any, // eslint-disable-line
   title: PropTypes.string,
   text: PropTypes.string,
   children: PropTypes.oneOfType([
@@ -75,6 +77,7 @@ ImageBackground.propTypes = {
 };
 
 ImageBackground.defaultProps = {
+  image: null,
   title: '',
   text: '',
   children: null,

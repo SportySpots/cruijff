@@ -13,7 +13,9 @@ storiesOf('Backgrounds.ImageBackground', module)
     />
   ))
   .add('ImageBackground Children', () => (
-    <ImageBackground image={Images.illustrationWizard1}>
+    <ImageBackground
+      image={Images.illustrationWizard1}
+    >
       <View>
         <Text>Hello, I&apos;m the child</Text>
       </View>
