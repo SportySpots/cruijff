@@ -622,14 +622,16 @@
     "noSpots": "No se encontraron spots..."
   },
 
-  "askLocationScreen": {
-    "title": "Comparte ubicación",
-    "subtitle": "Nos gustaría pedirte que compartas tu ubicación para que podamos mostrarte todas las actividades en tu área.",
-    "nextBtnLabel": "continuar"
-  },
-
-  "OnboardingScreen": {
-    "hiSporter": {
+  "onboardingScreen": {
+    "leaveAlert": {
+      "header": "Confirmar",
+      "body": "Estas seguro que quieres dejar la aplicación?",
+      "footer": {
+        "okBtnLabel": "Si",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "welcome": {
       "title": "Hola deportista!",
       "text": "Gracias por unirte a SportySpots. Diviértete!"
     },
@@ -643,6 +645,10 @@
     },
     "nextBtnLabel": "continuar",
     "lastBtnLabel": "vamos"
+  },
+
+  "locationSlide": {
+    "title": "Elige tu ubicación deportiva:"
   },
 
   "queryCatchErrors": {

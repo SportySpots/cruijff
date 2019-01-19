@@ -20,6 +20,7 @@
 #import <Firebase.h>
 #import "RNFirebaseNotifications.h"
 #import "RNFirebaseMessaging.h"
+#import "RNFirebaseLinks.h"
 
 @implementation AppDelegate
 
@@ -35,6 +36,7 @@
 
   [AppCenterReactNative register];  // Initialize AppCenter
 
+  [FIROptions defaultOptions].deepLinkURLScheme = @"com.sportyspots.ios";
   [FIRApp configure];
   
   [RNFirebaseNotifications configure];
@@ -60,16 +62,21 @@
 }
 
 
+// https://rnfirebase.io/docs/v5.x.x/links/ios
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<NSString *, id> *)options {
+  return [[RNFirebaseLinks instance] application:application openURL:url options:options];
+}
 
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
-{
- return [RCTLinkingManager application:application
-                  continueUserActivity:userActivity
-                    restorationHandler:restorationHandler];
+- (BOOL)application:(UIApplication *)application
+continueUserActivity:(NSUserActivity *)userActivity
+ restorationHandler:(void (^)(NSArray *))restorationHandler {
+  return [[RNFirebaseLinks instance] application:application continueUserActivity:userActivity restorationHandler:restorationHandler];
 }
 
 
+// https://rnfirebase.io/docs/v5.x.x/notifications/ios
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
   [[RNFirebaseNotifications instance] didReceiveLocalNotification:notification];
 }

@@ -83,10 +83,6 @@ export class UserProvider extends React.Component {
 
   setUserLanguage = async () => {
     const user = await this.queryUser();
-    // console.log('SET USER LANG!!!!');
-    // console.log('user.uuid', user.uuid);
-    // console.log('user.profile.uuid', user.profile.uuid);
-    // console.log('I18n.locale', I18n.locale);
     try {
       const res = await SeedorfAPI.updateUserLanguage({
         userUUID: user.uuid,

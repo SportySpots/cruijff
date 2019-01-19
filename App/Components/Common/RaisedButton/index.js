@@ -82,7 +82,9 @@ RaisedButton.propTypes = {
   iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
   iconName: PropTypes.string,
   iconSize: PropTypes.number,
-  variant: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'warning', 'ghost', 'facebook', 'google']),
+  variant: PropTypes.oneOf([
+    'default', 'primary', 'secondary', 'info', 'warning', 'ghost', 'facebook', 'google', 'transparent',
+  ]),
   size: PropTypes.oneOf(['M', 'S']),
   disabled: PropTypes.bool,
   width: PropTypes.oneOfType([

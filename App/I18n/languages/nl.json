@@ -610,14 +610,16 @@
     "noSpots": "Geen spots gevonden..."
   },
 
-  "askLocationScreen": {
-    "title": "Locatie delen",
-    "subtitle": "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
-    "nextBtnLabel": "doorgaan"
-  },
-
-  "OnboardingScreen": {
-    "hiSporter": {
+  "onboardingScreen": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to leave the app?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "welcome": {
       "title": "Hoi sporter!",
       "text": "Leuk dat je meedoet met SportySpots. Veel plezier met sporten!"
     },
@@ -631,6 +633,10 @@
     },
     "nextBtnLabel": "doorgaan",
     "lastBtnLabel": "let's go"
+  },
+
+  "locationSlide": {
+    "title": "Choose your sport location:"
   },
 
   "queryCatchErrors": {

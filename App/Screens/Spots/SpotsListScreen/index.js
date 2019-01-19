@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'react-apollo';
 import styled from 'styled-components';
-import SpotsList from '../../../Components/Spots/SpotsList';
 import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
+import SpotsList from '../../../Components/Spots/SpotsList';
 import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
 
 //------------------------------------------------------------------------------
