@@ -8,6 +8,7 @@ import Block from '../../Common/Block';
 import TextField from '../../Common/TextField';
 import RaisedButton from '../../Common/RaisedButton';
 
+// TODO: uset INIT_STATE, INIT_ERRORS
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------

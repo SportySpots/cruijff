@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
@@ -20,65 +21,64 @@ import Flap from '../../../Components/Common/Flap';
 // TODO: introduce/use DefaultLayout instead
 const Container = styled.View`
   flex: 1;
-  background-color: ${Colors.concrete};
+  background-color: ${Colors.white};
 `;
 //------------------------------------------------------------------------------
-const FormContainer = styled.View`
-  flex: 1;
-  background-color: ${Colors.white};
-  /* display: flex;
-  justify-content: space-between; */
+const Top = styled.View`
+  background-color: ${Colors.concrete};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const LoginScreen = ({ navigation, onSuccessHook }) => (
   <Container>
-    <Block>
-      <Spacer size="XL" />
-      <RaisedButton
-        label={I18n.t('loginScreen.googlePlusBtnLabel')}
-        iconSet="MaterialCommunityIcon"
-        iconName="google"
-        iconSize={20}
-        variant="google"
-      />
-      <Spacer size="XXL" />
-      <RaisedButton
-        label={I18n.t('loginScreen.facebookBtnLabel')}
-        iconSet="MaterialCommunityIcon"
-        iconName="facebook-box"
-        variant="facebook"
-      />
-      <Spacer size="XXL" />
+    <KeyboardAwareScrollView
+      extraHeight={70}
+      enableOnAndroid
+      keyboardShouldPersistTaps="handled"
+    >
+      <Top>
+        <Block>
+          <Spacer size="XL" />
+          <RaisedButton
+            label={I18n.t('loginScreen.googlePlusBtnLabel')}
+            iconSet="MaterialCommunityIcon"
+            iconName="google"
+            iconSize={20}
+            variant="google"
+          />
+          <Spacer size="XXL" />
+          <RaisedButton
+            label={I18n.t('loginScreen.facebookBtnLabel')}
+            iconSet="MaterialCommunityIcon"
+            iconName="facebook-box"
+            variant="facebook"
+          />
+          <Spacer size="XXL" />
+          <Spacer size="M" />
+          <OrDivider />
+        </Block>
+        <Spacer size="XL" />
+        <Flap title={I18n.t('loginScreen.emailSectionTitle')} />
+      </Top>
       <Spacer size="M" />
-      <OrDivider />
-      <Spacer size="XL" />
-    </Block>
-    <FormProps>
-      {({
-        disabled,
-        errors,
-        handleBefore,
-        handleClientCancel,
-        handleClientError,
-        handleServerError,
-        handleSuccess,
-      }) => (
-        <LoginEmailApiCall
-          onLoginError={handleServerError}
-          onLoginSuccess={() => {
-            handleSuccess(onSuccessHook);
-          }}
-        >
-          {({ loginUser }) => [
-            <Flap
-              key="flap"
-              title={I18n.t('loginScreen.emailSectionTitle')}
-            />,
-            <FormContainer key="email-form">
-              <Spacer size="M" />
+      <FormProps>
+        {({
+          disabled,
+          errors,
+          handleBefore,
+          handleClientCancel,
+          handleClientError,
+          handleServerError,
+          handleSuccess,
+        }) => (
+          <LoginEmailApiCall
+            onLoginError={handleServerError}
+            onLoginSuccess={() => { handleSuccess(onSuccessHook); }}
+          >
+            {({ loginUser }) => [
               <LoginEmailForm
+                key="form"
                 disabled={disabled}
                 errors={errors}
                 onBeforeHook={handleBefore}
@@ -86,21 +86,12 @@ const LoginScreen = ({ navigation, onSuccessHook }) => (
                 onClientErrorHook={handleClientError}
                 // Call api to authenticate user
                 onSuccessHook={loginUser}
-              />
-              {/* <Block>
-                <Row justifyContent="center">
-                  <LinkNavigate
-                    to="SignupScreen"
-                    text={I18n.t('loginScreen.signupLink')}
-                    underline
-                  />
-                </Row>
-              </Block> */}
-            </FormContainer>,
-          ]}
-        </LoginEmailApiCall>
-      )}
-    </FormProps>
+              />,
+            ]}
+          </LoginEmailApiCall>
+        )}
+      </FormProps>
+    </KeyboardAwareScrollView>
   </Container>
 );
 
@@ -116,3 +107,13 @@ LoginScreen.defaultProps = {
 };
 
 export default LoginScreen;
+
+/* <Block>
+  <Row justifyContent="center">
+    <LinkNavigate
+      to="SignupScreen"
+      text={I18n.t('loginScreen.signupLink')}
+      underline
+    />
+  </Row>
+</Block> */
