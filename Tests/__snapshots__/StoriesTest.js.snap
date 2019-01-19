@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Auth.Flap Flap 1`] = `null`;
+
 exports[`Storyshots Auth.LoginEmailForm LoginEmailForm 1`] = `null`;
 
 exports[`Storyshots Auth.SignupEmailForm SignupEmailForm 1`] = `null`;
@@ -112,9 +114,13 @@ exports[`Storyshots Common.InputField InputField size S 1`] = `null`;
 
 exports[`Storyshots Common.InputField InputField white theme 1`] = `null`;
 
-exports[`Storyshots Common.Link Link 1`] = `null`;
+exports[`Storyshots Common.LinkNavigate LinkNavigate 1`] = `null`;
 
-exports[`Storyshots Common.Link Link with icon 1`] = `null`;
+exports[`Storyshots Common.LinkNavigate LinkNavigate with icon 1`] = `null`;
+
+exports[`Storyshots Common.LinkOpenURL LinkOpenURL 1`] = `null`;
+
+exports[`Storyshots Common.LinkOpenURL LinkOpenURL with icon 1`] = `null`;
 
 exports[`Storyshots Common.Menu Menu 1`] = `null`;
 
@@ -373,8 +379,6 @@ exports[`Storyshots RatingBig 4.5 1`] = `null`;
 exports[`Storyshots Screen.Auth CheckEmailScreen LOGIN 1`] = `null`;
 
 exports[`Storyshots Screen.Auth CheckEmailScreen SIGNUP 1`] = `null`;
-
-exports[`Storyshots Screen.Auth LoginEmailScreen 1`] = `null`;
 
 exports[`Storyshots Screen.Auth LoginScreen 1`] = `null`;
 
