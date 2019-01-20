@@ -49,7 +49,7 @@ String.prototype.toTitleCase = jest.fn(); // eslint-disable-line no-extend-nativ
 jest.mock('react-native-languages', () => jest.fn());
 
 jest.useFakeTimers();
-Date.now = jest.fn(() => 1503187200000);
+Date.now = jest.fn(() => new Date(Date.UTC(2017, 0, 1)).valueOf());
 
 // Autofocus/blur prop was causing issues in some of the tests involving TextInput.
 // So we mock the TextInput component and remove the autofocus prop to avoid the issue.
