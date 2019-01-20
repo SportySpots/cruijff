@@ -24,7 +24,7 @@ const Container = props => (
           onCancel={closeModal}
           title="I'm the title"
           subtitle="I'm the subtitle"
-          src={themeImages.activityConfirmVisual}
+          src={themeImages.activityConfirmVisual || 123}
           {...props}
         />
       </View>
@@ -32,7 +32,7 @@ const Container = props => (
   </ModalProps>
 );
 
-storiesOf('Games.ImageModal', module)
+storiesOf('Modals.ImageModal', module)
   .add('ImageModal ConfirmModal comp', () => (
     <Container modalComponent="ConfirmModal" />
   ))

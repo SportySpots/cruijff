@@ -17,36 +17,36 @@ function loadStories() {
   // require('../App/Components/Common/Calendar/stories');
   // require('../App/Components/Common/CapacityPicker/stories');
   // require('../App/Components/Common/CapacityPickerField/stories');
-  require('../App/Components/Common/Checkbox/stories');
-  require('../App/Components/Common/DatePickerField/stories');
-  require('../App/Components/Common/Divider/stories');
-  require('../App/Components/Common/DotSpacer/stories');
-  require('../App/Components/Common/Dropdown/stories');
-  require('../App/Components/Common/DurationPickerField/stories');
-  require('../App/Components/Common/Flap/stories');
-  require('../App/Components/Common/HeaderBtn/stories');
-  require('../App/Components/Common/InputField/stories');
-  require('../App/Components/Common/LinkNavigate/stories');
-  require('../App/Components/Common/LinkOpenURL/stories');
-  require('../App/Components/Common/Logo/stories');
-  // require('../App/Components/Common/Menu/stories');
-  // require('../App/Components/Common/Modals/CancelConfirmModal/stories');
-  // require('../App/Components/Common/Modals/CapacityPickerModal/stories');
-  // require('../App/Components/Common/Modals/ConfirmModal/stories');
-  // require('../App/Components/Common/Modals/DatePickerModal/stories');
-  // require('../App/Components/Common/Modals/DialogModal/stories');
-  // require('../App/Components/Common/Modals/ImageModal/stories');
-  // require('../App/Components/Common/Modals/Modal/stories');
-  // require('../App/Components/Common/Modals/SportPickerModal/stories');
-  // require('../App/Components/Common/Modals/SpotPickerModal/stories');
-  // require('../App/Components/Common/NavBar/stories');
-  // require('../App/Components/Common/NavBarButton/stories');
-  // require('../App/Components/Common/NavDot/stories');
-  // require('../App/Components/Common/NavDots/stories');
-  // require('../App/Components/Common/OrDivider/stories');
-  // require('../App/Components/Common/RaisedButton/stories');
-  // require('../App/Components/Common/RoundButton/stories');
-  // require('../App/Components/Common/Row/stories');
+  // require('../App/Components/Common/Checkbox/stories');
+  // require('../App/Components/Common/DatePickerField/stories');
+  // require('../App/Components/Common/Divider/stories');
+  // require('../App/Components/Common/DotSpacer/stories');
+  // require('../App/Components/Common/Dropdown/stories');
+  // require('../App/Components/Common/DurationPickerField/stories');
+  // require('../App/Components/Common/Flap/stories');
+  // require('../App/Components/Common/HeaderBtn/stories');
+  // require('../App/Components/Common/InputField/stories');
+  // require('../App/Components/Common/LinkNavigate/stories');
+  // require('../App/Components/Common/LinkOpenURL/stories');
+  // require('../App/Components/Common/Logo/stories');
+  require('../App/Components/Common/Menu/stories');
+  require('../App/Components/Common/Modals/CancelConfirmModal/stories');
+  require('../App/Components/Common/Modals/CapacityPickerModal/stories');
+  require('../App/Components/Common/Modals/ConfirmModal/stories');
+  require('../App/Components/Common/Modals/DatePickerModal/stories');
+  require('../App/Components/Common/Modals/DialogModal/stories');
+  require('../App/Components/Common/Modals/ImageModal/stories');
+  require('../App/Components/Common/Modals/Modal/stories');
+  require('../App/Components/Common/Modals/SportPickerModal/stories');
+  require('../App/Components/Common/Modals/SpotPickerModal/stories');
+  require('../App/Components/Common/NavBar/stories');
+  require('../App/Components/Common/NavBarButton/stories');
+  require('../App/Components/Common/NavDot/stories');
+  require('../App/Components/Common/NavDots/stories');
+  require('../App/Components/Common/OrDivider/stories');
+  require('../App/Components/Common/RaisedButton/stories');
+  require('../App/Components/Common/RoundButton/stories');
+  require('../App/Components/Common/Row/stories');
   // require('../App/Components/Common/ScreenSlider/stories');
   // require('../App/Components/Common/Slider/stories');
   // require('../App/Components/Common/SliderWithText/stories');
@@ -138,36 +138,36 @@ const stories = [
   // '../App/Components/Common/Calendar/stories',
   // '../App/Components/Common/CapacityPicker/stories',
   // '../App/Components/Common/CapacityPickerField/stories',
-  '../App/Components/Common/Checkbox/stories',
-  '../App/Components/Common/DatePickerField/stories',
-  '../App/Components/Common/Divider/stories',
-  '../App/Components/Common/DotSpacer/stories',
-  '../App/Components/Common/Dropdown/stories',
-  '../App/Components/Common/DurationPickerField/stories',
-  '../App/Components/Common/Flap/stories',
-  '../App/Components/Common/HeaderBtn/stories',
-  '../App/Components/Common/InputField/stories',
-  '../App/Components/Common/LinkNavigate/stories',
-  '../App/Components/Common/LinkOpenURL/stories',
-  '../App/Components/Common/Logo/stories',
-  // '../App/Components/Common/Menu/stories',
-  // '../App/Components/Common/Modals/CancelConfirmModal/stories',
-  // '../App/Components/Common/Modals/CapacityPickerModal/stories',
-  // '../App/Components/Common/Modals/ConfirmModal/stories',
-  // '../App/Components/Common/Modals/DatePickerModal/stories',
-  // '../App/Components/Common/Modals/DialogModal/stories',
-  // '../App/Components/Common/Modals/ImageModal/stories',
-  // '../App/Components/Common/Modals/Modal/stories',
-  // '../App/Components/Common/Modals/SportPickerModal/stories',
-  // '../App/Components/Common/Modals/SpotPickerModal/stories',
-  // '../App/Components/Common/NavBar/stories',
-  // '../App/Components/Common/NavBarButton/stories',
-  // '../App/Components/Common/NavDot/stories',
-  // '../App/Components/Common/NavDots/stories',
-  // '../App/Components/Common/OrDivider/stories',
-  // '../App/Components/Common/RaisedButton/stories',
-  // '../App/Components/Common/RoundButton/stories',
-  // '../App/Components/Common/Row/stories',
+  // '../App/Components/Common/Checkbox/stories',
+  // '../App/Components/Common/DatePickerField/stories',
+  // '../App/Components/Common/Divider/stories',
+  // '../App/Components/Common/DotSpacer/stories',
+  // '../App/Components/Common/Dropdown/stories',
+  // '../App/Components/Common/DurationPickerField/stories',
+  // '../App/Components/Common/Flap/stories',
+  // '../App/Components/Common/HeaderBtn/stories',
+  // '../App/Components/Common/InputField/stories',
+  // '../App/Components/Common/LinkNavigate/stories',
+  // '../App/Components/Common/LinkOpenURL/stories',
+  // '../App/Components/Common/Logo/stories',
+  '../App/Components/Common/Menu/stories',
+  '../App/Components/Common/Modals/CancelConfirmModal/stories',
+  '../App/Components/Common/Modals/CapacityPickerModal/stories',
+  '../App/Components/Common/Modals/ConfirmModal/stories',
+  '../App/Components/Common/Modals/DatePickerModal/stories',
+  '../App/Components/Common/Modals/DialogModal/stories',
+  '../App/Components/Common/Modals/ImageModal/stories',
+  '../App/Components/Common/Modals/Modal/stories',
+  '../App/Components/Common/Modals/SportPickerModal/stories',
+  '../App/Components/Common/Modals/SpotPickerModal/stories',
+  '../App/Components/Common/NavBar/stories',
+  '../App/Components/Common/NavBarButton/stories',
+  '../App/Components/Common/NavDot/stories',
+  '../App/Components/Common/NavDots/stories',
+  '../App/Components/Common/OrDivider/stories',
+  '../App/Components/Common/RaisedButton/stories',
+  '../App/Components/Common/RoundButton/stories',
+  '../App/Components/Common/Row/stories',
   // '../App/Components/Common/ScreenSlider/stories',
   // '../App/Components/Common/Slider/stories',
   // '../App/Components/Common/SliderWithText/stories',
