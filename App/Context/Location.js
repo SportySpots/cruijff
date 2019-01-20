@@ -36,7 +36,20 @@ export const PermissionStatus = {
   UNKNOWN: 'unknown', // added, indicates that permission status has not been checked yet
 };
 
-const LocationContext = React.createContext();
+// The defaultValue argument is ONLY used when a component does not have a matching
+// Provider above it in the tree. This can be helpful for testing components in isolation
+// without wrapping them. Note: passing undefined as a Provider value does not cause
+// consuming components to use defaultValue.
+const defaultValue = {
+  location: DEFAULT_LOCATION,
+  isUpdating: false,
+  // permissionStatus: PermissionStatus.AUTHORIZED,
+  // updateLocation: () => {},
+  // askPermission: () => {},
+  setLocation: () => {},
+};
+
+const LocationContext = React.createContext(defaultValue);
 
 // wraps navigator.geolocation.getCurrentPosition as a Promise
 const getCurrentPosition = () => new Promise((resolve, reject) => {

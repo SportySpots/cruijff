@@ -1,5 +1,5 @@
 const navigation = {
-  navigate: () => null,
+  navigate: () => {},
 };
 
 export default navigation;

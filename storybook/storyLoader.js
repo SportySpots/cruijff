@@ -61,7 +61,7 @@ function loadStories() {
   // require('../App/Components/Common/TimePickerField/stories');
   // require('../App/Components/DarkFooter/stories');
   // require('../App/Components/DarkFooterButton/stories');
-  // require('../App/Components/Games/AdminMenu/stories');
+  require('../App/Components/Games/AdminMenu/stories');
   // require('../App/Components/Games/Attendees/stories');
   // require('../App/Components/Games/CancelGameForm/stories');
   // require('../App/Components/Games/CancelMsg/stories');
@@ -91,37 +91,37 @@ function loadStories() {
   // require('../App/Components/Profile/ProfileTabs/stories');
   // require('../App/Components/Profile/UserMenu/stories');
   // require('../App/Components/Profile/UserSpots/stories');
-  require('../App/Components/Spots/BackgroundImage/stories');
-  require('../App/Components/Spots/SpotAmenities/stories');
-  require('../App/Components/Spots/SpotHeader/stories');
-  require('../App/Components/Spots/SpotImage/stories');
-  require('../App/Components/Spots/SpotLink/stories');
-  require('../App/Components/Spots/SpotListCard/stories');
-  require('../App/Components/Spots/SpotListCardSmall/stories');
-  require('../App/Components/Spots/SpotMap/stories');
-  require('../App/Components/Spots/SpotProperties/stories');
-  require('../App/Components/Spots/SpotsFilterFlap/stories');
-  require('../App/Components/Spots/SpotsList/stories');
-  require('../App/Components/Stories');
-  require('../App/Screens/Auth/CheckEmailScreen/stories');
+  // require('../App/Components/Spots/BackgroundImage/stories');
+  // require('../App/Components/Spots/SpotAmenities/stories');
+  // require('../App/Components/Spots/SpotHeader/stories');
+  // require('../App/Components/Spots/SpotImage/stories');
+  // require('../App/Components/Spots/SpotLink/stories');
+  // require('../App/Components/Spots/SpotListCard/stories');
+  // require('../App/Components/Spots/SpotListCardSmall/stories');
+  // require('../App/Components/Spots/SpotMap/stories');
+  // require('../App/Components/Spots/SpotProperties/stories');
+  // require('../App/Components/Spots/SpotsFilterFlap/stories');
+  // require('../App/Components/Spots/SpotsList/stories');
+  // require('../App/Components/Stories');
+  // require('../App/Screens/Auth/CheckEmailScreen/stories');
   require('../App/Screens/Auth/LoggedOutScreen/stories');
-  require('../App/Screens/Auth/LoginScreen/stories');
-  require('../App/Screens/Auth/SignupEmailScreen/stories');
-  require('../App/Screens/Auth/SignupScreen/stories');
-  require('../App/Screens/Debug/DebugScreen/stories');
-  require('../App/Screens/Games/CancelGameScreen/stories');
-  require('../App/Screens/Games/EditGameScreen/stories');
-  require('../App/Screens/Games/GameDetailsScreen/stories');
-  require('../App/Screens/Games/GamesListScreen/stories');
-  require('../App/Screens/Games/PlayersListScreen/stories');
-  require('../App/Screens/Info/InfoScreen/stories');
-  require('../App/Screens/Onboarding/OnboardingScreen/stories');
-  require('../App/Screens/Plan/PlanGameScreen/stories');
-  require('../App/Screens/Plan/ShareGameScreen/stories');
-  require('../App/Screens/Profile/ProfileEditScreen/stories');
-  require('../App/Screens/Splash/SplashScreen/stories');
-  require('../App/Screens/Spots/SpotsFilterScreen/stories');
-  require('../App/Screens/Spots/SpotsListScreen/stories');
+  // require('../App/Screens/Auth/LoginScreen/stories');
+  // require('../App/Screens/Auth/SignupEmailScreen/stories');
+  // require('../App/Screens/Auth/SignupScreen/stories');
+  // require('../App/Screens/Debug/DebugScreen/stories');
+  // require('../App/Screens/Games/CancelGameScreen/stories');
+  // require('../App/Screens/Games/EditGameScreen/stories');
+  // require('../App/Screens/Games/GameDetailsScreen/stories');
+  // require('../App/Screens/Games/GamesListScreen/stories');
+  // require('../App/Screens/Games/PlayersListScreen/stories');
+  // require('../App/Screens/Info/InfoScreen/stories');
+  // require('../App/Screens/Onboarding/OnboardingScreen/stories');
+  // require('../App/Screens/Plan/PlanGameScreen/stories');
+  // require('../App/Screens/Plan/ShareGameScreen/stories');
+  // require('../App/Screens/Profile/ProfileEditScreen/stories');
+  // require('../App/Screens/Splash/SplashScreen/stories');
+  // require('../App/Screens/Spots/SpotsFilterScreen/stories');
+  // require('../App/Screens/Spots/SpotsListScreen/stories');
 
 }
 
@@ -182,7 +182,7 @@ const stories = [
   // '../App/Components/Common/TimePickerField/stories',
   // '../App/Components/DarkFooter/stories',
   // '../App/Components/DarkFooterButton/stories',
-  // '../App/Components/Games/AdminMenu/stories',
+  '../App/Components/Games/AdminMenu/stories',
   // '../App/Components/Games/Attendees/stories',
   // '../App/Components/Games/CancelGameForm/stories',
   // '../App/Components/Games/CancelMsg/stories',
@@ -212,37 +212,37 @@ const stories = [
   // '../App/Components/Profile/ProfileTabs/stories',
   // '../App/Components/Profile/UserMenu/stories',
   // '../App/Components/Profile/UserSpots/stories',
-  '../App/Components/Spots/BackgroundImage/stories',
-  '../App/Components/Spots/SpotAmenities/stories',
-  '../App/Components/Spots/SpotHeader/stories',
-  '../App/Components/Spots/SpotImage/stories',
-  '../App/Components/Spots/SpotLink/stories',
-  '../App/Components/Spots/SpotListCard/stories',
-  '../App/Components/Spots/SpotListCardSmall/stories',
-  '../App/Components/Spots/SpotMap/stories',
-  '../App/Components/Spots/SpotProperties/stories',
-  '../App/Components/Spots/SpotsFilterFlap/stories',
-  '../App/Components/Spots/SpotsList/stories',
-  '../App/Components/Stories',
-  '../App/Screens/Auth/CheckEmailScreen/stories',
+  // '../App/Components/Spots/BackgroundImage/stories',
+  // '../App/Components/Spots/SpotAmenities/stories',
+  // '../App/Components/Spots/SpotHeader/stories',
+  // '../App/Components/Spots/SpotImage/stories',
+  // '../App/Components/Spots/SpotLink/stories',
+  // '../App/Components/Spots/SpotListCard/stories',
+  // '../App/Components/Spots/SpotListCardSmall/stories',
+  // '../App/Components/Spots/SpotMap/stories',
+  // '../App/Components/Spots/SpotProperties/stories',
+  // '../App/Components/Spots/SpotsFilterFlap/stories',
+  // '../App/Components/Spots/SpotsList/stories',
+  // '../App/Components/Stories',
+  // '../App/Screens/Auth/CheckEmailScreen/stories',
   '../App/Screens/Auth/LoggedOutScreen/stories',
-  '../App/Screens/Auth/LoginScreen/stories',
-  '../App/Screens/Auth/SignupEmailScreen/stories',
-  '../App/Screens/Auth/SignupScreen/stories',
-  '../App/Screens/Debug/DebugScreen/stories',
-  '../App/Screens/Games/CancelGameScreen/stories',
-  '../App/Screens/Games/EditGameScreen/stories',
-  '../App/Screens/Games/GameDetailsScreen/stories',
-  '../App/Screens/Games/GamesListScreen/stories',
-  '../App/Screens/Games/PlayersListScreen/stories',
-  '../App/Screens/Info/InfoScreen/stories',
-  '../App/Screens/Onboarding/OnboardingScreen/stories',
-  '../App/Screens/Plan/PlanGameScreen/stories',
-  '../App/Screens/Plan/ShareGameScreen/stories',
-  '../App/Screens/Profile/ProfileEditScreen/stories',
-  '../App/Screens/Splash/SplashScreen/stories',
-  '../App/Screens/Spots/SpotsFilterScreen/stories',
-  '../App/Screens/Spots/SpotsListScreen/stories',
+  // '../App/Screens/Auth/LoginScreen/stories',
+  // '../App/Screens/Auth/SignupEmailScreen/stories',
+  // '../App/Screens/Auth/SignupScreen/stories',
+  // '../App/Screens/Debug/DebugScreen/stories',
+  // '../App/Screens/Games/CancelGameScreen/stories',
+  // '../App/Screens/Games/EditGameScreen/stories',
+  // '../App/Screens/Games/GameDetailsScreen/stories',
+  // '../App/Screens/Games/GamesListScreen/stories',
+  // '../App/Screens/Games/PlayersListScreen/stories',
+  // '../App/Screens/Info/InfoScreen/stories',
+  // '../App/Screens/Onboarding/OnboardingScreen/stories',
+  // '../App/Screens/Plan/PlanGameScreen/stories',
+  // '../App/Screens/Plan/ShareGameScreen/stories',
+  // '../App/Screens/Profile/ProfileEditScreen/stories',
+  // '../App/Screens/Splash/SplashScreen/stories',
+  // '../App/Screens/Spots/SpotsFilterScreen/stories',
+  // '../App/Screens/Spots/SpotsListScreen/stories',
 
 ];
 

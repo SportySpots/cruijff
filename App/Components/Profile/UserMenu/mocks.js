@@ -1,4 +1,4 @@
-export const navigation = {
+const navigation = {
   state: { params: { uuid: 'cdfa268a-e809-43be-a659-bd2310737bab' } },
   navigate: () => {},
   popToTop: () => {},
@@ -6,4 +6,4 @@ export const navigation = {
   dispatch: () => {},
 };
 
-export const logout = () => {};
+export default navigation;
