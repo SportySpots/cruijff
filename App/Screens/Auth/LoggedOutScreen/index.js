@@ -57,6 +57,7 @@ const LoggedOutScreen = ({ closable, onClose, navigation }) => (
       <Spacer size="L" />
       <Row justifyContent="center">
         <LinkNavigate
+          navigation={navigation}
           to="LoginScreen"
           text={I18n.t('loggedOutScreen.loginLink')}
           underline

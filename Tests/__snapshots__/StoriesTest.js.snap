@@ -7009,8 +7009,8 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField 1`] = `
                 }
               >
                 <TextInput
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   disableFullscreenUI={true}
                   editable={true}
                   error=""
@@ -7350,8 +7350,8 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField boxed size ML
                 }
               >
                 <TextInput
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   disableFullscreenUI={true}
                   editable={true}
                   error=""
@@ -7699,8 +7699,8 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error=""
@@ -8087,8 +8087,8 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField with ERROR 1`
                 }
               >
                 <TextInput
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   disableFullscreenUI={true}
                   editable={true}
                   error="I'm the error"
@@ -8670,8 +8670,8 @@ exports[`Storyshots Common.DatePickerField DatePickerField 1`] = `
                 }
               >
                 <TextInput
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   disableFullscreenUI={true}
                   editable={true}
                   error=""
@@ -9011,8 +9011,8 @@ exports[`Storyshots Common.DatePickerField DatePickerField boxed size ML dateFor
                 }
               >
                 <TextInput
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   disableFullscreenUI={true}
                   editable={true}
                   error=""
@@ -9360,8 +9360,8 @@ exports[`Storyshots Common.DatePickerField DatePickerField white theme 1`] = `
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error=""
@@ -10168,8 +10168,8 @@ exports[`Storyshots Common.Dropdown Dropdown 1`] = `
               >
                 <TextInput
                   absoluteRTLLayout={false}
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   data={
                     Array [
                       Object {
@@ -10910,8 +10910,8 @@ exports[`Storyshots Common.Dropdown Dropdown with error 1`] = `
               >
                 <TextInput
                   absoluteRTLLayout={false}
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   data={
                     Array [
                       Object {
@@ -11652,8 +11652,8 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme 1`] = `
               >
                 <TextInput
                   absoluteRTLLayout={false}
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   data={
                     Array [
                       Object {
@@ -12394,8 +12394,8 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme size ML 1`] = `
               >
                 <TextInput
                   absoluteRTLLayout={false}
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   data={
                     Array [
                       Object {
@@ -13214,8 +13214,8 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField 1`] = `
                     >
                       <TextInput
                         absoluteRTLLayout={false}
-                        allowFontScaling={true}
                         autoCapitalize="sentences"
+                        autoFocus={false}
                         data={
                           Array [
                             Object {
@@ -14802,8 +14802,8 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField boxed size ML
                     >
                       <TextInput
                         absoluteRTLLayout={false}
-                        allowFontScaling={true}
                         autoCapitalize="sentences"
+                        autoFocus={false}
                         data={
                           Array [
                             Object {
@@ -16398,8 +16398,8 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField white theme 1
                       >
                         <TextInput
                           absoluteRTLLayout={false}
-                          allowFontScaling={true}
                           autoCapitalize="sentences"
+                          autoFocus={false}
                           data={
                             Array [
                               Object {
@@ -18171,8 +18171,8 @@ exports[`Storyshots Common.InputField InputField Dropdown comp 1`] = `
                     >
                       <TextInput
                         absoluteRTLLayout={false}
-                        allowFontScaling={true}
                         autoCapitalize="sentences"
+                        autoFocus={false}
                         data={
                           Array [
                             Object {
@@ -19103,8 +19103,8 @@ exports[`Storyshots Common.InputField InputField Dropdown comp DISABLED 1`] = `
                     >
                       <TextInput
                         absoluteRTLLayout={false}
-                        allowFontScaling={true}
                         autoCapitalize="sentences"
+                        autoFocus={false}
                         data={
                           Array [
                             Object {
@@ -19983,8 +19983,8 @@ exports[`Storyshots Common.InputField InputField Dropdown comp boxed 1`] = `
                     >
                       <TextInput
                         absoluteRTLLayout={false}
-                        allowFontScaling={true}
                         autoCapitalize="sentences"
+                        autoFocus={false}
                         data={
                           Array [
                             Object {
@@ -20814,8 +20814,8 @@ exports[`Storyshots Common.InputField InputField Dropdown comp boxed DISABLED 1`
                     >
                       <TextInput
                         absoluteRTLLayout={false}
-                        allowFontScaling={true}
                         autoCapitalize="sentences"
+                        autoFocus={false}
                         data={
                           Array [
                             Object {
@@ -21639,8 +21639,8 @@ exports[`Storyshots Common.InputField InputField Dropdown comp boxed with ERROR 
                     >
                       <TextInput
                         absoluteRTLLayout={false}
-                        allowFontScaling={true}
                         autoCapitalize="sentences"
+                        autoFocus={false}
                         data={
                           Array [
                             Object {
@@ -22510,8 +22510,8 @@ exports[`Storyshots Common.InputField InputField Dropdown comp with ERROR 1`] = 
                     >
                       <TextInput
                         absoluteRTLLayout={false}
-                        allowFontScaling={true}
                         autoCapitalize="sentences"
+                        autoFocus={false}
                         data={
                           Array [
                             Object {
@@ -23414,8 +23414,8 @@ exports[`Storyshots Common.InputField InputField TextField comp 1`] = `
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error=""
@@ -23825,8 +23825,8 @@ exports[`Storyshots Common.InputField InputField TextField comp DISABLED 1`] = `
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={false}
                     error=""
@@ -24184,8 +24184,8 @@ exports[`Storyshots Common.InputField InputField TextField comp boxed 1`] = `
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error=""
@@ -24494,8 +24494,8 @@ exports[`Storyshots Common.InputField InputField TextField comp boxed DISABLED 1
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={false}
                     error=""
@@ -24798,8 +24798,8 @@ exports[`Storyshots Common.InputField InputField TextField comp boxed with ERROR
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error="I'm the error"
@@ -25148,8 +25148,8 @@ exports[`Storyshots Common.InputField InputField TextField comp with ERROR 1`] =
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error="I'm the error"
@@ -25553,8 +25553,8 @@ exports[`Storyshots Common.InputField InputField size ML 1`] = `
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error=""
@@ -25958,8 +25958,8 @@ exports[`Storyshots Common.InputField InputField size S 1`] = `
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error=""
@@ -26363,8 +26363,8 @@ exports[`Storyshots Common.InputField InputField white theme 1`] = `
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error=""
@@ -33422,8 +33422,8 @@ exports[`Storyshots Common.SportPickerField SportPickerField 1`] = `
                 }
               >
                 <TextInput
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   disableFullscreenUI={true}
                   editable={true}
                   error=""
@@ -33897,8 +33897,8 @@ exports[`Storyshots Common.SportPickerField SportPickerField boxed size ML 1`] =
                 }
               >
                 <TextInput
-                  allowFontScaling={true}
                   autoCapitalize="sentences"
+                  autoFocus={false}
                   disableFullscreenUI={true}
                   editable={true}
                   error=""
@@ -34380,8 +34380,8 @@ exports[`Storyshots Common.SportPickerField SportPickerField white theme 1`] = `
                   }
                 >
                   <TextInput
-                    allowFontScaling={true}
                     autoCapitalize="sentences"
+                    autoFocus={false}
                     disableFullscreenUI={true}
                     editable={true}
                     error=""
@@ -35647,8 +35647,8 @@ exports[`Storyshots Common.TextField TextField 1`] = `
             }
           >
             <TextInput
-              allowFontScaling={true}
               autoCapitalize="sentences"
+              autoFocus={false}
               disableFullscreenUI={true}
               editable={true}
               onBlur={[Function]}
@@ -35888,8 +35888,8 @@ exports[`Storyshots Common.TextField TextField disabled 1`] = `
             }
           >
             <TextInput
-              allowFontScaling={true}
               autoCapitalize="sentences"
+              autoFocus={false}
               disableFullscreenUI={true}
               editable={false}
               onBlur={[Function]}
@@ -36111,8 +36111,8 @@ exports[`Storyshots Common.TextField TextField with MIX theme 1`] = `
             }
           >
             <TextInput
-              allowFontScaling={true}
               autoCapitalize="sentences"
+              autoFocus={false}
               disableFullscreenUI={true}
               editable={true}
               onBlur={[Function]}
@@ -36362,8 +36362,8 @@ exports[`Storyshots Common.TextField TextField with WHITE theme 1`] = `
             }
           >
             <TextInput
-              allowFontScaling={true}
               autoCapitalize="sentences"
+              autoFocus={false}
               disableFullscreenUI={true}
               editable={true}
               onBlur={[Function]}
@@ -36613,8 +36613,8 @@ exports[`Storyshots Common.TextField TextField with WHITE theme with ERROR 1`] =
             }
           >
             <TextInput
-              allowFontScaling={true}
               autoCapitalize="sentences"
+              autoFocus={false}
               disableFullscreenUI={true}
               editable={true}
               error="I'm the error"
@@ -36867,8 +36867,8 @@ exports[`Storyshots Common.TextField TextField with characterRestriction = 20 1`
             }
           >
             <TextInput
-              allowFontScaling={true}
               autoCapitalize="sentences"
+              autoFocus={false}
               disableFullscreenUI={true}
               editable={true}
               onBlur={[Function]}
@@ -37118,8 +37118,8 @@ exports[`Storyshots Common.TextField TextField with error 1`] = `
             }
           >
             <TextInput
-              allowFontScaling={true}
               autoCapitalize="sentences"
+              autoFocus={false}
               disableFullscreenUI={true}
               editable={true}
               error="Some error msg"
@@ -37344,8 +37344,8 @@ exports[`Storyshots Common.TextField TextField with white theme size ML 1`] = `
             }
           >
             <TextInput
-              allowFontScaling={true}
               autoCapitalize="sentences"
+              autoFocus={false}
               disableFullscreenUI={true}
               editable={true}
               onBlur={[Function]}
@@ -37977,7 +37977,7 @@ exports[`Storyshots Common.TimePickerField TimePickerField 1`] = `
           >
             <View>
               <RCTDatePicker
-                date={1547985648379}
+                date={1547992211173}
                 minuteInterval={1}
                 mode="time"
                 onChange={[Function]}
@@ -38464,7 +38464,7 @@ exports[`Storyshots Common.TimePickerField TimePickerField boxed size ML 1`] = `
           >
             <View>
               <RCTDatePicker
-                date={1547985648959}
+                date={1547992211389}
                 minuteInterval={1}
                 mode="time"
                 onChange={[Function]}
@@ -39069,7 +39069,7 @@ exports[`Storyshots Common.TimePickerField TimePickerField white theme 1`] = `
             >
               <View>
                 <RCTDatePicker
-                  date={1547985648858}
+                  date={1547992211288}
                   minuteInterval={1}
                   mode="time"
                   onChange={[Function]}
@@ -40909,8 +40909,8 @@ exports[`Storyshots Games.CancelMsg CancelMsg 1`] = `
           }
         >
           <TextInput
-            allowFontScaling={true}
             autoCapitalize="sentences"
+            autoFocus={false}
             disableFullscreenUI={true}
             editable={true}
             error=""
@@ -41671,512 +41671,6 @@ exports[`Storyshots Games.GamesList GamesList 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`Storyshots Games.ImageModal ImageModal CancelConfirmModal comp 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          bgColor="#009f36"
-          borderColor="#009f36"
-          disabled={false}
-          size="M"
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#009f36",
-                "borderColor": "#009f36",
-                "borderRadius": 8,
-                "borderStyle": "solid",
-                "borderWidth": 1,
-                "display": "flex",
-                "flexDirection": "row",
-                "height": 48,
-                "justifyContent": "center",
-                "minWidth": 80,
-                "width": "100%",
-              },
-            ]
-          }
-          width="100%"
-        >
-          <Text
-            disabled={false}
-            fontColor="#fff"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "Rajdhani-SemiBold",
-                    "fontSize": 18,
-                    "lineHeight": NaN,
-                  },
-                  Array [
-                    Object {
-                      "color": "#fff",
-                    },
-                  ],
-                ],
-              ]
-            }
-          >
-            Open
-          </Text>
-        </View>
-      </View>
-      <Modal
-        animationType="fade"
-        hardwareAccelerated={false}
-        onRequestClose={[Function]}
-        transparent={true}
-        visible={false}
-      >
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "rgba(0, 0, 0, 0.8)",
-              "display": "flex",
-              "flexBasis": 0,
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "justifyContent": "center",
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "borderRadius": 4,
-                  "display": "flex",
-                  "marginBottom": 48,
-                  "marginLeft": "auto",
-                  "marginRight": "auto",
-                  "marginTop": 48,
-                  "maxWidth": 320,
-                  "width": "90%",
-                },
-              ]
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "display": "flex",
-                  },
-                ]
-              }
-            >
-              <View
-                height={null}
-                style={
-                  Array [
-                    Object {
-                      "maxHeight": 1142,
-                    },
-                  ]
-                }
-              >
-                <View
-                  bgColor="rgba(0,0,0,0)"
-                  height={null}
-                  midHeight={false}
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "height": "auto",
-                        "paddingBottom": 16,
-                        "paddingLeft": 16,
-                        "paddingRight": 16,
-                        "paddingTop": 16,
-                      },
-                    ]
-                  }
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "display": "flex",
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <Image
-                      style={
-                        Array [
-                          Object {
-                            "height": 120,
-                            "width": 116,
-                          },
-                        ]
-                      }
-                    />
-                    <View
-                      pixels={16}
-                      row={false}
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                            "height": 16,
-                            "width": "auto",
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          Array [
-                            Object {
-                              "backgroundColor": "transparent",
-                            },
-                            Object {
-                              "color": "#000",
-                              "fontFamily": "Rajdhani-SemiBold",
-                              "fontSize": 18,
-                              "lineHeight": NaN,
-                            },
-                            Array [
-                              Object {
-                                "textAlign": "center",
-                              },
-                            ],
-                          ],
-                        ]
-                      }
-                    >
-                      I'm the title
-                    </Text>
-                    <View
-                      pixels={8}
-                      row={false}
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                            "height": 8,
-                            "width": "auto",
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          Array [
-                            Object {
-                              "backgroundColor": "transparent",
-                            },
-                            Object {
-                              "color": "#000",
-                              "fontFamily": "Rajdhani-Regular",
-                              "fontSize": 16,
-                              "lineHeight": NaN,
-                            },
-                            Array [
-                              Object {
-                                "textAlign": "center",
-                              },
-                            ],
-                          ],
-                        ]
-                      }
-                    >
-                      I'm the subtitle
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View
-                row={false}
-                style={
-                  Array [
-                    Object {
-                      "borderBottomColor": "#e6e6e6",
-                      "borderBottomWidth": 1,
-                      "borderRightColor": "rgba(0,0,0,0)",
-                      "borderRightWidth": 0,
-                    },
-                  ]
-                }
-              />
-              <View
-                style={
-                  Array [
-                    Object {
-                      "paddingBottom": 8,
-                      "paddingLeft": 8,
-                      "paddingRight": 8,
-                      "paddingTop": 8,
-                    },
-                  ]
-                }
-              >
-                <View
-                  alignItems="center"
-                  justifyContent="flex-end"
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "justifyContent": "flex-end",
-                      },
-                    ]
-                  }
-                >
-                  <View
-                    accessible={true}
-                    isTVSelectable={true}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      bgColor="#777"
-                      borderColor="#777"
-                      disabled={false}
-                      size="S"
-                      style={
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "backgroundColor": "#777",
-                            "borderColor": "#777",
-                            "borderRadius": 4,
-                            "borderStyle": "solid",
-                            "borderWidth": 1,
-                            "display": "flex",
-                            "flexDirection": "row",
-                            "height": 32,
-                            "justifyContent": "center",
-                            "minWidth": 80,
-                            "width": "100%",
-                          },
-                        ]
-                      }
-                      width="100%"
-                    >
-                      <Text
-                        disabled={false}
-                        fontColor="#fff"
-                        style={
-                          Array [
-                            Object {
-                              "backgroundColor": "transparent",
-                            },
-                            Array [
-                              Object {
-                                "backgroundColor": "transparent",
-                              },
-                              Object {
-                                "color": "#000",
-                                "fontFamily": "Rajdhani-SemiBold",
-                                "fontSize": 18,
-                                "lineHeight": NaN,
-                              },
-                              Array [
-                                Object {
-                                  "color": "#fff",
-                                },
-                              ],
-                            ],
-                          ]
-                        }
-                      >
-                        Cancel
-                      </Text>
-                    </View>
-                  </View>
-                  <View
-                    pixels={8}
-                    row={true}
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                          "height": "auto",
-                          "width": 8,
-                        },
-                      ]
-                    }
-                  />
-                  <View
-                    accessible={true}
-                    isTVSelectable={true}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      bgColor="#009f36"
-                      borderColor="#009f36"
-                      disabled={false}
-                      size="S"
-                      style={
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "backgroundColor": "#009f36",
-                            "borderColor": "#009f36",
-                            "borderRadius": 4,
-                            "borderStyle": "solid",
-                            "borderWidth": 1,
-                            "display": "flex",
-                            "flexDirection": "row",
-                            "height": 32,
-                            "justifyContent": "center",
-                            "minWidth": 80,
-                            "width": "100%",
-                          },
-                        ]
-                      }
-                      width="100%"
-                    >
-                      <Text
-                        disabled={false}
-                        fontColor="#fff"
-                        style={
-                          Array [
-                            Object {
-                              "backgroundColor": "transparent",
-                            },
-                            Array [
-                              Object {
-                                "backgroundColor": "transparent",
-                              },
-                              Object {
-                                "color": "#000",
-                                "fontFamily": "Rajdhani-SemiBold",
-                                "fontSize": 18,
-                                "lineHeight": NaN,
-                              },
-                              Array [
-                                Object {
-                                  "color": "#fff",
-                                },
-                              ],
-                            ],
-                          ]
-                        }
-                      >
-                        Ok
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-      </Modal>
-    </View>
-  </View>
   <RCTSafeAreaView
     pointerEvents="box-none"
     style={
@@ -54895,7 +54389,7 @@ exports[`Storyshots PlanGame.SportDateTimeSlide SportDateTimeSlide white theme 1
                 >
                   <View>
                     <RCTDatePicker
-                      date={1547985958511}
+                      date={1547992217663}
                       minuteInterval={1}
                       mode="time"
                       onChange={[Function]}
@@ -57240,6 +56734,110 @@ exports[`Storyshots Profile.UserMenu UserMenu 1`] = `
         }
       >
         <View />
+        <View>
+          <View
+            collapsable={false}
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={null}
+            >
+              <View
+                ctx={
+                  Object {
+                    "menuActions": Object {
+                      "_getOpenedMenu": [Function],
+                      "_notify": [Function],
+                      "closeMenu": [Function],
+                      "isMenuOpen": [Function],
+                      "openMenu": [Function],
+                      "toggleMenu": [Function],
+                    },
+                    "menuRegistry": Object {
+                      "getAll": [Function],
+                      "getMenu": [Function],
+                      "setOptionsCustomStyles": [Function],
+                      "subscribe": [Function],
+                      "unsubscribe": [Function],
+                      "updateLayoutInfo": [Function],
+                    },
+                  }
+                }
+                style={
+                  Array [
+                    undefined,
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  pointerEvents="none"
+                  testID=""
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      alignItems="center"
+                      justifyContent="center"
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "justifyContent": "center",
+                            "width": 60,
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        allowFontScaling={false}
+                        style={
+                          Array [
+                            Object {
+                              "color": "black",
+                              "fontSize": 32,
+                            },
+                            undefined,
+                            Object {
+                              "fontFamily": "Material Icons",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            Object {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   </View>
@@ -61428,6 +61026,814 @@ exports[`Storyshots Screens SplashScreen 1`] = `
 </View>
 `;
 
+exports[`Storyshots Screens.Auth LoggedOutScreen 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      bgColor="#e6e6e6"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#e6e6e6",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 32,
+          },
+        ]
+      }
+    >
+      <View
+        alignItems="center"
+        justifyContent="space-between"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          color="#000"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 32,
+                  "lineHeight": NaN,
+                },
+                Array [
+                  Object {
+                    "color": "#000",
+                  },
+                ],
+              ],
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <RCTScrollView
+        contentContainerStyle={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                },
+              ]
+            }
+          >
+            <Image />
+            <View
+              pixels={32}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "height": 32,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              loggedOutScreen.title
+            </Text>
+            <View
+              pixels={32}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "height": 32,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              loggedOutScreen.subtitle
+            </Text>
+          </View>
+          <View
+            pixels={16}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 16,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignSelf": "stretch",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="profileButtonSignup"
+            >
+              <View
+                bgColor="#f5a623"
+                borderColor="#f5a623"
+                disabled={false}
+                size="M"
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#f5a623",
+                      "borderColor": "#f5a623",
+                      "borderRadius": 8,
+                      "borderStyle": "solid",
+                      "borderWidth": 1,
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "height": 48,
+                      "justifyContent": "center",
+                      "minWidth": 80,
+                      "width": "100%",
+                    },
+                  ]
+                }
+                width="100%"
+              >
+                <Text
+                  disabled={false}
+                  fontColor="#fff"
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": NaN,
+                        },
+                        Array [
+                          Object {
+                            "color": "#fff",
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  loggedOutScreen.signupBtnLabel
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            pixels={16}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 16,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View
+            alignItems="stretch"
+            justifyContent="center"
+            style={
+              Array [
+                Object {
+                  "alignItems": "stretch",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                alignItems="center"
+                justifyContent="space-between"
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": NaN,
+                        },
+                        Object {
+                          "color": "black",
+                          "textDecorationColor": "black",
+                          "textDecorationLine": "underline",
+                          "textDecorationStyle": "solid",
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  loggedOutScreen.loginLink
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Screens.Auth LoggedOutScreen closable 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      bgColor="#e6e6e6"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#e6e6e6",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 32,
+          },
+        ]
+      }
+    >
+      <View
+        alignItems="center"
+        justifyContent="space-between"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          color="#000"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 32,
+                  "lineHeight": NaN,
+                },
+                Array [
+                  Object {
+                    "color": "#000",
+                  },
+                ],
+              ],
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 32,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <RCTScrollView
+        contentContainerStyle={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                },
+              ]
+            }
+          >
+            <Image />
+            <View
+              pixels={32}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "height": 32,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              loggedOutScreen.title
+            </Text>
+            <View
+              pixels={32}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "height": 32,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              loggedOutScreen.subtitle
+            </Text>
+          </View>
+          <View
+            pixels={16}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 16,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignSelf": "stretch",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="profileButtonSignup"
+            >
+              <View
+                bgColor="#f5a623"
+                borderColor="#f5a623"
+                disabled={false}
+                size="M"
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#f5a623",
+                      "borderColor": "#f5a623",
+                      "borderRadius": 8,
+                      "borderStyle": "solid",
+                      "borderWidth": 1,
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "height": 48,
+                      "justifyContent": "center",
+                      "minWidth": 80,
+                      "width": "100%",
+                    },
+                  ]
+                }
+                width="100%"
+              >
+                <Text
+                  disabled={false}
+                  fontColor="#fff"
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": NaN,
+                        },
+                        Array [
+                          Object {
+                            "color": "#fff",
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  loggedOutScreen.signupBtnLabel
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            pixels={16}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 16,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View
+            alignItems="stretch"
+            justifyContent="center"
+            style={
+              Array [
+                Object {
+                  "alignItems": "stretch",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                alignItems="center"
+                justifyContent="space-between"
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": NaN,
+                        },
+                        Object {
+                          "color": "black",
+                          "textDecorationColor": "black",
+                          "textDecorationLine": "underline",
+                          "textDecorationStyle": "solid",
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  loggedOutScreen.loginLink
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Screens.Debug DebugScreen 1`] = `
 <View
   onLayout={[Function]}
@@ -65349,7 +65755,7 @@ exports[`Storyshots Screens.Plan.PlanGameScreen PlanGameScreen 1`] = `
                             >
                               <View>
                                 <RCTDatePicker
-                                  date={1547987605739}
+                                  date={1547992227033}
                                   minuteInterval={1}
                                   mode="time"
                                   onChange={[Function]}

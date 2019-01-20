@@ -58,6 +58,7 @@ class SplashScreen extends React.Component {
             <Row justifyContent="center">
               <LinkNavigate
                 testID="splashLoginButton"
+                navigation={navigation}
                 to="LoginScreen"
                 text={I18n.t('splashScreen.loginLink')}
                 color={Colors.white}

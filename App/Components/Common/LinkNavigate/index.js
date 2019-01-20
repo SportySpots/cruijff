@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../../Themes/Colors';
@@ -76,4 +75,4 @@ LinkNavigate.defaultProps = {
   underline: false,
 };
 
-export default withNavigation(LinkNavigate);
+export default LinkNavigate;

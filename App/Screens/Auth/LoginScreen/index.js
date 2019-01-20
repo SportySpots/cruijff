@@ -111,6 +111,7 @@ export default LoginScreen;
 /* <Block>
   <Row justifyContent="center">
     <LinkNavigate
+      navigation={navigation}
       to="SignupScreen"
       text={I18n.t('loginScreen.signupLink')}
       underline
