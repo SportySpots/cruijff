@@ -7,28 +7,28 @@
 function loadStories() {
   // require('../App/Backgrounds/FieldBackground/stories');
   // require('../App/Backgrounds/ImageBackground/stories');
-  require('../App/Backgrounds/LogoHeaderBackground/stories');
-  require('../App/Components/Auth/LoginEmailForm/stories');
-  require('../App/Components/Auth/SignupEmailForm/stories');
-  require('../App/Components/Common/AlertMsg/stories');
-  require('../App/Components/Common/Avatar/stories');
-  require('../App/Components/Common/AvatarPicker/stories');
-  require('../App/Components/Common/Block/stories');
-  require('../App/Components/Common/Calendar/stories');
-  require('../App/Components/Common/CapacityPicker/stories');
-  require('../App/Components/Common/CapacityPickerField/stories');
+  // require('../App/Backgrounds/LogoHeaderBackground/stories');
+  // require('../App/Components/Auth/LoginEmailForm/stories');
+  // require('../App/Components/Auth/SignupEmailForm/stories');
+  // require('../App/Components/Common/AlertMsg/stories');
+  // require('../App/Components/Common/Avatar/stories');
+  // require('../App/Components/Common/AvatarPicker/stories');
+  // require('../App/Components/Common/Block/stories');
+  // require('../App/Components/Common/Calendar/stories');
+  // require('../App/Components/Common/CapacityPicker/stories');
+  // require('../App/Components/Common/CapacityPickerField/stories');
   require('../App/Components/Common/Checkbox/stories');
-  // require('../App/Components/Common/DatePickerField/stories');
-  // require('../App/Components/Common/Divider/stories');
-  // require('../App/Components/Common/DotSpacer/stories');
-  // require('../App/Components/Common/Dropdown/stories');
-  // require('../App/Components/Common/DurationPickerField/stories');
-  // require('../App/Components/Common/Flap/stories');
-  // require('../App/Components/Common/HeaderBtn/stories');
-  // require('../App/Components/Common/InputField/stories');
-  // require('../App/Components/Common/LinkNavigate/stories');
-  // require('../App/Components/Common/LinkOpenURL/stories');
-  // require('../App/Components/Common/Logo/stories');
+  require('../App/Components/Common/DatePickerField/stories');
+  require('../App/Components/Common/Divider/stories');
+  require('../App/Components/Common/DotSpacer/stories');
+  require('../App/Components/Common/Dropdown/stories');
+  require('../App/Components/Common/DurationPickerField/stories');
+  require('../App/Components/Common/Flap/stories');
+  require('../App/Components/Common/HeaderBtn/stories');
+  require('../App/Components/Common/InputField/stories');
+  require('../App/Components/Common/LinkNavigate/stories');
+  require('../App/Components/Common/LinkOpenURL/stories');
+  require('../App/Components/Common/Logo/stories');
   // require('../App/Components/Common/Menu/stories');
   // require('../App/Components/Common/Modals/CancelConfirmModal/stories');
   // require('../App/Components/Common/Modals/CapacityPickerModal/stories');
@@ -128,28 +128,28 @@ function loadStories() {
 const stories = [
   // '../App/Backgrounds/FieldBackground/stories',
   // '../App/Backgrounds/ImageBackground/stories',
-  '../App/Backgrounds/LogoHeaderBackground/stories',
-  '../App/Components/Auth/LoginEmailForm/stories',
-  '../App/Components/Auth/SignupEmailForm/stories',
-  '../App/Components/Common/AlertMsg/stories',
-  '../App/Components/Common/Avatar/stories',
-  '../App/Components/Common/AvatarPicker/stories',
-  '../App/Components/Common/Block/stories',
-  '../App/Components/Common/Calendar/stories',
-  '../App/Components/Common/CapacityPicker/stories',
-  '../App/Components/Common/CapacityPickerField/stories',
-  // '../App/Components/Common/Checkbox/stories',
-  // '../App/Components/Common/DatePickerField/stories',
-  // '../App/Components/Common/Divider/stories',
-  // '../App/Components/Common/DotSpacer/stories',
-  // '../App/Components/Common/Dropdown/stories',
-  // '../App/Components/Common/DurationPickerField/stories',
-  // '../App/Components/Common/Flap/stories',
-  // '../App/Components/Common/HeaderBtn/stories',
-  // '../App/Components/Common/InputField/stories',
-  // '../App/Components/Common/LinkNavigate/stories',
-  // '../App/Components/Common/LinkOpenURL/stories',
-  // '../App/Components/Common/Logo/stories',
+  // '../App/Backgrounds/LogoHeaderBackground/stories',
+  // '../App/Components/Auth/LoginEmailForm/stories',
+  // '../App/Components/Auth/SignupEmailForm/stories',
+  // '../App/Components/Common/AlertMsg/stories',
+  // '../App/Components/Common/Avatar/stories',
+  // '../App/Components/Common/AvatarPicker/stories',
+  // '../App/Components/Common/Block/stories',
+  // '../App/Components/Common/Calendar/stories',
+  // '../App/Components/Common/CapacityPicker/stories',
+  // '../App/Components/Common/CapacityPickerField/stories',
+  '../App/Components/Common/Checkbox/stories',
+  '../App/Components/Common/DatePickerField/stories',
+  '../App/Components/Common/Divider/stories',
+  '../App/Components/Common/DotSpacer/stories',
+  '../App/Components/Common/Dropdown/stories',
+  '../App/Components/Common/DurationPickerField/stories',
+  '../App/Components/Common/Flap/stories',
+  '../App/Components/Common/HeaderBtn/stories',
+  '../App/Components/Common/InputField/stories',
+  '../App/Components/Common/LinkNavigate/stories',
+  '../App/Components/Common/LinkOpenURL/stories',
+  '../App/Components/Common/Logo/stories',
   // '../App/Components/Common/Menu/stories',
   // '../App/Components/Common/Modals/CancelConfirmModal/stories',
   // '../App/Components/Common/Modals/CapacityPickerModal/stories',
