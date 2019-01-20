@@ -6,3 +6,4 @@ export const navigation = {
   dispatch: () => {},
 };
 
+export const logout = () => {};

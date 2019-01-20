@@ -60,7 +60,9 @@ DescriptionSlide.propTypes = {
 };
 
 DescriptionSlide.defaultProps = {
-  errors: {},
+  errors: {
+    description: [],
+  },
   onChange: () => {},
 };
 

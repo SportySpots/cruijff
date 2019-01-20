@@ -106,7 +106,9 @@ SportDateTimeSlide.defaultProps = {
   time: null,
   duration: null,
   capacity: null,
-  errors: {},
+  errors: {
+    dateTime: [],
+  },
   onChange: () => {},
 };
 
