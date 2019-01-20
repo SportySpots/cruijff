@@ -1,5 +1,9 @@
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import '../storybook/setup_faker';
 import './Mocks/firebase';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 // Mock your external modules here if needed
 jest
@@ -33,6 +37,8 @@ jest.mock('react-native-cookies', () => ({
   canOpenURL: jest.fn(),
   getInitialURL: jest.fn(),
 }));
+
+jest.mock('react-native-languages', () => jest.fn());
 
 jest.mock('../App/Themes/Images.js', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/next.png', () => jest.fn());
@@ -70,3 +76,10 @@ jest.mock('TextInput', () => {
 //     }))),
 //   },
 // }));
+
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  clear: jest.fn(),
+};
+global.localStorage = localStorageMock;

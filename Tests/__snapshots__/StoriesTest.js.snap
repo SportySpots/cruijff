@@ -37977,7 +37977,7 @@ exports[`Storyshots Common.TimePickerField TimePickerField 1`] = `
           >
             <View>
               <RCTDatePicker
-                date={1547992211173}
+                date={1547992742918}
                 minuteInterval={1}
                 mode="time"
                 onChange={[Function]}
@@ -38464,7 +38464,7 @@ exports[`Storyshots Common.TimePickerField TimePickerField boxed size ML 1`] = `
           >
             <View>
               <RCTDatePicker
-                date={1547992211389}
+                date={1547992743302}
                 minuteInterval={1}
                 mode="time"
                 onChange={[Function]}
@@ -39069,7 +39069,7 @@ exports[`Storyshots Common.TimePickerField TimePickerField white theme 1`] = `
             >
               <View>
                 <RCTDatePicker
-                  date={1547992211288}
+                  date={1547992743117}
                   minuteInterval={1}
                   mode="time"
                   onChange={[Function]}
@@ -54389,7 +54389,7 @@ exports[`Storyshots PlanGame.SportDateTimeSlide SportDateTimeSlide white theme 1
                 >
                   <View>
                     <RCTDatePicker
-                      date={1547992217663}
+                      date={1547992750481}
                       minuteInterval={1}
                       mode="time"
                       onChange={[Function]}
@@ -65755,7 +65755,7 @@ exports[`Storyshots Screens.Plan.PlanGameScreen PlanGameScreen 1`] = `
                             >
                               <View>
                                 <RCTDatePicker
-                                  date={1547992227033}
+                                  date={1547992760247}
                                   minuteInterval={1}
                                   mode="time"
                                   onChange={[Function]}
