@@ -45,6 +45,22 @@ jest.mock('react-native-languages', () => jest.fn());
 jest.useFakeTimers();
 Date.now = jest.fn(() => 1503187200000);
 
+// Autofocus/blur prop was causing issues in some of the tests involving TextInput.
+// So we mock the TextInput component and remove the autofocus prop to avoid the issue.
+jest.mock('TextInput', () => {
+  const RealComponent = require.requireActual('TextInput');
+  const React = require('react');
+
+  class TextInput extends React.PureComponent {
+    render() {
+      const { children, ...rest } = this.props;
+      return React.createElement('TextInput', { ...rest, autoFocus: false }, children);
+    }
+  }
+  TextInput.propTypes = RealComponent.propTypes;
+  return TextInput;
+});
+
 // jest.mock('react-native/Libraries/Storage/AsyncStorage', () => ({
 //   AsyncStorage: {
 //     setItem: jest.fn(() => Promise.resolve()),
