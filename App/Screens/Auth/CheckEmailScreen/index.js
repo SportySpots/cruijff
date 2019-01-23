@@ -7,6 +7,10 @@ import Images from '../../../Themes/Images';
 import Colors from '../../../Themes/Colors';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
+import { Events, IncomingLinks } from '../../../Services/IncomingLinks';
+import api from '../../../Services/SeedorfApi';
+
+import { withUser } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -35,26 +39,49 @@ const Subtitle = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const CheckEmailScreen = ({ action }) => (
-  <Container>
-    <View>
-      <Center>
-        <Image
-          style={{ height: 121, width: 121 }}
-          resizeMode="contain"
-          source={Images.checkEmail}
-        />
-      </Center>
-      <Spacer size="XL" />
-      <Title>{I18n.t(`checkEmailScreen.${action}.title`)}</Title>
-      <Spacer size="XL" />
-      <Subtitle>{I18n.t(`checkEmailScreen.${action}.subtitle`)}</Subtitle>
-    </View>
-  </Container>
-);
+class CheckEmailScreen extends React.Component {
+  magicTokenHandler = async (magicToken) => {
+    const { onSuccessHook, loginWithToken } = this.props;
+    const result = await api.confirmMagicLoginLink(magicToken);
+    console.log('magic', result);
+    const { token } = result.data;
+    if (await loginWithToken(token)) {
+      onSuccessHook();
+    }
+  }
+
+  componentWillMount() {
+    IncomingLinks.on(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
+  }
+
+  componentWillUnmount() {
+    IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
+  }
+
+  render() {
+    const { action } = this.props;
+    return (
+      <Container>
+        <View>
+          <Center>
+            <Image
+              style={{ height: 121, width: 121 }}
+              resizeMode="contain"
+              source={Images.checkEmail}
+            />
+          </Center>
+          <Spacer size="XL" />
+          <Title>{I18n.t(`checkEmailScreen.${action}.title`)}</Title>
+          <Spacer size="XL" />
+          <Subtitle>{I18n.t(`checkEmailScreen.${action}.subtitle`)}</Subtitle>
+        </View>
+      </Container>
+    );
+  }
+}
 
 CheckEmailScreen.propTypes = {
   action: PropTypes.oneOf(['login', 'signup']).isRequired,
 };
 
-export default CheckEmailScreen;
+export default withUser(CheckEmailScreen);

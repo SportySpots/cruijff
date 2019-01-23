@@ -179,6 +179,18 @@ const create = () => {
     })
   );
 
+  const sendMagicLoginLink = email => (
+    api.post('/auth/create-magic-link/', {
+      email,
+    })
+  );
+
+  const confirmMagicLoginLink = token => (
+    api.post('/auth/confirm-magic-link/', {
+      token,
+    })
+  );
+
   // const setGameStartTime = ({ gameUUID, start_date, start_time }) =>
   // api.put(`/games/${gameUUID}/`), {
   //   start_time:
@@ -222,6 +234,8 @@ const create = () => {
     verifyToken,
     setRSVPStatus,
     updateRSVPStatus,
+    sendMagicLoginLink,
+    confirmMagicLoginLink,
     setToken: (token) => {
       if (token) {
         api.setHeader('Authorization', `JWT ${token}`);

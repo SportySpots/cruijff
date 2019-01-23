@@ -39,7 +39,6 @@ class LoginScreen extends React.Component {
   loginTokenHandler = async (token) => {
     const { loginWithToken, onSuccessHook } = this.props;
     if (await loginWithToken(token)) {
-      console.log('login ok');
       onSuccessHook();
     }
   }

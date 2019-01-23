@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import curateErrors from './utils';
+// import curateErrors from './utils';
 import { withUser, userPropTypes } from '../../../Context/User';
+import api from '../../../Services/SeedorfApi';
+import I18n from '../../../I18n';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -16,14 +18,16 @@ class LoginEmailApiCall extends React.PureComponent {
     const { email } = inputFields;
 
     try {
+      const response = await api.sendMagicLoginLink(email);
       // const response = await login({ email });
-      const response = undefined;
+      // const response = undefined;
 
       // Pass event up to parent component
       if (response && response.problem) {
-        console.log('RESPONSE', response.data);
-        const errors = curateErrors(response.data);
-        onLoginError(errors);
+        // console.log('RESPONSE', response.data);
+        // const errors = curateErrors(response.data);
+        // onLoginError(errors);
+        onLoginError({ email: [I18n.t('loginEmailForm.fields.email.errors.notRegistered')] });
       } else {
         onLoginSuccess();
       }

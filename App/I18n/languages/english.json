@@ -515,7 +515,8 @@
           "invalid": "Please provide a valid email",
           "tooLong": "Email is too long",
           "wrongCredentials": "Wrong email or password",
-          "unknown": "Something bad happened"
+          "unknown": "Something bad happened",
+          "notRegistered": "Email address is not registered to a user"
         }
       }
     },
