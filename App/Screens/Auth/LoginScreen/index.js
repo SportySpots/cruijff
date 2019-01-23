@@ -1,18 +1,23 @@
 import React from 'react';
+import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import settings from '../../../config';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
 import LoginEmailApiCall from '../../../Components/Auth/LoginEmailApiCall';
 import LoginEmailForm from '../../../Components/Auth/LoginEmailForm';
 import Block from '../../../Components/Common/Block';
+import { IncomingLinks, Events } from '../../../Services/IncomingLinks';
+
 // import Row from '../../../Components/Common/Row';
 import Spacer from '../../../Components/Common/Spacer';
 import OrDivider from '../../../Components/Common/OrDivider';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import Flap from '../../../Components/Common/Flap';
+import { userPropTypes, withUser } from '../../../Context/User';
 // import LinkNavigate from '../../../Components/Common/LinkNavigate';
 
 //------------------------------------------------------------------------------
@@ -30,83 +35,117 @@ const Top = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const LoginScreen = ({ navigation, onSuccessHook }) => (
-  <Container>
-    <KeyboardAwareScrollView
-      extraHeight={70}
-      enableOnAndroid
-      keyboardShouldPersistTaps="handled"
-    >
-      <Top>
-        <Block>
-          <Spacer size="XL" />
-          <RaisedButton
-            label={I18n.t('loginScreen.googlePlusBtnLabel')}
-            iconSet="MaterialCommunityIcon"
-            iconName="google"
-            iconSize={20}
-            variant="google"
-          />
-          <Spacer size="XXL" />
-          <RaisedButton
-            label={I18n.t('loginScreen.facebookBtnLabel')}
-            iconSet="MaterialCommunityIcon"
-            iconName="facebook-box"
-            variant="facebook"
-          />
-          <Spacer size="XXL" />
+class LoginScreen extends React.Component {
+  loginTokenHandler = async (token) => {
+    const { loginWithToken, onSuccessHook } = this.props;
+    if (await loginWithToken(token)) {
+      console.log('login ok');
+      onSuccessHook();
+    }
+  }
+
+  socialLoginNotRegisteredHandler = async () => {
+    console.log('trying to login, but not registered');
+  }
+
+  componentWillMount() {
+    IncomingLinks.on(Events.LOGIN_TOKEN, this.loginTokenHandler);
+    IncomingLinks.on(Events.SOCIAL_LOGIN_NOT_REGISTERED, this.socialLoginNotRegisteredHandler);
+  }
+
+  componentWillUnmount() {
+    IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginTokenHandler);
+    IncomingLinks.removeListener(
+      Events.SOCIAL_LOGIN_NOT_REGISTERED,
+      this.socialLoginNotRegisteredHandler,
+    );
+  }
+
+  render() {
+    const { navigation, onSuccessHook } = this.props;
+    return (
+      <Container>
+        <KeyboardAwareScrollView
+          extraHeight={70}
+          enableOnAndroid
+          keyboardShouldPersistTaps="handled"
+        >
+          <Top>
+            <Block>
+              <Spacer size="XL" />
+              <RaisedButton
+                label={I18n.t('loginScreen.googlePlusBtnLabel')}
+                iconSet="MaterialCommunityIcon"
+                iconName="google"
+                iconSize={20}
+                variant="google"
+                onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/google/login?process=login`)}
+              />
+              <Spacer size="XXL" />
+              <RaisedButton
+                label={I18n.t('loginScreen.facebookBtnLabel')}
+                iconSet="MaterialCommunityIcon"
+                iconName="facebook-box"
+                variant="facebook"
+              />
+              <Spacer size="XXL" />
+              <Spacer size="M" />
+              <OrDivider />
+            </Block>
+            <Spacer size="XL" />
+            <Flap title={I18n.t('loginScreen.emailSectionTitle')} />
+          </Top>
           <Spacer size="M" />
-          <OrDivider />
-        </Block>
-        <Spacer size="XL" />
-        <Flap title={I18n.t('loginScreen.emailSectionTitle')} />
-      </Top>
-      <Spacer size="M" />
-      <FormProps>
-        {({
-          disabled,
-          errors,
-          handleBefore,
-          handleClientCancel,
-          handleClientError,
-          handleServerError,
-          handleSuccess,
-        }) => (
-          <LoginEmailApiCall
-            onLoginError={handleServerError}
-            onLoginSuccess={() => { handleSuccess(onSuccessHook); }}
-          >
-            {({ loginUser }) => [
-              <LoginEmailForm
-                key="form"
-                disabled={disabled}
-                errors={errors}
-                onBeforeHook={handleBefore}
-                onClientCancelHook={handleClientCancel}
-                onClientErrorHook={handleClientError}
-                // Call api to authenticate user
-                onSuccessHook={loginUser}
-              />,
-            ]}
-          </LoginEmailApiCall>
-        )}
-      </FormProps>
-    </KeyboardAwareScrollView>
-  </Container>
-);
+          <FormProps>
+            {({
+              disabled,
+              errors,
+              handleBefore,
+              handleClientCancel,
+              handleClientError,
+              handleServerError,
+              handleSuccess,
+            }) => (
+              <LoginEmailApiCall
+                onLoginError={handleServerError}
+                onLoginSuccess={() => {
+                  handleSuccess(onSuccessHook);
+                }}
+              >
+                {({ loginUser }) => [
+                  <LoginEmailForm
+                    key="form"
+                    disabled={disabled}
+                    errors={errors}
+                    onBeforeHook={handleBefore}
+                    onClientCancelHook={handleClientCancel}
+                    onClientErrorHook={handleClientError}
+                    // Call api to authenticate user
+                    onSuccessHook={loginUser}
+                  />,
+                ]}
+              </LoginEmailApiCall>
+            )}
+          </FormProps>
+        </KeyboardAwareScrollView>
+      </Container>
+    );
+  }
+}
 
 LoginScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   onSuccessHook: PropTypes.func,
+  loginWithToken: userPropTypes.loginWithToken.isRequired,
 };
 
 LoginScreen.defaultProps = {
   onSuccessHook: () => {},
 };
 
-export default LoginScreen;
+export default withUser(LoginScreen);
 
 /* <Block>
   <Row justifyContent="center">

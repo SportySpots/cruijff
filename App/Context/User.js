@@ -42,6 +42,7 @@ const defaultValue = {
   firstRun: false,
   signup: () => {},
   login: () => {},
+  loginWithToken: () => {},
   logout: () => {},
   refresh: () => {},
 };
@@ -53,6 +54,7 @@ export const userPropTypes = {
   firstRun: PropTypes.bool,
   signup: PropTypes.func,
   login: PropTypes.func,
+  loginWithToken: PropTypes.func,
   logout: PropTypes.func,
   refresh: PropTypes.func,
 };
@@ -76,13 +78,8 @@ export class UserProvider extends React.Component {
 
     const token = await AsyncStorage.getItem('TOKEN');
 
-    if (token) {
-      const verifyTokenResult = await SeedorfAPI.verifyToken(token);
-      if (verifyTokenResult.ok) {
-        await setToken(token);
-        this.refresh();
-        return;
-      }
+    if (token && await this.loginWithToken(token)) {
+      return;
     }
 
     this.logout();
@@ -103,6 +100,7 @@ export class UserProvider extends React.Component {
   refresh = async () => {
     const user = await this.queryUser();
     this.setState({ user });
+    return true;
   }
 
   setUserLanguage = async () => {
@@ -135,6 +133,15 @@ export class UserProvider extends React.Component {
       await this.setUserLanguage();
     }
     return result;
+  }
+
+  loginWithToken = async (token) => {
+    const verifyTokenResult = await SeedorfAPI.verifyToken(token);
+    if (verifyTokenResult.ok) {
+      await setToken(token);
+      return this.refresh();
+    }
+    return false;
   }
 
   login = async ({ email, password }) => {
@@ -177,6 +184,7 @@ export class UserProvider extends React.Component {
           firstRun,
           signup: this.signup,
           login: this.login,
+          loginWithToken: this.loginWithToken,
           logout: this.logout,
           refresh: this.refresh,
         }}
