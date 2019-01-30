@@ -18,6 +18,7 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: probably move maxDistance to SpotsList and get said value from context
 const SpotPickerModal = ({
   value,
   sport,
@@ -37,7 +38,6 @@ const SpotPickerModal = ({
         <SpotsList
           cardComponent="SpotListCardSmall"
           sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
-          // userCoords={userCoords}
           // maxDistance={maxDistance} // km
           selectedSpot={value}
           onCardPress={onSelect}

@@ -4,6 +4,7 @@ import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import geolib from 'geolib';
 import I18n from '../../../I18n';
+import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
@@ -20,7 +21,7 @@ import { makeNumGenerator } from '../../../utils';
 const SpotsList = ({
   cardComponent,
   sportsIds,
-  userCoords,
+  location,
   maxDistance,
   selectedSpot,
   onCardPress,
@@ -33,7 +34,7 @@ const SpotsList = ({
     offset: 0,
     limit: 10,
     sports__ids: sportsIds, // empty array will return all spots
-    distance: `${parseInt(1000 * maxDistance, 10)}:${userCoords.latitude}:${userCoords.longitude}`,
+    distance: `${parseInt(1000 * maxDistance, 10)}:${location.latitude}:${location.longitude}`,
   };
 
   const numGenerator = makeNumGenerator();
@@ -70,9 +71,9 @@ const SpotsList = ({
           data
           && data.spots
           && curatedSpots(data.spots).map((spot) => {
-            if (!userCoords || !spot.address) { return spot; }
+            if (!location || !spot.address) { return spot; }
             const latLng = getSpotLocation(spot);
-            const distance = rounded(geolib.getDistance(userCoords, latLng) / 1000);
+            const distance = rounded(geolib.getDistance(location, latLng) / 1000);
             return Object.assign({}, spot, { distance });
           })
         ) || [];
@@ -117,10 +118,7 @@ const SpotsList = ({
 SpotsList.propTypes = {
   cardComponent: PropTypes.oneOf(['SpotListCard', 'SpotListCardSmall']).isRequired,
   sportsIds: PropTypes.arrayOf(PropTypes.string),
-  userCoords: PropTypes.shape({
-    latitude: PropTypes.number,
-    longitude: PropTypes.number,
-  }),
+  location: locationPropTypes.location.isRequired,
   maxDistance: PropTypes.number, // km
   selectedSpot: propType(spotFragment),
   onCardPress: PropTypes.func,
@@ -129,10 +127,9 @@ SpotsList.propTypes = {
 
 SpotsList.defaultProps = {
   sportsIds: [],
-  userCoords: { latitude: 52.3727729, longitude: 4.9055008 },
   maxDistance: 50,
   selectedSpot: null,
   onCardPress: () => {},
 };
 
-export default SpotsList;
+export default withLocation(SpotsList);

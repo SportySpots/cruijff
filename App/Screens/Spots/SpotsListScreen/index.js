@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'react-apollo';
 import styled from 'styled-components';
-import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
 import SpotsList from '../../../Components/Spots/SpotsList';
@@ -22,31 +20,15 @@ const Inner = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: replace Container with Layout comp
+// TODO: probably move maxDistance to SpotsList and get said value from context
 class SpotsListScreen extends React.Component {
-  /* state = {
-    displayFlap: true,
-  }
-
-  handleScroll = (event) => {
-    const offset = event.nativeEvent.contentOffset.y;
-    this.setState({ displayFlap: offset <= 40 });
-  } */
-
   handleCardPress = (spot) => {
     const { navigation } = this.props;
     navigation.navigate('SpotDetailsScreen', { uuid: spot.uuid });
   }
 
   render() {
-    const {
-      maxDistance,
-      allSports,
-      selectedSportIds,
-      // flapIsOpen,
-      // closeFlap,
-      location,
-    } = this.props;
-    // const { displayFlap } = this.state;
+    const { maxDistance, allSports, selectedSportIds } = this.props;
 
     return (
       <Outer testID="SpotsListScreen">
@@ -71,7 +53,6 @@ class SpotsListScreen extends React.Component {
             <SpotsList
               cardComponent="SpotListCard"
               sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
-              userCoords={location}
               maxDistance={maxDistance} // km
               onCardPress={this.handleCardPress}
               // FlatList props
@@ -88,13 +69,7 @@ SpotsListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  location: locationPropTypes.location.isRequired,
   ...spotFiltersPropTypes,
 };
 
-const enhance = compose(
-  withLocation,
-  withSpotFilters,
-);
-
-export default enhance(SpotsListScreen);
+export default withSpotFilters(SpotsListScreen);
