@@ -12,7 +12,7 @@ export const IncomingLinks = new EventEmitter();
 Linking.addEventListener('url', async ({ url }) => {
   if (url.search('social_login_not_registered') !== -1) {
     IncomingLinks.emit(Events.SOCIAL_LOGIN_NOT_REGISTERED);
-  } else if (url.search('magic_link_login')) {
+  } else if (url.search('magic_link_login') !== -1) {
     const splitURL = url.split('login?token=');
     const token = splitURL[1];
     if (token) {
@@ -22,6 +22,7 @@ Linking.addEventListener('url', async ({ url }) => {
     const splitURL = url.split('login?token=');
     const token = splitURL[1];
     if (token) {
+
       IncomingLinks.emit(Events.LOGIN_TOKEN, token);
     }
   }
