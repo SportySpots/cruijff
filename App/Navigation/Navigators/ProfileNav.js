@@ -38,9 +38,10 @@ const ProfileNav = createStackNavigator({
     }),
   },
   ProfileDetailsScreen: {
-    screen: () => (
+    screen: ({ navigation }) => (
       <LoggedInRoute
         component={ProfileDetailsScreen}
+        navigation={navigation}
         overlay={LoggedOutScreen}
       />
     ),
