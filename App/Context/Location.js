@@ -126,7 +126,9 @@ export class LocationProvider extends React.Component {
     this.setState({ isUpdating: true });
     try {
       const coordsJSON = await AsyncStorage.getItem('userLocation'); // { latitude, longitude }
-      this.setState({ location: JSON.parse(coordsJSON) });
+      if (coordsJSON) {
+        this.setState({ location: JSON.parse(coordsJSON) });
+      }
     } catch (exc) {
       console.log('User location is not set', exc);
     }

@@ -37,7 +37,7 @@ const AuthScreens = {
     screen: ({ navigation }) => (
       <LoggedOutRoute
         navigation={navigation}
-        component={() => (<CheckEmailScreen action="login" />)}
+        component={() => (<CheckEmailScreen action="login" onSuccessHook={() => handleLoggedIn(navigation)} />)}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
       />
     ),
