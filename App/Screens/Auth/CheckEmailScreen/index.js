@@ -10,7 +10,7 @@ import Text from '../../../Components/Common/Text';
 import { Events, IncomingLinks } from '../../../Services/IncomingLinks';
 import api from '../../../Services/SeedorfApi';
 
-import { withUser } from '../../../Context/User';
+import { withUser, userPropTypes } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -82,6 +82,12 @@ class CheckEmailScreen extends React.Component {
 
 CheckEmailScreen.propTypes = {
   action: PropTypes.oneOf(['login', 'signup']).isRequired,
+  ...userPropTypes.isRequired,
+  onSuccessHook: PropTypes.func,
+};
+
+CheckEmailScreen.defaultProps = {
+  onSuccessHook: () => {},
 };
 
 export default withUser(CheckEmailScreen);

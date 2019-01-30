@@ -20,7 +20,7 @@ const handleLoggedIn = (navigation) => {
 //------------------------------------------------------------------------------
 const handleSuccessAuth = (navigation) => {
   // After successful auth, go back 3 screens:
-  // --> LoggedOutScreen --> <Original>Screen --> <Original>EmailScreen
+  // --> LoggedOutScreen --> LoginScreen --> CheckEmailScreen
   navigation.pop(3);
 };
 //------------------------------------------------------------------------------
@@ -37,8 +37,11 @@ const AuthScreens = {
     screen: ({ navigation }) => (
       <LoggedOutRoute
         navigation={navigation}
-        component={() => (<CheckEmailScreen action="login" onSuccessHook={() => handleLoggedIn(navigation)} />)}
+        component={CheckEmailScreen}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
+        // Child component props
+        action="login"
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
@@ -67,8 +70,11 @@ const AuthScreens = {
     screen: ({ navigation }) => (
       <LoggedOutRoute
         navigation={navigation}
-        component={() => (<CheckEmailScreen action="signup" />)}
+        component={CheckEmailScreen}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
+        // Child component props
+        action="signup"
+        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
