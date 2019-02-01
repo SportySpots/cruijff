@@ -3,9 +3,6 @@ include ':react-native-languages'
 project(':react-native-languages').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-languages/android')
 include ':react-native-firebase'
 project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
-
-
-
 include ':react-native-vector-icons'
 project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
 include ':react-native-svg'
@@ -28,7 +25,5 @@ include ':appcenter-analytics'
 project(':appcenter-analytics').projectDir = new File(rootProject.projectDir, '../node_modules/appcenter-analytics/android')
 include ':appcenter'
 project(':appcenter').projectDir = new File(rootProject.projectDir, '../node_modules/appcenter/android')
-include ':detox'
-project(':detox').projectDir = new File(rootProject.projectDir, '../node_modules/detox/android/detox')
 
 include ':app'

@@ -12,8 +12,6 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-    <uses-sdk
-        android:targetSdkVersion="26" />
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
@@ -37,7 +35,6 @@
         <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <!--<data android:scheme="https" android:host="@string/DEEPLINK_HOST" android:pathPrefix="/games" />-->
           <data android:host="link.sportyspots.com" android:scheme="http"/>
           <data android:host="link.sportyspots.com" android:scheme="https"/>
         </intent-filter>
