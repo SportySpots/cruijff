@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
+import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
@@ -26,11 +27,15 @@ class GamesListScreen extends React.Component {
   }
 
   render() {
+    const { location } = this.props;
+    const maxDistance = 20; // km // TODO: read from context
+
     const variables = {
       offset: 0,
       limit: 10,
       ordering: 'start_time',
       start_time__gte: moment().startOf('day').toISOString(),
+      distance: `${parseInt(1000 * maxDistance, 10)}:${location.latitude}:${location.longitude}`,
     };
 
     return (
@@ -82,6 +87,7 @@ GamesListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  location: locationPropTypes.location.isRequired,
 };
 
-export default GamesListScreen;
+export default withLocation(GamesListScreen);
