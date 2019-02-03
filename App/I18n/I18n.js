@@ -7,7 +7,7 @@ import { LocaleConfig } from 'react-native-calendars';
 // Set locale based on user/phone settings
 I18n.locale = (
   RNLocalize
-  && RNLocalize.getLocales()
+  && RNLocalize.getLocales
   && RNLocalize.getLocales().length > 0
   && RNLocalize.getLocales()[0].languageTag
 ) || 'en';
