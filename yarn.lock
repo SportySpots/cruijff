@@ -5596,10 +5596,10 @@ hyphenate-style-name@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
 
-i18n-js@3.0.11:
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/i18n-js/-/i18n-js-3.0.11.tgz#f9e96bdb641c5b9d6be12759d7c422089987ef02"
-  integrity sha512-v7dG3kYJTQTyox3NqDabPDE/ZotWntyMI9kh4cYi+XlCSnsIR+KBTS2opPyObL8WndnklcLzbNU92FP/mLge3Q==
+i18n-js@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/i18n-js/-/i18n-js-3.2.1.tgz#26cea8e327207bebccf1030baa761c5245ceb63b"
+  integrity sha512-AN8Ol+7QMcRml338l5W7JeNsJgXZqXHOwF+e2iKu6gqRM87bmbxk3g2CAfapo7+5ASKOhl+0PiH+YP8OjN+rXg==
 
 i@0.3.x:
   version "0.3.6"
@@ -8908,12 +8908,6 @@ react-native-google-static-map@^0.1.13:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/react-native-google-static-map/-/react-native-google-static-map-0.1.13.tgz#de2188938e0308acb4893580a63dc7b00f4d2b78"
 
-"react-native-i18n@https://github.com/SportySpots/react-native-i18n":
-  version "2.0.15"
-  resolved "https://github.com/SportySpots/react-native-i18n#22c7bfb15eff157932fb0613802e540ce396496f"
-  dependencies:
-    i18n-js "3.0.11"
-
 react-native-image-picker@^0.27.1:
   version "0.27.1"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.27.1.tgz#32877c667e8c2713466fe178a6c7dd648e6cb5d3"
@@ -8930,10 +8924,10 @@ react-native-keyboard-aware-scroll-view@^0.8.0:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
-react-native-languages@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-languages/-/react-native-languages-3.0.2.tgz#c2c4c5050974fe4b50f7372051ca1f9824c1c778"
-  integrity sha512-LGsTfixFM6hXDhcFJI6mrtrNBsGPSvXT9RtZQ0tlqmGFKmMyZW6eQgJ7kLw8lISD2FIGl4jJwY06EAJpbMsNxg==
+react-native-localize@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-1.0.1.tgz#08664d7b8dc311bffb6d4ee1303a44e9b998d54d"
+  integrity sha512-ECV4Ry7rkYCDLqsCqgbl+97CphFRbptdT/r/qE26UuJ+ZEIL60ZXv7FLKXuzy5xYd44riSNBnvVase4SzWBQCA==
 
 react-native-map-link@^2.1.1:
   version "2.1.3"

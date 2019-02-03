@@ -2,9 +2,8 @@ package com.sportyspots.android;
 
 import android.app.Application;
 
-import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.facebook.react.ReactApplication;
-import com.reactcommunity.rnlanguages.RNLanguagesPackage;
+import com.reactcommunity.rnlocalize.RNLocalizePackage;
 
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
@@ -48,7 +47,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-          new RNLanguagesPackage(),
+          new RNLocalizePackage(),
           new RNFirebasePackage(),
           new RNFirebaseAnalyticsPackage(),
           new RNFirebaseMessagingPackage(),
@@ -62,7 +61,6 @@ public class MainApplication extends Application implements ReactApplication {
           new ImagePickerPackage(),
           new ReactNativeConfigPackage(),
           new RNDeviceInfo(),
-          new RNI18nPackage(),
           new SvgPackage(),
           new VectorIconsPackage()
       );
