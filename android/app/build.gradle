@@ -159,7 +159,6 @@ dependencies {
     implementation project(':react-native-cookies')
     implementation project(':react-native-device-info')
     implementation project(':react-native-firebase')
-    implementation project(':react-native-i18n')
     implementation project(':react-native-image-picker')
     implementation project(':react-native-languages')
     implementation project(':react-native-svg')

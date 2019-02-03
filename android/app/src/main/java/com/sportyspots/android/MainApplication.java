@@ -2,7 +2,6 @@ package com.sportyspots.android;
 
 import android.app.Application;
 
-import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.facebook.react.ReactApplication;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 
@@ -62,7 +61,6 @@ public class MainApplication extends Application implements ReactApplication {
           new ImagePickerPackage(),
           new ReactNativeConfigPackage(),
           new RNDeviceInfo(),
-          new RNI18nPackage(),
           new SvgPackage(),
           new VectorIconsPackage()
       );

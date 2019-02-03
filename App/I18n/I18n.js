@@ -1,5 +1,5 @@
 // @flow
-import I18n from 'react-native-i18n';
+import I18n from 'i18n-js';
 import RNLanguages from 'react-native-languages';
 import moment from 'moment';
 import { LocaleConfig } from 'react-native-calendars';
