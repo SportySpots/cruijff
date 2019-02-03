@@ -1,11 +1,16 @@
 // @flow
 import I18n from 'i18n-js';
-import RNLanguages from 'react-native-languages';
+import * as RNLocalize from 'react-native-localize';
 import moment from 'moment';
 import { LocaleConfig } from 'react-native-calendars';
 
 // Set locale based on user/phone settings
-I18n.locale = (RNLanguages && RNLanguages.language) || 'en';
+I18n.locale = (
+  RNLocalize
+  && RNLocalize.getLocales()
+  && RNLocalize.getLocales().length > 0
+  && RNLocalize.getLocales()[0].languageTag
+) || 'en';
 
 // Enable fallbacks if you want `en-US` and `en-GB` to fallback to `en`
 I18n.fallbacks = true;
