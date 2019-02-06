@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
 import styled from 'styled-components';
 import I18n from '../../../I18n/index';
 import Images from '../../../Themes/Images';
@@ -52,25 +52,27 @@ const Title = styled(Text.M)`
 //------------------------------------------------------------------------------
 const LocationSlide = ({ location, onChange }) => (
   <ImageBackground image={Images.locationOnboarding}>
-    <View>
-      <Title>{I18n.t('locationSlide.title')}</Title>
-    </View>
-    <Spacer size="L" />
-    <Block style={{ flex: 1 }}>
-      <FlatList
-        keyExtractor={item => item.id}
-        data={CITIES}
-        renderItem={({ item }) => (
-          <RaisedButton
-            label={item.name}
-            variant={location && location.id && location.id === item.id ? 'default' : 'transparent'}
-            onPress={() => { onChange({ fieldName: 'location', value: item }); }}
-          />
-        )}
-        ItemSeparatorComponent={() => (<Spacer size="XL" />)}
-        contentContainerStyle={{ flex: 1 }}
-      />
-    </Block>
+    <ScrollView>
+      <View>
+        <Title>{I18n.t('locationSlide.title')}</Title>
+      </View>
+      <Spacer size="L" />
+      <Block style={{ flex: 1 }}>
+        <FlatList
+          keyExtractor={item => item.id}
+          data={CITIES}
+          renderItem={({ item }) => (
+            <RaisedButton
+              label={item.name}
+              variant={location && location.id && location.id === item.id ? 'default' : 'transparent'}
+              onPress={() => { onChange({ fieldName: 'location', value: item }); }}
+            />
+          )}
+          ItemSeparatorComponent={() => (<Spacer size="XL" />)}
+          contentContainerStyle={{ flex: 1 }}
+        />
+      </Block>
+    </ScrollView>
   </ImageBackground>
 );
 

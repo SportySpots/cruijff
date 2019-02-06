@@ -30,9 +30,8 @@ class App extends Component {
       try {
         const fcmToken = await firebase.messaging().getToken();
         console.log('fcmToken', fcmToken);
-        // User has authorised
       } catch (error) {
-        // User has rejected permissions
+        console.log('error getting fcmToken', error);
       }
     })();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
