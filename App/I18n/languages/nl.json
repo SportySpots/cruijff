@@ -522,7 +522,8 @@
           "invalid": "Vul een geldig e-mailadres in",
           "tooLong": "E-mailadres is te lang",
           "wrongCredentials": "Geen geldige e-mail of wachtwoord",
-          "unknown": "Iets slecht is gebeurd"
+          "unknown": "Iets slecht is gebeurd",
+          "notRegistered": "E-mailadres is niet geregistreerd voor een gebruiker"
         }
       }
     },
