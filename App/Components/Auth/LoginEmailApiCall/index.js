@@ -12,7 +12,7 @@ import SeedorfApi from '../../../Services/SeedorfApi';
  */
 class LoginEmailApiCall extends React.PureComponent {
   handleLogin = async (inputFields) => {
-    const { onLoginError, onLoginSuccess } = this.props;
+    const { onLoginError, onEmailSent } = this.props;
     const { email } = inputFields;
 
     try {
@@ -25,7 +25,7 @@ class LoginEmailApiCall extends React.PureComponent {
         // onLoginError(errors);
         onLoginError({ email: ['loginEmailForm.fields.email.errors.notRegistered'] });
       } else {
-        onLoginSuccess();
+        onEmailSent();
       }
     } catch (exc) {
       onLoginError(exc);
@@ -50,12 +50,12 @@ LoginEmailApiCall.propTypes = {
     PropTypes.object,
   ]).isRequired,
   onLoginError: PropTypes.func,
-  onLoginSuccess: PropTypes.func,
+  onEmailSent: PropTypes.func,
 };
 
 LoginEmailApiCall.defaultProps = {
   onLoginError: () => {},
-  onLoginSuccess: () => {},
+  onEmailSent: () => {},
 };
 
 export default LoginEmailApiCall;

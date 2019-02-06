@@ -98,7 +98,7 @@ class LoginScreen extends React.Component {
             }) => (
               <LoginEmailApiCall
                 onLoginError={handleServerError}
-                onLoginSuccess={() => {
+                onEmailSent={() => {
                   handleSuccess(onSuccessHook);
                 }}
               >

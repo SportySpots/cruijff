@@ -1,4 +1,5 @@
 import Config from 'react-native-config';
+import globalRefs from './globalRefs';
 
 /* eslint-disable no-param-reassign */
 export const addModelState = (reactComponentInstance, modalName, isOpen = false) => {
@@ -50,6 +51,21 @@ export const getSpotImages = ({ images, height, width }) => {
   return images && images.length > 0
     ? images.map(({ image }) => getImageUrl({ image, height, width }))
     : [DEFAULT_SPOT_IMG];
+};
+
+const routeToString = (route, depth = 0) => {
+  let str = route.routeName || 'ROOT';
+  if (route.routes) {
+    str += '\n' + route.routes.map((subRoute, idx) => {
+      const isActive = (idx === route.index);
+      return ' '.repeat(3 * depth) + (isActive ? ' * ' : '   ') + routeToString(subRoute, depth + 1);
+    }).join('\n');
+  }
+  return str;
+};
+
+export const logNavigationState = (route = globalRefs.rootNavigator.state.nav) => {
+  console.log(routeToString(route));
 };
 
 
