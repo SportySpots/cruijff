@@ -49,8 +49,8 @@ class SplashScreen extends React.Component {
             label={I18n.t('splashScreen.btnLabel')}
             accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
-              navigation.navigate('OnboardingScreen');
-              // navigation.navigate(firstRun ? 'OnboardingScreen' : 'MainNav');
+              // navigation.navigate('OnboardingScreen');
+              navigation.navigate(firstRun ? 'OnboardingScreen' : 'MainNav');
             }}
           />
           <Spacer size="XL" />

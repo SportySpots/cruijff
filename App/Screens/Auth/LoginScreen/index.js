@@ -36,24 +36,15 @@ const Top = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class LoginScreen extends React.Component {
-  loginTokenHandler = async (token) => {
-    const { loginWithToken, onSuccessHook } = this.props;
-    if (await loginWithToken(token)) {
-      onSuccessHook();
-    }
-  }
-
   socialLoginNotRegisteredHandler = async () => {
     console.log('trying to login, but not registered');
   }
 
   componentWillMount() {
-    IncomingLinks.on(Events.LOGIN_TOKEN, this.loginTokenHandler);
     IncomingLinks.on(Events.SOCIAL_LOGIN_NOT_REGISTERED, this.socialLoginNotRegisteredHandler);
   }
 
   componentWillUnmount() {
-    IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginTokenHandler);
     IncomingLinks.removeListener(
       Events.SOCIAL_LOGIN_NOT_REGISTERED,
       this.socialLoginNotRegisteredHandler,
@@ -107,7 +98,7 @@ class LoginScreen extends React.Component {
             }) => (
               <LoginEmailApiCall
                 onLoginError={handleServerError}
-                onLoginSuccess={() => {
+                onEmailSent={() => {
                   handleSuccess(onSuccessHook);
                 }}
               >

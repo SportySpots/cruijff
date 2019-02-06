@@ -14,15 +14,19 @@ import { headerTitleStyle } from './style';
 //------------------------------------------------------------------------------
 const handleLoggedIn = (navigation) => {
   // In case the user is logged in when trying to access a logged out route,
-  // redirect to MainNav
-  navigation.navigate('MainNav');
+
+  const authScreenNames = Object.keys(AuthScreens);
+
+  // get this screens' parent Stack nav and the route names it contains.
+  const parentNav = navigation.dangerouslyGetParent();
+  const parentNavRoutes = parentNav.state.routes;
+  const routeNames = parentNavRoutes.map(r => r.routeName);
+
+  // number of items to pop equals number of AuthScreens in the stack.
+  const numAuthRoutes = routeNames.filter(name => authScreenNames.indexOf(name) !== -1).length;
+  parentNav.pop(numAuthRoutes);
 };
-//------------------------------------------------------------------------------
-const handleSuccessAuth = (navigation) => {
-  // After successful auth, go back 3 screens:
-  // --> LoggedOutScreen --> LoginScreen --> CheckEmailScreen
-  navigation.pop(3);
-};
+
 //------------------------------------------------------------------------------
 const backBtn = navigation => (
   <StackBackHeader
@@ -41,7 +45,6 @@ const AuthScreens = {
         onLoggedIn={() => { handleLoggedIn(navigation); }}
         // Child component props
         action="login"
-        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
@@ -74,7 +77,6 @@ const AuthScreens = {
         onLoggedIn={() => { handleLoggedIn(navigation); }}
         // Child component props
         action="signup"
-        onSuccessHook={() => { handleSuccessAuth(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({
@@ -106,7 +108,6 @@ const AuthScreens = {
         component={SignupScreen}
         onLoggedIn={() => { handleLoggedIn(navigation); }}
         // Child component props
-        onSuccessHook={() => {}}
       />
     ),
     navigationOptions: ({ navigation }) => ({
