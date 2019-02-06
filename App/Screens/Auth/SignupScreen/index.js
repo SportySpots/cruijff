@@ -40,6 +40,7 @@ const SignupScreen = ({ navigation, onSuccessHook }) => (
       iconSet="MaterialCommunityIcon"
       iconName="facebook-box"
       variant="facebook"
+      onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/facebook/login?process=signup`)}
     />
     <Spacer size="XXL" />
     <Spacer size="M" />

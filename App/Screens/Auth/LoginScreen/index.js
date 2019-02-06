@@ -77,6 +77,7 @@ class LoginScreen extends React.Component {
                 iconSet="MaterialCommunityIcon"
                 iconName="facebook-box"
                 variant="facebook"
+                onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/facebook/login?process=login`)}
               />
               <Spacer size="XXL" />
               <Spacer size="M" />
