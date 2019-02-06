@@ -48280,384 +48280,388 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
           ]
         }
       />
-      <View>
-        <Text
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
+      <RCTScrollView>
+        <View>
+          <View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "textAlign": "center",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              locationSlide.title
+            </Text>
+          </View>
+          <View
+            pixels={16}
+            row={false}
+            style={
               Array [
                 Object {
                   "backgroundColor": "transparent",
+                  "height": 16,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View
+            bgColor="rgba(0,0,0,0)"
+            height={null}
+            midHeight={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "height": "auto",
+                  "paddingBottom": 16,
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                  "paddingTop": 16,
                 },
                 Object {
-                  "color": "#000",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": NaN,
+                  "flex": 1,
                 },
+              ]
+            }
+          >
+            <RCTScrollView
+              ItemSeparatorComponent={[Function]}
+              contentContainerStyle={
+                Object {
+                  "flex": 1,
+                }
+              }
+              data={
                 Array [
                   Object {
-                    "color": "#fff",
-                    "textAlign": "center",
+                    "coords": Object {
+                      "latitude": 52.3547321,
+                      "longitude": 4.8284118,
+                    },
+                    "id": "amsterdam",
+                    "name": "Amsterdam",
                   },
-                ],
-              ],
-            ]
-          }
-        >
-          locationSlide.title
-        </Text>
-      </View>
-      <View
-        pixels={16}
-        row={false}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "height": 16,
-              "width": "auto",
-            },
-          ]
-        }
-      />
-      <View
-        bgColor="rgba(0,0,0,0)"
-        height={null}
-        midHeight={false}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "height": "auto",
-              "paddingBottom": 16,
-              "paddingLeft": 16,
-              "paddingRight": 16,
-              "paddingTop": 16,
-            },
-            Object {
-              "flex": 1,
-            },
-          ]
-        }
-      >
-        <RCTScrollView
-          ItemSeparatorComponent={[Function]}
-          contentContainerStyle={
-            Object {
-              "flex": 1,
-            }
-          }
-          data={
-            Array [
-              Object {
-                "coords": Object {
-                  "latitude": 52.3547321,
-                  "longitude": 4.8284118,
-                },
-                "id": "amsterdam",
-                "name": "Amsterdam",
-              },
-              Object {
-                "coords": Object {
-                  "latitude": 52.2233632,
-                  "longitude": 6.7983365,
-                },
-                "id": "enschede",
-                "name": "Enschede",
-              },
-              Object {
-                "coords": Object {
-                  "latitude": -34.6156624,
-                  "longitude": -58.50351,
-                },
-                "id": "buenosAires",
-                "name": "Buenos Aires",
-              },
-            ]
-          }
-          disableVirtualization={false}
-          getItem={[Function]}
-          getItemCount={[Function]}
-          horizontal={false}
-          initialNumToRender={10}
-          keyExtractor={[Function]}
-          maxToRenderPerBatch={10}
-          numColumns={1}
-          onContentSizeChange={[Function]}
-          onEndReachedThreshold={2}
-          onLayout={[Function]}
-          onMomentumScrollEnd={[Function]}
-          onScroll={[Function]}
-          onScrollBeginDrag={[Function]}
-          onScrollEndDrag={[Function]}
-          renderItem={[Function]}
-          scrollEventThrottle={50}
-          stickyHeaderIndices={Array []}
-          updateCellsBatchingPeriod={50}
-          viewabilityConfigCallbackPairs={Array []}
-          windowSize={21}
-        >
-          <View>
-            <View
-              onLayout={[Function]}
-              style={null}
-            >
-              <View
-                accessible={true}
-                isTVSelectable={true}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
                   Object {
-                    "opacity": 1,
-                  }
-                }
-              >
-                <View
-                  bgColor="rgba(0,0,0,0)"
-                  borderColor="#fff"
-                  disabled={false}
-                  size="M"
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "borderColor": "#fff",
-                        "borderRadius": 8,
-                        "borderStyle": "solid",
-                        "borderWidth": 1,
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "height": 48,
-                        "justifyContent": "center",
-                        "minWidth": 80,
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                  width="100%"
-                >
-                  <Text
-                    disabled={false}
-                    fontColor="#fff"
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          Object {
-                            "color": "#000",
-                            "fontFamily": "Rajdhani-SemiBold",
-                            "fontSize": 18,
-                            "lineHeight": NaN,
-                          },
-                          Array [
-                            Object {
-                              "color": "#fff",
-                            },
-                          ],
-                        ],
-                      ]
-                    }
-                  >
-                    Amsterdam
-                  </Text>
-                </View>
-              </View>
-              <View
-                pixels={24}
-                row={false}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "height": 24,
-                      "width": "auto",
+                    "coords": Object {
+                      "latitude": 52.2233632,
+                      "longitude": 6.7983365,
                     },
-                  ]
-                }
-              />
-            </View>
-            <View
-              onLayout={[Function]}
-              style={null}
-            >
-              <View
-                accessible={true}
-                isTVSelectable={true}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
+                    "id": "enschede",
+                    "name": "Enschede",
+                  },
                   Object {
-                    "opacity": 1,
-                  }
-                }
-              >
-                <View
-                  bgColor="rgba(0,0,0,0)"
-                  borderColor="#fff"
-                  disabled={false}
-                  size="M"
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "borderColor": "#fff",
-                        "borderRadius": 8,
-                        "borderStyle": "solid",
-                        "borderWidth": 1,
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "height": 48,
-                        "justifyContent": "center",
-                        "minWidth": 80,
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                  width="100%"
-                >
-                  <Text
-                    disabled={false}
-                    fontColor="#fff"
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          Object {
-                            "color": "#000",
-                            "fontFamily": "Rajdhani-SemiBold",
-                            "fontSize": 18,
-                            "lineHeight": NaN,
-                          },
-                          Array [
-                            Object {
-                              "color": "#fff",
-                            },
-                          ],
-                        ],
-                      ]
-                    }
-                  >
-                    Enschede
-                  </Text>
-                </View>
-              </View>
-              <View
-                pixels={24}
-                row={false}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "height": 24,
-                      "width": "auto",
+                    "coords": Object {
+                      "latitude": -34.6156624,
+                      "longitude": -58.50351,
                     },
-                  ]
-                }
-              />
-            </View>
-            <View
+                    "id": "buenosAires",
+                    "name": "Buenos Aires",
+                  },
+                ]
+              }
+              disableVirtualization={false}
+              getItem={[Function]}
+              getItemCount={[Function]}
+              horizontal={false}
+              initialNumToRender={10}
+              keyExtractor={[Function]}
+              maxToRenderPerBatch={10}
+              numColumns={1}
+              onContentSizeChange={[Function]}
+              onEndReachedThreshold={2}
               onLayout={[Function]}
-              style={null}
+              onMomentumScrollEnd={[Function]}
+              onScroll={[Function]}
+              onScrollBeginDrag={[Function]}
+              onScrollEndDrag={[Function]}
+              renderItem={[Function]}
+              scrollEventThrottle={50}
+              stickyHeaderIndices={Array []}
+              updateCellsBatchingPeriod={50}
+              viewabilityConfigCallbackPairs={Array []}
+              windowSize={21}
             >
-              <View
-                accessible={true}
-                isTVSelectable={true}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-              >
+              <View>
                 <View
-                  bgColor="rgba(0,0,0,0)"
-                  borderColor="#fff"
-                  disabled={false}
-                  size="M"
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "borderColor": "#fff",
-                        "borderRadius": 8,
-                        "borderStyle": "solid",
-                        "borderWidth": 1,
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "height": 48,
-                        "justifyContent": "center",
-                        "minWidth": 80,
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                  width="100%"
+                  onLayout={[Function]}
+                  style={null}
                 >
-                  <Text
-                    disabled={false}
-                    fontColor="#fff"
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      bgColor="rgba(0,0,0,0)"
+                      borderColor="#fff"
+                      disabled={false}
+                      size="M"
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "borderColor": "#fff",
+                            "borderRadius": 8,
+                            "borderStyle": "solid",
+                            "borderWidth": 1,
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "height": 48,
+                            "justifyContent": "center",
+                            "minWidth": 80,
+                            "width": "100%",
+                          },
+                        ]
+                      }
+                      width="100%"
+                    >
+                      <Text
+                        disabled={false}
+                        fontColor="#fff"
+                        style={
+                          Array [
+                            Object {
+                              "backgroundColor": "transparent",
+                            },
+                            Array [
+                              Object {
+                                "backgroundColor": "transparent",
+                              },
+                              Object {
+                                "color": "#000",
+                                "fontFamily": "Rajdhani-SemiBold",
+                                "fontSize": 18,
+                                "lineHeight": NaN,
+                              },
+                              Array [
+                                Object {
+                                  "color": "#fff",
+                                },
+                              ],
+                            ],
+                          ]
+                        }
+                      >
+                        Amsterdam
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    pixels={24}
+                    row={false}
                     style={
                       Array [
                         Object {
                           "backgroundColor": "transparent",
+                          "height": 24,
+                          "width": "auto",
                         },
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          Object {
-                            "color": "#000",
-                            "fontFamily": "Rajdhani-SemiBold",
-                            "fontSize": 18,
-                            "lineHeight": NaN,
-                          },
-                          Array [
-                            Object {
-                              "color": "#fff",
-                            },
-                          ],
-                        ],
                       ]
                     }
+                  />
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                   >
-                    Buenos Aires
-                  </Text>
+                    <View
+                      bgColor="rgba(0,0,0,0)"
+                      borderColor="#fff"
+                      disabled={false}
+                      size="M"
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "borderColor": "#fff",
+                            "borderRadius": 8,
+                            "borderStyle": "solid",
+                            "borderWidth": 1,
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "height": 48,
+                            "justifyContent": "center",
+                            "minWidth": 80,
+                            "width": "100%",
+                          },
+                        ]
+                      }
+                      width="100%"
+                    >
+                      <Text
+                        disabled={false}
+                        fontColor="#fff"
+                        style={
+                          Array [
+                            Object {
+                              "backgroundColor": "transparent",
+                            },
+                            Array [
+                              Object {
+                                "backgroundColor": "transparent",
+                              },
+                              Object {
+                                "color": "#000",
+                                "fontFamily": "Rajdhani-SemiBold",
+                                "fontSize": 18,
+                                "lineHeight": NaN,
+                              },
+                              Array [
+                                Object {
+                                  "color": "#fff",
+                                },
+                              ],
+                            ],
+                          ]
+                        }
+                      >
+                        Enschede
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    pixels={24}
+                    row={false}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                          "height": 24,
+                          "width": "auto",
+                        },
+                      ]
+                    }
+                  />
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      bgColor="rgba(0,0,0,0)"
+                      borderColor="#fff"
+                      disabled={false}
+                      size="M"
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "borderColor": "#fff",
+                            "borderRadius": 8,
+                            "borderStyle": "solid",
+                            "borderWidth": 1,
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "height": 48,
+                            "justifyContent": "center",
+                            "minWidth": 80,
+                            "width": "100%",
+                          },
+                        ]
+                      }
+                      width="100%"
+                    >
+                      <Text
+                        disabled={false}
+                        fontColor="#fff"
+                        style={
+                          Array [
+                            Object {
+                              "backgroundColor": "transparent",
+                            },
+                            Array [
+                              Object {
+                                "backgroundColor": "transparent",
+                              },
+                              Object {
+                                "color": "#000",
+                                "fontFamily": "Rajdhani-SemiBold",
+                                "fontSize": 18,
+                                "lineHeight": NaN,
+                              },
+                              Array [
+                                Object {
+                                  "color": "#fff",
+                                },
+                              ],
+                            ],
+                          ]
+                        }
+                      >
+                        Buenos Aires
+                      </Text>
+                    </View>
+                  </View>
                 </View>
               </View>
-            </View>
+            </RCTScrollView>
           </View>
-        </RCTScrollView>
-      </View>
+        </View>
+      </RCTScrollView>
     </View>
   </View>
   <RCTSafeAreaView

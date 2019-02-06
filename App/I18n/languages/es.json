@@ -247,18 +247,25 @@
       },
       "date": {
         "label": "Fecha",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Fecha es requerida"
+        }
       },
       "time": {
         "label": "Hora de inicio",
         "placeholder": "",
         "errors": {
-          "pastDateTime": "Seleccione fecha-hora en el futuro"
+          "required": "Hora es requerida",
+          "pastDateTime": "Selecciona fecha-hora en el futuro"
         }
       },
       "duration": {
         "label": "Duración",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Duración es requerida"
+        }
       },
       "capacity": {
         "label": "Número de participantes",

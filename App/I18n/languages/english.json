@@ -247,18 +247,25 @@
       },
       "date": {
         "label": "Date",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Date is required"
+        }
       },
       "time": {
         "label": "Start time",
         "placeholder": "",
         "errors": {
+          "required": "Time is required",
           "pastDateTime": "Select a date-time in the future"
         }
       },
       "duration": {
         "label": "Duration",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Duration is required"
+        }
       },
       "capacity": {
         "label": "Number of players",

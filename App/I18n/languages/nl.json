@@ -247,18 +247,25 @@
       },
       "date": {
         "label": "Datum",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Datum is vereist"
+        }
       },
       "time": {
         "label": "Start tijd",
         "placeholder": "",
         "errors": {
+          "required": "Tijd is vereist",
           "pastDateTime": "Selecteer een datum-tijd in de toekomst"
         }
       },
       "duration": {
         "label": "Duur",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Duur is vereist"
+        }
       },
       "capacity": {
         "label": "Aantal spelers",

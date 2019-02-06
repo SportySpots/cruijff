@@ -4,6 +4,8 @@ import { propType } from 'graphql-anywhere';
 import styled from 'styled-components/native';
 import ErrorHandling from 'error-handling-utils';
 import moment from 'moment';
+import cloneDeep from 'lodash/cloneDeep';
+import pick from 'lodash/pick';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
@@ -30,6 +32,58 @@ import { getAttendees } from '../utils';
 //------------------------------------------------------------------------------
 const NAME_MAX_CHARS = 120;
 const DESCRIPTION_MAX_CHARS = 2000;
+
+const INIT_STATE = (game) => {
+  if (!game) {
+    return {
+      name: '',
+      sport: '',
+      date: '',
+      time: '',
+      duration: '',
+      capacity: '',
+      spot: '',
+      description: '',
+      isPublic: false,
+    };
+  }
+
+  const {
+    name,
+    sport,
+    start_time: startTime,
+    end_time: endTime,
+    capacity,
+    spot,
+    description,
+    invite_mode: inviteMode,
+  } = game;
+
+  const startMoment = startTime ? moment.utc(startTime) : null;
+  const endMoment = endTime ? moment.utc(endTime) : null;
+
+  // TODO: handle case when startMoment is null
+  return {
+    name,
+    sport,
+    date: startMoment.clone().startOf('day'),
+    time: startMoment.clone(),
+    duration: startTime && endTime ? endMoment.diff(startMoment, 'minutes') : null,
+    capacity,
+    spot,
+    description: description || '',
+    isPublic: inviteMode !== 'INVITE_ONLY',
+  };
+};
+
+const INIT_ERRORS = {
+  name: [],
+  date: [],
+  time: [],
+  duration: [],
+  capacity: [],
+  description: [],
+};
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -48,59 +102,22 @@ class EditGameForm extends React.PureComponent {
     super(props);
 
     const { game } = props;
-    console.log('GAME', game);
-    const {
-      name,
-      sport,
-      start_time: startTime,
-      end_time: endTime,
-      capacity,
-      spot,
-      description,
-      invite_mode: inviteMode,
-    } = game;
+    // console.log('GAME', game);
 
-    const startMoment = startTime ? moment.utc(startTime) : null;
-    const endMoment = endTime ? moment.utc(endTime) : null;
-
-    // TODO: handle case when startMoment is null
     this.state = {
-      name,
-      sport,
-      date: startMoment.clone().startOf('day'),
-      time: startMoment.clone(),
-      duration: startTime && endTime ? endMoment.diff(startMoment, 'minutes') : null,
-      capacity,
-      spot,
-      description: description || '',
-      isPublic: inviteMode !== 'INVITE_ONLY',
-      errors: {
-        name: [],
-        dateTime: [],
-        capacity: [],
-        description: [],
-      },
+      ...INIT_STATE(game),
+      errors: cloneDeep(INIT_ERRORS),
       // Keep track of field position in order to 'scroll to' on error
-      offsetY: {
-        name: 0,
-        dateTime: 0,
-        capacity: 0,
-        description: 0,
-      },
+      offsetY: Object.keys(INIT_ERRORS).reduce((output, key) => (
+        Object.assign({}, output, { [key]: 0 })
+      ), {}),
     };
 
-    console.log('STATE', this.state);
+    // console.log('STATE', this.state);
   }
 
   clearErrors = () => {
-    this.setState({
-      errors: {
-        name: [],
-        dateTime: [],
-        capacity: [],
-        description: [],
-      },
-    });
+    this.setState({ errors: cloneDeep(INIT_ERRORS) });
   };
 
   handleLayout = ({ fieldName, nativeEvent }) => {
@@ -124,9 +141,7 @@ class EditGameForm extends React.PureComponent {
     // Update value and clear errors for the given field
     this.setState({
       [fieldName]: value,
-      errors: (fieldName === 'date' || fieldName === 'time')
-        ? ErrorHandling.clearErrors(errors, 'dateTime')
-        : ErrorHandling.clearErrors(errors, fieldName),
+      errors: ErrorHandling.clearErrors(errors, fieldName),
     });
   }
 
@@ -134,18 +149,14 @@ class EditGameForm extends React.PureComponent {
     name,
     date,
     time,
+    duration,
     capacity,
     description,
   }) => {
-    const { game } = this.props;
-
     // Initialize errors
-    const errors = {
-      name: [],
-      dateTime: [],
-      capacity: [],
-      description: [],
-    };
+    const errors = cloneDeep(INIT_ERRORS);
+
+    const { game } = this.props;
 
     // Sanitize input
     const _name = name && name.trim(); // eslint-disable-line no-underscore-dangle
@@ -156,15 +167,27 @@ class EditGameForm extends React.PureComponent {
       errors.name.push('editGameForm.fields.title.errors.tooLong');
     }
 
+    if (!date) {
+      errors.date.push('editGameForm.fields.date.errors.required');
+    }
+
+    if (!time) {
+      errors.time.push('editGameForm.fields.time.errors.required');
+    }
+
     if (date && time) {
       const hours = time.hours();
       const minutes = time.minutes();
       const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
-      const now = moment();
+      const now = moment.utc();
 
       if (dateTime.diff(now) < 0) {
-        errors.dateTime.push('editGameForm.fields.time.errors.pastDateTime');
+        errors.time.push('editGameForm.fields.time.errors.pastDateTime');
       }
+    }
+
+    if (!duration) {
+      errors.duration.push('editGameForm.fields.duration.errors.required');
     }
 
     // Sanitize input
@@ -200,23 +223,11 @@ class EditGameForm extends React.PureComponent {
       return; // return silently
     }
 
-    // Get field values
-    const {
-      name,
-      date,
-      time,
-      duration,
-      capacity,
-      spot,
-      description,
-      isPublic,
-    } = this.state;
-
     // Clear previous errors if any
     this.clearErrors();
 
     // Validate fields
-    const errors = this.validateFields({ name, date, time, capacity, description });
+    const errors = this.validateFields(this.state);
 
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
@@ -225,7 +236,9 @@ class EditGameForm extends React.PureComponent {
       const { offsetY } = this.state;
       const firstErrorKey = ErrorHandling.getFirstError(errors).key; // 'name', 'attendees', 'description'
       const y = parseInt(offsetY[firstErrorKey], 10);
-      this.scroller.scrollTo({ x: 0, y });
+      if (this.scroller) {
+        this.scroller.scrollTo({ x: 0, y });
+      }
       // Pass event up to parent component. onClientErrorHook will set 'disabled'
       // value back to 'false' so that the user can re-submit the form
       onClientErrorHook();
@@ -236,14 +249,7 @@ class EditGameForm extends React.PureComponent {
     // value back to 'false' so that the user can re-submit the form
     onSuccessHook({
       gameUUID: game.uuid,
-      name,
-      date,
-      time,
-      duration,
-      capacity,
-      spot,
-      description,
-      isPublic,
+      ...pick(this.state, Object.keys(INIT_STATE())),
     });
   }
 
@@ -264,7 +270,9 @@ class EditGameForm extends React.PureComponent {
 
     // Apply translation and concatenate field errors (string)
     const nameErrors = ErrorHandling.getFieldErrors(errors, 'name', I18n.t);
-    const dateTimeErrors = ErrorHandling.getFieldErrors(errors, 'dateTime', I18n.t);
+    const dateErrors = ErrorHandling.getFieldErrors(errors, 'date', I18n.t);
+    const timeErrors = ErrorHandling.getFieldErrors(errors, 'time', I18n.t);
+    const durationErrors = ErrorHandling.getFieldErrors(errors, 'duration', I18n.t);
     const capacityErrors = ErrorHandling.getFieldErrors(errors, 'capacity', I18n.t);
     const descriptionErrors = ErrorHandling.getFieldErrors(errors, 'description', I18n.t);
 
@@ -276,6 +284,7 @@ class EditGameForm extends React.PureComponent {
             onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'name', nativeEvent }); }}
           >
             <TextField
+              testID="editGameFieldName"
               label={I18n.t('editGameForm.fields.title.label')}
               value={name}
               error={nameErrors}
@@ -298,11 +307,15 @@ class EditGameForm extends React.PureComponent {
               onChangeText={() => {}}
             />
           </Block>
-          <Block midHeight>
+          <Block
+            midHeight
+            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'date', nativeEvent }); }}
+          >
             <DatePickerField
+              testID="editGameFieldDate"
               label={I18n.t('editGameForm.fields.date.label')}
               value={date}
-              // error={dateTimeErrors}
+              error={dateErrors}
               size="ML"
               disabled={disabled}
               theme="transparent"
@@ -312,13 +325,14 @@ class EditGameForm extends React.PureComponent {
             />
           </Block>
           <Divider />
-          <Row onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'dateTime', nativeEvent }); }}>
+          <Row onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'time', nativeEvent }); }}>
             <Half>
               <Block midHeight>
                 <TimePickerField
+                  testID="editGameFieldTime"
                   label={I18n.t('editGameForm.fields.time.label')}
                   value={time}
-                  error={dateTimeErrors}
+                  error={timeErrors}
                   size="ML"
                   disabled={disabled}
                   theme="transparent"
@@ -329,10 +343,15 @@ class EditGameForm extends React.PureComponent {
             </Half>
             <Divider row />
             <Half>
-              <Block midHeight>
+              <Block
+                midHeight
+                onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'duration', nativeEvent }); }}
+              >
                 <DurationPickerField
+                  testID="editGameFieldDuration"
                   label={I18n.t('editGameForm.fields.duration.label')}
                   value={duration}
+                  error={durationErrors}
                   size="ML"
                   disabled={disabled}
                   theme="transparent"
@@ -396,6 +415,7 @@ class EditGameForm extends React.PureComponent {
         </TopLayout>
         <BottomLayout>
           <RaisedButton
+            testID="editGameSubmitButton"
             variant="primary"
             label={I18n.t('editGameForm.btnLabel')}
             disabled={disabled}

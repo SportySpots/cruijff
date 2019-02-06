@@ -4,6 +4,9 @@ import renderer from 'react-test-renderer';
 import I18n from '../../../I18n';
 import LoginEmailForm from '.';
 
+const validEmail = 'valid@email.com';
+const invalidEmail = 'invalid@email';
+
 describe('LoginEmailForm', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(<LoginEmailForm />).toJSON();
@@ -35,7 +38,7 @@ describe('LoginEmailForm', () => {
     // Sanity check
     expect(wrapper.find({ testID: 'loginInputEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText('invalid@email');
+    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText(invalidEmail);
     wrapper.find({ testID: 'loginSubmitButton' }).props().onPress();
 
     expect(wrapper.find({ testID: 'loginInputEmail' }).props().error).toBe(I18n.t('loginEmailForm.fields.email.errors.invalid'));
@@ -49,13 +52,13 @@ describe('LoginEmailForm', () => {
     // Sanity check
     expect(wrapper.find({ testID: 'loginInputEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText('invalid@email');
+    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText(invalidEmail);
     wrapper.find({ testID: 'loginSubmitButton' }).props().onPress();
 
     expect(wrapper.find({ testID: 'loginInputEmail' }).props().error).toBe(I18n.t('loginEmailForm.fields.email.errors.invalid'));
     expect(handleClientError).toBeCalled();
 
-    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText('valid@email.com');
+    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText(validEmail);
     wrapper.find({ testID: 'loginSubmitButton' }).props().onPress();
 
     expect(wrapper.find({ testID: 'loginInputEmail' }).props().error).toBe('');
@@ -77,7 +80,7 @@ describe('LoginEmailForm', () => {
     // Sanity check
     expect(wrapper.find({ testID: 'loginInputEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText('valid@email.com');
+    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText(validEmail);
     wrapper.find({ testID: 'loginSubmitButton' }).props().onPress();
 
     expect(handleBefore).toBeCalled();
@@ -103,14 +106,14 @@ describe('LoginEmailForm', () => {
     // Sanity check
     expect(wrapper.find({ testID: 'loginInputEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText('valid@email.com');
+    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText(validEmail);
 
-    expect(wrapper.state().email).toBe('valid@email.com');
+    expect(wrapper.state().email).toBe(validEmail);
 
     wrapper.find({ testID: 'loginSubmitButton' }).props().onPress();
 
     expect(handleBefore).toBeCalled();
     expect(handleClientCancel).not.toBeCalled();
-    expect(handleSuccess).toBeCalledWith(expect.objectContaining({ email: 'valid@email.com' }));
+    expect(handleSuccess).toBeCalledWith(expect.objectContaining({ email: validEmail }));
   });
 });

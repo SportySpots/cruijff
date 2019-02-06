@@ -4,6 +4,11 @@ import renderer from 'react-test-renderer';
 import I18n from '../../../I18n';
 import SignupEmailForm from '.';
 
+const validFirstName = 'John';
+const validLastName = 'Doe';
+const validEmail = 'valid@email.com';
+const invalidEmail = 'invalid@email';
+
 describe('SignupEmailForm', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(<SignupEmailForm />).toJSON();
@@ -19,21 +24,21 @@ describe('SignupEmailForm', () => {
     [
       {
         firstName: '',
-        lastName: 'Doe',
-        email: 'valid@email.com',
+        lastName: validLastName,
+        email: validEmail,
         errorFieldID: 'signupFieldFirstName',
         errorMsg: 'signupEmailForm.fields.firstName.errors.required',
       },
       {
-        firstName: 'John',
+        firstName: validFirstName,
         lastName: '',
-        email: 'valid@email.com',
+        email: validEmail,
         errorFieldID: 'signupFieldLastName',
         errorMsg: 'signupEmailForm.fields.lastName.errors.required',
       },
       {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: validFirstName,
+        lastName: validLastName,
         email: '',
         errorFieldID: 'signupFieldEmail',
         errorMsg: 'signupEmailForm.fields.email.errors.required',
@@ -73,9 +78,9 @@ describe('SignupEmailForm', () => {
     expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
     expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText('Jonh');
-    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText('Doe');
-    wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText('invalid@email');
+    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(validFirstName);
+    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(validLastName);
+    wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(invalidEmail);
 
     wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
 
@@ -87,25 +92,25 @@ describe('SignupEmailForm', () => {
     [
       {
         firstName: '',
-        validField: 'John',
-        lastName: 'Doe',
-        email: 'valid@email.com',
+        validField: validFirstName,
+        lastName: validLastName,
+        email: validEmail,
         errorFieldID: 'signupFieldFirstName',
         errorMsg: 'signupEmailForm.fields.firstName.errors.required',
       },
       {
-        firstName: 'John',
+        firstName: validFirstName,
         lastName: '',
-        validField: 'Doe',
-        email: 'valid@email.com',
+        validField: validLastName,
+        email: validEmail,
         errorFieldID: 'signupFieldLastName',
         errorMsg: 'signupEmailForm.fields.lastName.errors.required',
       },
       {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: validFirstName,
+        lastName: validLastName,
         email: '',
-        validField: 'valid@email.com',
+        validField: validEmail,
         errorFieldID: 'signupFieldEmail',
         errorMsg: 'signupEmailForm.fields.email.errors.required',
       },
@@ -159,9 +164,9 @@ describe('SignupEmailForm', () => {
     expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
     expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText('John');
-    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText('Doe');
-    wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText('valid@email.com');
+    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(validFirstName);
+    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(validLastName);
+    wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(validEmail);
 
     wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
 
@@ -190,13 +195,13 @@ describe('SignupEmailForm', () => {
     expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
     expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText('John');
-    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText('Doe');
-    wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText('valid@email.com');
+    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(validFirstName);
+    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(validLastName);
+    wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(validEmail);
 
-    expect(wrapper.state().firstName).toBe('John');
-    expect(wrapper.state().lastName).toBe('Doe');
-    expect(wrapper.state().email).toBe('valid@email.com');
+    expect(wrapper.state().firstName).toBe(validFirstName);
+    expect(wrapper.state().lastName).toBe(validLastName);
+    expect(wrapper.state().email).toBe(validEmail);
 
     wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
 
@@ -204,9 +209,9 @@ describe('SignupEmailForm', () => {
     expect(handleClientCancel).not.toBeCalled();
     expect(handleSuccess).toBeCalledWith(
       expect.objectContaining({
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'valid@email.com',
+        firstName: validFirstName,
+        lastName: validLastName,
+        email: validEmail,
       }),
     );
   });
