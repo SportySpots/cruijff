@@ -9,6 +9,7 @@ import I18n from '../I18n';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
+import { Events, IncomingLinks } from '../Services/IncomingLinks';
 
 /*
   user:
@@ -71,7 +72,16 @@ export class UserProvider extends React.Component {
     firstRun: undefined,
   }
 
+  magicTokenHandler = async (magicToken) => {
+    const result = await SeedorfAPI.confirmMagicLoginLink(magicToken);
+    const { token } = result.data;
+    this.loginWithToken(token);
+  }
+
   async componentWillMount() {
+    IncomingLinks.on(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
+    IncomingLinks.on(Events.LOGIN_TOKEN, this.loginWithToken);
+
     const firstRun = !await AsyncStorage.getItem('firstRunDone');
     await AsyncStorage.setItem('firstRunDone', 'true');
     this.setState({ firstRun });
@@ -83,6 +93,11 @@ export class UserProvider extends React.Component {
     }
 
     this.logout();
+  }
+
+  componentWillUnmount() {
+    IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
+    IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginWithToken);
   }
 
   queryUser = async () => {
@@ -98,6 +113,7 @@ export class UserProvider extends React.Component {
   }
 
   refresh = async () => {
+    console.log('refreshing user');
     const user = await this.queryUser();
     this.setState({ user });
     return true;

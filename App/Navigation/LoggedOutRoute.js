@@ -19,6 +19,16 @@ class LoggedOutRoute extends React.PureComponent {
     }
   }
 
+  // eslint-disable-next-line no-unused-vars
+  componentDidUpdate(prevState, prevProps, snapshot) {
+    const { user, onLoggedIn } = this.props;
+
+    // In case user IS logged in, fire onLoggedIn callback
+    if (user && user.uuid) {
+      onLoggedIn();
+    }
+  }
+
   render() {
     const {
       user,

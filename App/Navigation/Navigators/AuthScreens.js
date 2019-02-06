@@ -15,7 +15,7 @@ import { headerTitleStyle } from './style';
 const handleLoggedIn = (navigation) => {
   // In case the user is logged in when trying to access a logged out route,
   // redirect to MainNav
-  navigation.navigate('MainNav');
+  setTimeout(() => navigation.navigate('MainNav'), 500);
 };
 //------------------------------------------------------------------------------
 const handleSuccessAuth = (navigation) => {

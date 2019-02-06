@@ -1,8 +1,11 @@
 import React from 'react';
+import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
+import settings from '../../../config';
+
 // import FormProps from '../../../RenderProps/form-props';
 import Block from '../../../Components/Common/Block';
 import Spacer from '../../../Components/Common/Spacer';
@@ -28,6 +31,7 @@ const SignupScreen = ({ navigation, onSuccessHook }) => (
       iconName="google"
       iconSize={20}
       variant="google"
+      onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/google/login?process=signup`)}
     />
     <Spacer size="XXL" />
     <Spacer size="M" />

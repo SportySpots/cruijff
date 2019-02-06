@@ -7,8 +7,6 @@ import Images from '../../../Themes/Images';
 import Colors from '../../../Themes/Colors';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
-import { Events, IncomingLinks } from '../../../Services/IncomingLinks';
-import api from '../../../Services/SeedorfApi';
 
 import { withUser, userPropTypes } from '../../../Context/User';
 
@@ -39,25 +37,7 @@ const Subtitle = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class CheckEmailScreen extends React.Component {
-  magicTokenHandler = async (magicToken) => {
-    const { onSuccessHook, loginWithToken } = this.props;
-    const result = await api.confirmMagicLoginLink(magicToken);
-    console.log('magic', result);
-    const { token } = result.data;
-    if (await loginWithToken(token)) {
-      onSuccessHook();
-    }
-  }
-
-  componentWillMount() {
-    IncomingLinks.on(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
-  }
-
-  componentWillUnmount() {
-    IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
-  }
-
+class CheckEmailScreen extends React.PureComponent {
   render() {
     const { action } = this.props;
     return (
@@ -83,11 +63,6 @@ class CheckEmailScreen extends React.Component {
 CheckEmailScreen.propTypes = {
   action: PropTypes.oneOf(['login', 'signup']).isRequired,
   ...userPropTypes.isRequired,
-  onSuccessHook: PropTypes.func,
-};
-
-CheckEmailScreen.defaultProps = {
-  onSuccessHook: () => {},
 };
 
 export default withUser(CheckEmailScreen);
