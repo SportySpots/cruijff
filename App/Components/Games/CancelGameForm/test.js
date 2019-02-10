@@ -10,8 +10,6 @@ import CancelGameForm, { MAX_CHARS } from '.';
 const validCancelMsg = new Array(MAX_CHARS + 1).join('a'); // aaaaaa... length = MAX_CHARS
 const invalidCancelMsg = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
 
-jest.mock('Alert', () => ({ alert: jest.fn() }));
-
 describe('CancelGameForm', () => {
   let game;
 
@@ -78,38 +76,46 @@ describe('CancelGameForm', () => {
     expect(handleClientError).toBeCalled();
   });
 
-  // it('calls onSuccessHook when no cancelMsg or cancelMsg.length <= MAX_CHARS is provided', () => {
-  //   ['', validCancelMsg].forEach((cancelMsg) => {
-  //     const handleBefore = jest.fn();
-  //     const handleClientCancel = jest.fn();
-  //     const handleClientError = jest.fn();
-  //     const handleSuccess = jest.fn();
+  it('calls onSuccessHook when no cancelMsg or cancelMsg.length <= MAX_CHARS is provided', () => {
+    ['', validCancelMsg].forEach((cancelMsg) => {
+      jest.mock('Alert', () => ({ alert: jest.fn() }));
+      const handleBefore = jest.fn();
+      const handleClientCancel = jest.fn();
+      const handleClientError = jest.fn();
+      const handleSuccess = jest.fn();
 
-  //     const wrapper = shallow(
-  //       <CancelGameForm
-  //         game={game}
-  //         onBeforeHook={handleBefore}
-  //         onClientCancelHook={handleClientCancel}
-  //         onClientErrorHook={handleClientError}
-  //         onSuccessHook={handleSuccess}
-  //       />,
-  //     );
+      const wrapper = shallow(
+        <CancelGameForm
+          game={game}
+          onBeforeHook={handleBefore}
+          onClientCancelHook={handleClientCancel}
+          onClientErrorHook={handleClientError}
+          onSuccessHook={handleSuccess}
+        />,
+      );
 
-  //     // Sanity check
-  //     expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
+      // cancelGameFormCancelMsgField is only render when attendees.length > 0
+      if (wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).length > 0) {
+        console.log('WITH ATTENDEES!!!');
+        // Sanity check
+        expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
 
-  //     wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().onChangeText(cancelMsg);
+        wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().onChangeText(cancelMsg);
 
-  //     expect(wrapper.state().cancelMsg).toBe(cancelMsg);
+        expect(wrapper.state().cancelMsg).toBe(cancelMsg);
+        wrapper.find({ testID: 'cancelGameFormSubmitButton' }).props().onPress();
 
-  //     wrapper.find({ testID: 'cancelGameFormSubmitButton' }).props().onPress();
+        expect(Alert.alert).toHaveBeenCalled();
+        Alert.alert.mock.calls[0][2][1].onPress(); // simulate OK btn press
 
-  //     expect(Alert.alert).toHaveBeenCalled();
-  //     Alert.alert.mock.calls[0][2][1].onPress();
+        expect(handleBefore).toBeCalled();
+        expect(handleClientCancel).not.toBeCalled();
+        expect(handleSuccess).toBeCalledWith(expect.objectContaining({ cancelMsg }));
+      } else {
+        console.log('NO ATTENDEES!!!');
+      }
 
-  //     expect(handleBefore).toBeCalled();
-  //     expect(handleClientCancel).not.toBeCalled();
-  //     expect(handleSuccess).toBeCalledWith(expect.objectContaining({ cancelMsg }));
-  //   });
-  // });
+      Alert.alert.mockClear();
+    });
+  });
 });

@@ -47,7 +47,6 @@ class CancelGameForm extends React.PureComponent {
 
   handleCancelMsgChange = (cancelMsg) => {
     const { errors } = this.state;
-    console.log('handleCancelMsgChange', cancelMsg);
 
     // Update value and clear errors for the given field
     this.setState({
@@ -168,15 +167,6 @@ class CancelGameForm extends React.PureComponent {
                   error={cancelMsgErrors}
                 />
               </Block>
-              {/* false && [
-                <Divider key="divider-alert-warning" />,
-                <Block key="alert-warning">
-                  <AlertMsg
-                    value={I18n.t('cancelGameForm.alertMsg')}
-                    status="warning"
-                  />
-                </Block>,
-              ] */}
             </View>
           )}
         </TopLayout>
@@ -214,3 +204,13 @@ CancelGameForm.defaultProps = {
 };
 
 export default CancelGameForm;
+
+// false && [
+//   <Divider key="divider-alert-warning" />,
+//   <Block key="alert-warning">
+//     <AlertMsg
+//       value={I18n.t('cancelGameForm.alertMsg')}
+//       status="warning"
+//     />
+//   </Block>,
+// ]
