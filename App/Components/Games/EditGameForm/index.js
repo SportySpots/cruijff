@@ -33,21 +33,9 @@ import { getAttendees } from '../utils';
 const NAME_MAX_CHARS = 120;
 const DESCRIPTION_MAX_CHARS = 2000;
 
-const INIT_STATE = (game) => {
-  if (!game) {
-    return {
-      name: '',
-      sport: '',
-      date: '',
-      time: '',
-      duration: '',
-      capacity: '',
-      spot: '',
-      description: '',
-      isPublic: false,
-    };
-  }
+let INIT_STATE;
 
+const getInitState = (game) => {
   const {
     name,
     sport,
@@ -103,9 +91,10 @@ class EditGameForm extends React.PureComponent {
 
     const { game } = props;
     // console.log('GAME', game);
+    INIT_STATE = getInitState(game);
 
     this.state = {
-      ...INIT_STATE(game),
+      ...cloneDeep(INIT_STATE),
       errors: cloneDeep(INIT_ERRORS),
       // Keep track of field position in order to 'scroll to' on error
       offsetY: Object.keys(INIT_ERRORS).reduce((output, key) => (
@@ -249,7 +238,7 @@ class EditGameForm extends React.PureComponent {
     // value back to 'false' so that the user can re-submit the form
     onSuccessHook({
       gameUUID: game.uuid,
-      ...pick(this.state, Object.keys(INIT_STATE())),
+      ...pick(this.state, Object.keys(INIT_STATE)),
     });
   }
 

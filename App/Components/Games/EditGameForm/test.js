@@ -239,6 +239,7 @@ describe('EditGameForm', () => {
 
     const wrapper = shallow(
       <EditGameForm
+        game={game}
         onBeforeHook={handleBefore}
         onClientCancelHook={handleClientCancel}
         onSuccessHook={handleSuccess}

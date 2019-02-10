@@ -20,7 +20,7 @@ describe('CancelGameForm', () => {
       variables: { uuid: 455 },
     });
     game = res.data.game; // eslint-disable-line prefer-destructuring
-    console.log('game', game && game.attendees);
+    // console.log('game', game && game.attendees);
   });
 
   it('renders without crashing', () => {
