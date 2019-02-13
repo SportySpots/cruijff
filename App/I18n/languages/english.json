@@ -503,6 +503,11 @@
     "signupLink": "Not yet a member? Sign up"
   },
 
+  "socialLoginFailedScreen": {
+    "title": "Are you new?",
+    "subtitle": "Nice to meet you! It seems like we don't know you yet. Would you like to register using this account?"
+  },
+
   "orDivider": {
     "txt": "Or"
   },

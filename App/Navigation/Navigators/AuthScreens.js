@@ -3,6 +3,7 @@ import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
 import LoggedOutRoute from '../LoggedOutRoute';
 import LoginScreen from '../../Screens/Auth/LoginScreen';
+import SocialLoginFailedScreen from '../../Screens/Auth/SocialLoginFailedScreen';
 import SignupScreen from '../../Screens/Auth/SignupScreen';
 import SignupEmailScreen from '../../Screens/Auth/SignupEmailScreen';
 import CheckEmailScreen from '../../Screens/Auth/CheckEmailScreen';
@@ -61,6 +62,20 @@ const AuthScreens = {
         onLoggedIn={() => { handleLoggedIn(navigation); }}
         // Child component props
         onSuccessHook={() => { navigation.navigate('LoginCheckEmailScreen'); }}
+      />
+    ),
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: I18n.t('loginScreen.navigation.title'),
+      headerTitleStyle,
+      headerLeft: backBtn(navigation),
+    }),
+  },
+  SocialLoginFailedScreen: {
+    screen: ({ navigation }) => (
+      <LoggedOutRoute
+        navigation={navigation}
+        component={SocialLoginFailedScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
       />
     ),
     navigationOptions: ({ navigation }) => ({

@@ -18,6 +18,7 @@ import OrDivider from '../../../Components/Common/OrDivider';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import Flap from '../../../Components/Common/Flap';
 import { userPropTypes, withUser } from '../../../Context/User';
+import Text from '../../../Components/Common/Text';
 // import LinkNavigate from '../../../Components/Common/LinkNavigate';
 
 //------------------------------------------------------------------------------
@@ -36,8 +37,14 @@ const Top = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class LoginScreen extends React.Component {
+  state = {
+    loggedInButNotRegistered: false,
+  }
+
   socialLoginNotRegisteredHandler = async () => {
+    // this.setState({ loggedInButNotRegistered: true });
     console.log('trying to login, but not registered');
+    this.props.navigation.navigate('SocialLoginFailedScreen');
   }
 
   componentWillMount() {
@@ -51,8 +58,15 @@ class LoginScreen extends React.Component {
     );
   }
 
+  openLoginURL = (provider) => {
+    this.setState({ loggedInButNotRegistered: false });
+    Linking.openURL(`${settings.seedorfRestUrl}/accounts/${provider}/login?process=login`);
+  }
+
   render() {
     const { navigation, onSuccessHook } = this.props;
+    const { loggedInButNotRegistered } = this.state;
+
     return (
       <Container>
         <KeyboardAwareScrollView
@@ -69,15 +83,16 @@ class LoginScreen extends React.Component {
                 iconName="google"
                 iconSize={20}
                 variant="google"
-                onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/google/login?process=login`)}
+                onPress={() => this.openLoginURL('google')}
               />
+              { loggedInButNotRegistered && <Text>bla</Text>}
               <Spacer size="XXL" />
               <RaisedButton
                 label={I18n.t('loginScreen.facebookBtnLabel')}
                 iconSet="MaterialCommunityIcon"
                 iconName="facebook-box"
                 variant="facebook"
-                onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/facebook/login?process=login`)}
+                onPress={() => this.openLoginURL('facebook')}
               />
               <Spacer size="XXL" />
               <Spacer size="M" />
