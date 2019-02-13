@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import isNumber from 'lodash/isNumber';
-import moment from 'moment';
+import { View } from 'react-native';
+// import isNumber from 'lodash/isNumber';
+import cloneDeep from 'lodash/cloneDeep';
+import pick from 'lodash/pick';
+// import moment from 'moment';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
@@ -15,7 +18,22 @@ import AvatarPicker from '../../Common/AvatarPicker';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const MAX_CHARS = 120;
+export const MAX_CHARS = 120;
+
+let INIT_STATE;
+
+const getInitState = ({ first_name: firstName, last_name: lastName, profile }) => ({
+  firstName: firstName || '',
+  lastName: lastName || '',
+  birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || '',
+  avatar: (profile && profile.avatar && profile.avatar.toString()) || '',
+});
+
+const INIT_ERRORS = {
+  firstName: [],
+  lastName: [],
+  // birthYear: [],
+};
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -23,36 +41,20 @@ class EditProfileForm extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    const {
-      first_name: firstName,
-      last_name: lastName,
-      profile,
-    } = props.user;
+    const { user } = this.props;
+    INIT_STATE = getInitState(user);
 
     // Initialize state based on current user data
     this.state = {
-      firstName: firstName || '',
-      lastName: lastName || '',
-      birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || '',
-      avatar: (profile && profile.avatar && profile.avatar.toString()) || '',
-      errors: {
-        firstName: [],
-        lastName: [],
-        birthYear: [],
-        avatar: [],
-      },
+      ...cloneDeep(INIT_STATE),
+      errors: cloneDeep(INIT_ERRORS),
     };
   }
 
+  // TODO: display errors coming from the server
+
   clearErrors = () => {
-    this.setState({
-      errors: {
-        firstName: [],
-        lastName: [],
-        birthYear: [],
-        avatar: [],
-      },
-    });
+    this.setState({ errors: cloneDeep(INIT_ERRORS) });
   };
 
   handleChange = ({ fieldName, value }) => {
@@ -65,14 +67,9 @@ class EditProfileForm extends React.PureComponent {
     });
   }
 
-  validateFields = ({ firstName, lastName, birthYear }) => {
+  validateFields = ({ firstName, lastName /* , birthYear */ }) => {
     // Initialize errors
-    const errors = {
-      firstName: [],
-      lastName: [],
-      birthYear: [],
-      avatar: [],
-    };
+    const errors = cloneDeep(INIT_ERRORS);
 
     // Sanitize input
     const _firstName = firstName && firstName.trim(); // eslint-disable-line no-underscore-dangle
@@ -93,16 +90,16 @@ class EditProfileForm extends React.PureComponent {
     }
 
     // Sanitize input
-    const _birthYear = birthYear && parseInt(birthYear, 10); // eslint-disable-line no-underscore-dangle
+    // const _birthYear = birthYear && parseInt(birthYear, 10); // eslint-disable-line no-underscore-dangle
 
-    if (_birthYear && (
-      !isNumber(_birthYear) ||
-      _birthYear < 1900 ||
-      _birthYear > 9999 ||
-      moment().diff(moment(_birthYear, 'YYYY'), 'years') <= 0 // diff between today and the provided year
-    )) {
-      errors.birthYear.push('editProfileForm.fields.birthYear.errors.invalid');
-    }
+    // if (_birthYear && (
+    //   !isNumber(_birthYear)
+    //   || _birthYear < 1900
+    //   || _birthYear > 9999
+    //   || moment().diff(moment(_birthYear, 'YYYY'), 'years') <= 0 // diff between today and the provided year
+    // )) {
+    //   errors.birthYear.push('editProfileForm.fields.birthYear.errors.invalid');
+    // }
 
     return errors;
   };
@@ -125,19 +122,11 @@ class EditProfileForm extends React.PureComponent {
       return; // return silently
     }
 
-    // Get field values
-    const {
-      firstName,
-      lastName,
-      birthYear,
-      avatar,
-    } = this.state;
-
     // Clear previous errors if any
     this.clearErrors();
 
     // Validate fields
-    const errors = this.validateFields({ firstName, lastName, birthYear });
+    const errors = this.validateFields(this.state);
 
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
@@ -152,94 +141,87 @@ class EditProfileForm extends React.PureComponent {
     onSuccessHook({
       userUUID: user.uuid,
       userProfileUUID: user.profile.uuid,
-      firstName,
-      lastName,
-      birthYear,
-      avatar,
+      ...pick(this.state, Object.keys(INIT_STATE)),
     });
   }
 
   render() {
     const { user, disabled } = this.props;
-    console.log('USER', user);
     const {
       firstName,
       lastName,
-      birthYear,
+      // birthYear,
       errors,
     } = this.state;
-
-    // Set user based on state values
-    // TODO: pass this.state.firstName/lastName to AvatarPicker in order to
-    // update initials
-    /* const user = {
-      first_name: firstName,
-      last_name: lastName,
-      profile: { avatar: avatarSource },
-    }; */
 
     // Apply translation and concatenate field errors (string)
     const firstNameErrors = ErrorHandling.getFieldErrors(errors, 'firstName', I18n.t);
     const lastNameErrors = ErrorHandling.getFieldErrors(errors, 'lastName', I18n.t);
-    const birthYearErrors = ErrorHandling.getFieldErrors(errors, 'birthYear', I18n.t);
+    // const birthYearErrors = ErrorHandling.getFieldErrors(errors, 'birthYear', I18n.t);
 
-    return [
-      <TopLayout key="top">
-        <Block>
-          <AvatarPicker
-            user={user}
-            onUploadSuccess={(value) => {
-              this.handleChange({ fieldName: 'avatar', value });
-            }}
-          />
-        </Block>
-        <Block>
-          <TextField
-            label={I18n.t('editProfileForm.fields.firstName.label')}
-            value={firstName}
-            error={firstNameErrors}
-            size="ML"
+    return (
+      <View style={{ flex: 1 }}>
+        <TopLayout>
+          <Block>
+            <AvatarPicker
+              user={user}
+              onUploadSuccess={(value) => {
+                this.handleChange({ fieldName: 'avatar', value });
+              }}
+            />
+          </Block>
+          <Block>
+            <TextField
+              testID="editProfileFieldFirstName"
+              label={I18n.t('editProfileForm.fields.firstName.label')}
+              value={firstName}
+              error={firstNameErrors}
+              size="ML"
+              disabled={disabled}
+              onChangeText={(value) => {
+                this.handleChange({ fieldName: 'firstName', value });
+              }}
+            />
+          </Block>
+          <Block>
+            <TextField
+              testID="editProfileFieldLastName"
+              label={I18n.t('editProfileForm.fields.lastName.label')}
+              value={lastName}
+              error={lastNameErrors}
+              size="ML"
+              disabled={disabled}
+              onChangeText={(value) => {
+                this.handleChange({ fieldName: 'lastName', value });
+              }}
+            />
+          </Block>
+          {/* <Block>
+            <TextField
+              testID="editProfileFieldBirthYear"
+              label={I18n.t('editProfileForm.fields.birthYear.label')}
+              value={birthYear}
+              error={birthYearErrors}
+              placeholder="YYYY"
+              size="ML"
+              keyboardType="numeric"
+              onChangeText={(value) => {
+                this.handleChange({ fieldName: 'birthYear', value });
+              }}
+            />
+            </Block> */}
+        </TopLayout>
+        <BottomLayout>
+          <RaisedButton
+            testID="editProfileSubmitButton"
+            variant="default"
+            label={I18n.t('editProfileForm.btnLabel')}
             disabled={disabled}
-            onChangeText={(value) => {
-              this.handleChange({ fieldName: 'firstName', value });
-            }}
+            onPress={this.handleSubmit}
           />
-        </Block>
-        <Block>
-          <TextField
-            label={I18n.t('editProfileForm.fields.lastName.label')}
-            value={lastName}
-            error={lastNameErrors}
-            size="ML"
-            disabled={disabled}
-            onChangeText={(value) => {
-              this.handleChange({ fieldName: 'lastName', value });
-            }}
-          />
-        </Block>
-        {/* <Block>
-          <TextField
-            label={I18n.t('editProfileForm.fields.birthYear.label')}
-            value={birthYear}
-            error={birthYearErrors}
-            placeholder="YYYY"
-            size="ML"
-            keyboardType="numeric"
-            onChangeText={(value) => {
-              this.handleChange({ fieldName: 'birthYear', value });
-            }}
-          />
-          </Block> */}
-      </TopLayout>,
-      <BottomLayout key="bottom">
-        <RaisedButton
-          variant="default"
-          label={I18n.t('editProfileForm.btnLabel')}
-          disabled={disabled}
-          onPress={this.handleSubmit}
-        />
-      </BottomLayout>,
-    ];
+        </BottomLayout>
+      </View>
+    );
   }
 }
 
