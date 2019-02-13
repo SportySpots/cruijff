@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for App/GraphQL/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">App/GraphQL</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.41% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>37/68</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.25% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.64% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>28/44</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">235x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">67x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">235x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">235x</span>
+<span class="cline-any cline-yes">235x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">235x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">235x</span>
+<span class="cline-any cline-yes">235x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">233x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { InMemoryCache } from 'apollo-cache-inmemory';
+import ApolloClient from 'apollo-client';
+import ApolloProvider from 'react-apollo/ApolloProvider';
+import { ApolloLink } from 'apollo-link';
+import { onError } from 'apollo-link-error';
+import { HttpLink } from 'apollo-link-http';
+import { SchemaLink } from 'apollo-link-schema';
+import { buildClientSchema } from 'graphql';
+import { addMockFunctionsToSchema } from 'graphql-tools';
+import React from 'react';
+import mocks from './mocks';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span>
+&nbsp;
+// TODO: cleanup, solve eslint errors
+export let client = null;
+&nbsp;
+const createCache = () =&gt;
+  new InMemoryCache({
+    dataIdFromObject: object =&gt; object.uuid || null,<span class="branch-1 cbranch-no" title="branch not covered" ></span>
+  });
+&nbsp;
+const addErrorHandlers = link =&gt;
+  ApolloLink.from([
+    onError(({ graphQLErrors, netw<span class="fstat-no" title="function not covered" >or</span>kError }) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" >      if (graphQLErrors) {</span>
+<span class="cstat-no" title="statement not covered" >        graphQLErrors.forEach(<span class="fstat-no" title="function not covered" >({</span> message, locations, path }) =<span class="cstat-no" title="statement not covered" >&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+<span class="cstat-no" title="statement not covered" >          console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);</span>
+        });
+      }
+<span class="cstat-no" title="statement not covered" >      if (networkError) <span class="cstat-no" title="statement not covered" >console.log(`[Network error]: ${networkError}`);</span></span>
+    }),
+    link,
+  ]);
+&nbsp;
+export const createClient = <span class="fstat-no" title="function not covered" >(uri) =&gt; {</span>
+  let token = <span class="cstat-no" title="statement not covered" >null;</span>
+  const middlewareLink <span class="cstat-no" title="statement not covered" >= new ApolloLink((operation<span class="fstat-no" title="function not covered" >, </span>forward) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    operation.setContext({</span>
+      headers: {
+        authorization: token ? `JWT ${token}` : null,
+        cookie: null,
+      },
+    });
+<span class="cstat-no" title="statement not covered" >    return forward(operation);</span>
+  });
+&nbsp;
+  const httpLink <span class="cstat-no" title="statement not covered" >= new HttpLink({</span>
+    uri,
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  client = new ApolloClient({</span>
+    link: addErrorHandlers(middlewareLink.concat(httpLink)),
+    cache: createCache(),
+  });
+<span class="cstat-no" title="statement not covered" >  client.setToken = <span class="fstat-no" title="function not covered" >(t</span>) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    token = t;</span>
+  };
+<span class="cstat-no" title="statement not covered" >  return client;</span>
+};
+&nbsp;
+export const createMockClient = () =&gt; {
+  const schema = buildClientSchema(require('../../schema.graphql.json'));
+  addMockFunctionsToSchema({
+    schema,
+    mocks,
+    preserveResolvers: false,
+  });
+  client = new ApolloClient({
+    cache: createCache(),
+    link: addErrorHandlers(new SchemaLink({ schema })),
+  });
+  client.setToken = <span class="fstat-no" title="function not covered" >()</span> =&gt; null;<span class="cstat-no" title="statement not covered" ></span>
+  return client;
+};
+&nbsp;
+export const ApolloMockProvider = ({ children }) =&gt; (
+  &lt;ApolloProvider client={createMockClient()}&gt;
+    {children}
+  &lt;/ApolloProvider&gt;
+);
+&nbsp;
+export const withApolloMockProvider = <span class="fstat-no" title="function not covered" >(Component) =&gt; {</span>
+  const ApolloComponent <span class="cstat-no" title="statement not covered" >= props =<span class="fstat-no" title="function not covered" >&gt; (<span class="cstat-no" title="statement not covered" ></span></span></span>
+    &lt;ApolloMockProvider&gt;
+      &lt;Component {...props} /&gt;
+    &lt;/ApolloMockProvider&gt;
+  );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return ApolloComponent;</span>
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 13 2019 09:47:33 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

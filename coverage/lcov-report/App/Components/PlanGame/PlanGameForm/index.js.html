@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for App/Components/PlanGame/PlanGameForm/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">App/Components/PlanGame/PlanGameForm</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.89% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>58/233</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>17/100</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.43% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>28/92</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import PropTypes from 'prop-types';
+import { Keyboard, View } from 'react-native';
+import firebase from 'react-native-firebase';
+import Swiper from 'react-native-swiper';
+import moment from 'moment';
+import union from 'lodash/union';
+import extend from 'lodash/extend';
+import pick from 'lodash/pick';
+import styled from 'styled-components';
+import ErrorHandling from 'error-handling-utils';
+import I18n from '../../../I18n';
+import ClosableLayout from '../../Layouts/ClosableLayout';
+import Footer from '../../DarkFooter';
+import SportDateTimeSlide from '../SportDateTimeSlide';
+import SpotSlide from '../SpotSlide';
+import DescriptionSlide from '../DescriptionSlide';
+import { addGlobalRef } from '../../../globalRefs';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="missing-if-branch" title="else path not taken" >E</span><span class="branch-1 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="else path not taken" >E</span><span class="branch-1 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="else path not taken" >E</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+&nbsp;
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const DESCRIPTION_MAX_CHARS = 2000;
+&nbsp;
+let SLIDES = [];
+const genSlides = ({ user<span class="fstat-no" title="function not covered" >name }) =&gt;</span> [<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+  {
+    id: 'sportDateTimeSlide',
+    Comp: SportDateTimeSlide,
+    section: 'planGameScreen.sportDateTimeSlide.title',
+    theme: 'white',
+    fields: ['sport', 'date', 'time', 'duration', 'capacity'],
+    requiredFields: ['sport', 'date', 'time'],
+    errors: {
+      dateTime: [],
+    },
+    initState: {
+      sport: null,
+      date: null,
+      time: null,
+      duration: 90, // null,
+      capacity: null,
+    },
+    validateFields: ({ date, <span class="fstat-no" title="function not covered" >time }) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
+      const errors <span class="cstat-no" title="statement not covered" >= { dateTime: [] </span>};
+<span class="cstat-no" title="statement not covered" >      if (date &amp;&amp; time) {</span>
+        const hours <span class="cstat-no" title="statement not covered" >= time.hours(</span>);
+        const minutes <span class="cstat-no" title="statement not covered" >= time.minutes(</span>);
+        const dateTime <span class="cstat-no" title="statement not covered" >= date.clone().add(hours, 'hours').add(minutes, 'minutes'</span>);
+        const now <span class="cstat-no" title="statement not covered" >= moment();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (dateTime.diff(now) &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >          errors.dateTime.push('planGameScreen.sportDateTimeSlide.fields.time.errors.pastDateTime');</span>
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      return errors;</span>
+    },
+  },
+  {
+    id: 'spotSlide',
+    Comp: SpotSlide,
+    section: 'planGameScreen.spotSlide.title',
+    theme: 'white',
+    fields: ['spot'],
+    requiredFields: ['spot'],
+    // errors: {},
+    initState: {
+      spot: null,
+    },
+    // validateFields: () =&gt; ({}),
+  },
+  {
+    id: 'descriptionSlide',
+    Comp: DescriptionSlide,
+    section: 'planGameScreen.descriptionSlide.title',
+    theme: 'white',
+    fields: ['title', 'description'],
+    requiredFields: [],
+    errors: {
+      description: [],
+    },
+    initState: {
+      title: I18n.t('planGameScreen.descriptionSlide.fields.title.defaultValue', { username }),
+      description: '',
+    },
+    validateFields: ({ descri<span class="fstat-no" title="function not covered" >ption }) =&gt; {<span class="cstat-no" title="statement not covered" ></span></span>
+      const errors <span class="cstat-no" title="statement not covered" >= { description: [] </span>};
+<span class="cstat-no" title="statement not covered" >      if (description.length &gt; DESCRIPTION_MAX_CHARS) {</span>
+<span class="cstat-no" title="statement not covered" >        errors.description.push('planGameScreen.descriptionSlide.fields.description.errors.tooLong');</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return errors;</span>
+    },
+  },
+];
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const FullHeight = styled.View`
+  flex: 1; /* full height */
+`;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+class PlanGameForm extends React.Component {
+  construct<span class="fstat-no" title="function not covered" >or(props) {<span class="cstat-no" title="statement not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" >    super(props);<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+    addGlobalRef('PlanGameForm')(this);
+&nbsp;
+    const { username } = props;
+    SLIDES = genSlides({ username });
+&nbsp;
+    this.state = {
+      curSlide: 0,
+      errors: this.initErrors(),
+    };
+&nbsp;
+    // Attach slide's initial state to component's state
+    SLIDES.forEach(({ initState }) =&gt; {
+      extend(this.state, Object.assign({}, initState));
+    });
+&nbsp;
+    console.log('INIT STATE', this.state);
+  }
+&nbsp;
+  initErrors = ()<span class="fstat-no" title="function not covered" > =</span>&gt; {
+    const errs = <span class="cstat-no" title="statement not covered" >{};</span>
+    SL<span class="cstat-no" title="statement not covered" >IDES.forEach(({<span class="fstat-no" title="function not covered" > e</span>rrors }) =&gt; {<span class="cstat-no" title="statement not covered" ></span></span>
+      if<span class="cstat-no" title="statement not covered" > (errors) {</span>
+        ex<span class="cstat-no" title="statement not covered" >tend(errs, Object.assign({}, errors));</span>
+      }
+    });
+    co<span class="cstat-no" title="statement not covered" >nsole.log('INIT ERRORS', errs);</span>
+    re<span class="cstat-no" title="statement not covered" >turn errs;</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  clearErrors = ()<span class="fstat-no" title="function not covered" > =</span>&gt; {
+    th<span class="cstat-no" title="statement not covered" >is.setState({ errors: this.initErrors() });</span>
+  };<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  handleChange = ({<span class="fstat-no" title="function not covered" > f</span>ieldName, value }) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+    if<span class="cstat-no" title="statement not covered" > (!fieldName) { r<span class="cstat-no" title="statement not covered" >eturn; }</span></span>
+&nbsp;
+    const { err<span class="cstat-no" title="statement not covered" >ors } = this.state;</span>
+&nbsp;
+    th<span class="cstat-no" title="statement not covered" >is.setState({</span>
+      [fieldName]: value,
+      errors: (fieldName === 'date' || fieldName === 'time')
+        ? ErrorHandling.clearErrors(errors, 'dateTime')
+        : ErrorHandling.clearErrors(errors, fieldName),
+    });
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  validateFields = (e<span class="fstat-no" title="function not covered" >rr</span>orFields) =&gt; {
+    // Initialize errors
+    const errors = <span class="cstat-no" title="statement not covered" >this.initErrors();</span>
+&nbsp;
+    SL<span class="cstat-no" title="statement not covered" >IDES.forEach(({<span class="fstat-no" title="function not covered" > v</span>alidateFields }) =&gt; {<span class="cstat-no" title="statement not covered" ></span></span>
+      if<span class="cstat-no" title="statement not covered" > (validateFields &amp;&amp; typeof validateFields === 'function') {</span>
+        ex<span class="cstat-no" title="statement not covered" >tend(errors, Object.assign({}, validateFields(errorFields)));</span>
+      }
+    });
+&nbsp;
+    re<span class="cstat-no" title="statement not covered" >turn errors;</span>
+  };<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  get disableNext() {
+    const { curSlide } = this.state;
+&nbsp;
+    // Get required fields for the current slide
+    const { requiredFields } = SLIDES[curSlide];
+&nbsp;
+    // Disable next btn (return 'true') if at least on of the required fields isn't set
+    if (requiredFields) {
+      for (let i = 0; i &lt; requiredFields.length; i += 1) {
+        const fieldName = requiredFields[i];
+        if (!this.state[fieldName]) { // eslint-disable-line
+          return true;
+        }
+      }
+    }
+&nbsp;
+    // Enable btn otherwise (all required fields are set)
+    return false;
+  }
+&nbsp;
+  get showBack() {
+    const { curSlide } = this.state;
+    // Do not back btn for the first slide
+    return curSlide !== 0;
+  }
+&nbsp;
+  get buttonNextText() {
+    const { curSlide } = this.state;
+&nbsp;
+    switch (curSlide) {
+      case 0:
+        return 'planGameScreen.sportDateTimeSlide.footer.nextBtnLabel';
+      case 1:
+        return 'planGameScreen.spotSlide.footer.nextBtnLabel';
+      case 2:
+        return 'planGameScreen.descriptionSlide.footer.nextBtnLabel';
+      default:
+        return 'shareGameScreen.footer.nextBtnLabel';
+    }
+  }
+&nbsp;
+  handleBack = ()<span class="fstat-no" title="function not covered" > =</span>&gt; {
+    Ke<span class="cstat-no" title="statement not covered" >yboard.dismiss();</span>
+&nbsp;
+    // Decrease current slider index and slide back one position
+    th<span class="cstat-no" title="statement not covered" >is.setState(</span>
+<span class="fstat-no" title="function not covered" >      pr</span>evState =&gt; ({ curSli<span class="cstat-no" title="statement not covered" >de: prevState.curSlide === 0 ? 0 : prevState.curSlide - 1 }),</span>
+<span class="fstat-no" title="function not covered" >      ()</span> =&gt; { this.<span class="cstat-no" title="statement not covered" >swiper.scrollBy(-1); },</span>
+    );
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  handleNext = async () =&gt;<span class="fstat-no" title="function not covered" > {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span>
+    Keyboard.d<span class="cstat-no" title="statement not covered" >ismiss();</span>
+&nbsp;
+    const { cu<span class="cstat-no" title="statement not covered" >rSlide } = this.state;</span>
+&nbsp;
+    firebase.a<span class="cstat-no" title="statement not covered" >nalytics().logEvent(`plan_activity_footer_next_btn_press_idx_${curSlide}`);</span>
+&nbsp;
+    // Clear previous errors if any
+    this.clear<span class="cstat-no" title="statement not covered" >Errors();</span>
+&nbsp;
+    // Validate fields
+    const erro<span class="cstat-no" title="statement not covered" >rs = this.validateFields(pick(this.state, ['date', 'time', 'description']));<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+    // In case of errors, display on UI and return handler to parent component
+    if (ErrorHandling.hasErrors(errors)) {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+      this.set<span class="cstat-no" title="statement not covered" >State({ errors });<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
+      return;
+    }
+&nbsp;
+    // If it's NOT the last slide, increment slide counter and slide forward one position
+    if (curSlide !== SLIDES.length - 1) {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+      this.set<span class="cstat-no" title="statement not covered" >State(</span>
+        prevSt<span class="fstat-no" title="function not covered" >at</span>e =&gt; ({ curSlide: pr<span class="cstat-no" title="statement not covered" >evState.curSlide + 1 }),</span>
+        () =&gt; <span class="fstat-no" title="function not covered" >{ </span>this.swiper<span class="cstat-no" title="statement not covered" >.scrollBy(1); },<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
+      );
+      return;
+    }
+&nbsp;
+    // Otherwise, gather input field values and pass event up to parent component
+    const {
+      onBeforeHook,
+      onClientCancelHook,
+      // onClientErrorHook,
+      onSuccessHook,
+    } = this.props;<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
+    // value to 'true' so that the user cannot re-submit the form
+    try {
+      onBefore<span class="cstat-no" title="statement not covered" >Hook();<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span></span>
+    } catch (exc) {
+      onClient<span class="cstat-no" title="statement not covered" >CancelHook();<span class="cstat-no" title="statement not covered" ></span></span>
+      return; // return silently
+    }
+&nbsp;
+    // Pass event up to parent component
+    const fiel<span class="cstat-no" title="statement not covered" >ds = SLIDES.map(({ f<span class="fstat-no" title="function not covered" >ie</span>lds: fs }) =&gt; fs).reduce(<span class="cstat-no" title="statement not covered" >(result, fs) <span class="cstat-no" title="statement not covered" ></span>=&gt; union(re</span>sult, fs)<span class="fstat-no" title="function not covered" >, </span>[]);<span class="cstat-no" title="statement not covered" ></span></span>
+    onSuccessH<span class="cstat-no" title="statement not covered" >ook(pick(this.state, fields));<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span>
+  }
+&nbsp;
+  render() {<span class="cstat-no" title="statement not covered" ></span>
+    co<span class="cstat-no" title="statement not covered" >nst { disab</span>led, onLeav<span class="cstat-no" title="statement not covered" >e } = this.props;<span class="cstat-no" title="statement not covered" ></span></span>
+    co<span class="cstat-no" title="statement not covered" >nst { curSl</span>ide, ...res<span class="cstat-no" title="statement not covered" >t } = this.state;<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+    re<span class="cstat-no" title="statement not covered" >turn (</span>
+      &lt;FullHeight&gt;
+        &lt;Swiper
+          ref={(swiper) <span class="fstat-no" title="function not covered" >=&gt; {</span> this.swi<span class="cstat-no" title="statement not covered" >per = swiper; }}</span>
+          scrollEnabled={false}
+          loop={false}
+          showsPagination={false}
+        &gt;
+          {SLIDES.m<span class="fstat-no" title="function not covered" >ap</span>(({
+            id,
+            Comp,
+            theme,
+            section,
+          }, index) =&gt; (<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span></span>
+            &lt;FullHeight key={id}&gt;
+              &lt;ClosableLayout
+                theme={theme}
+                title={I18n.t(section)}
+                onClose={onLeave}
+              &gt;
+                {index === curSlide ? (
+                  &lt;Comp
+                    onChange={this.handleChange}
+                    descriptionMaxChars={DESCRIPTION_MAX_CHARS}
+                    // Pass down all state values: sport, date, time, etc.
+                    {...rest}
+                  /&gt;
+                ) : &lt;View /&gt;}
+&nbsp;
+              &lt;/ClosableLayout&gt;
+            &lt;/FullHeight&gt;
+          ))}
+        &lt;/Swiper&gt;
+        &lt;Footer
+          numPages={SLIDES.length + 1} // also consider share screen
+          currentPage={curSlide}
+          onBack={this.handleBack}
+          onNext={this.handleNext}
+          disableNext={this.disableNext || disabled}
+          disableBack={disabled}
+          showBack={this.showBack}
+          buttonNextText={I18n.t(this.buttonNextText)}
+        /&gt;
+      &lt;/FullHeight&gt;
+    );
+  }<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+}
+&nbsp;
+PlanGameForm.propTypes = {
+  username: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  onBeforeHook: PropTypes.func,
+  onClientCancelHook: PropTypes.func,
+  // onClientErrorHook: PropTypes.func,
+  onSuccessHook: PropTypes.func,
+  onLeave: PropTypes.func,
+};
+&nbsp;
+PlanGameForm.defaultProps = {
+  disabled: false,
+  onBeforeHook: () =&gt; {},<span class="fstat-no" title="function not covered" ></span>
+  onClientCancelHook: () =&gt; {},<span class="fstat-no" title="function not covered" ></span>
+  // onClientErrorHook: () =&gt; {},
+  onSuccessHook: () =&gt; {},<span class="fstat-no" title="function not covered" ></span>
+  onLeave: () =&gt; {},<span class="fstat-no" title="function not covered" ></span>
+};
+&nbsp;
+export default PlanGameForm;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 13 2019 09:47:33 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

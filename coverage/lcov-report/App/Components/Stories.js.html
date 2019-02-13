@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>28/28</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>14/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>24/24</span>
       </div>
     </div>
   </div>
@@ -47,21 +47,177 @@
 2
 3
 4
-5</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import './AlertMessage.story'
-import './DrawerButton.story'
-import './FullButton.story'
-import './RoundedButton.story'
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { View } from 'react-native';
+import { storiesOf } from '@storybook/react-native';
+&nbsp;
+import ImageSwiper from './Common/ImageSwiper';
+import Text from './Common/Text';
+import Rating from './Common/Rating';
+import RatingBig from './Common/RatingBig';
+import NothingFound from './Common/NothingFound';
+&nbsp;
+// TODO: move stories to individual component's folder
+storiesOf('Text', module)
+  .add('All sizes', () =&gt; (
+    &lt;View style={{ flex: 1, marginLeft: 20 }}&gt;
+      &lt;Text&gt;Default size&lt;/Text&gt;
+      &lt;Text.S&gt;Small size&lt;/Text.S&gt;
+      &lt;Text.M&gt;Medium size&lt;/Text.M&gt;
+      &lt;Text.L&gt;Large size&lt;/Text.L&gt;
+    &lt;/View&gt;
+  ))
+  .add('Default text', () =&gt; &lt;Text&gt;Default size&lt;/Text&gt;)
+  .add('Small text', () =&gt; &lt;Text.S&gt;Small size&lt;/Text.S&gt;)
+  .add('Medium text', () =&gt; &lt;Text.M&gt;Medium size&lt;/Text.M&gt;)
+  .add('Large text', () =&gt; &lt;Text.L&gt;Large size&lt;/Text.L&gt;);
+&nbsp;
+storiesOf('ImageSwiper', module).add('Default', () =&gt; (
+  &lt;ImageSwiper
+    images={[
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A',
+      'https://via.placeholder.com/350x150',
+    ]}
+  /&gt;
+));
+&nbsp;
+storiesOf('Rating', module)
+  .add('1', () =&gt; &lt;Rating rating={1} /&gt;)
+  .add('3', () =&gt; &lt;Rating rating={3} /&gt;)
+  .add('4.5', () =&gt; &lt;Rating rating={4.5} /&gt;);
+&nbsp;
+storiesOf('RatingBig', module)
+  .add('1', () =&gt; &lt;RatingBig rating={1} /&gt;)
+  .add('3', () =&gt; &lt;RatingBig rating={3} /&gt;)
+  .add('4.5', () =&gt; &lt;RatingBig rating={4.5} /&gt;);
+&nbsp;
+/* storiesOf('SignupScreen', module).add('Default', () =&gt; (
+  &lt;Provider store={store}&gt;
+    &lt;SignupScreen navigation={dummyNavigator} /&gt;
+  &lt;/Provider&gt;
+)); */
+&nbsp;
+storiesOf('NothingFound', module).add('Default', () =&gt; (
+  &lt;NothingFound
+    icon="map-marker"
+    text="Oops, nothing found"
+  /&gt;
+));
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jan 21 2018 15:28:00 GMT+0100 (CET)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 13 2019 09:47:33 GMT+0000 (UTC)
 </div>
 </div>
 <script src="../../prettify.js"></script>

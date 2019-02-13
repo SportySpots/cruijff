@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for App/Components/Auth/SignupEmailApiCall/utils.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">App/Components/Auth/SignupEmailApiCall</a> utils.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.17% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.81% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>5/21</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * error = { email: ['This field must be unique.'] }
+*/
+const curateFieldName = (fieldN<span class="fstat-no" title="function not covered" >ame) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  switch (fieldName) {</span>
+    case 'password1':
+<span class="cstat-no" title="statement not covered" >      return 'password';</span>
+    case 'email':
+    case 'username':
+    case 'non_field_errors':
+    default:
+<span class="cstat-no" title="statement not covered" >      return 'email';</span>
+  }
+};
+&nbsp;
+/**
+ * error = { email: ['This field must be unique.'] }
+*/
+const curateErrorMsg = (errorM<span class="fstat-no" title="function not covered" >sg) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  switch (errorMsg) {</span>
+    case 'This field must be unique.':
+<span class="cstat-no" title="statement not covered" >      return 'signupEmailForm.fields.email.errors.inUse';</span>
+    case 'This password is too short. It must contain at least 8 characters.':
+<span class="cstat-no" title="statement not covered" >      return 'signupEmailForm.fields.password.errors.tooShort';</span>
+    case 'This password is too common.':
+<span class="cstat-no" title="statement not covered" >      return 'signupEmailForm.fields.password.errors.tooCommon';</span>
+    case 'This password is entirely numeric.':
+<span class="cstat-no" title="statement not covered" >      return 'signupEmailForm.fields.password.errors.numeric';</span>
+    default:
+<span class="cstat-no" title="statement not covered" >      return 'signupEmailForm.fields.password.errors.unknown';</span>
+  }
+};
+&nbsp;
+/**
+ * errors = {
+ *  email: ['This field must be unique.'],
+ *  password1: ['This password is too short. It must contain at least 8 characters.']
+ * }
+*/
+const curateErrors = (errors<span class="fstat-no" title="function not covered" >) =&gt; {</span>
+  const keys <span class="cstat-no" title="statement not covered" >= Object.keys(errors</span>);
+  const curatedErrors <span class="cstat-no" title="statement not covered" >= {</span>};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  keys.forEach(<span class="fstat-no" title="function not covered" >(k</span>ey) =&gt; {</span>
+    const arrayError <span class="cstat-no" title="statement not covered" >= errors[key</span>];
+    const curatedArray <span class="cstat-no" title="statement not covered" >= arrayError.ma<span class="fstat-no" title="function not covered" >p(</span>errorMsg =&gt; (curate<span class="cstat-no" title="statement not covered" >ErrorMsg(errorMsg)));</span></span>
+<span class="cstat-no" title="statement not covered" >    curatedErrors[curateFieldName(key)] = curatedArray;</span>
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return curatedErrors;</span>
+};
+&nbsp;
+export default curateErrors;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 13 2019 09:47:33 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

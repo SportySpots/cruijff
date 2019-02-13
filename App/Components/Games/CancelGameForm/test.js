@@ -128,7 +128,47 @@ describe('CancelGameForm', () => {
 
       expect(handleBefore).toBeCalled();
       expect(handleClientCancel).not.toBeCalled();
-      expect(handleSuccess).toBeCalledWith(expect.objectContaining({ cancelMsg }));
+      expect(handleSuccess).toBeCalledWith(expect.objectContaining({
+        gameUUID: game.uuid,
+        cancelMsg,
+      }));
+
+      Alert.alert.mockClear();
+    });
+  });
+
+  it('calls onClientCancelHook when user dismisses confirmation modal', () => {
+    ['', validCancelMsg].forEach((cancelMsg) => {
+      jest.mock('Alert', () => ({ alert: jest.fn() }));
+      const handleBefore = jest.fn();
+      const handleClientCancel = jest.fn();
+      const handleClientError = jest.fn();
+      const handleSuccess = jest.fn();
+
+      const wrapper = shallow(
+        <CancelGameForm
+          game={game}
+          onBeforeHook={handleBefore}
+          onClientCancelHook={handleClientCancel}
+          onClientErrorHook={handleClientError}
+          onSuccessHook={handleSuccess}
+        />,
+      );
+
+      // Sanity check
+      expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
+
+      wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().onChangeText(cancelMsg);
+
+      expect(wrapper.state().cancelMsg).toBe(cancelMsg);
+      wrapper.find({ testID: 'cancelGameFormSubmitButton' }).props().onPress();
+
+      expect(Alert.alert).toHaveBeenCalled();
+      Alert.alert.mock.calls[0][2][0].onPress(); // simulate CANCEL btn press
+
+      expect(handleBefore).toBeCalled();
+      expect(handleClientCancel).toBeCalled();
+      expect(handleSuccess).not.toBeCalled();
 
       Alert.alert.mockClear();
     });

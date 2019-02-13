@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for App/utils.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">App</a> utils.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.24% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/68</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20.45% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>9/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.22% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>21/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85</td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Config from 'react-native-config';
+import globalRefs from './globalRefs';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+&nbsp;
+/* eslint-disable no-param-reassign */
+export const addModelState = (reactComponentInstance, modalName, isOpen = false) =&gt; {<span class="branch-1 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span>
+  reactComponentInstance.modals = reactComponentInstance.modals || {};
+  reactComponentInstance.state.modals = reactComponentInstance.state.modals || {};
+  const setState = (state)<span class="fstat-no" title="function not covered" > =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    reactComponentInstance.setState({</span>
+      modals: { ...reactComponentInstance.state.modals, [modalName]: state },
+    });
+  };
+  reactComponentInstance.modals[modalName] = {
+    show: () =&gt; set<span class="fstat-no" title="function not covered" >State</span>(tr<span class="cstat-no" title="statement not covered" >ue),</span>
+    hide: () =&gt; set<span class="fstat-no" title="function not covered" >State</span>(fa<span class="cstat-no" title="statement not covered" >lse),</span>
+    get isVisible() {
+<span class="cstat-no" title="statement not covered" >      return reactComponentInstance.state.modals[modalName];</span>
+    },
+  };
+  reactComponentInstance.state.modals[modalName] = isOpen;
+};
+&nbsp;
+export function makeNumGenerator() {
+  let i = -1;
+  return () =&gt; {
+    i += 1;
+    return i;
+  };
+}
+&nbsp;
+const convertS3ToImgix = ({ imag<span class="fstat-no" title="function not covered" >e, height, width </span>}) =&gt; (<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+  image.replace('https://s3.amazonaws.com/sportyspots-prd', 'http://sportyspots.imgix.net')
+    .concat('?auto=compress')
+    // .concat(height ? `&amp;h=${height}` : '')
+    .concat(width ? `&amp;w=${width}` : '')
+);
+&nbsp;
+const getImageUrl = ({ imag<span class="fstat-no" title="function not covered" >e, height, w</span>idth }) =&gt; (<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+  image.startsWith('http') // TODO: this should be https://s3.amazonaws.com/sportyspots-
+    ? convertS3ToImgix({ image, height, width })
+    : `${Config.SEEDORF_HOST}${image}`
+);
+&nbsp;
+const DEFAULT_SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/spot-placeholder.png';
+&nbsp;
+export const getSpotImages = <span class="fstat-no" title="function not covered" >({ images, hei</span>ght, width }) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
+<span class="cstat-no" title="statement not covered" >  if (!height || !width) {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('Height | width is not defined');</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return images &amp;&amp; images.length &gt; 0</span>
+    ? images.<span class="fstat-no" title="function not covered" >ma</span>p(({ image }) =&gt; getImageUrl<span class="cstat-no" title="statement not covered" >({ image, he<span class="cstat-no" title="statement not covered" ></span>ight, width }))</span>
+    : [DEFAULT_SPOT_IMG];
+};
+&nbsp;
+const routeToString = (route,<span class="fstat-no" title="function not covered" > depth = 0) =&gt;</span> {<span class="cstat-no" title="statement not covered" ></span>
+  let str = <span class="cstat-no" title="statement not covered" >route.routeName || 'ROOT';</span>
+<span class="cstat-no" title="statement not covered" >  if (route.routes) {</span>
+<span class="cstat-no" title="statement not covered" >    str += '\n' + route.routes.map(<span class="fstat-no" title="function not covered" >(s</span>ubRoute, idx) =&gt; {</span>
+      const isActive <span class="cstat-no" title="statement not covered" >= (idx === route.ind</span>ex);
+<span class="cstat-no" title="statement not covered" >      return ' '.repeat(3 * depth) + (isActive ? ' * ' : '   ') + routeToString(subRoute, depth + 1);</span>
+    }).join('\n');
+  }
+<span class="cstat-no" title="statement not covered" >  return str;</span>
+};
+&nbsp;
+export const logNavigationState = <span class="fstat-no" title="function not covered" >(route = globalRefs</span>.rootNavigator.<span class="cstat-no" title="statement not covered" >state.nav) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  console.log(routeToString(route));</span>
+};
+&nbsp;
+&nbsp;
+/*
+const getImageUrl = image =&gt; (
+  image.startsWith('http') ? image : `${Config.SEEDORF_HOST}${image}`
+);
+&nbsp;
+const DEFAULT_SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/SpotImages/spot-placeholder.png';
+&nbsp;
+export const getSpotImages = images =&gt; (
+  images &amp;&amp; images.length &gt; 0
+    ? images.map(({ image }) =&gt; getImageUrl(image))
+    : [DEFAULT_SPOT_IMG]
+);
+*/
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 13 2019 09:47:33 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for App/Components/PlanGame/SportDateTimeSlide/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">App/Components/PlanGame/SportDateTimeSlide</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.16% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">69.23% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>18/26</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
+import { ScrollView } from 'react-native';
+import moment from 'moment';
+import ErrorHandling from 'error-handling-utils';
+import I18n from '../../../I18n';
+import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
+import SportPickerField from '../../Common/SportPickerField';
+import DatePickerField from '../../Common/DatePickerField';
+import TimePickerField from '../../Common/TimePickerField';
+import DurationPickerField from '../../Common/DurationPickerField';
+import CapacityPickerField from '../../Common/CapacityPickerField';
+import Spacer from '../../Common/Spacer';
+&nbsp;
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const SportDateTimeSlide = ({<span class="fstat-no" title="function not covered" ></span>
+  sport,
+  date,
+  time,
+  duration,
+  capacity,
+  errors,
+  onChange,
+}) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span></span></span></span>
+  // Apply translation and concatenate field errors (string)
+  const dateTimeErrors <span class="cstat-no" title="statement not covered" >= ErrorHandling.getFieldErrors(errors, 'dateTime', I18n.t);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;ScrollView&gt;
+      &lt;Spacer size="XL" /&gt;
+      &lt;SportPickerField
+        testID="pickSport"
+        value={sport}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.sport.prefix')}
+        size="ML"
+        theme="mix"
+        onChange={(value)<span class="fstat-no" title="function not covered" > =&gt; { onC</span>hange({ <span class="cstat-no" title="statement not covered" >fieldName: 'sport', value }); }}</span>
+      /&gt;
+      &lt;Spacer size="S" /&gt;
+      &lt;DatePickerField
+        testID="pickDate"
+        value={date}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.date.prefix')}
+        // error={dateTimeErrors}
+        size="ML"
+        theme="mix"
+        dateFormat="dddd D MMMM"
+        onChange={(value)<span class="fstat-no" title="function not covered" > =&gt; { onC</span>hange({ <span class="cstat-no" title="statement not covered" >fieldName: 'date', value }); }}</span>
+      /&gt;
+      &lt;Spacer size="S" /&gt;
+      &lt;TimePickerField
+        testID="pickTime"
+        value={time}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.time.prefix')}
+        error={dateTimeErrors}
+        size="ML"
+        theme="mix"
+        onChange={(value)<span class="fstat-no" title="function not covered" > =&gt; { onC</span>hange({ <span class="cstat-no" title="statement not covered" >fieldName: 'time', value }); }}</span>
+      /&gt;
+      &lt;Spacer size="S" /&gt;
+      &lt;DurationPickerField
+        testID="pickDuration"
+        label=""
+        value={duration}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.duration.prefix')}
+        onChange={(value)<span class="fstat-no" title="function not covered" > =&gt; { onC</span>hange({ <span class="cstat-no" title="statement not covered" >fieldName: 'duration', value }); }}</span>
+        theme="mix"
+        size="ML"
+        minWidth={150}
+      /&gt;
+      &lt;Spacer size="S" /&gt;
+      &lt;CapacityPickerField
+        testID="pickCapacity"
+        value={capacity}
+        prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.capacity.prefix')}
+        suffix={I18n.t('planGameScreen.sportDateTimeSlide.fields.capacity.suffix')}
+        size="ML"
+        theme="mix"
+        onChange={(value)<span class="fstat-no" title="function not covered" > =&gt; { onC</span>hange({ <span class="cstat-no" title="statement not covered" >fieldName: 'capacity', value }); }}</span>
+      /&gt;
+    &lt;/ScrollView&gt;
+  );
+};
+&nbsp;
+SportDateTimeSlide.propTypes = {
+  sport: propType(sportFragment),
+  date: PropTypes.instanceOf(moment),
+  time: PropTypes.instanceOf(moment),
+  duration: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  capacity: PropTypes.number,
+  errors: PropTypes.shape({
+    dateTime: PropTypes.arrayOf(String),
+  }),
+  onChange: PropTypes.func,
+};
+&nbsp;
+SportDateTimeSlide.defaultProps = {
+  sport: null,
+  date: null,
+  time: null,
+  duration: null,
+  capacity: null,
+  errors: {
+    dateTime: [],
+  },
+  onChange: () =&gt; {},<span class="fstat-no" title="function not covered" ></span>
+};
+&nbsp;
+export default SportDateTimeSlide;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 13 2019 09:47:33 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
