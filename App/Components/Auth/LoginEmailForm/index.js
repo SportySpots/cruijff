@@ -13,7 +13,7 @@ import RaisedButton from '../../Common/RaisedButton';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const MAX_CHARS = 120;
+export const MAX_CHARS = 74;
 
 const INIT_STATE = {
   email: '',
@@ -66,10 +66,10 @@ class LoginEmailForm extends React.PureComponent {
 
     if (!_email) {
       errors.email.push('loginEmailForm.fields.email.errors.required');
-    } else if (!isEmail(_email)) {
-      errors.email.push('loginEmailForm.fields.email.errors.invalid');
     } else if (_email.length > MAX_CHARS) {
       errors.email.push('loginEmailForm.fields.email.errors.tooLong');
+    } else if (!isEmail(_email)) {
+      errors.email.push('loginEmailForm.fields.email.errors.invalid');
     }
 
     return errors;

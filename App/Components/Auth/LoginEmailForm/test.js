@@ -2,10 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import I18n from '../../../I18n';
-import LoginEmailForm from '.';
+import LoginEmailForm, { MAX_CHARS } from '.';
 
 const validEmail = 'valid@email.com';
 const invalidEmail = 'invalid@email';
+const longEmail = `${new Array(MAX_CHARS - 8).join('a')}@email.com`; // aaaaaa...@email.com length = MAX_CHARS + 1
 
 describe('LoginEmailForm', () => {
   it('renders without crashing', () => {
@@ -42,6 +43,20 @@ describe('LoginEmailForm', () => {
     wrapper.find({ testID: 'loginSubmitButton' }).props().onPress();
 
     expect(wrapper.find({ testID: 'loginInputEmail' }).props().error).toBe(I18n.t('loginEmailForm.fields.email.errors.invalid'));
+    expect(handleClientError).toBeCalled();
+  });
+
+  it('errors when form is submitted with email.length > MAX_CHARS', () => {
+    const handleClientError = jest.fn();
+    const wrapper = shallow(<LoginEmailForm onClientErrorHook={handleClientError} />);
+
+    // Sanity check
+    expect(wrapper.find({ testID: 'loginInputEmail' }).props().value).toBe('');
+
+    wrapper.find({ testID: 'loginInputEmail' }).props().onChangeText(longEmail);
+    wrapper.find({ testID: 'loginSubmitButton' }).props().onPress();
+
+    expect(wrapper.find({ testID: 'loginInputEmail' }).props().error).toBe(I18n.t('loginEmailForm.fields.email.errors.tooLong'));
     expect(handleClientError).toBeCalled();
   });
 
