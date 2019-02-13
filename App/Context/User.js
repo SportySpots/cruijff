@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Linking } from 'react-native';
 import { Buffer } from 'buffer';
 import SeedorfAPI from '../Services/SeedorfApi';
 import { client } from '../GraphQL';
@@ -9,7 +9,7 @@ import I18n from '../I18n';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
-import { Events, IncomingLinks } from '../Services/IncomingLinks';
+import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
 
 /*
   user:
@@ -85,6 +85,17 @@ export class UserProvider extends React.Component {
     const firstRun = !await AsyncStorage.getItem('firstRunDone');
     await AsyncStorage.setItem('firstRunDone', 'true');
     this.setState({ firstRun });
+
+    const initialURL = await Linking.getInitialURL();
+    if (initialURL) {
+      const event = urlToEvent(initialURL);
+      if (event) {
+        if (event.type === Events.MAGIC_LINK_LOGIN || event.type === Events.LOGIN_TOKEN) {
+          IncomingLinks.emitEvent(event);
+          return;
+        }
+      }
+    }
 
     const token = await AsyncStorage.getItem('TOKEN');
 
