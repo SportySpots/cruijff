@@ -10,6 +10,25 @@ import CancelGameForm, { MAX_CHARS } from '.';
 const validCancelMsg = new Array(MAX_CHARS + 1).join('a'); // aaaaaa... length = MAX_CHARS
 const invalidCancelMsg = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
 
+const attendee = {
+  uuid: 'fb98ffd9-bd20-49f8-9157-fd00d1d6794d',
+  status: 'ATTENDING',
+  user: {
+    id: 'e77d5276-8617-4757-b785-cd1e5e12277b',
+    uuid: 'c9782deb-e573-4da6-9a16-6883eff43182',
+    first_name: 'Hello World',
+    last_name: 'Hello World',
+    profile: {
+      id: '5c8b7c10-6925-49e1-92ec-5357b3fad244',
+      uuid: '853d033b-349c-4468-8650-3dc74fb0b232',
+      avatar: 'Hello World',
+      __typename: 'UserProfileType',
+    },
+    __typename: 'UserType',
+  },
+  __typename: 'RsvpStatusType',
+};
+
 describe('CancelGameForm', () => {
   let game;
 
@@ -20,7 +39,8 @@ describe('CancelGameForm', () => {
       variables: { uuid: 455 },
     });
     game = res.data.game; // eslint-disable-line prefer-destructuring
-    // console.log('game', game && game.attendees);
+    // Make sure there is at least one attendee
+    game.attendees.push(attendee);
   });
 
   it('renders without crashing', () => {
@@ -47,14 +67,8 @@ describe('CancelGameForm', () => {
       />,
     );
 
-    // cancelGameFormCancelMsgField is only render when attendees.length > 0
-    if (wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).length > 0) {
-      console.log('WITH ATTENDEES!!!');
-      // Sanity check
-      expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
-    } else {
-      console.log('NO ATTENDEES!!!');
-    }
+    // Sanity check
+    expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
 
     wrapper.find({ testID: 'cancelGameFormSubmitButton' }).props().onPress();
 
@@ -72,21 +86,15 @@ describe('CancelGameForm', () => {
       />,
     );
 
-    // cancelGameFormCancelMsgField is only render when attendees.length > 0
-    if (wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).length > 0) {
-      console.log('WITH ATTENDEES!!!');
-      // Sanity check
-      expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
+    // Sanity check
+    expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
 
-      wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().onChangeText(invalidCancelMsg);
+    wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().onChangeText(invalidCancelMsg);
 
-      wrapper.find({ testID: 'cancelGameFormSubmitButton' }).props().onPress();
+    wrapper.find({ testID: 'cancelGameFormSubmitButton' }).props().onPress();
 
-      expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().error).toBe(I18n.t('cancelGameForm.fields.cancelMsg.errors.tooLong'));
-      expect(handleClientError).toBeCalled();
-    } else {
-      console.log('NO ATTENDEES!!!');
-    }
+    expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().error).toBe(I18n.t('cancelGameForm.fields.cancelMsg.errors.tooLong'));
+    expect(handleClientError).toBeCalled();
   });
 
   it('calls onSuccessHook when no cancelMsg or cancelMsg.length <= MAX_CHARS is provided', () => {
@@ -107,26 +115,20 @@ describe('CancelGameForm', () => {
         />,
       );
 
-      // cancelGameFormCancelMsgField is only render when attendees.length > 0
-      if (wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).length > 0) {
-        console.log('WITH ATTENDEES!!!');
-        // Sanity check
-        expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
+      // Sanity check
+      expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().value).toBe('');
 
-        wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().onChangeText(cancelMsg);
+      wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().onChangeText(cancelMsg);
 
-        expect(wrapper.state().cancelMsg).toBe(cancelMsg);
-        wrapper.find({ testID: 'cancelGameFormSubmitButton' }).props().onPress();
+      expect(wrapper.state().cancelMsg).toBe(cancelMsg);
+      wrapper.find({ testID: 'cancelGameFormSubmitButton' }).props().onPress();
 
-        expect(Alert.alert).toHaveBeenCalled();
-        Alert.alert.mock.calls[0][2][1].onPress(); // simulate OK btn press
+      expect(Alert.alert).toHaveBeenCalled();
+      Alert.alert.mock.calls[0][2][1].onPress(); // simulate OK btn press
 
-        expect(handleBefore).toBeCalled();
-        expect(handleClientCancel).not.toBeCalled();
-        expect(handleSuccess).toBeCalledWith(expect.objectContaining({ cancelMsg }));
-      } else {
-        console.log('NO ATTENDEES!!!');
-      }
+      expect(handleBefore).toBeCalled();
+      expect(handleClientCancel).not.toBeCalled();
+      expect(handleSuccess).toBeCalledWith(expect.objectContaining({ cancelMsg }));
 
       Alert.alert.mockClear();
     });
