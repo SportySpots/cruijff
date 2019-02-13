@@ -21,7 +21,8 @@
   "splashScreen": {
     "title": "Descubre centros deportivos y actividades cerca tuyo",
     "btnLabel": "Empezar a descubrir",
-    "loginLink": "Ya registrado? Iniciar sesión"
+    "loginLink": "Iniciar sesión",
+    "signupLink": "Registrarse"
   },
 
   "navBar": {

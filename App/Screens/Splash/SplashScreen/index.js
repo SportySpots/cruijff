@@ -55,12 +55,19 @@ class SplashScreen extends React.Component {
           />
           <Spacer size="XL" />
           {(!user || !user.uuid) && (
-            <Row justifyContent="center">
+            <Row justifyContent="space-evenly">
               <LinkNavigate
                 testID="splashLoginButton"
                 navigation={navigation}
                 to="LoginScreen"
                 text={I18n.t('splashScreen.loginLink')}
+                color={Colors.white}
+                underline
+              />
+              <LinkNavigate
+                navigation={navigation}
+                to="SignupScreen"
+                text={I18n.t('splashScreen.signupLink')}
                 color={Colors.white}
                 underline
               />

@@ -21,7 +21,8 @@
   "splashScreen": {
     "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
     "btnLabel": "Start met ontdekken",
-    "loginLink": "Heb je al een account? Log in"
+    "loginLink": "Log in",
+    "signupLink": "Aanmelden"
   },
 
   "navBar": {
