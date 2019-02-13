@@ -30,8 +30,8 @@ import { getAttendees } from '../utils';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const NAME_MAX_CHARS = 120;
-const DESCRIPTION_MAX_CHARS = 2000;
+export const NAME_MAX_CHARS = 120;
+export const DESCRIPTION_MAX_CHARS = 2000;
 
 let INIT_STATE;
 
@@ -121,10 +121,6 @@ class EditGameForm extends React.PureComponent {
   }
 
   handleChange = ({ fieldName, value }) => {
-    if (!fieldName) {
-      return;
-    }
-
     const { errors } = this.state;
 
     // Update value and clear errors for the given field
@@ -186,7 +182,7 @@ class EditGameForm extends React.PureComponent {
       errors.description.push('editGameForm.fields.description.errors.tooLong');
     }
 
-    const attendees = getAttendees(game.attendees); // [1, 2, 3, 4, 5, 6];
+    const attendees = getAttendees(game.attendees);
     if (capacity && attendees.length > capacity) {
       errors.capacity.push('editGameForm.fields.capacity.errors.noFit');
     }
@@ -356,6 +352,7 @@ class EditGameForm extends React.PureComponent {
             onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'capacity', nativeEvent }); }}
           >
             <CapacityPickerField
+              testID="editGameFieldCapacity"
               label={I18n.t('editGameForm.fields.capacity.label')}
               value={capacity}
               error={capacityErrors}
@@ -381,6 +378,7 @@ class EditGameForm extends React.PureComponent {
             onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'description', nativeEvent }); }}
           >
             <TextField
+              testID="editGameFieldDescription"
               label={I18n.t('editGameForm.fields.description.label')}
               value={description}
               theme="black"

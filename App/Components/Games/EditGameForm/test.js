@@ -6,7 +6,7 @@ import MockDate from 'mockdate';
 import I18n from '../../../I18n';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import { ApolloMockProvider, createMockClient } from '../../../GraphQL';
-import EditGameForm from '.';
+import EditGameForm, { NAME_MAX_CHARS, DESCRIPTION_MAX_CHARS } from '.';
 
 const mockMonth = 10; // november
 const mockYear = 2018;
@@ -16,6 +16,65 @@ const validName = 'Football game!';
 let validDate;
 let validTime;
 const validDuration = 120;
+const longName = new Array(NAME_MAX_CHARS + 2).join('a'); // aaaaaa... length = NAME_MAX_CHARS + 1
+const longDescription = new Array(DESCRIPTION_MAX_CHARS + 2).join('a'); // aaaaaa... length = DESCRIPTION_MAX_CHARS + 1
+
+const attendees = [
+  {
+    uuid: 'fb98ffd9-bd20-49f8-9157-fd00d1d6794d',
+    status: 'ATTENDING',
+    user: {
+      id: 'e77d5276-8617-4757-b785-cd1e5e12277b',
+      uuid: 'c9782deb-e573-4da6-9a16-6883eff43182',
+      first_name: 'Hello World',
+      last_name: 'Hello World',
+      profile: {
+        id: '5c8b7c10-6925-49e1-92ec-5357b3fad244',
+        uuid: '853d033b-349c-4468-8650-3dc74fb0b232',
+        avatar: 'Hello World',
+        __typename: 'UserProfileType',
+      },
+      __typename: 'UserType',
+    },
+    __typename: 'RsvpStatusType',
+  },
+  {
+    uuid: 'ab98ffd9-bd20-49f8-9157-fd00d1d6794d',
+    status: 'ATTENDING',
+    user: {
+      id: 'a77d5276-8617-4757-b785-cd1e5e12277b',
+      uuid: 'a9782deb-e573-4da6-9a16-6883eff43182',
+      first_name: 'Hello World',
+      last_name: 'Hello World',
+      profile: {
+        id: '4c8b7c10-6925-49e1-92ec-5357b3fad244',
+        uuid: '353d033b-349c-4468-8650-3dc74fb0b232',
+        avatar: 'Hello World',
+        __typename: 'UserProfileType',
+      },
+      __typename: 'UserType',
+    },
+    __typename: 'RsvpStatusType',
+  },
+  {
+    uuid: 'eb98ffd9-bd20-49f8-9157-fd00d1d6794d',
+    status: 'ATTENDING',
+    user: {
+      id: 'e77d5276-8617-4757-b785-cd1e5e12277b',
+      uuid: 'e9782deb-e573-4da6-9a16-6883eff43182',
+      first_name: 'Hello World',
+      last_name: 'Hello World',
+      profile: {
+        id: '1c8b7c10-6925-49e1-92ec-5357b3fad244',
+        uuid: '253d033b-349c-4468-8650-3dc74fb0b232',
+        avatar: 'Hello World',
+        __typename: 'UserProfileType',
+      },
+      __typename: 'UserType',
+    },
+    __typename: 'RsvpStatusType',
+  },
+];
 
 describe('EditGameForm', () => {
   let game;
@@ -127,6 +186,36 @@ describe('EditGameForm', () => {
     });
   });
 
+  it('errors when name, description length > MAX_CHARS', () => {
+    [
+      {
+        value: longName,
+        errorFieldID: 'editGameFieldName',
+        errorMsg: 'editGameForm.fields.title.errors.tooLong',
+      },
+      {
+        value: longDescription,
+        errorFieldID: 'editGameFieldDescription',
+        errorMsg: 'editGameForm.fields.description.errors.tooLong',
+      },
+    ].forEach(({ value, errorFieldID, errorMsg }) => {
+      const handleClientError = jest.fn();
+      const wrapper = shallow(
+        <EditGameForm
+          game={game}
+          onClientErrorHook={handleClientError}
+        />,
+      );
+
+      wrapper.find({ testID: errorFieldID }).props().onChangeText(value);
+
+      wrapper.find({ testID: 'editGameSubmitButton' }).props().onPress();
+
+      expect(wrapper.find({ testID: errorFieldID }).props().error).toBe(I18n.t(errorMsg));
+      expect(handleClientError).toBeCalled();
+    });
+  });
+
   it('errors when form is submitted with past date-time', () => {
     const handleClientError = jest.fn();
     const wrapper = shallow(
@@ -145,6 +234,24 @@ describe('EditGameForm', () => {
     wrapper.find({ testID: 'editGameSubmitButton' }).props().onPress();
 
     expect(wrapper.find({ testID: 'editGameFieldTime' }).props().error).toBe(I18n.t('editGameForm.fields.time.errors.pastDateTime'));
+    expect(handleClientError).toBeCalled();
+  });
+
+  it('errors when number of attendees > game.capacity', () => {
+    const handleClientError = jest.fn();
+    const wrapper = shallow(
+      <EditGameForm
+        game={Object.assign({}, game, { capacity: 2, attendees })}
+        onClientErrorHook={handleClientError}
+      />,
+    );
+
+    // Sanity check
+    expect(wrapper.find({ testID: 'editGameFieldCapacity' }).props().value).toBe(2);
+
+    wrapper.find({ testID: 'editGameSubmitButton' }).props().onPress();
+
+    expect(wrapper.find({ testID: 'editGameFieldCapacity' }).props().error).toBe(I18n.t('editGameForm.fields.capacity.errors.noFit'));
     expect(handleClientError).toBeCalled();
   });
 
