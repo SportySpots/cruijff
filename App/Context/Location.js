@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { AsyncStorage } from 'react-native';
 import Permissions from 'react-native-permissions';
 
 // default is Amsterdam center
@@ -35,7 +36,20 @@ export const PermissionStatus = {
   UNKNOWN: 'unknown', // added, indicates that permission status has not been checked yet
 };
 
-const LocationContext = React.createContext();
+// The defaultValue argument is ONLY used when a component does not have a matching
+// Provider above it in the tree. This can be helpful for testing components in isolation
+// without wrapping them. Note: passing undefined as a Provider value does not cause
+// consuming components to use defaultValue.
+const defaultValue = {
+  location: DEFAULT_LOCATION,
+  isUpdating: false,
+  // permissionStatus: PermissionStatus.AUTHORIZED,
+  // updateLocation: () => {},
+  // askPermission: () => {},
+  setLocation: () => {},
+};
+
+const LocationContext = React.createContext(defaultValue);
 
 // wraps navigator.geolocation.getCurrentPosition as a Promise
 const getCurrentPosition = () => new Promise((resolve, reject) => {
@@ -52,64 +66,92 @@ export class LocationProvider extends React.Component {
     children: PropTypes.node.isRequired,
   }
 
+  state = {
+    location: DEFAULT_LOCATION,
+    isUpdating: false,
+    // permissionStatus: PermissionStatus.UNKNOWN,
+  }
+
   async initialize() {
-    await this.checkPermission();
-    await this.updateLocation();
+    await this.getLocation();
+    // await this.checkPermission();
+    // await this.updateLocation();
   }
 
   componentWillMount() {
     this.initialize();
   }
 
-  checkPermission = async () => {
-    const permissionStatus = await Permissions.check('location');
-    this.setState({ permissionStatus });
-    return permissionStatus;
-  }
+  // checkPermission = async () => {
+  //   const permissionStatus = await Permissions.check('location');
+  //   this.setState({ permissionStatus });
+  //   return permissionStatus;
+  // }
 
-  askPermission = async () => {
-    const { permissionStatus } = this.state;
-    if ([PermissionStatus.DENIED, PermissionStatus.UNDETERMINED].includes(permissionStatus)) {
-      try {
-        await Permissions.request('location');
-      } catch (e) { console.log(e); }
+  // askPermission = async () => {
+  //   const { permissionStatus } = this.state;
+  //   if ([PermissionStatus.DENIED, PermissionStatus.UNDETERMINED].includes(permissionStatus)) {
+  //     try {
+  //       await Permissions.request('location');
+  //     } catch (e) { console.log(e); }
+  //   }
+  //   await this.checkPermission();
+  // }
+
+  // updateLocation = async () => {
+  //   const { isUpdating, permissionStatus } = this.state;
+  //   if (!isUpdating && permissionStatus === PermissionStatus.AUTHORIZED) {
+  //     this.setState({ isUpdating: true });
+  //     try {
+  //       const location = await getCurrentPosition();
+  //       this.setState({ location });
+  //     } catch (e) { console.log(e); }
+  //     this.setState({ isUpdating: false });
+  //   }
+  // }
+
+  setLocation = async (coords) => { // { latitude, longitude }
+    console.log('SET LOCATION', coords);
+    this.setState({ isUpdating: true });
+    try {
+      await AsyncStorage.setItem('userLocation', JSON.stringify(coords));
+      this.setState({ location: coords });
+    } catch (exc) {
+      console.log('Could not set user location', exc);
     }
-    await this.checkPermission();
+    this.setState({ isUpdating: false });
   }
 
-  updateLocation = async () => {
-    const { isUpdating, permissionStatus } = this.state;
-    if (!isUpdating && permissionStatus === PermissionStatus.AUTHORIZED) {
-      this.setState({ isUpdating: true });
-      try {
-        const location = await getCurrentPosition();
-        this.setState({ location });
-      } catch (e) { console.log(e); }
-      this.setState({ isUpdating: false });
+  getLocation = async () => {
+    this.setState({ isUpdating: true });
+    try {
+      const coordsJSON = await AsyncStorage.getItem('userLocation'); // { latitude, longitude }
+      if (coordsJSON) {
+        this.setState({ location: JSON.parse(coordsJSON) });
+      }
+    } catch (exc) {
+      console.log('User location is not set', exc);
     }
+    this.setState({ isUpdating: false });
   }
-
-  state = {
-    location: DEFAULT_LOCATION,
-    isUpdating: false,
-    permissionStatus: PermissionStatus.UNKNOWN,
-  };
 
   render() {
-    const { location, isUpdating, permissionStatus } = this.state;
-    if (permissionStatus === PermissionStatus.UNKNOWN) {
-      // block until permission status is known.
-      return null;
-    }
+    const { location, isUpdating } = this.state;
+    // const { location, isUpdating, permissionStatus } = this.state;
+    // if (permissionStatus === PermissionStatus.UNKNOWN) {
+    //   // block until permission status is known.
+    //   return null;
+    // }
     const { children } = this.props;
     return (
       <LocationContext.Provider
         value={{
           location,
           isUpdating,
-          permissionStatus,
-          updateLocation: this.updateLocation,
-          askPermission: this.askPermission,
+          // permissionStatus,
+          // updateLocation: this.updateLocation,
+          // askPermission: this.askPermission,
+          setLocation: this.setLocation,
         }}
       >
         {children}

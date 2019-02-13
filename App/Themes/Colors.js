@@ -6,7 +6,7 @@ const colors = {
   white: '#fff',
   black: '#000',
   gray: '#777',
-  lightGray: '#e6e6e6',
+  silver: '#e6e6e6',
 
   primaryGreen: '#009f36',
   secondaryGreen: '#005537',
@@ -41,6 +41,7 @@ const colors = {
   link: '#ccc',
   lightSkyBlue: '#87CEFA',
   orange: 'orange',
+  facebook: '#3B5998',
 };
 
 export default colors;

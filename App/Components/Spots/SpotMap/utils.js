@@ -1,8 +1,18 @@
 import { showLocation } from 'react-native-map-link';
 
 // ------------------------------------------------------------------------------
-export const getCurrentPosition = (options = {}) => new Promise((resolve, reject) => {
-  navigator.geolocation.getCurrentPosition(resolve, reject, options);
+// export const getCurrentPosition = (options = {}) => new Promise((resolve, reject) => {
+//   navigator.geolocation.getCurrentPosition(resolve, reject, options);
+// });
+const getCurrentPosition = (options = {}) => new Promise((resolve, reject) => {
+  navigator.geolocation.getCurrentPosition(
+    result => resolve({
+      latitude: result.coords.latitude,
+      longitude: result.coords.longitude,
+    }),
+    reject,
+    options,
+  );
 });
 // ------------------------------------------------------------------------------
 export const getSpotLocation = spot => ({
@@ -41,6 +51,8 @@ export const openGoogleMapsDirections = async ({ latLng, title = '' }) => {
       exc,
     );
   }
+
+  console.log('POSITION', position);
 
   // Show directions FROM the user's current position (if available) TO the
   // spot's location

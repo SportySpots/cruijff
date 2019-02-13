@@ -38,7 +38,6 @@ const ImageModal = ({
   subtitle,
   ...rest
 }) => {
-  console.log('MODAL_COMP', modalComponent);
   const Modal = modalComponent === 'ConfirmModal' ? ConfirmModal : CancelConfirmModal;
 
   return (

@@ -15,7 +15,7 @@ class Container extends React.PureComponent {
     const { selectedSpot } = this.state;
 
     return (
-      <Block bgColor={Colors.lightGray}>
+      <Block bgColor={Colors.silver}>
         <SpotsList
           cardComponent={cardComponent}
           sportsIds={sportsIds}

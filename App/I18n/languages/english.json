@@ -247,18 +247,25 @@
       },
       "date": {
         "label": "Date",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Date is required"
+        }
       },
       "time": {
         "label": "Start time",
         "placeholder": "",
         "errors": {
+          "required": "Time is required",
           "pastDateTime": "Select a date-time in the future"
         }
       },
       "duration": {
         "label": "Duration",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Duration is required"
+        }
       },
       "capacity": {
         "label": "Number of players",
@@ -487,46 +494,76 @@
 
   "loginScreen": {
     "navigation": {
-      "title": "Hi again!"
+      "title": "Welcome back!"
+    },
+    "googlePlusBtnLabel": "Login with Google",
+    "facebookBtnLabel": "Login with facebook",
+    "emailSectionTitle": "Login with magic link",
+    "signupLink": "Not yet a member? Sign up"
+  },
+
+  "orDivider": {
+    "txt": "Or"
+  },
+
+  "loginEmailScreen": {
+    "navigation": {
+      "title": "Login with email"
     }
   },
 
-  "loginForm": {
+  "loginEmailForm": {
     "fields": {
       "email": {
-        "label": "E-mail",
-        "placeholder": "",
+        "label": "Email address",
+        "placeholder": "Enter your email address",
         "errors": {
           "required": "Email is required",
           "invalid": "Please provide a valid email",
           "tooLong": "Email is too long",
           "wrongCredentials": "Wrong email or password",
-          "unknown": "Something bad happened"
-        }
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "",
-        "errors": {
-          "required": "Password is required",
-          "tooLong": "Password is too long"
+          "unknown": "Something bad happened",
+          "notRegistered": "Email address is not registered to a user"
         }
       }
     },
-    "btnLabel": "Log in"
+    "btnLabel": "Email me the magic login link"
+  },
+
+  "checkEmailScreen": {
+    "navigation": {
+      "title": "Check your email"
+    },
+    "login": {
+      "title": "Check your email!",
+      "subtitle": "We've sent you a magic login link."
+    },
+    "signup": {
+      "title": "Check your email!",
+      "subtitle": "We've sent you a confirmation email. We know emails, but hey better safe than sorry."
+    }
   },
 
   "signupScreen": {
     "navigation": {
-      "title": "Sign up"
+      "title": "Let's get you an account"
+    },
+    "googlePlusBtnLabel": "Sign up with Google",
+    "facebookBtnLabel": "Sign up with facebook",
+    "emailBtnLabel": "Sign up with email"
+  },
+
+  "signupEmailScreen": {
+    "navigation": {
+      "title": "Sign up with email it is!"
     }
   },
 
-  "signupForm": {
+  "signupEmailForm": {
     "fields": {
       "firstName": {
         "label": "First name",
-        "placeholder": "",
+        "placeholder": "Lionel",
         "errors": {
           "required": "First name is required",
           "tooLong": "First name is too long"
@@ -534,7 +571,7 @@
       },
       "lastName": {
         "label": "Last name",
-        "placeholder": "",
+        "placeholder": "Messi",
         "errors": {
           "required": "Last name is required",
           "tooLong": "Last name is too long"
@@ -542,24 +579,12 @@
       },
       "email": {
         "label": "E-mail",
-        "placeholder": "",
+        "placeholder": "Lionel.Messi@fcbarcelona.es",
         "errors": {
           "required": "Email is required",
           "invalid": "Please provide a valid email",
           "tooLong": "Email is too long",
           "inUse": "Email address in use"
-        }
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "",
-        "errors": {
-          "required": "Password is required",
-          "tooLong": "Password is too long",
-          "tooShort": "Password needs to be at least 8 characters",
-          "tooCommon": "This password is too common",
-          "numeric": "This password is entirely numeric",
-          "unknown": "Something bad happened"
         }
       }
     },
@@ -567,7 +592,7 @@
       "prefix": "By signing up, you are agreeing to the",
       "link": "Terms and conditions"
     },
-    "btnLabel": "Sign up for free"
+    "btnLabel": "Submit and create account"
   },
 
   "connectionCheck": {
@@ -593,14 +618,16 @@
     "noSpots": "No spots found..."
   },
 
-  "askLocationScreen": {
-    "title": "Share location",
-    "subtitle": "We would like to ask you to share your location so that we can show you all the activities in your area.",
-    "nextBtnLabel": "continue"
-  },
-
-  "OnboardingScreen": {
-    "hiSporter": {
+  "onboardingScreen": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to leave the app?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "welcome": {
       "title": "Hi sporter!",
       "text": "Thanks for joining SportySpots. Happy sporting!"
     },
@@ -614,6 +641,10 @@
     },
     "nextBtnLabel": "continue",
     "lastBtnLabel": "let's go"
+  },
+
+  "locationSlide": {
+    "title": "Choose your sport location:"
   },
 
   "queryCatchErrors": {

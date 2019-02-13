@@ -1,4 +1,3 @@
-import React from 'react';
 import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
 import {
   SplashNav,
@@ -9,10 +8,8 @@ import {
   InfoNav,
 } from './Navigators';
 import NavBar from '../Components/Common/NavBar';
-import OnboardingScreen from '../Screens/OnboardingScreen';
-import AskLocationScreen from '../Screens/AskLocationScreen';
+import OnboardingScreen from '../Screens/Onboarding/OnboardingScreen';
 import DebugScreen from '../Screens/Debug/DebugScreen';
-import { LocationConsumer, PermissionStatus } from '../Context/Location';
 
 const MainTabsNav = createBottomTabNavigator({
   SpotSearchTab: { screen: SpotSearchNav },
@@ -35,34 +32,8 @@ const MainNav = createStackNavigator({
 });
 
 const RootNav = createSwitchNavigator({
-  LocationPermissionScreen: {
-    screen: ({ navigation }) => (
-      <LocationConsumer>
-        { ({ askPermission }) => (
-          <AskLocationScreen
-            onSuccessHook={() => navigation.navigate('MainNav')}
-            askPermission={askPermission}
-          />
-        )}
-      </LocationConsumer>
-    ),
-  },
-
-  OnboardingScreen: {
-    screen: ({ navigation }) => (
-      <LocationConsumer>
-        { ({ permissionStatus }) => (
-          <OnboardingScreen
-            onSuccessHook={() => navigation.navigate(
-              permissionStatus === PermissionStatus.UNDETERMINED
-                ? 'LocationPermissionScreen' : 'MainNav',
-            )}
-          />
-        )}
-      </LocationConsumer>
-    ),
-  },
   SplashScreen: { screen: SplashNav },
+  OnboardingScreen: { screen: OnboardingScreen },
   MainNav: { screen: MainNav },
   DebugNav: { screen: DebugScreen },
 }, {

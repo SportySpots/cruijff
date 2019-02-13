@@ -2,27 +2,13 @@ import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 
-import OnboardingScreen from '../Screens/OnboardingScreen';
 import ImageSwiper from './Common/ImageSwiper';
 import Text from './Common/Text';
-import Logo from './Common/Logo';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
 import NothingFound from './Common/NothingFound';
 
 // TODO: move stories to individual component's folder
-const dummyNavigator = {
-  navigate: () => null,
-  state: {
-    index: 0,
-    routes: [{ routeName: 'test' }],
-  },
-};
-
-storiesOf('Logo', module)
-  .add('Default', () => <Logo />);
-
-
 storiesOf('Text', module)
   .add('All sizes', () => (
     <View style={{ flex: 1, marginLeft: 20 }}>
@@ -36,8 +22,6 @@ storiesOf('Text', module)
   .add('Small text', () => <Text.S>Small size</Text.S>)
   .add('Medium text', () => <Text.M>Medium size</Text.M>)
   .add('Large text', () => <Text.L>Large size</Text.L>);
-
-storiesOf('Onboarding', module).add('Default', () => <OnboardingScreen onSuccessHook={() => null} navigation={dummyNavigator} />);
 
 storiesOf('ImageSwiper', module).add('Default', () => (
   <ImageSwiper

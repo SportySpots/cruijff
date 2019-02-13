@@ -15,6 +15,6 @@ export const BottomLayout = styled.View`
   height: 88px;
   background-color: ${Colors.white}
   border-top-width: 0.5px;
-  border-color: ${Colors.lightGray}
+  border-color: ${Colors.silver}
   padding-horizontal: 16px;
 `;

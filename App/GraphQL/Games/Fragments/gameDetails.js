@@ -19,6 +19,7 @@ const gameDetailsFragment = gql`
     sport {
       id
       uuid
+      name
       category
     }
     spot {

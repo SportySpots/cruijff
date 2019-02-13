@@ -7,7 +7,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 // Mock your external modules here if needed
 jest
-  .mock('react-native-i18n', () => {
+  .mock('i18n-js', () => {
     const english = require('../App/I18n/languages/english.json');
     const keys = require('ramda');
     const replace = require('ramda');
@@ -38,13 +38,42 @@ jest.mock('react-native-cookies', () => ({
   getInitialURL: jest.fn(),
 }));
 
-jest.mock('react-native-languages', () => jest.fn());
+jest.mock('react-native-localize', () => jest.fn());
 
 jest.mock('../App/Themes/Images.js', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/next.png', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/previous.png', () => jest.fn());
 
 String.prototype.toTitleCase = jest.fn(); // eslint-disable-line no-extend-native
+
+jest.useFakeTimers();
+Date.now = jest.fn(() => new Date(Date.UTC(2017, 0, 1)).valueOf());
+
+// Autofocus/blur prop was causing issues in some of the tests involving TextInput.
+// So we mock the TextInput component and remove the autofocus prop to avoid the issue.
+jest.mock('TextInput', () => {
+  const RealComponent = require.requireActual('TextInput');
+  const React = require('react');
+
+  class TextInput extends React.PureComponent {
+    render() {
+      const { children, ...rest } = this.props;
+      return React.createElement('TextInput', { ...rest, autoFocus: false }, children);
+    }
+  }
+  TextInput.propTypes = RealComponent.propTypes;
+  return TextInput;
+});
+
+// jest.mock('react-native/Libraries/Storage/AsyncStorage', () => ({
+//   AsyncStorage: {
+//     setItem: jest.fn(() => Promise.resolve()),
+//     getItem: jest.fn(() => Promise.resolve(JSON.stringify({
+//       latitude: 52.379189,
+//       longitude: 4.899431,
+//     }))),
+//   },
+// }));
 
 const localStorageMock = {
   getItem: jest.fn(),

@@ -22,6 +22,7 @@ import globalRefs, { addGlobalRef } from './globalRefs';
 import { setupDetoxConnection } from './detoxHelpers';
 
 import Colors from './Themes/Colors';
+import { logNavigationState } from './utils';
 
 class App extends Component {
   constructor() {
@@ -30,9 +31,8 @@ class App extends Component {
       try {
         const fcmToken = await firebase.messaging().getToken();
         console.log('fcmToken', fcmToken);
-        // User has authorised
       } catch (error) {
-        // User has rejected permissions
+        console.log('error getting fcmToken', error);
       }
     })();
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
@@ -127,6 +127,7 @@ class App extends Component {
                     initialRouteName="RootNav"
                     // See: https://reactnavigation.org/docs/en/screen-tracking.html
                     onNavigationStateChange={(prevState, currState) => {
+                      logNavigationState();
                       const currScreen = getActiveRouteName(currState);
                       const prevScreen = getActiveRouteName(prevState);
                       if (prevScreen !== currScreen) {

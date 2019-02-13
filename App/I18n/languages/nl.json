@@ -247,18 +247,25 @@
       },
       "date": {
         "label": "Datum",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Datum is vereist"
+        }
       },
       "time": {
         "label": "Start tijd",
         "placeholder": "",
         "errors": {
+          "required": "Tijd is vereist",
           "pastDateTime": "Selecteer een datum-tijd in de toekomst"
         }
       },
       "duration": {
         "label": "Duur",
-        "placeholder": ""
+        "placeholder": "",
+        "errors": {
+          "required": "Duur is vereist"
+        }
       },
       "capacity": {
         "label": "Aantal spelers",
@@ -487,46 +494,76 @@
 
   "loginScreen": {
     "navigation": {
-      "title": "Leuk je weer te zien!"
+      "title": "Welkom terug!"
+    },
+    "googlePlusBtnLabel": "Login met Google",
+    "facebookBtnLabel": "Login met facebook",
+    "emailSectionTitle": "Login met magic link",
+    "signupLink": "Not yet a member? Sign up"
+  },
+
+  "orDivider": {
+    "txt": "Of"
+  },
+
+  "loginEmailScreen": {
+    "navigation": {
+      "title": "Login met email"
     }
   },
 
-  "loginForm": {
+  "loginEmailForm": {
     "fields": {
       "email": {
-        "label": "E-mail",
-        "placeholder": "",
+        "label": "E-mailadres",
+        "placeholder": "Vul hier je email adres in",
         "errors": {
           "required": "E-mailadres is vereist",
           "invalid": "Vul een geldig e-mailadres in",
           "tooLong": "E-mailadres is te lang",
           "wrongCredentials": "Geen geldige e-mail of wachtwoord",
-          "unknown": "Iets slecht is gebeurd"
-        }
-      },
-      "password": {
-        "label": "Wachtwoord",
-        "placeholder": "",
-        "errors": {
-          "required": "Wachtwoord is vereist",
-          "tooLong": "Wachtwoord is te lang"
+          "unknown": "Iets slecht is gebeurd",
+          "notRegistered": "E-mailadres is niet geregistreerd voor een gebruiker"
         }
       }
     },
-    "btnLabel": "Log in"
+    "btnLabel": "Email mij de magic login link"
+  },
+
+  "checkEmailScreen": {
+    "navigation": {
+      "title": "Check je email"
+    },
+    "login": {
+      "title": "Check je email!",
+      "subtitle": "We've sent you a magic login link."
+    },
+    "signup": {
+      "title": "Check je email!",
+      "subtitle": "We've sent you a confirmation email. We know emails, but hey better safe than sorry."
+    }
   },
 
   "signupScreen": {
     "navigation": {
-      "title": "Aanmelden"
+      "title": "Maak een profiel aan"
+    },
+    "googlePlusBtnLabel": "Meld je aan met Google",
+    "facebookBtnLabel": "Meld je aan met facebook",
+    "emailBtnLabel": "Meld je aan met email"
+  },
+
+  "signupEmailScreen": {
+    "navigation": {
+      "title": "Schrijf je in met email"
     }
   },
 
-  "signupForm": {
+  "signupEmailForm": {
     "fields": {
       "firstName": {
         "label": "Voornaam",
-        "placeholder": "",
+        "placeholder": "Lionel",
         "errors": {
           "required": "Voornaam is vereist",
           "tooLong": "Voornaam is te lang"
@@ -534,7 +571,7 @@
       },
       "lastName": {
         "label": "Achternaam",
-        "placeholder": "",
+        "placeholder": "Messi",
         "errors": {
           "required": "Achternaam is vereist",
           "tooLong": "Achternaam is te lang"
@@ -542,24 +579,12 @@
       },
       "email": {
         "label": "E-mail",
-        "placeholder": "",
+        "placeholder": "Lionel.Messi@fcbarcelona.es",
         "errors": {
           "required": "E-mailadres is vereist",
           "invalid": "Vul een geldig e-mailadres in",
           "tooLong": "E-mailadres is te lang",
           "inUse": "E-mailadres in gebruik"
-        }
-      },
-      "password": {
-        "label": "Wachtwoord",
-        "placeholder": "",
-        "errors": {
-          "required": "Wachtwoord is vereist",
-          "tooLong": "Wachtwoord is te lang",
-          "tooShort": "Wachtwoord moet tenminste 8 tekens (letters en cijfers) bevatten",
-          "tooCommon": "Wachtwoord is niet uniek genoeg",
-          "numeric": "Wachtwoord mag niet alleen uit getallen bestaan",
-          "unknown": "Iets slecht is gebeurd"
         }
       }
     },
@@ -593,14 +618,16 @@
     "noSpots": "Geen spots gevonden..."
   },
 
-  "askLocationScreen": {
-    "title": "Locatie delen",
-    "subtitle": "We willen je graag vragen om je locatie te delen, zodat we alle activiteiten bij je in de buurt kunnen laten zien.",
-    "nextBtnLabel": "doorgaan"
-  },
-
-  "OnboardingScreen": {
-    "hiSporter": {
+  "onboardingScreen": {
+    "leaveAlert": {
+      "header": "Confirm",
+      "body": "Are you sure you want to leave the app?",
+      "footer": {
+        "okBtnLabel": "Yes",
+        "cancelBtnLabel": "No"
+      }
+    },
+    "welcome": {
       "title": "Hoi sporter!",
       "text": "Leuk dat je meedoet met SportySpots. Veel plezier met sporten!"
     },
@@ -614,6 +641,10 @@
     },
     "nextBtnLabel": "doorgaan",
     "lastBtnLabel": "let's go"
+  },
+
+  "locationSlide": {
+    "title": "Choose your sport location:"
   },
 
   "queryCatchErrors": {

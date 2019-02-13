@@ -7,12 +7,14 @@ const GET_GAMES_LIST = gql`
     $offset: Int,
     $ordering: String,
     $start_time__gte: DateTime,
+    $distance: String,
   ) {
     games(
       limit: $limit,
       offset: $offset,
       ordering: $ordering,
       start_time__gte: $start_time__gte,
+      distance: $distance,
     ) {
       ...gameFragment
     }

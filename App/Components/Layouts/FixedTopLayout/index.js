@@ -10,7 +10,7 @@ export const TopLayout = styled.View`
   height: 46px;
   background-color: ${Colors.white}
   border-bottom-width: 0.5px;
-  border-color: ${Colors.lightGray}
+  border-color: ${Colors.silver}
   padding-horizontal: 16px;
 `;
 //------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ const StyledTopLayout = styled.View`
   height: 46px;
   background-color: ${Colors.white}
   border-bottom-width: 0.5px;
-  border-color: ${Colors.lightGray}
+  border-color: ${Colors.silver}
   padding-horizontal: 16px;
 `;
 //------------------------------------------------------------------------------

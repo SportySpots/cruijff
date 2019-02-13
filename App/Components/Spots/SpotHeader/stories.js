@@ -25,7 +25,7 @@ const Container = props => (
   >
     {({ loading, error, data }) =>
       (loading || error ? null : (
-        <Block bgColor={colors.lightGray}>
+        <Block bgColor={colors.silver}>
           <StyledView>
             <SpotHeader
               spot={data.spot}

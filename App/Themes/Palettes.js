@@ -9,8 +9,8 @@ const getInputPalette = (theme) => {
         tintColor: Colors.primaryGreen,
         iconColor: Colors.black,
         disabledColor: Colors.gray,
-        errorColor: Colors.red,
-        lineWidth: 1,
+        errorColor: Colors.error,
+        lineWidth: 0.5,
       };
     case 'white':
       return {

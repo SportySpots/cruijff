@@ -44,7 +44,9 @@ if (Config.ENVIRONMENT === 'TOM') {
   /* Fast overrides for Tom :) */
 
   settings.seedorfRestUrl = 'https://api.sportyspots.com/api';
+  // settings.seedorfRestUrl = 'https://tom-dev.ngrok.io/api';
   settings.seedorfGraphQLUrl = 'https://api.sportyspots.com/graphql';
+  // settings.seedorfGraphQLUrl = 'https://tom-dev.ngrok.io/graphql';
   // settings.seedorfRestUrl = 'https://training.sportyspots.com/api';
   // settings.seedorfGraphQLUrl = 'https://training.sportyspots.com/graphql';
   // settings.seedorfRestUrl = 'http://10.0.2.2:8000/api';

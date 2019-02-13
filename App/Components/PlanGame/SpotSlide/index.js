@@ -9,14 +9,13 @@ import SpotsList from '../../Spots/SpotsList';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: get userCoords and maxDistance from context
+// TODO: probably move maxDistance to SpotsList and get said value from context
 const SpotSlide = ({ sport, spot, onChange }) => [
   <Spacer key="spacer" size="XL" />,
   <SpotsList
     key="spots"
     cardComponent="SpotListCardSmall"
     sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
-    // userCoords={userCoords}
     // maxDistance={maxDistance} // km
     selectedSpot={spot}
     onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}

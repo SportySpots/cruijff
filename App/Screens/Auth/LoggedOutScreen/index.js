@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, Image, TouchableOpacity } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import { ScrollView, Image } from 'react-native';
+// import { withNavigation } from 'react-navigation';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n/index';
 import images from '../../../Themes/Images';
 import ClosableLayout from '../../../Components/Layouts/ClosableLayout';
 import RaisedButton from '../../../Components/Common/RaisedButton';
+import Row from '../../../Components/Common/Row';
 import Text from '../../../Components/Common/Text';
 import Spacer from '../../../Components/Common/Spacer';
+import LinkNavigate from '../../../Components/Common/LinkNavigate';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -21,11 +23,6 @@ const ButtonContainer = styled.View`
   align-self: stretch;
 `;
 //------------------------------------------------------------------------------
-const LinkLabel = styled(Text.M)`
-  text-align: center;
-  text-decoration-line: underline;
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const LoggedOutScreen = ({ closable, onClose, navigation }) => (
@@ -35,7 +32,6 @@ const LoggedOutScreen = ({ closable, onClose, navigation }) => (
     onClose={onClose}
   >
     <ScrollView
-      key="content"
       contentContainerStyle={{
         flex: 1,
         alignItems: 'center',
@@ -59,11 +55,14 @@ const LoggedOutScreen = ({ closable, onClose, navigation }) => (
         />
       </ButtonContainer>
       <Spacer size="L" />
-      <TouchableOpacity
-        onPress={() => { navigation.navigate('LoginScreen'); }}
-      >
-        <LinkLabel>{I18n.t('loggedOutScreen.loginLink')}</LinkLabel>
-      </TouchableOpacity>
+      <Row justifyContent="center">
+        <LinkNavigate
+          navigation={navigation}
+          to="LoginScreen"
+          text={I18n.t('loggedOutScreen.loginLink')}
+          underline
+        />
+      </Row>
     </ScrollView>
   </ClosableLayout>
 );
@@ -81,4 +80,5 @@ LoggedOutScreen.defaultProps = {
   onClose: () => {},
 };
 
-export default withNavigation(LoggedOutScreen);
+// export default withNavigation(LoggedOutScreen);
+export default LoggedOutScreen;
