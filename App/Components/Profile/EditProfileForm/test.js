@@ -233,6 +233,8 @@ describe('EditProfileForm', () => {
     expect(handleClientCancel).not.toBeCalled();
     expect(handleSuccess).toBeCalledWith(
       expect.objectContaining({
+        userUUID: user.uuid,
+        userProfileUUID: user.profile.uuid,
         firstName: validFirstName,
         lastName: validLastName,
       }),
