@@ -2,12 +2,15 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import I18n from '../../../I18n';
-import SignupEmailForm from '.';
+import SignupEmailForm, { MAX_CHARS } from '.';
 
 const validFirstName = 'John';
 const validLastName = 'Doe';
 const validEmail = 'valid@email.com';
 const invalidEmail = 'invalid@email';
+const longFirstName = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
+const longLastName = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
+const longEmail = `${new Array(MAX_CHARS - 8).join('a')}@email.com`; // aaaaaa...@email.com length = MAX_CHARS + 1
 
 describe('SignupEmailForm', () => {
   it('renders without crashing', () => {
@@ -86,6 +89,55 @@ describe('SignupEmailForm', () => {
 
     expect(wrapper.find({ testID: 'signupFieldEmail' }).props().error).toBe(I18n.t('signupEmailForm.fields.email.errors.invalid'));
     expect(handleClientError).toBeCalled();
+  });
+
+  it('errors when form is submitted with firstName, lastName or email length > MAX_CHARS', () => {
+    [
+      {
+        firstName: longFirstName,
+        lastName: validLastName,
+        email: validEmail,
+        errorFieldID: 'signupFieldFirstName',
+        errorMsg: 'signupEmailForm.fields.firstName.errors.tooLong',
+      },
+      {
+        firstName: validFirstName,
+        lastName: longLastName,
+        email: validEmail,
+        errorFieldID: 'signupFieldLastName',
+        errorMsg: 'signupEmailForm.fields.lastName.errors.tooLong',
+      },
+      {
+        firstName: validFirstName,
+        lastName: validLastName,
+        email: longEmail,
+        errorFieldID: 'signupFieldEmail',
+        errorMsg: 'signupEmailForm.fields.email.errors.tooLong',
+      },
+    ].forEach(({
+      firstName,
+      lastName,
+      email,
+      errorFieldID,
+      errorMsg,
+    }) => {
+      const handleClientError = jest.fn();
+      const wrapper = shallow(<SignupEmailForm onClientErrorHook={handleClientError} />);
+
+      // Sanity check
+      expect(wrapper.find({ testID: 'signupFieldFirstName' }).props().value).toBe('');
+      expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
+      expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
+
+      wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(firstName);
+      wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(lastName);
+      wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(email);
+
+      wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
+
+      expect(wrapper.find({ testID: errorFieldID }).props().error).toBe(I18n.t(errorMsg));
+      expect(handleClientError).toBeCalled();
+    });
   });
 
   it('clears errors when firstName, lastName or email input field is modified after error', () => {
