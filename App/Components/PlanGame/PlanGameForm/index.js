@@ -21,8 +21,11 @@ import SpotSlide, {
   INIT_STATE as SPOT_INIT_STATE,
   INIT_ERRORS as SPOT_INIT_ERRORS,
 } from '../SpotSlide';
-import DescriptionSlide from '../DescriptionSlide';
 import { addGlobalRef } from '../../../globalRefs';
+import TitleDescriptionSlide, {
+  getInitState as titleDescriptionGetInitState,
+  INIT_ERRORS as TITLE_DESCRIPTION_INIT_ERRORS,
+} from '../TitleDescriptionSlide';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -81,36 +84,41 @@ const SLIDES = [
   },
   {
     id: 'descriptionSlide',
-    Comp: DescriptionSlide,
-    section: 'planGameScreen.descriptionSlide.title',
-    theme: 'white',
-    fields: ['title', 'description'],
-    requiredFields: [],
-    errors: {
-      description: [],
-    },
-    initState: {
-      title: I18n.t('planGameScreen.descriptionSlide.fields.title.defaultValue', { username }),
-      description: '',
-    },
-    validateFields: ({ description }) => {
-      const errors = { description: [] };
-      if (description.length > DESCRIPTION_MAX_CHARS) {
-        errors.description.push('planGameScreen.descriptionSlide.fields.description.errors.tooLong');
-      }
-      return errors;
-    },
+    Comp: TitleDescriptionSlide,
+    section: TitleDescriptionSlide.title,
+    // section: 'planGameScreen.descriptionSlide.title',
+    // theme: 'white',
+    // fields: ['title', 'description'],
+    // requiredFields: [],
+    // errors: {
+    //   description: [],
+    // },
+    // initState: {
+    //   title: I18n.t('planGameScreen.descriptionSlide.fields.title.defaultValue', { username }),
+    //   description: '',
+    // },
+    // validateFields: ({ description }) => {
+    //   const errors = { description: [] };
+    //   if (description.length > DESCRIPTION_MAX_CHARS) {
+    //     errors.description.push('planGameScreen.descriptionSlide.fields.description.errors.tooLong');
+    //   }
+    //   return errors;
+    // },
   },
 ];
 
-const INIT_STATE = {
+let INIT_STATE;
+
+const getInitState = ({ username }) => ({
   ...cloneDeep(SPORT_DATE_TIME_INIT_STATE),
   ...cloneDeep(SPOT_INIT_STATE),
-};
+  ...cloneDeep(titleDescriptionGetInitState({ username })),
+});
 
 const INIT_ERRORS = {
   ...cloneDeep(SPORT_DATE_TIME_INIT_ERRORS),
   ...cloneDeep(SPOT_INIT_ERRORS),
+  ...cloneDeep(TITLE_DESCRIPTION_INIT_ERRORS),
 };
 //------------------------------------------------------------------------------
 // STYLE:
@@ -127,8 +135,9 @@ class PlanGameForm extends React.Component {
 
     addGlobalRef('PlanGameForm')(this);
 
-    // const { username } = props;
+    const { username } = props;
     // SLIDES = genSlides({ username });
+    INIT_STATE = getInitState({ username });
 
     this.state = {
       curSlide: 0,
@@ -175,6 +184,7 @@ class PlanGameForm extends React.Component {
 
   validateFields = fields => ({
     ...SportDateTimeSlide.validateFields(fields),
+    // ...SpotSlide.validateFields(fields),
   })
 
   // validateFields = (errorFields) => {
@@ -227,7 +237,8 @@ class PlanGameForm extends React.Component {
         // return 'planGameScreen.spotSlide.footer.nextBtnLabel';
         return SpotSlide.nextBtnLabel;
       case 2:
-        return 'planGameScreen.descriptionSlide.footer.nextBtnLabel';
+        // return 'planGameScreen.descriptionSlide.footer.nextBtnLabel';
+        return TitleDescriptionSlide.nextBtnLabel;
       default:
         return 'shareGameScreen.footer.nextBtnLabel';
     }
