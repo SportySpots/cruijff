@@ -17,7 +17,10 @@ import SportDateTimeSlide, {
   INIT_STATE as SPORT_DATE_TIME_INIT_STATE,
   INIT_ERRORS as SPORT_DATE_TIME_INIT_ERRORS,
 } from '../SportDateTimeSlide';
-import SpotSlide from '../SpotSlide';
+import SpotSlide, {
+  INIT_STATE as SPOT_INIT_STATE,
+  INIT_ERRORS as SPOT_INIT_ERRORS,
+} from '../SpotSlide';
 import DescriptionSlide from '../DescriptionSlide';
 import { addGlobalRef } from '../../../globalRefs';
 
@@ -32,9 +35,9 @@ const SLIDES = [
   {
     id: 'sportDateTimeSlide',
     Comp: SportDateTimeSlide,
-    // section: 'planGameScreen.sportDateTimeSlide.title',
     section: SportDateTimeSlide.title,
-    theme: 'white',
+    // section: 'planGameScreen.sportDateTimeSlide.title',
+    // theme: 'white',
     // fields: ['sport', 'date', 'time', 'duration', 'capacity'],
     // requiredFields: ['sport', 'date', 'time'],
     // errors: {
@@ -65,14 +68,15 @@ const SLIDES = [
   {
     id: 'spotSlide',
     Comp: SpotSlide,
-    section: 'planGameScreen.spotSlide.title',
-    theme: 'white',
-    fields: ['spot'],
-    requiredFields: ['spot'],
+    section: SpotSlide.title,
+    // section: 'planGameScreen.spotSlide.title',
+    // theme: 'white',
+    // fields: ['spot'],
+    // requiredFields: ['spot'],
     // errors: {},
-    initState: {
-      spot: null,
-    },
+    // initState: {
+    //   spot: null,
+    // },
     // validateFields: () => ({}),
   },
   {
@@ -101,10 +105,12 @@ const SLIDES = [
 
 const INIT_STATE = {
   ...cloneDeep(SPORT_DATE_TIME_INIT_STATE),
+  ...cloneDeep(SPOT_INIT_STATE),
 };
 
 const INIT_ERRORS = {
   ...cloneDeep(SPORT_DATE_TIME_INIT_ERRORS),
+  ...cloneDeep(SPOT_INIT_ERRORS),
 };
 //------------------------------------------------------------------------------
 // STYLE:
@@ -218,7 +224,8 @@ class PlanGameForm extends React.Component {
         // return 'planGameScreen.sportDateTimeSlide.footer.nextBtnLabel';
         return SportDateTimeSlide.nextBtnLabel;
       case 1:
-        return 'planGameScreen.spotSlide.footer.nextBtnLabel';
+        // return 'planGameScreen.spotSlide.footer.nextBtnLabel';
+        return SpotSlide.nextBtnLabel;
       case 2:
         return 'planGameScreen.descriptionSlide.footer.nextBtnLabel';
       default:
