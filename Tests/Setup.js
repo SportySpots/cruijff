@@ -2,6 +2,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import '../storybook/setup_faker';
 import './Mocks/firebase';
+import { curatedSpots } from '../App/Components/Spots/SpotsList/utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -64,6 +65,10 @@ jest.mock('TextInput', () => {
   TextInput.propTypes = RealComponent.propTypes;
   return TextInput;
 });
+
+jest.mock('../App/Components/Spots/SpotsList/utils.js', () => ({
+  curatedSpots: jest.fn(),
+}));
 
 // jest.mock('react-native/Libraries/Storage/AsyncStorage', () => ({
 //   AsyncStorage: {

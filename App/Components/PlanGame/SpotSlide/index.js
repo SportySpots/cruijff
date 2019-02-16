@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
+import { View } from 'react-native';
 import cloneDeep from 'lodash/cloneDeep';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Spacer from '../../Common/Spacer';
 import SpotsList from '../../Spots/SpotsList';
 
-// TODO: update I18n names
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
@@ -24,23 +24,25 @@ class SpotSlide extends React.PureComponent {
   render() {
     const { sport, spot, onChange } = this.props;
 
-    return [
-      <Spacer key="spacer" size="XL" />,
-      <SpotsList
-        key="spots"
-        cardComponent="SpotListCardSmall"
-        sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
-        // maxDistance={maxDistance} // km
-        selectedSpot={spot}
-        onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
-      />,
-    ];
+    return (
+      <View style={{ flexGrow: 1 }}>
+        <Spacer size="XL" />
+        <SpotsList
+          testID="pickSpot"
+          cardComponent="SpotListCardSmall"
+          sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
+          // maxDistance={maxDistance} // km
+          selectedSpot={spot}
+          onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
+        />
+      </View>
+    );
   }
 }
 
-SpotSlide.title = 'planGameScreen.spotSlide.title'; // TODO: update using slide namespace
+SpotSlide.title = 'spotSlide.title';
 SpotSlide.requiredFields = ['spot'];
-SpotSlide.nextBtnLabel = 'planGameScreen.spotSlide.footer.nextBtnLabel';
+SpotSlide.nextBtnLabel = 'spotSlide.footer.nextBtnLabel';
 
 SpotSlide.propTypes = {
   sport: propType(sportFragment),

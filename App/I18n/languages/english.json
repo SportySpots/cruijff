@@ -343,13 +343,6 @@
         "cancelBtnLabel": "No"
       }
     },
-    "spotSlide": {
-      "title": "Pick a spot",
-      "footer": {
-        "nextBtnLabel": "Description",
-        "backBtnLabel": "Back"
-      }
-    },
     "descriptionSlide": {
       "title": "Describe the activity",
       "footer": {
@@ -426,6 +419,14 @@
         "label": "",
         "placeholder": ""
       }
+    }
+  },
+
+  "spotSlide": {
+    "title": "Pick a spot",
+    "footer": {
+      "backBtnLabel": "Back",
+      "nextBtnLabel": "Description"
     }
   },
 
