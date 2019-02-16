@@ -214,7 +214,6 @@ class EditGameForm extends React.PureComponent {
 
     // Validate fields
     const errors = this.validateFields(this.state);
-    console.log('errors', errors);
 
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
