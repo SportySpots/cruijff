@@ -343,48 +343,6 @@
         "cancelBtnLabel": "No"
       }
     },
-    "sportDateTimeSlide": {
-      "title": "Plan an activity",
-      "footer": {
-        "nextBtnLabel": "Spot",
-        "backBtnLabel": "Back"
-      },
-      "fields": {
-        "sport": {
-          "prefix": "I want to play",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "date": {
-          "prefix": "on",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "time": {
-          "prefix": "at",
-          "suffix": "",
-          "label": "",
-          "placeholder": "",
-          "errors": {
-            "pastDateTime": "Select a date-time in the future"
-          }
-        },
-        "duration": {
-          "prefix": "during",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "capacity": {
-          "prefix": "with",
-          "suffix": "people",
-          "label": "",
-          "placeholder": ""
-        }
-      }
-    },
     "spotSlide": {
       "title": "Pick a spot",
       "footer": {
@@ -417,6 +375,56 @@
             "tooLong": "Description is too long"
           }
         }
+      }
+    }
+  },
+
+  "sportDateTimeSlide": {
+    "title": "Plan an activity",
+    "footer": {
+      "backBtnLabel": "Back",
+      "nextBtnLabel": "Spot"
+    },
+    "fields": {
+      "sport": {
+        "prefix": "I want to play",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Sport is required"
+        }
+      },
+      "date": {
+        "prefix": "on",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Date is required"
+        }
+      },
+      "time": {
+        "prefix": "at",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Time is required",
+          "pastDateTime": "Select a date-time in the future"
+        }
+      },
+      "duration": {
+        "prefix": "during",
+        "suffix": "",
+        "label": "",
+        "placeholder": ""
+      },
+      "capacity": {
+        "prefix": "with",
+        "suffix": "people",
+        "label": "",
+        "placeholder": ""
       }
     }
   },

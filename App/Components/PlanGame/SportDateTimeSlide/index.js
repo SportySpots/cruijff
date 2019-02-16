@@ -27,7 +27,9 @@ export const INIT_STATE = {
 };
 
 export const INIT_ERRORS = {
-  dateTime: [], // TODO: change to time
+  sport: [],
+  date: [],
+  time: [],
 };
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -45,7 +47,9 @@ class SportDateTimeSlide extends React.PureComponent {
     } = this.props;
 
     // Apply translation and concatenate field errors (string)
-    const dateTimeErrors = ErrorHandling.getFieldErrors(errors, 'dateTime', I18n.t);
+    const sportErrors = ErrorHandling.getFieldErrors(errors, 'sport', I18n.t);
+    const dateErrors = ErrorHandling.getFieldErrors(errors, 'date', I18n.t);
+    const timeErrors = ErrorHandling.getFieldErrors(errors, 'time', I18n.t);
 
     return (
       <ScrollView>
@@ -53,7 +57,8 @@ class SportDateTimeSlide extends React.PureComponent {
         <SportPickerField
           testID="pickSport"
           value={sport}
-          prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.sport.prefix')}
+          prefix={I18n.t('sportDateTimeSlide.fields.sport.prefix')}
+          error={sportErrors}
           size="ML"
           theme="mix"
           onChange={(value) => { onChange({ fieldName: 'sport', value }); }}
@@ -62,8 +67,8 @@ class SportDateTimeSlide extends React.PureComponent {
         <DatePickerField
           testID="pickDate"
           value={date}
-          prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.date.prefix')}
-          // error={dateTimeErrors}
+          prefix={I18n.t('sportDateTimeSlide.fields.date.prefix')}
+          error={dateErrors}
           size="ML"
           theme="mix"
           dateFormat="dddd D MMMM"
@@ -73,8 +78,8 @@ class SportDateTimeSlide extends React.PureComponent {
         <TimePickerField
           testID="pickTime"
           value={time}
-          prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.time.prefix')}
-          error={dateTimeErrors}
+          prefix={I18n.t('sportDateTimeSlide.fields.time.prefix')}
+          error={timeErrors}
           size="ML"
           theme="mix"
           onChange={(value) => { onChange({ fieldName: 'time', value }); }}
@@ -84,7 +89,7 @@ class SportDateTimeSlide extends React.PureComponent {
           testID="pickDuration"
           label=""
           value={duration}
-          prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.duration.prefix')}
+          prefix={I18n.t('sportDateTimeSlide.fields.duration.prefix')}
           onChange={(value) => { onChange({ fieldName: 'duration', value }); }}
           theme="mix"
           size="ML"
@@ -94,8 +99,8 @@ class SportDateTimeSlide extends React.PureComponent {
         <CapacityPickerField
           testID="pickCapacity"
           value={capacity}
-          prefix={I18n.t('planGameScreen.sportDateTimeSlide.fields.capacity.prefix')}
-          suffix={I18n.t('planGameScreen.sportDateTimeSlide.fields.capacity.suffix')}
+          prefix={I18n.t('sportDateTimeSlide.fields.capacity.prefix')}
+          suffix={I18n.t('sportDateTimeSlide.fields.capacity.suffix')}
           size="ML"
           theme="mix"
           onChange={(value) => { onChange({ fieldName: 'capacity', value }); }}
@@ -105,29 +110,39 @@ class SportDateTimeSlide extends React.PureComponent {
   }
 }
 
-// TODO: copy from EditGameForm
-SportDateTimeSlide.validateFields = ({ date, time }) => {
+SportDateTimeSlide.validateFields = ({ sport, date, time }) => {
   // Initialize errors
   const errors = cloneDeep(INIT_ERRORS);
 
-  // TODO: 'sport', 'date', 'time' are required
+  if (!sport) {
+    errors.date.push('sportDateTimeSlide.fields.sport.errors.required');
+  }
+
+  if (!date) {
+    errors.date.push('sportDateTimeSlide.fields.date.errors.required');
+  }
+
+  if (!time) {
+    errors.time.push('sportDateTimeSlide.fields.time.errors.required');
+  }
 
   if (date && time) {
     const hours = time.hours();
     const minutes = time.minutes();
     const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
-    const now = moment();
+    const now = moment.utc();
 
     if (dateTime.diff(now) < 0) {
-      errors.dateTime.push('planGameScreen.sportDateTimeSlide.fields.time.errors.pastDateTime');
+      errors.time.push('sportDateTimeSlide.fields.time.errors.pastDateTime');
     }
   }
+
   return errors;
 };
 
-SportDateTimeSlide.title = 'planGameScreen.sportDateTimeSlide.title'; // TODO: update using slide namespace
+SportDateTimeSlide.title = 'sportDateTimeSlide.title';
 SportDateTimeSlide.requiredFields = ['sport', 'date', 'time'];
-SportDateTimeSlide.nextBtnLabel = 'planGameScreen.sportDateTimeSlide.footer.nextBtnLabel';
+SportDateTimeSlide.nextBtnLabel = 'sportDateTimeSlide.footer.nextBtnLabel';
 
 SportDateTimeSlide.propTypes = {
   sport: propType(sportFragment),
