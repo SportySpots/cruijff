@@ -49450,442 +49450,6 @@ exports[`Storyshots Onboarding.OnboardingForm OnboardingForm 1`] = `
 </View>
 `;
 
-exports[`Storyshots PlanGame.DescriptionSlide DescriptionSlide white theme 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      bgColor="#009f36"
-      height={null}
-      midHeight={false}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#009f36",
-            "height": "auto",
-            "paddingBottom": 16,
-            "paddingLeft": 16,
-            "paddingRight": 16,
-            "paddingTop": 16,
-          },
-        ]
-      }
-    >
-      <RCTScrollView>
-        <View>
-          <View
-            pixels={24}
-            row={false}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "height": 24,
-                  "width": "auto",
-                },
-              ]
-            }
-          />
-          <View
-            onResponderRelease={[Function]}
-            onStartShouldSetResponder={[Function]}
-            pointerEvents="auto"
-          >
-            <View
-              style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderBottomColor": "rgba(255, 255, 255, 1)",
-                  "borderBottomWidth": 1,
-                  "height": 65,
-                  "paddingBottom": 14,
-                  "paddingTop": 27,
-                }
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "position": "absolute",
-                    "top": 5,
-                  }
-                }
-              >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Object {
-                      "color": "rgba(255, 255, 255, 1)",
-                      "fontFamily": "Rajdhani-SemiBold",
-                      "fontSize": 18,
-                    }
-                  }
-                >
-                  planGameScreen.descriptionSlide.fields.title.label
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                  }
-                }
-              >
-                <TextInput
-                  autoCapitalize="sentences"
-                  autoFocus={false}
-                  disableFullscreenUI={true}
-                  editable={true}
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onChangeText={[Function]}
-                  onContentSizeChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="planGameScreen.descriptionSlide.fields.title.placeholder"
-                  selectionColor="#fff"
-                  style={
-                    Array [
-                      Object {
-                        "flex": 1,
-                        "margin": 0,
-                        "padding": 0,
-                        "top": 2,
-                      },
-                      Object {
-                        "color": "rgba(0, 0, 0, .87)",
-                        "fontSize": 16,
-                        "height": 24,
-                        "textAlign": "left",
-                      },
-                      Object {
-                        "color": "#fff",
-                        "fontFamily": "Rajdhani-SemiBold",
-                        "fontSize": 24,
-                        "fontWeight": "normal",
-                        "marginTop": 8,
-                      },
-                    ]
-                  }
-                  underlineColorAndroid="transparent"
-                  value="I'm the title"
-                />
-              </View>
-            </View>
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "height": 8,
-                }
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "flex": 1,
-                  }
-                }
-              >
-                <View
-                  style={
-                    Object {
-                      "alignItems": "flex-start",
-                      "bottom": 0,
-                      "left": 0,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                    }
-                  }
-                >
-                  <Text
-                    numberOfLines={1}
-                    style={
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontSize": 0,
-                        "opacity": 0,
-                      }
-                    }
-                  />
-                </View>
-                <View
-                  style={
-                    Object {
-                      "alignItems": "flex-start",
-                      "bottom": 0,
-                      "left": 0,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                    }
-                  }
-                >
-                  <Text
-                    numberOfLines={1}
-                    style={
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontSize": 12,
-                        "opacity": 1,
-                      }
-                    }
-                  />
-                </View>
-              </View>
-            </View>
-          </View>
-          <View
-            pixels={24}
-            row={false}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "height": 24,
-                  "width": "auto",
-                },
-              ]
-            }
-          />
-          <View
-            onResponderRelease={[Function]}
-            onStartShouldSetResponder={[Function]}
-            pointerEvents="auto"
-          >
-            <View
-              style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderBottomColor": "rgba(255, 255, 255, 1)",
-                  "borderBottomWidth": 1,
-                  "height": 65,
-                  "paddingBottom": 14,
-                  "paddingTop": 27,
-                }
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "position": "absolute",
-                    "top": 5,
-                  }
-                }
-              >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Object {
-                      "color": "rgba(255, 255, 255, 1)",
-                      "fontFamily": "Rajdhani-SemiBold",
-                      "fontSize": 18,
-                    }
-                  }
-                >
-                  planGameScreen.descriptionSlide.fields.description.label
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                  }
-                }
-              >
-                <TextInput
-                  autoCapitalize="sentences"
-                  autoFocus={false}
-                  disableFullscreenUI={true}
-                  editable={true}
-                  error=""
-                  multiline={true}
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onChangeText={[Function]}
-                  onContentSizeChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="planGameScreen.descriptionSlide.fields.description.placeholder"
-                  selectionColor="#fff"
-                  style={
-                    Array [
-                      Object {
-                        "flex": 1,
-                        "margin": 0,
-                        "padding": 0,
-                        "top": 2,
-                      },
-                      Object {
-                        "color": "rgba(0, 0, 0, .87)",
-                        "fontSize": 16,
-                        "height": 48,
-                        "textAlign": "left",
-                        "top": -1,
-                      },
-                      Object {
-                        "color": "#fff",
-                        "fontFamily": "Rajdhani-SemiBold",
-                        "fontSize": 18,
-                        "fontWeight": "normal",
-                        "marginTop": 8,
-                      },
-                    ]
-                  }
-                  testID="description"
-                  underlineColorAndroid="transparent"
-                  value="random description"
-                />
-              </View>
-            </View>
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "height": 24,
-                }
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "flex": 1,
-                  }
-                }
-              >
-                <View
-                  style={
-                    Object {
-                      "alignItems": "flex-start",
-                      "bottom": 0,
-                      "left": 0,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                    }
-                  }
-                >
-                  <Text
-                    numberOfLines={1}
-                    style={
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontSize": 0,
-                        "opacity": 0,
-                      }
-                    }
-                  >
-                    
-                  </Text>
-                </View>
-                <View
-                  style={
-                    Object {
-                      "alignItems": "flex-start",
-                      "bottom": 0,
-                      "left": 0,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                    }
-                  }
-                >
-                  <Text
-                    numberOfLines={1}
-                    style={
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontSize": 12,
-                        "opacity": 1,
-                      }
-                    }
-                  />
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "paddingLeft": 4,
-                    "paddingVertical": 4,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "textAlign": "right",
-                      },
-                      undefined,
-                      Object {
-                        "color": "#fff",
-                        "fontSize": 12,
-                      },
-                    ]
-                  }
-                >
-                  18
-                   / 
-                  100
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </RCTScrollView>
-    </View>
-  </View>
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
 exports[`Storyshots PlanGame.InviteOnly InviteOnly isPrivate 1`] = `
 <View
   onLayout={[Function]}
@@ -50175,6 +49739,61 @@ exports[`Storyshots PlanGame.InviteOnly InviteOnly isPublic 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots PlanGame.PlanGameForm PlanGameForm 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
   </View>
   <RCTSafeAreaView
     pointerEvents="box-none"
@@ -51280,6 +50899,476 @@ exports[`Storyshots PlanGame.SpotSlide SpotSlide white theme 1`] = `
       ]
     }
   />
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots PlanGame.TitleDescriptionSlide TitleDescriptionSlide white theme 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      bgColor="#009f36"
+      height={null}
+      midHeight={false}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#009f36",
+            "height": "auto",
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+          },
+        ]
+      }
+    >
+      <RCTScrollView>
+        <View>
+          <View
+            pixels={24}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 24,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View
+            onResponderRelease={[Function]}
+            onStartShouldSetResponder={[Function]}
+            pointerEvents="auto"
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomColor": "rgba(255, 255, 255, 1)",
+                  "borderBottomWidth": 1,
+                  "height": 65,
+                  "paddingBottom": 14,
+                  "paddingTop": 27,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "position": "absolute",
+                    "top": 5,
+                  }
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  style={
+                    Object {
+                      "color": "rgba(255, 255, 255, 1)",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                    }
+                  }
+                >
+                  titleDescriptionSlide.fields.title.label
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  multiline={true}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="titleDescriptionSlide.fields.title.placeholder"
+                  selectionColor="#fff"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 48,
+                        "textAlign": "left",
+                        "top": -1,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 24,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  testID="title"
+                  underlineColorAndroid="transparent"
+                  value="I'm the title"
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "height": 24,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-start",
+                      "bottom": 0,
+                      "left": 0,
+                      "paddingVertical": 4,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    }
+                  }
+                >
+                  <Text
+                    numberOfLines={1}
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontSize": 0,
+                        "opacity": 0,
+                      }
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-start",
+                      "bottom": 0,
+                      "left": 0,
+                      "paddingVertical": 4,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    }
+                  }
+                >
+                  <Text
+                    numberOfLines={1}
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontSize": 12,
+                        "opacity": 1,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "paddingLeft": 4,
+                    "paddingVertical": 4,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "textAlign": "right",
+                      },
+                      undefined,
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 12,
+                      },
+                    ]
+                  }
+                >
+                  13
+                   / 
+                  80
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            pixels={24}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 24,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View
+            onResponderRelease={[Function]}
+            onStartShouldSetResponder={[Function]}
+            pointerEvents="auto"
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomColor": "rgba(255, 255, 255, 1)",
+                  "borderBottomWidth": 1,
+                  "height": 65,
+                  "paddingBottom": 14,
+                  "paddingTop": 27,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "position": "absolute",
+                    "top": 5,
+                  }
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  style={
+                    Object {
+                      "color": "rgba(255, 255, 255, 1)",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                    }
+                  }
+                >
+                  titleDescriptionSlide.fields.description.label
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  multiline={true}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="titleDescriptionSlide.fields.description.placeholder"
+                  selectionColor="#fff"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 48,
+                        "textAlign": "left",
+                        "top": -1,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  testID="description"
+                  underlineColorAndroid="transparent"
+                  value="Some random description"
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "height": 24,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-start",
+                      "bottom": 0,
+                      "left": 0,
+                      "paddingVertical": 4,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    }
+                  }
+                >
+                  <Text
+                    numberOfLines={1}
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontSize": 0,
+                        "opacity": 0,
+                      }
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-start",
+                      "bottom": 0,
+                      "left": 0,
+                      "paddingVertical": 4,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    }
+                  }
+                >
+                  <Text
+                    numberOfLines={1}
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontSize": 12,
+                        "opacity": 1,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "paddingLeft": 4,
+                    "paddingVertical": 4,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "textAlign": "right",
+                      },
+                      undefined,
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 12,
+                      },
+                    ]
+                  }
+                >
+                  23
+                   / 
+                  2000
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
   <RCTSafeAreaView
     pointerEvents="box-none"
     style={

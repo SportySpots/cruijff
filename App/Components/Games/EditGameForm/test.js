@@ -371,7 +371,7 @@ describe('EditGameForm', () => {
     expect(handleSuccess).not.toBeCalled();
   });
 
-  it.skip('calls onSuccessHook when valid name, date, time and duration are provided', () => {
+  it('calls onSuccessHook when valid name, date, time and duration are provided', () => {
     const handleBefore = jest.fn();
     const handleClientCancel = jest.fn();
     const handleClientError = jest.fn();

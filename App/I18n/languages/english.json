@@ -342,33 +342,6 @@
         "okBtnLabel": "Yes",
         "cancelBtnLabel": "No"
       }
-    },
-    "descriptionSlide": {
-      "title": "Describe the activity",
-      "footer": {
-        "nextBtnLabel": "Invite",
-        "backBtnLabel": "Back"
-      },
-      "fields": {
-        "title": {
-          "prefix": "",
-          "suffix": "",
-          "label": "Title",
-          "placeholder": "Title",
-          "defaultValue": "%{username}'s game"
-        },
-        "description": {
-          "prefix": "",
-          "suffix": "",
-          "label": "Description",
-          "placeholder": "Write extra details about the activity",
-          "errors": {
-            "required": "",
-            "tooShort": "",
-            "tooLong": "Description is too long"
-          }
-        }
-      }
     }
   },
 
@@ -427,6 +400,39 @@
     "footer": {
       "backBtnLabel": "Back",
       "nextBtnLabel": "Description"
+    }
+  },
+
+  "titleDescriptionSlide": {
+    "title": "Describe the activity",
+    "footer": {
+      "backBtnLabel": "Back",
+      "nextBtnLabel": "Invite"
+    },
+    "fields": {
+      "title": {
+        "prefix": "",
+        "suffix": "",
+        "label": "Title",
+        "placeholder": "Title",
+        "defaultValue": "%{username}'s game",
+        "errors": {
+          "required": "Title is required",
+          "tooShort": "",
+          "tooLong": "Title is too long"
+        }
+      },
+      "description": {
+        "prefix": "",
+        "suffix": "",
+        "label": "Description",
+        "placeholder": "Write extra details about the activity",
+        "errors": {
+          "required": "",
+          "tooShort": "",
+          "tooLong": "Description is too long"
+        }
+      }
     }
   },
 
