@@ -86,19 +86,8 @@ class PlanGameForm extends React.Component {
       errors: cloneDeep(INIT_ERRORS),
     };
 
-    console.log('INIT STATE', this.state);
+    // console.log('INIT STATE', this.state);
   }
-
-  // initErrors = () => {
-  //   const errs = {};
-  //   SLIDES.forEach(({ errors }) => {
-  //     if (errors) {
-  //       extend(errs, Object.assign({}, errors));
-  //     }
-  //   });
-  //   console.log('INIT ERRORS', errs);
-  //   return errs;
-  // }
 
   clearErrors = () => {
     this.setState({ errors: cloneDeep(INIT_ERRORS) });
@@ -217,8 +206,6 @@ class PlanGameForm extends React.Component {
 
     // Pass event up to parent component
     onSuccessHook(pick(this.state, Object.keys(INIT_STATE)));
-    // const fields = SLIDES.map(({ fields: fs }) => fs).reduce((result, fs) => union(result, fs), []);
-    // onSuccessHook(pick(this.state, fields));
   }
 
   render() {
