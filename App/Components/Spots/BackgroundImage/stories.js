@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Block from '../../Common/Block';
-import BackgroundImage from './index';
+import BackgroundImage from '.';
 
 const Container = styled.View`
   height: 80px;

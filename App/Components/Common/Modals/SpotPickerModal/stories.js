@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import ModalProps from '../../../../RenderProps/modal-props';
 import RaisedButton from '../../RaisedButton';
-import SpotPickerModal from './index';
+import SpotPickerModal from '.';
 
 const Container = () => (
   <ModalProps>

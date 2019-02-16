@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import Block from '../Block';
-import SportsList from './index';
+import SportsList from '.';
 
 class Container extends React.PureComponent {
   state = {

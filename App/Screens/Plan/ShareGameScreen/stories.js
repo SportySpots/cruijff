@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import ShareGameScreen from './index';
+import ShareGameScreen from '.';
 
 const dummyNavigation = {
   goBack: () => {},

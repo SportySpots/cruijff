@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components';
-import SwitchWithText from './index';
+import SwitchWithText from '.';
 
 const StyledView = styled.View`
   height: 180px;

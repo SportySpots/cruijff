@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
-import SportPickerField from './index';
+import SportPickerField from '.';
 
 class Container extends React.PureComponent {
   state = { sport: null }

@@ -30,7 +30,7 @@ import TitleDescriptionSlide, {
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const DESCRIPTION_MAX_CHARS = 2000;
+// const DESCRIPTION_MAX_CHARS = 2000;
 
 // let SLIDES = [];
 // const genSlides = ({ username }) => [
@@ -39,86 +39,34 @@ const SLIDES = [
     id: 'sportDateTimeSlide',
     Comp: SportDateTimeSlide,
     section: SportDateTimeSlide.title,
-    // section: 'planGameScreen.sportDateTimeSlide.title',
-    // theme: 'white',
-    // fields: ['sport', 'date', 'time', 'duration', 'capacity'],
-    // requiredFields: ['sport', 'date', 'time'],
-    // errors: {
-    //   dateTime: [],
-    // },
-    // initState: {
-    //   sport: null,
-    //   date: null,
-    //   time: null,
-    //   duration: 90, // null,
-    //   capacity: null,
-    // },
-    // validateFields: ({ date, time }) => {
-    //   const errors = { dateTime: [] };
-    //   if (date && time) {
-    //     const hours = time.hours();
-    //     const minutes = time.minutes();
-    //     const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
-    //     const now = moment();
-
-    //     if (dateTime.diff(now) < 0) {
-    //       errors.dateTime.push('planGameScreen.sportDateTimeSlide.fields.time.errors.pastDateTime');
-    //     }
-    //   }
-    //   return errors;
-    // },
+    requiredFields: SportDateTimeSlide.requiredFields || [],
   },
-  {
-    id: 'spotSlide',
-    Comp: SpotSlide,
-    section: SpotSlide.title,
-    // section: 'planGameScreen.spotSlide.title',
-    // theme: 'white',
-    // fields: ['spot'],
-    // requiredFields: ['spot'],
-    // errors: {},
-    // initState: {
-    //   spot: null,
-    // },
-    // validateFields: () => ({}),
-  },
-  {
-    id: 'descriptionSlide',
-    Comp: TitleDescriptionSlide,
-    section: TitleDescriptionSlide.title,
-    // section: 'planGameScreen.descriptionSlide.title',
-    // theme: 'white',
-    // fields: ['title', 'description'],
-    // requiredFields: [],
-    // errors: {
-    //   description: [],
-    // },
-    // initState: {
-    //   title: I18n.t('planGameScreen.descriptionSlide.fields.title.defaultValue', { username }),
-    //   description: '',
-    // },
-    // validateFields: ({ description }) => {
-    //   const errors = { description: [] };
-    //   if (description.length > DESCRIPTION_MAX_CHARS) {
-    //     errors.description.push('planGameScreen.descriptionSlide.fields.description.errors.tooLong');
-    //   }
-    //   return errors;
-    // },
-  },
+  // {
+  //   id: 'spotSlide',
+  //   Comp: SpotSlide,
+  //   section: SpotSlide.title,
+  //   requiredFields: SpotSlide.requiredFields || [],
+  // },
+  // {
+  //   id: 'descriptionSlide',
+  //   Comp: TitleDescriptionSlide,
+  //   section: TitleDescriptionSlide.title,
+  //   requiredFields: TitleDescriptionSlide.requiredFields || [],
+  // },
 ];
 
 let INIT_STATE;
 
 const getInitState = ({ username }) => ({
   ...cloneDeep(SPORT_DATE_TIME_INIT_STATE),
-  ...cloneDeep(SPOT_INIT_STATE),
-  ...cloneDeep(titleDescriptionGetInitState({ username })),
+  // ...cloneDeep(SPOT_INIT_STATE),
+  // ...cloneDeep(titleDescriptionGetInitState({ username })),
 });
 
 const INIT_ERRORS = {
   ...cloneDeep(SPORT_DATE_TIME_INIT_ERRORS),
-  ...cloneDeep(SPOT_INIT_ERRORS),
-  ...cloneDeep(TITLE_DESCRIPTION_INIT_ERRORS),
+  // ...cloneDeep(SPOT_INIT_ERRORS),
+  // ...cloneDeep(TITLE_DESCRIPTION_INIT_ERRORS),
 };
 //------------------------------------------------------------------------------
 // STYLE:
@@ -133,9 +81,11 @@ class PlanGameForm extends React.Component {
   constructor(props) {
     super(props);
 
-    addGlobalRef('PlanGameForm')(this);
+    // addGlobalRef('PlanGameForm')(this);
+    console.log('PROPS', props);
 
     const { username } = props;
+    console.log('USERNAMEEEE', username);
     // SLIDES = genSlides({ username });
     INIT_STATE = getInitState({ username });
 
@@ -240,7 +190,7 @@ class PlanGameForm extends React.Component {
         // return 'planGameScreen.descriptionSlide.footer.nextBtnLabel';
         return TitleDescriptionSlide.nextBtnLabel;
       default:
-        return 'shareGameScreen.footer.nextBtnLabel';
+        return 'NEXT';
     }
   }
 
@@ -342,7 +292,7 @@ class PlanGameForm extends React.Component {
                 {index === curSlide ? (
                   <Comp
                     onChange={this.handleChange}
-                    descriptionMaxChars={DESCRIPTION_MAX_CHARS}
+                    // descriptionMaxChars={DESCRIPTION_MAX_CHARS}
                     // Pass down all state values: sport, date, time, etc.
                     {...rest}
                   />

@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from 'react-native';
 import styled from 'styled-components';
-import SliderWithText from './index';
+import SliderWithText from '.';
 
 const StyledView = styled.View`
   height: 180px;

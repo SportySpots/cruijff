@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import ModalProps from '../../../../RenderProps/modal-props';
 import RaisedButton from '../../RaisedButton';
-import ConfirmModal from './index';
+import ConfirmModal from '.';
 
 const Container = () => (
   <ModalProps>

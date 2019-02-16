@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import renderer from 'react-test-renderer';
 
-import CappedList from './index';
+import CappedList from '.';
 
 const Comp = () => <View />;
 const CapComp = () => <View id="cap" />;

@@ -3,7 +3,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
-import SpotImage from './index';
+import SpotImage from '.';
 
 const Container = styled.View`
   height: 100px;

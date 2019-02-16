@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 import ModalProps from '../../../../RenderProps/modal-props';
 import RaisedButton from '../../RaisedButton';
-import Modal from './index';
+import Modal from '.';
 
 const Container = ({ children }) => (
   <ModalProps>

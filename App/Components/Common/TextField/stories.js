@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
-import TextField from './index';
+import TextField from '.';
 
 const containerStyle = { width: 200 };
 

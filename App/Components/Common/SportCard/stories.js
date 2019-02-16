@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import Block from '../Block';
-import SportCard from './index';
+import SportCard from '.';
 
 const dummyNavigator = {
   navigate: () => null,
