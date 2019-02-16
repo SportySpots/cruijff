@@ -379,7 +379,7 @@ describe('EditGameForm', () => {
 
     const wrapper = shallow(
       <EditGameForm
-        game={game}
+        game={Object.assign({}, game, { capacity: 4, attendees })}
         onBeforeHook={handleBefore}
         onClientCancelHook={handleClientCancel}
         onClientErrorHook={handleClientError}
@@ -407,6 +407,7 @@ describe('EditGameForm', () => {
 
     expect(handleBefore).toBeCalled();
     expect(handleClientCancel).not.toBeCalled();
+    expect(handleClientError).not.toBeCalled();
     expect(handleSuccess).toBeCalledWith(
       expect.objectContaining({
         name: validName,

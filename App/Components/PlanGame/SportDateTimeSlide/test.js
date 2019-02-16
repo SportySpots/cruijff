@@ -158,4 +158,17 @@ describe('SportDateTimeSlide', () => {
       expect.arrayContaining([I18n.t('sportDateTimeSlide.fields.time.errors.pastDateTime')]),
     );
   });
+
+  it('errors when form is submitted with past date-time sooner than 15 min from now', () => {
+    const args = {
+      sport: validSport,
+      date: validDate,
+      time: validTime.clone().subtract(45, 'minutes'),
+    };
+    const errors = SportDateTimeSlide.validateFields(args);
+
+    expect(errors.time).toEqual(
+      expect.arrayContaining([I18n.t('sportDateTimeSlide.fields.time.errors.tooSoon')]),
+    );
+  });
 });

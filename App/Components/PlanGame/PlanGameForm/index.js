@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import { Keyboard, View } from 'react-native';
 import firebase from 'react-native-firebase';
 import Swiper from 'react-native-swiper';
-// import moment from 'moment';
 import cloneDeep from 'lodash/cloneDeep';
-import union from 'lodash/union';
-import extend from 'lodash/extend';
 import pick from 'lodash/pick';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
@@ -30,10 +27,6 @@ import TitleDescriptionSlide, {
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-// const DESCRIPTION_MAX_CHARS = 2000;
-
-// let SLIDES = [];
-// const genSlides = ({ username }) => [
 const SLIDES = [
   {
     id: 'sportDateTimeSlide',
@@ -41,32 +34,32 @@ const SLIDES = [
     section: SportDateTimeSlide.title,
     requiredFields: SportDateTimeSlide.requiredFields || [],
   },
-  // {
-  //   id: 'spotSlide',
-  //   Comp: SpotSlide,
-  //   section: SpotSlide.title,
-  //   requiredFields: SpotSlide.requiredFields || [],
-  // },
-  // {
-  //   id: 'descriptionSlide',
-  //   Comp: TitleDescriptionSlide,
-  //   section: TitleDescriptionSlide.title,
-  //   requiredFields: TitleDescriptionSlide.requiredFields || [],
-  // },
+  {
+    id: 'spotSlide',
+    Comp: SpotSlide,
+    section: SpotSlide.title,
+    requiredFields: SpotSlide.requiredFields || [],
+  },
+  {
+    id: 'descriptionSlide',
+    Comp: TitleDescriptionSlide,
+    section: TitleDescriptionSlide.title,
+    requiredFields: TitleDescriptionSlide.requiredFields || [],
+  },
 ];
 
 let INIT_STATE;
 
-const getInitState = ({ username }) => ({
+const getInitState = username => ({
   ...cloneDeep(SPORT_DATE_TIME_INIT_STATE),
-  // ...cloneDeep(SPOT_INIT_STATE),
-  // ...cloneDeep(titleDescriptionGetInitState({ username })),
+  ...cloneDeep(SPOT_INIT_STATE),
+  ...cloneDeep(titleDescriptionGetInitState(username)),
 });
 
 const INIT_ERRORS = {
   ...cloneDeep(SPORT_DATE_TIME_INIT_ERRORS),
-  // ...cloneDeep(SPOT_INIT_ERRORS),
-  // ...cloneDeep(TITLE_DESCRIPTION_INIT_ERRORS),
+  ...cloneDeep(SPOT_INIT_ERRORS),
+  ...cloneDeep(TITLE_DESCRIPTION_INIT_ERRORS),
 };
 //------------------------------------------------------------------------------
 // STYLE:
@@ -81,24 +74,17 @@ class PlanGameForm extends React.Component {
   constructor(props) {
     super(props);
 
-    // addGlobalRef('PlanGameForm')(this);
-    console.log('PROPS', props);
+    addGlobalRef('PlanGameForm')(this);
 
     const { username } = props;
-    console.log('USERNAMEEEE', username);
-    // SLIDES = genSlides({ username });
-    INIT_STATE = getInitState({ username });
+
+    INIT_STATE = getInitState(username);
 
     this.state = {
       curSlide: 0,
       ...cloneDeep(INIT_STATE),
       errors: cloneDeep(INIT_ERRORS),
     };
-
-    // Attach slide's initial state to component's state
-    // SLIDES.forEach(({ initState }) => {
-    //   extend(this.state, Object.assign({}, initState));
-    // });
 
     console.log('INIT STATE', this.state);
   }
@@ -119,36 +105,19 @@ class PlanGameForm extends React.Component {
   };
 
   handleChange = ({ fieldName, value }) => {
-    if (!fieldName) { return; }
-
     const { errors } = this.state;
 
     this.setState({
       [fieldName]: value,
       errors: ErrorHandling.clearErrors(errors, fieldName),
-      // errors: (fieldName === 'date' || fieldName === 'time')
-      //   ? ErrorHandling.clearErrors(errors, 'dateTime')
-      //   : ErrorHandling.clearErrors(errors, fieldName),
     });
   }
 
   validateFields = fields => ({
     ...SportDateTimeSlide.validateFields(fields),
     // ...SpotSlide.validateFields(fields),
+    ...TitleDescriptionSlide.validateFields(fields),
   })
-
-  // validateFields = (errorFields) => {
-  //   // Initialize errors
-  //   const errors = cloneDeep(INIT_ERRORS);
-
-  //   SLIDES.forEach(({ validateFields }) => {
-  //     if (validateFields && typeof validateFields === 'function') {
-  //       extend(errors, Object.assign({}, validateFields(errorFields)));
-  //     }
-  //   });
-
-  //   return errors;
-  // };
 
   get disableNext() {
     const { curSlide } = this.state;
@@ -181,13 +150,10 @@ class PlanGameForm extends React.Component {
 
     switch (curSlide) {
       case 0:
-        // return 'planGameScreen.sportDateTimeSlide.footer.nextBtnLabel';
         return SportDateTimeSlide.nextBtnLabel;
       case 1:
-        // return 'planGameScreen.spotSlide.footer.nextBtnLabel';
         return SpotSlide.nextBtnLabel;
       case 2:
-        // return 'planGameScreen.descriptionSlide.footer.nextBtnLabel';
         return TitleDescriptionSlide.nextBtnLabel;
       default:
         return 'NEXT';
@@ -216,21 +182,6 @@ class PlanGameForm extends React.Component {
 
     // Validate fields
     const errors = this.validateFields(this.state);
-
-    // In case of errors, display on UI and return handler to parent component
-    // let hasErrors = false;
-    // Object.keys(INIT_STATE).forEach((namespace) => {
-    //   if (ErrorHandling.hasErrors(errors[namespace])) {
-    //     hasErrors = true;
-    //   }
-    // });
-    // if (hasErrors) {
-    //   this.setState({ errors });
-    //   return;
-    // }
-
-    // Validate fields
-    // const errors = this.validateFields(pick(this.state, ['date', 'time', 'description']));
 
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
@@ -292,7 +243,6 @@ class PlanGameForm extends React.Component {
                 {index === curSlide ? (
                   <Comp
                     onChange={this.handleChange}
-                    // descriptionMaxChars={DESCRIPTION_MAX_CHARS}
                     // Pass down all state values: sport, date, time, etc.
                     {...rest}
                   />

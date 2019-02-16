@@ -377,7 +377,8 @@
         "placeholder": "",
         "errors": {
           "required": "Time is required",
-          "pastDateTime": "Select a date-time in the future"
+          "pastDateTime": "Select a date-time in the future",
+          "tooSoon": "Start time should be at least 15 minutes from now"
         }
       },
       "duration": {

@@ -131,9 +131,12 @@ SportDateTimeSlide.validateFields = ({ sport, date, time }) => {
     const minutes = time.minutes();
     const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
     const now = moment.utc();
+    const diff = dateTime.diff(now, 'seconds');
 
-    if (dateTime.diff(now) < 0) {
+    if (diff < 0) {
       errors.time.push('sportDateTimeSlide.fields.time.errors.pastDateTime');
+    } else if (diff <= 900) { // 15 min
+      errors.time.push('sportDateTimeSlide.fields.time.errors.tooSoon');
     }
   }
 

@@ -165,8 +165,9 @@ class EditGameForm extends React.PureComponent {
       const minutes = time.minutes();
       const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
       const now = moment.utc();
+      const diff = dateTime.diff(now, 'seconds');
 
-      if (dateTime.diff(now) < 0) {
+      if (diff < 0) {
         errors.time.push('editGameForm.fields.time.errors.pastDateTime');
       }
     }
@@ -213,6 +214,7 @@ class EditGameForm extends React.PureComponent {
 
     // Validate fields
     const errors = this.validateFields(this.state);
+    console.log('errors', errors);
 
     // In case of errors, display on UI and return handler to parent component
     if (ErrorHandling.hasErrors(errors)) {
