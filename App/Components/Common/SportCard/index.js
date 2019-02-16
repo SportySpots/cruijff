@@ -54,8 +54,7 @@ SportCard.propTypes = {
 
 SportCard.defaultProps = {
   isSelected: false,
-  onPress: () => {
-  },
+  onPress: () => {},
   testID: '',
 };
 

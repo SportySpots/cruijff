@@ -14,7 +14,7 @@ import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
 import Spacer from '../../Common/Spacer';
 
-// TODO: update I18n names
+// TODO: update I18n for nl and es
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ SportDateTimeSlide.validateFields = ({ sport, date, time }) => {
   const errors = cloneDeep(INIT_ERRORS);
 
   if (!sport) {
-    errors.date.push('sportDateTimeSlide.fields.sport.errors.required');
+    errors.sport.push('sportDateTimeSlide.fields.sport.errors.required');
   }
 
   if (!date) {
