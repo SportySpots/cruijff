@@ -404,7 +404,7 @@
     }
   },
 
-  "descriptionSlide": {
+  "titleDescriptionSlide": {
     "title": "Describe la actividad",
     "footer": {
       "backBtnLabel": "Atrás",
