@@ -35,11 +35,12 @@ class EditGameApiCall extends React.PureComponent {
       await SeedorfAPI.setGameName({ gameUUID, name });
 
       // Set date and duration
-      await SeedorfAPI.setGameTimes({
+      const timeRes = await SeedorfAPI.setGameTimes({
         gameUUID,
         startTime: startTime.toISOString(),
         endTime: endTime ? endTime.toISOString() : null,
       });
+      console.log('EDIT GAME SET TIME RESPONSE', timeRes);
 
       // Set capacity
       await SeedorfAPI.setGameCapacity({ gameUUID, capacity: capacity || null });

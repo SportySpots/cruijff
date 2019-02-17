@@ -342,80 +342,96 @@
         "okBtnLabel": "Si",
         "cancelBtnLabel": "No"
       }
+    }
+  },
+
+  "sportDateTimeSlide": {
+    "title": "Organizar una actividad",
+    "footer": {
+      "backBtnLabel": "Atrás",
+      "nextBtnLabel": "Spot"
     },
-    "sportDateTimeSlide": {
-      "title": "Organizar una actividad",
-      "footer": {
-        "nextBtnLabel": "Spot",
-        "backBtnLabel": "Atrás"
-      },
-      "fields": {
-        "sport": {
-          "prefix": "Planeo",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "date": {
-          "prefix": "el",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "time": {
-          "prefix": "a las",
-          "suffix": "",
-          "label": "",
-          "placeholder": "",
-          "errors": {
-            "pastDateTime": "Seleccione fecha-hora en el futuro"
-          }
-        },
-        "duration": {
-          "prefix": "durante",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "capacity": {
-          "prefix": "con",
-          "suffix": "personas",
-          "label": "",
-          "placeholder": ""
+    "fields": {
+      "sport": {
+        "prefix": "Planeo",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Deporte es requerido"
         }
-      }
-    },
-    "spotSlide": {
-      "title": "Elegir spot",
-      "footer": {
-        "nextBtnLabel": "Descripción",
-        "backBtnLabel": "Atrás"
-      }
-    },
-    "descriptionSlide": {
-      "title": "Describe la actividad",
-      "footer": {
-        "nextBtnLabel": "Invitar",
-        "backBtnLabel": "Atrás"
       },
-      "fields": {
-        "title": {
-          "prefix": "",
-          "suffix": "",
-          "label": "Título",
-          "placeholder": "Título",
-          "defaultValue": "%{username}'s game"
-        },
-        "description": {
-          "prefix": "",
-          "suffix": "",
-          "label": "Descripción",
-          "placeholder": "Describe la actividad",
-          "errors": {
-            "required": "",
-            "tooShort": "",
-            "tooLong": "Descripción es muy larga"
-          }
+      "date": {
+        "prefix": "el",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Fecha es requerida"
+        }
+      },
+      "time": {
+        "prefix": "a las",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Tiempo es requerido",
+          "pastDateTime": "Seleccione fecha-hora en el futuro",
+          "tooSoon": "Tiempo de inicio debe ser al menos 15 min desde ahora"
+        }
+      },
+      "duration": {
+        "prefix": "durante",
+        "suffix": "",
+        "label": "",
+        "placeholder": ""
+      },
+      "capacity": {
+        "prefix": "con",
+        "suffix": "personas",
+        "label": "",
+        "placeholder": ""
+      }
+    }
+  },
+
+  "spotSlide": {
+    "title": "Elegir spot",
+    "footer": {
+      "backBtnLabel": "Atrás",
+      "nextBtnLabel": "Descripción"
+    }
+  },
+
+  "descriptionSlide": {
+    "title": "Describe la actividad",
+    "footer": {
+      "backBtnLabel": "Atrás",
+      "nextBtnLabel": "Invitar"
+    },
+    "fields": {
+      "title": {
+        "prefix": "",
+        "suffix": "",
+        "label": "Título",
+        "placeholder": "Título",
+        "defaultValue": "%{username}'s game",
+        "errors": {
+          "required": "Título es requerido",
+          "tooShort": "",
+          "tooLong": "Título es muy largo"
+        }
+      },
+      "description": {
+        "prefix": "",
+        "suffix": "",
+        "label": "Descripción",
+        "placeholder": "Describe la actividad",
+        "errors": {
+          "required": "",
+          "tooShort": "",
+          "tooLong": "Descripción es muy larga"
         }
       }
     }
