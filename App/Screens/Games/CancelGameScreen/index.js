@@ -40,6 +40,7 @@ class CancelGameScreen extends React.PureComponent {
       <FormProps>
         {({
           disabled,
+          errors,
           handleBefore,
           handleClientCancel,
           handleClientError,
@@ -98,6 +99,7 @@ class CancelGameScreen extends React.PureComponent {
                     <CancelGameForm
                       game={data.game}
                       disabled={disabled}
+                      errors={errors}
                       onBeforeHook={handleBefore}
                       onClientCancelHook={handleClientCancel}
                       onClientErrorHook={handleClientError}
