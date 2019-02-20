@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment/moment';
 import SeedorfAPI from '../../../Services/SeedorfApi';
+import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: can we extract the 'if (res && res.problem) {...' logic into a method?
 class EditGameApiCall extends React.PureComponent {
   handleUpdate = async (inputFields) => {
     const { onEditSuccess, onEditError } = this.props;
@@ -31,26 +33,91 @@ class EditGameApiCall extends React.PureComponent {
     const endTime = startTime.clone().add(duration, 'minutes');
 
     try {
-      // Set name
-      await SeedorfAPI.setGameName({ gameUUID, name });
+      // Set title
+      const res = await SeedorfAPI.setGameName({ gameUUID, name });
 
+      // Pass event up to parent component
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
+    } catch (exc) {
+      console.log(exc);
+      onEditError(exc);
+      return;
+    }
+
+    try {
       // Set date and duration
-      const timeRes = await SeedorfAPI.setGameTimes({
+      const res = await SeedorfAPI.setGameTimes({
         gameUUID,
         startTime: startTime.toISOString(),
         endTime: endTime ? endTime.toISOString() : null,
       });
-      console.log('EDIT GAME SET TIME RESPONSE', timeRes);
+      console.log('EDIT GAME SET TIME RESPONSE', res);
 
+      // Pass event up to parent component
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
+    } catch (exc) {
+      console.log(exc);
+      onEditError(exc);
+      return;
+    }
+
+    try {
       // Set capacity
-      await SeedorfAPI.setGameCapacity({ gameUUID, capacity: capacity || null });
+      const res = await SeedorfAPI.setGameCapacity({ gameUUID, capacity: capacity || null });
 
+      // Pass event up to parent component
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
+    } catch (exc) {
+      console.log(exc);
+      onEditError(exc);
+      return;
+    }
+
+    try {
       // Set spot
-      await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
+      const res = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
 
+      // Pass event up to parent component
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
+    } catch (exc) {
+      console.log(exc);
+      onEditError(exc);
+      return;
+    }
+
+    try {
       // Set description
-      await SeedorfAPI.setGameDescription({ gameUUID, description });
+      const res = await SeedorfAPI.setGameDescription({ gameUUID, description });
 
+      // Pass event up to parent component
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
+    } catch (exc) {
+      console.log(exc);
+      onEditError(exc);
+      return;
+    }
+
+    try {
       // Set game status
       const res = await SeedorfAPI.setGameInviteMode({
         gameUUID,
@@ -60,11 +127,19 @@ class EditGameApiCall extends React.PureComponent {
       console.log('UPDATED GAME', res.data);
 
       // Pass event up to parent component
-      onEditSuccess();
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
+      return;
     }
+
+    // Pass event up to parent component
+    onEditSuccess();
   }
 
   render() {
