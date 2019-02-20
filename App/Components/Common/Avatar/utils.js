@@ -1,9 +1,13 @@
 export const userToInitials = (user) => {
-  if (!user || !user.first_name || !user.last_name) {
+  if (!user || !user.name) {
     return '?'; // unknown user
   }
-
-  return `${user.first_name.substr(0, 1)}${user.last_name.substr(0, 1)}`;
+  const splitName = user.name.split(' ');
+  if (splitName.length > 1) {
+    // return first letters of first and last word
+    return `${splitName[0].substr(0, 1)}${splitName[splitName.length - 1].substr(0, 1)}`;
+  }
+  return user.name.substr(0, 2);
 };
 
 export const convertS3ToImgix = ({ image, height, width }) => (

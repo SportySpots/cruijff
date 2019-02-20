@@ -19,7 +19,7 @@ const Organizer = ({ organizer, textSize }) => {
       <Avatar user={organizer} />
       <Spacer row size="M" />
       <TextSize>
-        {`${organizer.first_name} ${organizer.last_name}`}
+        {organizer.name}
       </TextSize>
     </Row>
   );

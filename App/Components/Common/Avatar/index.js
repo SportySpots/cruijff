@@ -67,10 +67,8 @@ class Avatar extends React.PureComponent {
 
     const hasName = (
       user
-      && user.first_name
-      && user.first_name.trim().length > 0
-      && user.last_name
-      && user.last_name.trim().length > 0
+      && user.name
+      && user.name.trim().length > 0
     );
 
     if (hasName) {
@@ -107,8 +105,7 @@ class Avatar extends React.PureComponent {
 
 Avatar.propTypes = {
   user: PropTypes.shape({
-    first_name: PropTypes.string,
-    last_name: PropTypes.string,
+    name: PropTypes.string,
     profile: PropTypes.shape({
       avatar: PropTypes.string,
     }),

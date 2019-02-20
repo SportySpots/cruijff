@@ -24,7 +24,7 @@ const PlayerRow = ({ player }) => {
         <Avatar user={user} />
         <Spacer row size="L" />
         <View>
-          <Text.M>{`${user.first_name} ${user.last_name}`}</Text.M>
+          <Text.M>{user.name}</Text.M>
           <Text.SM style={{ color: Colors.gray }}>
             {I18n.t(player.status === 'ATTENDING' ? 'playerRow.signedUpOn' : 'playerRow.signedOutOn')}
             &nbsp;

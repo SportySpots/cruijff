@@ -26,8 +26,7 @@ const attendees = [
     user: {
       id: 'e77d5276-8617-4757-b785-cd1e5e12277b',
       uuid: 'c9782deb-e573-4da6-9a16-6883eff43182',
-      first_name: 'Hello World',
-      last_name: 'Hello World',
+      name: 'Hello World',
       profile: {
         id: '5c8b7c10-6925-49e1-92ec-5357b3fad244',
         uuid: '853d033b-349c-4468-8650-3dc74fb0b232',
@@ -44,8 +43,7 @@ const attendees = [
     user: {
       id: 'a77d5276-8617-4757-b785-cd1e5e12277b',
       uuid: 'a9782deb-e573-4da6-9a16-6883eff43182',
-      first_name: 'Hello World',
-      last_name: 'Hello World',
+      name: 'Hello World',
       profile: {
         id: '4c8b7c10-6925-49e1-92ec-5357b3fad244',
         uuid: '353d033b-349c-4468-8650-3dc74fb0b232',
@@ -62,8 +60,7 @@ const attendees = [
     user: {
       id: 'e77d5276-8617-4757-b785-cd1e5e12277b',
       uuid: 'e9782deb-e573-4da6-9a16-6883eff43182',
-      first_name: 'Hello World',
-      last_name: 'Hello World',
+      name: 'Hello World',
       profile: {
         id: '1c8b7c10-6925-49e1-92ec-5357b3fad244',
         uuid: '253d033b-349c-4468-8650-3dc74fb0b232',
