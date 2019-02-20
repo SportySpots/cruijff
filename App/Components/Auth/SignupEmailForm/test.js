@@ -4,12 +4,10 @@ import renderer from 'react-test-renderer';
 import I18n from '../../../I18n';
 import SignupEmailForm, { MAX_CHARS } from '.';
 
-const validFirstName = 'John';
-const validLastName = 'Doe';
+const validName = 'John Doe';
 const validEmail = 'valid@email.com';
 const invalidEmail = 'invalid@email';
-const longFirstName = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
-const longLastName = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
+const longName = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
 const longEmail = `${new Array(MAX_CHARS - 8).join('a')}@email.com`; // aaaaaa...@email.com length = MAX_CHARS + 1
 
 describe('SignupEmailForm', () => {
@@ -23,32 +21,22 @@ describe('SignupEmailForm', () => {
     expect(wrapper.find({ testID: 'signupButtonSubmit' }).props().label).toBe(I18n.t('signupEmailForm.btnLabel'));
   });
 
-  it('errors when form is submitted without firstName, lastName or email', () => {
+  it('errors when form is submitted without name or email', () => {
     [
       {
-        firstName: '',
-        lastName: validLastName,
+        name: '',
         email: validEmail,
-        errorFieldID: 'signupFieldFirstName',
-        errorMsg: 'signupEmailForm.fields.firstName.errors.required',
+        errorFieldID: 'signupFieldName',
+        errorMsg: 'signupEmailForm.fields.name.errors.required',
       },
       {
-        firstName: validFirstName,
-        lastName: '',
-        email: validEmail,
-        errorFieldID: 'signupFieldLastName',
-        errorMsg: 'signupEmailForm.fields.lastName.errors.required',
-      },
-      {
-        firstName: validFirstName,
-        lastName: validLastName,
+        name: validName,
         email: '',
         errorFieldID: 'signupFieldEmail',
         errorMsg: 'signupEmailForm.fields.email.errors.required',
       },
     ].forEach(({
-      firstName,
-      lastName,
+      name,
       email,
       errorFieldID,
       errorMsg,
@@ -57,12 +45,10 @@ describe('SignupEmailForm', () => {
       const wrapper = shallow(<SignupEmailForm onClientErrorHook={handleClientError} />);
 
       // Sanity check
-      expect(wrapper.find({ testID: 'signupFieldFirstName' }).props().value).toBe('');
-      expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
+      expect(wrapper.find({ testID: 'signupFieldName' }).props().value).toBe('');
       expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-      wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(firstName);
-      wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(lastName);
+      wrapper.find({ testID: 'signupFieldName' }).props().onChangeText(name);
       wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(email);
 
       wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
@@ -77,12 +63,10 @@ describe('SignupEmailForm', () => {
     const wrapper = shallow(<SignupEmailForm onClientErrorHook={handleClientError} />);
 
     // Sanity check
-    expect(wrapper.find({ testID: 'signupFieldFirstName' }).props().value).toBe('');
-    expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
+    expect(wrapper.find({ testID: 'signupFieldName' }).props().value).toBe('');
     expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(validFirstName);
-    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(validLastName);
+    wrapper.find({ testID: 'signupFieldName' }).props().onChangeText(validName);
     wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(invalidEmail);
 
     wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
@@ -91,32 +75,22 @@ describe('SignupEmailForm', () => {
     expect(handleClientError).toBeCalled();
   });
 
-  it('errors when form is submitted with firstName, lastName or email length > MAX_CHARS', () => {
+  it('errors when form is submitted with name or email length > MAX_CHARS', () => {
     [
       {
-        firstName: longFirstName,
-        lastName: validLastName,
+        name: longName,
         email: validEmail,
-        errorFieldID: 'signupFieldFirstName',
-        errorMsg: 'signupEmailForm.fields.firstName.errors.tooLong',
+        errorFieldID: 'signupFieldName',
+        errorMsg: 'signupEmailForm.fields.name.errors.tooLong',
       },
       {
-        firstName: validFirstName,
-        lastName: longLastName,
-        email: validEmail,
-        errorFieldID: 'signupFieldLastName',
-        errorMsg: 'signupEmailForm.fields.lastName.errors.tooLong',
-      },
-      {
-        firstName: validFirstName,
-        lastName: validLastName,
+        name: validName,
         email: longEmail,
         errorFieldID: 'signupFieldEmail',
         errorMsg: 'signupEmailForm.fields.email.errors.tooLong',
       },
     ].forEach(({
-      firstName,
-      lastName,
+      name,
       email,
       errorFieldID,
       errorMsg,
@@ -125,12 +99,10 @@ describe('SignupEmailForm', () => {
       const wrapper = shallow(<SignupEmailForm onClientErrorHook={handleClientError} />);
 
       // Sanity check
-      expect(wrapper.find({ testID: 'signupFieldFirstName' }).props().value).toBe('');
-      expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
+      expect(wrapper.find({ testID: 'signupFieldName' }).props().value).toBe('');
       expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-      wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(firstName);
-      wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(lastName);
+      wrapper.find({ testID: 'signupFieldName' }).props().onChangeText(name);
       wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(email);
 
       wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
@@ -140,35 +112,24 @@ describe('SignupEmailForm', () => {
     });
   });
 
-  it('clears errors when firstName, lastName or email input field is modified after error', () => {
+  it('clears errors when nameor email input field is modified after error', () => {
     [
       {
-        firstName: '',
-        validField: validFirstName,
-        lastName: validLastName,
+        name: '',
+        validField: validName,
         email: validEmail,
-        errorFieldID: 'signupFieldFirstName',
-        errorMsg: 'signupEmailForm.fields.firstName.errors.required',
+        errorFieldID: 'signupFieldName',
+        errorMsg: 'signupEmailForm.fields.Name.errors.required',
       },
       {
-        firstName: validFirstName,
-        lastName: '',
-        validField: validLastName,
-        email: validEmail,
-        errorFieldID: 'signupFieldLastName',
-        errorMsg: 'signupEmailForm.fields.lastName.errors.required',
-      },
-      {
-        firstName: validFirstName,
-        lastName: validLastName,
+        name: validName,
         email: '',
         validField: validEmail,
         errorFieldID: 'signupFieldEmail',
         errorMsg: 'signupEmailForm.fields.email.errors.required',
       },
     ].forEach(({
-      firstName,
-      lastName,
+      name,
       email,
       errorFieldID,
       errorMsg,
@@ -178,12 +139,10 @@ describe('SignupEmailForm', () => {
       const wrapper = shallow(<SignupEmailForm onClientErrorHook={handleClientError} />);
 
       // Sanity check
-      expect(wrapper.find({ testID: 'signupFieldFirstName' }).props().value).toBe('');
-      expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
+      expect(wrapper.find({ testID: 'signupFieldName' }).props().value).toBe('');
       expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-      wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(firstName);
-      wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(lastName);
+      wrapper.find({ testID: 'signupFieldName' }).props().onChangeText(name);
       wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(email);
 
       wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
@@ -212,12 +171,10 @@ describe('SignupEmailForm', () => {
     );
 
     // Sanity check
-    expect(wrapper.find({ testID: 'signupFieldFirstName' }).props().value).toBe('');
-    expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
+    expect(wrapper.find({ testID: 'signupFieldName' }).props().value).toBe('');
     expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(validFirstName);
-    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(validLastName);
+    wrapper.find({ testID: 'signupFieldName' }).props().onChangeText(validName);
     wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(validEmail);
 
     wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
@@ -243,16 +200,13 @@ describe('SignupEmailForm', () => {
     );
 
     // Sanity check
-    expect(wrapper.find({ testID: 'signupFieldFirstName' }).props().value).toBe('');
-    expect(wrapper.find({ testID: 'signupFieldLastName' }).props().value).toBe('');
+    expect(wrapper.find({ testID: 'signupFieldName' }).props().value).toBe('');
     expect(wrapper.find({ testID: 'signupFieldEmail' }).props().value).toBe('');
 
-    wrapper.find({ testID: 'signupFieldFirstName' }).props().onChangeText(validFirstName);
-    wrapper.find({ testID: 'signupFieldLastName' }).props().onChangeText(validLastName);
+    wrapper.find({ testID: 'signupFieldName' }).props().onChangeText(validName);
     wrapper.find({ testID: 'signupFieldEmail' }).props().onChangeText(validEmail);
 
-    expect(wrapper.state().firstName).toBe(validFirstName);
-    expect(wrapper.state().lastName).toBe(validLastName);
+    expect(wrapper.state().name).toBe(validName);
     expect(wrapper.state().email).toBe(validEmail);
 
     wrapper.find({ testID: 'signupButtonSubmit' }).props().onPress();
@@ -261,8 +215,7 @@ describe('SignupEmailForm', () => {
     expect(handleClientCancel).not.toBeCalled();
     expect(handleSuccess).toBeCalledWith(
       expect.objectContaining({
-        firstName: validFirstName,
-        lastName: validLastName,
+        name: validName,
         email: validEmail,
       }),
     );

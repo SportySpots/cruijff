@@ -133,7 +133,7 @@ class SignupEmailForm extends React.PureComponent {
       this.setState({ errors });
       // Scroll to first error field
       const { offsetY } = this.state;
-      const firstErrorKey = ErrorHandling.getFirstError(errors).key; // 'firstName', 'lastName', ...
+      const firstErrorKey = ErrorHandling.getFirstError(errors).key; // 'name', ...
       const y = parseInt(offsetY[firstErrorKey], 10);
       if (this.scroller) {
         this.scroller.scrollTo({ x: 0, y });

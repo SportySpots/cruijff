@@ -23,7 +23,7 @@ const ErrorMsg = styled(Text)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: implement componentWillUpdate in case firstName or lastName changes
+// TODO: implement componentWillUpdate in case (user) name changes
 class AvatarPickerForm extends React.PureComponent {
   constructor(props) {
     super(props);
