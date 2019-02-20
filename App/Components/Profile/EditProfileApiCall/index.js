@@ -15,8 +15,7 @@ class EditProfileApiCall extends React.PureComponent {
     const {
       userUUID,
       userProfileUUID,
-      firstName,
-      lastName,
+      name,
       avatar,
     } = inputFields;
 
@@ -26,7 +25,7 @@ class EditProfileApiCall extends React.PureComponent {
     } */
 
     try {
-      const resName = await SeedorfAPI.updateUserName({ userUUID, firstName, lastName });
+      const resName = await SeedorfAPI.updateUserName({ userUUID, name });
       console.log('RES NAME', resName);
       // Pass event up to parent component in case of error
       if (resName && resName.problem) {

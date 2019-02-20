@@ -63,10 +63,9 @@ const create = () => {
     })
   );
 
-  const updateUserName = ({ userUUID, firstName, lastName }) => (
+  const updateUserName = ({ userUUID, name }) => (
     api.patch(`/users/${userUUID}/`, {
-      first_name: firstName,
-      last_name: lastName,
+      name,
     })
   );
 

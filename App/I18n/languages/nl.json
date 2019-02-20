@@ -60,20 +60,12 @@
 
   "editProfileForm": {
     "fields": {
-      "firstName": {
-        "label": "Voornaam",
+      "name": {
+        "label": "Naam",
         "placeholder": "",
         "errors": {
-          "required": "Voornaam is vereist",
-          "tooLong": "Voornaam is te lang"
-        }
-      },
-      "lastName": {
-        "label": "Achternaam",
-        "placeholder": "",
-        "errors": {
-          "required": "Achternaam is vereist",
-          "tooLong": "Achternaam is te lang"
+          "required": "Naam is vereist",
+          "tooLong": "Naam is te lang"
         }
       },
       "birthYear": {

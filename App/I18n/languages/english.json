@@ -60,20 +60,12 @@
 
   "editProfileForm": {
     "fields": {
-      "firstName": {
-        "label": "First name",
+      "name": {
+        "label": "Full name",
         "placeholder": "",
         "errors": {
-          "required": "First name is required",
-          "tooLong": "First name is too long"
-        }
-      },
-      "lastName": {
-        "label": "Last name",
-        "placeholder": "",
-        "errors": {
-          "required": "Last name is required",
-          "tooLong": "Last name is too long"
+          "required": "Name is required",
+          "tooLong": "Name is too long"
         }
       },
       "birthYear": {
