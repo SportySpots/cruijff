@@ -9,6 +9,7 @@ import CancelGameForm, { MAX_CHARS } from '.';
 
 const validCancelMsg = new Array(MAX_CHARS + 1).join('a'); // aaaaaa... length = MAX_CHARS
 const invalidCancelMsg = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
+const someErrorMsg = 'Some error msg';
 
 const attendee = {
   uuid: 'fb98ffd9-bd20-49f8-9157-fd00d1d6794d',
@@ -95,6 +96,13 @@ describe('CancelGameForm', () => {
 
     expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().error).toBe(I18n.t('cancelGameForm.fields.cancelMsg.errors.tooLong'));
     expect(handleClientError).toBeCalled();
+  });
+
+  it('renders errors props', () => {
+    const wrapper = shallow(<CancelGameForm game={game} />);
+    expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().error).toBe('');
+    wrapper.setProps({ errors: { cancelMsg: [someErrorMsg] } });
+    expect(wrapper.find({ testID: 'cancelGameFormCancelMsgField' }).props().error).toBe(someErrorMsg);
   });
 
   it('calls onSuccessHook when no cancelMsg or cancelMsg.length <= MAX_CHARS is provided', () => {
