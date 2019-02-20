@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import { Linking } from 'react-native';
+import firebase from 'react-native-firebase';
 
 export const Events = {
   SOCIAL_LOGIN_NOT_REGISTERED: 'SOCIAL_LOGIN_NOT_REGISTERED',
@@ -62,7 +62,7 @@ export const urlToEvent = (url) => {
   return null;
 };
 
-Linking.addEventListener('url', async ({ url }) => {
+firebase.links().onLink((url) => {
   const event = urlToEvent(url);
   if (event) {
     IncomingLinks.emitEvent(event);

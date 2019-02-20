@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { AsyncStorage, Linking } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { Buffer } from 'buffer';
+import firebase from 'react-native-firebase';
 import SeedorfAPI from '../Services/SeedorfApi';
 import { client } from '../GraphQL';
 import I18n from '../I18n';
@@ -85,7 +86,7 @@ export class UserProvider extends React.Component {
     await AsyncStorage.setItem('firstRunDone', 'true');
     this.setState({ firstRun });
 
-    const initialURL = await Linking.getInitialURL();
+    const initialURL = await firebase.links().getInitialLink();
     if (initialURL) {
       const event = urlToEvent(initialURL);
       if (event) {
