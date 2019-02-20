@@ -10,6 +10,7 @@ import EditProfileForm, { MAX_CHARS } from '.';
 
 const validName = 'John Doe';
 const longName = new Array(MAX_CHARS + 2).join('a'); // aaaaaa... length = MAX_CHARS + 1
+const someErrorMsg = 'Some error msg';
 
 describe('EditProfileForm', () => {
   let user;
@@ -137,6 +138,13 @@ describe('EditProfileForm', () => {
     expect(handleBefore).toBeCalled();
     expect(handleClientCancel).toBeCalled();
     expect(handleSuccess).not.toBeCalled();
+  });
+
+  it('renders errors props', () => {
+    const wrapper = shallow(<EditProfileForm user={user} />);
+    expect(wrapper.find({ testID: 'editProfileFieldName' }).props().error).toBe('');
+    wrapper.setProps({ errors: { name: [someErrorMsg] } });
+    expect(wrapper.find({ testID: 'editProfileFieldName' }).props().error).toBe(someErrorMsg);
   });
 
   it('calls onSuccessHook when valid name is provided', () => {
