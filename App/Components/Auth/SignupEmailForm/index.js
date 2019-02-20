@@ -176,7 +176,7 @@ class SignupEmailForm extends React.PureComponent {
             onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'name', nativeEvent }); }}
           >
             <TextField
-              testID="signupFieldname"
+              testID="signupFieldName"
               label={I18n.t('signupEmailForm.fields.name.label')}
               placeholder={I18n.t('signupEmailForm.fields.name.placeholder')}
               value={name}

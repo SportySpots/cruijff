@@ -119,7 +119,7 @@ describe('SignupEmailForm', () => {
         validField: validName,
         email: validEmail,
         errorFieldID: 'signupFieldName',
-        errorMsg: 'signupEmailForm.fields.Name.errors.required',
+        errorMsg: 'signupEmailForm.fields.name.errors.required',
       },
       {
         name: validName,
