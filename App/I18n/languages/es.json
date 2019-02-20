@@ -408,7 +408,7 @@
     "title": "Describe la actividad",
     "footer": {
       "backBtnLabel": "Atrás",
-      "nextBtnLabel": "Invitar"
+      "nextBtnLabel": "Publicar"
     },
     "fields": {
       "title": {
