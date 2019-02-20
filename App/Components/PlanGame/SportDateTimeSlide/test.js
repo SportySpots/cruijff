@@ -17,6 +17,7 @@ let validDate;
 let validTime;
 const validDuration = 120;
 const validCapacity = 12;
+const someErrorMsg = 'Some error msg';
 
 describe('SportDateTimeSlide', () => {
   beforeEach(() => {
@@ -105,6 +106,26 @@ describe('SportDateTimeSlide', () => {
       expect(handleChange).toBeCalledWith(
         expect.objectContaining({ fieldName, value }),
       );
+    });
+  });
+
+  it('renders errors props', () => {
+    [
+      { fieldName: 'sport', testID: 'pickSport' },
+      { fieldName: 'date', testID: 'pickDate' },
+      { fieldName: 'time', testID: 'pickTime' },
+      // { fieldName: 'duration', testID: 'pickDuration' },
+      // { fieldName: 'capacity', testID: 'pickCapacity' },
+    ].forEach(({ fieldName, testID }) => {
+      const wrapper = shallow(<SportDateTimeSlide />);
+      expect(wrapper.find({ testID }).props().error).toBe('');
+      wrapper.setProps({
+        errors: {
+          ...cloneDeep(INIT_ERRORS),
+          [fieldName]: [someErrorMsg],
+        },
+      });
+      expect(wrapper.find({ testID }).props().error).toBe(someErrorMsg);
     });
   });
 
