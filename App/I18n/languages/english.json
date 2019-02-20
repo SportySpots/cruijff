@@ -21,7 +21,7 @@
   "splashScreen": {
     "title": "Discover sport locations and activities near you",
     "btnLabel": "Start discovering",
-    "loginLink": "Log in",
+    "loginLink": "Already signed up? Log in",
     "signupLink": "Sign up"
   },
 

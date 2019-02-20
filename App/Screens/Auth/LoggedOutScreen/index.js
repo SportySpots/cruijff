@@ -51,7 +51,7 @@ const LoggedOutScreen = ({ closable, onClose, navigation }) => (
           testID="profileButtonSignup"
           label={I18n.t('loggedOutScreen.signupBtnLabel')}
           variant="default"
-          onPress={() => { navigation.navigate('SignupScreen'); }}
+          onPress={() => { navigation.navigate('SignupEmailScreen'); }}
         />
       </ButtonContainer>
       <Spacer size="L" />
