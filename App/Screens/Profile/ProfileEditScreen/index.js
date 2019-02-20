@@ -22,6 +22,7 @@ const ProfileEditScreen = ({ user, refresh, navigation }) => (
   <FormProps>
     {({
       disabled,
+      errors,
       handleBefore,
       handleClientCancel,
       handleClientError,
@@ -43,6 +44,7 @@ const ProfileEditScreen = ({ user, refresh, navigation }) => (
             <EditProfileForm
               user={user}
               disabled={disabled}
+              errors={errors}
               onBeforeHook={handleBefore}
               onClientCancelHook={handleClientCancel}
               onClientErrorHook={handleClientError}

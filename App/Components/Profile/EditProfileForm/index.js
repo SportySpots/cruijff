@@ -49,7 +49,17 @@ class EditProfileForm extends React.PureComponent {
     };
   }
 
-  // TODO: display errors coming from the server
+  componentWillReceiveProps({ errors }) {
+    // Display (server side) errors coming from parent component
+    if (errors) {
+      this.setState({
+        errors: {
+          ...cloneDeep(INIT_ERRORS),
+          ...errors,
+        },
+      });
+    }
+  }
 
   clearErrors = () => {
     this.setState({ errors: cloneDeep(INIT_ERRORS) });
@@ -202,6 +212,7 @@ class EditProfileForm extends React.PureComponent {
 EditProfileForm.propTypes = {
   user: propType(userDetailsFragment).isRequired,
   disabled: PropTypes.bool,
+  errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,
   onClientCancelHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
@@ -210,6 +221,7 @@ EditProfileForm.propTypes = {
 
 EditProfileForm.defaultProps = {
   disabled: false,
+  errors: null,
   onBeforeHook: () => {},
   onClientCancelHook: () => {},
   onClientErrorHook: () => {},
