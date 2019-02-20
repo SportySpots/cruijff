@@ -37,14 +37,3 @@ storiesOf('Screens.Plan.PlanGameScreen', module)
       </Row>
     </Block>
   ));
-
-/* .add('PlanGameScreen inputs no errors or labels', () => (
-<Block bgColor={Colors.primaryGreen}>
-  <Row>
-    <DatePickerField />
-    <View style={{ flexGrow: 1 }}>
-      <DurationPickerField />
-    </View>
-  </Row>
-</Block>
-)) */

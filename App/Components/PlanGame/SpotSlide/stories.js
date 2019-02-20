@@ -13,8 +13,8 @@ storiesOf('PlanGame.SpotSlide', module)
       query={GET_SPORTS}
       variables={{ uuid: navigation.state.params.uuid }}
     >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
+      {({ loading, error, data }) => (
+        loading || error ? null : (
           <Block bgColor={Colors.silver}>
             <SpotSlide
               sport={data.sports[0]}

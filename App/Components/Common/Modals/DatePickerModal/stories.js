@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import ModalProps from '../../../../RenderProps/modal-props';
 import RaisedButton from '../../RaisedButton';
-import DatePickerModal from './index';
+import DatePickerModal from '.';
 
 const Container = () => (
   <ModalProps>

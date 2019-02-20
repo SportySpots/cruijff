@@ -58,6 +58,7 @@ class EditGameScreen extends React.PureComponent {
       <FormProps>
         {({
           disabled,
+          errors,
           handleBefore,
           handleClientCancel,
           handleClientError,
@@ -116,6 +117,7 @@ class EditGameScreen extends React.PureComponent {
                     <EditGameForm
                       game={data.game}
                       disabled={disabled}
+                      errors={errors}
                       onBeforeHook={handleBefore}
                       onClientCancelHook={handleClientCancel}
                       onClientErrorHook={handleClientError}

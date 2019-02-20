@@ -80,12 +80,13 @@ function loadStories() {
   require('../App/Components/Layouts/FixedTopLayout/stories');
   require('../App/Components/Onboarding/LocationSlide/stories');
   require('../App/Components/Onboarding/OnboardingForm/stories');
-  require('../App/Components/PlanGame/DescriptionSlide/stories');
   require('../App/Components/PlanGame/InviteOnly/stories');
+  require('../App/Components/PlanGame/PlanGameForm/stories');
   require('../App/Components/PlanGame/ShareGameForm/stories');
   require('../App/Components/PlanGame/ShareLink/stories');
   require('../App/Components/PlanGame/SportDateTimeSlide/stories');
   require('../App/Components/PlanGame/SpotSlide/stories');
+  require('../App/Components/PlanGame/TitleDescriptionSlide/stories');
   require('../App/Components/Profile/EditProfileForm/stories');
   require('../App/Components/Profile/ProfileDetails/stories');
   require('../App/Components/Profile/ProfileTabs/stories');
@@ -201,12 +202,13 @@ const stories = [
   '../App/Components/Layouts/FixedTopLayout/stories',
   '../App/Components/Onboarding/LocationSlide/stories',
   '../App/Components/Onboarding/OnboardingForm/stories',
-  '../App/Components/PlanGame/DescriptionSlide/stories',
   '../App/Components/PlanGame/InviteOnly/stories',
+  '../App/Components/PlanGame/PlanGameForm/stories',
   '../App/Components/PlanGame/ShareGameForm/stories',
   '../App/Components/PlanGame/ShareLink/stories',
   '../App/Components/PlanGame/SportDateTimeSlide/stories',
   '../App/Components/PlanGame/SpotSlide/stories',
+  '../App/Components/PlanGame/TitleDescriptionSlide/stories',
   '../App/Components/Profile/EditProfileForm/stories',
   '../App/Components/Profile/ProfileDetails/stories',
   '../App/Components/Profile/ProfileTabs/stories',

@@ -39,7 +39,17 @@ class CancelGameForm extends React.PureComponent {
     errors: cloneDeep(INIT_ERRORS),
   }
 
-  // TODO: display server side errors
+  componentWillReceiveProps({ errors }) {
+    // Display (server side) errors coming from parent component
+    if (errors) {
+      this.setState({
+        errors: {
+          ...cloneDeep(INIT_ERRORS),
+          ...errors,
+        },
+      });
+    }
+  }
 
   clearErrors = () => {
     this.setState({ errors: cloneDeep(INIT_ERRORS) });
@@ -187,6 +197,7 @@ class CancelGameForm extends React.PureComponent {
 CancelGameForm.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
   disabled: PropTypes.bool,
+  errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,
   onClientCancelHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
@@ -196,6 +207,7 @@ CancelGameForm.propTypes = {
 
 CancelGameForm.defaultProps = {
   disabled: false,
+  errors: null,
   onBeforeHook: () => {},
   onClientCancelHook: () => {},
   onClientErrorHook: () => {},

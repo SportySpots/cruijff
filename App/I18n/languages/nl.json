@@ -334,80 +334,96 @@
         "okBtnLabel": "Ja",
         "cancelBtnLabel": "Nee"
       }
+    }
+  },
+
+  "sportDateTimeSlide": {
+    "title": "Plan een activiteit",
+    "footer": {
+      "backBtnLabel": "Terug",
+      "nextBtnLabel": "Spot"
     },
-    "sportDateTimeSlide": {
-      "title": "Plan een activiteit",
-      "footer": {
-        "nextBtnLabel": "Spot",
-        "backBtnLabel": "Terug"
-      },
-      "fields": {
-        "sport": {
-          "prefix": "Ik plan",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "date": {
-          "prefix": "op",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "time": {
-          "prefix": "om",
-          "suffix": "",
-          "label": "",
-          "placeholder": "",
-          "errors": {
-            "pastDateTime": "Selecteer een datum-tijd in de toekomst"
-          }
-        },
-        "duration": {
-          "prefix": "voor",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "capacity": {
-          "prefix": "met",
-          "suffix": "personen",
-          "label": "",
-          "placeholder": ""
+    "fields": {
+      "sport": {
+        "prefix": "Ik plan",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Sport is vereist"
         }
-      }
-    },
-    "spotSlide": {
-      "title": "Vind een spot",
-      "footer": {
-        "nextBtnLabel": "Beschrijving",
-        "backBtnLabel": "Terug"
-      }
-    },
-    "descriptionSlide": {
-      "title": "Omschrijving",
-      "footer": {
-        "nextBtnLabel": "Uitnodigen",
-        "backBtnLabel": "Terug"
       },
-      "fields": {
-        "title": {
-          "prefix": "",
-          "suffix": "",
-          "label": "Titel",
-          "placeholder": "Titel",
-          "defaultValue": "%{username}'s game"
-        },
-        "description": {
-          "prefix": "",
-          "suffix": "",
-          "label": "Beschrijving",
-          "placeholder": "Schrijf hier extra details over de activiteit",
-          "errors": {
-            "required": "",
-            "tooShort": "",
-            "tooLong": "Beschrijving is te lang"
-          }
+      "date": {
+        "prefix": "op",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Datum is vereist"
+        }
+      },
+      "time": {
+        "prefix": "om",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Tijd is vereist",
+          "pastDateTime": "Selecteer een datum-tijd in de toekomst",
+          "tooSoon": "Starttijd moet over 15 minuten zijn"
+        }
+      },
+      "duration": {
+        "prefix": "voor",
+        "suffix": "",
+        "label": "",
+        "placeholder": ""
+      },
+      "capacity": {
+        "prefix": "met",
+        "suffix": "personen",
+        "label": "",
+        "placeholder": ""
+      }
+    }
+  },
+
+  "spotSlide": {
+    "title": "Vind een spot",
+    "footer": {
+      "backBtnLabel": "Terug",
+      "nextBtnLabel": "Beschrijving"
+    }
+  },
+
+  "titleDescriptionSlide": {
+    "title": "Omschrijving",
+    "footer": {
+      "backBtnLabel": "Terug",
+      "nextBtnLabel": "Publiceren"
+    },
+    "fields": {
+      "title": {
+        "prefix": "",
+        "suffix": "",
+        "label": "Titel",
+        "placeholder": "Titel",
+        "defaultValue": "%{username}'s game",
+        "errors": {
+          "required": "Titel is vereist",
+          "tooShort": "",
+          "tooLong": "Titel is te lang"
+        }
+      },
+      "description": {
+        "prefix": "",
+        "suffix": "",
+        "label": "Beschrijving",
+        "placeholder": "Schrijf hier extra details over de activiteit",
+        "errors": {
+          "required": "",
+          "tooShort": "",
+          "tooLong": "Beschrijving is te lang"
         }
       }
     }

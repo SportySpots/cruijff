@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Text } from 'react-native';
 import Colors from '../../../Themes/Colors';
-import Block from './index';
+import Block from '.';
 
 storiesOf('Common.Block', module)
   .add('Block', () => (

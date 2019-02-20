@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import ShareLink from './index';
+import ShareLink from '.';
 
 storiesOf('PlanGame.ShareLink', module)
   .add('ShareLink', () => (

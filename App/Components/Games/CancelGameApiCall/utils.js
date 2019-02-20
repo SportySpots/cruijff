@@ -11,8 +11,8 @@ const curateFieldName = (fieldName) => {
   //   default:
   //     return 'email';
   // }
-  // Assign all error messages to title field
-  return 'title';
+  // Assign all error messages to cancelMsg field
+  return 'cancelMsg';
 };
 
 /**

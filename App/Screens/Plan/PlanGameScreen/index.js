@@ -66,6 +66,7 @@ class PlanGameScreen extends React.Component {
       <FormProps>
         {({
           disabled,
+          errors,
           handleBefore,
           handleClientCancel,
           handleClientError,
@@ -101,6 +102,7 @@ class PlanGameScreen extends React.Component {
                   <PlanGameForm
                     username={username}
                     disabled={disabled}
+                    errors={errors}
                     onBeforeHook={handleBefore}
                     onClientCancelHook={handleClientCancel}
                     onClientErrorHook={handleClientError}

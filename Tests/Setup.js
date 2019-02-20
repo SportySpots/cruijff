@@ -2,6 +2,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import '../storybook/setup_faker';
 import './Mocks/firebase';
+import { curatedSpots } from '../App/Components/Spots/SpotsList/utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -38,6 +39,12 @@ jest.mock('react-native-cookies', () => ({
   getInitialURL: jest.fn(),
 }));
 
+jest.mock('react-native-firebase', () => ({
+  links: () => ({
+    onLink: jest.fn(),
+  }),
+}));
+
 jest.mock('react-native-localize', () => jest.fn());
 
 jest.mock('../App/Themes/Images.js', () => jest.fn());
@@ -64,6 +71,10 @@ jest.mock('TextInput', () => {
   TextInput.propTypes = RealComponent.propTypes;
   return TextInput;
 });
+
+jest.mock('../App/Components/Spots/SpotsList/utils.js', () => ({
+  curatedSpots: jest.fn(),
+}));
 
 // jest.mock('react-native/Libraries/Storage/AsyncStorage', () => ({
 //   AsyncStorage: {

@@ -1,3 +1,4 @@
+import '../App/prototypes';
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';

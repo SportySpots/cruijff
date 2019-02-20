@@ -18,6 +18,7 @@ let validTime;
 const validDuration = 120;
 const longName = new Array(NAME_MAX_CHARS + 2).join('a'); // aaaaaa... length = NAME_MAX_CHARS + 1
 const longDescription = new Array(DESCRIPTION_MAX_CHARS + 2).join('a'); // aaaaaa... length = DESCRIPTION_MAX_CHARS + 1
+const someErrorMsg = 'Some error msg';
 
 const attendees = [
   {
@@ -368,7 +369,23 @@ describe('EditGameForm', () => {
     expect(handleSuccess).not.toBeCalled();
   });
 
-  it.skip('calls onSuccessHook when valid name, date, time and duration are provided', () => {
+  it('renders errors props', () => {
+    [
+      { fieldName: 'name', testID: 'editGameFieldName' },
+      { fieldName: 'date', testID: 'editGameFieldDate' },
+      { fieldName: 'time', testID: 'editGameFieldTime' },
+      { fieldName: 'duration', testID: 'editGameFieldDuration' },
+      { fieldName: 'capacity', testID: 'editGameFieldCapacity' },
+      { fieldName: 'description', testID: 'editGameFieldDescription' },
+    ].forEach(({ fieldName, testID }) => {
+      const wrapper = shallow(<EditGameForm game={game} />);
+      expect(wrapper.find({ testID }).props().error).toBe('');
+      wrapper.setProps({ errors: { [fieldName]: [someErrorMsg] } });
+      expect(wrapper.find({ testID }).props().error).toBe(someErrorMsg);
+    });
+  });
+
+  it('calls onSuccessHook when valid name, date, time and duration are provided', () => {
     const handleBefore = jest.fn();
     const handleClientCancel = jest.fn();
     const handleClientError = jest.fn();
@@ -376,7 +393,7 @@ describe('EditGameForm', () => {
 
     const wrapper = shallow(
       <EditGameForm
-        game={game}
+        game={Object.assign({}, game, { capacity: 4, attendees })}
         onBeforeHook={handleBefore}
         onClientCancelHook={handleClientCancel}
         onClientErrorHook={handleClientError}
@@ -404,6 +421,7 @@ describe('EditGameForm', () => {
 
     expect(handleBefore).toBeCalled();
     expect(handleClientCancel).not.toBeCalled();
+    expect(handleClientError).not.toBeCalled();
     expect(handleSuccess).toBeCalledWith(
       expect.objectContaining({
         name: validName,

@@ -334,80 +334,96 @@
         "okBtnLabel": "Yes",
         "cancelBtnLabel": "No"
       }
+    }
+  },
+
+  "sportDateTimeSlide": {
+    "title": "Plan an activity",
+    "footer": {
+      "backBtnLabel": "Back",
+      "nextBtnLabel": "Spot"
     },
-    "sportDateTimeSlide": {
-      "title": "Plan an activity",
-      "footer": {
-        "nextBtnLabel": "Spot",
-        "backBtnLabel": "Back"
-      },
-      "fields": {
-        "sport": {
-          "prefix": "I want to play",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "date": {
-          "prefix": "on",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "time": {
-          "prefix": "at",
-          "suffix": "",
-          "label": "",
-          "placeholder": "",
-          "errors": {
-            "pastDateTime": "Select a date-time in the future"
-          }
-        },
-        "duration": {
-          "prefix": "during",
-          "suffix": "",
-          "label": "",
-          "placeholder": ""
-        },
-        "capacity": {
-          "prefix": "with",
-          "suffix": "people",
-          "label": "",
-          "placeholder": ""
+    "fields": {
+      "sport": {
+        "prefix": "I want to play",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Sport is required"
         }
-      }
-    },
-    "spotSlide": {
-      "title": "Pick a spot",
-      "footer": {
-        "nextBtnLabel": "Description",
-        "backBtnLabel": "Back"
-      }
-    },
-    "descriptionSlide": {
-      "title": "Describe the activity",
-      "footer": {
-        "nextBtnLabel": "Invite",
-        "backBtnLabel": "Back"
       },
-      "fields": {
-        "title": {
-          "prefix": "",
-          "suffix": "",
-          "label": "Title",
-          "placeholder": "Title",
-          "defaultValue": "%{username}'s game"
-        },
-        "description": {
-          "prefix": "",
-          "suffix": "",
-          "label": "Description",
-          "placeholder": "Write extra details about the activity",
-          "errors": {
-            "required": "",
-            "tooShort": "",
-            "tooLong": "Description is too long"
-          }
+      "date": {
+        "prefix": "on",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Date is required"
+        }
+      },
+      "time": {
+        "prefix": "at",
+        "suffix": "",
+        "label": "",
+        "placeholder": "",
+        "errors": {
+          "required": "Time is required",
+          "pastDateTime": "Select a date-time in the future",
+          "tooSoon": "Start time should be at least 15 minutes from now"
+        }
+      },
+      "duration": {
+        "prefix": "during",
+        "suffix": "",
+        "label": "",
+        "placeholder": ""
+      },
+      "capacity": {
+        "prefix": "with",
+        "suffix": "people",
+        "label": "",
+        "placeholder": ""
+      }
+    }
+  },
+
+  "spotSlide": {
+    "title": "Pick a spot",
+    "footer": {
+      "backBtnLabel": "Back",
+      "nextBtnLabel": "Description"
+    }
+  },
+
+  "titleDescriptionSlide": {
+    "title": "Describe the activity",
+    "footer": {
+      "backBtnLabel": "Back",
+      "nextBtnLabel": "Publish"
+    },
+    "fields": {
+      "title": {
+        "prefix": "",
+        "suffix": "",
+        "label": "Title",
+        "placeholder": "Title",
+        "defaultValue": "%{username}'s game",
+        "errors": {
+          "required": "Title is required",
+          "tooShort": "",
+          "tooLong": "Title is too long"
+        }
+      },
+      "description": {
+        "prefix": "",
+        "suffix": "",
+        "label": "Description",
+        "placeholder": "Write extra details about the activity",
+        "errors": {
+          "required": "",
+          "tooShort": "",
+          "tooLong": "Description is too long"
         }
       }
     }

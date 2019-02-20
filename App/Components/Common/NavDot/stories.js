@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react-native';
 import { View } from 'react-native';
 import Colors from '../../../Themes/Colors';
-import NavDot from './index';
+import NavDot from '.';
 
 const Container = ({ active }) => (
   <View style={{ backgroundColor: Colors.black, height: 100 }}>

@@ -50,9 +50,9 @@ describe('EditProfileForm', () => {
     );
 
     // Sanity check
-    expect(wrapper.find({ testID: 'editProfileFieldName' }).props().value).not.toBeNull();
+    expect(wrapper.find({ testID: errorFieldID }).props().value).not.toBeNull();
 
-    wrapper.find({ testID: 'editProfileFieldName' }).props().onChangeText(name);
+    wrapper.find({ testID: errorFieldID }).props().onChangeText(name);
 
     wrapper.find({ testID: 'editProfileSubmitButton' }).props().onPress();
 
@@ -73,9 +73,9 @@ describe('EditProfileForm', () => {
     );
 
     // Sanity check
-    expect(wrapper.find({ testID: 'editProfileFieldName' }).props().value).not.toBeNull();
+    expect(wrapper.find({ testID: errorFieldID }).props().value).not.toBeNull();
 
-    wrapper.find({ testID: 'editProfileFieldName' }).props().onChangeText(name);
+    wrapper.find({ testID: errorFieldID }).props().onChangeText(name);
 
     wrapper.find({ testID: 'editProfileSubmitButton' }).props().onPress();
 
@@ -98,9 +98,9 @@ describe('EditProfileForm', () => {
     );
 
     // Sanity check
-    expect(wrapper.find({ testID: 'editProfileFieldName' }).props().value).not.toBeNull();
+    expect(wrapper.find({ testID: errorFieldID }).props().value).not.toBeNull();
 
-    wrapper.find({ testID: 'editProfileFieldName' }).props().onChangeText(name);
+    wrapper.find({ testID: errorFieldID }).props().onChangeText(name);
 
     wrapper.find({ testID: 'editProfileSubmitButton' }).props().onPress();
 

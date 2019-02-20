@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import SeedorfAPI from '../../../Services/SeedorfApi';
+import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: can we extract the 'if (res && res.problem) {...' logic into a method?
 class PlanGameApiCall extends React.PureComponent {
   handleCreate = async (inputFields) => {
     const { onPlanSuccess, onPlanError } = this.props;
@@ -32,9 +34,11 @@ class PlanGameApiCall extends React.PureComponent {
     const endTime = startTime.clone().add(duration, 'minutes');
 
     // TODO: replace this with a single endpoint
+    let gameUUID;
+
     try {
       // Create game
-      const gameResponse = await SeedorfAPI.createGame({
+      const res = await SeedorfAPI.createGame({
         title,
         startTZ: userTZ,
         startTime: startTime.toISOString(),
@@ -43,28 +47,75 @@ class PlanGameApiCall extends React.PureComponent {
         capacity,
         description,
       });
-      const gameUUID = gameResponse.data.uuid;
-      console.log('GAME_RESPONSE', gameResponse);
+      console.log('CREATE GAME RESPONSE', res);
 
-      // Set sport
-      const sportResponse = await SeedorfAPI.setGameSport({ gameUUID, sport });
-      console.log('SPORT_RESPONSE', sportResponse);
-
-      // Set spot
-      const spotResponse = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
-      console.log('SPOT_RESPONSE', spotResponse);
-
-      // Set game status to 'planned'
-      const statusResponse = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
-      console.log('CREATED GAME', statusResponse);
-
+      gameUUID = res.data.uuid;
 
       // Pass event up to parent component
-      onPlanSuccess({ gameUUID });
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onPlanError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);
+      return;
     }
+
+    try {
+      // Set sport
+      const res = await SeedorfAPI.setGameSport({ gameUUID, sport });
+      console.log('SET SPORT RESPONSE', res);
+
+      // Pass event up to parent component
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onPlanError(errors);
+        return;
+      }
+    } catch (exc) {
+      console.log(exc);
+      onPlanError(exc);
+      return;
+    }
+
+    try {
+      // Set spot
+      const res = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
+      console.log('SET SPOT RESPONSE', res);
+
+      // Pass event up to parent component
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onPlanError(errors);
+        return;
+      }
+    } catch (exc) {
+      console.log(exc);
+      onPlanError(exc);
+      return;
+    }
+
+    try {
+      // Set game status to 'planned'
+      const res = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
+      console.log('SET GAME STATUS TO PLANNED', res);
+
+      // Pass event up to parent component
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onPlanError(errors);
+        return;
+      }
+    } catch (exc) {
+      console.log(exc);
+      onPlanError(exc);
+      return;
+    }
+
+    // Pass event up to parent component
+    onPlanSuccess({ gameUUID });
   }
 
   render() {

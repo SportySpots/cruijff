@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import curateErrors from './utils';
 import SeedorfApi from '../../../Services/SeedorfApi';
+// import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -16,10 +16,10 @@ class LoginEmailApiCall extends React.PureComponent {
     const { email } = inputFields;
 
     try {
-      const response = await SeedorfApi.sendMagicLoginLink(email);
+      const res = await SeedorfApi.sendMagicLoginLink(email);
 
       // Pass event up to parent component
-      if (response && response.problem) {
+      if (res && res.problem) {
         // console.log('RESPONSE', response.data);
         // const errors = curateErrors(response.data);
         // onLoginError(errors);

@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components';
-import Row from './index';
+import Row from '.';
 
 const Container = styled.View`
   height: 180px;

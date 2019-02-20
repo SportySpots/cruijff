@@ -4,7 +4,7 @@ import { Query } from 'react-apollo';
 import Colors from '../../../Themes/Colors';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import Block from '../../Common/Block';
-import GamesList from './index';
+import GamesList from '.';
 
 const Container = () => (
   <Query query={GET_GAMES_LIST}>

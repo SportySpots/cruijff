@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Text } from 'react-native';
-import DotSpacer from './index';
+import DotSpacer from '.';
 import Row from '../Row';
 
 storiesOf('Common.DotSpacer', module)

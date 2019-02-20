@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View, Text } from 'react-native';
-import Calendar from './index';
+import Calendar from '.';
 
 class Container extends React.PureComponent {
   state = {

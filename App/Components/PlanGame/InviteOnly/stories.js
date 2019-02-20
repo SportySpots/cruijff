@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import InviteOnly from './index';
+import InviteOnly from '.';
 
 storiesOf('PlanGame.InviteOnly', module)
   .add('InviteOnly isPublic', () => (

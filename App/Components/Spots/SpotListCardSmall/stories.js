@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Block from '../../Common/Block';
-import SpotListCardSmall from './index';
+import SpotListCardSmall from '.';
 
 const StyledView = styled.View`
   height: 80px;

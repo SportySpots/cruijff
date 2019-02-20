@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components';
 import Row from '../Row';
-import Spacer from './index';
+import Spacer from '.';
 
 const HorizontalBlock = styled.View`
   height: 100px;

@@ -16,17 +16,16 @@ class SignupEmailApiCall extends React.PureComponent {
     const { name, email } = inputFields;
 
     try {
-      const response = await signup({ name, email });
-      // const response = undefined;
+      const res = await signup({ name, email });
 
       // Pass event up to parent component
-      if (response && response.problem) {
-        console.log('RESPONSE', response.data);
-        const errors = curateErrors(response.data);
+      if (res && res.problem) {
+        console.log('RESPONSE', res.data);
+        const errors = curateErrors(res.data);
         console.log('CURATED ERRORS', errors);
         onSignupError(errors);
       } else {
-        // onSignupSuccess({ token: response.data.token });
+        // onSignupSuccess({ token: res.data.token });
         onSignupSuccess();
       }
     } catch (exc) {

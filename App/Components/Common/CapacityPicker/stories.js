@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import CapacityPicker from './index';
+import CapacityPicker from '.';
 
 class Container extends React.PureComponent {
   state = { value: null }

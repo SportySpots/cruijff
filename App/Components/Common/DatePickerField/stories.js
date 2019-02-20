@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
-import DatePickerField from './index';
+import DatePickerField from '.';
 
 class Container extends React.PureComponent {
   state = { value: null }

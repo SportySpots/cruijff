@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import Block from '../Block';
-import RaisedButton from './index';
+import RaisedButton from '.';
 
 storiesOf('Common.RaisedButton', module)
   .add('RaisedButton default', () => (

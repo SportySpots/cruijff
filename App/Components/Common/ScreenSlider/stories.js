@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import ScreenSlider from './index';
+import ScreenSlider from '.';
 
 const data = [1, 2, 3];
 const colors = ['#f00', '#f00', '#0f0', '#00f'];

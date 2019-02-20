@@ -105,6 +105,18 @@ class EditGameForm extends React.PureComponent {
     // console.log('STATE', this.state);
   }
 
+  componentWillReceiveProps({ errors }) {
+    // Display (server side) errors coming from parent component
+    if (errors) {
+      this.setState({
+        errors: {
+          ...cloneDeep(INIT_ERRORS),
+          ...errors,
+        },
+      });
+    }
+  }
+
   clearErrors = () => {
     this.setState({ errors: cloneDeep(INIT_ERRORS) });
   };
@@ -165,8 +177,9 @@ class EditGameForm extends React.PureComponent {
       const minutes = time.minutes();
       const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
       const now = moment.utc();
+      const diff = dateTime.diff(now, 'seconds');
 
-      if (dateTime.diff(now) < 0) {
+      if (diff < 0) {
         errors.time.push('editGameForm.fields.time.errors.pastDateTime');
       }
     }
@@ -417,6 +430,7 @@ class EditGameForm extends React.PureComponent {
 EditGameForm.propTypes = {
   game: propType(gameDetailsFragment).isRequired,
   disabled: PropTypes.bool,
+  errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,
   onClientCancelHook: PropTypes.func,
   onClientErrorHook: PropTypes.func,
@@ -425,6 +439,7 @@ EditGameForm.propTypes = {
 
 EditGameForm.defaultProps = {
   disabled: false,
+  errors: null,
   onBeforeHook: () => {},
   onClientCancelHook: () => {},
   onClientErrorHook: () => {},

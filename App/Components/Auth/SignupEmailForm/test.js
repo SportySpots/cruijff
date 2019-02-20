@@ -112,7 +112,7 @@ describe('SignupEmailForm', () => {
     });
   });
 
-  it('clears errors when nameor email input field is modified after error', () => {
+  it('clears errors when name or email input field is modified after error', () => {
     [
       {
         name: '',

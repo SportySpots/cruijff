@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
-import SpotMap from './index';
+import SpotMap from '.';
 
 storiesOf('Spots.SpotMap', module)
   .add('SpotMap', () => (

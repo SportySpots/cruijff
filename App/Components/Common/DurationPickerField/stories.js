@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
-import DurationPickerField from './index';
+import DurationPickerField from '.';
 
 class Container extends React.PureComponent {
   state = { value: '' }

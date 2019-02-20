@@ -1,16 +1,15 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
+import cloneDeep from 'lodash/cloneDeep';
 import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
-import SportDateTimeSlide from './index';
+import SportDateTimeSlide, { INIT_STATE, INIT_ERRORS } from '.';
 
 class Container extends React.PureComponent {
   state = {
-    sport: null,
-    date: null,
-    time: null,
-    capacity: null,
+    ...cloneDeep(INIT_STATE),
+    errors: cloneDeep(INIT_ERRORS),
   }
 
   handleChange = ({ fieldName, value }) => {
@@ -19,21 +18,12 @@ class Container extends React.PureComponent {
 
   render() {
     const { theme } = this.props;
-    const {
-      sport,
-      date,
-      time,
-      capacity,
-    } = this.state;
 
     return (
       <SportDateTimeSlide
         theme={theme}
-        sport={sport}
-        date={date}
-        time={time}
-        capacity={capacity}
         onChange={this.handleChange}
+        {...this.state}
       />
     );
   }
