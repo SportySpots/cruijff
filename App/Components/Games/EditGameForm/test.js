@@ -18,6 +18,7 @@ let validTime;
 const validDuration = 120;
 const longName = new Array(NAME_MAX_CHARS + 2).join('a'); // aaaaaa... length = NAME_MAX_CHARS + 1
 const longDescription = new Array(DESCRIPTION_MAX_CHARS + 2).join('a'); // aaaaaa... length = DESCRIPTION_MAX_CHARS + 1
+const someErrorMsg = 'Some error msg';
 
 const attendees = [
   {
@@ -369,6 +370,22 @@ describe('EditGameForm', () => {
     expect(handleBefore).toBeCalled();
     expect(handleClientCancel).toBeCalled();
     expect(handleSuccess).not.toBeCalled();
+  });
+
+  it('renders errors props', () => {
+    [
+      { fieldName: 'name', testID: 'editGameFieldName' },
+      { fieldName: 'date', testID: 'editGameFieldDate' },
+      { fieldName: 'time', testID: 'editGameFieldTime' },
+      { fieldName: 'duration', testID: 'editGameFieldDuration' },
+      { fieldName: 'capacity', testID: 'editGameFieldCapacity' },
+      { fieldName: 'description', testID: 'editGameFieldDescription' },
+    ].forEach(({ fieldName, testID }) => {
+      const wrapper = shallow(<EditGameForm game={game} />);
+      expect(wrapper.find({ testID }).props().error).toBe('');
+      wrapper.setProps({ errors: { [fieldName]: [someErrorMsg] } });
+      expect(wrapper.find({ testID }).props().error).toBe(someErrorMsg);
+    });
   });
 
   it('calls onSuccessHook when valid name, date, time and duration are provided', () => {
