@@ -39,6 +39,12 @@ jest.mock('react-native-cookies', () => ({
   getInitialURL: jest.fn(),
 }));
 
+jest.mock('react-native-firebase', () => ({
+  links: () => ({
+    onLink: jest.fn(),
+  }),
+}));
+
 jest.mock('react-native-localize', () => jest.fn());
 
 jest.mock('../App/Themes/Images.js', () => jest.fn());
