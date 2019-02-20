@@ -29,8 +29,7 @@ import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
 // consuming components to use defaultValue.
 const defaultValue = {
   user: {
-    first_name: 'Mock',
-    last_name: 'User',
+    name: 'Mock User',
     uuid: '12345',
     profile: {
       uuid: '12345',
@@ -145,14 +144,10 @@ export class UserProvider extends React.Component {
   }
 
   signup = async ({
-    firstName, lastName, email, password,
+    name, email,
   }) => {
     const result = await SeedorfAPI.signup({
-      firstName,
-      lastName,
-      username: email,
-      email,
-      password,
+      name, email,
     });
     if (result.ok) {
       await setToken(result.data.token);
