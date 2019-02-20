@@ -21,7 +21,7 @@
   "splashScreen": {
     "title": "Descubre centros deportivos y actividades cerca tuyo",
     "btnLabel": "Empezar a descubrir",
-    "loginLink": "Iniciar sesión",
+    "loginLink": "Ya registrado? Iniciar sesión",
     "signupLink": "Registrarse"
   },
 
@@ -60,20 +60,12 @@
 
   "editProfileForm": {
     "fields": {
-      "firstName": {
-        "label": "Nombre",
+      "name": {
+        "label": "Nombre completo",
         "placeholder": "",
         "errors": {
           "required": "Nombre es requerido",
           "tooLong": "Nombre es muy largo"
-        }
-      },
-      "lastName": {
-        "label": "Apellido",
-        "placeholder": "",
-        "errors": {
-          "required": "Apellido es requerido",
-          "tooLong": "Apellido es muy largo"
         }
       },
       "birthYear": {
@@ -578,20 +570,12 @@
 
   "signupEmailForm": {
     "fields": {
-      "firstName": {
-        "label": "Nombre",
-        "placeholder": "Lionel",
+      "name": {
+        "label": "Nombre completo",
+        "placeholder": "Lionel Messi",
         "errors": {
           "required": "Nombre es requerido",
           "tooLong": "Nombre es muy largo"
-        }
-      },
-      "lastName": {
-        "label": "Apellido",
-        "placeholder": "Messi",
-        "errors": {
-          "required": "Apellido es requerido",
-          "tooLong": "Apellido es muy largo"
         }
       },
       "email": {

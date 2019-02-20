@@ -22,16 +22,14 @@ export const MAX_CHARS = 120;
 
 let INIT_STATE;
 
-const getInitState = ({ first_name: firstName, last_name: lastName, profile }) => ({
-  firstName: firstName || '',
-  lastName: lastName || '',
+const getInitState = ({ name, profile }) => ({
+  name: name || '',
   birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || '',
   avatar: (profile && profile.avatar && profile.avatar.toString()) || '',
 });
 
 const INIT_ERRORS = {
-  firstName: [],
-  lastName: [],
+  name: [],
   // birthYear: [],
 };
 //------------------------------------------------------------------------------
@@ -67,26 +65,17 @@ class EditProfileForm extends React.PureComponent {
     });
   }
 
-  validateFields = ({ firstName, lastName /* , birthYear */ }) => {
+  validateFields = ({ name /* , birthYear */ }) => {
     // Initialize errors
     const errors = cloneDeep(INIT_ERRORS);
 
     // Sanitize input
-    const _firstName = firstName && firstName.trim(); // eslint-disable-line no-underscore-dangle
+    const _name = name && name.trim(); // eslint-disable-line no-underscore-dangle
 
-    if (!_firstName || _firstName.length === 0) {
-      errors.firstName.push('editProfileForm.fields.firstName.errors.required');
-    } else if (_firstName.length > MAX_CHARS) {
-      errors.firstName.push('editProfileForm.fields.firstName.errors.tooLong');
-    }
-
-    // Sanitize input
-    const _lastName = lastName && lastName.trim(); // eslint-disable-line no-underscore-dangle
-
-    if (!_lastName || _lastName.length === 0) {
-      errors.lastName.push('editProfileForm.fields.lastName.errors.required');
-    } else if (_lastName.length > MAX_CHARS) {
-      errors.lastName.push('editProfileForm.fields.lastName.errors.tooLong');
+    if (!_name || _name.length === 0) {
+      errors.name.push('editProfileForm.fields.name.errors.required');
+    } else if (_name.length > MAX_CHARS) {
+      errors.name.push('editProfileForm.fields.name.errors.tooLong');
     }
 
     // Sanitize input
@@ -148,15 +137,13 @@ class EditProfileForm extends React.PureComponent {
   render() {
     const { user, disabled } = this.props;
     const {
-      firstName,
-      lastName,
+      name,
       // birthYear,
       errors,
     } = this.state;
 
     // Apply translation and concatenate field errors (string)
-    const firstNameErrors = ErrorHandling.getFieldErrors(errors, 'firstName', I18n.t);
-    const lastNameErrors = ErrorHandling.getFieldErrors(errors, 'lastName', I18n.t);
+    const nameErrors = ErrorHandling.getFieldErrors(errors, 'name', I18n.t);
     // const birthYearErrors = ErrorHandling.getFieldErrors(errors, 'birthYear', I18n.t);
 
     return (
@@ -172,27 +159,14 @@ class EditProfileForm extends React.PureComponent {
           </Block>
           <Block>
             <TextField
-              testID="editProfileFieldFirstName"
-              label={I18n.t('editProfileForm.fields.firstName.label')}
-              value={firstName}
-              error={firstNameErrors}
+              testID="editProfileFieldName"
+              label={I18n.t('editProfileForm.fields.name.label')}
+              value={name}
+              error={nameErrors}
               size="ML"
               disabled={disabled}
               onChangeText={(value) => {
-                this.handleChange({ fieldName: 'firstName', value });
-              }}
-            />
-          </Block>
-          <Block>
-            <TextField
-              testID="editProfileFieldLastName"
-              label={I18n.t('editProfileForm.fields.lastName.label')}
-              value={lastName}
-              error={lastNameErrors}
-              size="ML"
-              disabled={disabled}
-              onChangeText={(value) => {
-                this.handleChange({ fieldName: 'lastName', value });
+                this.handleChange({ fieldName: 'name', value });
               }}
             />
           </Block>

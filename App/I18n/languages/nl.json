@@ -21,7 +21,7 @@
   "splashScreen": {
     "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
     "btnLabel": "Start met ontdekken",
-    "loginLink": "Log in",
+    "loginLink": "Heb je al een account? Log in",
     "signupLink": "Aanmelden"
   },
 
@@ -60,20 +60,12 @@
 
   "editProfileForm": {
     "fields": {
-      "firstName": {
-        "label": "Voornaam",
+      "name": {
+        "label": "Naam",
         "placeholder": "",
         "errors": {
-          "required": "Voornaam is vereist",
-          "tooLong": "Voornaam is te lang"
-        }
-      },
-      "lastName": {
-        "label": "Achternaam",
-        "placeholder": "",
-        "errors": {
-          "required": "Achternaam is vereist",
-          "tooLong": "Achternaam is te lang"
+          "required": "Naam is vereist",
+          "tooLong": "Naam is te lang"
         }
       },
       "birthYear": {
@@ -578,20 +570,12 @@
 
   "signupEmailForm": {
     "fields": {
-      "firstName": {
-        "label": "Voornaam",
-        "placeholder": "Lionel",
+      "name": {
+        "label": "Naam",
+        "placeholder": "Lionel Messi",
         "errors": {
-          "required": "Voornaam is vereist",
-          "tooLong": "Voornaam is te lang"
-        }
-      },
-      "lastName": {
-        "label": "Achternaam",
-        "placeholder": "Messi",
-        "errors": {
-          "required": "Achternaam is vereist",
-          "tooLong": "Achternaam is te lang"
+          "required": "Naam is vereist",
+          "tooLong": "Naam is te lang"
         }
       },
       "email": {

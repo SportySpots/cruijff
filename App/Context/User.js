@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { AsyncStorage, Linking } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { Buffer } from 'buffer';
+import firebase from 'react-native-firebase';
 import SeedorfAPI from '../Services/SeedorfApi';
 import { client } from '../GraphQL';
 import I18n from '../I18n';
@@ -29,8 +30,7 @@ import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
 // consuming components to use defaultValue.
 const defaultValue = {
   user: {
-    first_name: 'Mock',
-    last_name: 'User',
+    name: 'Mock User',
     uuid: '12345',
     profile: {
       uuid: '12345',
@@ -86,7 +86,7 @@ export class UserProvider extends React.Component {
     await AsyncStorage.setItem('firstRunDone', 'true');
     this.setState({ firstRun });
 
-    const initialURL = await Linking.getInitialURL();
+    const initialURL = await firebase.links().getInitialLink();
     if (initialURL) {
       const event = urlToEvent(initialURL);
       if (event) {
@@ -145,14 +145,10 @@ export class UserProvider extends React.Component {
   }
 
   signup = async ({
-    firstName, lastName, email, password,
+    name, email,
   }) => {
     const result = await SeedorfAPI.signup({
-      firstName,
-      lastName,
-      username: email,
-      email,
-      password,
+      name, email,
     });
     if (result.ok) {
       await setToken(result.data.token);

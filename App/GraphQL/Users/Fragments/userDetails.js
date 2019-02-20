@@ -4,8 +4,7 @@ import spotFragment from '../../Spots/Fragments/spot';
 const userDetailsFragment = gql`
   fragment userDetailsFragment on UserType {
     uuid
-    first_name
-    last_name
+    name
     profile {
       uuid
       id

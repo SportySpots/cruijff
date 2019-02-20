@@ -18,8 +18,6 @@ import OrDivider from '../../../Components/Common/OrDivider';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import Flap from '../../../Components/Common/Flap';
 import { userPropTypes, withUser } from '../../../Context/User';
-import Text from '../../../Components/Common/Text';
-import LinkNavigate from '../../../Components/Common/LinkNavigate';
 // import LinkNavigate from '../../../Components/Common/LinkNavigate';
 
 //------------------------------------------------------------------------------
@@ -28,17 +26,11 @@ import LinkNavigate from '../../../Components/Common/LinkNavigate';
 // TODO: introduce/use DefaultLayout instead
 const Container = styled.View`
   flex: 1;
-  justify-content: space-between;
   background-color: ${Colors.white};
 `;
 //------------------------------------------------------------------------------
 const Top = styled.View`
-  padding-top: 32px;
-`;
-const Bottom = styled.View`
-  padding-top: 16px;
-  padding-bottom: 16px;
-  align-items: center;
+  background-color: ${Colors.concrete};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -63,47 +55,70 @@ class LoginScreen extends React.Component {
     const { navigation, onSuccessHook } = this.props;
     return (
       <Container>
+        <KeyboardAwareScrollView
+          extraHeight={70}
+          enableOnAndroid
+          keyboardShouldPersistTaps="handled"
+        >
           <Top>
-            <FormProps>
-              {({
-                disabled,
-                errors,
-                handleBefore,
-                handleClientCancel,
-                handleClientError,
-                handleServerError,
-                handleSuccess,
-              }) => (
-                <LoginEmailApiCall
-                  onLoginError={handleServerError}
-                  onEmailSent={() => {
-                    handleSuccess(onSuccessHook);
-                  }}
-                >
-                  {({ loginUser }) => [
-                    <LoginEmailForm
-                      key="form"
-                      disabled={disabled}
-                      errors={errors}
-                      onBeforeHook={handleBefore}
-                      onClientCancelHook={handleClientCancel}
-                      onClientErrorHook={handleClientError}
-                      // Call api to authenticate user
-                      onSuccessHook={loginUser}
-                    />,
-                  ]}
-                </LoginEmailApiCall>
-              )}
-            </FormProps>
+            <Block>
+              <Spacer size="XL" />
+              <RaisedButton
+                label={I18n.t('loginScreen.googlePlusBtnLabel')}
+                iconSet="MaterialCommunityIcon"
+                iconName="google"
+                iconSize={20}
+                variant="google"
+                onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/google/login?process=login`)}
+              />
+              <Spacer size="XXL" />
+              <RaisedButton
+                label={I18n.t('loginScreen.facebookBtnLabel')}
+                iconSet="MaterialCommunityIcon"
+                iconName="facebook-box"
+                variant="facebook"
+                onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/facebook/login?process=login`)}
+              />
+              <Spacer size="XXL" />
+              <Spacer size="M" />
+              <OrDivider />
+            </Block>
+            <Spacer size="XL" />
+            <Flap title={I18n.t('loginScreen.emailSectionTitle')} />
           </Top>
-          <Bottom>
-            <LinkNavigate
-              navigation={navigation}
-              to="SignupEmailScreen"
-              text={I18n.t('loginScreen.signupLink')}
-              underline
-            />
-          </Bottom>
+          <Spacer size="M" />
+          <FormProps>
+            {({
+              disabled,
+              errors,
+              handleBefore,
+              handleClientCancel,
+              handleClientError,
+              handleServerError,
+              handleSuccess,
+            }) => (
+              <LoginEmailApiCall
+                onLoginError={handleServerError}
+                onEmailSent={() => {
+                  handleSuccess(onSuccessHook);
+                }}
+              >
+                {({ loginUser }) => [
+                  <LoginEmailForm
+                    key="form"
+                    disabled={disabled}
+                    errors={errors}
+                    onBeforeHook={handleBefore}
+                    onClientCancelHook={handleClientCancel}
+                    onClientErrorHook={handleClientError}
+                    // Call api to authenticate user
+                    onSuccessHook={loginUser}
+                  />,
+                ]}
+              </LoginEmailApiCall>
+            )}
+          </FormProps>
+        </KeyboardAwareScrollView>
       </Container>
     );
   }

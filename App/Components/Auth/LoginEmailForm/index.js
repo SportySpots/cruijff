@@ -9,6 +9,7 @@ import I18n from '../../../I18n';
 import Block from '../../Common/Block';
 import TextField from '../../Common/TextField';
 import RaisedButton from '../../Common/RaisedButton';
+import Spacer from '../../Common/Spacer';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -139,7 +140,7 @@ class LoginEmailForm extends React.PureComponent {
         <Block>
           <RaisedButton
             testID="loginSubmitButton"
-            variant="info"
+            variant="primary"
             label={I18n.t('loginEmailForm.btnLabel')}
             disabled={disabled}
             onPress={this.handleSubmit}

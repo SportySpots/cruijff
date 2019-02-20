@@ -11,6 +11,7 @@ import SignupEmailForm from '../../../Components/Auth/SignupEmailForm';
 //------------------------------------------------------------------------------
 // TODO: introduce/use DefaultLayout instead
 const Container = styled.View`
+  padding-top: 32px;
   flex: 1;
   background-color: ${Colors.white};
 `;
