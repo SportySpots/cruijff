@@ -14,6 +14,7 @@ const errorMsg = 'Some error msg';
 const validText = 'Some text';
 const longTitle = new Array(TITLE_MAX_CHARS + 2).join('a'); // aaaaa... length = TITLE_MAX_CHARS + 1
 const longDescription = new Array(DESCRIPTION_MAX_CHARS + 2).join('a'); // aaaaa... length = DESCRIPTION_MAX_CHARS + 1
+const someErrorMsg = 'Some error msg';
 
 describe('TitleDescriptionSlide', () => {
   it('renders without crashing', () => {
@@ -50,6 +51,23 @@ describe('TitleDescriptionSlide', () => {
       expect(handleChange).toBeCalledWith(
         expect.objectContaining({ fieldName, value: validText }),
       );
+    });
+  });
+
+  it('renders errors props', () => {
+    [
+      { fieldName: 'title', testID: 'title' },
+      { fieldName: 'description', testID: 'description' },
+    ].forEach(({ fieldName, testID }) => {
+      const wrapper = shallow(<TitleDescriptionSlide />);
+      expect(wrapper.find({ testID }).props().error).toBe('');
+      wrapper.setProps({
+        errors: {
+          ...cloneDeep(INIT_ERRORS),
+          [fieldName]: [someErrorMsg],
+        },
+      });
+      expect(wrapper.find({ testID }).props().error).toBe(someErrorMsg);
     });
   });
 
