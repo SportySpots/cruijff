@@ -562,20 +562,12 @@
 
   "signupEmailForm": {
     "fields": {
-      "firstName": {
-        "label": "Voornaam",
-        "placeholder": "Lionel",
+      "name": {
+        "label": "Naam",
+        "placeholder": "Lionel Messi",
         "errors": {
-          "required": "Voornaam is vereist",
-          "tooLong": "Voornaam is te lang"
-        }
-      },
-      "lastName": {
-        "label": "Achternaam",
-        "placeholder": "Messi",
-        "errors": {
-          "required": "Achternaam is vereist",
-          "tooLong": "Achternaam is te lang"
+          "required": "Naam is vereist",
+          "tooLong": "Naam is te lang"
         }
       },
       "email": {

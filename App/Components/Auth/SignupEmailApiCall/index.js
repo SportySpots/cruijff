@@ -13,11 +13,11 @@ import { withUser, userPropTypes } from '../../../Context/User';
 class SignupEmailApiCall extends React.PureComponent {
   handleSignup = async (inputFields) => {
     const { onSignupError, onSignupSuccess, signup } = this.props;
-    const { firstName, lastName, email } = inputFields;
+    const { name, email } = inputFields;
 
     try {
-      // const response = await signup({ firstName, lastName, email });
-      const response = undefined;
+      const response = await signup({ name, email });
+      // const response = undefined;
 
       // Pass event up to parent component
       if (response && response.problem) {

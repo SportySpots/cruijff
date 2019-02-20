@@ -20,14 +20,12 @@ import RaisedButton from '../../Common/RaisedButton';
 export const MAX_CHARS = 74;
 
 const INIT_STATE = {
-  firstName: '',
-  lastName: '',
+  name: '',
   email: '',
 };
 
 const INIT_ERRORS = {
-  firstName: [],
-  lastName: [],
+  name: [],
   email: [],
 };
 //------------------------------------------------------------------------------
@@ -80,26 +78,17 @@ class SignupEmailForm extends React.PureComponent {
     });
   }
 
-  validateFields = ({ firstName, lastName, email }) => {
+  validateFields = ({ name, email }) => {
     // Initialize errors
     const errors = cloneDeep(INIT_ERRORS);
 
     // Sanitize input
-    const _firstName = firstName && firstName.trim(); // eslint-disable-line no-underscore-dangle
+    const _name = name && name.trim(); // eslint-disable-line no-underscore-dangle
 
-    if (!_firstName) {
-      errors.firstName.push('signupEmailForm.fields.firstName.errors.required');
-    } else if (_firstName.length > MAX_CHARS) {
-      errors.firstName.push('signupEmailForm.fields.firstName.errors.tooLong');
-    }
-
-    // Sanitize input
-    const _lastName = lastName && lastName.trim(); // eslint-disable-line no-underscore-dangle
-
-    if (!_lastName) {
-      errors.lastName.push('signupEmailForm.fields.lastName.errors.required');
-    } else if (_lastName.length > MAX_CHARS) {
-      errors.lastName.push('signupEmailForm.fields.lastName.errors.tooLong');
+    if (!_name) {
+      errors.name.push('signupEmailForm.fields.name.errors.required');
+    } else if (_name.length > MAX_CHARS) {
+      errors.name.push('signupEmailForm.fields.name.errors.tooLong');
     }
 
     // Sanitize input
@@ -162,15 +151,13 @@ class SignupEmailForm extends React.PureComponent {
   render() {
     const { disabled } = this.props;
     const {
-      firstName,
-      lastName,
+      name,
       email,
       errors,
     } = this.state;
 
     // Apply translation and concatenate field errors (string)
-    const firstNameErrors = ErrorHandling.getFieldErrors(errors, 'firstName', I18n.t);
-    const lastNameErrors = ErrorHandling.getFieldErrors(errors, 'lastName', I18n.t);
+    const nameErrors = ErrorHandling.getFieldErrors(errors, 'name', I18n.t);
     const emailErrors = ErrorHandling.getFieldErrors(errors, 'email', I18n.t);
 
     return (
@@ -186,36 +173,19 @@ class SignupEmailForm extends React.PureComponent {
         >
           <Block
             midHeight
-            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'firstName', nativeEvent }); }}
+            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'name', nativeEvent }); }}
           >
             <TextField
-              testID="signupFieldFirstName"
-              label={I18n.t('signupEmailForm.fields.firstName.label')}
-              placeholder={I18n.t('signupEmailForm.fields.firstName.placeholder')}
-              value={firstName}
-              error={firstNameErrors}
+              testID="signupFieldname"
+              label={I18n.t('signupEmailForm.fields.name.label')}
+              placeholder={I18n.t('signupEmailForm.fields.name.placeholder')}
+              value={name}
+              error={nameErrors}
               size="ML"
               disabled={disabled}
               autoFocus
               onChangeText={(value) => {
-                this.handleChange({ fieldName: 'firstName', value });
-              }}
-            />
-          </Block>
-          <Block
-            midHeight
-            onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'lastName', nativeEvent }); }}
-          >
-            <TextField
-              testID="signupFieldLastName"
-              label={I18n.t('signupEmailForm.fields.lastName.label')}
-              placeholder={I18n.t('signupEmailForm.fields.lastName.placeholder')}
-              value={lastName}
-              error={lastNameErrors}
-              size="ML"
-              disabled={disabled}
-              onChangeText={(value) => {
-                this.handleChange({ fieldName: 'lastName', value });
+                this.handleChange({ fieldName: 'name', value });
               }}
             />
           </Block>
