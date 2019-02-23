@@ -28,7 +28,7 @@ const data = DURATION_OPTIONS.map(({ number, unit, value }) => {
 // COMPONENT:
 //------------------------------------------------------------------------------
 const DurationPickerField = ({ value, onChange, ...rest }) => {
-  const item = data.find(d => (d.value === value));
+  const item = value ? data.find(d => (d.value === value)) : null;
 
   return (
     <InputField
@@ -39,7 +39,7 @@ const DurationPickerField = ({ value, onChange, ...rest }) => {
       {...rest}
     />
   );
-}
+};
 
 DurationPickerField.propTypes = {
   value: PropTypes.oneOfType([

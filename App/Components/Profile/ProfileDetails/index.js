@@ -25,7 +25,7 @@ const Name = styled(Text.L)`
 //------------------------------------------------------------------------------
 const Location = styled(Text.M)`
   text-align: center;
-  color: ${Colors.darkGray};
+  color: ${Colors.gray};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

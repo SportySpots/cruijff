@@ -8,6 +8,7 @@ import pick from 'lodash/pick';
 // import moment from 'moment';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
+import { locationPropTypes } from '../../../Context/Location';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 import Block from '../../Common/Block';
@@ -145,12 +146,8 @@ class EditProfileForm extends React.PureComponent {
   }
 
   render() {
-    const { user, disabled } = this.props;
-    const {
-      name,
-      // birthYear,
-      errors,
-    } = this.state;
+    const { user, location, disabled } = this.props;
+    const { name, /* birthYear, */ errors } = this.state;
 
     // Apply translation and concatenate field errors (string)
     const nameErrors = ErrorHandling.getFieldErrors(errors, 'name', I18n.t);
@@ -211,6 +208,7 @@ class EditProfileForm extends React.PureComponent {
 
 EditProfileForm.propTypes = {
   user: propType(userDetailsFragment).isRequired,
+  location: locationPropTypes.location.isRequired,
   disabled: PropTypes.bool,
   errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,

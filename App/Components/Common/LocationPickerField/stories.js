@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import Colors from '../../../Themes/Colors';
 import Block from '../Block';
-import DurationPickerField from '.';
+import LocationPickerField from '.';
 
 class Container extends React.PureComponent {
-  state = { value: '' }
+  state = { value: null }
 
-  handleChange = ({ value }) => {
+  handleChange = (location) => {
     this.setState(
-      { value },
+      { value: location },
       () => { console.log(this.state); },
     );
   }
@@ -27,7 +27,7 @@ class Container extends React.PureComponent {
 
     return (
       <View>
-        <DurationPickerField
+        <LocationPickerField
           theme={theme}
           label={label}
           boxed={boxed}
@@ -54,13 +54,13 @@ Container.defaultProps = {
   boxed: false,
 };
 
-storiesOf('Common.DurationPickerField', module)
-  .add('DurationPickerField', () => <Container />)
-  .add('DurationPickerField white theme', () => (
+storiesOf('Common.LocationPickerField', module)
+  .add('LocationPickerField', () => <Container />)
+  .add('LocationPickerField white theme', () => (
     <Block bgColor={Colors.primaryGreen}>
       <Container theme="white" />
     </Block>
   ))
-  .add('DurationPickerField boxed size ML', () => (
+  .add('LocationPickerField boxed size ML', () => (
     <Container label="I'm the label" boxed size="ML" />
   ));
