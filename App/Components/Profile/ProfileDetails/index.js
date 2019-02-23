@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { userPropTypes } from '../../../Context/User';
+import { locationPropTypes } from '../../../Context/Location';
 import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
-import Divider from '../../Common/Divider';
+// import Divider from '../../Common/Divider';
 import Text from '../../Common/Text';
 import Avatar from '../../Common/Avatar';
-import ProfileTabs from '../ProfileTabs';
+// import ProfileTabs from '../ProfileTabs';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Bottom = styled.View`
-  flex: 1;
-  background-color: ${Colors.bgGrey};
-`;
+// const Bottom = styled.View`
+//   flex: 1;
+//   background-color: ${Colors.bgGrey};
+// `;
 //------------------------------------------------------------------------------
 const Name = styled(Text.L)`
   text-align: center;
@@ -24,7 +25,7 @@ const Name = styled(Text.L)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetails = ({ user }) => [
+const ProfileDetails = ({ user, location }) => [
   <Block key="top">
     <Row justifyContent="center">
       <Avatar user={user} size={80} />
@@ -43,6 +44,7 @@ const ProfileDetails = ({ user }) => [
 
 ProfileDetails.propTypes = {
   user: userPropTypes.user.isRequired,
+  location: locationPropTypes.user.isRequired,
 };
 
 export default ProfileDetails;

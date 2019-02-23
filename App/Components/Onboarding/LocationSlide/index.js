@@ -10,36 +10,8 @@ import Text from '../../Common/Text';
 import Block from '../../Common/Block';
 import Spacer from '../../Common/Spacer';
 import RaisedButton from '../../Common/RaisedButton';
+import { CITIES } from '../../../Context/Location';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-const CITIES = [
-  {
-    id: 'amsterdam',
-    name: 'Amsterdam',
-    coords: {
-      latitude: 52.3547321,
-      longitude: 4.8284118,
-    },
-  },
-  {
-    id: 'enschede',
-    name: 'Enschede',
-    coords: {
-      latitude: 52.2233632,
-      longitude: 6.7983365,
-    },
-  },
-  {
-    id: 'buenosAires',
-    name: 'Buenos Aires',
-    coords: {
-      latitude: -34.6156624,
-      longitude: -58.50351,
-    },
-  },
-];
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------

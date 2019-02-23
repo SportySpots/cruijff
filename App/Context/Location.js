@@ -3,11 +3,38 @@ import PropTypes from 'prop-types';
 import { AsyncStorage } from 'react-native';
 import Permissions from 'react-native-permissions';
 
-// default is Amsterdam center
-const DEFAULT_LOCATION = {
-  latitude: 52.379189,
-  longitude: 4.899431,
-};
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+export const CITIES = [
+  {
+    id: 'amsterdam',
+    name: 'Amsterdam',
+    coords: {
+      latitude: 52.3547321,
+      longitude: 4.8284118,
+    },
+  },
+  {
+    id: 'enschede',
+    name: 'Enschede',
+    coords: {
+      latitude: 52.2233632,
+      longitude: 6.7983365,
+    },
+  },
+  {
+    id: 'buenosAires',
+    name: 'Buenos Aires',
+    coords: {
+      latitude: -34.6156624,
+      longitude: -58.50351,
+    },
+  },
+];
+
+// Default is Amsterdam center
+const DEFAULT_LOCATION = CITIES[0].coords;
 
 /*
 Permissions statuses from react-native-permissions
@@ -52,14 +79,14 @@ const defaultValue = {
 const LocationContext = React.createContext(defaultValue);
 
 // wraps navigator.geolocation.getCurrentPosition as a Promise
-const getCurrentPosition = () => new Promise((resolve, reject) => {
-  navigator.geolocation.getCurrentPosition(
-    result => resolve({
-      latitude: result.coords.latitude,
-      longitude: result.coords.longitude,
-    }), reject,
-  );
-});
+// const getCurrentPosition = () => new Promise((resolve, reject) => {
+//   navigator.geolocation.getCurrentPosition(
+//     result => resolve({
+//       latitude: result.coords.latitude,
+//       longitude: result.coords.longitude,
+//     }), reject,
+//   );
+// });
 
 export class LocationProvider extends React.Component {
   static propTypes = {

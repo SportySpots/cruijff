@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
 import Colors from '../../../Themes/Colors';
 import ProfileDetails from '../../../Components/Profile/ProfileDetails';
 
@@ -15,14 +17,23 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetailsScreen = ({ user }) => (
+const ProfileDetailsScreen = ({ user, location }) => (
   <Container testID="ProfileDetailsScreen">
-    <ProfileDetails user={user} />
+    <ProfileDetails
+      user={user}
+      location={location}
+    />
   </Container>
 );
 
 ProfileDetailsScreen.propTypes = {
   user: userPropTypes.user.isRequired,
+  location: locationPropTypes.user.isRequired,
 };
 
-export default withUser(ProfileDetailsScreen);
+const enhance = compose(
+  withUser,
+  withLocation,
+);
+
+export default enhance(ProfileDetailsScreen);
