@@ -24,18 +24,18 @@ const Title = styled(Text.M)`
 //------------------------------------------------------------------------------
 const LocationSlide = ({ location, onChange }) => (
   <ImageBackground image={Images.locationOnboarding}>
+    <View>
+      <Title>{I18n.t('locationSlide.title')}</Title>
+    </View>
+    <Spacer size="L" />
     <ScrollView>
-      <View>
-        <Title>{I18n.t('locationSlide.title')}</Title>
-      </View>
-      <Spacer size="L" />
       <Block style={{ flex: 1 }}>
         <FlatList
           keyExtractor={item => item.id}
           data={CITIES}
           renderItem={({ item }) => (
             <RaisedButton
-              label={item.name}
+              label={item.city}
               variant={location && location.id && location.id === item.id ? 'default' : 'transparent'}
               onPress={() => { onChange({ fieldName: 'location', value: item }); }}
             />
@@ -51,6 +51,12 @@ const LocationSlide = ({ location, onChange }) => (
 LocationSlide.propTypes = {
   location: PropTypes.shape({
     id: PropTypes.string,
+    city: PropTypes.string,
+    country: PropTypes.string,
+    coords: PropTypes.shape({
+      latitude: PropTypes.number,
+      longitude: PropTypes.number,
+    }),
   }),
   onChange: PropTypes.func,
 };

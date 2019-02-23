@@ -28,7 +28,7 @@ const ProfileDetailsScreen = ({ user, location }) => (
 
 ProfileDetailsScreen.propTypes = {
   user: userPropTypes.user.isRequired,
-  location: locationPropTypes.user.isRequired,
+  location: locationPropTypes.location.isRequired,
 };
 
 const enhance = compose(

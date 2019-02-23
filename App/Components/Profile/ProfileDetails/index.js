@@ -23,6 +23,11 @@ const Name = styled(Text.L)`
   text-align: center;
 `;
 //------------------------------------------------------------------------------
+const Location = styled(Text.M)`
+  text-align: center;
+  color: ${Colors.darkGray};
+`;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ProfileDetails = ({ user, location }) => [
@@ -34,6 +39,10 @@ const ProfileDetails = ({ user, location }) => [
     <Name>
       {user.name}
     </Name>
+    <Spacer size="S" />
+    <Location>
+      {`${location.city}, ${location.country}`}
+    </Location>
   </Block>,
   /* <Spacer key="spacer" size="M" />,
   <Divider key="divider" />,
@@ -44,7 +53,7 @@ const ProfileDetails = ({ user, location }) => [
 
 ProfileDetails.propTypes = {
   user: userPropTypes.user.isRequired,
-  location: locationPropTypes.user.isRequired,
+  location: locationPropTypes.location.isRequired,
 };
 
 export default ProfileDetails;
