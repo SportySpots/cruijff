@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import I18n from '../../../I18n';
+import Colors from '../../../Themes/Colors';
 import { userPropTypes } from '../../../Context/User';
 import { locationPropTypes } from '../../../Context/Location';
-import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -41,7 +42,7 @@ const ProfileDetails = ({ user, location }) => [
     </Name>
     <Spacer size="S" />
     <Location>
-      {`${location.city}, ${location.country}`}
+      {`${location.city}, ${I18n.t(location.country)}`}
     </Location>
   </Block>,
   /* <Spacer key="spacer" size="M" />,
