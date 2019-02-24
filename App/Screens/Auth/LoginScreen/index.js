@@ -1,24 +1,24 @@
 import React from 'react';
-import { Linking } from 'react-native';
+// import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import settings from '../../../config';
+// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+// import settings from '../../../config';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
 import LoginEmailApiCall from '../../../Components/Auth/LoginEmailApiCall';
 import LoginEmailForm from '../../../Components/Auth/LoginEmailForm';
-import Block from '../../../Components/Common/Block';
+// import Block from '../../../Components/Common/Block';
 import { IncomingLinks, Events } from '../../../Services/IncomingLinks';
 
 // import Row from '../../../Components/Common/Row';
-import Spacer from '../../../Components/Common/Spacer';
-import OrDivider from '../../../Components/Common/OrDivider';
-import RaisedButton from '../../../Components/Common/RaisedButton';
-import Flap from '../../../Components/Common/Flap';
-import { userPropTypes, withUser } from '../../../Context/User';
-import Text from '../../../Components/Common/Text';
+// import Spacer from '../../../Components/Common/Spacer';
+// import OrDivider from '../../../Components/Common/OrDivider';
+// import RaisedButton from '../../../Components/Common/RaisedButton';
+// import Flap from '../../../Components/Common/Flap';
+// import { userPropTypes, withUser } from '../../../Context/User';
+// import Text from '../../../Components/Common/Text';
 import LinkNavigate from '../../../Components/Common/LinkNavigate';
 // import LinkNavigate from '../../../Components/Common/LinkNavigate';
 
@@ -63,47 +63,47 @@ class LoginScreen extends React.Component {
     const { navigation, onSuccessHook } = this.props;
     return (
       <Container>
-          <Top>
-            <FormProps>
-              {({
-                disabled,
-                errors,
-                handleBefore,
-                handleClientCancel,
-                handleClientError,
-                handleServerError,
-                handleSuccess,
-              }) => (
-                <LoginEmailApiCall
-                  onLoginError={handleServerError}
-                  onEmailSent={() => {
-                    handleSuccess(onSuccessHook);
-                  }}
-                >
-                  {({ loginUser }) => [
-                    <LoginEmailForm
-                      key="form"
-                      disabled={disabled}
-                      errors={errors}
-                      onBeforeHook={handleBefore}
-                      onClientCancelHook={handleClientCancel}
-                      onClientErrorHook={handleClientError}
-                      // Call api to authenticate user
-                      onSuccessHook={loginUser}
-                    />,
-                  ]}
-                </LoginEmailApiCall>
-              )}
-            </FormProps>
-          </Top>
-          <Bottom>
-            <LinkNavigate
-              navigation={navigation}
-              to="SignupEmailScreen"
-              text={I18n.t('loginScreen.signupLink')}
-              underline
-            />
-          </Bottom>
+        <Top>
+          <FormProps>
+            {({
+              disabled,
+              errors,
+              handleBefore,
+              handleClientCancel,
+              handleClientError,
+              handleServerError,
+              handleSuccess,
+            }) => (
+              <LoginEmailApiCall
+                onLoginError={handleServerError}
+                onEmailSent={() => {
+                  handleSuccess(onSuccessHook);
+                }}
+              >
+                {({ loginUser }) => [
+                  <LoginEmailForm
+                    key="form"
+                    disabled={disabled}
+                    errors={errors}
+                    onBeforeHook={handleBefore}
+                    onClientCancelHook={handleClientCancel}
+                    onClientErrorHook={handleClientError}
+                    // Call api to authenticate user
+                    onSuccessHook={loginUser}
+                  />,
+                ]}
+              </LoginEmailApiCall>
+            )}
+          </FormProps>
+        </Top>
+        <Bottom>
+          <LinkNavigate
+            navigation={navigation}
+            to="SignupEmailScreen"
+            text={I18n.t('loginScreen.signupLink')}
+            underline
+          />
+        </Bottom>
       </Container>
     );
   }
@@ -114,22 +114,11 @@ LoginScreen.propTypes = {
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   onSuccessHook: PropTypes.func,
-  loginWithToken: userPropTypes.loginWithToken.isRequired,
+  // loginWithToken: userPropTypes.loginWithToken.isRequired,
 };
 
 LoginScreen.defaultProps = {
   onSuccessHook: () => {},
 };
 
-export default withUser(LoginScreen);
-
-/* <Block>
-  <Row justifyContent="center">
-    <LinkNavigate
-      navigation={navigation}
-      to="SignupScreen"
-      text={I18n.t('loginScreen.signupLink')}
-      underline
-    />
-  </Row>
-</Block> */
+export default LoginScreen;

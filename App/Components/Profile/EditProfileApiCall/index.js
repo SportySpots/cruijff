@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SeedorfAPI from '../../../Services/SeedorfApi';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
 import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
@@ -12,12 +13,13 @@ import curateErrors from './utils';
  */
 class EditProfileApiCall extends React.PureComponent {
   handleUpdate = async (inputFields) => {
-    const { onEditError, onEditSuccess } = this.props;
+    const { setLocation, onEditError, onEditSuccess } = this.props;
     const {
       userUUID,
       userProfileUUID,
       name,
       avatar,
+      location,
     } = inputFields;
 
     // Make sure birthYear is numeric
@@ -57,6 +59,14 @@ class EditProfileApiCall extends React.PureComponent {
       }
     }
 
+    try {
+      // Set user location
+      await setLocation(location);
+    } catch (exc) {
+      onEditError(exc);
+      return;
+    }
+
     // Pass event up to parent component
     onEditSuccess();
   }
@@ -78,6 +88,7 @@ EditProfileApiCall.propTypes = {
     PropTypes.func,
     PropTypes.object,
   ]).isRequired,
+  setLocation: PropTypes.func.isRequired,
   onEditError: PropTypes.func,
   onEditSuccess: PropTypes.func,
 };
@@ -87,7 +98,7 @@ EditProfileApiCall.defaultProps = {
   onEditSuccess: () => {},
 };
 
-export default EditProfileApiCall;
+export default withLocation(EditProfileApiCall);
 
 
 /*

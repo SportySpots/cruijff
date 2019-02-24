@@ -18,6 +18,9 @@
   "Beach_volleyball": "Voley playa",
   "Boules": "Bochas",
 
+  "Netherlands": "Holanda",
+  "Argentina": "Argentina",
+
   "splashScreen": {
     "title": "Descubre centros deportivos y actividades cerca tuyo",
     "btnLabel": "Empezar a descubrir",
@@ -66,6 +69,13 @@
         "errors": {
           "required": "Nombre es requerido",
           "tooLong": "Nombre es muy largo"
+        }
+      },
+      "location": {
+        "label": "Ciudad",
+        "placeholder": "",
+        "errors": {
+          "required": "Ciudad es requerida"
         }
       },
       "birthYear": {

@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
+import { CITIES } from '../../../Context/Location';
 import ProfileDetails from '.';
 
 storiesOf('Profile.ProfileDetails', module)
@@ -10,9 +11,12 @@ storiesOf('Profile.ProfileDetails', module)
       query={GET_USER_DETAILS}
       variables={{ uuid: 455 }}
     >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
-          <ProfileDetails user={data.user} />
+      {({ loading, error, data }) => (
+        loading || error ? null : (
+          <ProfileDetails
+            user={data.user}
+            location={CITIES[0]}
+          />
         ))
       }
     </Query>

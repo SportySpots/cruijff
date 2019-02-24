@@ -8,12 +8,14 @@ import pick from 'lodash/pick';
 // import moment from 'moment';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
+import { locationPropTypes } from '../../../Context/Location';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 import Block from '../../Common/Block';
 import TextField from '../../Common/TextField';
 import RaisedButton from '../../Common/RaisedButton';
 import AvatarPicker from '../../Common/AvatarPicker';
+import LocationPickerField from '../../Common/LocationPickerField';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -22,15 +24,17 @@ export const MAX_CHARS = 120;
 
 let INIT_STATE;
 
-const getInitState = ({ name, profile }) => ({
+const getInitState = ({ name, profile }, location) => ({
   name: name || '',
   birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || '',
   avatar: (profile && profile.avatar && profile.avatar.toString()) || '',
+  location,
 });
 
 const INIT_ERRORS = {
   name: [],
   // birthYear: [],
+  location: [],
 };
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -39,8 +43,8 @@ class EditProfileForm extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    const { user } = this.props;
-    INIT_STATE = getInitState(user);
+    const { user, location } = this.props;
+    INIT_STATE = getInitState(user, location);
 
     // Initialize state based on current user data
     this.state = {
@@ -75,6 +79,7 @@ class EditProfileForm extends React.PureComponent {
     });
   }
 
+  // TODO: validate location (required)
   validateFields = ({ name /* , birthYear */ }) => {
     // Initialize errors
     const errors = cloneDeep(INIT_ERRORS);
@@ -145,12 +150,8 @@ class EditProfileForm extends React.PureComponent {
   }
 
   render() {
-    const { user, disabled } = this.props;
-    const {
-      name,
-      // birthYear,
-      errors,
-    } = this.state;
+    const { user, location, disabled } = this.props;
+    const { name, /* birthYear, */ errors } = this.state;
 
     // Apply translation and concatenate field errors (string)
     const nameErrors = ErrorHandling.getFieldErrors(errors, 'name', I18n.t);
@@ -177,6 +178,19 @@ class EditProfileForm extends React.PureComponent {
               disabled={disabled}
               onChangeText={(value) => {
                 this.handleChange({ fieldName: 'name', value });
+              }}
+            />
+          </Block>
+          <Block>
+            <LocationPickerField
+              testID="editProfileFieldLocation"
+              label={I18n.t('editProfileForm.fields.location.label')}
+              value={location}
+              size="ML"
+              disabled={disabled}
+              boxed
+              onChange={(value) => {
+                this.handleChange({ fieldName: 'location', value });
               }}
             />
           </Block>
@@ -211,6 +225,7 @@ class EditProfileForm extends React.PureComponent {
 
 EditProfileForm.propTypes = {
   user: propType(userDetailsFragment).isRequired,
+  location: locationPropTypes.location.isRequired,
   disabled: PropTypes.bool,
   errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,

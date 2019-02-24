@@ -18,6 +18,10 @@
   "Beach_volleyball": "Beachvolleybal",
   "Boules": "Jeu de boules",
 
+  "Netherlands": "Nederland",
+  "Argentina": "Argentinië",
+
+
   "splashScreen": {
     "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
     "btnLabel": "Start met ontdekken",
@@ -66,6 +70,13 @@
         "errors": {
           "required": "Naam is vereist",
           "tooLong": "Naam is te lang"
+        }
+      },
+      "location": {
+        "label": "Stad",
+        "placeholder": "",
+        "errors": {
+          "required": "Stad is vereist"
         }
       },
       "birthYear": {

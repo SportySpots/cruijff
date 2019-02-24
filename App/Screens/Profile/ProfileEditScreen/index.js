@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
 import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
 import EditProfileApiCall from '../../../Components/Profile/EditProfileApiCall';
@@ -18,7 +20,12 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileEditScreen = ({ user, refresh, navigation }) => (
+const ProfileEditScreen = ({
+  user,
+  location,
+  refresh,
+  navigation,
+}) => (
   <FormProps>
     {({
       disabled,
@@ -43,6 +50,7 @@ const ProfileEditScreen = ({ user, refresh, navigation }) => (
           <Container>
             <EditProfileForm
               user={user}
+              location={location}
               disabled={disabled}
               errors={errors}
               onBeforeHook={handleBefore}
@@ -60,10 +68,16 @@ const ProfileEditScreen = ({ user, refresh, navigation }) => (
 
 ProfileEditScreen.propTypes = {
   user: userPropTypes.user.isRequired,
+  location: locationPropTypes.location.isRequired,
   refresh: userPropTypes.refresh.isRequired,
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default withUser(ProfileEditScreen);
+const enhance = compose(
+  withUser,
+  withLocation,
+);
+
+export default enhance(ProfileEditScreen);
