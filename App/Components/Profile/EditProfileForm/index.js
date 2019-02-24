@@ -181,17 +181,19 @@ class EditProfileForm extends React.PureComponent {
               }}
             />
           </Block>
-          <LocationPickerField
-            testID="editProfileFieldLocation"
-            label={I18n.t('editProfileForm.fields.location.label')}
-            value={location}
-            disabled={disabled}
-            onChange={(value) => {
-              this.handleChange({ fieldName: 'location', value });
-            }}
-            size="ML"
-            minWidth={150}
-          />
+          <Block>
+            <LocationPickerField
+              testID="editProfileFieldLocation"
+              label={I18n.t('editProfileForm.fields.location.label')}
+              value={location}
+              size="ML"
+              disabled={disabled}
+              boxed
+              onChange={(value) => {
+                this.handleChange({ fieldName: 'location', value });
+              }}
+            />
+          </Block>
           {/* <Block>
             <TextField
               testID="editProfileFieldBirthYear"

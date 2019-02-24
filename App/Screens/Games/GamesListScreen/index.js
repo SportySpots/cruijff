@@ -28,6 +28,8 @@ class GamesListScreen extends React.Component {
 
   render() {
     const { location } = this.props;
+    const { coords } = location;
+
     const maxDistance = 20; // km // TODO: read from context
 
     const variables = {
@@ -35,7 +37,7 @@ class GamesListScreen extends React.Component {
       limit: 10,
       ordering: 'start_time',
       start_time__gte: moment().startOf('day').toISOString(),
-      distance: `${parseInt(1000 * maxDistance, 10)}:${location.latitude}:${location.longitude}`,
+      distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
     };
 
     return (

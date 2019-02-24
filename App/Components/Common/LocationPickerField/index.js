@@ -14,6 +14,7 @@ const data = CITIES.map(({ id, city }) => ({ label: city, value: id }));
 //------------------------------------------------------------------------------
 const LocationPickerField = ({ value, onChange, ...rest }) => {
   const item = value ? data.find(d => (d.value === value.id)) : null;
+  const nCities = CITIES.length;
 
   return (
     <InputField
@@ -24,6 +25,8 @@ const LocationPickerField = ({ value, onChange, ...rest }) => {
         const location = CITIES.find(c => (c.id === d.value));
         onChange(location);
       }}
+      dropdownPosition={-nCities}
+      itemCount={nCities}
       {...rest}
     />
   );

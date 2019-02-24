@@ -27,6 +27,7 @@ const SpotsList = ({
   onCardPress,
   ...rest
 }) => {
+  const { coords } = location;
   const Card = cardComponent === 'SpotListCard' ? SpotListCard : SpotListCardSmall;
 
   // Set query variables
@@ -34,7 +35,7 @@ const SpotsList = ({
     offset: 0,
     limit: 10,
     sports__ids: sportsIds, // empty array will return all spots
-    distance: `${parseInt(1000 * maxDistance, 10)}:${location.latitude}:${location.longitude}`,
+    distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
   };
 
   const numGenerator = makeNumGenerator();
@@ -71,9 +72,9 @@ const SpotsList = ({
           data
           && data.spots
           && curatedSpots(data.spots).map((spot) => {
-            if (!location || !spot.address) { return spot; }
+            if (!coords || !spot.address) { return spot; }
             const latLng = getSpotLocation(spot);
-            const distance = rounded(geolib.getDistance(location, latLng) / 1000);
+            const distance = rounded(geolib.getDistance(coords, latLng) / 1000);
             return Object.assign({}, spot, { distance });
           })
         ) || [];

@@ -76,7 +76,6 @@ class OnboardingScreen extends React.Component {
             // Call api to store data into DB
             onSuccessHook={({ location }) => {
               handleSuccess(async () => {
-                // await setLocation(location.coords);
                 await setLocation(location);
                 navigation.navigate('MainNav');
               });
