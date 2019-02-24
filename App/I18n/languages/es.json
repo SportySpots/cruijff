@@ -68,6 +68,13 @@
           "tooLong": "Nombre es muy largo"
         }
       },
+      "location": {
+        "label": "Ciudad",
+        "placeholder": "",
+        "errors": {
+          "required": "Ciudad es requerida"
+        }
+      },
       "birthYear": {
         "label": "Año de nacimiento",
         "placeholder": "",

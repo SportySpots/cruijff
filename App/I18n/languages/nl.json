@@ -68,6 +68,13 @@
           "tooLong": "Naam is te lang"
         }
       },
+      "location": {
+        "label": "Stad",
+        "placeholder": "",
+        "errors": {
+          "required": "Stad is vereist"
+        }
+      },
       "birthYear": {
         "label": "Geboortejaar",
         "placeholder": "",
