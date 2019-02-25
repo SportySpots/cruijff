@@ -33,7 +33,7 @@ const InputField = ({
   disabled,
   error,
   onPress,
-  boxed,
+  fullWidth,
   minWidth,
   testID,
   size,
@@ -49,7 +49,7 @@ const InputField = ({
   if (disabled) { iColor = disabledColor; }
   if (error) { iColor = errorColor; }
 
-  if (boxed) {
+  if (fullWidth) {
     return (
       <Root onPress={onPress} testID={testID}>
         <Row>
@@ -143,7 +143,7 @@ InputField.propTypes = {
   size: PropTypes.oneOf(Object.keys(Fonts.style)),
   error: PropTypes.string,
   onPress: PropTypes.func,
-  boxed: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   minWidth: PropTypes.number,
   testID: PropTypes.string,
   // Plus all props from TextField and Dropdown comps
@@ -158,7 +158,7 @@ InputField.defaultProps = {
   size: 'M',
   error: '',
   onPress: () => {},
-  boxed: false,
+  fullWidth: false,
   minWidth: null,
   testID: '',
 };

@@ -16,7 +16,7 @@ class Container extends React.PureComponent {
     const {
       theme,
       label,
-      boxed,
+      fullWidth,
       size,
       dateFormat,
     } = this.props;
@@ -26,7 +26,7 @@ class Container extends React.PureComponent {
       <DatePickerField
         theme={theme}
         label={label}
-        boxed={boxed}
+        fullWidth={fullWidth}
         value={value}
         onChange={this.handleChange}
         size={size}
@@ -40,7 +40,7 @@ Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
   size: PropTypes.string,
   label: PropTypes.string,
-  boxed: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   dateFormat: PropTypes.string,
 };
 
@@ -48,7 +48,7 @@ Container.defaultProps = {
   theme: 'black',
   size: 'M',
   label: '',
-  boxed: false,
+  fullWidth: false,
   dateFormat: 'DD-MM', // 'DD/MM/YYYY'
 };
 
@@ -61,10 +61,10 @@ storiesOf('Common.DatePickerField', module)
       <Container theme="white" />
     </Block>
   ))
-  .add('DatePickerField boxed size ML dateFormat DD/MM/YYYY', () => (
+  .add('DatePickerField fullWidth size ML dateFormat DD/MM/YYYY', () => (
     <Container
       label="I'm the label"
-      boxed
+      fullWidth
       size="ML"
       dateFormat="DD/MM/YYYY"
     />

@@ -48,35 +48,35 @@ storiesOf('Common.InputField', module)
       />
     </Block>
   ))
-  .add('InputField TextField comp boxed', () => (
+  .add('InputField TextField comp fullWidth', () => (
     <Block>
       <InputField
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
-        boxed
+        fullWidth
       />
     </Block>
   ))
-  .add('InputField TextField comp boxed with ERROR', () => (
+  .add('InputField TextField comp fullWidth with ERROR', () => (
     <Block>
       <InputField
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
         error="I'm the error"
-        boxed
+        fullWidth
       />
     </Block>
   ))
-  .add('InputField TextField comp boxed DISABLED', () => (
+  .add('InputField TextField comp fullWidth DISABLED', () => (
     <Block>
       <InputField
         comp="TextField"
         label="I'm the label"
         value="I'm the value"
         disabled
-        boxed
+        fullWidth
       />
     </Block>
   ))
@@ -109,35 +109,35 @@ storiesOf('Common.InputField', module)
       />
     </Block>
   ))
-  .add('InputField Dropdown comp boxed', () => (
+  .add('InputField Dropdown comp fullWidth', () => (
     <Block>
       <InputField
         comp="Dropdown"
         label="I'm the label"
         data={data}
-        boxed
+        fullWidth
       />
     </Block>
   ))
-  .add('InputField Dropdown comp boxed with ERROR', () => (
+  .add('InputField Dropdown comp fullWidth with ERROR', () => (
     <Block>
       <InputField
         comp="Dropdown"
         label="I'm the label"
         data={data}
         error="I'm the error"
-        boxed
+        fullWidth
       />
     </Block>
   ))
-  .add('InputField Dropdown comp boxed DISABLED', () => (
+  .add('InputField Dropdown comp fullWidth DISABLED', () => (
     <Block>
       <InputField
         comp="Dropdown"
         label="I'm the label"
         data={data}
         disabled
-        boxed
+        fullWidth
       />
     </Block>
   ))

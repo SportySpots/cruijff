@@ -318,7 +318,7 @@ class EditGameForm extends React.PureComponent {
               disabled={disabled}
               theme="transparent"
               dateFormat="DD/MM/YYYY"
-              boxed
+              fullWidth
               onChange={(value) => { this.handleChange({ fieldName: 'date', value }); }}
             />
           </Block>
@@ -334,7 +334,7 @@ class EditGameForm extends React.PureComponent {
                   size="ML"
                   disabled={disabled}
                   theme="transparent"
-                  boxed
+                  fullWidth
                   onChange={(value) => { this.handleChange({ fieldName: 'time', value }); }}
                 />
               </Block>
@@ -353,7 +353,7 @@ class EditGameForm extends React.PureComponent {
                   size="ML"
                   disabled={disabled}
                   theme="transparent"
-                  boxed
+                  fullWidth
                   onChange={(value) => { this.handleChange({ fieldName: 'duration', value }); }}
                 />
               </Block>
@@ -372,7 +372,7 @@ class EditGameForm extends React.PureComponent {
               size="ML"
               disabled={disabled}
               theme="transparent"
-              boxed
+              fullWidth
               onChange={(value) => { this.handleChange({ fieldName: 'capacity', value }); }}
             />
           </Block>
