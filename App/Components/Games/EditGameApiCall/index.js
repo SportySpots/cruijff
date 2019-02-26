@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment/moment';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import curateErrors from './utils';
+import { handleErrors } from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -35,13 +35,7 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set title
       const res = await SeedorfAPI.setGameName({ gameUUID, name });
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onEditError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -56,13 +50,7 @@ class EditGameApiCall extends React.PureComponent {
         endTime: endTime ? endTime.toISOString() : null,
       });
       console.log('EDIT GAME SET TIME RESPONSE', res);
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onEditError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -72,13 +60,7 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set capacity
       const res = await SeedorfAPI.setGameCapacity({ gameUUID, capacity: capacity || null });
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onEditError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -88,13 +70,7 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set spot
       const res = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onEditError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -104,13 +80,7 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set description
       const res = await SeedorfAPI.setGameDescription({ gameUUID, description });
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onEditError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -123,15 +93,8 @@ class EditGameApiCall extends React.PureComponent {
         gameUUID,
         inviteMode: isPublic ? 'open' : 'invite_only',
       });
-
       console.log('UPDATED GAME', res.data);
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onEditError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
