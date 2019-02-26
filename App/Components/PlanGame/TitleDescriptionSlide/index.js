@@ -13,7 +13,6 @@ import TextField from '../../Common/TextField';
 export const TITLE_MAX_CHARS = 80;
 export const DESCRIPTION_MAX_CHARS = 2000;
 
-// export const getInitState = ({ username }) => ({
 export const getInitState = username => ({
   title: username ? I18n.t('titleDescriptionSlide.fields.title.defaultValue', { username }) : '',
   description: '',

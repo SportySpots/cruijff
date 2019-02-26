@@ -60,7 +60,7 @@ class PlanGameScreen extends React.Component {
   render() {
     const { navigation, user } = this.props;
 
-    const username = (user && user.first_name) || '';
+    const username = user && user.name ? user.name.split(' ')[0] : '';
 
     return (
       <FormProps>

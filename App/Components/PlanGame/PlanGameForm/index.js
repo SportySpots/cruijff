@@ -41,7 +41,7 @@ const SLIDES = [
     requiredFields: SpotSlide.requiredFields || [],
   },
   {
-    id: 'descriptionSlide',
+    id: 'titleDescriptionSlide',
     Comp: TitleDescriptionSlide,
     section: TitleDescriptionSlide.title,
     requiredFields: TitleDescriptionSlide.requiredFields || [],
@@ -114,11 +114,16 @@ class PlanGameForm extends React.Component {
     });
   }
 
-  validateFields = fields => ({
-    ...SportDateTimeSlide.validateFields(fields),
-    // ...SpotSlide.validateFields(fields),
-    ...TitleDescriptionSlide.validateFields(fields),
-  })
+  validateFields = (fields) => {
+    const { curSlide } = this.state;
+
+    return {
+      ...cloneDeep(INIT_ERRORS),
+      ...(curSlide === 0 ? SportDateTimeSlide.validateFields(fields) : {}),
+      // Spot
+      ...(curSlide === 2 ? TitleDescriptionSlide.validateFields(fields) : {}),
+    };
+  }
 
   get disableNext() {
     const { curSlide } = this.state;
