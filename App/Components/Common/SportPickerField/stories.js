@@ -16,7 +16,7 @@ class Container extends React.PureComponent {
     const {
       theme,
       label,
-      boxed,
+      fullWidth,
       size,
     } = this.props;
     const { sport } = this.state;
@@ -25,7 +25,7 @@ class Container extends React.PureComponent {
       <SportPickerField
         theme={theme}
         label={label}
-        boxed={boxed}
+        fullWidth={fullWidth}
         value={sport}
         onChange={this.handleChange}
         size={size}
@@ -38,14 +38,14 @@ Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
   size: PropTypes.string,
   label: PropTypes.string,
-  boxed: PropTypes.bool,
+  fullWidth: PropTypes.bool,
 };
 
 Container.defaultProps = {
   theme: 'black',
   size: 'M',
   label: '',
-  boxed: false,
+  fullWidth: false,
 };
 
 storiesOf('Common.SportPickerField', module)
@@ -55,10 +55,10 @@ storiesOf('Common.SportPickerField', module)
       <Container theme="white" />
     </Block>
   ))
-  .add('SportPickerField boxed size ML', () => (
+  .add('SportPickerField fullWidth size ML', () => (
     <Container
       label="I'm the label"
-      boxed
+      fullWidth
       size="ML"
       dateFormat="DD/MM/YYYY"
     />

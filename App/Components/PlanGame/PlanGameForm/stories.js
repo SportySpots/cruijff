@@ -15,7 +15,7 @@ storiesOf('PlanGame.PlanGameForm', module)
         {({ loading, error, data }) => (
           loading || error ? null : (
             <PlanGameForm
-              username={(data.user && data.user.first_name) || ''}
+              username={(data.user && data.user.name) || ''}
             />
           )
         )}

@@ -16,7 +16,7 @@ class Container extends React.PureComponent {
     const {
       theme,
       label,
-      boxed,
+      fullWidth,
       size,
     } = this.props;
     const { date } = this.state;
@@ -25,7 +25,7 @@ class Container extends React.PureComponent {
       <TimePickerField
         theme={theme}
         label={label}
-        boxed={boxed}
+        fullWidth={fullWidth}
         value={date}
         onChange={this.handleChange}
         size={size}
@@ -38,14 +38,14 @@ Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
   size: PropTypes.string,
   label: PropTypes.string,
-  boxed: PropTypes.bool,
+  fullWidth: PropTypes.bool,
 };
 
 Container.defaultProps = {
   theme: 'black',
   size: 'M',
   label: '',
-  boxed: false,
+  fullWidth: false,
 };
 
 storiesOf('Common.TimePickerField', module)
@@ -55,6 +55,6 @@ storiesOf('Common.TimePickerField', module)
       <Container theme="white" />
     </Block>
   ))
-  .add('TimePickerField boxed size ML', () => (
-    <Container label="I'm the label" boxed size="ML" />
+  .add('TimePickerField fullWidth size ML', () => (
+    <Container label="I'm the label" fullWidth size="ML" />
   ));

@@ -20,7 +20,7 @@ class Container extends React.PureComponent {
     const {
       theme,
       label,
-      boxed,
+      fullWidth,
       size,
     } = this.props;
     const { value } = this.state;
@@ -30,7 +30,7 @@ class Container extends React.PureComponent {
         <DurationPickerField
           theme={theme}
           label={label}
-          boxed={boxed}
+          fullWidth={fullWidth}
           value={value}
           onChange={this.handleChange}
           size={size}
@@ -44,14 +44,14 @@ Container.propTypes = {
   theme: PropTypes.oneOf(['black', 'white']),
   size: PropTypes.string,
   label: PropTypes.string,
-  boxed: PropTypes.bool,
+  fullWidth: PropTypes.bool,
 };
 
 Container.defaultProps = {
   theme: 'black',
   size: 'M',
   label: '',
-  boxed: false,
+  fullWidth: false,
 };
 
 storiesOf('Common.DurationPickerField', module)
@@ -61,6 +61,6 @@ storiesOf('Common.DurationPickerField', module)
       <Container theme="white" />
     </Block>
   ))
-  .add('DurationPickerField boxed size ML', () => (
-    <Container label="I'm the label" boxed size="ML" />
+  .add('DurationPickerField fullWidth size ML', () => (
+    <Container label="I'm the label" fullWidth size="ML" />
   ));

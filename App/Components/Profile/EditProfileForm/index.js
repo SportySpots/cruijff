@@ -188,7 +188,7 @@ class EditProfileForm extends React.PureComponent {
               value={location}
               size="ML"
               disabled={disabled}
-              boxed
+              fullWidth
               onChange={(value) => {
                 this.handleChange({ fieldName: 'location', value });
               }}

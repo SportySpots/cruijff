@@ -17,7 +17,7 @@ class Container extends React.PureComponent {
       theme,
       error,
       label,
-      boxed,
+      fullWidth,
       size,
     } = this.props;
     const { value } = this.state;
@@ -27,7 +27,7 @@ class Container extends React.PureComponent {
         theme={theme}
         error={error}
         label={label}
-        boxed={boxed}
+        fullWidth={fullWidth}
         value={value}
         onChange={this.handleChange}
         size={size}
@@ -41,7 +41,7 @@ Container.propTypes = {
   error: PropTypes.string,
   size: PropTypes.string,
   label: PropTypes.string,
-  boxed: PropTypes.bool,
+  fullWidth: PropTypes.bool,
 };
 
 Container.defaultProps = {
@@ -49,7 +49,7 @@ Container.defaultProps = {
   error: '',
   size: 'M',
   label: '',
-  boxed: false,
+  fullWidth: false,
 };
 
 storiesOf('Common.CapacityPickerField', module)
@@ -64,6 +64,6 @@ storiesOf('Common.CapacityPickerField', module)
       <Container theme="white" />
     </Block>
   ))
-  .add('CapacityPickerField boxed size ML', () => (
-    <Container label="I'm the label" boxed size="ML" />
+  .add('CapacityPickerField fullWidth size ML', () => (
+    <Container label="I'm the label" fullWidth size="ML" />
   ));
