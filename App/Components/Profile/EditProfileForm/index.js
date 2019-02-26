@@ -168,7 +168,7 @@ class EditProfileForm extends React.PureComponent {
               }}
             />
           </Block>
-          <Block>
+          <Block midHeight>
             <TextField
               testID="editProfileFieldName"
               label={I18n.t('editProfileForm.fields.name.label')}
@@ -181,7 +181,7 @@ class EditProfileForm extends React.PureComponent {
               }}
             />
           </Block>
-          <Block>
+          <Block midHeight>
             <LocationPickerField
               testID="editProfileFieldLocation"
               label={I18n.t('editProfileForm.fields.location.label')}
