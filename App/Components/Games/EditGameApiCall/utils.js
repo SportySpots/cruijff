@@ -29,7 +29,7 @@ const curateErrorMsg = (errorMsg) => {
  *  password1: ['This password is too short. It must contain at least 8 characters.']
  * }
 */
-const curateErrors = (errors) => {
+export const curateErrors = (errors) => {
   const keys = Object.keys(errors);
   const curatedErrors = {};
 
@@ -42,4 +42,11 @@ const curateErrors = (errors) => {
   return curatedErrors;
 };
 
-export default curateErrors;
+// TODO: make it DRY
+// In case the API response has any errors, throw so that it's catched by the try-catch block
+export const handleErrors = (res) => {
+  if (res && res.problem) {
+    const errors = curateErrors(res.data);
+    throw new Error(errors);
+  }
+};

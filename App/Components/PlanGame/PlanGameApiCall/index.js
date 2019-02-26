@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import curateErrors from './utils';
+import { handleErrors } from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: can we extract the 'if (res && res.problem) {...' logic into a method?
 class PlanGameApiCall extends React.PureComponent {
   handleCreate = async (inputFields) => {
     const { onPlanSuccess, onPlanError } = this.props;
@@ -48,15 +47,8 @@ class PlanGameApiCall extends React.PureComponent {
         description,
       });
       console.log('CREATE GAME RESPONSE', res);
-
       gameUUID = res.data.uuid;
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onPlanError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);
@@ -67,13 +59,7 @@ class PlanGameApiCall extends React.PureComponent {
       // Set sport
       const res = await SeedorfAPI.setGameSport({ gameUUID, sport });
       console.log('SET SPORT RESPONSE', res);
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onPlanError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);
@@ -84,13 +70,7 @@ class PlanGameApiCall extends React.PureComponent {
       // Set spot
       const res = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
       console.log('SET SPOT RESPONSE', res);
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onPlanError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);
@@ -101,13 +81,7 @@ class PlanGameApiCall extends React.PureComponent {
       // Set game status to 'planned'
       const res = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
       console.log('SET GAME STATUS TO PLANNED', res);
-
-      // Pass event up to parent component
-      if (res && res.problem) {
-        const errors = curateErrors(res.data);
-        onPlanError(errors);
-        return;
-      }
+      handleErrors(res);
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);
