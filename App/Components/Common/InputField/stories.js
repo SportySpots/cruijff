@@ -18,148 +18,120 @@ const data = [
 
 storiesOf('Common.InputField', module)
   .add('InputField TextField comp', () => (
-    <Block>
-      <InputField
-        comp="TextField"
-        label="I'm the label"
-        value="I'm the value"
-        prefix="prefix"
-        suffix="suffix"
-      />
-    </Block>
+    <InputField
+      comp="TextField"
+      label="I'm the label"
+      value="I'm the value"
+      prefix="prefix"
+      suffix="suffix"
+    />
   ))
   .add('InputField TextField comp with ERROR', () => (
-    <Block>
-      <InputField
-        comp="TextField"
-        label="I'm the label"
-        value="I'm the value"
-        error="I'm the error"
-      />
-    </Block>
+    <InputField
+      comp="TextField"
+      label="I'm the label"
+      value="I'm the value"
+      error="I'm the error"
+    />
   ))
   .add('InputField TextField comp DISABLED', () => (
-    <Block>
-      <InputField
-        comp="TextField"
-        label="I'm the label"
-        value="I'm the value"
-        disabled
-      />
-    </Block>
+    <InputField
+      comp="TextField"
+      label="I'm the label"
+      value="I'm the value"
+      disabled
+    />
   ))
   .add('InputField TextField comp fullWidth', () => (
-    <Block>
-      <InputField
-        comp="TextField"
-        label="I'm the label"
-        value="I'm the value"
-        fullWidth
-      />
-    </Block>
+    <InputField
+      comp="TextField"
+      label="I'm the label"
+      value="I'm the value"
+      fullWidth
+    />
   ))
   .add('InputField TextField comp fullWidth with ERROR', () => (
-    <Block>
-      <InputField
-        comp="TextField"
-        label="I'm the label"
-        value="I'm the value"
-        error="I'm the error"
-        fullWidth
-      />
-    </Block>
+    <InputField
+      comp="TextField"
+      label="I'm the label"
+      value="I'm the value"
+      error="I'm the error"
+      fullWidth
+    />
   ))
   .add('InputField TextField comp fullWidth DISABLED', () => (
-    <Block>
-      <InputField
-        comp="TextField"
-        label="I'm the label"
-        value="I'm the value"
-        disabled
-        fullWidth
-      />
-    </Block>
+    <InputField
+      comp="TextField"
+      label="I'm the label"
+      value="I'm the value"
+      disabled
+      fullWidth
+    />
   ))
   .add('InputField Dropdown comp', () => (
-    <Block>
-      <InputField
-        comp="Dropdown"
-        label="I'm the label"
-        data={data}
-      />
-    </Block>
+    <InputField
+      comp="Dropdown"
+      label="I'm the label"
+      data={data}
+    />
   ))
   .add('InputField Dropdown comp with ERROR', () => (
-    <Block>
-      <InputField
-        comp="Dropdown"
-        label="I'm the label"
-        data={data}
-        error="I'm the error"
-      />
-    </Block>
+    <InputField
+      comp="Dropdown"
+      label="I'm the label"
+      data={data}
+      error="I'm the error"
+    />
   ))
   .add('InputField Dropdown comp DISABLED', () => (
-    <Block>
-      <InputField
-        comp="Dropdown"
-        label="I'm the label"
-        data={data}
-        disabled
-      />
-    </Block>
+    <InputField
+      comp="Dropdown"
+      label="I'm the label"
+      data={data}
+      disabled
+    />
   ))
   .add('InputField Dropdown comp fullWidth', () => (
-    <Block>
-      <InputField
-        comp="Dropdown"
-        label="I'm the label"
-        data={data}
-        fullWidth
-      />
-    </Block>
+    <InputField
+      comp="Dropdown"
+      label="I'm the label"
+      data={data}
+      fullWidth
+    />
   ))
   .add('InputField Dropdown comp fullWidth with ERROR', () => (
-    <Block>
-      <InputField
-        comp="Dropdown"
-        label="I'm the label"
-        data={data}
-        error="I'm the error"
-        fullWidth
-      />
-    </Block>
+    <InputField
+      comp="Dropdown"
+      label="I'm the label"
+      data={data}
+      error="I'm the error"
+      fullWidth
+    />
   ))
   .add('InputField Dropdown comp fullWidth DISABLED', () => (
-    <Block>
-      <InputField
-        comp="Dropdown"
-        label="I'm the label"
-        data={data}
-        disabled
-        fullWidth
-      />
-    </Block>
+    <InputField
+      comp="Dropdown"
+      label="I'm the label"
+      data={data}
+      disabled
+      fullWidth
+    />
   ))
   .add('InputField size S', () => (
-    <Block>
-      <InputField
-        comp="TextField"
-        label="I'm the label"
-        value="I'm the value"
-        size="S"
-      />
-    </Block>
+    <InputField
+      comp="TextField"
+      label="I'm the label"
+      value="I'm the value"
+      size="S"
+    />
   ))
   .add('InputField size ML', () => (
-    <Block>
-      <InputField
-        comp="TextField"
-        label="I'm the label"
-        value="I'm the value"
-        size="ML"
-      />
-    </Block>
+    <InputField
+      comp="TextField"
+      label="I'm the label"
+      value="I'm the value"
+      size="ML"
+    />
   ))
   .add('InputField white theme', () => (
     <Block bgColor={Colors.primaryGreen}>
