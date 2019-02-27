@@ -72,7 +72,7 @@ class TitleDescriptionSlide extends React.PureComponent {
 }
 
 TitleDescriptionSlide.title = 'titleDescriptionSlide.title';
-TitleDescriptionSlide.requiredFields = [];
+TitleDescriptionSlide.requiredFields = ['title'];
 TitleDescriptionSlide.nextBtnLabel = 'titleDescriptionSlide.footer.nextBtnLabel';
 
 TitleDescriptionSlide.validateFields = ({ title, description }) => {

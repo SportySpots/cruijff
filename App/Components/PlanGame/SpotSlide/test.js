@@ -1,13 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import cloneDeep from 'lodash/cloneDeep';
-import I18n from '../../../I18n';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
 import { createMockClient, ApolloMockProvider } from '../../../GraphQL';
-import SpotSlide, { INIT_ERRORS } from '.';
-
-const validSport = 'SOCCER';
+import SpotSlide from '.';
 
 describe('SpotSlide', () => {
   let spots;
