@@ -404,14 +404,14 @@ class EditGameForm extends React.PureComponent {
             />
           </Block>
           <Divider />
-          <Block>
+          {/* <Block>
             <SwitchWithText
               label={I18n.t('editGameForm.fields.isPublic.label')}
               value={!isPublic}
               disabled={disabled}
               onChange={(value) => { this.handleChange({ fieldName: 'isPublic', value: !value }); }}
             />
-          </Block>
+          </Block> */}
         </TopLayout>
         <BottomLayout>
           <RaisedButton
