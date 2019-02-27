@@ -32,10 +32,6 @@ class ShareGameForm extends React.PureComponent {
   }
 
   handleChange = ({ fieldName, value }) => {
-    if (!fieldName) {
-      return;
-    }
-
     this.setState(
       { [fieldName]: value },
       () => { console.log(this.state); },
@@ -93,10 +89,10 @@ class ShareGameForm extends React.PureComponent {
           <Spacer size="XXL" />
           <ShareGameButton gameUUID={gameUUID} />
           <Spacer size="XXXL" />
-          <InviteOnly
+          {/* <InviteOnly
             isPublic={isPublic}
             onPress={(value) => { this.handleChange({ fieldName: 'isPublic', value }); }}
-          />
+          /> */}
         </ClosableLayout>
         <Footer
           numPages={4}
