@@ -14,7 +14,6 @@ const curateFieldName = (fieldName) => {
  * error = { email: ['This field must be unique.'] }
 */
 const curateErrorMsg = (errorMsg) => {
-  console.log('errorMsg', errorMsg);
   switch (errorMsg) {
     case 'This field must be unique.':
       return 'signupEmailForm.fields.email.errors.inUse';
