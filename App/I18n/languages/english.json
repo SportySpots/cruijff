@@ -595,7 +595,8 @@
           "required": "Email is required",
           "invalid": "Please provide a valid email",
           "tooLong": "Email is too long",
-          "inUse": "Email address in use"
+          "inUse": "Email address in use",
+          "unknown": "Unexpected error"
         }
       }
     },
