@@ -595,7 +595,8 @@
           "required": "Email es requerido",
           "invalid": "Por favor proporciona un email válido",
           "tooLong": "Email es muy largo",
-          "inUse": "El email ya ha sido registrado"
+          "inUse": "El email ya ha sido registrado",
+          "unknown": "Error inesperado"
         }
       },
       "password": {

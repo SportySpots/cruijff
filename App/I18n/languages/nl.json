@@ -596,7 +596,8 @@
           "required": "E-mailadres is vereist",
           "invalid": "Vul een geldig e-mailadres in",
           "tooLong": "E-mailadres is te lang",
-          "inUse": "E-mailadres in gebruik"
+          "inUse": "E-mailadres in gebruik",
+          "unknown": "Onverwachte fout"
         }
       }
     },

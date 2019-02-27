@@ -3,11 +3,8 @@
 */
 const curateFieldName = (fieldName) => {
   switch (fieldName) {
-    case 'password1':
-      return 'password';
-    case 'email':
-    case 'username':
-    case 'non_field_errors':
+    case 'name':
+      return 'name';
     default:
       return 'email';
   }
@@ -17,17 +14,14 @@ const curateFieldName = (fieldName) => {
  * error = { email: ['This field must be unique.'] }
 */
 const curateErrorMsg = (errorMsg) => {
+  console.log('errorMsg', errorMsg);
   switch (errorMsg) {
     case 'This field must be unique.':
       return 'signupEmailForm.fields.email.errors.inUse';
-    case 'This password is too short. It must contain at least 8 characters.':
-      return 'signupEmailForm.fields.password.errors.tooShort';
-    case 'This password is too common.':
-      return 'signupEmailForm.fields.password.errors.tooCommon';
-    case 'This password is entirely numeric.':
-      return 'signupEmailForm.fields.password.errors.numeric';
+    case 'A user is already registered with this e-mail address.':
+      return 'signupEmailForm.fields.email.errors.inUse';
     default:
-      return 'signupEmailForm.fields.password.errors.unknown';
+      return 'signupEmailForm.fields.email.errors.unknown';
   }
 };
 
