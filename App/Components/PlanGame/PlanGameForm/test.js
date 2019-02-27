@@ -201,6 +201,61 @@ describe('PlanGameForm', () => {
     expect(wrapper.instance().state.curSlide).toBe(2);
   });
 
+  it('decrements curSlide index when calling handleBack', () => {
+    const wrapper = shallow(<PlanGameForm username="username" />);
+
+    // Sanity check
+    expect(wrapper.instance().state).toMatchObject(INIT_STATE);
+
+    wrapper.instance().setState({ curSlide: 2 });
+
+    expect(wrapper.instance().state.curSlide).toBe(2);
+
+    wrapper.instance().handleBack();
+
+    expect(wrapper.instance().state.curSlide).toBe(1);
+
+    wrapper.instance().handleBack();
+
+    expect(wrapper.instance().state.curSlide).toBe(0);
+
+    // Attempt to go back after reaching curSlide = 0
+    wrapper.instance().handleBack();
+
+    expect(wrapper.instance().state.curSlide).toBe(0);
+  });
+
+  it('aborts form submission if onBeforeHook throws', () => {
+    const handleBefore = jest.fn().mockImplementation(() => { throw new Error(); });
+    const handleClientCancel = jest.fn();
+    const handleSuccess = jest.fn();
+
+    const wrapper = shallow(
+      <PlanGameForm
+        username="username"
+        onBeforeHook={handleBefore}
+        onClientCancelHook={handleClientCancel}
+        onSuccessHook={handleSuccess}
+      />,
+    );
+
+    // Sanity check
+    expect(wrapper.instance().state).toMatchObject(INIT_STATE);
+
+    wrapper.instance().setState({
+      curSlide: 2,
+      sport: validSport,
+      date: validDate,
+      time: validTime,
+      spot: spots[0],
+    });
+
+    wrapper.instance().handleNext();
+
+    expect(handleBefore).toBeCalled();
+    expect(handleClientCancel).toBeCalled();
+    expect(handleSuccess).not.toBeCalled();
+  });
 
   it('calls onSuccessHook when sport, date, time, spot and title are provided', () => {
     const handleBefore = jest.fn();
@@ -218,7 +273,6 @@ describe('PlanGameForm', () => {
       />,
     );
 
-    // Sanity check
     // Sanity check
     expect(wrapper.instance().state).toMatchObject(INIT_STATE);
 
