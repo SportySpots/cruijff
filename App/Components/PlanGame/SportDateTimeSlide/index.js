@@ -14,7 +14,6 @@ import DurationPickerField from '../../Common/DurationPickerField';
 import CapacityPickerField from '../../Common/CapacityPickerField';
 import Spacer from '../../Common/Spacer';
 
-// TODO: update I18n for nl and es
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------

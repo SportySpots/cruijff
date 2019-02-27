@@ -4,15 +4,16 @@ import { Keyboard, View } from 'react-native';
 import firebase from 'react-native-firebase';
 import Swiper from 'react-native-swiper';
 import styled from 'styled-components';
-import union from 'lodash/union';
-import extend from 'lodash/extend';
+import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import I18n from '../../../I18n';
+import { addGlobalRef } from '../../../globalRefs';
 import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../DarkFooter';
-import LocationSlide from '../LocationSlide';
-import { addGlobalRef } from '../../../globalRefs';
+import LocationSlide, {
+  INIT_STATE as LOCATION_INIT_STATE,
+} from '../LocationSlide';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -51,13 +52,13 @@ const SLIDES = [
   {
     id: 'locationSlide',
     Comp: LocationSlide,
-    fields: ['location'],
-    requiredFields: ['location'],
-    initState: {
-      location: null,
-    },
+    requiredFields: LocationSlide.requiredFields,
   },
 ];
+
+const INIT_STATE = {
+  ...cloneDeep(LOCATION_INIT_STATE),
+};
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -75,18 +76,13 @@ class OnboardingForm extends React.Component {
 
     this.state = {
       curSlide: 0,
+      ...cloneDeep(INIT_STATE),
     };
 
-    // Attach slide's initial state to component's state
-    SLIDES.forEach(({ initState }) => {
-      extend(this.state, Object.assign({}, initState));
-    });
-
-    console.log('INIT STATE', this.state);
+    // console.log('INIT STATE', this.state);
   }
 
   handleChange = ({ fieldName, value }) => {
-    if (!fieldName) { return; }
     this.setState({ [fieldName]: value });
   }
 
@@ -150,8 +146,7 @@ class OnboardingForm extends React.Component {
     }
 
     // Pass event up to parent component
-    const fields = SLIDES.map(({ fields: fs }) => fs).reduce((result, fs) => union(result, fs), []);
-    onSuccessHook(pick(this.state, fields));
+    onSuccessHook(pick(this.state, Object.keys(INIT_STATE)));
   }
 
   render() {
@@ -206,7 +201,6 @@ OnboardingForm.defaultProps = {
 };
 
 export default OnboardingForm;
-
 
 /*
 import React from 'react';
