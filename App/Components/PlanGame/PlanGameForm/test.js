@@ -76,7 +76,7 @@ describe('PlanGameForm', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('holds the right initial state', () => {
+  it('holds the expected initial state on first render', () => {
     const wrapper = shallow(<PlanGameForm username="username" />);
 
     expect(wrapper.instance().state).toMatchObject(INIT_STATE);
@@ -106,6 +106,23 @@ describe('PlanGameForm', () => {
     expect(wrapper.instance().disableNext).toBe(false);
   });
 
+  it('increments curSlide index after sport, date and time field are set and handleNext is fired', () => {
+    const wrapper = shallow(<PlanGameForm username="username" />);
+
+    // Sanity check
+    expect(wrapper.instance().state).toMatchObject(INIT_STATE);
+
+    wrapper.instance().setState({
+      sport: validSport,
+      date: validDate,
+      time: validTime,
+    });
+
+    wrapper.instance().handleNext();
+
+    expect(wrapper.instance().state.curSlide).toBe(1);
+  });
+
   it('disables next btn on SpotSlide on initial render', () => {
     const wrapper = shallow(<PlanGameForm username="username" />);
 
@@ -130,6 +147,21 @@ describe('PlanGameForm', () => {
     expect(wrapper.instance().disableNext).toBe(false);
   });
 
+  it('increments curSlide index after spot field is set and handleNext is fired', () => {
+    const wrapper = shallow(<PlanGameForm username="username" />);
+
+    // Sanity check
+    expect(wrapper.instance().state).toMatchObject(INIT_STATE);
+
+    wrapper.instance().setState({ curSlide: 1 });
+
+    wrapper.instance().setState({ spot: spots[0] });
+
+    wrapper.instance().handleNext();
+
+    expect(wrapper.instance().state.curSlide).toBe(2);
+  });
+
   it('enables next btn on TitleDescriptionSlide on initial render', () => {
     const wrapper = shallow(<PlanGameForm username="username" />);
 
@@ -151,8 +183,64 @@ describe('PlanGameForm', () => {
 
     wrapper.instance().setState({ title: '' });
 
-    console.log(wrapper.instance().state);
-
     expect(wrapper.instance().disableNext).toBe(true);
+  });
+
+  it('increments curSlide index after spot field is set and handleNext is fired', () => {
+    const wrapper = shallow(<PlanGameForm username="username" />);
+
+    // Sanity check
+    expect(wrapper.instance().state).toMatchObject(INIT_STATE);
+
+    wrapper.instance().setState({ curSlide: 1 });
+
+    wrapper.instance().setState({ spot: spots[0] });
+
+    wrapper.instance().handleNext();
+
+    expect(wrapper.instance().state.curSlide).toBe(2);
+  });
+
+
+  it('calls onSuccessHook when sport, date, time, spot and title are provided', () => {
+    const handleBefore = jest.fn();
+    const handleClientCancel = jest.fn();
+    const handleClientError = jest.fn();
+    const handleSuccess = jest.fn();
+
+    const wrapper = shallow(
+      <PlanGameForm
+        username="username"
+        onBeforeHook={handleBefore}
+        onClientCancelHook={handleClientCancel}
+        onClientErrorHook={handleClientError}
+        onSuccessHook={handleSuccess}
+      />,
+    );
+
+    // Sanity check
+    // Sanity check
+    expect(wrapper.instance().state).toMatchObject(INIT_STATE);
+
+    wrapper.instance().setState({
+      curSlide: 2,
+      sport: validSport,
+      date: validDate,
+      time: validTime,
+      spot: spots[0],
+    });
+
+    wrapper.instance().handleNext();
+
+    expect(handleBefore).toBeCalled();
+    expect(handleClientCancel).not.toBeCalled();
+    expect(handleSuccess).toBeCalledWith(
+      expect.objectContaining({
+        sport: validSport,
+        date: validDate,
+        time: validTime,
+        spot: spots[0],
+      }),
+    );
   });
 });

@@ -172,11 +172,16 @@ class PlanGameForm extends React.Component {
     // Decrease current slider index and slide back one position
     this.setState(
       prevState => ({ curSlide: prevState.curSlide === 0 ? 0 : prevState.curSlide - 1 }),
-      () => { this.swiper.scrollBy(-1); },
+      () => {
+        // refs are null when doing shallow tests
+        if (this.swiper) {
+          this.swiper.scrollBy(-1);
+        }
+      },
     );
   }
 
-  handleNext = async () => {
+  handleNext = () => {
     Keyboard.dismiss();
 
     const { curSlide } = this.state;
@@ -199,7 +204,12 @@ class PlanGameForm extends React.Component {
     if (curSlide !== SLIDES.length - 1) {
       this.setState(
         prevState => ({ curSlide: prevState.curSlide + 1 }),
-        () => { this.swiper.scrollBy(1); },
+        () => {
+          // refs are null when doing shallow tests
+          if (this.swiper) {
+            this.swiper.scrollBy(1);
+          }
+        },
       );
       return;
     }

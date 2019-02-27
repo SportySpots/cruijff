@@ -43,6 +43,9 @@ jest.mock('react-native-firebase', () => ({
   links: () => ({
     onLink: jest.fn(),
   }),
+  analytics: () => ({
+    logEvent: jest.fn(),
+  }),
 }));
 
 jest.mock('react-native-localize', () => jest.fn());
