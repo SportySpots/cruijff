@@ -133,7 +133,7 @@ class LoginEmailForm extends React.PureComponent {
             keyboardType="email-address"
             // autoFocus
             onChangeText={(value) => {
-              this.handleChange({ fieldName: 'email', value });
+              this.handleChange({ fieldName: 'email', value: value.toLowerCase() });
             }}
           />
         </Block>
