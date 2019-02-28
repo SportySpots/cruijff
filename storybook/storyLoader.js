@@ -29,6 +29,7 @@ function loadStories() {
   require('../App/Components/Common/DurationPickerField/stories');
   require('../App/Components/Common/Flap/stories');
   require('../App/Components/Common/HeaderBtn/stories');
+  require('../App/Components/Common/ImageSwiper/stories');
   require('../App/Components/Common/InputField/stories');
   require('../App/Components/Common/LinkNavigate/stories');
   require('../App/Components/Common/LinkOpenURL/stories');
@@ -154,6 +155,7 @@ const stories = [
   '../App/Components/Common/DurationPickerField/stories',
   '../App/Components/Common/Flap/stories',
   '../App/Components/Common/HeaderBtn/stories',
+  '../App/Components/Common/ImageSwiper/stories',
   '../App/Components/Common/InputField/stories',
   '../App/Components/Common/LinkNavigate/stories',
   '../App/Components/Common/LinkOpenURL/stories',

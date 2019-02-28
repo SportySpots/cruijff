@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 
-import ImageSwiper from './Common/ImageSwiper';
 import Text from './Common/Text';
 import Rating from './Common/Rating';
 import RatingBig from './Common/RatingBig';
@@ -22,15 +21,6 @@ storiesOf('Text', module)
   .add('Small text', () => <Text.S>Small size</Text.S>)
   .add('Medium text', () => <Text.M>Medium size</Text.M>)
   .add('Large text', () => <Text.L>Large size</Text.L>);
-
-storiesOf('ImageSwiper', module).add('Default', () => (
-  <ImageSwiper
-    images={[
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A',
-      'https://via.placeholder.com/350x150',
-    ]}
-  />
-));
 
 storiesOf('Rating', module)
   .add('1', () => <Rating rating={1} />)
