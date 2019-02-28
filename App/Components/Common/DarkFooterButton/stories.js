@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import styled from 'styled-components';
-import Colors from '../../Themes/Colors';
+import Colors from '../../../Themes/Colors';
 import DarkFooterButton from '.';
 
 const Container = styled.View`

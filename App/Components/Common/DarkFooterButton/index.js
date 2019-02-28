@@ -3,11 +3,11 @@ import { TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
-import Fonts from '../../Themes/Fonts';
-import Colors from '../../Themes/Colors';
-import Text from '../Common/Text';
-import Row from '../Common/Row';
-import Spacer from '../Common/Spacer';
+import Fonts from '../../../Themes/Fonts';
+import Colors from '../../../Themes/Colors';
+import Text from '../Text';
+import Row from '../Row';
+import Spacer from '../Spacer';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -19,7 +19,6 @@ const Label = styled(Text.M)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: move to common folder
 class DarkFooterButton extends React.PureComponent {
   render() {
     const {

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import I18n from '../../I18n';
-import Colors from '../../Themes/Colors';
-import NavDots from '../Common/NavDots';
-import Row from '../Common/Row';
-import Spacer from '../Common/Spacer';
+import I18n from '../../../I18n';
+import { addGlobalRef } from '../../../globalRefs';
+import Colors from '../../../Themes/Colors';
+import NavDots from '../NavDots';
+import Row from '../Row';
+import Spacer from '../Spacer';
 import DarkFooterButton from '../DarkFooterButton';
-import { addGlobalRef } from '../../globalRefs';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -23,7 +23,6 @@ const StyledRow = styled(Row)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: move to common folder
 const DarkFooter = ({
   numPages,
   currentPage,

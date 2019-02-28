@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import Swiper from 'react-native-swiper';
-import Footer from '../../DarkFooter';
+import Footer from '../DarkFooter';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

@@ -7,13 +7,15 @@ class Wrapper extends React.Component {
   state = { currentPage: 1 }
 
   render() {
+    const { currentPage } = this.state;
+
     return (
       <View style={{ flex: 1 }}>
         <DarkFooter
-          currentPage={this.state.currentPage}
+          currentPage={currentPage}
           numPages={4}
-          onNext={() => this.setState({ currentPage: this.state.currentPage + 1 })}
-          onBack={() => this.setState({ currentPage: this.state.currentPage - 1 })}
+          onNext={() => this.setState({ currentPage: currentPage + 1 })}
+          onBack={() => this.setState({ currentPage: currentPage - 1 })}
           {...this.props}
         />
       </View>

@@ -10,10 +10,8 @@ import I18n from '../../../I18n';
 import { addGlobalRef } from '../../../globalRefs';
 import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
-import Footer from '../../DarkFooter';
-import LocationSlide, {
-  INIT_STATE as LOCATION_INIT_STATE,
-} from '../LocationSlide';
+import Footer from '../../Common/DarkFooter';
+import LocationSlide, { INIT_STATE as LOCATION_INIT_STATE } from '../LocationSlide';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:

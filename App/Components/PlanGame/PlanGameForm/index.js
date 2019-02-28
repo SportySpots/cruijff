@@ -8,8 +8,9 @@ import pick from 'lodash/pick';
 import styled from 'styled-components';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
+import { addGlobalRef } from '../../../globalRefs';
 import ClosableLayout from '../../Layouts/ClosableLayout';
-import Footer from '../../DarkFooter';
+import Footer from '../../Common/DarkFooter';
 import SportDateTimeSlide, {
   INIT_STATE as SPORT_DATE_TIME_INIT_STATE,
   INIT_ERRORS as SPORT_DATE_TIME_INIT_ERRORS,
@@ -18,7 +19,6 @@ import SpotSlide, {
   INIT_STATE as SPOT_INIT_STATE,
   INIT_ERRORS as SPOT_INIT_ERRORS,
 } from '../SpotSlide';
-import { addGlobalRef } from '../../../globalRefs';
 import TitleDescriptionSlide, {
   getInitState as titleDescriptionGetInitState,
   INIT_ERRORS as TITLE_DESCRIPTION_INIT_ERRORS,
