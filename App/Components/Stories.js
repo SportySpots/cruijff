@@ -32,15 +32,3 @@ storiesOf('RatingBig', module)
   .add('3', () => <RatingBig rating={3} />)
   .add('4.5', () => <RatingBig rating={4.5} />);
 
-/* storiesOf('SignupScreen', module).add('Default', () => (
-  <Provider store={store}>
-    <SignupScreen navigation={dummyNavigator} />
-  </Provider>
-)); */
-
-storiesOf('NothingFound', module).add('Default', () => (
-  <NothingFound
-    icon="map-marker"
-    text="Oops, nothing found"
-  />
-));
