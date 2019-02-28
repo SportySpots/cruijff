@@ -52639,20 +52639,10 @@ exports[`Storyshots PlanGame.ShareGameForm ShareGameForm white theme 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
-      height={null}
-      midHeight={false}
       style={
-        Array [
-          Object {
-            "backgroundColor": "#009f36",
-            "height": "auto",
-            "paddingBottom": 16,
-            "paddingLeft": 16,
-            "paddingRight": 16,
-            "paddingTop": 16,
-          },
-        ]
+        Object {
+          "flex": 1,
+        }
       }
     >
       <View
