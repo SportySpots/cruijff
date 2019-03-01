@@ -8,7 +8,7 @@ import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
 // import FlatButton from '../../Common/FlatButton';
 import Row from '../../Common/Row';
 import Block from '../../Common/Block';
-import RatingBig from '../../Common/RatingBig';
+import Rating from '../../Common/Rating';
 import Text from '../../Common/Text';
 
 //------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ class SpotRating extends React.PureComponent {
     const { spotId, userId } = this.props;
     const { rating } = this.state;
 
-    if (this.state.rating <= 0) {
+    if (rating <= 0) {
       return;
     }
 
@@ -49,7 +49,7 @@ class SpotRating extends React.PureComponent {
       <Block bgColor={Colors.bgGrey}>
         <Text>{I18n.t('Rate this spot')}</Text>
         <Row justifyContent="space-between">
-          <RatingBig
+          <Rating
             rating={rating}
             onPress={i => this.setState({ rating: i })}
           />

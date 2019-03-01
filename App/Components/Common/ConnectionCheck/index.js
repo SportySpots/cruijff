@@ -1,8 +1,13 @@
 import React from 'react';
-import { View, NetInfo } from 'react-native';
-import I18n from '../../I18n';
-import Text from './Text';
+import { NetInfo } from 'react-native';
+import I18n from '../../../I18n';
+import Colors from '../../../Themes/Colors';
+import Block from '../Block';
+import Text from '../Text';
 
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
 class ConnectionCheck extends React.Component {
   state = {
     connType: '', // 'none', 'wifi', 'cellular', 'unknown'
@@ -34,9 +39,19 @@ class ConnectionCheck extends React.Component {
     }
 
     return (
-      <View>
-        <Text>{I18n.t('connectionCheck.noConnection')}</Text>
-      </View>
+      <Block
+        midHeight
+        bgColor={Colors.black}
+      >
+        <Text
+          style={{
+            color: Colors.white,
+            textAlign: 'center',
+          }}
+        >
+          {I18n.t('connectionCheck.noConnection')}
+        </Text>
+      </Block>
     );
   }
 }

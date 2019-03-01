@@ -17,7 +17,11 @@ function loadStories() {
   require('../App/Components/Common/Calendar/stories');
   require('../App/Components/Common/CapacityPicker/stories');
   require('../App/Components/Common/CapacityPickerField/stories');
+  require('../App/Components/Common/CenteredActivityIndicator/stories');
   require('../App/Components/Common/Checkbox/stories');
+  require('../App/Components/Common/ConnectionCheck/stories');
+  require('../App/Components/Common/DarkFooter/stories');
+  require('../App/Components/Common/DarkFooterButton/stories');
   require('../App/Components/Common/DatePickerField/stories');
   require('../App/Components/Common/Divider/stories');
   require('../App/Components/Common/DotSpacer/stories');
@@ -25,6 +29,7 @@ function loadStories() {
   require('../App/Components/Common/DurationPickerField/stories');
   require('../App/Components/Common/Flap/stories');
   require('../App/Components/Common/HeaderBtn/stories');
+  require('../App/Components/Common/ImageSwiper/stories');
   require('../App/Components/Common/InputField/stories');
   require('../App/Components/Common/LinkNavigate/stories');
   require('../App/Components/Common/LinkOpenURL/stories');
@@ -44,8 +49,10 @@ function loadStories() {
   require('../App/Components/Common/NavBarButton/stories');
   require('../App/Components/Common/NavDot/stories');
   require('../App/Components/Common/NavDots/stories');
+  require('../App/Components/Common/NothingFound/stories');
   require('../App/Components/Common/OrDivider/stories');
   require('../App/Components/Common/RaisedButton/stories');
+  require('../App/Components/Common/Rating/stories');
   require('../App/Components/Common/RoundButton/stories');
   require('../App/Components/Common/Row/stories');
   require('../App/Components/Common/ScreenSlider/stories');
@@ -60,8 +67,6 @@ function loadStories() {
   require('../App/Components/Common/Tag/stories');
   require('../App/Components/Common/TextField/stories');
   require('../App/Components/Common/TimePickerField/stories');
-  require('../App/Components/DarkFooter/stories');
-  require('../App/Components/DarkFooterButton/stories');
   require('../App/Components/Games/AdminMenu/stories');
   require('../App/Components/Games/Attendees/stories');
   require('../App/Components/Games/CancelGameForm/stories');
@@ -140,7 +145,11 @@ const stories = [
   '../App/Components/Common/Calendar/stories',
   '../App/Components/Common/CapacityPicker/stories',
   '../App/Components/Common/CapacityPickerField/stories',
+  '../App/Components/Common/CenteredActivityIndicator/stories',
   '../App/Components/Common/Checkbox/stories',
+  '../App/Components/Common/ConnectionCheck/stories',
+  '../App/Components/Common/DarkFooter/stories',
+  '../App/Components/Common/DarkFooterButton/stories',
   '../App/Components/Common/DatePickerField/stories',
   '../App/Components/Common/Divider/stories',
   '../App/Components/Common/DotSpacer/stories',
@@ -148,6 +157,7 @@ const stories = [
   '../App/Components/Common/DurationPickerField/stories',
   '../App/Components/Common/Flap/stories',
   '../App/Components/Common/HeaderBtn/stories',
+  '../App/Components/Common/ImageSwiper/stories',
   '../App/Components/Common/InputField/stories',
   '../App/Components/Common/LinkNavigate/stories',
   '../App/Components/Common/LinkOpenURL/stories',
@@ -167,8 +177,10 @@ const stories = [
   '../App/Components/Common/NavBarButton/stories',
   '../App/Components/Common/NavDot/stories',
   '../App/Components/Common/NavDots/stories',
+  '../App/Components/Common/NothingFound/stories',
   '../App/Components/Common/OrDivider/stories',
   '../App/Components/Common/RaisedButton/stories',
+  '../App/Components/Common/Rating/stories',
   '../App/Components/Common/RoundButton/stories',
   '../App/Components/Common/Row/stories',
   '../App/Components/Common/ScreenSlider/stories',
@@ -183,8 +195,6 @@ const stories = [
   '../App/Components/Common/Tag/stories',
   '../App/Components/Common/TextField/stories',
   '../App/Components/Common/TimePickerField/stories',
-  '../App/Components/DarkFooter/stories',
-  '../App/Components/DarkFooterButton/stories',
   '../App/Components/Games/AdminMenu/stories',
   '../App/Components/Games/Attendees/stories',
   '../App/Components/Games/CancelGameForm/stories',

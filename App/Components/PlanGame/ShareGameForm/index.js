@@ -8,8 +8,8 @@ import Colors from '../../../Themes/Colors';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
+import Footer from '../../Common/DarkFooter';
 import ClosableLayout from '../../Layouts/ClosableLayout';
-import Footer from '../../DarkFooter';
 import ShareGameButton from '../../Games/ShareGameButton';
 import InviteOnly from '../InviteOnly';
 

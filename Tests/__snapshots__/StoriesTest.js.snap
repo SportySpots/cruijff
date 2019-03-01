@@ -8259,6 +8259,74 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField with ERROR 1`
 </View>
 `;
 
+exports[`Storyshots Common.CenteredActivityIndicator CenteredActivityIndicator 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <ActivityIndicator
+        animating={true}
+        color="#009f36"
+        hidesWhenStopped={true}
+        size="large"
+      />
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Common.Checkbox Checkbox 1`] = `
 <View
   onLayout={[Function]}
@@ -8427,6 +8495,72 @@ exports[`Storyshots Common.Checkbox Checkbox white theme 1`] = `
           
         </Text>
       </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.ConnectionCheck ConnectionCheck 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "green",
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+          }
+        }
+      >
+        Disconnect internet connection or set phone on flying mode!
+      </Text>
     </View>
   </View>
   <RCTSafeAreaView
@@ -17879,6 +18013,268 @@ exports[`Storyshots Common.HeaderBtn HeaderBtn 1`] = `
             </Text>
           </View>
         </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.ImageSwiper ImageSwiper 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "flex": 1,
+            "position": "relative",
+          },
+          undefined,
+        ]
+      }
+    >
+      <RCTScrollView
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDirection={true}
+        autoplayTimeout={2.5}
+        bounces={false}
+        contentContainerStyle={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+        contentOffset={
+          Object {
+            "x": 0,
+          }
+        }
+        disableNextButton={false}
+        horizontal={true}
+        index={0}
+        loadMinimal={false}
+        loadMinimalSize={1}
+        loop={true}
+        onIndexChanged={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        pagingEnabled={true}
+        removeClippedSubviews={true}
+        scrollsToTop={false}
+        showsButtons={false}
+        showsHorizontalScrollIndicator={false}
+        showsPagination={true}
+        showsVerticalScrollIndicator={false}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "height": 1334,
+                  "width": 750,
+                },
+                Object {
+                  "backgroundColor": "transparent",
+                },
+              ]
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://via.placeholder.com/350x150",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "height": 1334,
+                  "width": 750,
+                },
+                Object {
+                  "backgroundColor": "transparent",
+                },
+              ]
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "height": 1334,
+                  "width": 750,
+                },
+                Object {
+                  "backgroundColor": "transparent",
+                },
+              ]
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://via.placeholder.com/350x150",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "height": 1334,
+                  "width": 750,
+                },
+                Object {
+                  "backgroundColor": "transparent",
+                },
+              ]
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+      <View
+        pointerEvents="none"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "bottom": 25,
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#007aff",
+                "borderRadius": 4,
+                "height": 8,
+                "marginBottom": 3,
+                "marginLeft": 3,
+                "marginRight": 3,
+                "marginTop": 3,
+                "width": 8,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": 4,
+                "height": 8,
+                "marginBottom": 3,
+                "marginLeft": 3,
+                "marginRight": 3,
+                "marginTop": 3,
+                "width": 8,
+              },
+              undefined,
+            ]
+          }
+        />
       </View>
     </View>
   </View>
@@ -31787,6 +32183,114 @@ exports[`Storyshots Common.NavDots Default 1`] = `
 </View>
 `;
 
+exports[`Storyshots Common.NothingFound NothingFound 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": "100%",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "color": "#ccc",
+              "fontSize": 96,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Material Design Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": "#000",
+                "fontFamily": "Rajdhani-SemiBold",
+                "fontSize": 32,
+                "lineHeight": NaN,
+              },
+              Array [
+                Object {
+                  "color": "#ccc",
+                  "textAlign": "center",
+                },
+              ],
+            ],
+          ]
+        }
+      >
+        Oops, nothing found
+      </Text>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Common.OrDivider OrDivider 1`] = `
 <View
   onLayout={[Function]}
@@ -33228,6 +33732,801 @@ exports[`Storyshots Common.RaisedButton RaisedButton warning 1`] = `
           }
         >
           label
+        </Text>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.Rating Rating 1 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "#009f36",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.Rating Rating 3 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "#009f36",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "#009f36",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "#009f36",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.Rating Rating 4.5 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "#009f36",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "#009f36",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "#009f36",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "#009f36",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 24,
+              },
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.34)",
+                  "paddingRight": 10,
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
         </Text>
       </View>
     </View>
@@ -42889,268 +44188,6 @@ exports[`Storyshots Games.ShareGameButton ShareGameButton default 1`] = `
 </View>
 `;
 
-exports[`Storyshots ImageSwiper Default 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      onLayout={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "flex": 1,
-            "position": "relative",
-          },
-          undefined,
-        ]
-      }
-    >
-      <RCTScrollView
-        automaticallyAdjustContentInsets={false}
-        autoplay={false}
-        autoplayDirection={true}
-        autoplayTimeout={2.5}
-        bounces={false}
-        contentContainerStyle={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Object {
-              "flex": 1,
-            },
-          ]
-        }
-        contentOffset={
-          Object {
-            "x": 0,
-          }
-        }
-        disableNextButton={false}
-        horizontal={true}
-        index={0}
-        loadMinimal={false}
-        loadMinimalSize={1}
-        loop={true}
-        onIndexChanged={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        pagingEnabled={true}
-        removeClippedSubviews={true}
-        scrollsToTop={false}
-        showsButtons={false}
-        showsHorizontalScrollIndicator={false}
-        showsPagination={true}
-        showsVerticalScrollIndicator={false}
-      >
-        <View>
-          <View
-            style={
-              Array [
-                Object {
-                  "height": 1334,
-                  "width": 750,
-                },
-                Object {
-                  "backgroundColor": "transparent",
-                },
-              ]
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://via.placeholder.com/350x150",
-                }
-              }
-              style={
-                Object {
-                  "flex": 1,
-                }
-              }
-            />
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "height": 1334,
-                  "width": 750,
-                },
-                Object {
-                  "backgroundColor": "transparent",
-                },
-              ]
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
-                }
-              }
-              style={
-                Object {
-                  "flex": 1,
-                }
-              }
-            />
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "height": 1334,
-                  "width": 750,
-                },
-                Object {
-                  "backgroundColor": "transparent",
-                },
-              ]
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://via.placeholder.com/350x150",
-                }
-              }
-              style={
-                Object {
-                  "flex": 1,
-                }
-              }
-            />
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "height": 1334,
-                  "width": 750,
-                },
-                Object {
-                  "backgroundColor": "transparent",
-                },
-              ]
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2CxOJIZX-hrhUZzyBcZ8t3_aJ6Zo0VFvs_loZIEpl_SkXUWJ0JeLTf-A",
-                }
-              }
-              style={
-                Object {
-                  "flex": 1,
-                }
-              }
-            />
-          </View>
-        </View>
-      </RCTScrollView>
-      <View
-        pointerEvents="none"
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "bottom": 25,
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "center",
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-            },
-            undefined,
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#007aff",
-                "borderRadius": 4,
-                "height": 8,
-                "marginBottom": 3,
-                "marginLeft": 3,
-                "marginRight": 3,
-                "marginTop": 3,
-                "width": 8,
-              },
-              undefined,
-            ]
-          }
-        />
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,.2)",
-                "borderRadius": 4,
-                "height": 8,
-                "marginBottom": 3,
-                "marginLeft": 3,
-                "marginRight": 3,
-                "marginTop": 3,
-                "width": 8,
-              },
-              undefined,
-            ]
-          }
-        />
-      </View>
-    </View>
-  </View>
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
 exports[`Storyshots Layouts.ClosableLayout ClosableLayout black theme 1`] = `
 <View
   onLayout={[Function]}
@@ -50808,114 +51845,6 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
 </View>
 `;
 
-exports[`Storyshots NothingFound Default 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "height": "100%",
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <Text
-        allowFontScaling={false}
-        style={
-          Array [
-            Object {
-              "color": "#ccc",
-              "fontSize": 96,
-            },
-            undefined,
-            Object {
-              "fontFamily": "Material Design Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 32,
-                "lineHeight": NaN,
-              },
-              Array [
-                Object {
-                  "color": "#ccc",
-                  "textAlign": "center",
-                },
-              ],
-            ],
-          ]
-        }
-      >
-        Oops, nothing found
-      </Text>
-    </View>
-  </View>
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
 exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
 <View
   onLayout={[Function]}
@@ -52639,20 +53568,10 @@ exports[`Storyshots PlanGame.ShareGameForm ShareGameForm white theme 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
-      height={null}
-      midHeight={false}
       style={
-        Array [
-          Object {
-            "backgroundColor": "#009f36",
-            "height": "auto",
-            "paddingBottom": 16,
-            "paddingLeft": 16,
-            "paddingRight": 16,
-            "paddingTop": 16,
-          },
-        ]
+        Object {
+          "flex": 1,
+        }
       }
     >
       <View
@@ -54467,1303 +55386,6 @@ exports[`Storyshots Profile.UserSpots UserSpots 1`] = `
       ]
     }
   />
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`Storyshots Rating 1 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            Object {
-              "backgroundColor": "#009f36",
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            false,
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            false,
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            false,
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            false,
-          ]
-        }
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": NaN,
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": 18,
-                "marginLeft": 8,
-              },
-            ],
-          ]
-        }
-      >
-        1.0
-        /5.0
-      </Text>
-    </View>
-  </View>
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`Storyshots Rating 3 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            Object {
-              "backgroundColor": "#009f36",
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            Object {
-              "backgroundColor": "#009f36",
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            Object {
-              "backgroundColor": "#009f36",
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            false,
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            false,
-          ]
-        }
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": NaN,
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": 18,
-                "marginLeft": 8,
-              },
-            ],
-          ]
-        }
-      >
-        3.0
-        /5.0
-      </Text>
-    </View>
-  </View>
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`Storyshots Rating 4.5 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            Object {
-              "backgroundColor": "#009f36",
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            Object {
-              "backgroundColor": "#009f36",
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            Object {
-              "backgroundColor": "#009f36",
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            Object {
-              "backgroundColor": "#009f36",
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "rgba(0,0,0,0.34)",
-              "borderRadius": 8,
-              "height": 10,
-              "marginLeft": 3,
-              "marginRight": 3,
-              "width": 10,
-            },
-            false,
-          ]
-        }
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": NaN,
-              },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-Regular",
-                "fontSize": 12,
-                "lineHeight": 18,
-                "marginLeft": 8,
-              },
-            ],
-          ]
-        }
-      >
-        4.5
-        /5.0
-      </Text>
-    </View>
-  </View>
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`Storyshots RatingBig 1 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "flexDirection": "row",
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </View>
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`Storyshots RatingBig 3 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "flexDirection": "row",
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </View>
-  <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`Storyshots RatingBig 4.5 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "flexDirection": "row",
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </View>
   <RCTSafeAreaView
     pointerEvents="box-none"
     style={
