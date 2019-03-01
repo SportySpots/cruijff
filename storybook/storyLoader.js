@@ -52,6 +52,7 @@ function loadStories() {
   require('../App/Components/Common/NothingFound/stories');
   require('../App/Components/Common/OrDivider/stories');
   require('../App/Components/Common/RaisedButton/stories');
+  require('../App/Components/Common/Rating/stories');
   require('../App/Components/Common/RoundButton/stories');
   require('../App/Components/Common/Row/stories');
   require('../App/Components/Common/ScreenSlider/stories');
@@ -179,6 +180,7 @@ const stories = [
   '../App/Components/Common/NothingFound/stories',
   '../App/Components/Common/OrDivider/stories',
   '../App/Components/Common/RaisedButton/stories',
+  '../App/Components/Common/Rating/stories',
   '../App/Components/Common/RoundButton/stories',
   '../App/Components/Common/Row/stories',
   '../App/Components/Common/ScreenSlider/stories',

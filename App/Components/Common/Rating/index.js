@@ -3,12 +3,12 @@ import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Colors from '../../Themes/Colors';
+import Colors from '../../../Themes/Colors';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const RatingContainer = styled.View`
+const Container = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,8 +26,8 @@ const FullStar = styled(Icon)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const RatingBig = ({ rating, onPress }) => (
-  <RatingContainer>
+const Rating = ({ rating, onPress }) => (
+  <Container>
     {[1, 2, 3, 4, 5].map((i) => {
       const IconComp = i <= rating ? FullStar : Star;
       return (
@@ -36,12 +36,17 @@ const RatingBig = ({ rating, onPress }) => (
         </TouchableOpacity>
       );
     })}
-  </RatingContainer>
+  </Container>
 );
 
-RatingBig.propTypes = {
+Rating.propTypes = {
   rating: PropTypes.number,
   onPress: PropTypes.func,
 };
 
-export default RatingBig;
+Rating.defaultProps = {
+  rating: 0,
+  onPress: () => {},
+};
+
+export default Rating;
