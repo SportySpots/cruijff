@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment/moment';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import { handleErrors } from './utils';
+import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -35,7 +35,12 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set title
       const res = await SeedorfAPI.setGameName({ gameUUID, name });
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -50,7 +55,12 @@ class EditGameApiCall extends React.PureComponent {
         endTime: endTime ? endTime.toISOString() : null,
       });
       console.log('EDIT GAME SET TIME RESPONSE', res);
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -60,7 +70,12 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set capacity
       const res = await SeedorfAPI.setGameCapacity({ gameUUID, capacity: capacity || null });
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -70,7 +85,12 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set spot
       const res = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -80,7 +100,12 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set description
       const res = await SeedorfAPI.setGameDescription({ gameUUID, description });
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onEditError(exc);
@@ -94,7 +119,12 @@ class EditGameApiCall extends React.PureComponent {
         inviteMode: isPublic ? 'open' : 'invite_only',
       });
       console.log('UPDATED GAME', res.data);
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onEditError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onEditError(exc);

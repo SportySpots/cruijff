@@ -1,3 +1,5 @@
+import isString from 'lodash/isString';
+
 /**
  * error = { email: ['This field must be unique.'] }
 */
@@ -18,9 +20,12 @@ const curateFieldName = (fieldName) => {
  * error = { email: ['This field must be unique.'] }
 */
 const curateErrorMsg = (errorMsg) => {
+  console.log('errorMsg', errorMsg);
   switch (errorMsg) {
     case 'Unable to log in with provided credentials.':
       return 'loginEmailForm.fields.email.errors.wrongCredentials';
+    case 'Email not registered':
+      return 'loginEmailForm.fields.email.errors.notRegistered';
     default:
       return 'loginEmailForm.fields.email.errors.unknown';
   }
@@ -33,6 +38,15 @@ const curateErrorMsg = (errorMsg) => {
  * }
 */
 const curateErrors = (errors) => {
+  if (isString(errors)) {
+    return { [curateFieldName(null)]: [errors] }; // curatedErrors
+  }
+
+  if (Array.isArray(errors)) {
+    return { [curateFieldName(null)]: errors }; // curatedErrors
+  }
+
+  // In case errors is an object
   const keys = Object.keys(errors);
   const curatedErrors = {};
 

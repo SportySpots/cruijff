@@ -1,3 +1,5 @@
+import isString from 'lodash/isString';
+
 /**
  * error = { email: ['This field must be unique.'] }
 */
@@ -32,6 +34,15 @@ const curateErrorMsg = (errorMsg) => {
  * }
 */
 const curateErrors = (errors) => {
+  if (isString(errors)) {
+    return { [curateFieldName(null)]: [errors] }; // curatedErrors
+  }
+
+  if (Array.isArray(errors)) {
+    return { [curateFieldName(null)]: errors }; // curatedErrors
+  }
+
+  // In case errors is an object
   const keys = Object.keys(errors);
   const curatedErrors = {};
 

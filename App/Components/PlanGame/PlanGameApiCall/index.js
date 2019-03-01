@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import { handleErrors } from './utils';
+import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -48,7 +48,12 @@ class PlanGameApiCall extends React.PureComponent {
       });
       console.log('CREATE GAME RESPONSE', res);
       gameUUID = res.data.uuid;
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onPlanError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);
@@ -59,7 +64,12 @@ class PlanGameApiCall extends React.PureComponent {
       // Set sport
       const res = await SeedorfAPI.setGameSport({ gameUUID, sport });
       console.log('SET SPORT RESPONSE', res);
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onPlanError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);
@@ -70,7 +80,12 @@ class PlanGameApiCall extends React.PureComponent {
       // Set spot
       const res = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
       console.log('SET SPOT RESPONSE', res);
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onPlanError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);
@@ -81,7 +96,12 @@ class PlanGameApiCall extends React.PureComponent {
       // Set game status to 'planned'
       const res = await SeedorfAPI.setGameStatus({ gameUUID, status: 'PLANNED' });
       console.log('SET GAME STATUS TO PLANNED', res);
-      handleErrors(res);
+
+      if (res && res.problem) {
+        const errors = curateErrors(res.data);
+        onPlanError(errors);
+        return;
+      }
     } catch (exc) {
       console.log(exc);
       onPlanError(exc);

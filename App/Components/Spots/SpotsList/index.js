@@ -34,6 +34,7 @@ const SpotsList = ({
   const variables = {
     offset: 0,
     limit: 10,
+    ordering: 'distance',
     sports__ids: sportsIds, // empty array will return all spots
     distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
   };
