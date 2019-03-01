@@ -1,3 +1,5 @@
+import isString from 'lodash/isString';
+
 /**
  * error = { email: ['This field must be unique.'] }
 */
@@ -33,8 +35,20 @@ const curateErrorMsg = (errorMsg) => {
  *  email: ['This field must be unique.'],
  *  password1: ['This password is too short. It must contain at least 8 characters.']
  * }
+ * OR
+ * errors = ['Invalid Spot. Spot being assigned doesnt have the already associated sport']
 */
-export const curateErrors = (errors) => {
+// TODO: make it DRY
+const curateErrors = (errors) => {
+  if (isString(errors)) {
+    return { [curateFieldName(null)]: [errors] }; // curatedErrors
+  }
+
+  if (Array.isArray(errors)) {
+    return { [curateFieldName(null)]: errors }; // curatedErrors
+  }
+
+  // In case errors is an object
   const keys = Object.keys(errors);
   const curatedErrors = {};
 
@@ -47,11 +61,4 @@ export const curateErrors = (errors) => {
   return curatedErrors;
 };
 
-// TODO: make it DRY
-// In case the API response has any errors, throw so that it's catched by the try-catch block
-export const handleErrors = (res) => {
-  if (res && res.problem) {
-    const errors = curateErrors(res.data);
-    throw new Error(errors);
-  }
-};
+export default curateErrors;

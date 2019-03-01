@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SeedorfApi from '../../../Services/SeedorfApi';
-// import curateErrors from './utils';
+import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -20,16 +20,18 @@ class LoginEmailApiCall extends React.PureComponent {
 
       // Pass event up to parent component
       if (res && res.problem) {
-        // console.log('RESPONSE', response.data);
-        // const errors = curateErrors(response.data);
-        // onLoginError(errors);
-        onLoginError({ email: ['loginEmailForm.fields.email.errors.notRegistered'] });
-      } else {
-        onEmailSent();
+        console.log('response', res);
+        const errors = curateErrors(res.data);
+        onLoginError(errors);
+        return;
       }
     } catch (exc) {
+      console.log(exc);
       onLoginError(exc);
+      return;
     }
+
+    onEmailSent();
   }
 
   render() {
