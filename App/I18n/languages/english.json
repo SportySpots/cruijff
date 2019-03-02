@@ -6,7 +6,7 @@
   "FITNESS": "Fitness",
   "OTHERS": "Others",
   "SKATING": "Skating",
-  "BEACH_VOLLEYBALL": "Beach volleyball",
+  "BEACH_VOLLEYBALL": "(Beach) Volleyball",
   "BOULES": "Jeu de boules",
   "Basketball": "Basketball",
   "Bootcamp": "Bootcamp",
@@ -15,7 +15,7 @@
   "Fitness": "Fitness",
   "Others": "Others",
   "Skating": "Skating",
-  "Beach_volleyball": "Beach volleyball",
+  "Beach_volleyball": "(Beach) Volleyball",
   "Boules": "Jeu de boules",
 
   "Netherlands": "Netherlands",
@@ -661,5 +661,9 @@
 
   "queryCatchErrors": {
     "errorMsg": "Oops, something went wrong"
+  },
+
+  "notificationsList": {
+    "noResults": "Looks like you have no notifications"
   }
 }
