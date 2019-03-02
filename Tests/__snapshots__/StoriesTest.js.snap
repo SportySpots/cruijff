@@ -7716,7 +7716,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
                       style={
                         Object {
                           "backgroundColor": "transparent",
-                          "color": "#fff",
+                          "color": "rgba(200, 0, 0, 0.8)",
                           "fontSize": 0,
                           "opacity": 0,
                         }
@@ -9511,7 +9511,7 @@ exports[`Storyshots Common.DatePickerField DatePickerField white theme 1`] = `
                       style={
                         Object {
                           "backgroundColor": "transparent",
-                          "color": "#fff",
+                          "color": "rgba(200, 0, 0, 0.8)",
                           "fontSize": 0,
                           "opacity": 0,
                         }
@@ -11846,7 +11846,7 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme 1`] = `
                     style={
                       Object {
                         "backgroundColor": "transparent",
-                        "color": "#fff",
+                        "color": "rgba(200, 0, 0, 0.8)",
                         "fontSize": 0,
                         "opacity": 0,
                       }
@@ -12588,7 +12588,7 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme size ML 1`] = `
                     style={
                       Object {
                         "backgroundColor": "transparent",
-                        "color": "#fff",
+                        "color": "rgba(200, 0, 0, 0.8)",
                         "fontSize": 0,
                         "opacity": 0,
                       }
@@ -16606,7 +16606,7 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField white theme 1
                             style={
                               Object {
                                 "backgroundColor": "transparent",
-                                "color": "#fff",
+                                "color": "rgba(200, 0, 0, 0.8)",
                                 "fontSize": 0,
                                 "opacity": 0,
                               }
@@ -26515,7 +26515,7 @@ exports[`Storyshots Common.InputField InputField white theme 1`] = `
                       style={
                         Object {
                           "backgroundColor": "transparent",
-                          "color": "#fff",
+                          "color": "rgba(200, 0, 0, 0.8)",
                           "fontSize": 0,
                           "opacity": 0,
                         }
@@ -26573,6 +26573,411 @@ exports[`Storyshots Common.InputField InputField white theme 1`] = `
                 Array [
                   Object {
                     "color": "#fff",
+                    "fontSize": 24,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Material Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            pixels={12}
+            row={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "width": 12,
+                },
+              ]
+            }
+          />
+          <View>
+            <View
+              pixels={32}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "height": 32,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Object {
+                      "color": "#fff",
+                    },
+                  ],
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.InputField InputField white theme with ERROR 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      bgColor="#009f36"
+      height={null}
+      midHeight={false}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#009f36",
+            "height": "auto",
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID=""
+      >
+        <View
+          alignItems="stretch"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "stretch",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View>
+            <View
+              pixels={32}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "height": 32,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": NaN,
+                    },
+                    Object {
+                      "color": "#fff",
+                    },
+                  ],
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            pixels={12}
+            row={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "width": 12,
+                },
+              ]
+            }
+          />
+          <View
+            pointerEvents="none"
+          >
+            <View
+              onResponderRelease={[Function]}
+              onStartShouldSetResponder={[Function]}
+              pointerEvents="auto"
+              style={
+                Object {
+                  "width": 176,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "rgba(200, 0, 0, 0.8)",
+                    "borderBottomWidth": 1,
+                    "height": 65,
+                    "paddingBottom": 14,
+                    "paddingTop": 27,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "position": "absolute",
+                      "top": 5,
+                    }
+                  }
+                >
+                  <Text
+                    numberOfLines={1}
+                    style={
+                      Object {
+                        "color": "rgba(200, 0, 0, 0.8)",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                      }
+                    }
+                  >
+                    I'm the label
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <TextInput
+                    autoCapitalize="sentences"
+                    autoFocus={false}
+                    disableFullscreenUI={true}
+                    editable={true}
+                    error="I'm the error"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onChangeText={[Function]}
+                    onContentSizeChange={[Function]}
+                    onFocus={[Function]}
+                    selectionColor="#fff"
+                    style={
+                      Array [
+                        Object {
+                          "flex": 1,
+                          "margin": 0,
+                          "padding": 0,
+                          "top": 2,
+                        },
+                        Object {
+                          "color": "rgba(0, 0, 0, .87)",
+                          "fontSize": 16,
+                          "height": 24,
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "fontWeight": "normal",
+                          "marginTop": 8,
+                          "paddingHorizontal": 8,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                    underlineColorAndroid="transparent"
+                    value="I'm the value"
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "height": 24,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "flex": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "flex-start",
+                        "bottom": 0,
+                        "left": 0,
+                        "paddingVertical": 4,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      }
+                    }
+                  >
+                    <Text
+                      numberOfLines={1}
+                      style={
+                        Object {
+                          "backgroundColor": "transparent",
+                          "color": "rgba(200, 0, 0, 0.8)",
+                          "fontSize": 12,
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      I'm the error
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "flex-start",
+                        "bottom": 0,
+                        "left": 0,
+                        "paddingVertical": 4,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      }
+                    }
+                  >
+                    <Text
+                      numberOfLines={1}
+                      style={
+                        Object {
+                          "backgroundColor": "transparent",
+                          "color": "#fff",
+                          "fontSize": 12,
+                          "opacity": 0,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              pixels={32}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "height": 32,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(200, 0, 0, 0.8)",
                     "fontSize": 24,
                   },
                   undefined,
@@ -29456,7 +29861,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                             style={
                               Object {
                                 "backgroundColor": "transparent",
-                                "color": "#fff",
+                                "color": "rgba(200, 0, 0, 0.8)",
                                 "fontSize": 0,
                                 "opacity": 0,
                               }
@@ -38391,7 +38796,7 @@ exports[`Storyshots Common.SportPickerField SportPickerField white theme 1`] = `
                       style={
                         Object {
                           "backgroundColor": "transparent",
-                          "color": "#fff",
+                          "color": "rgba(200, 0, 0, 0.8)",
                           "fontSize": 0,
                           "opacity": 0,
                         }
@@ -40119,7 +40524,7 @@ exports[`Storyshots Common.TextField TextField with MIX theme 1`] = `
                 style={
                   Object {
                     "backgroundColor": "transparent",
-                    "color": "#fff",
+                    "color": "rgba(200, 0, 0, 0.8)",
                     "fontSize": 0,
                     "opacity": 0,
                   }
@@ -40370,7 +40775,7 @@ exports[`Storyshots Common.TextField TextField with WHITE theme 1`] = `
                 style={
                   Object {
                     "backgroundColor": "transparent",
-                    "color": "#fff",
+                    "color": "rgba(200, 0, 0, 0.8)",
                     "fontSize": 0,
                     "opacity": 0,
                   }
@@ -40513,7 +40918,7 @@ exports[`Storyshots Common.TextField TextField with WHITE theme with ERROR 1`] =
           style={
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "rgba(255, 255, 255, 1)",
+              "borderBottomColor": "rgba(200, 0, 0, 0.8)",
               "borderBottomWidth": 1,
               "height": 65,
               "paddingBottom": 14,
@@ -40533,7 +40938,7 @@ exports[`Storyshots Common.TextField TextField with WHITE theme with ERROR 1`] =
               numberOfLines={1}
               style={
                 Object {
-                  "color": "rgba(255, 255, 255, 1)",
+                  "color": "rgba(200, 0, 0, 0.8)",
                   "fontFamily": "Rajdhani-SemiBold",
                   "fontSize": 18,
                 }
@@ -40622,7 +41027,7 @@ exports[`Storyshots Common.TextField TextField with WHITE theme with ERROR 1`] =
                 style={
                   Object {
                     "backgroundColor": "transparent",
-                    "color": "#fff",
+                    "color": "rgba(200, 0, 0, 0.8)",
                     "fontSize": 12,
                     "opacity": 1,
                   }
@@ -41352,7 +41757,7 @@ exports[`Storyshots Common.TextField TextField with white theme size ML 1`] = `
                 style={
                   Object {
                     "backgroundColor": "transparent",
-                    "color": "#fff",
+                    "color": "rgba(200, 0, 0, 0.8)",
                     "fontSize": 0,
                     "opacity": 0,
                   }
@@ -54705,7 +55110,7 @@ exports[`Storyshots PlanGame.TitleDescriptionSlide TitleDescriptionSlide white t
                     style={
                       Object {
                         "backgroundColor": "transparent",
-                        "color": "#fff",
+                        "color": "rgba(200, 0, 0, 0.8)",
                         "fontSize": 0,
                         "opacity": 0,
                       }
@@ -54905,7 +55310,7 @@ exports[`Storyshots PlanGame.TitleDescriptionSlide TitleDescriptionSlide white t
                     style={
                       Object {
                         "backgroundColor": "transparent",
-                        "color": "#fff",
+                        "color": "rgba(200, 0, 0, 0.8)",
                         "fontSize": 0,
                         "opacity": 0,
                       }
