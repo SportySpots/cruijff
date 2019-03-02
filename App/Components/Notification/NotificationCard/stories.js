@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-// import { Query } from 'react-apollo';
-// import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
+import { Query } from 'react-apollo';
+import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import NotificationCard from '.';
 
 const dummyNavigator = {
@@ -13,9 +13,19 @@ const dummyNavigator = {
 
 storiesOf('Spots.NotificationCard', module)
   .add('NotificationCard', () => (
-    <NotificationCard
-      navigation={dummyNavigator}
-    />
+    <Query
+      query={GET_SPOT_DETAILS}
+      variables={{ uuid: 455 }}
+    >
+      {({ loading, error, data }) => (
+        loading || error ? null : (
+          <NotificationCard
+            images={data.spot.images}
+            navigation={dummyNavigator}
+          />
+        ))
+      }
+    </Query>
   ));
 
 // storiesOf('Spots.NotificationCard', module)

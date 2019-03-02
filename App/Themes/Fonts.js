@@ -48,11 +48,13 @@ const style = {
     fontSize: 16,
     lineHeight: 24,
   },
+  // TODO: rename to S
   SSM: {
     fontFamily: 'Rajdhani-Regular',
     fontSize: 14,
     lineHeight: 21,
   },
+  // TODO: rename to XS
   S: {
     fontFamily: 'Rajdhani-Regular',
     fontSize: 12,
