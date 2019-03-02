@@ -43,8 +43,9 @@ const Bold = styled(Text.SSM)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const NotificationCard = ({ images }) => {
-  const imgs = getSpotImages({ images, height: CARD_HEIGHT, width: IMG_WIDTH });
+const NotificationCard = ({ notification }) => {
+  const { image } = notification;
+  const imgs = getSpotImages({ images: [image], height: CARD_HEIGHT, width: IMG_WIDTH });
 
   return (
     <RowContainer>
@@ -83,15 +84,9 @@ const NotificationCard = ({ images }) => {
 };
 
 NotificationCard.propTypes = {
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      image: PropTypes.string,
-    }),
-  ),
-};
-
-NotificationCard.defaultProps = {
-  images: [],
+  notification: PropTypes.shape({
+    image: PropTypes.string,
+  }).isRequired,
 };
 
 export default NotificationCard;
