@@ -19,7 +19,7 @@ const getInputPalette = (theme) => {
         tintColor: Colors.white,
         iconColor: Colors.white,
         disabledColor: Colors.gray,
-        errorColor: Colors.white,
+        errorColor: Colors.error,
         lineWidth: 1,
       };
     case 'transparent':
@@ -39,7 +39,7 @@ const getInputPalette = (theme) => {
         tintColor: Colors.white,
         iconColor: Colors.white,
         disabledColor: Colors.gray,
-        errorColor: Colors.white,
+        errorColor: Colors.error,
         lineWidth: 1,
       };
     default:

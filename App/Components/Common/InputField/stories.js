@@ -142,4 +142,15 @@ storiesOf('Common.InputField', module)
         theme="white"
       />
     </Block>
+  ))
+  .add('InputField white theme with ERROR', () => (
+    <Block bgColor={Colors.primaryGreen}>
+      <InputField
+        comp="TextField"
+        label="I'm the label"
+        value="I'm the value"
+        theme="white"
+        error="I'm the error"
+      />
+    </Block>
   ));

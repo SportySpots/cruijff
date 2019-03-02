@@ -1,4 +1,5 @@
 import Config from 'react-native-config';
+import isString from 'lodash/isString';
 import globalRefs from './globalRefs';
 
 /* eslint-disable no-param-reassign */
@@ -69,16 +70,34 @@ export const logNavigationState = (route = globalRefs.rootNavigator.state.nav) =
 };
 
 
-/*
-const getImageUrl = image => (
-  image.startsWith('http') ? image : `${Config.SEEDORF_HOST}${image}`
-);
-
-const DEFAULT_SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/graphql/App/SpotImages/spot-placeholder.png';
-
-export const getSpotImages = images => (
-  images && images.length > 0
-    ? images.map(({ image }) => getImageUrl(image))
-    : [DEFAULT_SPOT_IMG]
-);
+/**
+ * errors = {
+ *  email: ['This field must be unique.'],
+ *  password1: ['This password is too short. It must contain at least 8 characters.']
+ * }
+ * OR
+ * errors = ['Invalid Spot. Spot being assigned doesnt have the already associated sport']
+ * OR
+ * errors = 'Email already in use'
 */
+export const curateErrors = (curateFieldName, curateErrorMsg) => (errors) => {
+  if (isString(errors)) {
+    return { [curateFieldName(null)]: [errors] }; // curatedErrors
+  }
+
+  if (Array.isArray(errors)) {
+    return { [curateFieldName(null)]: errors }; // curatedErrors
+  }
+
+  // In case errors is an object
+  const keys = Object.keys(errors);
+  const curatedErrors = {};
+
+  keys.forEach((key) => {
+    const arrayError = errors[key];
+    const curatedArray = arrayError.map(errorMsg => (curateErrorMsg(errorMsg)));
+    curatedErrors[curateFieldName(key)] = curatedArray;
+  });
+
+  return curatedErrors;
+};
