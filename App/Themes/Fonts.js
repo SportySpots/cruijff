@@ -48,6 +48,11 @@ const style = {
     fontSize: 16,
     lineHeight: 24,
   },
+  SSM: {
+    fontFamily: 'Rajdhani-Regular',
+    fontSize: 14,
+    lineHeight: 21,
+  },
   S: {
     fontFamily: 'Rajdhani-Regular',
     fontSize: 12,
