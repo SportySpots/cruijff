@@ -5,13 +5,11 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../App/Components/Notification/NotificationCard/stories');
-  require('../App/Components/Notification/NotificationsList/stories');
+  require('../App/Screens/Notifications/NotificationsListScreen/stories');
 }
 
 const stories = [
-  '../App/Components/Notification/NotificationCard/stories',
-  '../App/Components/Notification/NotificationsList/stories',
+  '../App/Screens/Notifications/NotificationsListScreen/stories',
 ];
 
 module.exports = {

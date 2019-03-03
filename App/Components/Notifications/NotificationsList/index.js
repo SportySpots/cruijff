@@ -39,7 +39,7 @@ const NotificationsList = ({
     onEndReachedThreshold={0.1}
     contentContainerStyle={{
       flexGrow: 1, // centers not-found-component
-      paddingVertical: 8,
+      paddingVertical: 0,
     }}
     refreshing={refreshing}
     {...rest}

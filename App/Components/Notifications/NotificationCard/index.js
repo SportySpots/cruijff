@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../../Themes/Colors';
 import { getSpotImages } from '../../../utils';
 import Row from '../../Common/Row';
-import Block from '../../Common/Block';
 import Spacer from '../../Common/Spacer';
 import DotSpacer from '../../Common/DotSpacer';
 import Text from '../../Common/Text';
@@ -21,10 +20,13 @@ const IMG_WIDTH = 75;
 //------------------------------------------------------------------------------
 const RowContainer = styled(Row)`
   height: ${CARD_HEIGHT}px;
+  background-color: ${Colors.white};
 `;
 //------------------------------------------------------------------------------
-const Left = styled(Block)`
+const Left = styled.View`
   flex: 1;
+  padding: 8px 8px 8px 0;
+  overflow: hidden;
 `;
 //------------------------------------------------------------------------------
 const Right = styled.View`
@@ -49,7 +51,7 @@ const NotificationCard = ({ notification }) => {
 
   return (
     <RowContainer>
-      <Left midHeight>
+      <Left>
         <Row alignItems="center">
           <Icon
             name="message-alert"

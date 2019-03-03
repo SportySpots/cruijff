@@ -2,21 +2,20 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
-import NotificationsList from '.';
+import NotificationCard from '.';
 
-storiesOf('Games.NotificationsList', module)
-  .add('NotificationsList', () => (
+storiesOf('Notifications.NotificationCard', module)
+  .add('NotificationCard', () => (
     <Query
       query={GET_SPOT_DETAILS}
       variables={{ uuid: 455 }}
     >
       {({ loading, error, data }) => (
         loading || error ? null : (
-          <NotificationsList
-            notifications={data.spot.images.map(image => ({ image }))}
-            onCardPress={() => {}}
+          <NotificationCard
+            notification={{ image: data.spot.images[0] }}
           />
-        ))}
+        ))
+      }
     </Query>
-  ))
-  .add('NotificationsList no items', () => (<NotificationsList />));
+  ));
