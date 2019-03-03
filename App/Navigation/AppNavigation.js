@@ -5,7 +5,8 @@ import {
   GameSearchNav,
   PlanGameNav,
   ProfileNav,
-  InfoNav,
+  // InfoNav,
+  NotificationsNav,
 } from './Navigators';
 import NavBar from '../Components/Common/NavBar';
 import OnboardingScreen from '../Screens/Onboarding/OnboardingScreen';
@@ -15,7 +16,8 @@ const MainTabsNav = createBottomTabNavigator({
   SpotSearchTab: { screen: SpotSearchNav },
   GameSearchTab: { screen: GameSearchNav },
   ProfileTab: { screen: ProfileNav },
-  InfoTab: { screen: InfoNav },
+  // InfoTab: { screen: InfoNav },
+  NotificationsTab: { screen: NotificationsNav },
 }, {
   tabBarComponent: NavBar,
   tabBarPosition: 'bottom',

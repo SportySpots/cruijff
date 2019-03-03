@@ -21,7 +21,6 @@
   "Netherlands": "Nederland",
   "Argentina": "Argentinië",
 
-
   "splashScreen": {
     "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
     "btnLabel": "Start met ontdekken",
@@ -34,7 +33,8 @@
     "activities": "Activiteiten",
     "organize": "Organiseer",
     "profile": "Profiel",
-    "info": "Info"
+    "info": "Info",
+    "notifications": "Meldingen"
   },
 
   "infoScreen": {
@@ -662,6 +662,12 @@
 
   "queryCatchErrors": {
     "errorMsg": "Oeps, er is iets mis gegaan"
+  },
+
+  "notificationsListScreen": {
+    "navigation": {
+      "title": "Meldingen"
+    }
   },
 
   "notificationsList": {

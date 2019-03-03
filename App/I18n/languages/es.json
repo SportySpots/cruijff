@@ -33,7 +33,8 @@
     "activities": "Actividades",
     "organize": "Organiza",
     "profile": "Perfil",
-    "info": "Info"
+    "info": "Info",
+    "notifications": "Notificaciones"
   },
 
   "infoScreen": {
@@ -673,6 +674,12 @@
 
   "queryCatchErrors": {
     "errorMsg": "Huy! Algo salió mal"
+  },
+
+  "notificationsListScreen": {
+    "navigation": {
+      "title": "Notificaciones"
+    }
   },
 
   "notificationsList": {

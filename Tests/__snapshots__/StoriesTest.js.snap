@@ -31696,6 +31696,95 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
               "opacity": 1,
             }
           }
+          testID="navbarButton_notifications"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexBasis": 0,
+                  "flexDirection": "column",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(0,0,0,0.34)",
+                    "fontSize": 24,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Material Design Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              color="rgba(0,0,0,0.34)"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 12,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "rgba(0,0,0,0.34)",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              navBar.notifications
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderTopColor": "#e6e6e6",
+              "borderTopLeftRadius": 0,
+              "borderTopRightRadius": 0,
+              "borderTopWidth": 0.5,
+              "flexBasis": 0,
+              "flexGrow": 9,
+              "flexShrink": 1,
+              "height": 48,
+              "opacity": 1,
+            }
+          }
           testID="navbarButton_profile"
         >
           <View
@@ -31759,95 +31848,6 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
               }
             >
               navBar.profile
-            </Text>
-          </View>
-        </View>
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "#fff",
-              "borderTopColor": "#e6e6e6",
-              "borderTopLeftRadius": 0,
-              "borderTopRightRadius": 0,
-              "borderTopWidth": 0.5,
-              "flexBasis": 0,
-              "flexGrow": 9,
-              "flexShrink": 1,
-              "height": 48,
-              "opacity": 1,
-            }
-          }
-          testID="navbarButton_info"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexBasis": 0,
-                  "flexDirection": "column",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "rgba(0,0,0,0.34)",
-                    "fontSize": 24,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              color="rgba(0,0,0,0.34)"
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "Rajdhani-Regular",
-                      "fontSize": 12,
-                      "lineHeight": NaN,
-                    },
-                    Array [
-                      Object {
-                        "color": "rgba(0,0,0,0.34)",
-                      },
-                    ],
-                  ],
-                ]
-              }
-            >
-              navBar.info
             </Text>
           </View>
         </View>
@@ -32640,34 +32640,58 @@ exports[`Storyshots Common.NothingFound NothingFound 1`] = `
       >
         
       </Text>
-      <Text
+      <View
+        pixels={32}
+        row={false}
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
+              "height": 32,
+              "width": "auto",
             },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "maxWidth": 270,
+              "width": "100%",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
             Array [
               Object {
                 "backgroundColor": "transparent",
               },
-              Object {
-                "color": "#000",
-                "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 32,
-                "lineHeight": NaN,
-              },
               Array [
                 Object {
-                  "color": "#ccc",
-                  "textAlign": "center",
+                  "backgroundColor": "transparent",
                 },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 32,
+                  "lineHeight": NaN,
+                },
+                Array [
+                  Object {
+                    "color": "#ccc",
+                    "textAlign": "center",
+                  },
+                ],
               ],
-            ],
-          ]
-        }
-      >
-        Oops, nothing found
-      </Text>
+            ]
+          }
+        >
+          Oops, nothing found
+        </Text>
+      </View>
     </View>
   </View>
   <RCTSafeAreaView
@@ -52250,6 +52274,275 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
 </View>
 `;
 
+exports[`Storyshots Notifications.NotificationCard NotificationCard 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  />
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Notifications.NotificationsList NotificationsList 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  />
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Notifications.NotificationsList NotificationsList no items 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <RCTScrollView
+      ItemSeparatorComponent={[Function]}
+      ListEmptyComponent={
+        <NothingFound
+          icon="whistle"
+          text="notificationsList.noResults"
+        />
+      }
+      contentContainerStyle={
+        Object {
+          "flexGrow": 1,
+          "paddingVertical": 0,
+        }
+      }
+      data={Array []}
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={0.1}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      refreshing={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      testID="notificationsFlatList"
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": "100%",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ccc",
+                  "fontSize": 96,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            例
+          </Text>
+          <View
+            pixels={32}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 32,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 270,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": NaN,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ccc",
+                        "textAlign": "center",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              notificationsList.noResults
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
 <View
   onLayout={[Function]}
@@ -60583,6 +60876,133 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
             }
           />
         </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Screens.Notifications NotificationsListScreen 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      alignItems="stretch"
+      justifyContent="flex-start"
+      style={
+        Array [
+          Object {
+            "alignItems": "stretch",
+            "backgroundColor": "#fff",
+            "display": "flex",
+            "flexBasis": 0,
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+      testID="NotificationsListScreen"
+    >
+      <View
+        pixels={16}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": "auto",
+              "width": 16,
+            },
+          ]
+        }
+      />
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        ListEmptyComponent={false}
+        contentContainerStyle={
+          Object {
+            "flexGrow": 1,
+            "paddingVertical": 0,
+          }
+        }
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReached={[Function]}
+        onEndReachedThreshold={0.1}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onRefresh={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        refreshControl={
+          <RefreshControlMock
+            onRefresh={[Function]}
+            refreshing={true}
+          />
+        }
+        refreshing={true}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}
+        testID="notificationsFlatList"
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <RCTRefreshControl />
+        <View />
       </RCTScrollView>
     </View>
   </View>

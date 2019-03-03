@@ -48,6 +48,14 @@ const buttons = [{
     // name: 'calendar-plus',
   },
 }, {
+  id: 'notifications',
+  label: 'navBar.notifications',
+  route: 'NotificationsTab',
+  icon: {
+    set: MaterialCommunityIcon,
+    name: 'bell',
+  },
+}, {
   id: 'profile',
   label: 'navBar.profile',
   route: 'ProfileTab',
@@ -55,15 +63,18 @@ const buttons = [{
     set: MaterialIcon,
     name: 'account-circle',
   },
-}, {
-  id: 'info',
-  label: 'navBar.info',
-  route: 'InfoTab',
-  icon: {
-    set: MaterialIcon,
-    name: 'info',
-  },
 }];
+
+// {
+//   id: 'info',
+//   label: 'navBar.info',
+//   route: 'InfoTab',
+//   icon: {
+//     set: MaterialIcon,
+//     name: 'info',
+//   },
+// },
+
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------

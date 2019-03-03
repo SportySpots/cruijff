@@ -33,7 +33,8 @@
     "activities": "Activities",
     "organize": "Organize",
     "profile": "Profile",
-    "info": "Info"
+    "info": "Info",
+    "notifications": "Notifications"
   },
 
   "infoScreen": {
@@ -661,6 +662,12 @@
 
   "queryCatchErrors": {
     "errorMsg": "Oops, something went wrong"
+  },
+
+  "notificationsListScreen": {
+    "navigation": {
+      "title": "Notifications"
+    }
   },
 
   "notificationsList": {
