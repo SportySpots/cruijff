@@ -189,6 +189,10 @@
     "readLess": "Read less"
   },
 
+  "chatWithGroup": {
+    "text": "Chat with the group"
+  },
+
   "rsvpButtons": {
     "leaveAlert": {
       "header": "Confirm",

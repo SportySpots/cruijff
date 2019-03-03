@@ -47,6 +47,11 @@ class GameDetailsScreen extends React.PureComponent {
     navigation.navigate('SpotDetailsScreen', { uuid: spotUUID });
   }
 
+  handleChatPress = () => {
+    const { navigation } = this.props;
+    navigation.navigate('GameChatScreen', { uuid: this.gameUUID });
+  }
+
   handleAttendeesPress = () => {
     const { navigation } = this.props;
     navigation.navigate('GamePlayersScreen', { uuid: this.gameUUID });
@@ -95,6 +100,7 @@ class GameDetailsScreen extends React.PureComponent {
                 userRSVP={userRSVP}
                 userStatus={userStatus}
                 onSpotPress={this.handleSpotPress}
+                onChatPress={this.handleChatPress}
                 onAttendeesPress={this.handleAttendeesPress}
                 onRSVPLoggedOut={this.handleRSVPLoggedOut}
                 onRSVPSuccess={async () => {

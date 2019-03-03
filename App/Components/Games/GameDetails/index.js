@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
@@ -15,8 +15,9 @@ import Organizer from '../Organizer';
 import DescriptionReadMore from '../DescriptionReadMore';
 import ClickableAttendees from '../ClickableAttendees';
 import OpenSpots from '../OpenSpots';
-import ShareGameButton from '../ShareGameButton';
+import ChatWithGroup from '../ChatWithGroup';
 import RSVP from '../RSVP';
+import ShareGameButton from '../ShareGameButton';
 import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
@@ -34,6 +35,7 @@ const GameDetails = ({
   userRSVP,
   userStatus,
   onSpotPress,
+  onChatPress,
   onAttendeesPress,
   onRSVPLoggedOut,
   onRSVPSuccess,
@@ -73,6 +75,9 @@ const GameDetails = ({
         <DescriptionReadMore description={game.description} />
       </Block>,
     ],
+    <Block key="game-chat">
+      <ChatWithGroup onChatPress={onChatPress} />
+    </Block>,
     attendees.length > 0 && [
       <Block key="game-attendees">
         <Label>{I18n.t('gameDetails.attending')}</Label>
@@ -129,6 +134,7 @@ GameDetails.propTypes = {
     'INVITED',
   ]),
   onSpotPress: PropTypes.func,
+  onChatPress: PropTypes.func,
   onAttendeesPress: PropTypes.func,
   onRSVPLoggedOut: PropTypes.func,
   onRSVPSuccess: PropTypes.func,
@@ -139,6 +145,7 @@ GameDetails.defaultProps = {
   userRSVP: null,
   userStatus: null,
   onSpotPress: () => {},
+  onChatPress: () => {},
   onAttendeesPress: () => {},
   onRSVPLoggedOut: () => {},
   onRSVPSuccess: () => {},

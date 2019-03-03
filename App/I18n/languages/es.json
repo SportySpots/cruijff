@@ -189,6 +189,10 @@
     "readLess": "Leer menos"
   },
 
+  "chatWithGroup": {
+    "text": "Chatea con el grupo"
+  },
+
   "rsvpButtons": {
     "leaveAlert": {
       "header": "Confirmar",

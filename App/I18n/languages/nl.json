@@ -190,6 +190,10 @@
     "readLess": "Lees minder"
   },
 
+  "chatWithGroup": {
+    "text": "Chat met de groep"
+  },
+
   "rsvpButtons": {
     "leaveAlert": {
       "header": "Bevestigen",
