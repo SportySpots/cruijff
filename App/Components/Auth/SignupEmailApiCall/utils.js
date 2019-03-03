@@ -1,4 +1,4 @@
-import { curateErrors as ce } from '../../../utils';
+import { curateErrors } from '../../../utils';
 
 /**
  * error = { email: ['This field must be unique.'] }
@@ -26,6 +26,4 @@ const curateErrorMsg = (errorMsg) => {
   }
 };
 
-const curateErrors = ce(curateFieldName, curateErrorMsg);
-
-export default curateErrors;
+export default curateErrors(curateFieldName, curateErrorMsg); // fn
