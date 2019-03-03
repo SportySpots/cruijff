@@ -46,12 +46,11 @@ const create = () => {
   const getGames = ({ month }) => api.get('search/games/', { q: month });
   const verifyToken = token => api.post('/auth/token-verify/', { token });
 
-  const signup = ({
-    email, name,
-  }) => (
+  const signup = ({ email, name, language }) => (
     api.post('/auth/registration/', {
       email,
       name,
+      language,
     })
   );
 
