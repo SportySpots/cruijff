@@ -206,6 +206,12 @@
     "unattendingBtnLabel": "I'm not attending"
   },
 
+  "gameChatScreen": {
+    "navigation": {
+      "title": "Chat with the group"
+    }
+  },
+
   "playersListScreen": {
     "navigation": {
       "title": "Participants"

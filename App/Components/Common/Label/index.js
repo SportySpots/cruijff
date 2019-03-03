@@ -5,8 +5,9 @@ import Text from '../Text';
 
 // TODO: do we need this component?
 const Label = styled(Text.M)`
-  color: ${({ whiteColor }) => (whiteColor ? Colors.white : Colors.black)};
+  color: ${({ whiteColor }) => (whiteColor ? Colors.white : Colors.dusk)};
   margin-bottom: 16px;
+  font-size: 17px;
 `;
 
 Label.propTypes = {

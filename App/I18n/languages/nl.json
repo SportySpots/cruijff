@@ -207,6 +207,12 @@
     "unattendingBtnLabel": "Ik doe niet mee"
   },
 
+  "gameChatScreen": {
+    "navigation": {
+      "title": "Chat met de groep"
+    }
+  },
+
   "playersListScreen": {
     "navigation": {
       "title": "Deelnemers"

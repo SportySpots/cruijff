@@ -206,6 +206,12 @@
     "unattendingBtnLabel": "No puedo asistir"
   },
 
+  "gameChatScreen": {
+    "navigation": {
+      "title": "Chatea con el grupo"
+    }
+  },
+
   "playersListScreen": {
     "navigation": {
       "title": "Participantes"
