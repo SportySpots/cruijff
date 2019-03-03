@@ -144,16 +144,16 @@ export class UserProvider extends React.Component {
     }
   }
 
-  signup = async ({
-    name, email,
-  }) => {
+  signup = async ({ email, name }) => {
     const result = await SeedorfAPI.signup({
-      name, email,
+      email,
+      name,
+      language: I18n.locale.substr(0, 2),
     });
     if (result.ok) {
       await setToken(result.data.token);
       await this.refresh();
-      await this.setUserLanguage();
+      // await this.setUserLanguage();
     }
     return result;
   }
