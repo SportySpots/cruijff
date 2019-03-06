@@ -1,5 +1,6 @@
 import Config from 'react-native-config';
 import isString from 'lodash/isString';
+import castArray from 'lodash/castArray';
 import globalRefs from './globalRefs';
 
 /* eslint-disable no-param-reassign */
@@ -94,7 +95,7 @@ export const curateErrors = (curateFieldName, curateErrorMsg) => (errors) => {
   const curatedErrors = {};
 
   keys.forEach((key) => {
-    const arrayError = errors[key];
+    const arrayError = castArray(errors[key]);
     const curatedArray = arrayError.map(errorMsg => (curateErrorMsg(errorMsg)));
     curatedErrors[curateFieldName(key)] = curatedArray;
   });
