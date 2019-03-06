@@ -149,11 +149,18 @@ export class UserProvider extends React.Component {
     }
   }
 
-  signup = ({ email, name }) => SeedorfAPI.signup({
-    email,
-    name,
-    language: I18n.locale.substr(0, 2),
-  });
+  signup = async ({ email, name }) => {
+    try {
+      const res = await SeedorfAPI.signup({
+        email,
+        name,
+        language: I18n.locale.substr(0, 2),
+      });
+      console.log('RESPONSE SIGNUP', res);
+    } catch (exc) {
+      console.log(exc);
+    }
+  }
 
   loginWithToken = async (token) => {
     const verifyTokenResult = await SeedorfAPI.verifyToken(token);
@@ -165,19 +172,25 @@ export class UserProvider extends React.Component {
   }
 
   login = async ({ email, password }) => {
-    const result = await SeedorfAPI.login({
-      username: email,
-      email,
-      password,
-    });
+    let res;
 
-    if (result.ok) {
-      const { token } = result.data;
-      await setToken(token);
-      await this.refresh();
+    try {
+      res = await SeedorfAPI.login({
+        username: email,
+        email,
+        password,
+      });
+
+      if (res.ok) {
+        const { token } = res.data;
+        await setToken(token);
+        await this.refresh();
+      }
+    } catch (exc) {
+      console.log(exc);
     }
 
-    return result;
+    return res;
   }
 
   logout = async () => {
