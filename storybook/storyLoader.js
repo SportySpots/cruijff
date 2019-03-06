@@ -5,15 +5,13 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../App/Components/Common/ChatMsg/stories');
-  require('../App/Components/Common/Triangle/stories');
-  require('../App/Components/Common/ChatBubble/stories');
+  require('../App/Components/Games/ChatForm/stories');
+  require('../App/Components/Common/TextField/stories');
 }
 
 const stories = [
-  '../App/Components/Common/ChatMsg/stories',
-  '../App/Components/Common/Triangle/stories',
-  '../App/Components/Common/ChatBubble/stories',
+  '../App/Components/Games/ChatForm/stories',
+  '../App/Components/Common/TextField/stories',
 ];
 
 module.exports = {

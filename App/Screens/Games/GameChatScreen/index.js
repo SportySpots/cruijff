@@ -5,7 +5,7 @@ import { View } from 'react-native';
 import GET_GAME_USERS_LIST from '../../../GraphQL/Games/Queries/GET_GAME_USERS_LIST';
 import Text from '../../../Components/Common/Text';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import PlayersTabs from '../../../Components/Games/PlayersTabs';
+import ChatForm from '../../../Components/Games/ChatForm';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -19,15 +19,9 @@ const GameChatScreen = ({ navigation }) => (
       if (loading) return <CenteredActivityIndicator />;
       if (error) return <Text>{JSON.stringify(error)}</Text>;
 
-      const attendees = data.game.attendees.filter(attendee => attendee.status === 'ATTENDING');
-      const absents = data.game.attendees.filter(attendee => attendee.status === 'DECLINED');
-
       return (
         <View style={{ flex: 1 }}>
-          <PlayersTabs
-            attendees={attendees}
-            absents={absents}
-          />
+          <ChatForm />
         </View>
       );
     }}

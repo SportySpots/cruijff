@@ -10,8 +10,8 @@ storiesOf('Common.Avatar', module)
       query={GET_GAME_DETAILS}
       variables={{ uuid: '455' }}
     >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
+      {({ loading, error, data }) => (
+        loading || error ? null : (
           <Avatar user={data.game.organizer} />
         ))
       }
@@ -23,4 +23,3 @@ storiesOf('Common.Avatar', module)
   .add('Avatar no props', () => (
     <Avatar />
   ));
-
