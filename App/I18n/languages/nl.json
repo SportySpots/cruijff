@@ -519,7 +519,7 @@
     "googlePlusBtnLabel": "Login met Google",
     "facebookBtnLabel": "Login met facebook",
     "emailSectionTitle": "Login met magic link",
-    "signupLink": "Nog niet een lid? Inschrijven"
+    "signupLink": "Nog geen lid? Schrijf je in"
   },
 
   "orDivider": {
@@ -575,7 +575,7 @@
 
   "signupEmailScreen": {
     "navigation": {
-      "title": "Schrijf je in met email"
+      "title": "Inschrijven"
     }
   },
 
@@ -605,7 +605,7 @@
       "prefix": "Door je aan te melden ga je akkoord met de",
       "link": "Algemene voorwaarden"
     },
-    "btnLabel": "Sign up"
+    "btnLabel": "Inschrijven"
   },
 
   "connectionCheck": {
