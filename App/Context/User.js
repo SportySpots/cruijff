@@ -75,7 +75,12 @@ export class UserProvider extends React.Component {
   magicTokenHandler = async (magicToken) => {
     const result = await SeedorfAPI.confirmMagicLoginLink(magicToken);
     const { token } = result.data;
-    this.loginWithToken(token);
+    const loginWentOkay = !!(await this.loginWithToken(token));
+    if (loginWentOkay) {
+      // that's great
+    } else {
+      // todo: implement failure (probably bad token was received)
+    }
   }
 
   async componentWillMount() {
@@ -144,19 +149,11 @@ export class UserProvider extends React.Component {
     }
   }
 
-  signup = async ({ email, name }) => {
-    const result = await SeedorfAPI.signup({
-      email,
-      name,
-      language: I18n.locale.substr(0, 2),
-    });
-    if (result.ok) {
-      await setToken(result.data.token);
-      await this.refresh();
-      // await this.setUserLanguage();
-    }
-    return result;
-  }
+  signup = ({ email, name }) => SeedorfAPI.signup({
+    email,
+    name,
+    language: I18n.locale.substr(0, 2),
+  });
 
   loginWithToken = async (token) => {
     const verifyTokenResult = await SeedorfAPI.verifyToken(token);
