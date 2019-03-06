@@ -23,7 +23,7 @@ const ChatWithGroup = ({ onChatPress }) => (
     <Row alignItems="center">
       <FlexOneRow alignItems="center">
         <Icon
-          name="chat-bubble"
+          name="forum"
           size={24}
           color={Colors.black}
         />
