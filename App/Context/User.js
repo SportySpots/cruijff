@@ -150,8 +150,9 @@ export class UserProvider extends React.Component {
   }
 
   signup = async ({ email, name }) => {
+    let res;
     try {
-      const res = await SeedorfAPI.signup({
+      res = await SeedorfAPI.signup({
         email,
         name,
         language: I18n.locale.substr(0, 2),
@@ -160,6 +161,8 @@ export class UserProvider extends React.Component {
     } catch (exc) {
       console.log(exc);
     }
+
+    return res;
   }
 
   loginWithToken = async (token) => {
