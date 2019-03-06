@@ -127,7 +127,7 @@ class App extends Component {
                     initialRouteName="RootNav"
                     // See: https://reactnavigation.org/docs/en/screen-tracking.html
                     onNavigationStateChange={(prevState, currState) => {
-                      logNavigationState();
+                      if (config.logRoute) logNavigationState();
                       const currScreen = getActiveRouteName(currState);
                       const prevScreen = getActiveRouteName(prevState);
                       if (prevScreen !== currScreen) {

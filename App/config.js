@@ -19,6 +19,8 @@ const settings = {
   deeplinkHost: Config.DEEPLINK_HOST,
   testBuild: Config.TEST_BUILD === 'YES',
   testHostUrl: Config.TEST_HOST_URL,
+  logRoute: false,
+  logGraphQLQueries: false,
 };
 
 if (settings.testBuild) {
@@ -56,7 +58,8 @@ if (Config.ENVIRONMENT === 'TOM') {
   // settings.seedorfRestUrl = 'http://localhost:8000/api';
   // settings.seedorfGraphQLUrl = 'http://localhost:8000/graphql';
   // settings.testHostUrl = 'ws://localhost:8020';
-
+  settings.logRoute = true;
+  settings.logGraphQLQueries = true;
   settings.testBuild = false;
 }
 

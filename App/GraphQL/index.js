@@ -8,6 +8,7 @@ import { SchemaLink } from 'apollo-link-schema';
 import { buildClientSchema } from 'graphql';
 import { addMockFunctionsToSchema } from 'graphql-tools';
 import React from 'react';
+import settings from '../config';
 import mocks from './mocks';
 
 // TODO: cleanup, solve eslint errors
@@ -34,6 +35,7 @@ const addErrorHandlers = link =>
 export const createClient = (uri) => {
   let token = null;
   const middlewareLink = new ApolloLink((operation, forward) => {
+    if (settings.logGraphQLQueries) console.log(operation);
     operation.setContext({
       headers: {
         authorization: token ? `JWT ${token}` : null,
