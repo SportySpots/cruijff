@@ -34,7 +34,7 @@
     "appium:android": "appium.sh",
     "bump-version:major": "yarn version --major && react-native-version",
     "bump-version:minor": "yarn version --minor && react-native-version",
-    "bump-version:path": "yarn version --patch && react-native-version",
+    "bump-version:pacth": "yarn version --patch && react-native-version",
     "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn cache clean",
     "fixcode": "lint --fix",
     "git-hook": "yarn run lint -s && yarn run test -s",
