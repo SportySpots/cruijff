@@ -23,9 +23,9 @@ const Version = styled(Text.M)`
 //------------------------------------------------------------------------------
 class InfoScreen extends React.Component {
   state = {
-    // label: '?',
+    label: '',
     codePushVersion: '',
-    // description: '?',
+    description: '',
     versionTaps: 0,
   }
 
@@ -33,9 +33,9 @@ class InfoScreen extends React.Component {
     if (codePush) {
       codePush.getUpdateMetadata().then((metadata) => {
         this.setState({
-          // label: metadata.label,
+          label: metadata.label,
           codePushVersion: metadata.appVersion,
-          // description: metadata.description,
+          description: metadata.description,
         });
       }).catch(() => null);
     }
@@ -65,13 +65,13 @@ class InfoScreen extends React.Component {
   }
 
   render() {
-    const { codePushVersion } = this.state;
+    const { label, description, codePushVersion } = this.state;
 
     return (
       <LogoHeaderBackground>
         <TouchableWithoutFeedback onPress={() => { this.versionPress(); }}>
           <Version>
-            {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${codePushVersion}`}
+            {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${label}`}
           </Version>
         </TouchableWithoutFeedback>
         <Spacer size="XXXL" />

@@ -73,12 +73,15 @@ export class UserProvider extends React.Component {
   }
 
   magicTokenHandler = async (magicToken) => {
+    console.log('handling magic token');
     const result = await SeedorfAPI.confirmMagicLoginLink(magicToken);
     const { token } = result.data;
     const loginWentOkay = !!(await this.loginWithToken(token));
+    console.log('loginWentOkay?', loginWentOkay);
     if (loginWentOkay) {
       // that's great
     } else {
+      console.log('token failed', result);
       // todo: implement failure (probably bad token was received)
     }
   }
