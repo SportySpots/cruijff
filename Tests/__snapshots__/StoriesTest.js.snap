@@ -58983,7 +58983,6 @@ exports[`Storyshots Screens.Debug DebugScreen 1`] = `
       contentContainerStyle={
         Object {
           "backgroundColor": "#fff",
-          "flex": 1,
         }
       }
     >
@@ -59075,6 +59074,217 @@ exports[`Storyshots Screens.Debug DebugScreen 1`] = `
                 Back
               </Text>
             </View>
+          </View>
+          <View
+            pixels={8}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 8,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              selectable={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 12,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              0.004
+            </Text>
+            <Text
+              selectable={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 12,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              "settings"
+            </Text>
+            <Text
+              selectable={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 12,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              {"seedorfRestUrl":"https://sportyspots.com/api","seedorfGraphQLUrl":"https://sportyspots.com/graphql","useFixtures":true,"testBuild":false,"logRoute":false,"logGraphQLQueries":false}
+            </Text>
+          </View>
+          <View
+            pixels={8}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 8,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              selectable={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 12,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              2.79
+            </Text>
+            <Text
+              selectable={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 12,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            />
+          </View>
+          <View
+            pixels={8}
+            row={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 8,
+                  "width": "auto",
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              selectable={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 12,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              5.013
+            </Text>
+            <Text
+              selectable={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 12,
+                      "lineHeight": NaN,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              "[CodePush] The CodePush module doesn't appear to be properly installed. Please double-check that everything is setup correctly."
+            </Text>
           </View>
           <View
             pixels={8}
@@ -60221,7 +60431,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
               ]
             }
           >
-            infoScreen.appVersion ?
+            infoScreen.appVersion 1.3.2 
           </Text>
           <View
             pixels={56}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createStackNavigator } from 'react-navigation';
 import { withUser, userPropTypes } from '../../Context/User';
 import SplashScreen from '../../Screens/Splash/SplashScreen';
@@ -37,6 +38,9 @@ const SplashNav = ({ onboarded, navigation }) => (
 );
 
 SplashNav.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
   onboarded: userPropTypes.onboarded.isRequired,
 }
 

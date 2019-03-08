@@ -24,6 +24,8 @@ const handleLoggedIn = (navigation) => {
 
   // number of items to pop equals number of AuthScreens in the stack.
   const numAuthRoutes = routeNames.filter(name => authScreenNames.indexOf(name) !== -1).length;
+  console.log('AUTH SCREEN NAMES', authScreenNames);
+  console.log('NUM AUTH ROUTES', numAuthRoutes);
   parentNav.pop(numAuthRoutes);
 };
 
