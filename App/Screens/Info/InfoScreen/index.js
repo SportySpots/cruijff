@@ -10,6 +10,7 @@ import Spacer from '../../../Components/Common/Spacer';
 import Divider from '../../../Components/Common/Divider';
 import Text from '../../../Components/Common/Text';
 import LinkOpenURL from '../../../Components/Common/LinkOpenURL';
+import { version as packageJSONVersion } from '../../../../package.json';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -23,7 +24,7 @@ const Version = styled(Text.M)`
 class InfoScreen extends React.Component {
   state = {
     // label: '?',
-    version: '?',
+    codePushVersion: '',
     // description: '?',
     versionTaps: 0,
   }
@@ -33,7 +34,7 @@ class InfoScreen extends React.Component {
       codePush.getUpdateMetadata().then((metadata) => {
         this.setState({
           // label: metadata.label,
-          version: metadata.appVersion,
+          codePushVersion: metadata.appVersion,
           // description: metadata.description,
         });
       }).catch(() => null);
@@ -64,13 +65,13 @@ class InfoScreen extends React.Component {
   }
 
   render() {
-    const { version } = this.state;
+    const { codePushVersion } = this.state;
 
     return (
       <LogoHeaderBackground>
         <TouchableWithoutFeedback onPress={() => { this.versionPress(); }}>
           <Version>
-            {`${I18n.t('infoScreen.appVersion')} ${version}`}
+            {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${codePushVersion}`}
           </Version>
         </TouchableWithoutFeedback>
         <Spacer size="XXXL" />

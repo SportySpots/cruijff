@@ -44,6 +44,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    codePush.checkForUpdate().then(r => console.log('codepush', r));
     Crashes.setEnabled(true).then(() => {
       this.setState({ hasInitialized: true });
     });
