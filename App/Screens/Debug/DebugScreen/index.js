@@ -14,7 +14,6 @@ import { log } from '../../../config';
 const DebugScreen = ({ navigation }) => (
   <ScrollView
     contentContainerStyle={{
-      flex: 1,
       backgroundColor: Colors.white,
     }}
   >
