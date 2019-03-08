@@ -34,7 +34,7 @@ class SplashScreen extends React.Component {
   }
 
   render() {
-    const { navigation, user, firstRun } = this.props;
+    const { navigation, user, onboarded } = this.props;
 
     return (
       <FieldBackground>
@@ -49,8 +49,7 @@ class SplashScreen extends React.Component {
             label={I18n.t('splashScreen.btnLabel')}
             accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
-              // navigation.navigate('OnboardingScreen');
-              navigation.navigate(firstRun ? 'OnboardingScreen' : 'MainNav');
+              navigation.navigate(onboarded ? 'MainNav' : 'OnboardingScreen');
             }}
           />
           <Spacer size="XL" />
@@ -75,7 +74,7 @@ class SplashScreen extends React.Component {
 
 SplashScreen.propTypes = {
   user: userPropTypes.user,
-  firstRun: userPropTypes.firstRun,
+  onboarded: userPropTypes.onboarded.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -83,7 +82,6 @@ SplashScreen.propTypes = {
 
 SplashScreen.defaultProps = {
   user: null,
-  firstRun: false,
 };
 
 export default withUser(SplashScreen);

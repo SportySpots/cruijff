@@ -18,10 +18,10 @@ import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
     null      - user not logged in
     object    - the current logged in user object
 
-  firstRun:
+  onboarded:
     undefined - not checked yet
     true      - onboarding already done
-    false     - first time user opens the app
+    false     - onboarding uncompleted / first time user opens the app
 */
 
 // The defaultValue argument is ONLY used when a component does not have a matching
@@ -40,19 +40,20 @@ const defaultValue = {
       spots: [],
     },
   },
-  firstRun: false,
+  onboarded: false,
   signup: () => {},
   login: () => {},
   loginWithToken: () => {},
   logout: () => {},
   refresh: () => {},
+  onboardingCompleted: () => {},
 };
 
 export const UserContext = React.createContext(defaultValue);
 
 export const userPropTypes = {
   user: propType(userDetailsFragment),
-  firstRun: PropTypes.bool,
+  onboarded: PropTypes.bool,
   signup: PropTypes.func,
   login: PropTypes.func,
   loginWithToken: PropTypes.func,
@@ -69,7 +70,7 @@ const setToken = async (token) => {
 export class UserProvider extends React.Component {
   state = {
     user: undefined,
-    firstRun: undefined,
+    onboarded: undefined,
   }
 
   magicTokenHandler = async (magicToken) => {
@@ -87,9 +88,9 @@ export class UserProvider extends React.Component {
     IncomingLinks.on(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
     IncomingLinks.on(Events.LOGIN_TOKEN, this.loginWithToken);
 
-    const firstRun = !await AsyncStorage.getItem('firstRunDone');
-    await AsyncStorage.setItem('firstRunDone', 'true');
-    this.setState({ firstRun });
+    const onboarded = !!await AsyncStorage.getItem('onboarded');
+    console.log('ONBOARDED CONTEXT', onboarded);
+    this.setState({ onboarded });
 
     const initialURL = await firebase.links().getInitialLink();
     if (initialURL) {
@@ -204,10 +205,20 @@ export class UserProvider extends React.Component {
     await AsyncStorage.removeItem('TOKEN');
   }
 
-  render() {
-    const { firstRun, user } = this.state;
+  onboardingCompleted = async () => {
+    console.log('ONBOARDING COMPLETED');
+    try {
+      await AsyncStorage.setItem('onboarded', 'true');
+      this.setState({ onboarded: true });
+    } catch (exc) {
+      console.log('Could not set user to onboarded', exc);
+    }
+  }
 
-    if (user === undefined || firstRun === undefined) {
+  render() {
+    const { onboarded, user } = this.state;
+
+    if (user === undefined || onboarded === undefined) {
       return <CenteredActivityIndicator />;
     }
 
@@ -217,12 +228,13 @@ export class UserProvider extends React.Component {
       <UserContext.Provider
         value={{
           user,
-          firstRun,
+          onboarded,
           signup: this.signup,
           login: this.login,
           loginWithToken: this.loginWithToken,
           logout: this.logout,
           refresh: this.refresh,
+          onboardingCompleted: this.onboardingCompleted,
         }}
       >
         {children}
