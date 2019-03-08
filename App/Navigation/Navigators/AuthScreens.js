@@ -19,16 +19,19 @@ const handleLoggedIn = (navigation) => {
 
   // get this screens' parent Stack nav and the route names it contains.
   const parentNav = navigation.dangerouslyGetParent();
-  const parentNavRoutes = parentNav.state.routes;
-  const routeNames = parentNavRoutes.map(r => r.routeName);
+  const parentRoute = parentNav.state.routeName;
 
-  // number of items to pop equals number of AuthScreens in the stack.
-  const numAuthRoutes = routeNames.filter(name => authScreenNames.indexOf(name) !== -1).length;
-  console.log('AUTH SCREEN NAMES', authScreenNames);
-  console.log('NUM AUTH ROUTES', numAuthRoutes);
-  parentNav.pop(numAuthRoutes);
+  if (parentRoute === 'SpotSearchTab') {
+    navigation.navigate('SplashScreen');
+  } else {
+    const parentNavRoutes = parentNav.state.routes;
+    const routeNames = parentNavRoutes.map(r => r.routeName);
+
+    // number of items to pop equals number of AuthScreens in the stack.
+    const numAuthRoutes = routeNames.filter(name => authScreenNames.indexOf(name) !== -1).length;
+    parentNav.pop(numAuthRoutes);
+  }
 };
-
 //------------------------------------------------------------------------------
 const backBtn = navigation => (
   <StackBackHeader

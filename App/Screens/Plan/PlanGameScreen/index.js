@@ -86,7 +86,7 @@ class PlanGameScreen extends React.Component {
                   BackHandler.removeEventListener('hardwareBackPress', this.handleLeave);
                 }
                 // Lastly, redirect user to share screen
-                navigation.navigate('shareGameScreen', { uuid: gameUUID });
+                navigation.navigate('ShareGameScreen', { uuid: gameUUID });
               });
             }}
           >

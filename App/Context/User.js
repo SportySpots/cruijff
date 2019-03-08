@@ -17,11 +17,6 @@ import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
     undefined - not checked yet
     null      - user not logged in
     object    - the current logged in user object
-
-  onboarded:
-    undefined - not checked yet
-    true      - onboarding already done
-    false     - onboarding uncompleted / first time user opens the app
 */
 
 // The defaultValue argument is ONLY used when a component does not have a matching
@@ -40,20 +35,17 @@ const defaultValue = {
       spots: [],
     },
   },
-  onboarded: false,
   signup: () => {},
   login: () => {},
   loginWithToken: () => {},
   logout: () => {},
   refresh: () => {},
-  onboardingCompleted: () => {},
 };
 
 export const UserContext = React.createContext(defaultValue);
 
 export const userPropTypes = {
   user: propType(userDetailsFragment),
-  onboarded: PropTypes.bool,
   signup: PropTypes.func,
   login: PropTypes.func,
   loginWithToken: PropTypes.func,
@@ -70,7 +62,6 @@ const setToken = async (token) => {
 export class UserProvider extends React.Component {
   state = {
     user: undefined,
-    onboarded: undefined,
   }
 
   magicTokenHandler = async (magicToken) => {
@@ -87,10 +78,6 @@ export class UserProvider extends React.Component {
   async componentWillMount() {
     IncomingLinks.on(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
     IncomingLinks.on(Events.LOGIN_TOKEN, this.loginWithToken);
-
-    const onboarded = !!await AsyncStorage.getItem('onboarded');
-    console.log('ONBOARDED CONTEXT', onboarded);
-    this.setState({ onboarded });
 
     const initialURL = await firebase.links().getInitialLink();
     if (initialURL) {
@@ -205,20 +192,10 @@ export class UserProvider extends React.Component {
     await AsyncStorage.removeItem('TOKEN');
   }
 
-  onboardingCompleted = async () => {
-    console.log('ONBOARDING COMPLETED');
-    try {
-      await AsyncStorage.setItem('onboarded', 'true');
-      this.setState({ onboarded: true });
-    } catch (exc) {
-      console.log('Could not set user to onboarded', exc);
-    }
-  }
-
   render() {
-    const { onboarded, user } = this.state;
+    const { user } = this.state;
 
-    if (user === undefined || onboarded === undefined) {
+    if (user === undefined) {
       return <CenteredActivityIndicator />;
     }
 
@@ -228,13 +205,11 @@ export class UserProvider extends React.Component {
       <UserContext.Provider
         value={{
           user,
-          onboarded,
           signup: this.signup,
           login: this.login,
           loginWithToken: this.loginWithToken,
           logout: this.logout,
           refresh: this.refresh,
-          onboardingCompleted: this.onboardingCompleted,
         }}
       >
         {children}

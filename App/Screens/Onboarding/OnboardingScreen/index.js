@@ -6,10 +6,8 @@ import {
   Platform,
   BackHandler,
 } from 'react-native';
-import { compose } from 'react-apollo';
 import I18n from '../../../I18n';
-import { withUser } from '../../../Context/User';
-import { withLocation } from '../../../Context/Location';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
 import FormProps from '../../../RenderProps/form-props';
 import OnboardingForm from '../../../Components/Onboarding/OnboardingForm';
 import { addGlobalRef } from '../../../globalRefs';
@@ -58,7 +56,7 @@ class OnboardingScreen extends React.Component {
   }
 
   render() {
-    const { onboardingCompleted, setLocation, navigation } = this.props;
+    const { setLocation, navigation } = this.props;
 
     return (
       <FormProps>
@@ -75,11 +73,10 @@ class OnboardingScreen extends React.Component {
             onBeforeHook={handleBefore}
             onClientCancelHook={handleClientCancel}
             onClientErrorHook={handleClientError}
-            // Store location data into local storage. Set user to onboarded.
+            // Store location data into local storage.
             onSuccessHook={({ location }) => {
               handleSuccess(async () => {
                 await setLocation(location);
-                await onboardingCompleted();
                 navigation.navigate('MainNav');
               });
             }}
@@ -95,13 +92,7 @@ OnboardingScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  onboardingCompleted: PropTypes.func.isRequired,
-  setLocation: PropTypes.func.isRequired,
+  setLocation: locationPropTypes.setLocation.isRequired,
 };
 
-const enhance = compose(
-  withUser,
-  withLocation,
-);
-
-export default enhance(OnboardingScreen);
+export default withLocation(OnboardingScreen);
