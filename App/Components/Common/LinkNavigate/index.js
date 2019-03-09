@@ -24,6 +24,7 @@ const LinkNavigate = ({
   const TextSize = Text[size];
   const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
+  console.log('LinkNavigate', navigation);
   return (
     <TouchableOpacity onPress={() => { navigation.navigate(to); }}>
       <Row

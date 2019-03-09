@@ -35,6 +35,7 @@ const Container = styled.View`
 const Top = styled.View`
   padding-top: 32px;
 `;
+//------------------------------------------------------------------------------
 const Bottom = styled.View`
   padding-top: 16px;
   padding-bottom: 16px;

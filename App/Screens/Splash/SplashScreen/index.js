@@ -32,7 +32,10 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 class SplashScreen extends React.Component {
   async componentDidMount() {
+    const { navigation } = this.props;
     globalRefs.SplashScreen = this;
+    // navigation.push('SplashScreen');
+    console.log('SplashScreen navigation', navigation);
   }
 
   render() {

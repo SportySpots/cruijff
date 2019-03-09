@@ -13,24 +13,8 @@ import { headerTitleStyle } from './style';
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
 const handleLoggedIn = (navigation) => {
-  // In case the user is logged in when trying to access a logged out route,
-
-  const authScreenNames = Object.keys(AuthScreens);
-
-  // get this screens' parent Stack nav and the route names it contains.
-  const parentNav = navigation.dangerouslyGetParent();
-  const parentRoute = parentNav.state.routeName;
-
-  if (parentRoute === 'SpotSearchTab') {
-    navigation.navigate('SplashScreen');
-  } else {
-    const parentNavRoutes = parentNav.state.routes;
-    const routeNames = parentNavRoutes.map(r => r.routeName);
-
-    // number of items to pop equals number of AuthScreens in the stack.
-    const numAuthRoutes = routeNames.filter(name => authScreenNames.indexOf(name) !== -1).length;
-    parentNav.pop(numAuthRoutes);
-  }
+  // Pop to the previous route in the stack navigator
+  navigation.goBack(null);
 };
 //------------------------------------------------------------------------------
 const backBtn = navigation => (
