@@ -179,11 +179,12 @@ const create = () => {
     })
   );
 
-  const confirmMagicLoginLink = token => (
-    api.post('/auth/confirm-magic-link/', {
+  const confirmMagicLoginLink = async (token) => {
+    await CookieManager.clearAll();
+    return api.post('/auth/confirm-magic-link/', {
       token,
-    })
-  );
+    });
+  };
 
   // const setGameStartTime = ({ gameUUID, start_date, start_time }) =>
   // api.put(`/games/${gameUUID}/`), {
