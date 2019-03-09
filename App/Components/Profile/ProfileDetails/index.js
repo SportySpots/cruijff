@@ -41,9 +41,11 @@ const ProfileDetails = ({ user, location }) => [
       {user.name}
     </Name>
     <Spacer size="S" />
-    <Location>
-      {`${location.city}, ${I18n.t(location.country)}`}
-    </Location>
+    {!!location && (
+      <Location>
+        {`${location.city || ''}, ${I18n.t(location.country || '')}`}
+      </Location>
+    )}
   </Block>,
   /* <Spacer key="spacer" size="M" />,
   <Divider key="divider" />,

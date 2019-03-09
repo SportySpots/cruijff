@@ -211,18 +211,18 @@ import globalRefs from '../../../globalRefs';
 
 const data = [
   {
-    title: I18n.t('OnboardingScreen.hiSporter.title'),
-    text: I18n.t('OnboardingScreen.hiSporter.text'),
+    title: I18n.t('onboardingScreen.hiSporter.title'),
+    text: I18n.t('onboardingScreen.hiSporter.text'),
     image: Images.illustrationWizard1,
   },
   {
-    title: I18n.t('OnboardingScreen.joinGame.title'),
-    text: I18n.t('OnboardingScreen.joinGame.text'),
+    title: I18n.t('onboardingScreen.joinGame.title'),
+    text: I18n.t('onboardingScreen.joinGame.text'),
     image: Images.illustrationWizard2,
   },
   {
-    title: I18n.t('OnboardingScreen.planGame.title'),
-    text: I18n.t('OnboardingScreen.planGame.text'),
+    title: I18n.t('onboardingScreen.planGame.title'),
+    text: I18n.t('onboardingScreen.planGame.text'),
     image: Images.illustrationWizard3,
   },
 ];

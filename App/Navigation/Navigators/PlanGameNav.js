@@ -11,7 +11,7 @@ import AuthScreens from './AuthScreens';
 //------------------------------------------------------------------------------
 const PlanGameNav = createStackNavigator({
   ...AuthScreens,
-  shareGameScreen: {
+  ShareGameScreen: {
     screen: ({ navigation }) => (
       <LoggedInRoute
         component={ShareGameScreen}
@@ -26,7 +26,7 @@ const PlanGameNav = createStackNavigator({
       header: null,
     },
   },
-  planGameScreen: {
+  PlanGameScreen: {
     screen: ({ navigation }) => (
       <LoggedInRoute
         component={PlanGameScreen}
@@ -44,7 +44,7 @@ const PlanGameNav = createStackNavigator({
 }, {
   tabBarComponent: () => null,
   animationEnabled: true,
-  initialRouteName: 'planGameScreen',
+  initialRouteName: 'PlanGameScreen',
 });
 
 export default PlanGameNav;

@@ -8,8 +8,6 @@ import Colors from '../../../Themes/Colors';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 
-import { withUser, userPropTypes } from '../../../Context/User';
-
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -40,6 +38,7 @@ const Subtitle = styled(Text.M)`
 class CheckEmailScreen extends React.PureComponent {
   render() {
     const { action } = this.props;
+
     return (
       <Container>
         <View>
@@ -62,7 +61,6 @@ class CheckEmailScreen extends React.PureComponent {
 
 CheckEmailScreen.propTypes = {
   action: PropTypes.oneOf(['login', 'signup']).isRequired,
-  ...userPropTypes.isRequired,
 };
 
-export default withUser(CheckEmailScreen);
+export default CheckEmailScreen;

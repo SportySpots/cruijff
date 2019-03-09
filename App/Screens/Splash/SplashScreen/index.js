@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
 import I18n from '../../../I18n/index';
 import Colors from '../../../Themes/Colors';
 import FieldBackground from '../../../Backgrounds/FieldBackground';
@@ -28,13 +30,32 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: handled logged in logic at the router level
 class SplashScreen extends React.Component {
-  async componentDidMount() {
+  redirectLoggedInUser = ({ user, location }) => {
+    // In case the user is logged in when trying to access the SplashScreen,
+    // redirect him to MainNav unless onboarding isn't completed yet. In that case
+    // redirect to onboarding.
+    const { navigation } = this.props;
+    if (user && user.uuid) {
+      navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
+    }
+  }
+
+  componentWillMount() {
+    this.redirectLoggedInUser(this.props);
+  }
+
+  componentDidMount() {
     globalRefs.SplashScreen = this;
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.redirectLoggedInUser(nextProps);
+  }
+
   render() {
-    const { navigation, user, firstRun } = this.props;
+    const { navigation, user, location } = this.props;
 
     return (
       <FieldBackground>
@@ -49,8 +70,7 @@ class SplashScreen extends React.Component {
             label={I18n.t('splashScreen.btnLabel')}
             accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
-              // navigation.navigate('OnboardingScreen');
-              navigation.navigate(firstRun ? 'OnboardingScreen' : 'MainNav');
+              navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
             }}
           />
           <Spacer size="XL" />
@@ -75,7 +95,7 @@ class SplashScreen extends React.Component {
 
 SplashScreen.propTypes = {
   user: userPropTypes.user,
-  firstRun: userPropTypes.firstRun,
+  location: locationPropTypes.location,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -83,7 +103,12 @@ SplashScreen.propTypes = {
 
 SplashScreen.defaultProps = {
   user: null,
-  firstRun: false,
+  location: null,
 };
 
-export default withUser(SplashScreen);
+const enhance = compose(
+  withUser,
+  withLocation,
+);
+
+export default enhance(SplashScreen);

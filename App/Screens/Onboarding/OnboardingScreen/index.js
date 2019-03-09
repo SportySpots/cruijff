@@ -6,8 +6,8 @@ import {
   Platform,
   BackHandler,
 } from 'react-native';
-import I18n from '../../../I18n/index';
-import { withLocation } from '../../../Context/Location';
+import I18n from '../../../I18n';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
 import FormProps from '../../../RenderProps/form-props';
 import OnboardingForm from '../../../Components/Onboarding/OnboardingForm';
 import { addGlobalRef } from '../../../globalRefs';
@@ -73,7 +73,7 @@ class OnboardingScreen extends React.Component {
             onBeforeHook={handleBefore}
             onClientCancelHook={handleClientCancel}
             onClientErrorHook={handleClientError}
-            // Call api to store data into DB
+            // Store location data into local storage.
             onSuccessHook={({ location }) => {
               handleSuccess(async () => {
                 await setLocation(location);
@@ -92,7 +92,7 @@ OnboardingScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  setLocation: PropTypes.func.isRequired,
+  setLocation: locationPropTypes.setLocation.isRequired,
 };
 
 export default withLocation(OnboardingScreen);
