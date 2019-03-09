@@ -1,8 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { createStackNavigator } from 'react-navigation';
-import { AsyncStorage } from 'react-native';
-import { withLocation, locationPropTypes } from '../../Context/Location';
 import SplashScreen from '../../Screens/Splash/SplashScreen';
 import LoggedOutRoute from '../LoggedOutRoute';
 import AuthScreens from './AuthScreens';
@@ -14,14 +11,7 @@ const handleLoggedIn = async (navigation) => {
   console.log('pop to Main or Onboarding', navigation.state);
   // In case the user is logged in when trying to access the SplashScreen,
   // redirect him to MainNav unless onboarding isn't completed yet.
-  let location = null;
-
-  const locationJSON = await AsyncStorage.getItem('userLocation'); // { id, city, country, coords: { latitude, longitude } }
-  if (locationJSON) {
-    location = JSON.parse(locationJSON);
-  }
-
-  navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
+  // Exceptionally we are doing this routing at the component level. See SplashScreen
 };
 //------------------------------------------------------------------------------
 // COMPONENT:

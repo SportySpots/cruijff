@@ -31,8 +31,27 @@ const FlexOne = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class SplashScreen extends React.Component {
-  async componentDidMount() {
+  componentWillMount() {
+    // Ideally this should be handled at navigation level
+    const { navigation, user, location } = this.props;
+    console.log('SplashScreen props', this.props);
+    if (user && user.uuid) {
+      navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
+    }
+  }
+
+  componentDidMount() {
     globalRefs.SplashScreen = this;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // Ideally this should be handled at navigation level
+    const { navigation } = this.props;
+    const { user, location } = nextProps;
+    console.log('SplashScreen nextProps', this.props);
+    if (user && user.uuid) {
+      navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
+    }
   }
 
   render() {
