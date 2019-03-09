@@ -13,7 +13,7 @@ import { headerTitleStyle } from './style';
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
 const handleLoggedIn = (navigation) => {
-  // Pop to the previous route in the stack navigator
+  // Simply go back one screen in the stack navigator
   navigation.goBack(null);
 };
 //------------------------------------------------------------------------------

@@ -30,14 +30,20 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: handled logged in logic at the router level
 class SplashScreen extends React.Component {
-  componentWillMount() {
-    // Ideally this should be handled at navigation level
-    const { navigation, user, location } = this.props;
-    console.log('SplashScreen props', this.props);
+  redirectLoggedInUser = ({ user, location }) => {
+    // In case the user is logged in when trying to access the SplashScreen,
+    // redirect him to MainNav unless onboarding isn't completed yet. In that case
+    // redirect to onboarding.
+    const { navigation } = this.props;
     if (user && user.uuid) {
       navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
     }
+  }
+
+  componentWillMount() {
+    this.redirectLoggedInUser(this.props);
   }
 
   componentDidMount() {
@@ -45,13 +51,7 @@ class SplashScreen extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // Ideally this should be handled at navigation level
-    const { navigation } = this.props;
-    const { user, location } = nextProps;
-    console.log('SplashScreen nextProps', this.props);
-    if (user && user.uuid) {
-      navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
-    }
+    this.redirectLoggedInUser(nextProps);
   }
 
   render() {
