@@ -6,7 +6,6 @@ import { Buffer } from 'buffer';
 import firebase from 'react-native-firebase';
 import SeedorfAPI from '../Services/SeedorfApi';
 import { client } from '../GraphQL';
-import I18n from '../I18n';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
@@ -35,7 +34,6 @@ const defaultValue = {
       spots: [],
     },
   },
-  login: () => {},
   loginWithToken: () => {},
   logout: () => {},
   refresh: () => {},
@@ -45,7 +43,6 @@ export const UserContext = React.createContext(defaultValue);
 
 export const userPropTypes = {
   user: propType(userDetailsFragment),
-  login: PropTypes.func,
   loginWithToken: PropTypes.func,
   logout: PropTypes.func,
   refresh: PropTypes.func,
@@ -109,12 +106,12 @@ export class UserProvider extends React.Component {
     const token = await AsyncStorage.getItem('TOKEN');
     const claims = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
     const { uuid } = claims;
-    const queryResult = await client.query({
+    const res = await client.query({
       fetchPolicy: 'network-only',
       query: GET_USER_DETAILS,
       variables: { uuid },
     });
-    return queryResult.data.user;
+    return res.data.user;
   }
 
   refresh = async () => {
@@ -124,20 +121,6 @@ export class UserProvider extends React.Component {
     return true;
   }
 
-  setUserLanguage = async () => {
-    const user = await this.queryUser();
-    try {
-      const res = await SeedorfAPI.updateUserLanguage({
-        userUUID: user.uuid,
-        userProfileUUID: user.profile.uuid,
-        language: I18n.locale.substr(0, 2),
-      });
-      console.log('RESPONSE SET LANG', res);
-    } catch (exc) {
-      console.log(exc);
-    }
-  }
-
   loginWithToken = async (token) => {
     const verifyTokenResult = await SeedorfAPI.verifyToken(token);
     if (verifyTokenResult.ok) {
@@ -145,28 +128,6 @@ export class UserProvider extends React.Component {
       return this.refresh();
     }
     return false;
-  }
-
-  login = async ({ email, password }) => {
-    let res;
-
-    try {
-      res = await SeedorfAPI.login({
-        username: email,
-        email,
-        password,
-      });
-
-      if (res.ok) {
-        const { token } = res.data;
-        await setToken(token);
-        await this.refresh();
-      }
-    } catch (exc) {
-      console.log(exc);
-    }
-
-    return res;
   }
 
   logout = async () => {
@@ -190,7 +151,6 @@ export class UserProvider extends React.Component {
       <UserContext.Provider
         value={{
           user,
-          login: this.login,
           loginWithToken: this.loginWithToken,
           logout: this.logout,
           refresh: this.refresh,
