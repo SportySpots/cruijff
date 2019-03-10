@@ -35,7 +35,6 @@ const defaultValue = {
       spots: [],
     },
   },
-  signup: () => {},
   login: () => {},
   loginWithToken: () => {},
   logout: () => {},
@@ -46,7 +45,6 @@ export const UserContext = React.createContext(defaultValue);
 
 export const userPropTypes = {
   user: propType(userDetailsFragment),
-  signup: PropTypes.func,
   login: PropTypes.func,
   loginWithToken: PropTypes.func,
   logout: PropTypes.func,
@@ -140,22 +138,6 @@ export class UserProvider extends React.Component {
     }
   }
 
-  signup = async ({ email, name }) => {
-    let res;
-    try {
-      res = await SeedorfAPI.signup({
-        email,
-        name,
-        language: I18n.locale.substr(0, 2),
-      });
-      console.log('RESPONSE SIGNUP', res);
-    } catch (exc) {
-      console.log(exc);
-    }
-
-    return res;
-  }
-
   loginWithToken = async (token) => {
     const verifyTokenResult = await SeedorfAPI.verifyToken(token);
     if (verifyTokenResult.ok) {
@@ -208,7 +190,6 @@ export class UserProvider extends React.Component {
       <UserContext.Provider
         value={{
           user,
-          signup: this.signup,
           login: this.login,
           loginWithToken: this.loginWithToken,
           logout: this.logout,
