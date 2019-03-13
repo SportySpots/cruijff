@@ -608,6 +608,12 @@
     "btnLabel": "Inschrijven"
   },
 
+  "confirmMagicTokenScreen": {
+    "navigation": {
+      "title": "Your magic link expired!"
+    }
+  },
+
   "connectionCheck": {
     "noConnection": "Geen connectie"
   },

@@ -598,18 +598,6 @@
           "inUse": "El email ya ha sido registrado",
           "unknown": "Error inesperado"
         }
-      },
-      "password": {
-        "label": "Contraseña",
-        "placeholder": "",
-        "errors": {
-          "required": "Contraseña es requerida",
-          "tooLong": "Contraseña es muy larga",
-          "tooShort": "Contraseña debe tener al menos 8 caracteres",
-          "tooCommon": "Esta contraseña es demasiado común",
-          "numeric": "Esta contraseña es enteramente numérica",
-          "unknown": "Algo malo sucedio"
-        }
       }
     },
     "terms": {
@@ -617,6 +605,12 @@
       "link": "Términos y condiciones"
     },
     "btnLabel": "Registrarse gratis"
+  },
+
+  "confirmMagicTokenScreen": {
+    "navigation": {
+      "title": "Tu link mágico ha expirado!"
+    }
   },
 
   "connectionCheck": {

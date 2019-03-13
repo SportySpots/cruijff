@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { AsyncStorage } from 'react-native';
 import { Buffer } from 'buffer';
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 import SeedorfAPI from '../Services/SeedorfApi';
-import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
+// import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
 import { client } from '../GraphQL';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
@@ -59,34 +59,34 @@ export class UserProvider extends React.Component {
     user: undefined,
   }
 
-  magicTokenHandler = async (magicToken) => {
-    console.log('handling magic token');
-    const result = await SeedorfAPI.confirmMagicLoginLink(magicToken);
-    const { token } = result.data;
-    const loginWentOkay = !!(await this.loginWithToken(token));
-    console.log('loginWentOkay?', loginWentOkay);
-    if (loginWentOkay) {
-      // that's great
-    } else {
-      console.log('token failed', result);
-      // todo: implement failure (probably bad token was received)
-    }
-  }
+  // magicTokenHandler = async (magicToken) => {
+  //   console.log('handling magic token');
+  //   const result = await SeedorfAPI.confirmMagicLoginLink(magicToken);
+  //   const { token } = result.data;
+  //   const loginWentOkay = !!(await this.loginWithToken(token));
+  //   console.log('loginWentOkay?', loginWentOkay);
+  //   if (loginWentOkay) {
+  //     // that's great
+  //   } else {
+  //     console.log('token failed', result);
+  //     // todo: implement failure (probably bad token was received)
+  //   }
+  // }
 
   async componentWillMount() {
-    IncomingLinks.on(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
-    IncomingLinks.on(Events.LOGIN_TOKEN, this.loginWithToken);
+    // IncomingLinks.on(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
+    // IncomingLinks.on(Events.LOGIN_TOKEN, this.loginWithToken);
 
-    const initialURL = await firebase.links().getInitialLink();
-    if (initialURL) {
-      const event = urlToEvent(initialURL);
-      if (event) {
-        if (event.type === Events.MAGIC_LINK_LOGIN || event.type === Events.LOGIN_TOKEN) {
-          IncomingLinks.emitEvent(event);
-          return;
-        }
-      }
-    }
+    // const initialURL = await firebase.links().getInitialLink();
+    // if (initialURL) {
+    //   const event = urlToEvent(initialURL);
+    //   if (event) {
+    //     if (event.type === Events.MAGIC_LINK_LOGIN || event.type === Events.LOGIN_TOKEN) {
+    //       IncomingLinks.emitEvent(event);
+    //       return;
+    //     }
+    //   }
+    // }
 
     const token = await AsyncStorage.getItem('TOKEN');
 
@@ -97,10 +97,10 @@ export class UserProvider extends React.Component {
     this.logout();
   }
 
-  componentWillUnmount() {
-    IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
-    IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginWithToken);
-  }
+  // componentWillUnmount() {
+  //   IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
+  //   IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginWithToken);
+  // }
 
   queryUser = async () => {
     const token = await AsyncStorage.getItem('TOKEN');
@@ -125,8 +125,8 @@ export class UserProvider extends React.Component {
   }
 
   loginWithToken = async (token) => {
-    const verifyTokenResult = await SeedorfAPI.verifyToken(token);
-    if (verifyTokenResult.ok) {
+    const res = await SeedorfAPI.verifyToken(token);
+    if (res.ok) {
       await setToken(token);
       await this.refresh();
       return true;
@@ -135,11 +135,11 @@ export class UserProvider extends React.Component {
   }
 
   logout = async () => {
-    this.setState({ user: null });
     client.setToken(null);
     SeedorfAPI.setToken(null);
     client.resetStore();
     await AsyncStorage.removeItem('TOKEN');
+    this.setState({ user: null });
   }
 
   render() {

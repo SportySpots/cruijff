@@ -17,7 +17,7 @@ import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
 import { UserProvider } from './Context/User';
 import { SpotFiltersProvider } from './Context/SpotFilters';
-
+import { Events, IncomingLinks, urlToEvent } from './Services/IncomingLinks';
 import globalRefs, { addGlobalRef } from './globalRefs';
 import { setupDetoxConnection } from './detoxHelpers';
 
@@ -40,6 +40,24 @@ class App extends Component {
 
     if (config.testBuild) {
       setupDetoxConnection();
+    }
+  }
+
+  async componentWillMount() {
+    IncomingLinks.on(Events.MAGIC_LINK_LOGIN, (magicToken) => {
+      // eslint-next-line no-underscore-dangle
+      this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken });
+    });
+    // IncomingLinks.on(Events.LOGIN_TOKEN, this.loginWithToken);
+
+    const initialURL = await firebase.links().getInitialLink();
+    const knowEvents = [Events.MAGIC_LINK_LOGIN, Events.LOGIN_TOKEN];
+
+    if (initialURL) {
+      const event = urlToEvent(initialURL);
+      if (event && event.type && knowEvents.includes(event.type)) {
+        IncomingLinks.emitEvent(event);
+      }
     }
   }
 
@@ -83,6 +101,8 @@ class App extends Component {
 
   componentWillUnmount() {
     // Linking.removeEventListener('url', this.appWokeUp);
+    IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, () => {});
+    // IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginWithToken);
   }
 
   appWokeUp = (event) => {
@@ -90,9 +110,8 @@ class App extends Component {
     // and is activated by the listener...
     console.log('LINKING: WOKE UP', event);
     const uuid = event.url.replace(`https://${config.deeplinkHost}/games/`, '');
-    this.router._navigation.navigate('GameDetailsScreen', { // eslint-disable-line no-underscore-dangle
-      uuid,
-    });
+    // eslint-next-line no-underscore-dangle
+    this.router._navigation.navigate('GameDetailsScreen', { uuid });
   }
 
 

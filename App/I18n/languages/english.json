@@ -607,6 +607,12 @@
     "btnLabel": "Submit and create account"
   },
 
+  "confirmMagicTokenScreen": {
+    "navigation": {
+      "title": "Your magic link expired!"
+    }
+  },
+
   "connectionCheck": {
     "noConnection": "No connection"
   },
