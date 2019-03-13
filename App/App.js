@@ -23,6 +23,7 @@ import { setupDetoxConnection } from './detoxHelpers';
 
 import Colors from './Themes/Colors';
 import { logNavigationState } from './utils';
+import { Events, getInitialEvent, IncomingLinks } from './Services/IncomingLinks';
 
 class App extends Component {
   constructor() {
@@ -62,6 +63,20 @@ class App extends Component {
       console.log('LINKING: App received link: ', url);
     });
 
+    getInitialEvent().then((event) => {
+      console.log('initial event', event);
+    });
+
+    IncomingLinks.on(Events.GAME_OPENED, (uuid) => {
+      this.router._navigation.navigate('GameDetailsScreen', { uuid }); // eslint-disable-line no-underscore-dangle
+    });
+
+    getInitialEvent().then((event) => {
+      if (event && event.type === Events.GAME_OPENED) {
+        this.router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] }); // eslint-disable-line no-underscore-dangle
+      }
+    });
+
     // this handles the case where the app is closed and is launched via Universal Linking.
     // Linking.getInitialURL()
     //   .then((url) => {
@@ -85,15 +100,15 @@ class App extends Component {
     // Linking.removeEventListener('url', this.appWokeUp);
   }
 
-  appWokeUp = (event) => {
-    // this handles the use case where the app is running in the background
-    // and is activated by the listener...
-    console.log('LINKING: WOKE UP', event);
-    const uuid = event.url.replace(`https://${config.deeplinkHost}/games/`, '');
-    this.router._navigation.navigate('GameDetailsScreen', { // eslint-disable-line no-underscore-dangle
-      uuid,
-    });
-  }
+  // appWokeUp = (event) => {
+  //   // this handles the use case where the app is running in the background
+  //   // and is activated by the listener...
+  //   console.log('LINKING: WOKE UP', event);
+  //   const uuid = event.url.replace(`https://${config.deeplinkHost}/games/`, '');
+  //   this.router._navigation.navigate('GameDetailsScreen', { // eslint-disable-line no-underscore-dangle
+  //     uuid,
+  //   });
+  // }
 
 
   // NOTE: https://github.com/Microsoft/react-native-code-push/issues/516#issuecomment-275688344
