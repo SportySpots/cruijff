@@ -119,7 +119,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
             <Row justifyContent="center">
               <LinkNavigate
                 navigation={navigation}
-                to="SplahScreen"
+                to="SplashScreen"
                 text={I18n.t('confirmMagicTokenScreen.link')}
                 underline
               />

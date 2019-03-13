@@ -83,7 +83,7 @@ class App extends Component {
 
   componentWillUnmount() {
     // Linking.removeEventListener('url', this.appWokeUp);
-    // IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, () => {});
+    IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, () => {});
     // IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginWithToken);
   }
 
