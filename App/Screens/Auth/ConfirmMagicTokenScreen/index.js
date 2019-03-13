@@ -9,7 +9,9 @@ import Colors from '../../../Themes/Colors';
 import { withUser, userPropTypes } from '../../../Context/User';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
+import Row from '../../../Components/Common/Row';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
+import LinkNavigate from '../../../Components/Common/LinkNavigate';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -31,11 +33,6 @@ const Title = styled(Text.L)`
   text-align: center;
 `;
 //------------------------------------------------------------------------------
-const Subtitle = styled(Text.M)`
-  text-align: center;
-  max-width: 300px;
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class ConfirmMagicTokenScreen extends React.PureComponent {
@@ -48,10 +45,20 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
   }
 
   async componentWillMount() {
-    const { navigation, loginWithToken } = this.props;
-    const { magicToken = null } = navigation.state.params;
+    const { navigation, user, loginWithToken } = this.props;
 
+    if (user) {
+      this.setState({ status: 'loggedIn' });
+      return;
+    }
+
+    const { magicToken = null } = navigation.state.params;
     console.log('handling magic token', magicToken);
+    if (!magicToken) {
+      this.handleExpiredToken();
+      return;
+    }
+
     try {
       const res = await SeedorfAPI.confirmMagicLoginLink(magicToken);
       console.log('CONFIRM MAGIC TOKEN RESPONSE', res);
@@ -73,7 +80,10 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
   }
 
   render() {
+    const { navigation, decodeToken } = this.props;
     const { status } = this.state;
+    // const claims = decodeToken(navigation.state.params.magicToken);
+    // const { email = '' } = claims;
 
     if (status === 'loading') {
       return <CenteredActivityIndicator />;
@@ -87,14 +97,22 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
               <Image
                 style={{ height: 121, width: 121 }}
                 resizeMode="contain"
-                source={Images.checkEmail}
+                source={Images.linkExpired}
               />
             </Center>
             <Spacer size="XL" />
-            <Title>Token expired!</Title>
-            {/* <Title>{I18n.t(`checkEmailScreen.${action}.title`)}</Title>
+            <Title>{I18n.t('confirmMagicTokenScreen.title')}</Title>
             <Spacer size="XL" />
-            <Subtitle>{I18n.t(`checkEmailScreen.${action}.subtitle`)}</Subtitle> */}
+            <Row justifyContent="center">
+              <LinkNavigate
+                navigation={navigation}
+                to="LoginScreen"
+                // params={{ email }}
+                params={{ email: 'some@email.com' }}
+                text={I18n.t('confirmMagicTokenScreen.link')}
+                underline
+              />
+            </Row>
           </View>
         </Container>
       );
@@ -112,7 +130,13 @@ ConfirmMagicTokenScreen.propTypes = {
       }),
     }),
   }).isRequired,
+  user: userPropTypes.user,
   loginWithToken: userPropTypes.loginWithToken.isRequired,
+  decodeToken: userPropTypes.decodeToken.isRequired,
+};
+
+ConfirmMagicTokenScreen.defaultProps = {
+  user: null,
 };
 
 export default withUser(ConfirmMagicTokenScreen);

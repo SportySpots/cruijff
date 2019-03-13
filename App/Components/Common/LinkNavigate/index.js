@@ -13,6 +13,7 @@ import Text from '../Text';
 //------------------------------------------------------------------------------
 const LinkNavigate = ({
   navigation,
+  params,
   text,
   to,
   color,
@@ -25,7 +26,7 @@ const LinkNavigate = ({
   const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
-    <TouchableOpacity onPress={() => { navigation.navigate(to); }}>
+    <TouchableOpacity onPress={() => { navigation.navigate(to, params); }}>
       <Row
         justifyContent="space-between"
         alignItems="center"
@@ -56,6 +57,7 @@ LinkNavigate.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
   }).isRequired,
+  params: PropTypes.object, // eslint-disable-line
   to: PropTypes.string,
   text: PropTypes.string,
   color: PropTypes.string,
@@ -66,6 +68,7 @@ LinkNavigate.propTypes = {
 };
 
 LinkNavigate.defaultProps = {
+  params: {},
   to: '',
   text: '',
   color: 'black',

@@ -1,11 +1,16 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import CheckEmailScreen from '.';
+import ConfirmMagicTokenScreen from '.';
+
+const navigation = {
+  state: {
+    params: {
+      magicToken: null,
+    },
+  },
+};
 
 storiesOf('Screen.Auth', module)
-  .add('CheckEmailScreen LOGIN', () => (
-    <CheckEmailScreen action="login" />
-  ))
-  .add('CheckEmailScreen SIGNUP', () => (
-    <CheckEmailScreen action="signup" />
+  .add('ConfirmMagicTokenScreen', () => (
+    <ConfirmMagicTokenScreen navigation={navigation} />
   ));

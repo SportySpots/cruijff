@@ -10,8 +10,7 @@ import FormProps from '../../../RenderProps/form-props';
 import LoginEmailApiCall from '../../../Components/Auth/LoginEmailApiCall';
 import LoginEmailForm from '../../../Components/Auth/LoginEmailForm';
 // import Block from '../../../Components/Common/Block';
-import { IncomingLinks, Events } from '../../../Services/IncomingLinks';
-
+// import { IncomingLinks, Events } from '../../../Services/IncomingLinks';
 // import Row from '../../../Components/Common/Row';
 // import Spacer from '../../../Components/Common/Spacer';
 // import OrDivider from '../../../Components/Common/OrDivider';
@@ -44,24 +43,11 @@ const Bottom = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class LoginScreen extends React.Component {
-  socialLoginNotRegisteredHandler = async () => {
-    console.log('trying to login, but not registered');
-  }
-
-  componentWillMount() {
-    IncomingLinks.on(Events.SOCIAL_LOGIN_NOT_REGISTERED, this.socialLoginNotRegisteredHandler);
-  }
-
-  componentWillUnmount() {
-    IncomingLinks.removeListener(
-      Events.SOCIAL_LOGIN_NOT_REGISTERED,
-      this.socialLoginNotRegisteredHandler,
-    );
-  }
-
+class LoginScreen extends React.PureComponent {
   render() {
     const { navigation, onSuccessHook } = this.props;
+    const { email = '' } = navigation.state.params;
+
     return (
       <Container>
         <Top>
@@ -81,9 +67,9 @@ class LoginScreen extends React.Component {
                   handleSuccess(onSuccessHook);
                 }}
               >
-                {({ loginUser }) => [
+                {({ loginUser }) => (
                   <LoginEmailForm
-                    key="form"
+                    email={email}
                     disabled={disabled}
                     errors={errors}
                     onBeforeHook={handleBefore}
@@ -91,8 +77,8 @@ class LoginScreen extends React.Component {
                     onClientErrorHook={handleClientError}
                     // Call api to authenticate user
                     onSuccessHook={loginUser}
-                  />,
-                ]}
+                  />
+                )}
               </LoginEmailApiCall>
             )}
           </FormProps>
@@ -123,3 +109,18 @@ LoginScreen.defaultProps = {
 };
 
 export default LoginScreen;
+
+// socialLoginNotRegisteredHandler = async () => {
+//   console.log('trying to login, but not registered');
+// }
+
+// componentWillMount() {
+//   IncomingLinks.on(Events.SOCIAL_LOGIN_NOT_REGISTERED, this.socialLoginNotRegisteredHandler);
+// }
+
+// componentWillUnmount() {
+//   IncomingLinks.removeListener(
+//     Events.SOCIAL_LOGIN_NOT_REGISTERED,
+//     this.socialLoginNotRegisteredHandler,
+//   );
+// }

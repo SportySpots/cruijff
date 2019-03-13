@@ -118,8 +118,7 @@ class App extends Component {
   // NOTE: https://github.com/Microsoft/react-native-code-push/issues/516#issuecomment-275688344
   // To remove warning caused by required listener
   // eslint-disable-next-line
-  codePushDownloadDidProgress(progress) {
-  }
+  codePushDownloadDidProgress(progress) {}
 
   render() {
     const { state } = this;

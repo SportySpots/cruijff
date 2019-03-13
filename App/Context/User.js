@@ -37,6 +37,7 @@ const defaultValue = {
   loginWithToken: () => {},
   logout: () => {},
   refresh: () => {},
+  decodeToken: () => {},
 };
 
 export const UserContext = React.createContext(defaultValue);
@@ -46,6 +47,7 @@ export const userPropTypes = {
   loginWithToken: PropTypes.func,
   logout: PropTypes.func,
   refresh: PropTypes.func,
+  decodeToken: PropTypes.func,
 };
 
 const setToken = async (token) => {
@@ -67,13 +69,17 @@ export class UserProvider extends React.Component {
     this.logout();
   }
 
-  queryUser = async () => {
-    const token = await AsyncStorage.getItem('TOKEN');
+  decodeToken = (token) => {
     if (!token) {
       return null;
     }
+    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
+  }
 
-    const claims = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
+  queryUser = async () => {
+    const token = await AsyncStorage.getItem('TOKEN');
+    const claims = this.decodeToken(token);
+    console.log('CLAIMS', claims);
     const { uuid } = claims;
     const res = await client.query({
       fetchPolicy: 'network-only',
@@ -122,6 +128,7 @@ export class UserProvider extends React.Component {
           loginWithToken: this.loginWithToken,
           logout: this.logout,
           refresh: this.refresh,
+          decodeToken: this.decodeToken,
         }}
       >
         {children}

@@ -608,9 +608,8 @@
   },
 
   "confirmMagicTokenScreen": {
-    "navigation": {
-      "title": "Your magic link expired!"
-    }
+    "title": "Your magic link expired!",
+    "link": "Take me to login"
   },
 
   "connectionCheck": {
