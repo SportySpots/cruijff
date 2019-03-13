@@ -608,9 +608,9 @@
   },
 
   "confirmMagicTokenScreen": {
-    "title": "Your magic link expired!",
-    "btnLabel": "Take me to login",
-    "link": "Let me browse the app"
+    "title": "Je magische link is verlopen!",
+    "btnLabel": "Breng me naar login",
+    "link": "Laat me door de app bladeren"
   },
 
   "connectionCheck": {

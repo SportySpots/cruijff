@@ -608,9 +608,9 @@
   },
 
   "confirmMagicTokenScreen": {
-    "navigation": {
-      "title": "Tu link mágico ha expirado!"
-    }
+    "title": "Tu link mágico ha expirado!",
+    "btnLabel": "Iniciar sesión",
+    "link": "Déjame navegar por la aplicación"
   },
 
   "connectionCheck": {
