@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { AsyncStorage } from 'react-native';
-import { Buffer } from 'buffer';
 // import firebase from 'react-native-firebase';
 import SeedorfAPI from '../Services/SeedorfApi';
 // import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
@@ -10,6 +9,7 @@ import { client } from '../GraphQL';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
+import { decodeJWTToken } from '../utils';
 
 /*
   user:
@@ -37,7 +37,6 @@ const defaultValue = {
   loginWithToken: () => {},
   logout: () => {},
   refresh: () => {},
-  decodeToken: () => {},
 };
 
 export const UserContext = React.createContext(defaultValue);
@@ -47,7 +46,6 @@ export const userPropTypes = {
   loginWithToken: PropTypes.func,
   logout: PropTypes.func,
   refresh: PropTypes.func,
-  decodeToken: PropTypes.func,
 };
 
 const setToken = async (token) => {
@@ -69,16 +67,9 @@ export class UserProvider extends React.Component {
     this.logout();
   }
 
-  decodeToken = (token) => {
-    if (!token) {
-      return null;
-    }
-    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
-  }
-
   queryUser = async () => {
     const token = await AsyncStorage.getItem('TOKEN');
-    const claims = this.decodeToken(token);
+    const claims = decodeJWTToken(token);
     console.log('CLAIMS', claims);
     const { uuid } = claims;
     const res = await client.query({
@@ -115,9 +106,9 @@ export class UserProvider extends React.Component {
   render() {
     const { user } = this.state;
 
-    if (user === undefined) {
-      return <CenteredActivityIndicator />;
-    }
+    // if (user === undefined) {
+    //   return <CenteredActivityIndicator />;
+    // }
 
     const { children } = this.props;
 
@@ -128,7 +119,6 @@ export class UserProvider extends React.Component {
           loginWithToken: this.loginWithToken,
           logout: this.logout,
           refresh: this.refresh,
-          decodeToken: this.decodeToken,
         }}
       >
         {children}

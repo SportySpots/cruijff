@@ -12,6 +12,7 @@ import Text from '../../../Components/Common/Text';
 import Row from '../../../Components/Common/Row';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import LinkNavigate from '../../../Components/Common/LinkNavigate';
+import { decodeJWTToken } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -80,9 +81,10 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
   }
 
   render() {
-    const { navigation, decodeToken } = this.props;
+    const { navigation } = this.props;
     const { status } = this.state;
-    // const claims = decodeToken(navigation.state.params.magicToken);
+    const claims = decodeJWTToken(navigation.state.params.magicToken);
+    console.log(claims);
     // const { email = '' } = claims;
 
     if (status === 'loading') {
@@ -132,7 +134,6 @@ ConfirmMagicTokenScreen.propTypes = {
   }).isRequired,
   user: userPropTypes.user,
   loginWithToken: userPropTypes.loginWithToken.isRequired,
-  decodeToken: userPropTypes.decodeToken.isRequired,
 };
 
 ConfirmMagicTokenScreen.defaultProps = {

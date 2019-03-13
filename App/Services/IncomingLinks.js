@@ -5,6 +5,7 @@ export const Events = {
   SOCIAL_LOGIN_NOT_REGISTERED: 'SOCIAL_LOGIN_NOT_REGISTERED',
   LOGIN_TOKEN: 'LOGIN_TOKEN',
   MAGIC_LINK_LOGIN: 'MAGIC_LINK_LOGIN',
+  GAME_OPENED: 'GAME_OPENED',
 };
 
 export const IncomingLinks = new EventEmitter();
@@ -52,6 +53,22 @@ urlParsers.push((url) => {
   throw new Error('Login url received without token.');
 });
 
+// Game link parser
+urlParsers.push((url) => {
+  if (url.search('games/') !== -1) {
+    const splitURL = url.split('games/');
+    const uuid = splitURL[1];
+    if (uuid) {
+      return {
+        type: Events.GAME_OPENED,
+        args: [uuid],
+      };
+    }
+    throw new Error('Game link received without game UUID.');
+  }
+  return null;
+});
+
 export const urlToEvent = (url) => {
   for (const parser of urlParsers) {
     const parserResult = parser(url);
@@ -68,3 +85,11 @@ firebase.links().onLink((url) => {
     IncomingLinks.emitEvent(event);
   }
 });
+
+export const getInitialEvent = async () => {
+  const initialURL = await firebase.links().getInitialLink();
+  if (initialURL) {
+    return urlToEvent(initialURL); // could be null
+  }
+  return null;
+};

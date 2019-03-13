@@ -17,9 +17,8 @@ import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
 import { UserProvider } from './Context/User';
 import { SpotFiltersProvider } from './Context/SpotFilters';
-import { Events, IncomingLinks, urlToEvent } from './Services/IncomingLinks';
+import { Events, IncomingLinks, getInitialEvent } from './Services/IncomingLinks';
 import globalRefs, { addGlobalRef } from './globalRefs';
-import { setupDetoxConnection } from './detoxHelpers';
 
 import Colors from './Themes/Colors';
 import { logNavigationState } from './utils';
@@ -35,38 +34,20 @@ class App extends Component {
         console.log('error getting fcmToken', error);
       }
     })();
-    this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
-    this.state = { hasInitialized: false };
 
-    if (config.testBuild) {
-      setupDetoxConnection();
-    }
+    this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
+
+    codePush.checkForUpdate().then(r => console.log('codepush', r));
+    Crashes.setEnabled(true).then(() => {
+    });
+
   }
 
   async componentWillMount() {
-    IncomingLinks.on(Events.MAGIC_LINK_LOGIN, (magicToken) => {
-      // eslint-next-line no-underscore-dangle
-      this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken });
-    });
-    // IncomingLinks.on(Events.LOGIN_TOKEN, this.loginWithToken);
 
-    const initialURL = await firebase.links().getInitialLink();
-    const knowEvents = [Events.MAGIC_LINK_LOGIN, Events.LOGIN_TOKEN];
-
-    if (initialURL) {
-      const event = urlToEvent(initialURL);
-      if (event && event.type && knowEvents.includes(event.type)) {
-        IncomingLinks.emitEvent(event);
-      }
-    }
   }
 
   componentDidMount() {
-    codePush.checkForUpdate().then(r => console.log('codepush', r));
-    Crashes.setEnabled(true).then(() => {
-      this.setState({ hasInitialized: true });
-    });
-
     firebase.links().getInitialLink()
       .then((url) => {
         if (url) {
@@ -80,40 +61,38 @@ class App extends Component {
       console.log('LINKING: App received link: ', url);
     });
 
-    // this handles the case where the app is closed and is launched via Universal Linking.
-    // Linking.getInitialURL()
-    //   .then((url) => {
-    //     if (url) {
-    //       // Alert.alert('GET INIT URL','initial url  ' + url)
-    //       console.log('LINKING: initial url:', url);
-    //       const uuid = url.replace(`https://${config.deeplinkHost}/games/`, '');
-    //       this.router._navigation.navigate('GameDetailsScreen', { // eslint-disable-line no-underscore-dangle
-    //         uuid,
-    //       });
-    //     }
-    //   })
-    //   .catch(console.log);
-    //
-    // // This listener handles the case where the app is woken up from the Universal or Deep Linking
-    // Linking.addEventListener('url', this.appWokeUp);
+    IncomingLinks.on(Events.GAME_OPENED, (uuid) => {
+      this.router._navigation.navigate('GameDetailsScreen', { uuid }); // eslint-disable-line no-underscore-dangle
+    });
+
+    IncomingLinks.on(Events.MAGIC_LINK_LOGIN, (magicToken) => {
+      // eslint-next-line no-underscore-dangle
+      this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken });
+    });
+
+    getInitialEvent().then((event) => {
+      console.log('initial event', event, this.router);
+      if (event) {
+        switch (event.type) {
+          case Events.GAME_OPENED:
+            this.router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] });
+            break;
+          case Events.MAGIC_LINK_LOGIN:
+            this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken: event.args[0] });
+            break;
+          default:
+            break;
+        }
+      }
+    });
   }
 
 
   componentWillUnmount() {
     // Linking.removeEventListener('url', this.appWokeUp);
-    IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, () => {});
+    // IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, () => {});
     // IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginWithToken);
   }
-
-  appWokeUp = (event) => {
-    // this handles the use case where the app is running in the background
-    // and is activated by the listener...
-    console.log('LINKING: WOKE UP', event);
-    const uuid = event.url.replace(`https://${config.deeplinkHost}/games/`, '');
-    // eslint-next-line no-underscore-dangle
-    this.router._navigation.navigate('GameDetailsScreen', { uuid });
-  }
-
 
   // NOTE: https://github.com/Microsoft/react-native-code-push/issues/516#issuecomment-275688344
   // To remove warning caused by required listener
@@ -121,10 +100,7 @@ class App extends Component {
   codePushDownloadDidProgress(progress) {}
 
   render() {
-    const { state } = this;
-    if (!state.hasInitialized) {
-      return null;
-    }
+    console.log('render App');
     return (
       <ApolloProvider
         id="apollo"
