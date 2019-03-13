@@ -38,13 +38,7 @@ class App extends Component {
     this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
 
     codePush.checkForUpdate().then(r => console.log('codepush', r));
-    Crashes.setEnabled(true).then(() => {
-    });
-
-  }
-
-  async componentWillMount() {
-
+    Crashes.setEnabled(true).then(() => {});
   }
 
   componentDidMount() {
@@ -86,7 +80,6 @@ class App extends Component {
       }
     });
   }
-
 
   componentWillUnmount() {
     // Linking.removeEventListener('url', this.appWokeUp);

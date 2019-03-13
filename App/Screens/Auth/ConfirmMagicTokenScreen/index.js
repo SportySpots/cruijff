@@ -11,6 +11,7 @@ import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 import Row from '../../../Components/Common/Row';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
+import RaisedButton from '../../../Components/Common/RaisedButton';
 import LinkNavigate from '../../../Components/Common/LinkNavigate';
 import { decodeJWTToken } from '../../../utils';
 
@@ -32,6 +33,10 @@ const Center = styled.View`
 //------------------------------------------------------------------------------
 const Title = styled(Text.L)`
   text-align: center;
+`;
+//------------------------------------------------------------------------------
+const ButtonContainer = styled.View`
+  align-self: stretch;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -84,8 +89,6 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
     const { navigation } = this.props;
     const { status } = this.state;
     const claims = decodeJWTToken(navigation.state.params.magicToken);
-    console.log(claims);
-    // const { email = '' } = claims;
 
     if (status === 'loading') {
       return <CenteredActivityIndicator />;
@@ -104,13 +107,19 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
             </Center>
             <Spacer size="XL" />
             <Title>{I18n.t('confirmMagicTokenScreen.title')}</Title>
-            <Spacer size="XL" />
+            <Spacer size="XXL" />
+            <ButtonContainer>
+              <RaisedButton
+                label={I18n.t('confirmMagicTokenScreen.btnLabel')}
+                variant="primary"
+                onPress={() => { navigation.navigate('LoginScreen', { email: (claims && claims.email) || '' }); }}
+              />
+            </ButtonContainer>
+            <Spacer size="XXL" />
             <Row justifyContent="center">
               <LinkNavigate
                 navigation={navigation}
-                to="LoginScreen"
-                // params={{ email }}
-                params={{ email: 'some@email.com' }}
+                to="SplahScreen"
                 text={I18n.t('confirmMagicTokenScreen.link')}
                 underline
               />

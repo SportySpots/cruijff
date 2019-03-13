@@ -609,7 +609,8 @@
 
   "confirmMagicTokenScreen": {
     "title": "Your magic link expired!",
-    "link": "Take me to login"
+    "btnLabel": "Take me to login",
+    "link": "Let me browse the app"
   },
 
   "connectionCheck": {
