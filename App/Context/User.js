@@ -59,48 +59,13 @@ export class UserProvider extends React.Component {
     user: undefined,
   }
 
-  // magicTokenHandler = async (magicToken) => {
-  //   console.log('handling magic token');
-  //   const result = await SeedorfAPI.confirmMagicLoginLink(magicToken);
-  //   const { token } = result.data;
-  //   const loginWentOkay = !!(await this.loginWithToken(token));
-  //   console.log('loginWentOkay?', loginWentOkay);
-  //   if (loginWentOkay) {
-  //     // that's great
-  //   } else {
-  //     console.log('token failed', result);
-  //     // todo: implement failure (probably bad token was received)
-  //   }
-  // }
-
   async componentWillMount() {
-    // IncomingLinks.on(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
-    // IncomingLinks.on(Events.LOGIN_TOKEN, this.loginWithToken);
-
-    // const initialURL = await firebase.links().getInitialLink();
-    // if (initialURL) {
-    //   const event = urlToEvent(initialURL);
-    //   if (event) {
-    //     if (event.type === Events.MAGIC_LINK_LOGIN || event.type === Events.LOGIN_TOKEN) {
-    //       IncomingLinks.emitEvent(event);
-    //       return;
-    //     }
-    //   }
-    // }
-
     const token = await AsyncStorage.getItem('TOKEN');
-
     if (token && await this.loginWithToken(token)) {
       return;
     }
-
     this.logout();
   }
-
-  // componentWillUnmount() {
-  //   IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, this.magicTokenHandler);
-  //   IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginWithToken);
-  // }
 
   queryUser = async () => {
     const token = await AsyncStorage.getItem('TOKEN');
@@ -119,7 +84,6 @@ export class UserProvider extends React.Component {
   }
 
   refresh = async () => {
-    console.log('refreshing user');
     const user = await this.queryUser();
     this.setState({ user });
   }

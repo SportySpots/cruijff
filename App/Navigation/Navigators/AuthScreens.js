@@ -35,11 +35,9 @@ const AuthScreens = {
         onLoggedIn={() => { handleLoggedIn(navigation); }}
       />
     ),
-    navigationOptions: ({ navigation }) => ({
-      // headerTitle: I18n.t('confirmMagicTokenScreen.navigation.title'),
-      headerTitleStyle,
-      // headerLeft: backBtn(navigation),
-    }),
+    navigationOptions: {
+      header: null,
+    },
   },
   LoginCheckEmailScreen: {
     screen: ({ navigation }) => (
