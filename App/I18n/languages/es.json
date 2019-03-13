@@ -647,15 +647,15 @@
     },
     "welcome": {
       "title": "Hola deportista!",
-      "text": "Gracias por unirte a SportySpots. Diviértete!"
+      "text": "Gracias por unirte a SportySpots. Que te diviertas!"
     },
     "joinGame": {
-      "title": "Unirse a un juego",
+      "title": "Unete a un juego",
       "text": "Descubre centros deportivos y actividades cerca tuyo."
     },
     "planGame": {
       "title": "Organiza una actividad",
-      "text": "Planea tu deporte favorito en el lugar perfecto con tus amigos u otros deportistas."
+      "text": "Planea tu deporte favorito en el lugar perfecto con tus amigos y otros deportistas."
     },
     "nextBtnLabel": "continuar",
     "lastBtnLabel": "comenzar"
