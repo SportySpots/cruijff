@@ -125,7 +125,6 @@ class App extends Component {
                       this.router = ref;
                       globalRefs.rootNavigator = ref;
                     }}
-                    initialRouteName="RootNav"
                     // See: https://reactnavigation.org/docs/en/screen-tracking.html
                     onNavigationStateChange={(prevState, currState) => {
                       if (config.logRoute) logNavigationState();

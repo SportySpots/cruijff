@@ -10,8 +10,8 @@ import Menu from '../../Common/Menu';
 class UserMenu extends React.PureComponent {
   handleLogout = () => {
     const { logout, navigation } = this.props;
-    logout();
     navigation.navigate('SplashScreen');
+    logout(); // don't need to await here
   }
 
   handleEdit = () => {

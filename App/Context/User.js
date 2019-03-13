@@ -5,11 +5,11 @@ import { AsyncStorage } from 'react-native';
 import { Buffer } from 'buffer';
 import firebase from 'react-native-firebase';
 import SeedorfAPI from '../Services/SeedorfApi';
+import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
 import { client } from '../GraphQL';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
-import { Events, IncomingLinks, urlToEvent } from '../Services/IncomingLinks';
 
 /*
   user:
@@ -104,6 +104,10 @@ export class UserProvider extends React.Component {
 
   queryUser = async () => {
     const token = await AsyncStorage.getItem('TOKEN');
+    if (!token) {
+      return null;
+    }
+
     const claims = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
     const { uuid } = claims;
     const res = await client.query({
@@ -118,14 +122,14 @@ export class UserProvider extends React.Component {
     console.log('refreshing user');
     const user = await this.queryUser();
     this.setState({ user });
-    return true;
   }
 
   loginWithToken = async (token) => {
     const verifyTokenResult = await SeedorfAPI.verifyToken(token);
     if (verifyTokenResult.ok) {
       await setToken(token);
-      return this.refresh();
+      await this.refresh();
+      return true;
     }
     return false;
   }

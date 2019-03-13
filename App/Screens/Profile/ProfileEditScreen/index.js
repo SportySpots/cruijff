@@ -40,8 +40,8 @@ const ProfileEditScreen = ({
         onEditError={handleServerError}
         onEditSuccess={() => {
           // Extend formProps.handleSuccess' default functionality
-          handleSuccess(() => {
-            refresh();
+          handleSuccess(async () => {
+            await refresh();
             navigation.goBack(null);
           });
         }}
