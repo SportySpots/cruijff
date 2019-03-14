@@ -15,13 +15,14 @@ import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
-import { UserProvider } from './Context/User';
+import { UserConsumer, UserProvider } from './Context/User';
 import { SpotFiltersProvider } from './Context/SpotFilters';
 import { Events, IncomingLinks, getInitialEvent } from './Services/IncomingLinks';
 import globalRefs, { addGlobalRef } from './globalRefs';
 
 import Colors from './Themes/Colors';
 import { logNavigationState } from './utils';
+import CenteredActivityIndicator from './Components/Common/CenteredActivityIndicator';
 
 class App extends Component {
   constructor() {
@@ -39,6 +40,32 @@ class App extends Component {
 
     codePush.checkForUpdate().then(r => console.log('codepush', r));
     Crashes.setEnabled(true).then(() => {});
+  }
+
+  componentWillUpdate() {
+
+  }
+
+  afterRouterRendered() {
+    // use routerHasRendered so that this is only executed once
+    if (!this.routerHasRendered) {
+      this.routerHasRendered = true;
+      getInitialEvent().then((event) => {
+        console.log('initial event', event, this.router);
+        if (event) {
+          switch (event.type) {
+            case Events.GAME_OPENED:
+              this.router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] });
+              break;
+            case Events.MAGIC_LINK_LOGIN:
+              this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken: event.args[0] });
+              break;
+            default:
+              break;
+          }
+        }
+      });
+    }
   }
 
   componentDidMount() {
@@ -62,22 +89,6 @@ class App extends Component {
     IncomingLinks.on(Events.MAGIC_LINK_LOGIN, (magicToken) => {
       // eslint-next-line no-underscore-dangle
       this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken });
-    });
-
-    getInitialEvent().then((event) => {
-      console.log('initial event', event, this.router);
-      if (event) {
-        switch (event.type) {
-          case Events.GAME_OPENED:
-            this.router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] });
-            break;
-          case Events.MAGIC_LINK_LOGIN:
-            this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken: event.args[0] });
-            break;
-          default:
-            break;
-        }
-      }
     });
   }
 
@@ -107,21 +118,32 @@ class App extends Component {
                 <AppRootView>
                   <StatusBar barStyle="light-content" />
                   <ConnectionCheck />
-                  <AppNavigation
-                    ref={(ref) => {
-                      this.router = ref;
-                      globalRefs.rootNavigator = ref;
-                    }}
-                    // See: https://reactnavigation.org/docs/en/screen-tracking.html
-                    onNavigationStateChange={(prevState, currState) => {
-                      if (config.logRoute) logNavigationState();
-                      const currScreen = getActiveRouteName(currState);
-                      const prevScreen = getActiveRouteName(prevState);
-                      if (prevScreen !== currScreen) {
-                        firebase.analytics().setCurrentScreen(currScreen);
+                  <UserConsumer>
+                    {(userProps) => {
+                      // show activity indicator while user object is not initialized
+                      if (userProps.user === undefined) {
+                        return <CenteredActivityIndicator />;
                       }
+                      return (
+                        <AppNavigation
+                          ref={(ref) => {
+                            this.router = ref;
+                            globalRefs.rootNavigator = ref;
+                            this.afterRouterRendered();
+                          }}
+                          // See: https://reactnavigation.org/docs/en/screen-tracking.html
+                          onNavigationStateChange={(prevState, currState) => {
+                            if (config.logRoute) logNavigationState();
+                            const currScreen = getActiveRouteName(currState);
+                            const prevScreen = getActiveRouteName(prevState);
+                            if (prevScreen !== currScreen) {
+                              firebase.analytics().setCurrentScreen(currScreen);
+                            }
+                          }}
+                        />
+                      );
                     }}
-                  />
+                  </UserConsumer>
                 </AppRootView>
               </MenuProvider>
             </LocationProvider>

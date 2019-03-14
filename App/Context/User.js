@@ -105,10 +105,10 @@ export class UserProvider extends React.Component {
 
   render() {
     const { user } = this.state;
-
-    if (user === undefined) {
-      return <CenteredActivityIndicator />;
-    }
+    //
+    // if (user === undefined) {
+    //   return <CenteredActivityIndicator />;
+    // }
 
     const { children } = this.props;
 
