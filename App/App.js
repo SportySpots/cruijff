@@ -46,19 +46,19 @@ class App extends Component {
 
   }
 
-  afterRouterRendered() {
-    // use routerHasRendered so that this is only executed once
-    if (!this.routerHasRendered) {
-      this.routerHasRendered = true;
+  afterRouterRendered(router) {
+    // use afterRouterRenderedHasRun so that this is only executed once (in case of App rerender)
+    if (!this.afterRouterRenderedHasRun) {
+      this.afterRouterRenderedHasRun = true;
       getInitialEvent().then((event) => {
         console.log('initial event', event, this.router);
         if (event) {
           switch (event.type) {
             case Events.GAME_OPENED:
-              this.router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] });
+              router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] });
               break;
             case Events.MAGIC_LINK_LOGIN:
-              this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken: event.args[0] });
+              router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken: event.args[0] });
               break;
             default:
               break;
@@ -129,7 +129,7 @@ class App extends Component {
                           ref={(ref) => {
                             this.router = ref;
                             globalRefs.rootNavigator = ref;
-                            this.afterRouterRendered();
+                            this.afterRouterRendered(ref);
                           }}
                           // See: https://reactnavigation.org/docs/en/screen-tracking.html
                           onNavigationStateChange={(prevState, currState) => {
