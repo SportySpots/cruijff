@@ -22,8 +22,9 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 const ProfileEditScreen = ({
   user,
+  refetchUser,
   location,
-  refresh,
+  refetchLocation,
   navigation,
 }) => (
   <FormProps>
@@ -41,7 +42,8 @@ const ProfileEditScreen = ({
         onEditSuccess={() => {
           // Extend formProps.handleSuccess' default functionality
           handleSuccess(async () => {
-            await refresh();
+            await refetchUser();
+            await refetchLocation();
             navigation.goBack(null);
           });
         }}
@@ -68,8 +70,9 @@ const ProfileEditScreen = ({
 
 ProfileEditScreen.propTypes = {
   user: userPropTypes.user.isRequired,
+  refetchUser: userPropTypes.refetchUser.isRequired,
   location: locationPropTypes.location.isRequired,
-  refresh: userPropTypes.refresh.isRequired,
+  refetchLocation: locationPropTypes.refetchLocation.isRequired,
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,

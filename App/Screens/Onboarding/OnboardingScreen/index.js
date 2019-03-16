@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  AsyncStorage,
   Alert,
   Keyboard,
   Platform,
@@ -56,7 +57,7 @@ class OnboardingScreen extends React.Component {
   }
 
   render() {
-    const { setLocation, navigation } = this.props;
+    const { refetchLocation, navigation } = this.props;
 
     return (
       <FormProps>
@@ -76,7 +77,8 @@ class OnboardingScreen extends React.Component {
             // Store location data into local storage.
             onSuccessHook={({ location }) => {
               handleSuccess(async () => {
-                await setLocation(location);
+                await AsyncStorage.setItem('userLocation', JSON.stringify(location));
+                await refetchLocation();
                 navigation.navigate('MainNav');
               });
             }}
@@ -92,7 +94,7 @@ OnboardingScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  setLocation: locationPropTypes.setLocation.isRequired,
+  refetchLocation: locationPropTypes.refetchLocation.isRequired,
 };
 
 export default withLocation(OnboardingScreen);

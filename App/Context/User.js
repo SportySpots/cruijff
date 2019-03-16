@@ -20,23 +20,19 @@ import { decodeJWTToken } from '../utils';
 // without wrapping them. Note: passing undefined as a Provider value does not cause
 // consuming components to use defaultValue.
 const defaultValue = {
+  loadingUser: false,
   user: {
-    loading: false,
-    data: {
-      user: { // TODO: me
-        name: 'Mock User',
-        uuid: '12345',
-        profile: {
-          uuid: '12345',
-          id: '1234',
-          year_of_birth: 2000,
-          avatar: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Abraham_de_Vries_-_Portret_van_een_onbekende_man%2C_mogelijk_de_koopman_Adriaen_van_der_Tock_%281584-85-1661%29_-_10539_A_B_-_Museum_Rotterdam.jpg',
-          spots: [],
-        },
-      },
+    name: 'Mock User',
+    uuid: '12345',
+    profile: {
+      uuid: '12345',
+      id: '1234',
+      year_of_birth: 2000,
+      avatar: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Abraham_de_Vries_-_Portret_van_een_onbekende_man%2C_mogelijk_de_koopman_Adriaen_van_der_Tock_%281584-85-1661%29_-_10539_A_B_-_Museum_Rotterdam.jpg',
+      spots: [],
     },
-    refetch: () => {},
   },
+  refetchUser: () => {},
 };
 
 export const UserContext = React.createContext(defaultValue);
@@ -88,13 +84,9 @@ export class UserProvider extends React.Component {
     return (
       <UserContext.Provider
         value={{
-          user: {
-            loading,
-            data: {
-              user,
-            },
-            refetch: this.queryUser,
-          },
+          loadingUser: loading,
+          user,
+          refetchUser: this.queryUser,
         }}
       >
         {children}
@@ -116,13 +108,9 @@ export const withUser = Component => props => (
 );
 
 export const userPropTypes = {
-  user: PropTypes.shape({
-    loading: PropTypes.bool,
-    data: PropTypes.shape({
-      user: propType(userDetailsFragment),
-    }),
-    refetch: PropTypes.func,
-  }),
+  loadingUser: PropTypes.bool,
+  user: propType(userDetailsFragment),
+  refetchUser: PropTypes.func,
 };
 
 // import React from 'react';

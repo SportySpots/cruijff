@@ -75,7 +75,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
         return;
       }
 
-      // Store token from into storage and reset apollo store
+      // Store token into local storage and reset apollo store
       await AsyncStorage.setItem('TOKEN', magicToken);
       SeedorfAPI.setToken(magicToken);
       client.resetStore();

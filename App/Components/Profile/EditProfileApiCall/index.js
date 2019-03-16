@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { AsyncStorage } from 'react-native';
 import SeedorfAPI from '../../../Services/SeedorfApi';
-import { withLocation, locationPropTypes } from '../../../Context/Location';
 import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
@@ -13,7 +13,7 @@ import curateErrors from './utils';
  */
 class EditProfileApiCall extends React.PureComponent {
   handleUpdate = async (inputFields) => {
-    const { setLocation, onEditError, onEditSuccess } = this.props;
+    const { onEditError, onEditSuccess } = this.props;
     const {
       userUUID,
       userProfileUUID,
@@ -61,7 +61,7 @@ class EditProfileApiCall extends React.PureComponent {
 
     try {
       // Set user location
-      await setLocation(location);
+      await AsyncStorage.setItem('userLocation', JSON.stringify(location));
     } catch (exc) {
       onEditError(exc);
       return;
@@ -88,7 +88,6 @@ EditProfileApiCall.propTypes = {
     PropTypes.func,
     PropTypes.object,
   ]).isRequired,
-  setLocation: locationPropTypes.setLocation.isRequired,
   onEditError: PropTypes.func,
   onEditSuccess: PropTypes.func,
 };
@@ -98,4 +97,4 @@ EditProfileApiCall.defaultProps = {
   onEditSuccess: () => {},
 };
 
-export default withLocation(EditProfileApiCall);
+export default EditProfileApiCall;

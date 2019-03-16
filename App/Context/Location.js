@@ -52,8 +52,9 @@ const DEFAULT_LOCATION = CITIES[0];
 // without wrapping them. Note: passing undefined as a Provider value does not cause
 // consuming components to use defaultValue.
 const defaultValue = {
+  loadingLocation: false,
   location: DEFAULT_LOCATION,
-  setLocation: () => {},
+  refetchLocation: () => {},
 };
 
 const LocationContext = React.createContext(defaultValue);
@@ -84,17 +85,6 @@ export class LocationProvider extends React.Component {
     await this.getLocation();
   }
 
-  // TODO: remove this method. Set location value at component level + call refetch
-  setLocation = async (location) => { // { id, city, country, coords: { latitude, longitude } }
-    console.log('SET LOCATION', location);
-    try {
-      await AsyncStorage.setItem('userLocation', JSON.stringify(location));
-      this.setState({ location });
-    } catch (exc) {
-      console.log('Could not set user location', exc);
-    }
-  }
-
   render() {
     const { loading, location } = this.state;
     const { children } = this.props;
@@ -102,13 +92,9 @@ export class LocationProvider extends React.Component {
     return (
       <LocationContext.Provider
         value={{
-          location: {
-            loading,
-            data: {
-              location,
-            },
-            refetch: this.getLocation,
-          },
+          loadingLocation: loading,
+          location,
+          refetchLocation: this.getLocation,
         }}
       >
         {children}
@@ -130,22 +116,17 @@ export const withLocation = Component => props => (
 );
 
 export const locationPropTypes = {
-  setLocation: PropTypes.func, // TODO: deprecate
-  location: {
-    loading: PropTypes.bool,
-    data: PropTypes.shape({
-      location: PropTypes.shape({
-        id: PropTypes.string,
-        city: PropTypes.string.isRequired,
-        country: PropTypes.string.isRequired,
-        coords: PropTypes.shape({
-          latitude: PropTypes.number.isRequired,
-          longitude: PropTypes.number.isRequired,
-        }).isRequired,
-      }),
-    }),
-    refetch: PropTypes.func,
-  },
+  loadingLocation: PropTypes.bool,
+  location: PropTypes.shape({
+    id: PropTypes.string,
+    city: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+    coords: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+    }).isRequired,
+  }),
+  refetchLocation: PropTypes.func,
 };
 
 
