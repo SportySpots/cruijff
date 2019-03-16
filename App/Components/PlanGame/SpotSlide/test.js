@@ -2,14 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
-import { createMockClient, ApolloMockProvider } from '../../../GraphQL';
+import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import SpotSlide from '.';
 
 describe('SpotSlide', () => {
   let spots;
 
   beforeAll(async () => {
-    const mockClient = createMockClient();
     const res = await mockClient.query({
       query: GET_SPOTS,
       variables: { limit: 1 },

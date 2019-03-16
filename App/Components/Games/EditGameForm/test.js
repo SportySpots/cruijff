@@ -5,7 +5,7 @@ import moment from 'moment';
 import MockDate from 'mockdate';
 import I18n from '../../../I18n';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
-import { ApolloMockProvider, createMockClient } from '../../../GraphQL';
+import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import EditGameForm, { NAME_MAX_CHARS, DESCRIPTION_MAX_CHARS } from '.';
 
 const mockMonth = 10; // november
@@ -78,7 +78,6 @@ describe('EditGameForm', () => {
   let game;
 
   beforeAll(async () => {
-    const mockClient = createMockClient();
     const res = await mockClient.query({
       query: GET_GAME_DETAILS,
       variables: { uuid: 455 },

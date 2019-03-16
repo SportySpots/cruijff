@@ -5,7 +5,7 @@ import moment from 'moment';
 import MockDate from 'mockdate';
 import cloneDeep from 'lodash/cloneDeep';
 import I18n from '../../../I18n';
-import { ApolloMockProvider } from '../../../GraphQL';
+import { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import SportDateTimeSlide, { INIT_ERRORS } from '.';
 
 const mockMonth = 10; // november

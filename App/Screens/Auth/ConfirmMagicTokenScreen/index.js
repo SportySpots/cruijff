@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, View } from 'react-native';
+import { AsyncStorage, Image, View } from 'react-native';
 import styled from 'styled-components';
+import client from '../../../GraphQL/ApolloClient';
 import SeedorfAPI from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
@@ -51,7 +52,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
   }
 
   async componentWillMount() {
-    const { navigation, user, loginWithToken } = this.props;
+    const { navigation, user } = this.props;
 
     if (user) {
       this.setState({ status: 'loggedIn' });
@@ -74,11 +75,10 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
         return;
       }
 
-      const loginWentOkay = !!(await loginWithToken(res.data.token));
-      console.log('loginWentOkay?', loginWentOkay);
-      if (!loginWentOkay) {
-        this.handleExpiredToken();
-      }
+      // Store token from into storage and reset apollo store
+      await AsyncStorage.setItem('TOKEN', magicToken);
+      SeedorfAPI.setToken(magicToken);
+      client.resetStore();
     } catch (exc) {
       console.log(exc);
       this.handleExpiredToken();
@@ -142,7 +142,6 @@ ConfirmMagicTokenScreen.propTypes = {
     }),
   }).isRequired,
   user: userPropTypes.user,
-  loginWithToken: userPropTypes.loginWithToken.isRequired,
 };
 
 ConfirmMagicTokenScreen.defaultProps = {

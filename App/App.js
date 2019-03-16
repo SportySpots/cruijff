@@ -10,7 +10,8 @@ import firebase from 'react-native-firebase';
 import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components';
 import config from './config';
-import { createClient, createMockClient } from './GraphQL';
+import client from './GraphQL/ApolloClient';
+import mockClient from './GraphQL/ApolloMockClient';
 import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
@@ -36,14 +37,10 @@ class App extends Component {
       }
     })();
 
-    this.client = config.useFixtures ? createMockClient() : createClient(config.seedorfGraphQLUrl);
+    this.client = config.useFixtures ? mockClient : client;
 
     codePush.checkForUpdate().then(r => console.log('codepush', r));
     Crashes.setEnabled(true).then(() => {});
-  }
-
-  componentWillUpdate() {
-
   }
 
   afterRouterRendered(router) {
