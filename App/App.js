@@ -120,7 +120,7 @@ class App extends Component {
         id="apollo"
         ref={addGlobalRef('apolloProvider')}
         // client={this.client}
-        // client={config.useFixtures ? mockClient : client}
+        // client={config.useFixtures ? mockClient : client} // TODO: fix mockClient
         client={client}
       >
         <UserProvider>
