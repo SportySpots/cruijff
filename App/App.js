@@ -64,7 +64,10 @@ class App extends Component {
     });
 
     getInitialEvent().then((event) => {
-      if (event.type && [Events.MAGIC_LINK_LOGIN, Events.GAME_OPENED].includes(event.type)) {
+      if (event
+        && event.type
+        && [Events.MAGIC_LINK_LOGIN, Events.GAME_OPENED].includes(event.type)
+      ) {
         IncomingLinks.emitEvent(event);
       }
     });
