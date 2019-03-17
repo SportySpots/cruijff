@@ -25,8 +25,7 @@ const authMiddleware = setContext(async (req, { headers }) => {
   };
 });
 
-// TODO: export and import in ApolloMockClient.js
-const addErrorHandlers = link => ApolloLink.from([
+export const addErrorHandlers = link => ApolloLink.from([
   onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
       graphQLErrors.forEach(({ message, locations, path }) => {
@@ -38,9 +37,11 @@ const addErrorHandlers = link => ApolloLink.from([
   link,
 ]);
 
+export const cache = new InMemoryCache({ dataIdFromObject: object => object.uuid || null });
+
 const client = new ApolloClient({
   link: addErrorHandlers(authMiddleware.concat(httpLink)),
-  cache: new InMemoryCache({ dataIdFromObject: object => object.uuid || null }),
+  cache,
 });
 
 export default client;
