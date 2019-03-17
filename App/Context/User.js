@@ -39,16 +39,17 @@ export const UserContext = React.createContext(defaultValue);
 
 const me = async () => {
   const token = await AsyncStorage.getItem('TOKEN');
+  console.log('TOKEN', token);
   if (!token) {
     return null;
   }
   const claims = decodeJWTToken(token);
   console.log('CLAIMS', claims);
-  const { uuid } = claims;
+  const { email } = claims;
   const res = await client.query({
     fetchPolicy: 'network-only',
     query: GET_USER_DETAILS,
-    variables: { uuid },
+    variables: { email },
   });
   return res.data.user;
 };
@@ -58,7 +59,7 @@ const me = async () => {
 // TODO: use Query instead of client.query
 export class UserProvider extends React.Component {
   state = {
-    loading: false,
+    loading: true, // set initial value to true to avoid flickering
     user: null,
   }
 
@@ -66,6 +67,7 @@ export class UserProvider extends React.Component {
     this.setState({ loading: true });
     try {
       const user = await me();
+      console.log('QUERY USER', user);
       this.setState({ user });
     } catch (exc) {
       console.log(exc);
@@ -74,12 +76,14 @@ export class UserProvider extends React.Component {
   }
 
   async componentWillMount() {
+    console.log('USER PROVIDER COMP WILL MOUNT');
     await this.queryUser();
   }
 
   render() {
     const { children } = this.props;
     const { loading, user } = this.state;
+    console.log('USER STATE', this.state);
 
     return (
       <UserContext.Provider

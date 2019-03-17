@@ -62,7 +62,7 @@ const LocationContext = React.createContext(defaultValue);
 // TODO: this should be part of the UserProvider
 export class LocationProvider extends React.Component {
   state = {
-    loading: false,
+    loading: true, // set initial value to true to avoid flickering
     location: undefined,
   }
 

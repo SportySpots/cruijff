@@ -15,7 +15,7 @@ const SplashNav = createStackNavigator({
         navigation={navigation}
         component={SplashScreen}
         // Exceptionally we are handling logged in logic at the component level. See SplashScreen
-        onLoggedIn={() => {}}
+        onLoggedIn={() => { console.log('SplashScreen onLoggedIn cb'); }}
       />
     ),
     navigationOptions: { header: null },

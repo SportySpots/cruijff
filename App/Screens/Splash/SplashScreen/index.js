@@ -43,6 +43,7 @@ class SplashScreen extends React.Component {
   }
 
   componentWillMount() {
+    console.log('SPLASH SCREEN WILL MOUNT');
     this.redirectLoggedInUser(this.props);
   }
 

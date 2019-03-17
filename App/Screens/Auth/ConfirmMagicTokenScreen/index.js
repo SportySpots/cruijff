@@ -67,13 +67,14 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
     }
 
     try {
-      const res = await SeedorfAPI.confirmMagicLoginLink(magicToken);
-      console.log('CONFIRM MAGIC TOKEN RESPONSE', res);
+      // TODO: getting an error msg from this
+      // const res = await SeedorfAPI.confirmMagicLoginLink(magicToken);
+      // console.log('CONFIRM MAGIC TOKEN RESPONSE', res);
 
-      if (res && res.problem) {
-        this.handleExpiredToken();
-        return;
-      }
+      // if (res && res.problem) {
+      //   this.handleExpiredToken();
+      //   return;
+      // }
 
       // Store token into local storage and reset apollo store
       await AsyncStorage.setItem('TOKEN', magicToken);

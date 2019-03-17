@@ -11,19 +11,18 @@ import { MenuProvider } from 'react-native-popup-menu';
 import styled from 'styled-components';
 import config from './config';
 import client from './GraphQL/ApolloClient';
-import mockClient from './GraphQL/ApolloMockClient';
+// import mockClient from './GraphQL/ApolloMockClient';
 import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
-import { UserConsumer, UserProvider } from './Context/User';
+import { UserProvider } from './Context/User';
 import { SpotFiltersProvider } from './Context/SpotFilters';
 import { Events, IncomingLinks, getInitialEvent } from './Services/IncomingLinks';
 import globalRefs, { addGlobalRef } from './globalRefs';
 
 import Colors from './Themes/Colors';
 import { logNavigationState } from './utils';
-import CenteredActivityIndicator from './Components/Common/CenteredActivityIndicator';
 
 class App extends Component {
   constructor() {
@@ -37,33 +36,31 @@ class App extends Component {
       }
     })();
 
-    this.client = config.useFixtures ? mockClient : client;
-
     codePush.checkForUpdate().then(r => console.log('codepush', r));
     Crashes.setEnabled(true).then(() => {});
   }
 
-  afterRouterRendered(router) {
-    // use afterRouterRenderedHasRun so that this is only executed once (in case of App rerender)
-    if (!this.afterRouterRenderedHasRun) {
-      this.afterRouterRenderedHasRun = true;
-      getInitialEvent().then((event) => {
-        console.log('initial event', event, this.router);
-        if (event) {
-          switch (event.type) {
-            case Events.GAME_OPENED:
-              router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] });
-              break;
-            case Events.MAGIC_LINK_LOGIN:
-              router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken: event.args[0] });
-              break;
-            default:
-              break;
-          }
-        }
-      });
-    }
-  }
+  // afterRouterRendered(router) {
+  //   // use afterRouterRenderedHasRun so that this is only executed once (in case of App rerender)
+  //   if (!this.afterRouterRenderedHasRun) {
+  //     this.afterRouterRenderedHasRun = true;
+  //     getInitialEvent().then((event) => {
+  //       console.log('initial event', event, this.router);
+  //       if (event) {
+  //         switch (event.type) {
+  //           case Events.GAME_OPENED:
+  //             router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] });
+  //             break;
+  //           case Events.MAGIC_LINK_LOGIN:
+  //             router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken: event.args[0] });
+  //             break;
+  //           default:
+  //             break;
+  //         }
+  //       }
+  //     });
+  //   }
+  // }
 
   componentDidMount() {
     firebase.links().getInitialLink()
@@ -79,19 +76,35 @@ class App extends Component {
       console.log('LINKING: App received link: ', url);
     });
 
-    IncomingLinks.on(Events.GAME_OPENED, (uuid) => {
-      this.router._navigation.navigate('GameDetailsScreen', { uuid }); // eslint-disable-line no-underscore-dangle
-    });
+    // getInitialEvent().then((event) => {
+    //   console.log('initial event', event, this.router);
+    //   if (event) {
+    //     switch (event.type) {
+    //       case Events.GAME_OPENED:
+    //         this.router._navigation.navigate('GameDetailsScreen', { uuid: event.args[0] });
+    //         break;
+    //       case Events.MAGIC_LINK_LOGIN:
+    //         this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken: event.args[0] });
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //   }
+    // });
 
     IncomingLinks.on(Events.MAGIC_LINK_LOGIN, (magicToken) => {
-      // eslint-next-line no-underscore-dangle
       this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken });
+    });
+
+    IncomingLinks.on(Events.GAME_OPENED, (uuid) => {
+      this.router._navigation.navigate('GameDetailsScreen', { uuid });
     });
   }
 
   componentWillUnmount() {
     // Linking.removeEventListener('url', this.appWokeUp);
     IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, () => {});
+    IncomingLinks.removeListener(Events.GAME_OPENED, () => {});
     // IncomingLinks.removeListener(Events.LOGIN_TOKEN, this.loginWithToken);
   }
 
@@ -106,7 +119,9 @@ class App extends Component {
       <ApolloProvider
         id="apollo"
         ref={addGlobalRef('apolloProvider')}
-        client={this.client}
+        // client={this.client}
+        // client={config.useFixtures ? mockClient : client}
+        client={client}
       >
         <UserProvider>
           <SpotFiltersProvider>
@@ -115,32 +130,21 @@ class App extends Component {
                 <AppRootView>
                   <StatusBar barStyle="light-content" />
                   <ConnectionCheck />
-                  <UserConsumer>
-                    {(userProps) => {
-                      // show activity indicator while user object is not initialized
-                      if (userProps.user === undefined) {
-                        return <CenteredActivityIndicator />;
-                      }
-                      return (
-                        <AppNavigation
-                          ref={(ref) => {
-                            this.router = ref;
-                            globalRefs.rootNavigator = ref;
-                            this.afterRouterRendered(ref);
-                          }}
-                          // See: https://reactnavigation.org/docs/en/screen-tracking.html
-                          onNavigationStateChange={(prevState, currState) => {
-                            if (config.logRoute) logNavigationState();
-                            const currScreen = getActiveRouteName(currState);
-                            const prevScreen = getActiveRouteName(prevState);
-                            if (prevScreen !== currScreen) {
-                              firebase.analytics().setCurrentScreen(currScreen);
-                            }
-                          }}
-                        />
-                      );
+                  <AppNavigation
+                    ref={(ref) => {
+                      this.router = ref;
+                      globalRefs.rootNavigator = ref;
                     }}
-                  </UserConsumer>
+                    // See: https://reactnavigation.org/docs/en/screen-tracking.html
+                    onNavigationStateChange={(prevState, currState) => {
+                      if (config.logRoute) logNavigationState();
+                      const currScreen = getActiveRouteName(currState);
+                      const prevScreen = getActiveRouteName(prevState);
+                      if (prevScreen !== currScreen) {
+                        firebase.analytics().setCurrentScreen(currScreen);
+                      }
+                    }}
+                  />
                 </AppRootView>
               </MenuProvider>
             </LocationProvider>

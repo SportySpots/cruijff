@@ -12,8 +12,11 @@ import mocks from './mocks';
 // Read schema from file
 const schema = buildClientSchema(require('../../schema.graphql.json'));
 
+console.log('SCHEMA', schema);
 // Add mocked resolvers
 addMockFunctionsToSchema({ schema, mocks, preserveResolvers: false });
+
+console.log('ADD MOCK FUNCTIONS');
 
 // TODO: import from ApolloClient.js
 const addErrorHandlers = link => ApolloLink.from([
