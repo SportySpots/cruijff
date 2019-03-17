@@ -12,12 +12,13 @@ import Menu from '../../Common/Menu';
 //------------------------------------------------------------------------------
 class UserMenu extends React.PureComponent {
   handleLogout = async () => {
-    const { navigation } = this.props;
-    navigation.navigate('SplashScreen');
+    const { navigation, refetchUser } = this.props;
     // Remove token from async storage and reset apollo store
     await AsyncStorage.removeItem('TOKEN');
     SeedorfAPI.setToken(null);
     client.resetStore();
+    await refetchUser(); // TODO: remove this after GET_ME is implemented
+    navigation.navigate('SplashScreen');
   }
 
   handleEdit = () => {
@@ -58,6 +59,7 @@ class UserMenu extends React.PureComponent {
 
 UserMenu.propTypes = {
   user: userPropTypes.user,
+  refetchUser: userPropTypes.refetchUser.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,

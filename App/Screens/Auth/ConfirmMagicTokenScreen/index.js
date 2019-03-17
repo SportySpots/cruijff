@@ -52,7 +52,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
   }
 
   async componentWillMount() {
-    const { navigation, user } = this.props;
+    const { navigation, user, refetchUser } = this.props;
 
     if (user) {
       this.setState({ status: 'loggedIn' });
@@ -80,6 +80,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
       await AsyncStorage.setItem('TOKEN', magicToken);
       SeedorfAPI.setToken(magicToken);
       client.resetStore();
+      await refetchUser(); // TODO: remove this after GET_ME is implemented
     } catch (exc) {
       console.log(exc);
       this.handleExpiredToken();
@@ -143,6 +144,7 @@ ConfirmMagicTokenScreen.propTypes = {
     }),
   }).isRequired,
   user: userPropTypes.user,
+  refetchUser: userPropTypes.refetchUser.isRequired,
 };
 
 ConfirmMagicTokenScreen.defaultProps = {

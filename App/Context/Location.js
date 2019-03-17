@@ -88,6 +88,7 @@ export class LocationProvider extends React.Component {
   render() {
     const { loading, location } = this.state;
     const { children } = this.props;
+    console.log('LOCATION STATE', this.state);
 
     return (
       <LocationContext.Provider
