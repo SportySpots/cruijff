@@ -3,12 +3,12 @@ import ApolloClient from 'apollo-client';
 import { ApolloLink } from 'apollo-link';
 import { setContext } from 'apollo-link-context';
 import { onError } from 'apollo-link-error';
-import { HttpLink } from 'apollo-link-http';
+import { createHttpLink } from 'apollo-link-http';
 import { AsyncStorage } from 'react-native';
 import config from '../config';
 import SeedorfAPI from '../Services/SeedorfApi';
 
-const httpLink = new HttpLink({ uri: config.seedorfGraphQLUrl });
+const httpLink = createHttpLink({ uri: config.seedorfGraphQLUrl });
 
 const authMiddleware = setContext(async (req, { headers }) => {
   // Get the authentication token from async storage if it exists

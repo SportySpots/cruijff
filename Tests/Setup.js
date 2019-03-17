@@ -1,8 +1,10 @@
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import fetch from 'node-fetch';
 import '../storybook/setup_faker';
 import './Mocks/firebase';
-import { curatedSpots } from '../App/Components/Spots/SpotsList/utils';
+
+global.fetch = fetch;
 
 Enzyme.configure({ adapter: new Adapter() });
 
