@@ -38,20 +38,28 @@ const defaultValue = {
 export const UserContext = React.createContext(defaultValue);
 
 const me = async () => {
-  const token = await AsyncStorage.getItem('TOKEN');
-  console.log('TOKEN', token);
-  if (!token) {
+  try {
+    const token = await AsyncStorage.getItem('TOKEN');
+    console.log('TOKEN', token);
+    if (!token) {
+      return null;
+    }
+
+    const claims = decodeJWTToken(token);
+    console.log('CLAIMS', claims);
+    const { email } = claims;
+
+    const res = await client.query({
+      fetchPolicy: 'network-only',
+      query: GET_USER_DETAILS,
+      variables: { email },
+    });
+
+    return res.data.user;
+  } catch (exc) {
+    console.log(exc);
     return null;
   }
-  const claims = decodeJWTToken(token);
-  console.log('CLAIMS', claims);
-  const { email } = claims;
-  const res = await client.query({
-    fetchPolicy: 'network-only',
-    query: GET_USER_DETAILS,
-    variables: { email },
-  });
-  return res.data.user;
 };
 
 // TODO: use stateless function
@@ -64,20 +72,16 @@ export class UserProvider extends React.Component {
   }
 
   queryUser = async () => {
-    this.setState({ loading: true });
-    try {
-      const user = await me();
-      console.log('QUERY USER', user);
-      this.setState({ user });
-    } catch (exc) {
-      console.log(exc);
-    }
-    this.setState({ loading: false });
+    // Do not set loading state
+    const user = await me();
+    console.log('QUERY USER', user);
+    this.setState({ user });
   }
 
   async componentWillMount() {
     console.log('USER PROVIDER COMP WILL MOUNT');
     await this.queryUser();
+    this.setState({ loading: false });
   }
 
   render() {
