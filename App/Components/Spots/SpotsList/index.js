@@ -34,11 +34,11 @@ const SpotsList = ({
 
   // Set query variables
   const variables = {
+    sports__ids: sportsIds, // empty array will return all spots
+    distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
     offset: 0,
     limit: 10,
     ordering: 'distance',
-    sports__ids: sportsIds, // empty array will return all spots
-    distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
   };
 
   const numGenerator = makeNumGenerator();
@@ -47,7 +47,6 @@ const SpotsList = ({
     <QueryCatchErrors
       query={GET_SPOTS}
       variables={variables}
-      // TODO: pass ordering var in order to get results sorted by distance (closest first)
       fetchPolicy="cache-and-network"
     >
       {({
