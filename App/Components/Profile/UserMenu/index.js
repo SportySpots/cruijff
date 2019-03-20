@@ -15,7 +15,8 @@ class UserMenu extends React.PureComponent {
     const { navigation, refetchUser } = this.props;
     // Remove token from async storage and reset apollo store
     await AsyncStorage.removeItem('TOKEN');
-    SeedorfAPI.setToken(null);
+    // OBS: we don't neet set token for ApolloClient or REST here,
+    // this is being handled for us on ApolloClient.setContext
     client.resetStore();
     await refetchUser(); // TODO: remove this after GET_ME is implemented
     navigation.navigate('SplashScreen');

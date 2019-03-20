@@ -13,8 +13,9 @@ const httpLink = createHttpLink({ uri: config.seedorfGraphQLUrl });
 const authMiddleware = setContext(async (req, { headers }) => {
   // Get the authentication token from async storage if it exists
   const token = await AsyncStorage.getItem('TOKEN');
-  // Make sure REST auth header is set when app init
+  // Set auth header for the REST API
   SeedorfAPI.setToken(token);
+  console.log('SET CONTEXT');
   // Return the headers to the context so httpLink can read them
   return {
     headers: {
