@@ -15,10 +15,6 @@ const Container = styled.View`
   background-color: ${({ isWhiteTheme }) => (isWhiteTheme ? Colors.white : Colors.secondaryGreen)};
 `;
 //------------------------------------------------------------------------------
-const Brand = styled(Text.L)`
-  color: ${({ color }) => (color)};
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const LogoHeaderBackground = ({
@@ -39,12 +35,13 @@ const LogoHeaderBackground = ({
           >
             <Logo scale={1} />
             <Spacer size="L" />
-            <Brand
-              color={isWhiteTheme ? Colors.black : Colors.white}
+            <Text
+              size="L"
+              color={isWhiteTheme ? 'black' : 'white'}
               bold
             >
               SPORTYSPOTS
-            </Brand>
+            </Text>
           </View>,
           <Spacer key="spacer" size="XL" />,
         ]}

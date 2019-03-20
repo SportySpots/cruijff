@@ -28,11 +28,15 @@ const Text = ({
   const textAlign = center ? 'center' : 'left';
   const style = Object.assign({}, baseStyle, font, { lineHeight, color, textAlign });
 
-  [regular, semibold, bold].forEach((family) => {
-    if (family) {
-      style.fontFamily = FontFamilies[family];
-    }
-  });
+  if (regular) {
+    style.fontFamily = FontFamilies.regular;
+  }
+  if (semibold) {
+    style.fontFamily = FontFamilies.semibold;
+  }
+  if (bold) {
+    style.fontFamily = FontFamilies.bold;
+  }
 
   return (
     <NativeText style={style} {...rest}>
