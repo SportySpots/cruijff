@@ -5,10 +5,10 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../App/Backgrounds/FieldBackground/stories');
+  // require('../App/Backgrounds/FieldBackground/stories');
   // require('../App/Backgrounds/ImageBackground/stories');
   // require('../App/Backgrounds/LogoHeaderBackground/stories');
-  // require('../App/Components/Auth/LoginEmailForm/stories');
+  require('../App/Components/Auth/LoginEmailForm/stories');
   // require('../App/Components/Auth/SignupEmailForm/stories');
   // require('../App/Components/Common/AlertMsg/stories');
   // require('../App/Components/Common/Avatar/stories');
@@ -51,7 +51,7 @@ function loadStories() {
   // require('../App/Components/Common/NavDots/stories');
   // require('../App/Components/Common/NothingFound/stories');
   // require('../App/Components/Common/OrDivider/stories');
-  // require('../App/Components/Common/RaisedButton/stories');
+  require('../App/Components/Common/RaisedButton/stories');
   // require('../App/Components/Common/Rating/stories');
   // require('../App/Components/Common/RoundButton/stories');
   // require('../App/Components/Common/Row/stories');
@@ -66,7 +66,7 @@ function loadStories() {
   // require('../App/Components/Common/SwitchWithText/stories');
   // require('../App/Components/Common/Tag/stories');
   // require('../App/Components/Common/Text/stories');
-  require('../App/Components/Common/TextField/stories');
+  // require('../App/Components/Common/TextField/stories');
   // require('../App/Components/Common/TimePickerField/stories');
   // require('../App/Components/Games/AdminMenu/stories');
   // require('../App/Components/Games/Attendees/stories');
@@ -135,10 +135,10 @@ function loadStories() {
 }
 
 const stories = [
-  '../App/Backgrounds/FieldBackground/stories',
+  // '../App/Backgrounds/FieldBackground/stories',
   // '../App/Backgrounds/ImageBackground/stories',
   // '../App/Backgrounds/LogoHeaderBackground/stories',
-  // '../App/Components/Auth/LoginEmailForm/stories',
+  '../App/Components/Auth/LoginEmailForm/stories',
   // '../App/Components/Auth/SignupEmailForm/stories',
   // '../App/Components/Common/AlertMsg/stories',
   // '../App/Components/Common/Avatar/stories',
@@ -181,7 +181,7 @@ const stories = [
   // '../App/Components/Common/NavDots/stories',
   // '../App/Components/Common/NothingFound/stories',
   // '../App/Components/Common/OrDivider/stories',
-  // '../App/Components/Common/RaisedButton/stories',
+  '../App/Components/Common/RaisedButton/stories',
   // '../App/Components/Common/Rating/stories',
   // '../App/Components/Common/RoundButton/stories',
   // '../App/Components/Common/Row/stories',
