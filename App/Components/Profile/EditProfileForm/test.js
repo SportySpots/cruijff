@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 // import MockDate from 'mockdate';
 import I18n from '../../../I18n';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import { ApolloMockProvider, createMockClient } from '../../../GraphQL';
+import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import EditProfileForm, { MAX_CHARS } from '.';
 
 const validName = 'John Doe';
@@ -16,7 +16,6 @@ describe('EditProfileForm', () => {
   let user;
 
   beforeAll(async () => {
-    const mockClient = createMockClient();
     const res = await mockClient.query({
       query: GET_USER_DETAILS,
       variables: { uuid: 455 },

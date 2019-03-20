@@ -607,6 +607,12 @@
     "btnLabel": "Submit and create account"
   },
 
+  "confirmMagicTokenScreen": {
+    "title": "Je magische link is verlopen!",
+    "btnLabel": "Breng me naar login",
+    "link": "Laat me door de app bladeren"
+  },
+
   "connectionCheck": {
     "noConnection": "No connection"
   },

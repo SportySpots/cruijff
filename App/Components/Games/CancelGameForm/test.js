@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { Alert } from 'react-native';
 import renderer from 'react-test-renderer';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
-import { createMockClient } from '../../../GraphQL';
+import mockClient from '../../../GraphQL/ApolloMockClient';
 import I18n from '../../../I18n';
 import CancelGameForm, { MAX_CHARS } from '.';
 
@@ -33,7 +33,6 @@ describe('CancelGameForm', () => {
   let game;
 
   beforeAll(async () => {
-    const mockClient = createMockClient();
     const res = await mockClient.query({
       query: GET_GAME_DETAILS,
       variables: { uuid: 455 },

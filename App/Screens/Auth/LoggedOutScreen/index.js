@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, Image } from 'react-native';
-// import { withNavigation } from 'react-navigation';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n/index';
 import images from '../../../Themes/Images';
@@ -80,5 +79,4 @@ LoggedOutScreen.defaultProps = {
   onClose: () => {},
 };
 
-// export default withNavigation(LoggedOutScreen);
 export default LoggedOutScreen;

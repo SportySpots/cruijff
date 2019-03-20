@@ -31,7 +31,7 @@ const MainNav = createStackNavigator({
   initialRouteName: 'MainTabs',
 });
 
-const RootNav = createSwitchNavigator({
+const AppNavigation = createSwitchNavigator({
   SplashScreen: { screen: SplashNav },
   OnboardingScreen: { screen: OnboardingScreen },
   MainNav: { screen: MainNav },
@@ -43,7 +43,7 @@ const RootNav = createSwitchNavigator({
   tabBarComponent: () => null,
 });
 
-export default RootNav;
+export default AppNavigation;
 
 export const getActiveRouteName = (navigationState) => {
   if (!navigationState) {

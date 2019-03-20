@@ -71,45 +71,6 @@
             "deprecationReason": null
           },
           {
-            "name": "user_profile",
-            "description": null,
-            "args": [
-              {
-                "name": "uuid",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "UUID",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "UserProfileType",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "user_profiles",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "UserProfileType",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "game",
             "description": null,
             "args": [
@@ -387,6 +348,16 @@
                 "defaultValue": null
               },
               {
+                "name": "distance",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "id",
                 "description": "Django object unique identification field",
                 "type": {
@@ -418,7 +389,7 @@
               },
               {
                 "name": "ordering",
-                "description": "A string or coma separate strings values that indicating the default ordering when obtaining lists of objects.",
+                "description": "A string or comma delimited string values that indicate the default ordering when obtaining lists of objects.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -467,7 +438,7 @@
             "description": "RsvpStatus list",
             "args": [
               {
-                "name": "uuid",
+                "name": "game__uuid",
                 "description": null,
                 "type": {
                   "kind": "SCALAR",
@@ -477,51 +448,11 @@
                 "defaultValue": null
               },
               {
-                "name": "created_at",
+                "name": "user__uuid",
                 "description": null,
                 "type": {
                   "kind": "SCALAR",
-                  "name": "DateTime",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "modified_at",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "DateTime",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "deleted_at",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "DateTime",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "user",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "game",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "ID",
+                  "name": "UUID",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -568,7 +499,7 @@
               },
               {
                 "name": "ordering",
-                "description": "A string or coma separate strings values that indicating the default ordering when obtaining lists of objects.",
+                "description": "A string or comma delimited string values that indicate the default ordering when obtaining lists of objects.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -721,6 +652,16 @@
                 "defaultValue": null
               },
               {
+                "name": "distance",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "id",
                 "description": "Django object unique identification field",
                 "type": {
@@ -752,7 +693,7 @@
               },
               {
                 "name": "ordering",
-                "description": "A string or coma separate strings values that indicating the default ordering when obtaining lists of objects.",
+                "description": "A string or comma delimited string values that indicate the default ordering when obtaining lists of objects.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
@@ -798,8 +739,89 @@
           },
           {
             "name": "sports",
-            "description": null,
-            "args": [],
+            "description": "Sport list",
+            "args": [
+              {
+                "name": "category",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "name__icontains",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "description__icontains",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "id",
+                "description": "Django object unique identification field",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "limit",
+                "description": "Number of results to return per page. Default 'default_limit': 20, and 'max_limit': 50",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "20"
+              },
+              {
+                "name": "offset",
+                "description": "The initial index from which to return the results. Default: 0",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "ordering",
+                "description": "A string or comma delimited string values that indicate the default ordering when obtaining lists of objects.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
             "type": {
               "kind": "LIST",
               "name": null,
@@ -874,6 +896,66 @@
         "name": "UserType",
         "description": null,
         "fields": [
+          {
+            "name": "uuid",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "created_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modified_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deleted_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "id",
             "description": "",
@@ -1031,66 +1113,6 @@
             "deprecationReason": null
           },
           {
-            "name": "uuid",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "UUID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "created_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "modified_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "deleted_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "name",
             "description": "",
             "args": [],
@@ -1117,6 +1139,38 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "sports",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SportType",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "spots",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SpotType",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -1126,8 +1180,8 @@
       },
       {
         "kind": "SCALAR",
-        "name": "ID",
-        "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
+        "name": "UUID",
+        "description": "UUID",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -1138,6 +1192,16 @@
         "kind": "SCALAR",
         "name": "DateTime",
         "description": "The `DateTime` scalar type represents a DateTime\nvalue as specified by\n[iso8601](https://en.wikipedia.org/wiki/ISO_8601).",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "ID",
+        "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -1158,16 +1222,6 @@
         "kind": "SCALAR",
         "name": "String",
         "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "UUID",
-        "description": "UUID",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -1256,15 +1310,15 @@
             "deprecationReason": null
           },
           {
-            "name": "user",
-            "description": "",
+            "name": "sports",
+            "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
+              "kind": "LIST",
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "UserType",
+                "name": "SportType",
                 "ofType": null
               }
             },
@@ -1320,13 +1374,9 @@
             "description": "",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -1389,6 +1439,549 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "SportType",
+        "description": null,
+        "fields": [
+          {
+            "name": "id",
+            "description": "Django object unique identification field",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": "Unique Identifier",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "UUID",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "created_at",
+            "description": "Created At",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modified_at",
+            "description": "Modified At",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deleted_at",
+            "description": "Deleted At",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "translations",
+            "description": "translations",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSONString",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "category",
+            "description": "Name of the main category of the sport (e.g. Soccer).",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "SportCategoryEnum",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": "Name of the sub category of the sport (e.g. Soccer 5x5).",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "description",
+            "description": "Sport Description",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sport_games",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "GameType",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "CustomDateTime",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "JSONString",
+        "description": "JSON String",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "SportCategoryEnum",
+        "description": "An enumeration.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "BASKETBALL",
+            "description": "Basketball",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "BEACH_VOLLEYBALL",
+            "description": "Beach Volleyball",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "BOOTCAMP",
+            "description": "Bootcamp",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "BOULES",
+            "description": "Boules",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "FITNESS",
+            "description": "Fitness",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "OTHERS",
+            "description": "Others",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SKATING",
+            "description": "Skating",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SOCCER",
+            "description": "Soccer",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "TENNIS",
+            "description": "Tennis",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "GameType",
+        "description": null,
+        "fields": [
+          {
+            "name": "id",
+            "description": "Django object unique identification field",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": "Unique Identifier",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "UUID",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "created_at",
+            "description": "Created At",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modified_at",
+            "description": "Modified At",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deleted_at",
+            "description": "Deleted At",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "organizer",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "UserType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sport",
+            "description": "Sport",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "SportType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "spot",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "SpotType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": "name",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "description",
+            "description": "Description of the game.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "start_time",
+            "description": "Start time of the game in UTC.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "end_time",
+            "description": "End time of the game in UTC.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rsvp_open_time",
+            "description": "UTC time before that RSVPs will no longer be accepted, though organizers may close RSVPs earlier",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rsvp_close_time",
+            "description": "UTC time after that RSVPs will no longer be accepted, though organizers may close RSVPs earlier",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "CustomDateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rsvp_closed",
+            "description": "Is RSVPing explicitly closed for the game.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "start_timezone",
+            "description": "Timezone of the start time of the game.",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "GameStartTimezoneEnum",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "end_timezone",
+            "description": "Timezone of the end time of the game.",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "GameEndTimezoneEnum",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "invite_mode",
+            "description": "If the game is open for everyone to join or based on organizers approval or is invite only.",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "GameInviteModeEnum",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status",
+            "description": "Status",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "GameStatusEnum",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "capacity",
+            "description": "Capacity",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "show_remaining",
+            "description": "If the game page should show the number of open player spots left.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "is_listed",
+            "description": "If this game is publicly searchable on SportySpots.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "is_shareable",
+            "description": "If this game shows social sharing buttons.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "is_featured",
+            "description": "If this game is featured.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "attendees",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "RsvpStatusType",
                 "ofType": null
               }
             },
@@ -1786,6 +2379,22 @@
         "description": null,
         "fields": [
           {
+            "name": "id",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "uuid",
             "description": "",
             "args": [],
@@ -1841,22 +2450,6 @@
               "kind": "SCALAR",
               "name": "DateTime",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -1942,6 +2535,18 @@
             "deprecationReason": null
           },
           {
+            "name": "point",
+            "description": "Lat/Lng Point",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "GeoJSON",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "plus_global_code",
             "description": "",
             "args": [],
@@ -1980,16 +2585,6 @@
         ],
         "inputFields": null,
         "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "JSONString",
-        "description": "JSON String",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -2045,13 +2640,93 @@
         "possibleTypes": null
       },
       {
+        "kind": "SCALAR",
+        "name": "GeoJSON",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "Date",
+        "description": "The `Date` scalar type represents a Date\nvalue as specified by\n[iso8601](https://en.wikipedia.org/wiki/ISO_8601).",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
-        "name": "SportType",
+        "name": "SpotImageType",
         "description": null,
         "fields": [
           {
+            "name": "uuid",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "created_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modified_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deleted_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
-            "description": "Django object unique identification field",
+            "description": "",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -2066,111 +2741,63 @@
             "deprecationReason": null
           },
           {
-            "name": "uuid",
-            "description": "Unique Identifier",
+            "name": "spot",
+            "description": "",
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "UUID",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "created_at",
-            "description": "Created At",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "modified_at",
-            "description": "Modified At",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "deleted_at",
-            "description": "Deleted At",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "translations",
-            "description": "translations",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "JSONString",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "category",
-            "description": "Name of the main category of the sport (e.g. Soccer).",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "SportCategoryEnum",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "Name of the sub category of the sport (e.g. Soccer 5x5).",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "description",
-            "description": "Sport Description",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "sport_games",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "GameType",
+                "name": "SpotType",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "image",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "is_flagged",
+            "description": "Is this image marked as offensive/ non-relevant ?",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "is_user_submitted",
+            "description": "Is this image submitted by the user ?",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               }
             },
@@ -2184,88 +2811,73 @@
         "possibleTypes": null
       },
       {
-        "kind": "SCALAR",
-        "name": "CustomDateTime",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "SportCategoryEnum",
-        "description": "An enumeration.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "BASKETBALL",
-            "description": "Basketball",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "BEACH_VOLLEYBALL",
-            "description": "Beach Volleyball",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "BOOTCAMP",
-            "description": "Bootcamp",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "BOULES",
-            "description": "Boules",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "FITNESS",
-            "description": "Fitness",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "OTHERS",
-            "description": "Others",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "SKATING",
-            "description": "Skating",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "SOCCER",
-            "description": "Soccer",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "TENNIS",
-            "description": "Tennis",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
         "kind": "OBJECT",
-        "name": "GameType",
+        "name": "SpotOpeningTimeType",
         "description": null,
         "fields": [
           {
+            "name": "uuid",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "created_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modified_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deleted_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
-            "description": "Django object unique identification field",
+            "description": "",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -2280,291 +2892,261 @@
             "deprecationReason": null
           },
           {
-            "name": "uuid",
-            "description": "Unique Identifier",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "UUID",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "created_at",
-            "description": "Created At",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "modified_at",
-            "description": "Modified At",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "deleted_at",
-            "description": "Deleted At",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "organizer",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "UserType",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "sport",
-            "description": "Sport",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "SportType",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "spot",
-            "description": null,
+            "description": "",
             "args": [],
             "type": {
-              "kind": "OBJECT",
-              "name": "SpotType",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SpotType",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "name",
-            "description": "name",
+            "name": "day",
+            "description": "",
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "description",
-            "description": "Description of the game.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "SpotOpeningTimeDay",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "start_time",
-            "description": "Start time of the game in UTC.",
+            "description": "",
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "end_time",
-            "description": "End time of the game in UTC.",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "is_closed",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "SpotOpeningTimeDay",
+        "description": "An enumeration.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "MONDAY",
+            "description": "Monday",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "TUESDAY",
+            "description": "Tuesday",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "WEDNESDAY",
+            "description": "Wednesday",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "THURSDAY",
+            "description": "Thursday",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "FRIDAY",
+            "description": "Friday",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SATURDAY",
+            "description": "Saturday",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SUNDAY",
+            "description": "Sunday",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "Time",
+        "description": "The `Time` scalar type represents a Time value as\nspecified by\n[iso8601](https://en.wikipedia.org/wiki/ISO_8601).",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "SpotAmenityType",
+        "description": null,
+        "fields": [
+          {
+            "name": "uuid",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "created_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modified_at",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deleted_at",
+            "description": "",
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "CustomDateTime",
+              "name": "DateTime",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "rsvp_open_time",
-            "description": "UTC time before that RSVPs will no longer be accepted, though organizers may close RSVPs earlier",
+            "name": "id",
+            "description": "",
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "rsvp_close_time",
-            "description": "UTC time after that RSVPs will no longer be accepted, though organizers may close RSVPs earlier",
+            "name": "spot",
+            "description": "",
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "CustomDateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "rsvp_closed",
-            "description": "Is RSVPing explicitly closed for the game.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "start_timezone",
-            "description": "Timezone of the start time of the game.",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "GameStartTimezoneEnum",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "end_timezone",
-            "description": "Timezone of the end time of the game.",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "GameEndTimezoneEnum",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "invite_mode",
-            "description": "If the game is open for everyone to join or based on organizers approval or is invite only.",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "GameInviteModeEnum",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "status",
-            "description": "Status",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "GameStatusEnum",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "capacity",
-            "description": "Capacity",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "show_remaining",
-            "description": "If the game page should show the number of open player spots left.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "is_listed",
-            "description": "If this game is publicly searchable on SportySpots.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "is_shareable",
-            "description": "If this game shows social sharing buttons.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "is_featured",
-            "description": "If this game is featured.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "attendees",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "RsvpStatusType",
+                "name": "SpotType",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "data",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSONString",
                 "ofType": null
               }
             },
@@ -7941,6 +8523,12 @@
             "deprecationReason": null
           },
           {
+            "name": "UPDATED",
+            "description": "Updated",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "STARTED",
             "description": "Started",
             "isDeprecated": false,
@@ -8079,12 +8667,6 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "UNKNOWN",
-            "description": "Unknown",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "ACCEPTED",
             "description": "Accepted",
             "isDeprecated": false,
@@ -8119,518 +8701,14 @@
             "description": "Invited",
             "isDeprecated": false,
             "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Date",
-        "description": "The `Date` scalar type represents a Date\nvalue as specified by\n[iso8601](https://en.wikipedia.org/wiki/ISO_8601).",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpotImageType",
-        "description": null,
-        "fields": [
-          {
-            "name": "uuid",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "UUID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
           },
           {
-            "name": "created_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "modified_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "deleted_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "spot",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SpotType",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "image",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "is_flagged",
-            "description": "Is this image marked as offensive/ non-relevant ?",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "is_user_submitted",
-            "description": "Is this image submitted by the user ?",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
+            "name": "UNKNOWN",
+            "description": "Unknown",
             "isDeprecated": false,
             "deprecationReason": null
           }
         ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpotOpeningTimeType",
-        "description": null,
-        "fields": [
-          {
-            "name": "uuid",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "UUID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "created_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "modified_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "deleted_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "spot",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SpotType",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "day",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "SpotOpeningTimeDay",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "start_time",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Time",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "end_time",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Time",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "is_closed",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "SpotOpeningTimeDay",
-        "description": "An enumeration.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "MONDAY",
-            "description": "Monday",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "TUESDAY",
-            "description": "Tuesday",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "WEDNESDAY",
-            "description": "Wednesday",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "THURSDAY",
-            "description": "Thursday",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "FRIDAY",
-            "description": "Friday",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "SATURDAY",
-            "description": "Saturday",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "SUNDAY",
-            "description": "Sunday",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Time",
-        "description": "The `Time` scalar type represents a Time value as\nspecified by\n[iso8601](https://en.wikipedia.org/wiki/ISO_8601).",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpotAmenityType",
-        "description": null,
-        "fields": [
-          {
-            "name": "uuid",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "UUID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "created_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "modified_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "deleted_at",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "spot",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SpotType",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "data",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "JSONString",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
         "possibleTypes": null
       },
       {
@@ -8687,6 +8765,12 @@
             "description": "Dutch",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "ES",
+            "description": "Spanish",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -8713,7 +8797,7 @@
           },
           {
             "name": "AFRICA_ADDIS_ABABA",
-            "description": "Africa/Addis_Ababa",
+            "description": "Africa/Addis Ababa",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -8803,7 +8887,7 @@
           },
           {
             "name": "AFRICA_DAR_ES_SALAAM",
-            "description": "Africa/Dar_es_Salaam",
+            "description": "Africa/Dar es Salaam",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -8821,7 +8905,7 @@
           },
           {
             "name": "AFRICA_EL_AAIUN",
-            "description": "Africa/El_Aaiun",
+            "description": "Africa/El Aaiun",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -8989,7 +9073,7 @@
           },
           {
             "name": "AFRICA_SAO_TOME",
-            "description": "Africa/Sao_Tome",
+            "description": "Africa/Sao Tome",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9043,7 +9127,7 @@
           },
           {
             "name": "AMERICA_ARGENTINA_BUENOS_AIRES",
-            "description": "America/Argentina/Buenos_Aires",
+            "description": "America/Argentina/Buenos Aires",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9067,7 +9151,7 @@
           },
           {
             "name": "AMERICA_ARGENTINA_LA_RIOJA",
-            "description": "America/Argentina/La_Rioja",
+            "description": "America/Argentina/La Rioja",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9079,7 +9163,7 @@
           },
           {
             "name": "AMERICA_ARGENTINA_RIO_GALLEGOS",
-            "description": "America/Argentina/Rio_Gallegos",
+            "description": "America/Argentina/Rio Gallegos",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9091,13 +9175,13 @@
           },
           {
             "name": "AMERICA_ARGENTINA_SAN_JUAN",
-            "description": "America/Argentina/San_Juan",
+            "description": "America/Argentina/San Juan",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_ARGENTINA_SAN_LUIS",
-            "description": "America/Argentina/San_Luis",
+            "description": "America/Argentina/San Luis",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9139,7 +9223,7 @@
           },
           {
             "name": "AMERICA_BAHIA_BANDERAS",
-            "description": "America/Bahia_Banderas",
+            "description": "America/Bahia Banderas",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9169,7 +9253,7 @@
           },
           {
             "name": "AMERICA_BOA_VISTA",
-            "description": "America/Boa_Vista",
+            "description": "America/Boa Vista",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9187,13 +9271,13 @@
           },
           {
             "name": "AMERICA_CAMBRIDGE_BAY",
-            "description": "America/Cambridge_Bay",
+            "description": "America/Cambridge Bay",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_CAMPO_GRANDE",
-            "description": "America/Campo_Grande",
+            "description": "America/Campo Grande",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9235,7 +9319,7 @@
           },
           {
             "name": "AMERICA_COSTA_RICA",
-            "description": "America/Costa_Rica",
+            "description": "America/Costa Rica",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9271,7 +9355,7 @@
           },
           {
             "name": "AMERICA_DAWSON_CREEK",
-            "description": "America/Dawson_Creek",
+            "description": "America/Dawson Creek",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9307,13 +9391,13 @@
           },
           {
             "name": "AMERICA_EL_SALVADOR",
-            "description": "America/El_Salvador",
+            "description": "America/El Salvador",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_FORT_NELSON",
-            "description": "America/Fort_Nelson",
+            "description": "America/Fort Nelson",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9325,7 +9409,7 @@
           },
           {
             "name": "AMERICA_GLACE_BAY",
-            "description": "America/Glace_Bay",
+            "description": "America/Glace Bay",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9337,13 +9421,13 @@
           },
           {
             "name": "AMERICA_GOOSE_BAY",
-            "description": "America/Goose_Bay",
+            "description": "America/Goose Bay",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_GRAND_TURK",
-            "description": "America/Grand_Turk",
+            "description": "America/Grand Turk",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9421,7 +9505,7 @@
           },
           {
             "name": "AMERICA_INDIANA_TELL_CITY",
-            "description": "America/Indiana/Tell_City",
+            "description": "America/Indiana/Tell City",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9487,7 +9571,7 @@
           },
           {
             "name": "AMERICA_LA_PAZ",
-            "description": "America/La_Paz",
+            "description": "America/La Paz",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9499,13 +9583,13 @@
           },
           {
             "name": "AMERICA_LOS_ANGELES",
-            "description": "America/Los_Angeles",
+            "description": "America/Los Angeles",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_LOWER_PRINCES",
-            "description": "America/Lower_Princes",
+            "description": "America/Lower Princes",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9571,7 +9655,7 @@
           },
           {
             "name": "AMERICA_MEXICO_CITY",
-            "description": "America/Mexico_City",
+            "description": "America/Mexico City",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9613,7 +9697,7 @@
           },
           {
             "name": "AMERICA_NEW_YORK",
-            "description": "America/New_York",
+            "description": "America/New York",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9637,19 +9721,19 @@
           },
           {
             "name": "AMERICA_NORTH_DAKOTA_BEULAH",
-            "description": "America/North_Dakota/Beulah",
+            "description": "America/North Dakota/Beulah",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_NORTH_DAKOTA_CENTER",
-            "description": "America/North_Dakota/Center",
+            "description": "America/North Dakota/Center",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_NORTH_DAKOTA_NEW_SALEM",
-            "description": "America/North_Dakota/New_Salem",
+            "description": "America/North Dakota/New Salem",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9691,37 +9775,37 @@
           },
           {
             "name": "AMERICA_PORT_OF_SPAIN",
-            "description": "America/Port_of_Spain",
+            "description": "America/Port of Spain",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_PORTO_VELHO",
-            "description": "America/Porto_Velho",
+            "description": "America/Porto Velho",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_PUERTO_RICO",
-            "description": "America/Puerto_Rico",
+            "description": "America/Puerto Rico",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_PUNTA_ARENAS",
-            "description": "America/Punta_Arenas",
+            "description": "America/Punta Arenas",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_RAINY_RIVER",
-            "description": "America/Rainy_River",
+            "description": "America/Rainy River",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_RANKIN_INLET",
-            "description": "America/Rankin_Inlet",
+            "description": "America/Rankin Inlet",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9745,7 +9829,7 @@
           },
           {
             "name": "AMERICA_RIO_BRANCO",
-            "description": "America/Rio_Branco",
+            "description": "America/Rio Branco",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9763,13 +9847,13 @@
           },
           {
             "name": "AMERICA_SANTO_DOMINGO",
-            "description": "America/Santo_Domingo",
+            "description": "America/Santo Domingo",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_SAO_PAULO",
-            "description": "America/Sao_Paulo",
+            "description": "America/Sao Paulo",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9787,43 +9871,43 @@
           },
           {
             "name": "AMERICA_ST_BARTHELEMY",
-            "description": "America/St_Barthelemy",
+            "description": "America/St Barthelemy",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_ST_JOHNS",
-            "description": "America/St_Johns",
+            "description": "America/St Johns",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_ST_KITTS",
-            "description": "America/St_Kitts",
+            "description": "America/St Kitts",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_ST_LUCIA",
-            "description": "America/St_Lucia",
+            "description": "America/St Lucia",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_ST_THOMAS",
-            "description": "America/St_Thomas",
+            "description": "America/St Thomas",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_ST_VINCENT",
-            "description": "America/St_Vincent",
+            "description": "America/St Vincent",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "AMERICA_SWIFT_CURRENT",
-            "description": "America/Swift_Current",
+            "description": "America/Swift Current",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -9841,7 +9925,7 @@
           },
           {
             "name": "AMERICA_THUNDER_BAY",
-            "description": "America/Thunder_Bay",
+            "description": "America/Thunder Bay",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10129,13 +10213,13 @@
           },
           {
             "name": "ASIA_HO_CHI_MINH",
-            "description": "Asia/Ho_Chi_Minh",
+            "description": "Asia/Ho Chi Minh",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "ASIA_HONG_KONG",
-            "description": "Asia/Hong_Kong",
+            "description": "Asia/Hong Kong",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10213,7 +10297,7 @@
           },
           {
             "name": "ASIA_KUALA_LUMPUR",
-            "description": "Asia/Kuala_Lumpur",
+            "description": "Asia/Kuala Lumpur",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10291,7 +10375,7 @@
           },
           {
             "name": "ASIA_PHNOM_PENH",
-            "description": "Asia/Phnom_Penh",
+            "description": "Asia/Phnom Penh",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10477,7 +10561,7 @@
           },
           {
             "name": "ATLANTIC_CAPE_VERDE",
-            "description": "Atlantic/Cape_Verde",
+            "description": "Atlantic/Cape Verde",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10501,13 +10585,13 @@
           },
           {
             "name": "ATLANTIC_SOUTH_GEORGIA",
-            "description": "Atlantic/South_Georgia",
+            "description": "Atlantic/South Georgia",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "ATLANTIC_ST_HELENA",
-            "description": "Atlantic/St_Helena",
+            "description": "Atlantic/St Helena",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10531,7 +10615,7 @@
           },
           {
             "name": "AUSTRALIA_BROKEN_HILL",
-            "description": "Australia/Broken_Hill",
+            "description": "Australia/Broken Hill",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10567,7 +10651,7 @@
           },
           {
             "name": "AUSTRALIA_LORD_HOWE",
-            "description": "Australia/Lord_Howe",
+            "description": "Australia/Lord Howe",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10729,7 +10813,7 @@
           },
           {
             "name": "EUROPE_ISLE_OF_MAN",
-            "description": "Europe/Isle_of_Man",
+            "description": "Europe/Isle of Man",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -10867,7 +10951,7 @@
           },
           {
             "name": "EUROPE_SAN_MARINO",
-            "description": "Europe/San_Marino",
+            "description": "Europe/San Marino",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -11215,7 +11299,7 @@
           },
           {
             "name": "PACIFIC_PAGO_PAGO",
-            "description": "Pacific/Pago_Pago",
+            "description": "Pacific/Pago Pago",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -11239,7 +11323,7 @@
           },
           {
             "name": "PACIFIC_PORT_MORESBY",
-            "description": "Pacific/Port_Moresby",
+            "description": "Pacific/Port Moresby",
             "isDeprecated": false,
             "deprecationReason": null
           },

@@ -3,7 +3,7 @@ import React from 'react';
 import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { MenuProvider } from 'react-native-popup-menu';
-import { ApolloMockProvider } from '../App/GraphQL';
+import { ApolloMockProvider } from '../App/GraphQL/ApolloMockClient';
 import { loadStories } from './storyLoader';
 import { SpotFiltersProvider } from '../App/Context/SpotFilters';
 

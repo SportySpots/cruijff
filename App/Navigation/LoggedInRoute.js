@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../Context/User';
+import { withLocation, locationPropTypes } from '../Context/Location';
+import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -11,12 +14,19 @@ import { withUser, userPropTypes } from '../Context/User';
  * overlay component on top of the current route.
  */
 const LoggedInRoute = ({
+  loadingUser,
   user,
+  loadingLocation,
   component: Component,
   overlay: Overlay,
   ...rest
 }) => {
   const childProps = { ...rest };
+
+  // Wait until user is ready
+  if (loadingUser || loadingLocation) {
+    return <CenteredActivityIndicator />;
+  }
 
   // In case user is NOT logged in, render overlay component
   if (!user) {
@@ -28,7 +38,9 @@ const LoggedInRoute = ({
 };
 
 LoggedInRoute.propTypes = {
+  loadingUser: userPropTypes.loadingUser.isRequired,
   user: userPropTypes.user,
+  loadingLocation: locationPropTypes.loadingLocation.isRequired,
   component: PropTypes.func.isRequired,
   overlay: PropTypes.func,
 };
@@ -38,4 +50,9 @@ LoggedInRoute.defaultProps = {
   overlay: () => {},
 };
 
-export default withUser(LoggedInRoute);
+const enhance = compose(
+  withUser,
+  withLocation,
+);
+
+export default enhance(LoggedInRoute);

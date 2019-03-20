@@ -7,6 +7,7 @@ import SignupScreen from '../../Screens/Auth/SignupScreen';
 import SignupEmailScreen from '../../Screens/Auth/SignupEmailScreen';
 import CheckEmailScreen from '../../Screens/Auth/CheckEmailScreen';
 import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
+import ConfirmMagicTokenScreen from '../../Screens/Auth/ConfirmMagicTokenScreen';
 import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
@@ -26,6 +27,18 @@ const backBtn = navigation => (
 // COMPONENT:
 //------------------------------------------------------------------------------
 const AuthScreens = {
+  ConfirmMagicTokenScreen: {
+    screen: ({ navigation }) => (
+      <LoggedOutRoute
+        navigation={navigation}
+        component={ConfirmMagicTokenScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
+      />
+    ),
+    navigationOptions: {
+      header: null,
+    },
+  },
   LoginCheckEmailScreen: {
     screen: ({ navigation }) => (
       <LoggedOutRoute

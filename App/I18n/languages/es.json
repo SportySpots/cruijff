@@ -598,18 +598,6 @@
           "inUse": "El email ya ha sido registrado",
           "unknown": "Error inesperado"
         }
-      },
-      "password": {
-        "label": "Contraseña",
-        "placeholder": "",
-        "errors": {
-          "required": "Contraseña es requerida",
-          "tooLong": "Contraseña es muy larga",
-          "tooShort": "Contraseña debe tener al menos 8 caracteres",
-          "tooCommon": "Esta contraseña es demasiado común",
-          "numeric": "Esta contraseña es enteramente numérica",
-          "unknown": "Algo malo sucedio"
-        }
       }
     },
     "terms": {
@@ -617,6 +605,12 @@
       "link": "Términos y condiciones"
     },
     "btnLabel": "Registrarse gratis"
+  },
+
+  "confirmMagicTokenScreen": {
+    "title": "Tu link mágico ha expirado!",
+    "btnLabel": "Iniciar sesión",
+    "link": "Déjame navegar por la aplicación"
   },
 
   "connectionCheck": {
@@ -653,15 +647,15 @@
     },
     "welcome": {
       "title": "Hola deportista!",
-      "text": "Gracias por unirte a SportySpots. Diviértete!"
+      "text": "Gracias por unirte a SportySpots. Que te diviertas!"
     },
     "joinGame": {
-      "title": "Unirse a un juego",
+      "title": "Unete a un juego",
       "text": "Descubre centros deportivos y actividades cerca tuyo."
     },
     "planGame": {
       "title": "Organiza una actividad",
-      "text": "Planea tu deporte favorito en el lugar perfecto con tus amigos u otros deportistas."
+      "text": "Planea tu deporte favorito en el lugar perfecto con tus amigos y otros deportistas."
     },
     "nextBtnLabel": "continuar",
     "lastBtnLabel": "comenzar"

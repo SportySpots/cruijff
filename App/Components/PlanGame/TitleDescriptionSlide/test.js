@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import cloneDeep from 'lodash/cloneDeep';
 import I18n from '../../../I18n';
-import { ApolloMockProvider } from '../../../GraphQL';
+import { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import TitleDescriptionSlide, {
   TITLE_MAX_CHARS,
   DESCRIPTION_MAX_CHARS,

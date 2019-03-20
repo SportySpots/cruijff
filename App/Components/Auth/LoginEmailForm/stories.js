@@ -10,8 +10,8 @@ storiesOf('Auth.LoginEmailForm', module)
       query={GET_USER_DETAILS}
       variables={{ uuid: 455 }}
     >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
+      {({ loading, error, data }) => (
+        loading || error ? null : (
           <LoginEmailForm user={data.user} />
         ))
       }

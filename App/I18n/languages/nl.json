@@ -21,7 +21,6 @@
   "Netherlands": "Nederland",
   "Argentina": "Argentinië",
 
-
   "splashScreen": {
     "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
     "btnLabel": "Start met ontdekken",
@@ -606,6 +605,12 @@
       "link": "Algemene voorwaarden"
     },
     "btnLabel": "Inschrijven"
+  },
+
+  "confirmMagicTokenScreen": {
+    "title": "Your magic link expired!",
+    "btnLabel": "Take me to login",
+    "link": "Let me browse the app"
   },
 
   "connectionCheck": {

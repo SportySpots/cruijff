@@ -3,10 +3,9 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import moment from 'moment';
 import MockDate from 'mockdate';
-import cloneDeep from 'lodash/cloneDeep';
 import I18n from '../../../I18n';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
-import { createMockClient, ApolloMockProvider } from '../../../GraphQL';
+import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import PlanGameForm from '.';
 
 const mockMonth = 10; // november
@@ -16,9 +15,6 @@ const mockDate = 1;
 const validSport = 'SOCCER';
 let validDate;
 let validTime;
-const validDuration = 120;
-const validCapacity = 12;
-const someErrorMsg = 'Some error msg';
 
 const INIT_STATE = {
   curSlide: 0,
@@ -43,7 +39,6 @@ describe('PlanGameForm', () => {
   let spots;
 
   beforeAll(async () => {
-    const mockClient = createMockClient();
     const res = await mockClient.query({
       query: GET_SPOTS,
       variables: { limit: 1 },

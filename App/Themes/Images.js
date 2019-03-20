@@ -12,6 +12,7 @@ const images = {
   activityConfirmVisual: require('../Images/activity-confirm-visual.png'),
   checkEmail: require('../Images/check-email.png'),
   locationOnboarding: require('../Images/location-onboarding.png'),
+  linkExpired: require('../Images/link-expired.png'),
 };
 
 export default images;

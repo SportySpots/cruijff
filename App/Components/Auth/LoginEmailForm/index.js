@@ -9,7 +9,6 @@ import I18n from '../../../I18n';
 import Block from '../../Common/Block';
 import TextField from '../../Common/TextField';
 import RaisedButton from '../../Common/RaisedButton';
-import Spacer from '../../Common/Spacer';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -27,9 +26,16 @@ const INIT_ERRORS = {
 // COMPONENT:
 //------------------------------------------------------------------------------
 class LoginEmailForm extends React.PureComponent {
-  state = {
-    ...cloneDeep(INIT_STATE),
-    errors: cloneDeep(INIT_ERRORS),
+  constructor(props) {
+    super(props);
+
+    const { email } = props;
+
+    this.state = {
+      ...cloneDeep(INIT_STATE),
+      email,
+      errors: cloneDeep(INIT_ERRORS),
+    };
   }
 
   componentWillReceiveProps({ errors }) {
@@ -152,6 +158,7 @@ class LoginEmailForm extends React.PureComponent {
 }
 
 LoginEmailForm.propTypes = {
+  email: PropTypes.string,
   disabled: PropTypes.bool,
   errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,
@@ -161,6 +168,7 @@ LoginEmailForm.propTypes = {
 };
 
 LoginEmailForm.defaultProps = {
+  email: '',
   disabled: false,
   errors: null,
   onBeforeHook: () => {},
