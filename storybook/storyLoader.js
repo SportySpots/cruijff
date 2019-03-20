@@ -8,8 +8,8 @@ function loadStories() {
   // require('../App/Backgrounds/FieldBackground/stories');
   // require('../App/Backgrounds/ImageBackground/stories');
   // require('../App/Backgrounds/LogoHeaderBackground/stories');
-  require('../App/Components/Auth/LoginEmailForm/stories');
-  // require('../App/Components/Auth/SignupEmailForm/stories');
+  // require('../App/Components/Auth/LoginEmailForm/stories');
+  require('../App/Components/Auth/SignupEmailForm/stories');
   // require('../App/Components/Common/AlertMsg/stories');
   // require('../App/Components/Common/Avatar/stories');
   // require('../App/Components/Common/AvatarPicker/stories');
@@ -32,7 +32,7 @@ function loadStories() {
   // require('../App/Components/Common/ImageSwiper/stories');
   // require('../App/Components/Common/InputField/stories');
   // require('../App/Components/Common/LinkNavigate/stories');
-  // require('../App/Components/Common/LinkOpenURL/stories');
+  require('../App/Components/Common/LinkOpenURL/stories');
   // require('../App/Components/Common/LocationPickerField/stories');
   // require('../App/Components/Common/Logo/stories');
   // require('../App/Components/Common/Menu/stories');
@@ -51,7 +51,7 @@ function loadStories() {
   // require('../App/Components/Common/NavDots/stories');
   // require('../App/Components/Common/NothingFound/stories');
   // require('../App/Components/Common/OrDivider/stories');
-  require('../App/Components/Common/RaisedButton/stories');
+  // require('../App/Components/Common/RaisedButton/stories');
   // require('../App/Components/Common/Rating/stories');
   // require('../App/Components/Common/RoundButton/stories');
   // require('../App/Components/Common/Row/stories');
@@ -65,7 +65,7 @@ function loadStories() {
   // require('../App/Components/Common/SpotPickerField/stories');
   // require('../App/Components/Common/SwitchWithText/stories');
   // require('../App/Components/Common/Tag/stories');
-  // require('../App/Components/Common/Text/stories');
+  require('../App/Components/Common/Text/stories');
   // require('../App/Components/Common/TextField/stories');
   // require('../App/Components/Common/TimePickerField/stories');
   // require('../App/Components/Games/AdminMenu/stories');
@@ -138,8 +138,8 @@ const stories = [
   // '../App/Backgrounds/FieldBackground/stories',
   // '../App/Backgrounds/ImageBackground/stories',
   // '../App/Backgrounds/LogoHeaderBackground/stories',
-  '../App/Components/Auth/LoginEmailForm/stories',
-  // '../App/Components/Auth/SignupEmailForm/stories',
+  // '../App/Components/Auth/LoginEmailForm/stories',
+  '../App/Components/Auth/SignupEmailForm/stories',
   // '../App/Components/Common/AlertMsg/stories',
   // '../App/Components/Common/Avatar/stories',
   // '../App/Components/Common/AvatarPicker/stories',
@@ -162,7 +162,7 @@ const stories = [
   // '../App/Components/Common/ImageSwiper/stories',
   // '../App/Components/Common/InputField/stories',
   // '../App/Components/Common/LinkNavigate/stories',
-  // '../App/Components/Common/LinkOpenURL/stories',
+  '../App/Components/Common/LinkOpenURL/stories',
   // '../App/Components/Common/LocationPickerField/stories',
   // '../App/Components/Common/Logo/stories',
   // '../App/Components/Common/Menu/stories',
@@ -181,7 +181,7 @@ const stories = [
   // '../App/Components/Common/NavDots/stories',
   // '../App/Components/Common/NothingFound/stories',
   // '../App/Components/Common/OrDivider/stories',
-  '../App/Components/Common/RaisedButton/stories',
+  // '../App/Components/Common/RaisedButton/stories',
   // '../App/Components/Common/Rating/stories',
   // '../App/Components/Common/RoundButton/stories',
   // '../App/Components/Common/Row/stories',
@@ -195,8 +195,8 @@ const stories = [
   // '../App/Components/Common/SpotPickerField/stories',
   // '../App/Components/Common/SwitchWithText/stories',
   // '../App/Components/Common/Tag/stories',
-  // '../App/Components/Common/Text/stories',
-  '../App/Components/Common/TextField/stories',
+  '../App/Components/Common/Text/stories',
+  // '../App/Components/Common/TextField/stories',
   // '../App/Components/Common/TimePickerField/stories',
   // '../App/Components/Games/AdminMenu/stories',
   // '../App/Components/Games/Attendees/stories',

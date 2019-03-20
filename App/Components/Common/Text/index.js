@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text as NativeText } from 'react-native';
+import extend from 'lodash/extend';
 import Colors from '../../../Themes/Colors';
 import Fonts, { FontFamilies } from '../../../Themes/Fonts';
 
@@ -15,6 +16,7 @@ const Text = ({
   semibold,
   bold,
   center,
+  underline,
   ...rest
 }) => {
   if (1 * regular + 1 * semibold + 1 * bold > 1) {
@@ -38,6 +40,14 @@ const Text = ({
     style.fontFamily = FontFamilies.bold;
   }
 
+  if (underline) {
+    extend(style, {
+      textDecorationLine: 'underline',
+      textDecorationStyle: 'solid',
+      textDecorationColor: color,
+    });
+  }
+
   return (
     <NativeText style={style} {...rest}>
       {children}
@@ -56,6 +66,7 @@ Text.propTypes = {
   semibold: PropTypes.bool,
   bold: PropTypes.bool,
   center: PropTypes.bool,
+  underline: PropTypes.bool,
   // Plus all other props associated to native Text comp
 };
 
@@ -66,6 +77,7 @@ Text.defaultProps = {
   semibold: false,
   bold: false,
   center: false,
+  underline: false,
 };
 
 export default Text;

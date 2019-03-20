@@ -20,7 +20,6 @@ const LinkOpenURL = ({
   size,
   underline,
 }) => {
-  const TextSize = Text[size];
   const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
@@ -29,16 +28,13 @@ const LinkOpenURL = ({
         justifyContent="space-between"
         alignItems="center"
       >
-        <TextSize
-          style={{
-            color,
-            textDecorationLine: underline ? 'underline' : 'none',
-            textDecorationStyle: 'solid',
-            textDecorationColor: color,
-          }}
+        <Text
+          size={size}
+          color={color}
+          underline={underline}
         >
           {text}
-        </TextSize>
+        </Text>
         {!!iconName && (
           <Icon
             name={iconName}
@@ -54,10 +50,10 @@ const LinkOpenURL = ({
 LinkOpenURL.propTypes = {
   text: PropTypes.string,
   href: PropTypes.string,
-  color: PropTypes.string,
+  color: PropTypes.oneOf(Object.keys(Colors)),
   iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
   iconName: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  size: PropTypes.oneOf(Object.keys(Fonts)),
   underline: PropTypes.bool,
 };
 

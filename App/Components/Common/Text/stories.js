@@ -13,6 +13,11 @@ storiesOf('common.Text', module)
       I&apos;m the Text
     </Text>
   ))
+  .add('Text default SM size underline', () => (
+    <Text underline>
+      I&apos;m the Text
+    </Text>
+  ))
   .add('Text default SM size bold', () => (
     <Text bold>
       I&apos;m the Text
