@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text as NativeText } from 'react-native';
 import PropTypes from 'prop-types';
-import Colors from '../../Themes/Colors';
-import Fonts from '../../Themes/Fonts';
+import Colors from '../../../Themes/Colors';
+import Fonts from '../../../Themes/Fonts_backup';
 
 const Text = ({ style, ...props }) => (
   <NativeText style={[{ backgroundColor: 'transparent' }, style]} {...props} />

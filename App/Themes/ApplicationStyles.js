@@ -5,6 +5,7 @@ import Metrics from './Metrics';
 // This file is for a reusable grouping of Theme items.
 // Similar to an XML fragment layout in Android
 
+// TODO: do we need this?
 const ApplicationStyles = {
   screen: {
     mainContainer: {
