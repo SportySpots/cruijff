@@ -208,9 +208,9 @@ class SignupEmailForm extends React.PureComponent {
             />
           </Block>
           <Block>
-            <Text.M style={{ color: Colors.black }}>
+            <Text size="M">
               {I18n.t('signupEmailForm.terms.prefix')}
-            </Text.M>
+            </Text>
             <LinkOpenURL
               text={I18n.t('signupEmailForm.terms.link')}
               href="https://www.sportyspots.com/terms.html"

@@ -27,9 +27,9 @@ const TextField = ({
   return (
     <TextFieldMUI
       label={label}
-      labelFontSize={Fonts.style.M.fontSize}
-      labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
-      labelHeight={1.5 * Fonts.style.M.fontSize}
+      labelFontSize={Fonts.M.fontSize}
+      labelTextStyle={{ fontFamily: Fonts.M.fontFamily }}
+      labelHeight={1.5 * Fonts.M.fontSize}
       errorColor={errorColor}
       animationDuration={150}
       lineWidth={lineWidth}
@@ -40,9 +40,9 @@ const TextField = ({
       inputContainerPadding={14}
       disabled={disabled}
       style={{
-        fontSize: Fonts.style[size].fontSize,
+        fontSize: Fonts[size].fontSize,
         fontWeight: 'normal',
-        fontFamily: Fonts.style[size].fontFamily,
+        fontFamily: Fonts[size].fontFamily,
         marginTop: 8,
         color: disabled ? disabledColor : fontColor,
         ...style,
@@ -54,7 +54,7 @@ const TextField = ({
 
 TextField.propTypes = {
   theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
-  size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  size: PropTypes.oneOf(Object.keys(Fonts)),
   label: PropTypes.string,
   style: PropTypes.object, // eslint-disable-line
   disabled: PropTypes.bool,
