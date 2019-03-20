@@ -14,6 +14,7 @@ const Text = ({
   regular,
   semibold,
   bold,
+  center,
   ...rest
 }) => {
   if (1 * regular + 1 * semibold + 1 * bold > 1) {
@@ -24,7 +25,8 @@ const Text = ({
   const baseStyle = { backgroundColor: 'transparent' };
   const lineHeight = parseInt(1.5 * font.fontSize, 10);
   const color = clr ? Colors[clr] : Colors.black;
-  const style = Object.assign({}, baseStyle, font, { lineHeight, color });
+  const textAlign = center ? 'center' : 'left';
+  const style = Object.assign({}, baseStyle, font, { lineHeight, color, textAlign });
 
   [regular, semibold, bold].forEach((family) => {
     if (family) {
@@ -49,6 +51,7 @@ Text.propTypes = {
   regular: PropTypes.bool,
   semibold: PropTypes.bool,
   bold: PropTypes.bool,
+  center: PropTypes.bool,
   // Plus all other props associated to native Text comp
 };
 
@@ -58,6 +61,7 @@ Text.defaultProps = {
   regular: false,
   semibold: false,
   bold: false,
+  center: false,
 };
 
 export default Text;
