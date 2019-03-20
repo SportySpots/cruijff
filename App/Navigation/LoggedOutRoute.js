@@ -12,31 +12,56 @@ import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndi
  * @summary Makes sure that the user that is trying to access the wrapped route
  * is NOT authenticated. In case she is, call onLoggedIn callback.
  */
-const LoggedOutRoute = ({
-  loadingUser,
-  user,
-  loadingLocation,
-  location,
-  component: Component,
-  onLoggedIn,
-  ...rest
-}) => {
-  const childProps = { ...rest };
+class LoggedOutRoute extends React.PureComponent {
+  isLoggedIn = (props) => {
+    const {
+      loadingUser,
+      user,
+      loadingLocation,
+    } = props;
 
-  // Wait until user is ready
-  if (loadingUser || loadingLocation) {
-    return <CenteredActivityIndicator />;
+    return !loadingUser && !loadingLocation && user && user.uuid;
   }
 
-  // In case user IS logged in, render overlay component
-  if (user && user.uuid) {
-    onLoggedIn({ location });
-    return null;
+  componentWillMount() {
+    const { location, onLoggedIn, ...rest } = this.props;
+    if (this.isLoggedIn(rest)) {
+      onLoggedIn({ location });
+    }
   }
 
-  // ...Otherwise, render requested component
-  return <Component {...childProps} />;
-};
+  componentWillUpdate(nextProps) {
+    const { location, onLoggedIn, ...rest } = nextProps;
+    if (this.isLoggedIn(rest)) {
+      onLoggedIn({ location });
+    }
+  }
+
+  render() {
+    const {
+      loadingUser,
+      user,
+      loadingLocation,
+      location,
+      component: Component,
+      onLoggedIn,
+      ...rest
+    } = this.props;
+
+    // Wait until user is ready
+    if (loadingUser || loadingLocation) {
+      return <CenteredActivityIndicator />;
+    }
+
+    // In case user IS logged in, render overlay component
+    if (user && user.uuid) {
+      return <CenteredActivityIndicator />;
+    }
+
+    // ...Otherwise, render requested component
+    return <Component {...rest} />;
+  }
+}
 
 LoggedOutRoute.propTypes = {
   loadingUser: userPropTypes.loadingUser.isRequired,
