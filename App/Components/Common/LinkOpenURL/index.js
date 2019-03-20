@@ -36,7 +36,7 @@ const LinkOpenURL = ({
           {text}
         </Text>
         {!!iconName && (
-          <Icon
+          <Icon // TODO: build a wrapper around Icon to receive color, iconSet and iconName props
             name={iconName}
             size={24}
             color={Colors.black}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import Block from '../Block';
 import Row from '../Row';
@@ -20,30 +21,25 @@ const FullWidth = styled.View`
   flex: 1; /* full width */
 `;
 //------------------------------------------------------------------------------
-// TODO: replace this with Text.M[color]
-const Message = styled(Text.M)`
-  color: ${({ color }) => (color)};
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const AlertMsg = ({ status, value }) => {
   const palette = getPalette(status);
-  const { iconName, fontColor, bgColor } = palette;
+  const { iconName, fontColor, bgColor } = palette; // string to be used Colors[string]
 
   return (
-    <StyledBlock bgColor={bgColor}>
+    <StyledBlock bgColor={Colors[bgColor]}>
       <Row>
         <Icon
           name={iconName}
           size={24}
-          color={fontColor}
+          color={Colors[fontColor]}
         />
         <Spacer row size="M" />
         <FullWidth>
-          <Message color={fontColor}>
+          <Text size="M" color={fontColor}>
             {value}
-          </Message>
+          </Text>
         </FullWidth>
       </Row>
     </StyledBlock>

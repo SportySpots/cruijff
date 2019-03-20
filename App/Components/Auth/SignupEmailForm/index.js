@@ -7,7 +7,6 @@ import isEmail from 'validator/lib/isEmail';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import Text from '../../Common/Text';
 import LinkOpenURL from '../../Common/LinkOpenURL';
@@ -214,7 +213,7 @@ class SignupEmailForm extends React.PureComponent {
             <LinkOpenURL
               text={I18n.t('signupEmailForm.terms.link')}
               href="https://www.sportyspots.com/terms.html"
-              color={Colors.actionYellow}
+              color="actionYellow"
               underline
             />
           </Block>
