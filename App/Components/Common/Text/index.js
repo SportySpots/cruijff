@@ -9,21 +9,28 @@ import Fonts, { FontFamilies } from '../../../Themes/Fonts';
 //------------------------------------------------------------------------------
 const Text = ({
   children,
-  family,
   size,
-  color,
+  color: clr,
+  regular,
+  semibold,
   bold,
   ...rest
 }) => {
-  const fontWeight = bold ? 'bold' : 'normal';
+  if (1 * regular + 1 * semibold + 1 * bold > 1) {
+    throw new Error('regular, semibold or bold, only one can be set to true');
+  }
+
   const font = Fonts[size]; // { fontFamily: ..., fontSize: ... }
   const baseStyle = { backgroundColor: 'transparent' };
   const lineHeight = parseInt(1.5 * font.fontSize, 10);
-  const style = Object.assign({}, baseStyle, font, { fontWeight, lineHeight });
+  const color = clr ? Colors[clr] : Colors.black;
+  const style = Object.assign({}, baseStyle, font, { lineHeight, color });
 
-  if (family) {
-    style.fontFamily = FontFamilies[family];
-  }
+  [regular, semibold, bold].forEach((family) => {
+    if (family) {
+      style.fontFamily = FontFamilies[family];
+    }
+  });
 
   return (
     <NativeText style={style} {...rest}>
@@ -37,17 +44,19 @@ Text.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
-  family: PropTypes.oneOf(Object.keys(FontFamilies)),
   size: PropTypes.oneOf(Object.keys(Fonts)),
   color: PropTypes.oneOf(Object.keys(Colors)),
+  regular: PropTypes.bool,
+  semibold: PropTypes.bool,
   bold: PropTypes.bool,
-  // Plus all other props associated to native Text elem
+  // Plus all other props associated to native Text comp
 };
 
 Text.defaultProps = {
-  family: null,
   size: 'SM',
   color: null,
+  regular: false,
+  semibold: false,
   bold: false,
 };
 

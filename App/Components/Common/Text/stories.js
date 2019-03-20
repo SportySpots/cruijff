@@ -13,6 +13,11 @@ storiesOf('common.Text', module)
       I&apos;m the Text
     </Text>
   ))
+  .add('Text default SM size bold', () => (
+    <Text bold>
+      I&apos;m the Text
+    </Text>
+  ))
   .add('Text M size', () => (
     <Text size="M">
       I&apos;m the Text
@@ -35,6 +40,16 @@ storiesOf('common.Text', module)
   ))
   .add('Text XL size error color', () => (
     <Text size="XL" color="error">
+      I&apos;m the Text
+    </Text>
+  ))
+  .add('Text XL bold', () => (
+    <Text size="XL" bold>
+      I&apos;m the Text
+    </Text>
+  ))
+  .add('Text XL regular semibold', () => (
+    <Text size="XL" regular semibold>
       I&apos;m the Text
     </Text>
   ))
