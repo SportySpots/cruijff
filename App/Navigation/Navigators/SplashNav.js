@@ -8,7 +8,6 @@ import AuthScreens from './AuthScreens';
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
 const handleLoggedIn = (navigation, location) => {
-  console.log('HANDLE LOGGED IN', location);
   // In case the user is logged in when trying to access the SplashScreen,
   // redirect him to MainNav unless onboarding isn't completed yet.
   navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
