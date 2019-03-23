@@ -29,7 +29,8 @@ const StyledImage = styled.Image`
   height: ${({ size }) => (size)};
 `;
 //------------------------------------------------------------------------------
-const Initials = styled(Text.M)`
+// M
+const Initials = styled(Text)`
   font-size: ${({ size }) => (size * (18 / 40))}px;
   padding: 4px;
   text-align: center;
@@ -84,9 +85,9 @@ class Avatar extends React.PureComponent {
     if (text && text.trim().length > 0) {
       return (
         <Circle size={size}>
-          <Text.SM style={{ color: Colors.white }}>
+          <Text size="SM" color="white">
             {text}
-          </Text.SM>
+          </Text>
         </Circle>
       );
     }

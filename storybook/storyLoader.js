@@ -10,8 +10,8 @@ function loadStories() {
   // require('../App/Backgrounds/LogoHeaderBackground/stories');
   // require('../App/Components/Auth/LoginEmailForm/stories');
   // require('../App/Components/Auth/SignupEmailForm/stories');
-  require('../App/Components/Common/AlertMsg/stories');
-  // require('../App/Components/Common/Avatar/stories');
+  // require('../App/Components/Common/AlertMsg/stories');
+  require('../App/Components/Common/Avatar/stories');
   // require('../App/Components/Common/AvatarPicker/stories');
   // require('../App/Components/Common/Block/stories');
   // require('../App/Components/Common/Calendar/stories');
@@ -140,8 +140,8 @@ const stories = [
   // '../App/Backgrounds/LogoHeaderBackground/stories',
   // '../App/Components/Auth/LoginEmailForm/stories',
   // '../App/Components/Auth/SignupEmailForm/stories',
-  '../App/Components/Common/AlertMsg/stories',
-  // '../App/Components/Common/Avatar/stories',
+  // '../App/Components/Common/AlertMsg/stories',
+  '../App/Components/Common/Avatar/stories',
   // '../App/Components/Common/AvatarPicker/stories',
   // '../App/Components/Common/Block/stories',
   // '../App/Components/Common/Calendar/stories',
