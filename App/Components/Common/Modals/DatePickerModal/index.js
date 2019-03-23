@@ -1,21 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import styled from 'styled-components';
 import I18n from '../../../../I18n';
-import Colors from '../../../../Themes/Colors';
 import Text from '../../Text';
 import Row from '../../Row';
 import Block from '../../Block';
 import Calendar from '../../Calendar';
 import CancelConfirmModal from '../CancelConfirmModal';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const SelectedDate = styled(Text.M)`
-  color: ${Colors.primaryGreen};
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -37,15 +29,19 @@ class DatePickerModal extends React.PureComponent {
 
     const header = (
       <Row alignItems="center" justifyContent="space-between">
-        <Text.ML>{I18n.t('datePickerModal.header')}</Text.ML>
-        <SelectedDate>
-          {value && value.clone()
-            .local()
-            .format('ddd, MMM D')
-            .replace(/\./g, '')
-            .toTitleCase()
-          }
-        </SelectedDate>
+        <Text size="ML">
+          {I18n.t('datePickerModal.header')}
+        </Text>
+        {value && (
+          <Text size="M" color="primaryGreen">
+            {value.clone()
+              .local()
+              .format('ddd, MMM D')
+              .replace(/\./g, '')
+              .toTitleCase()
+            }
+          </Text>
+        )}
       </Row>
     );
 

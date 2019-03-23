@@ -6,7 +6,6 @@ import ModalProps from '../../../RenderProps/modal-props';
 import InputField from '../InputField';
 import DatePickerModal from '../Modals/DatePickerModal';
 
-
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
