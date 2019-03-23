@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown as DropdownMUI } from 'react-native-material-dropdown';
 import Fonts from '../../../Themes/Fonts';
+import Colors from '../../../Themes/Colors';
 import getInputPalette from '../../../Themes/Palettes';
 
 //------------------------------------------------------------------------------
@@ -26,7 +27,7 @@ const Dropdown = ({
     disabledColor,
     errorColor,
     lineWidth,
-  } = getInputPalette(theme);
+  } = getInputPalette(theme); // string to be used Colors[string]
 
   return (
     <DropdownMUI
@@ -35,15 +36,15 @@ const Dropdown = ({
         onChangeText(data.find(d => (d.label === value)));
       }}
       label={label}
-      labelFontSize={Fonts.style.M.fontSize}
-      labelTextStyle={{ fontFamily: Fonts.style.M.fontFamily }}
-      labelHeight={1.5 * Fonts.style.M.fontSize}
-      errorColor={errorColor}
+      labelFontSize={Fonts.M.fontSize}
+      labelTextStyle={{ fontFamily: Fonts.M.fontFamily }}
+      labelHeight={1.5 * Fonts.M.fontSize}
+      errorColor={Colors[errorColor]}
       animationDuration={150}
       lineWidth={lineWidth}
       disabledLineWidth={0}
-      baseColor={baseColor}
-      tintColor={tintColor}
+      baseColor={Colors[baseColor]}
+      tintColor={Colors[tintColor]}
       rippleOpacity={0}
       dropdownPosition={-8}
       dropdownOffset={{ top: 0, left: 16 }}
@@ -53,11 +54,11 @@ const Dropdown = ({
       inputContainerPadding={14}
       disabled={disabled}
       style={{
-        fontSize: Fonts.style[size].fontSize,
+        fontSize: Fonts[size].fontSize,
         fontWeight: 'normal',
-        fontFamily: Fonts.style[size].fontFamily,
+        fontFamily: Fonts[size].fontFamily,
         marginTop: 8,
-        color: disabled ? disabledColor : fontColor,
+        color: disabled ? Colors[disabledColor] : Colors[fontColor],
         ...style,
       }}
       {...rest}
@@ -67,7 +68,7 @@ const Dropdown = ({
 
 Dropdown.propTypes = {
   theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
-  size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  size: PropTypes.oneOf(Object.keys(Fonts)),
   data: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
