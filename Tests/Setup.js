@@ -55,6 +55,9 @@ jest.mock('react-native-localize', () => jest.fn());
 jest.mock('../App/config.js', () => ({
   log: [],
 }));
+jest.mock('../package.json', () => ({
+  version: '1.3.3',
+}));
 jest.mock('../App/Themes/Images.js', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/next.png', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/previous.png', () => jest.fn());
