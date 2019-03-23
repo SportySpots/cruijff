@@ -17,6 +17,7 @@ const Text = ({
   bold,
   center,
   underline,
+  style: styl,
   ...rest
 }) => {
   if (1 * regular + 1 * semibold + 1 * bold > 1) {
@@ -49,7 +50,7 @@ const Text = ({
   }
 
   return (
-    <NativeText style={style} {...rest}>
+    <NativeText style={Object.assign({}, style, styl)} {...rest}>
       {children}
     </NativeText>
   );
@@ -67,6 +68,7 @@ Text.propTypes = {
   bold: PropTypes.bool,
   center: PropTypes.bool,
   underline: PropTypes.bool,
+  style: PropTypes.object, // eslint-disable-line
   // Plus all other props associated to native Text comp
 };
 
@@ -78,6 +80,7 @@ Text.defaultProps = {
   bold: false,
   center: false,
   underline: false,
+  style: {},
 };
 
 export default Text;
