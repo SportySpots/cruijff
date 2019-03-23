@@ -19,9 +19,9 @@ function loadStories() {
   // require('../App/Components/Common/CapacityPickerField/stories');
   // require('../App/Components/Common/CenteredActivityIndicator/stories');
   // require('../App/Components/Common/Checkbox/stories');
-  require('../App/Components/Common/ConnectionCheck/stories');
-  // require('../App/Components/Common/DarkFooter/stories');
-  // require('../App/Components/Common/DarkFooterButton/stories');
+  // require('../App/Components/Common/ConnectionCheck/stories');
+  require('../App/Components/Common/DarkFooter/stories');
+  require('../App/Components/Common/DarkFooterButton/stories');
   // require('../App/Components/Common/DatePickerField/stories');
   // require('../App/Components/Common/Divider/stories');
   // require('../App/Components/Common/DotSpacer/stories');
@@ -149,9 +149,9 @@ const stories = [
   // '../App/Components/Common/CapacityPickerField/stories',
   // '../App/Components/Common/CenteredActivityIndicator/stories',
   // '../App/Components/Common/Checkbox/stories',
-  '../App/Components/Common/ConnectionCheck/stories',
-  // '../App/Components/Common/DarkFooter/stories',
-  // '../App/Components/Common/DarkFooterButton/stories',
+  // '../App/Components/Common/ConnectionCheck/stories',
+  '../App/Components/Common/DarkFooter/stories',
+  '../App/Components/Common/DarkFooterButton/stories',
   // '../App/Components/Common/DatePickerField/stories',
   // '../App/Components/Common/Divider/stories',
   // '../App/Components/Common/DotSpacer/stories',
