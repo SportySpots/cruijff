@@ -36,16 +36,17 @@ class OpenSpots extends React.PureComponent {
     const nOpenSpots = Math.max(0, game.capacity - attendees.length);
 
     // Determine how many avatars fit on the parent container
+    const AVATAR_SIZE = Avatar.size('S');
     let maxAvatars = 0;
 
-    if (Avatar.size() <= width) {
+    if (AVATAR_SIZE <= width) {
       maxAvatars = 1;
     }
 
-    const diff = width - Avatar.size(); // remove first avatar. Then we can only add space + avatar
+    const diff = width - AVATAR_SIZE; // remove first avatar. Then we can only add space + avatar
     const space = getPixelsFromSize(SPACER_SIZE);
     if (diff > 0) {
-      maxAvatars = 1 + parseInt(diff / (space + Avatar.size()), 10);
+      maxAvatars = 1 + parseInt(diff / (space + AVATAR_SIZE), 10);
     }
 
     return (
