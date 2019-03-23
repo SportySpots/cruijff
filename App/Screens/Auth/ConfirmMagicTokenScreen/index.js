@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AsyncStorage, Image, View } from 'react-native';
+import { AsyncStorage, Image } from 'react-native';
 import styled from 'styled-components';
 import client from '../../../GraphQL/ApolloClient';
 import SeedorfAPI from '../../../Services/SeedorfApi';
@@ -11,6 +11,7 @@ import { withUser, userPropTypes } from '../../../Context/User';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 import Row from '../../../Components/Common/Row';
+import Block from '../../../Components/Common/Block';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import LinkNavigate from '../../../Components/Common/LinkNavigate';
@@ -100,7 +101,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
     if (status === 'expired') {
       return (
         <Container>
-          <View>
+          <Block>
             <Center>
               <Image
                 style={{ height: 121, width: 121 }}
@@ -127,7 +128,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
                 underline
               />
             </Row>
-          </View>
+          </Block>
         </Container>
       );
     }
