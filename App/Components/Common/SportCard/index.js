@@ -16,7 +16,7 @@ import Text from '../Text';
 // COMPONENT:
 //------------------------------------------------------------------------------
 // 16 = padding from Block
-export const SPORT_CARD_HEIGHT = (16 * 2) + (1.4 * Fonts.style.M.fontSize);
+export const SPORT_CARD_HEIGHT = (16 * 2) + (1.4 * Fonts.M.fontSize);
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ const SportCard = ({
         )}
         />
         <Spacer row size="XXL" />
-        <Text.M>{I18n.t(sport.name)}</Text.M>
+        <Text size="M">{I18n.t(sport.name)}</Text>
       </Row>
     </Block>
   </TouchableOpacity>
