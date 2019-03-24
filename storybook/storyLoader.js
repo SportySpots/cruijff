@@ -35,13 +35,13 @@ function loadStories() {
   // require('../App/Components/Common/LinkOpenURL/stories');
   // require('../App/Components/Common/LocationPickerField/stories');
   // require('../App/Components/Common/Logo/stories');
-  require('../App/Components/Common/Menu/stories');
+  // require('../App/Components/Common/Menu/stories');
   // require('../App/Components/Common/Modals/CancelConfirmModal/stories');
   // require('../App/Components/Common/Modals/CapacityPickerModal/stories');
   // require('../App/Components/Common/Modals/ConfirmModal/stories');
   // require('../App/Components/Common/Modals/DatePickerModal/stories');
   // require('../App/Components/Common/Modals/DialogModal/stories');
-  // require('../App/Components/Common/Modals/ImageModal/stories');
+  require('../App/Components/Common/Modals/ImageModal/stories');
   // require('../App/Components/Common/Modals/Modal/stories');
   // require('../App/Components/Common/Modals/SportPickerModal/stories');
   // require('../App/Components/Common/Modals/SpotPickerModal/stories');
@@ -165,13 +165,13 @@ const stories = [
   // '../App/Components/Common/LinkOpenURL/stories',
   // '../App/Components/Common/LocationPickerField/stories',
   // '../App/Components/Common/Logo/stories',
-  '../App/Components/Common/Menu/stories',
+  // '../App/Components/Common/Menu/stories',
   // '../App/Components/Common/Modals/CancelConfirmModal/stories',
   // '../App/Components/Common/Modals/CapacityPickerModal/stories',
   // '../App/Components/Common/Modals/ConfirmModal/stories',
   // '../App/Components/Common/Modals/DatePickerModal/stories',
   // '../App/Components/Common/Modals/DialogModal/stories',
-  // '../App/Components/Common/Modals/ImageModal/stories',
+  '../App/Components/Common/Modals/ImageModal/stories',
   // '../App/Components/Common/Modals/Modal/stories',
   // '../App/Components/Common/Modals/SportPickerModal/stories',
   // '../App/Components/Common/Modals/SpotPickerModal/stories',
