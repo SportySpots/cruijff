@@ -23,8 +23,8 @@ const Container = props => (
     query={GET_SPOT_DETAILS}
     variables={{ uuid: dummyNavigator.state.params.spotId }}
   >
-    {({ loading, error, data }) =>
-      (loading || error ? null : (
+    {({ loading, error, data }) => (
+      loading || error ? null : (
         <Block bgColor={colors.silver}>
           <StyledView>
             <SpotHeader

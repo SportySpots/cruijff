@@ -43,8 +43,8 @@ function loadStories() {
   // require('../App/Components/Common/Modals/DialogModal/stories');
   // require('../App/Components/Common/Modals/ImageModal/stories');
   // require('../App/Components/Common/Modals/Modal/stories');
-  require('../App/Components/Common/Modals/SportPickerModal/stories');
-  // require('../App/Components/Common/Modals/SpotPickerModal/stories');
+  // require('../App/Components/Common/Modals/SportPickerModal/stories');
+  require('../App/Components/Common/Modals/SpotPickerModal/stories');
   // require('../App/Components/Common/NavBar/stories');
   // require('../App/Components/Common/NavBarButton/stories');
   // require('../App/Components/Common/NavDot/stories');
@@ -59,7 +59,7 @@ function loadStories() {
   // require('../App/Components/Common/Slider/stories');
   // require('../App/Components/Common/SliderWithText/stories');
   // require('../App/Components/Common/Spacer/stories');
-  require('../App/Components/Common/SportCard/stories');
+  // require('../App/Components/Common/SportCard/stories');
   // require('../App/Components/Common/SportPickerField/stories');
   // require('../App/Components/Common/SportsList/stories');
   // require('../App/Components/Common/SpotPickerField/stories');
@@ -101,7 +101,7 @@ function loadStories() {
   // require('../App/Components/Profile/UserSpots/stories');
   // require('../App/Components/Spots/BackgroundImage/stories');
   // require('../App/Components/Spots/SpotAmenities/stories');
-  // require('../App/Components/Spots/SpotHeader/stories');
+  require('../App/Components/Spots/SpotHeader/stories');
   // require('../App/Components/Spots/SpotImage/stories');
   // require('../App/Components/Spots/SpotLink/stories');
   // require('../App/Components/Spots/SpotListCard/stories');
@@ -173,8 +173,8 @@ const stories = [
   // '../App/Components/Common/Modals/DialogModal/stories',
   // '../App/Components/Common/Modals/ImageModal/stories',
   // '../App/Components/Common/Modals/Modal/stories',
-  '../App/Components/Common/Modals/SportPickerModal/stories',
-  // '../App/Components/Common/Modals/SpotPickerModal/stories',
+  // '../App/Components/Common/Modals/SportPickerModal/stories',
+  '../App/Components/Common/Modals/SpotPickerModal/stories',
   // '../App/Components/Common/NavBar/stories',
   // '../App/Components/Common/NavBarButton/stories',
   // '../App/Components/Common/NavDot/stories',
@@ -189,7 +189,7 @@ const stories = [
   // '../App/Components/Common/Slider/stories',
   // '../App/Components/Common/SliderWithText/stories',
   // '../App/Components/Common/Spacer/stories',
-  '../App/Components/Common/SportCard/stories',
+  // '../App/Components/Common/SportCard/stories',
   // '../App/Components/Common/SportPickerField/stories',
   // '../App/Components/Common/SportsList/stories',
   // '../App/Components/Common/SpotPickerField/stories',
@@ -231,7 +231,7 @@ const stories = [
   // '../App/Components/Profile/UserSpots/stories',
   // '../App/Components/Spots/BackgroundImage/stories',
   // '../App/Components/Spots/SpotAmenities/stories',
-  // '../App/Components/Spots/SpotHeader/stories',
+  '../App/Components/Spots/SpotHeader/stories',
   // '../App/Components/Spots/SpotImage/stories',
   // '../App/Components/Spots/SpotLink/stories',
   // '../App/Components/Spots/SpotListCard/stories',

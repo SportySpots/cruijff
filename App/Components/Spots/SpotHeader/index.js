@@ -2,34 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
-import styled from 'styled-components';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 // import Rating from '../../Common/Rating';
 import Text from '../../Common/Text';
 import Row from '../../Common/Row';
 import DotSpacer from '../../Common/DotSpacer';
 import curatedGames from './utils';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Name = styled(Text.ML)`
-  color: ${({ gray }) => (gray ? Colors.gray : Colors.black)}
-`;
-//------------------------------------------------------------------------------
-const Category = styled(Text.SM)`
-  color: ${({ gray }) => (gray ? Colors.gray : Colors.black)}
-`;
-//------------------------------------------------------------------------------
-const Distance = styled(Text.SM)`
-  color: ${({ gray }) => (gray ? Colors.gray : Colors.black)}
-`;
-//------------------------------------------------------------------------------
-const Games = styled(Text.SM)`
-  color: ${({ gray }) => (gray ? Colors.gray : Colors.actionYellow)}
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -51,16 +31,26 @@ const SpotHeader = ({
 
   return (
     <View>
-      <Name gray={gray} numberOfLines={1}>{name}</Name>
+      <Text
+        size="ML"
+        color={gray ? 'gray' : 'black'}
+        numberOfLines={1}
+      >
+        {name}
+      </Text>
       <Row>
         {/* [
           <Rating key="rating" rating={spot.rating || 4} />,
           <DotSpacer key="spacer" />,
         ] */}
         {sports.map(({ category }, index) => [
-          <Category key={category} gray={gray}>
+          <Text
+            key={category}
+            size="SM"
+            color={gray ? 'gray' : 'black'}
+          >
             {I18n.t(category)}
-          </Category>,
+          </Text>,
           // Don't add spacer in case it's the last item
           index !== sports.length - 1 && (
             <DotSpacer key={`spacer-${category}`} />
@@ -68,15 +58,23 @@ const SpotHeader = ({
         ])}
         {withDistance && !!distance && [
           <DotSpacer key="spacer" />,
-          <Distance key="distance" gray={gray}>
+          <Text
+            key="distance"
+            size="SM"
+            color={gray ? 'gray' : 'black'}
+          >
             {`${distance} KM`}
-          </Distance>,
+          </Text>,
         ]}
         {withGames && !!games && games.length > 0 && [
           <DotSpacer key="spacer" />,
-          <Games key="games" gray={gray}>
+          <Text
+            key="games"
+            size="SM"
+            color={gray ? 'gray' : 'actionYellow'}
+          >
             {`${games.length} ${I18n.t('spotHeader.activities', { count: games.length }).toTitleCase()}`}
-          </Games>,
+          </Text>,
         ]}
       </Row>
     </View>
