@@ -53,11 +53,11 @@ function loadStories() {
   // require('../App/Components/Common/OrDivider/stories');
   // require('../App/Components/Common/RaisedButton/stories');
   // require('../App/Components/Common/Rating/stories');
-  require('../App/Components/Common/RoundButton/stories');
+  // require('../App/Components/Common/RoundButton/stories');
   // require('../App/Components/Common/Row/stories');
   // require('../App/Components/Common/ScreenSlider/stories');
   // require('../App/Components/Common/Slider/stories');
-  // require('../App/Components/Common/SliderWithText/stories');
+  require('../App/Components/Common/SliderWithText/stories');
   // require('../App/Components/Common/Spacer/stories');
   // require('../App/Components/Common/SportCard/stories');
   // require('../App/Components/Common/SportPickerField/stories');
@@ -183,11 +183,11 @@ const stories = [
   // '../App/Components/Common/OrDivider/stories',
   // '../App/Components/Common/RaisedButton/stories',
   // '../App/Components/Common/Rating/stories',
-  '../App/Components/Common/RoundButton/stories',
+  // '../App/Components/Common/RoundButton/stories',
   // '../App/Components/Common/Row/stories',
   // '../App/Components/Common/ScreenSlider/stories',
   // '../App/Components/Common/Slider/stories',
-  // '../App/Components/Common/SliderWithText/stories',
+  '../App/Components/Common/SliderWithText/stories',
   // '../App/Components/Common/Spacer/stories',
   // '../App/Components/Common/SportCard/stories',
   // '../App/Components/Common/SportPickerField/stories',
