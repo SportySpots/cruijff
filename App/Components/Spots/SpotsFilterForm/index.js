@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';

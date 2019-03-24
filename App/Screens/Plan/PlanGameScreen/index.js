@@ -7,7 +7,7 @@ import {
   BackHandler,
 } from 'react-native';
 import { withUser, userPropTypes } from '../../../Context/User';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import FormProps from '../../../RenderProps/form-props';
 import RSVPApiCall from '../../../Components/Games/RSVPApiCall';
 import PlanGameApiCall from '../../../Components/PlanGame/PlanGameApiCall';

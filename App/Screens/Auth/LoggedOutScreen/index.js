@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, Image } from 'react-native';
 import styled from 'styled-components/native';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import images from '../../../Themes/Images';
 import ClosableLayout from '../../../Components/Layouts/ClosableLayout';
 import RaisedButton from '../../../Components/Common/RaisedButton';

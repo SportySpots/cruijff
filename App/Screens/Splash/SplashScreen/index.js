@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
 import { withLocation, locationPropTypes } from '../../../Context/Location';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import FieldBackground from '../../../Backgrounds/FieldBackground';
 import Block from '../../../Components/Common/Block';

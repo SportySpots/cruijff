@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
