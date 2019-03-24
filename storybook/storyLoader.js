@@ -57,8 +57,8 @@ function loadStories() {
   // require('../App/Components/Common/Row/stories');
   // require('../App/Components/Common/ScreenSlider/stories');
   // require('../App/Components/Common/Slider/stories');
-  require('../App/Components/Common/SliderWithText/stories');
-  // require('../App/Components/Common/Spacer/stories');
+  // require('../App/Components/Common/SliderWithText/stories');
+  require('../App/Components/Common/Spacer/stories');
   // require('../App/Components/Common/SportCard/stories');
   // require('../App/Components/Common/SportPickerField/stories');
   // require('../App/Components/Common/SportsList/stories');
@@ -187,8 +187,8 @@ const stories = [
   // '../App/Components/Common/Row/stories',
   // '../App/Components/Common/ScreenSlider/stories',
   // '../App/Components/Common/Slider/stories',
-  '../App/Components/Common/SliderWithText/stories',
-  // '../App/Components/Common/Spacer/stories',
+  // '../App/Components/Common/SliderWithText/stories',
+  '../App/Components/Common/Spacer/stories',
   // '../App/Components/Common/SportCard/stories',
   // '../App/Components/Common/SportPickerField/stories',
   // '../App/Components/Common/SportsList/stories',

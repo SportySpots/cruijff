@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Colors from '../../../Themes/Colors';
 import getPixelsFromSize from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+// TODO: get color from theme
 const StyledView = styled.View`
-  background-color: transparent;
+  background-color: ${Colors.transparent};
   width: ${({ row, pixels }) => (row ? `${pixels}px` : 'auto')};
   height: ${({ row, pixels }) => (!row ? `${pixels}px` : 'auto')};
 `;
