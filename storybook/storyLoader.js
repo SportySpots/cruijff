@@ -46,11 +46,11 @@ function loadStories() {
   // require('../App/Components/Common/Modals/SportPickerModal/stories');
   // require('../App/Components/Common/Modals/SpotPickerModal/stories');
   // require('../App/Components/Common/NavBar/stories');
-  require('../App/Components/Common/NavBarButton/stories');
+  // require('../App/Components/Common/NavBarButton/stories');
   // require('../App/Components/Common/NavDot/stories');
   // require('../App/Components/Common/NavDots/stories');
   // require('../App/Components/Common/NothingFound/stories');
-  // require('../App/Components/Common/OrDivider/stories');
+  require('../App/Components/Common/OrDivider/stories');
   // require('../App/Components/Common/RaisedButton/stories');
   // require('../App/Components/Common/Rating/stories');
   // require('../App/Components/Common/RoundButton/stories');
@@ -176,11 +176,11 @@ const stories = [
   // '../App/Components/Common/Modals/SportPickerModal/stories',
   // '../App/Components/Common/Modals/SpotPickerModal/stories',
   // '../App/Components/Common/NavBar/stories',
-  '../App/Components/Common/NavBarButton/stories',
+  // '../App/Components/Common/NavBarButton/stories',
   // '../App/Components/Common/NavDot/stories',
   // '../App/Components/Common/NavDots/stories',
   // '../App/Components/Common/NothingFound/stories',
-  // '../App/Components/Common/OrDivider/stories',
+  '../App/Components/Common/OrDivider/stories',
   // '../App/Components/Common/RaisedButton/stories',
   // '../App/Components/Common/Rating/stories',
   // '../App/Components/Common/RoundButton/stories',
