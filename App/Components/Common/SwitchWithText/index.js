@@ -20,8 +20,6 @@ const Right = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: replace Text.SM style={{ color: Colors.gray }} with Text.SM.gray
-// (or something along those lines)
 const SwitchWithText = ({
   label,
   description,
@@ -30,10 +28,10 @@ const SwitchWithText = ({
 }) => (
   <Row alignItems="center">
     <Left>
-      <Text.M>{label}</Text.M>
-      <Text.SM style={{ color: Colors.gray }}>
+      <Text size="M">{label}</Text>
+      <Text size="SM" color="gray">
         {description}
-      </Text.SM>
+      </Text>
     </Left>
     <Spacer row size="M" />
     <Right>
