@@ -59,10 +59,10 @@ function loadStories() {
   // require('../App/Components/Common/Slider/stories');
   // require('../App/Components/Common/SliderWithText/stories');
   // require('../App/Components/Common/Spacer/stories');
-  require('../App/Components/Common/SportCard/stories');
+  // require('../App/Components/Common/SportCard/stories');
   // require('../App/Components/Common/SportPickerField/stories');
   // require('../App/Components/Common/SportsList/stories');
-  // require('../App/Components/Common/SpotPickerField/stories');
+   require('../App/Components/Common/SpotPickerField/stories');
   // require('../App/Components/Common/SwitchWithText/stories');
   // require('../App/Components/Common/Tag/stories');
   // require('../App/Components/Common/Text/stories');
@@ -189,10 +189,10 @@ const stories = [
   // '../App/Components/Common/Slider/stories',
   // '../App/Components/Common/SliderWithText/stories',
   // '../App/Components/Common/Spacer/stories',
-  '../App/Components/Common/SportCard/stories',
+  // '../App/Components/Common/SportCard/stories',
   // '../App/Components/Common/SportPickerField/stories',
   // '../App/Components/Common/SportsList/stories',
-  // '../App/Components/Common/SpotPickerField/stories',
+  '../App/Components/Common/SpotPickerField/stories',
   // '../App/Components/Common/SwitchWithText/stories',
   // '../App/Components/Common/Tag/stories',
   // '../App/Components/Common/Text/stories',
