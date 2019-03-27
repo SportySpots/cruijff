@@ -33,10 +33,6 @@ const Center = styled.View`
   justify-content: center
 `;
 //------------------------------------------------------------------------------
-const Title = styled(Text.L)`
-  text-align: center;
-`;
-//------------------------------------------------------------------------------
 const ButtonContainer = styled.View`
   align-self: stretch;
 `;
@@ -110,7 +106,9 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
               />
             </Center>
             <Spacer size="XL" />
-            <Title>{I18n.t('confirmMagicTokenScreen.title')}</Title>
+            <Text size="L" center>
+              {I18n.t('confirmMagicTokenScreen.title')}
+            </Text>
             <Spacer size="XXL" />
             <ButtonContainer>
               <RaisedButton
