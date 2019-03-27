@@ -60,7 +60,7 @@ const INIT_STATE = {
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const FullHeight = styled.View`
+const FlexOne = styled.View`
   flex: 1; /* full height */
 `;
 //------------------------------------------------------------------------------
@@ -152,7 +152,7 @@ class OnboardingForm extends React.Component {
     const { curSlide, ...rest } = this.state;
 
     return (
-      <FullHeight>
+      <FlexOne>
         <Swiper
           ref={(swiper) => { this.swiper = swiper; }}
           scrollEnabled={false}
@@ -160,7 +160,7 @@ class OnboardingForm extends React.Component {
           showsPagination={false}
         >
           {SLIDES.map(({ id, Comp }, index) => (
-            <FullHeight key={id}>
+            <FlexOne key={id}>
               {index === curSlide ? (
                 <Comp
                   onChange={this.handleChange}
@@ -168,7 +168,7 @@ class OnboardingForm extends React.Component {
                   {...rest}
                 />
               ) : <View />}
-            </FullHeight>
+            </FlexOne>
           ))}
         </Swiper>
         <Footer
@@ -179,7 +179,7 @@ class OnboardingForm extends React.Component {
           buttonNextText={I18n.t(this.buttonNextText)}
           showBack={false}
         />
-      </FullHeight>
+      </FlexOne>
     );
   }
 }
