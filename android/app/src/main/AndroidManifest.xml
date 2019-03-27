@@ -40,6 +40,19 @@
         </intent-filter>
       </activity>
 
+      <service android:name="io.invertase.firebase.messaging.RNFirebaseMessagingService">
+        <intent-filter>
+          <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+      </service>
+
+      <service android:name="io.invertase.firebase.messaging.RNFirebaseInstanceIdService">
+        <intent-filter>
+          <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+      </service>
+
+
       <meta-data
         tools:replace="android:value"
         android:name="android.support.VERSION"
