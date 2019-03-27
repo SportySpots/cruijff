@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { View, FlatList, ScrollView } from 'react-native';
-import styled from 'styled-components';
 import I18n from '../../../I18n';
 import { CITIES } from '../../../Context/Location';
 import Images from '../../../Themes/Images';
-import Colors from '../../../Themes/Colors';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Text from '../../Common/Text';
 import Block from '../../Common/Block';
@@ -19,13 +17,6 @@ export const INIT_STATE = {
   location: null,
 };
 //------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Title = styled(Text.M)`
-  color: ${Colors.white};
-  text-align: center;
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class LocationSlide extends React.PureComponent {
@@ -35,7 +26,9 @@ class LocationSlide extends React.PureComponent {
     return (
       <ImageBackground image={Images.locationOnboarding}>
         <View>
-          <Title>{I18n.t('locationSlide.title')}</Title>
+          <Text size="M" color="white" center>
+            {I18n.t('locationSlide.title')}
+          </Text>
         </View>
         <Spacer size="L" />
         <ScrollView>
