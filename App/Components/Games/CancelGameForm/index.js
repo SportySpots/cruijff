@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, View } from 'react-native';
 import { propType } from 'graphql-anywhere';
+import { Alert, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import ErrorHandling from 'error-handling-utils';
@@ -152,7 +153,12 @@ class CancelGameForm extends React.PureComponent {
     const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg', I18n.t);
 
     return (
-      <View style={{ flex: 1 }}>
+      <KeyboardAwareScrollView
+        extraHeight={220}
+        enableOnAndroid
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{ flex: 1 }}
+      >
         <TopLayout>
           <Block>
             <GameProperties game={game} />
@@ -196,7 +202,7 @@ class CancelGameForm extends React.PureComponent {
             onPress={this.handleSubmit}
           />
         </BottomLayout>
-      </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
