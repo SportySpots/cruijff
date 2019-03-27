@@ -110,8 +110,8 @@ function loadStories() {
   // require('../App/Components/Spots/SpotsFilterFlap/stories');
   // require('../App/Components/Spots/SpotsList/stories');
   // require('../App/Screens/Auth/CheckEmailScreen/stories');
-  require('../App/Screens/Auth/ConfirmMagicTokenScreen/stories');
-  // require('../App/Screens/Auth/LoggedOutScreen/stories');
+  // require('../App/Screens/Auth/ConfirmMagicTokenScreen/stories');
+  require('../App/Screens/Auth/LoggedOutScreen/stories');
   // require('../App/Screens/Auth/LoginScreen/stories');
   // require('../App/Screens/Auth/SignupEmailScreen/stories');
   // require('../App/Screens/Auth/SignupScreen/stories');
@@ -238,8 +238,8 @@ const stories = [
   // '../App/Components/Spots/SpotsFilterFlap/stories',
   // '../App/Components/Spots/SpotsList/stories',
   // '../App/Screens/Auth/CheckEmailScreen/stories',
-  '../App/Screens/Auth/ConfirmMagicTokenScreen/stories',
-  // '../App/Screens/Auth/LoggedOutScreen/stories',
+  // '../App/Screens/Auth/ConfirmMagicTokenScreen/stories',
+  '../App/Screens/Auth/LoggedOutScreen/stories',
   // '../App/Screens/Auth/LoginScreen/stories',
   // '../App/Screens/Auth/SignupEmailScreen/stories',
   // '../App/Screens/Auth/SignupScreen/stories',
