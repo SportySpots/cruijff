@@ -12,11 +12,6 @@ import UserSpots from '../UserSpots';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Label = styled(Text)`
-  font-weight: bold;
-  color: ${Colors.black};
-`;
-//------------------------------------------------------------------------------
 const Container = styled.View`
   padding: 0 16px;
 `;
@@ -32,7 +27,11 @@ const ProfileTabs = ({ user }) => (
         </Container>
       ),
       navigationOptions: {
-        tabBarLabel: <Label>{I18n.t('profileTabs.spots')}</Label>,
+        tabBarLabel: (
+          <Text bold>
+            {I18n.t('profileTabs.spots')}
+          </Text>
+        ),
       },
     },
     /* Games: {
