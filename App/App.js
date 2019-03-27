@@ -27,15 +27,6 @@ import { logNavigationState } from './utils';
 class App extends Component {
   constructor() {
     super();
-    (async () => {
-      try {
-        const fcmToken = await firebase.messaging().getToken();
-        console.log('fcmToken', fcmToken);
-      } catch (error) {
-        console.log('error getting fcmToken', error);
-      }
-    })();
-
     codePush.checkForUpdate().then(r => console.log('codepush', r));
     Crashes.setEnabled(true).then(() => {});
   }
