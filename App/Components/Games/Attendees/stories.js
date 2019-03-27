@@ -11,8 +11,8 @@ storiesOf('Games.Attendees', module)
       query={GET_GAME_DETAILS}
       variables={{ uuid: 455 }}
     >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
+      {({ loading, error, data }) => (
+        loading || error ? null : (
           <Attendees
             attendees={getAttendees(data.game.attendees) || []}
           />

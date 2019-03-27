@@ -52,8 +52,8 @@ class Attendees extends React.PureComponent {
           max={maxAvatars}
           data={attendees}
           keyExtractor={({ user }) => (user.uuid)}
-          component={({ user }) => <Avatar user={user} />}
-          capComponent={({ data }) => <Avatar key="cap" text={`+${data.length}`} />}
+          component={({ user }) => <Avatar size="S" user={user} />}
+          capComponent={({ data }) => <Avatar key="cap" size="S" text={`+${data.length}`} />}
           ItemSeparatorComponent={() => <Spacer row size={SPACER_SIZE} />}
         />
       </Row>

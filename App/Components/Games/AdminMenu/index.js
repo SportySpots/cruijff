@@ -53,7 +53,6 @@ class AdminMenu extends React.PureComponent {
             return null;
           }
 
-          console.log('DATA', data, 'USER', user);
           // Only display menu if user is the organizer of the activity
           const isOrganizer = (
             user

@@ -13,7 +13,7 @@ const Circle = styled.View`
   width: ${({ size }) => (getSize(size))};
   height: ${({ size }) => (getSize(size))};
   border-radius: ${({ size }) => (getSize(size))};
-  background-color: ${({ bgColor }) => (bgColor || Colors.primaryGreen)};
+  background-color: ${({ bgColor }) => (Colors[bgColor] || Colors.primaryGreen)};
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -88,7 +88,7 @@ class Avatar extends React.PureComponent {
 
     // If no user and no text, display default avatar
     return (
-      <Circle bgColor={Colors.transparent} size={size}>
+      <Circle bgColor="transparent" size={size}>
         <StyledImage
           source={themeImages.spotOpenCircle}
           size={size}

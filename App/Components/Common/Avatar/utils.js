@@ -26,7 +26,7 @@ const SMALL_AVATAR_SIZE = 40;
 const LARGE_AVATAR_SIZE = 80;
 
 export const getSize = (size) => {
-  if (!size) {
+  if (!size || !['S', 'L'].includes(size)) {
     throw new Error('Size is required');
   }
   return size === 'S' ? SMALL_AVATAR_SIZE : LARGE_AVATAR_SIZE;
