@@ -190,6 +190,7 @@ const create = () => {
     await CookieManager.clearAll();
     return api.post(`/users/${userUUID}/device/fcm/`, {
       registration_id: fcmToken,
+      cloud_message_type: 'FCM',
     });
   };
 
