@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
 import Checkbox from '../../Common/Checkbox';
 import Row from '../../Common/Row';
@@ -16,10 +15,6 @@ const StyledRow = styled(Row)`
   flex-wrap: wrap;
 `;
 // -----------------------------------------------------------------------------
-const Label = styled(Text.ML)`
-  color: ${Colors.white};
-`;
-// -----------------------------------------------------------------------------
 // COMPONENT:
 // -----------------------------------------------------------------------------
 const InviteOnly = ({ isPublic, onPress }) => (
@@ -31,7 +26,9 @@ const InviteOnly = ({ isPublic, onPress }) => (
     />
     <Spacer row size="L" />
     <StyledRow>
-      <Label>{I18n.t('inviteOnly.checkboxLabel')}</Label>
+      <Text size="ML" color="white">
+        {I18n.t('inviteOnly.checkboxLabel')}
+      </Text>
     </StyledRow>
   </Row>
 );
