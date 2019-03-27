@@ -24,15 +24,6 @@ const Center = styled.View`
   justify-content: center
 `;
 //------------------------------------------------------------------------------
-const Title = styled(Text.L)`
-  text-align: center;
-`;
-//------------------------------------------------------------------------------
-const Subtitle = styled(Text.M)`
-  text-align: center;
-  max-width: 300px;
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class CheckEmailScreen extends React.PureComponent {
@@ -50,9 +41,13 @@ class CheckEmailScreen extends React.PureComponent {
             />
           </Center>
           <Spacer size="XL" />
-          <Title>{I18n.t(`checkEmailScreen.${action}.title`)}</Title>
+          <Text size="L" center>
+            {I18n.t(`checkEmailScreen.${action}.title`)}
+          </Text>
           <Spacer size="XL" />
-          <Subtitle>{I18n.t(`checkEmailScreen.${action}.subtitle`)}</Subtitle>
+          <Text size="M" center style={{ maxWidth: 300 }}>
+            {I18n.t(`checkEmailScreen.${action}.subtitle`)}
+          </Text>
         </View>
       </Container>
     );
