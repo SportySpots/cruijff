@@ -54,8 +54,8 @@ class OpenSpots extends React.PureComponent {
         <CappedList
           max={Math.max(0, maxAvatars - 1)}
           data={[...Array(nOpenSpots)]}
-          component={(_, i) => <Avatar key={i} />}
-          capComponent={({ data }) => <Avatar key="cap" text={`+${data.length}`} />}
+          component={(_, i) => <Avatar key={i} size="S" />}
+          capComponent={({ data }) => <Avatar key="cap" size="S" text={`+${data.length}`} />}
           ItemSeparatorComponent={() => <Spacer row size={SPACER_SIZE} />}
         />
       </Row>

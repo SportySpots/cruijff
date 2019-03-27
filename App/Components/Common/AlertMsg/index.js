@@ -17,7 +17,7 @@ const StyledBlock = styled(Block)`
   border-radius: 4px;
 `;
 //------------------------------------------------------------------------------
-const FullWidth = styled.View`
+const FlexOne = styled.View`
   flex: 1; /* full width */
 `;
 //------------------------------------------------------------------------------
@@ -36,11 +36,11 @@ const AlertMsg = ({ status, value }) => {
           color={Colors[fontColor]}
         />
         <Spacer row size="M" />
-        <FullWidth>
+        <FlexOne>
           <Text size="M" color={fontColor}>
             {value}
           </Text>
-        </FullWidth>
+        </FlexOne>
       </Row>
     </StyledBlock>
   );

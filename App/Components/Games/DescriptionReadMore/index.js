@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
+// import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
 
@@ -14,10 +14,10 @@ const THRESHOLD = 120;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Trigger = styled(Text.SM)`
-  color: ${Colors.actionYellow}
-  text-decoration-line: underline;
-`;
+// const Trigger = styled(Text.SM)`
+//   color: ${Colors.actionYellow}
+//   text-decoration-line: underline;
+// `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ class DescriptionReadMore extends React.PureComponent {
     if (length <= THRESHOLD) {
       return (
         <View>
-          <Text.SM>{description}</Text.SM>
+          <Text size="SM">{description}</Text>
         </View>
       );
     }
@@ -49,10 +49,14 @@ class DescriptionReadMore extends React.PureComponent {
 
     return (
       <View>
-        <Text.SM>{visibleDescription}</Text.SM>
+        <Text size="SM">
+          {visibleDescription}
+        </Text>
         <Spacer size="M" />
         <TouchableOpacity onPress={this.triggerExpanded}>
-          <Trigger>{I18n.t(expanded ? 'descriptionReadMore.readLess' : 'descriptionReadMore.readMore')}</Trigger>
+          <Text size="SM" color="actionYellow" underline>
+            {I18n.t(expanded ? 'descriptionReadMore.readLess' : 'descriptionReadMore.readMore')}
+          </Text>
         </TouchableOpacity>
       </View>
     );

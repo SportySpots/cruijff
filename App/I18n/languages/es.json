@@ -173,7 +173,7 @@
   },
 
   "gameDetails": {
-    "cancelMsg": "Esta actividad está cancelada.",
+    "cancelMsg": "Esta actividad ha sido cancelada.",
     "organizer": "Organizador",
     "description": "Descripción",
     "attending": "Participantes",
