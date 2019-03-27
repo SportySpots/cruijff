@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
 import moment from 'moment';
-import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Block from '../../Common/Block';
@@ -21,15 +20,15 @@ const PlayerRow = ({ player }) => {
   return (
     <Block>
       <Row alignItems="center">
-        <Avatar user={user} />
+        <Avatar user={user} size="S" />
         <Spacer row size="L" />
         <View>
-          <Text.M>{user.name}</Text.M>
-          <Text.SM style={{ color: Colors.gray }}>
+          <Text size="M">{user.name}</Text>
+          <Text size="SM" color="gray">
             {I18n.t(player.status === 'ATTENDING' ? 'playerRow.signedUpOn' : 'playerRow.signedOutOn')}
             &nbsp;
             {moment.utc(createdAt).local().format('D MMMM HH:mm')}
-          </Text.SM>
+          </Text>
         </View>
       </Row>
     </Block>
