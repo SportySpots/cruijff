@@ -14,11 +14,7 @@ import Text from '../../Common/Text';
 const Container = styled.View`
   padding: 32px 16px 0 16px;
   flex: 1; /* full height */
-  background-color: ${({ bgColor }) => (bgColor)}
-`;
-//------------------------------------------------------------------------------
-export const Title = styled(Text.L)`
-  color: ${({ color }) => (color)};
+  background-color: ${({ bgColor }) => (Colors[bgColor])}
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -33,19 +29,19 @@ const ClosableLayout = ({
   const isWhiteTheme = theme === 'white';
 
   return (
-    <Container bgColor={isWhiteTheme ? Colors.primaryGreen : Colors.silver}>
+    <Container bgColor={isWhiteTheme ? 'primaryGreen' : 'silver'}>
       <Row
         justifyContent="space-between"
         alignItems="center"
       >
-        <Title color={isWhiteTheme ? Colors.white : Colors.black}>
+        <Text size="L" color={isWhiteTheme ? 'white' : 'black'}>
           {title}
-        </Title>
+        </Text>
         {closable && (
           <TouchableOpacity onPress={onClose}>
             <Icon
               name="close"
-              size={Fonts.style.L.fontSize}
+              size={Fonts.L.fontSize}
               color={isWhiteTheme ? Colors.white : Colors.black}
             />
           </TouchableOpacity>
