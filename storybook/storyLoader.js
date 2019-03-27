@@ -126,8 +126,8 @@ function loadStories() {
   // require('../App/Screens/Plan/PlanGameScreen/stories');
   // require('../App/Screens/Plan/ShareGameScreen/stories');
   // require('../App/Screens/Profile/ProfileEditScreen/stories');
-  require('../App/Screens/Splash/SplashScreen/stories');
-  // require('../App/Screens/Spots/SpotsFilterScreen/stories');
+  // require('../App/Screens/Splash/SplashScreen/stories');
+  require('../App/Screens/Spots/SpotsFilterScreen/stories');
   // require('../App/Screens/Spots/SpotsListScreen/stories');
 
 }
@@ -254,8 +254,8 @@ const stories = [
   // '../App/Screens/Plan/PlanGameScreen/stories',
   // '../App/Screens/Plan/ShareGameScreen/stories',
   // '../App/Screens/Profile/ProfileEditScreen/stories',
-  '../App/Screens/Splash/SplashScreen/stories',
-  // '../App/Screens/Spots/SpotsFilterScreen/stories',
+  // '../App/Screens/Splash/SplashScreen/stories',
+  '../App/Screens/Spots/SpotsFilterScreen/stories',
   // '../App/Screens/Spots/SpotsListScreen/stories',
 
 ];
