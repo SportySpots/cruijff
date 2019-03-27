@@ -15,8 +15,8 @@ const Amenities = ({ amenities }) => {
     array.push([
       <Block key={key} midHeight>
         <Row>
-          <Text.M>{I18n.t(key)}</Text.M>
-          <Text.M b>{amenities[key]}</Text.M>
+          <Text size="M">{I18n.t(key)}</Text>
+          <Text size="M" bold>{amenities[key]}</Text>
         </Row>
       </Block>,
       <Divider key={`${key}-divider`} />,
