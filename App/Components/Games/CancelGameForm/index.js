@@ -12,11 +12,11 @@ import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
 import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
+import TextField from '../../Common/TextField';
 // import AlertMsg from '../../Common/AlertMsg';
 import RaisedButton from '../../Common/RaisedButton';
 import GameProperties from '../GameProperties';
 import ClickableAttendees from '../ClickableAttendees';
-import CancelMsg from '../CancelMsg';
 import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
@@ -172,13 +172,16 @@ class CancelGameForm extends React.PureComponent {
               </Block>
               <Divider />
               <Block>
-                <CancelMsg
+                <TextField
                   testID="cancelGameFormCancelMsgField"
                   value={cancelMsg}
-                  disabled={disabled}
-                  characterRestriction={MAX_CHARS}
                   onChangeText={this.handleCancelMsgChange}
+                  label={I18n.t('cancelMsg.label')}
+                  placeholder={I18n.t('cancelMsg.placeholder')}
                   error={cancelMsgErrors}
+                  multiline
+                  characterRestriction={MAX_CHARS}
+                  disabled={disabled}
                 />
               </Block>
             </View>
