@@ -1,7 +1,6 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import codePush from 'react-native-code-push';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import I18n from '../../../I18n';
 import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
@@ -12,12 +11,6 @@ import Text from '../../../Components/Common/Text';
 import LinkOpenURL from '../../../Components/Common/LinkOpenURL';
 import { version as packageJSONVersion } from '../../../../package.json';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Version = styled(Text.M)`
-  text-align: center;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -70,9 +63,9 @@ class InfoScreen extends React.Component {
     return (
       <LogoHeaderBackground>
         <TouchableWithoutFeedback onPress={() => { this.versionPress(); }}>
-          <Version>
+          <Text size="M" center>
             {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${label}`}
-          </Version>
+          </Text>
         </TouchableWithoutFeedback>
         <Spacer size="XXXL" />
         <Divider />
