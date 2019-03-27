@@ -23,7 +23,7 @@ const defaultValue = {
   loadingUser: false,
   user: {
     name: 'Mock User',
-    uuid: '12345',
+    uuid: 'e67862f3-ccbf-4c51-b8ed-ed1d0420ea19',
     profile: {
       uuid: '12345',
       id: '1234',

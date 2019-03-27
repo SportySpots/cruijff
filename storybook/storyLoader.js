@@ -64,12 +64,12 @@ function loadStories() {
   // require('../App/Components/Common/SportsList/stories');
   // require('../App/Components/Common/SpotPickerField/stories');
   // require('../App/Components/Common/SwitchWithText/stories');
-  require('../App/Components/Common/Tag/stories');
+  // require('../App/Components/Common/Tag/stories');
   // require('../App/Components/Common/Text/stories');
   // require('../App/Components/Common/TextField/stories');
   // require('../App/Components/Common/TimePickerField/stories');
-  // require('../App/Components/Games/AdminMenu/stories');
-  // require('../App/Components/Games/Attendees/stories');
+  require('../App/Components/Games/AdminMenu/stories');
+  require('../App/Components/Games/Attendees/stories');
   // require('../App/Components/Games/CancelGameForm/stories');
   // require('../App/Components/Games/CancelMsg/stories');
   // require('../App/Components/Games/ClickableAttendees/stories');
@@ -194,12 +194,12 @@ const stories = [
   // '../App/Components/Common/SportsList/stories',
   // '../App/Components/Common/SpotPickerField/stories',
   // '../App/Components/Common/SwitchWithText/stories',
-  '../App/Components/Common/Tag/stories',
+  // '../App/Components/Common/Tag/stories',
   // '../App/Components/Common/Text/stories',
   // '../App/Components/Common/TextField/stories',
   // '../App/Components/Common/TimePickerField/stories',
-  // '../App/Components/Games/AdminMenu/stories',
-  // '../App/Components/Games/Attendees/stories',
+  '../App/Components/Games/AdminMenu/stories',
+  '../App/Components/Games/Attendees/stories',
   // '../App/Components/Games/CancelGameForm/stories',
   // '../App/Components/Games/CancelMsg/stories',
   // '../App/Components/Games/ClickableAttendees/stories',
