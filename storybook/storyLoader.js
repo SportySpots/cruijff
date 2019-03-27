@@ -74,14 +74,14 @@ function loadStories() {
   // require('../App/Components/Games/ClickableAttendees/stories');
   // require('../App/Components/Games/EditGameForm/stories');
   // require('../App/Components/Games/GameCanceledFlag/stories');
-  require('../App/Components/Games/GameDetails/stories');
-  // require('../App/Components/Games/GameListCard/stories');
-  require('../App/Components/Games/GameProperties/stories');
-  // require('../App/Components/Games/GamesList/stories');
-  require('../App/Components/Games/OpenSpots/stories');
-  require('../App/Components/Games/Organizer/stories');
-  require('../App/Components/Games/DescriptionReadMore/stories');
-  require('../App/Components/Games/ShareGameButton/stories');
+  // require('../App/Components/Games/GameDetails/stories');
+  require('../App/Components/Games/GameListCard/stories');
+  // require('../App/Components/Games/GameProperties/stories');
+  require('../App/Components/Games/GamesList/stories');
+  // require('../App/Components/Games/OpenSpots/stories');
+  // require('../App/Components/Games/Organizer/stories');
+  // require('../App/Components/Games/DescriptionReadMore/stories');
+  // require('../App/Components/Games/ShareGameButton/stories');
   // require('../App/Components/Layouts/ClosableLayout/stories');
   // require('../App/Components/Layouts/FixedBottomLayout/stories');
   // require('../App/Components/Layouts/FixedTopLayout/stories');
@@ -204,14 +204,14 @@ const stories = [
   // '../App/Components/Games/ClickableAttendees/stories',
   // '../App/Components/Games/EditGameForm/stories',
   // '../App/Components/Games/GameCanceledFlag/stories',
-  '../App/Components/Games/GameDetails/stories',
-  // '../App/Components/Games/GameListCard/stories',
-  '../App/Components/Games/GameProperties/stories',
-  // '../App/Components/Games/GamesList/stories',
-  '../App/Components/Games/OpenSpots/stories',
-  '../App/Components/Games/Organizer/stories',
-  '../App/Components/Games/DescriptionReadMore/stories',
-  '../App/Components/Games/ShareGameButton/stories',
+  // '../App/Components/Games/GameDetails/stories',
+  '../App/Components/Games/GameListCard/stories',
+  // '../App/Components/Games/GameProperties/stories',
+  '../App/Components/Games/GamesList/stories',
+  // '../App/Components/Games/OpenSpots/stories',
+  // '../App/Components/Games/Organizer/stories',
+  // '../App/Components/Games/DescriptionReadMore/stories',
+  // '../App/Components/Games/ShareGameButton/stories',
   // '../App/Components/Layouts/ClosableLayout/stories',
   // '../App/Components/Layouts/FixedBottomLayout/stories',
   // '../App/Components/Layouts/FixedTopLayout/stories',

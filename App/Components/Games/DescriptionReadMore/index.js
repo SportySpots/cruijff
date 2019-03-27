@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
-// import styled from 'styled-components';
 import I18n from '../../../I18n';
-// import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
 
@@ -11,13 +9,6 @@ import Spacer from '../../Common/Spacer';
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const THRESHOLD = 120;
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-// const Trigger = styled(Text.SM)`
-//   color: ${Colors.actionYellow}
-//   text-decoration-line: underline;
-// `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
