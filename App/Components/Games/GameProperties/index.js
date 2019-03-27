@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-// import styled from 'styled-components/native';
 import moment from 'moment';
 import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n';

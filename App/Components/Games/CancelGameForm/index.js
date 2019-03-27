@@ -10,7 +10,8 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
-import Label from '../../Common/Label';
+import Spacer from '../../Common/Spacer';
+import Text from '../../Common/Text';
 // import AlertMsg from '../../Common/AlertMsg';
 import RaisedButton from '../../Common/RaisedButton';
 import GameProperties from '../GameProperties';
@@ -160,7 +161,10 @@ class CancelGameForm extends React.PureComponent {
             <View>
               <Divider />
               <Block>
-                <Label>{I18n.t('cancelGameForm.attending')}</Label>
+                <Text size="M">
+                  {I18n.t('cancelGameForm.attending')}
+                </Text>
+                <Spacer size="L" />
                 <ClickableAttendees
                   attendees={attendees}
                   onAttendeesPress={onAttendeesPress}
