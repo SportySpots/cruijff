@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components/native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import ErrorHandling from 'error-handling-utils';
 import moment from 'moment';
 import cloneDeep from 'lodash/cloneDeep';
@@ -271,7 +272,12 @@ class EditGameForm extends React.PureComponent {
     const descriptionErrors = ErrorHandling.getFieldErrors(errors, 'description', I18n.t);
 
     return (
-      <FlexOne>
+      <KeyboardAwareScrollView
+        extraHeight={70}
+        enableOnAndroid
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{ flex: 1 }}
+      >
         <TopLayout ref={(scroller) => { this.scroller = scroller; }}>
           <Block
             midHeight
@@ -418,7 +424,7 @@ class EditGameForm extends React.PureComponent {
             onPress={this.handleSubmit}
           />
         </BottomLayout>
-      </FlexOne>
+      </KeyboardAwareScrollView>
     );
   }
 }
