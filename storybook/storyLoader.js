@@ -87,8 +87,8 @@ function loadStories() {
   // require('../App/Components/Layouts/FixedTopLayout/stories');
   // require('../App/Components/Onboarding/LocationSlide/stories');
   // require('../App/Components/Onboarding/OnboardingForm/stories');
-  require('../App/Components/PlanGame/InviteOnly/stories');
-  // require('../App/Components/PlanGame/PlanGameForm/stories');
+  // require('../App/Components/PlanGame/InviteOnly/stories');
+  require('../App/Components/PlanGame/PlanGameForm/stories');
   // require('../App/Components/PlanGame/ShareGameForm/stories');
   // require('../App/Components/PlanGame/ShareLink/stories');
   // require('../App/Components/PlanGame/SportDateTimeSlide/stories');
@@ -217,8 +217,8 @@ const stories = [
   // '../App/Components/Layouts/FixedTopLayout/stories',
   // '../App/Components/Onboarding/LocationSlide/stories',
   // '../App/Components/Onboarding/OnboardingForm/stories',
-  '../App/Components/PlanGame/InviteOnly/stories',
-  // '../App/Components/PlanGame/PlanGameForm/stories',
+  // '../App/Components/PlanGame/InviteOnly/stories',
+  '../App/Components/PlanGame/PlanGameForm/stories',
   // '../App/Components/PlanGame/ShareGameForm/stories',
   // '../App/Components/PlanGame/ShareLink/stories',
   // '../App/Components/PlanGame/SportDateTimeSlide/stories',
