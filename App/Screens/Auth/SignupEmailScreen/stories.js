@@ -11,8 +11,8 @@ storiesOf('Screen.Auth', module)
       query={GET_USER_DETAILS}
       variables={{ uuid: 455 }}
     >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
+      {({ loading, error, data }) => (
+        loading || error ? null : (
           <SignupEmailScreen user={data.user} navigation={navigation} />
         ))
       }

@@ -29,11 +29,11 @@ const DebugScreen = ({ navigation }) => (
         return [
           // eslint-disable-next-line react/no-array-index-key
           <View key={idx}>
-            <Text.S selectable>{logTime}</Text.S>
+            <Text size="S" selectable>{logTime}</Text>
             {Object.keys(args).map(innerIdx => (
-              <Text.S key={innerIdx} selectable>
+              <Text size="S" key={innerIdx} selectable>
                 {JSON.stringify(args[innerIdx])}
-              </Text.S>
+              </Text>
             ))}
           </View>,
           // eslint-disable-next-line react/no-array-index-key

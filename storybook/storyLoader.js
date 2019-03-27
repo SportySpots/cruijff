@@ -113,9 +113,9 @@ function loadStories() {
   // require('../App/Screens/Auth/ConfirmMagicTokenScreen/stories');
   // require('../App/Screens/Auth/LoggedOutScreen/stories');
   // require('../App/Screens/Auth/LoginScreen/stories');
-  require('../App/Screens/Auth/SignupEmailScreen/stories');
+  // require('../App/Screens/Auth/SignupEmailScreen/stories');
   // require('../App/Screens/Auth/SignupScreen/stories');
-  // require('../App/Screens/Debug/DebugScreen/stories');
+  require('../App/Screens/Debug/DebugScreen/stories');
   // require('../App/Screens/Games/CancelGameScreen/stories');
   // require('../App/Screens/Games/EditGameScreen/stories');
   // require('../App/Screens/Games/GameDetailsScreen/stories');
@@ -241,9 +241,9 @@ const stories = [
   // '../App/Screens/Auth/ConfirmMagicTokenScreen/stories',
   // '../App/Screens/Auth/LoggedOutScreen/stories',
   // '../App/Screens/Auth/LoginScreen/stories',
-  '../App/Screens/Auth/SignupEmailScreen/stories',
+  // '../App/Screens/Auth/SignupEmailScreen/stories',
   // '../App/Screens/Auth/SignupScreen/stories',
-  // '../App/Screens/Debug/DebugScreen/stories',
+  '../App/Screens/Debug/DebugScreen/stories',
   // '../App/Screens/Games/CancelGameScreen/stories',
   // '../App/Screens/Games/EditGameScreen/stories',
   // '../App/Screens/Games/GameDetailsScreen/stories',
