@@ -36,7 +36,7 @@ const NavBarButton = ({
   ...otherProps
 }) => {
   const Icon = icon.set;
-  const baseColor = active ? 'primaryGreen' : 'black54';
+  const baseColor = active ? 'primaryGreen' : 'black34';
   const color = main ? 'white' : baseColor;
 
   return (

@@ -25,7 +25,7 @@ const Url = styled(Text.M)`
 // COMPONENT:
 // -----------------------------------------------------------------------------
 const ShareLink = ({ link }) => (
-  <Block bgColor={Colors.black54}>
+  <Block bgColor={Colors.black34}>
     <Flex>
       <Url>{link}</Url>
     </Flex>

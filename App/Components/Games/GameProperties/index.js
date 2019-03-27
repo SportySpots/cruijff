@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import styled from 'styled-components/native';
+// import styled from 'styled-components/native';
 import moment from 'moment';
 import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n';
@@ -15,14 +15,16 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Title = styled(Text.ML)`
-  color: ${({ textColor }) => (textColor || '#000')};
-`;
-//------------------------------------------------------------------------------
-const Label = styled(Text.SM)`
-  flex: 1;
-  color: ${({ textColor }) => (textColor || '#000')};
-`;
+const Label = ({ children, ...rest }) => (
+  <Text
+    size="SM"
+    color="black"
+    style={{ flex: 1 }}
+    {...rest}
+  >
+    {children}
+  </Text>
+);
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -37,7 +39,9 @@ const GameProperties = ({ game, onSpotPress }) => {
 
   return (
     <View>
-      <Title>{name}</Title>
+      <Text size="ML" color="black">
+        {name}
+      </Text>
       <Spacer size="L" />
       <Row>
         <Icon name="event" size={22} color={Colors.shade} />
@@ -51,8 +55,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         <Icon name="watch-later" size={22} color={Colors.shade} />
         <Spacer row size="L" />
         <Label>
-          {moment.utc(startTime).local().format('HH:mm')}
-          {endTime && ` - ${moment.utc(endTime).local().format('HH:mm')}`}
+          {`${moment.utc(startTime).local().format('HH:mm')} ${endTime ? ` - ${moment.utc(endTime).local().format('HH:mm')}` : ''}`}
         </Label>
       </Row>
       <Spacer size="M" />
