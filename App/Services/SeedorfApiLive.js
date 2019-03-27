@@ -186,6 +186,14 @@ const create = () => {
     });
   };
 
+  const saveFCMToken = async ({ userUUID, fcmToken }) => {
+    await CookieManager.clearAll();
+    return api.post(`/users/${userUUID}/device/fcm/`, {
+      registration_id: fcmToken,
+      cloud_message_type: 'FCM',
+    });
+  };
+
   // const setGameStartTime = ({ gameUUID, start_date, start_time }) =>
   // api.put(`/games/${gameUUID}/`), {
   //   start_time:
@@ -231,6 +239,7 @@ const create = () => {
     updateRSVPStatus,
     sendMagicLoginLink,
     confirmMagicLoginLink,
+    saveFCMToken,
     setToken: (token) => {
       if (token) {
         api.setHeader('Authorization', `JWT ${token}`);

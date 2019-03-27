@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AsyncStorage, Image } from 'react-native';
 import styled from 'styled-components';
+import firebase from 'react-native-firebase';
 import client from '../../../GraphQL/ApolloClient';
 import SeedorfAPI from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n';
@@ -16,6 +17,7 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import LinkNavigate from '../../../Components/Common/LinkNavigate';
 import { decodeJWTToken } from '../../../utils';
+
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -78,7 +80,15 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
       // OBS: we don't neet set token for ApolloClient or REST here,
       // this is being handled for us on ApolloClient.setContext
       client.resetStore();
+
       await refetchUser(); // TODO: remove this after GET_ME is implemented
+
+      // save the FCM token
+      const claims = decodeJWTToken(token);
+      SeedorfAPI.saveFCMToken({
+        userUUID: claims.uuid,
+        fcmToken: await firebase.messaging().getToken(),
+      });
     } catch (exc) {
       console.log(exc);
       this.handleExpiredToken();
