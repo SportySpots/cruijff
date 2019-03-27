@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AsyncStorage } from 'react-native';
 import client from '../../../GraphQL/ApolloClient';
-import SeedorfAPI from '../../../Services/SeedorfApi';
 import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import Menu from '../../Common/Menu';

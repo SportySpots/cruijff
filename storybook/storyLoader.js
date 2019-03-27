@@ -96,8 +96,8 @@ function loadStories() {
   // require('../App/Components/PlanGame/TitleDescriptionSlide/stories');
   // require('../App/Components/Profile/EditProfileForm/stories');
   // require('../App/Components/Profile/ProfileDetails/stories');
-  require('../App/Components/Profile/ProfileTabs/stories');
-  // require('../App/Components/Profile/UserMenu/stories');
+  // require('../App/Components/Profile/ProfileTabs/stories');
+  require('../App/Components/Profile/UserMenu/stories');
   // require('../App/Components/Profile/UserSpots/stories');
   // require('../App/Components/Spots/BackgroundImage/stories');
   // require('../App/Components/Spots/SpotAmenities/stories');
@@ -226,8 +226,8 @@ const stories = [
   // '../App/Components/PlanGame/TitleDescriptionSlide/stories',
   // '../App/Components/Profile/EditProfileForm/stories',
   // '../App/Components/Profile/ProfileDetails/stories',
-  '../App/Components/Profile/ProfileTabs/stories',
-  // '../App/Components/Profile/UserMenu/stories',
+  // '../App/Components/Profile/ProfileTabs/stories',
+  '../App/Components/Profile/UserMenu/stories',
   // '../App/Components/Profile/UserSpots/stories',
   // '../App/Components/Spots/BackgroundImage/stories',
   // '../App/Components/Spots/SpotAmenities/stories',
