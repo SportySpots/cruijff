@@ -25,7 +25,7 @@ const Text = ({
   }
 
   const font = Fonts[size]; // { fontFamily: ..., fontSize: ... }
-  const baseStyle = { backgroundColor: 'transparent' };
+  const baseStyle = { backgroundColor: Colors.transparent };
   const lineHeight = parseInt(1.5 * font.fontSize, 10);
   const color = clr ? Colors[clr] : Colors.black;
   const textAlign = center ? 'center' : 'left';

@@ -53,11 +53,11 @@ storiesOf('common.Text', module)
       I&apos;m the Text
     </Text>
   ))
-  .add('Text XL regular semibold', () => (
-    <Text size="XL" regular semibold>
-      I&apos;m the Text
-    </Text>
-  ))
+  // .add('Text XL regular semibold', () => (
+  //   <Text size="XL" regular semibold>
+  //     I&apos;m the Text
+  //   </Text>
+  // ))
   .add('Text numberOfLines={1}', () => (
     <Text numberOfLines={1}>
       Some long long really long text Some long long really long text
