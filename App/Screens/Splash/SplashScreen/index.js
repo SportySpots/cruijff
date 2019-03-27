@@ -18,12 +18,6 @@ import globalRefs from '../../../globalRefs';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Label = styled(Text.ML)`
-  color: ${Colors.white}
-  text-align: center;
-  font-size: 30px;
-`;
-//------------------------------------------------------------------------------
 const FlexOne = styled.View`
   flex: 1;
 `;
@@ -40,9 +34,15 @@ class SplashScreen extends React.Component {
 
     return (
       <FieldBackground>
-        <Label testID="splashText">
+        <Text
+          testID="splashText"
+          size="L"
+          color="white"
+          center
+          style={{ fontSize: 30 }}
+        >
           {I18n.t('splashScreen.title')}
-        </Label>
+        </Text>
         <FlexOne />
         <Block>
           <RaisedButton

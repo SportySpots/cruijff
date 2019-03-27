@@ -121,12 +121,12 @@ function loadStories() {
   // require('../App/Screens/Games/GameDetailsScreen/stories');
   // require('../App/Screens/Games/GamesListScreen/stories');
   // require('../App/Screens/Games/PlayersListScreen/stories');
-  require('../App/Screens/Info/InfoScreen/stories');
+  // require('../App/Screens/Info/InfoScreen/stories');
   // require('../App/Screens/Onboarding/OnboardingScreen/stories');
   // require('../App/Screens/Plan/PlanGameScreen/stories');
   // require('../App/Screens/Plan/ShareGameScreen/stories');
   // require('../App/Screens/Profile/ProfileEditScreen/stories');
-  // require('../App/Screens/Splash/SplashScreen/stories');
+  require('../App/Screens/Splash/SplashScreen/stories');
   // require('../App/Screens/Spots/SpotsFilterScreen/stories');
   // require('../App/Screens/Spots/SpotsListScreen/stories');
 
@@ -249,12 +249,12 @@ const stories = [
   // '../App/Screens/Games/GameDetailsScreen/stories',
   // '../App/Screens/Games/GamesListScreen/stories',
   // '../App/Screens/Games/PlayersListScreen/stories',
-  '../App/Screens/Info/InfoScreen/stories',
+  // '../App/Screens/Info/InfoScreen/stories',
   // '../App/Screens/Onboarding/OnboardingScreen/stories',
   // '../App/Screens/Plan/PlanGameScreen/stories',
   // '../App/Screens/Plan/ShareGameScreen/stories',
   // '../App/Screens/Profile/ProfileEditScreen/stories',
-  // '../App/Screens/Splash/SplashScreen/stories',
+  '../App/Screens/Splash/SplashScreen/stories',
   // '../App/Screens/Spots/SpotsFilterScreen/stories',
   // '../App/Screens/Spots/SpotsListScreen/stories',
 
