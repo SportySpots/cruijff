@@ -90,12 +90,12 @@ function loadStories() {
   // require('../App/Components/PlanGame/InviteOnly/stories');
   // require('../App/Components/PlanGame/PlanGameForm/stories');
   // require('../App/Components/PlanGame/ShareGameForm/stories');
-  require('../App/Components/PlanGame/ShareLink/stories');
+  // require('../App/Components/PlanGame/ShareLink/stories');
   // require('../App/Components/PlanGame/SportDateTimeSlide/stories');
   // require('../App/Components/PlanGame/SpotSlide/stories');
   // require('../App/Components/PlanGame/TitleDescriptionSlide/stories');
   // require('../App/Components/Profile/EditProfileForm/stories');
-  // require('../App/Components/Profile/ProfileDetails/stories');
+  require('../App/Components/Profile/ProfileDetails/stories');
   // require('../App/Components/Profile/ProfileTabs/stories');
   // require('../App/Components/Profile/UserMenu/stories');
   // require('../App/Components/Profile/UserSpots/stories');
@@ -220,12 +220,12 @@ const stories = [
   // '../App/Components/PlanGame/InviteOnly/stories',
   // '../App/Components/PlanGame/PlanGameForm/stories',
   // '../App/Components/PlanGame/ShareGameForm/stories',
-  '../App/Components/PlanGame/ShareLink/stories',
+  // '../App/Components/PlanGame/ShareLink/stories',
   // '../App/Components/PlanGame/SportDateTimeSlide/stories',
   // '../App/Components/PlanGame/SpotSlide/stories',
   // '../App/Components/PlanGame/TitleDescriptionSlide/stories',
   // '../App/Components/Profile/EditProfileForm/stories',
-  // '../App/Components/Profile/ProfileDetails/stories',
+  '../App/Components/Profile/ProfileDetails/stories',
   // '../App/Components/Profile/ProfileTabs/stories',
   // '../App/Components/Profile/UserMenu/stories',
   // '../App/Components/Profile/UserSpots/stories',

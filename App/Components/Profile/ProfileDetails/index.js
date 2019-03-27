@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components/native';
+// import styled from 'styled-components/native';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
+// import Colors from '../../../Themes/Colors';
 import { userPropTypes } from '../../../Context/User';
 import { locationPropTypes } from '../../../Context/Location';
 import Block from '../../Common/Block';
@@ -20,31 +20,22 @@ import Avatar from '../../Common/Avatar';
 //   background-color: ${Colors.bgGrey};
 // `;
 //------------------------------------------------------------------------------
-const Name = styled(Text.L)`
-  text-align: center;
-`;
-//------------------------------------------------------------------------------
-const Location = styled(Text.M)`
-  text-align: center;
-  color: ${Colors.gray};
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ProfileDetails = ({ user, location }) => [
   <Block key="top">
     <Row justifyContent="center">
-      <Avatar user={user} size={80} />
+      <Avatar user={user} size="L" />
     </Row>
     <Spacer size="XL" />
-    <Name>
+    <Text size="L" center>
       {user.name}
-    </Name>
+    </Text>
     <Spacer size="S" />
     {!!location && (
-      <Location>
+      <Text size="M" color="gray" center>
         {`${location.city || ''}, ${I18n.t(location.country || '')}`}
-      </Location>
+      </Text>
     )}
   </Block>,
   /* <Spacer key="spacer" size="M" />,
