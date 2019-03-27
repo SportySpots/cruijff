@@ -24,13 +24,17 @@ storiesOf('Spots.BackgroundImage', module)
       query={GET_SPOT_DETAILS}
       variables={{ uuid: dummyNavigator.state.params.spotId }}
     >
-      {({ loading, error, data }) =>
-      (loading || error ? null : (
-        <Block bgColor={colors.silver}>
-          <Container>
-            <BackgroundImage images={data.spot.images} />
-          </Container>
-        </Block>
-      ))}
+      {({ loading, error, data }) => (
+        loading || error ? null : (
+          <Block bgColor={colors.silver}>
+            <Container>
+              <BackgroundImage
+                images={data.spot.images}
+                height={200}
+                width={300}
+              />
+            </Container>
+          </Block>
+        ))}
     </Query>
   ));
