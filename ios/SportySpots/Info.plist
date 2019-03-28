@@ -43,22 +43,28 @@
 		<string>citymapper</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
-	<true />
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<true />
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true />
+				<true/>
 			</dict>
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows $(PRODUCT_NAME) to enable you to capture your selfies and set them as your profile avatars.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This allows $(PRODUCT_NAME) to search for spots and games around you.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This allows $(PRODUCT_NAME) to search for spots and games around you.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>This allows $(PRODUCT_NAME) to search for spots and games around you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This allows $(PRODUCT_NAME) to search for spots and games around you.</string>
 	<key>NSMainNibFile</key>
@@ -102,14 +108,14 @@
 		<string>armv7</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
-	<true />
+	<true/>
 	<key>UIStatusBarHidden</key>
-	<true />
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false />
+	<false/>
 </dict>
 </plist>
