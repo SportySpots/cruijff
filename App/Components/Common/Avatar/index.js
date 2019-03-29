@@ -7,12 +7,16 @@ import Text from '../Text';
 import { userToInitials, convertS3ToImgix, getSize } from './utils';
 
 //------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+const setSize = ({ size }) => getSize(size);
+//------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Circle = styled.View`
-  width: ${({ size }) => (getSize(size))};
-  height: ${({ size }) => (getSize(size))};
-  border-radius: ${({ size }) => (getSize(size))};
+  width: ${setSize};
+  height: ${setSize};
+  border-radius: ${setSize};
   background-color: ${({ bgColor }) => (Colors[bgColor] || Colors.primaryGreen)};
   flex-direction: column;
   justify-content: center;
@@ -21,8 +25,8 @@ const Circle = styled.View`
 `;
 //------------------------------------------------------------------------------
 const StyledImage = styled.Image`
-  width: ${({ size }) => (getSize(size))};
-  height: ${({ size }) => (getSize(size))};
+  width: ${setSize};
+  height: ${setSize};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
