@@ -15,7 +15,7 @@ const Organizer = ({ organizer, textSize }) => (
   <Row alignItems="center">
     <Avatar size="S" user={organizer} />
     <Spacer row size="M" />
-    <Text size={textSize.toUpperCase()}>
+    <Text size={textSize}>
       {organizer.name}
     </Text>
   </Row>
