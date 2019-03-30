@@ -2,8 +2,8 @@ import Fonts from '../../Themes/Fonts';
 
 // eslint-disable-next-line
 export const headerTitleStyle = {
-  fontFamily: Fonts.style.ML.fontFamily,
-  fontSize: Fonts.style.ML.fontSize,
+  fontFamily: Fonts.ML.fontFamily,
+  fontSize: Fonts.ML.fontSize,
   fontWeight: 'normal',
   /* color: "red",
   marginHorizontal: 16,

@@ -62,7 +62,7 @@ class SplashScreen extends React.Component {
                 navigation={navigation}
                 to="LoginScreen"
                 text={I18n.t('splashScreen.loginLink')}
-                color={Colors.white}
+                color="white"
                 underline
               />
             </Row>
