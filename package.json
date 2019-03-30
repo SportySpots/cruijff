@@ -4,7 +4,7 @@
   "repository": "git@github.com:SportySpots/cruijff.git",
   "author": "Ashutosh Bandiwdekar <ashutoshb@gmail.com>",
   "license": "MIT",
-  "version": "1.3.6",
+  "version": "1.3.10",
   "private": true,
   "engines": {
     "node": ">=8.10.0",
