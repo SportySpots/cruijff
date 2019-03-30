@@ -43,7 +43,7 @@ const TextField = ({
       style={{
         fontSize: Fonts[size].fontSize,
         fontWeight: 'normal',
-        fontFamily: Fonts.SM.fontFamily,
+        fontFamily: Fonts[size].fontFamily,
         marginTop: 8,
         color: disabled ? Colors[disabledColor] : Colors[fontColor],
         ...style,
