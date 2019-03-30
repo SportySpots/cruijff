@@ -88,7 +88,7 @@ class SpotsFilterForm extends React.PureComponent {
                   {I18n.t('spotsFilterScreen.slider.description')}
                 </Text>
                 <Spacer row size="S" />
-                <Text size="SM" bold>
+                <Text size="SM" semibold>
                   {`${maxDistance.toFixed(1).toString().replace('.0', '')} KM`}
                 </Text>
               </Row>
