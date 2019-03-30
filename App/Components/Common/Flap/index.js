@@ -73,7 +73,7 @@ const Flap = ({ title }) => {
       >
         <Head
           midHeight
-          bgColor={Colors.white}
+          bgColor="white"
           style={{ height: HEIGHT, width }}
         />
       </AbsoluteRowHead>

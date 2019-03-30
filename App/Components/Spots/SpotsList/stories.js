@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import SpotsList from '.';
 
@@ -15,7 +14,7 @@ class Container extends React.PureComponent {
     const { selectedSpot } = this.state;
 
     return (
-      <Block bgColor={Colors.silver}>
+      <Block bgColor="silver">
         <SpotsList
           cardComponent={cardComponent}
           sportsIds={sportsIds}

@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Block from '../../Common/Block';
 import BackgroundImage from '.';
@@ -26,7 +25,7 @@ storiesOf('Spots.BackgroundImage', module)
     >
       {({ loading, error, data }) => (
         loading || error ? null : (
-          <Block bgColor={colors.silver}>
+          <Block bgColor="silver">
             <Container>
               <BackgroundImage
                 images={data.spot.images}

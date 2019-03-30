@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import api from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
 // import FlatButton from '../../Common/FlatButton';
 import Row from '../../Common/Row';
@@ -46,7 +45,7 @@ class SpotRating extends React.PureComponent {
     }
 
     return (
-      <Block bgColor={Colors.bgGrey}>
+      <Block bgColor="bgGrey">
         <Text>{I18n.t('Rate this spot')}</Text>
         <Row justifyContent="space-between">
           <Rating

@@ -53,7 +53,7 @@ const SpotListCard = ({ spot }) => (
     <StyledBlock
       midHeight
       height={FOOTER_HEIGHT}
-      bgColor={Colors.white}
+      bgColor="white"
     >
       <SpotHeader
         spot={spot}

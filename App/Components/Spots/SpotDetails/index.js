@@ -4,7 +4,6 @@ import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
-import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import Text from '../../Common/Text';
 import GamesList from '../../Games/GamesList';
@@ -32,7 +31,7 @@ const SpotDetails = ({ spot, onGamePress, userUUID }) => {
 
   return [
     <SpotImages key="spot-images" images={(spot && spot.images) || []} />,
-    <Block key="spot-header" bgColor={Colors.white}>
+    <Block key="spot-header" bgColor="white">
       <SpotHeader spot={spot} withDistance withGames />
     </Block>,
     <SpotMapWithLinkFallback key="spot-map" spot={spot} />,

@@ -7,7 +7,6 @@ import moment from 'moment';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
@@ -291,7 +290,7 @@ class EditGameForm extends React.PureComponent {
           </Block>
           <Block
             midHeight
-            bgColor={Colors.silver}
+            bgColor="silver"
           >
             <TextField
               label={I18n.t('editGameForm.fields.sport.label')}

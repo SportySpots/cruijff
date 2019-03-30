@@ -4,7 +4,6 @@ import { propType } from 'graphql-anywhere';
 import { TouchableOpacity, Image } from 'react-native';
 import I18n from '../../../I18n';
 import themeIcons from '../../../Themes/Icons';
-import Colors from '../../../Themes/Colors';
 import Fonts from '../../../Themes/Fonts';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Block from '../Block';
@@ -30,7 +29,7 @@ const SportCard = ({
     onPress={() => { onPress(sport); }}
     testID={testID}
   >
-    <Block bgColor={isSelected ? Colors.grass10 : Colors.transparent}>
+    <Block bgColor={isSelected ? 'grass10' : 'transparent'}>
       <Row>
         <Image source={(
           sport && sport.category

@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import DurationPickerField from '.';
 
@@ -57,7 +56,7 @@ Container.defaultProps = {
 storiesOf('Common.DurationPickerField', module)
   .add('DurationPickerField', () => <Container />)
   .add('DurationPickerField white theme', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <Container theme="white" />
     </Block>
   ))

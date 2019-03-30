@@ -54,7 +54,7 @@ exports[`Storyshots Auth.Flap Flap 1`] = `
         }
       >
         <View
-          bgColor="#fff"
+          bgColor="white"
           height={null}
           midHeight={true}
           style={
@@ -2693,7 +2693,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg error 1`] = `
     }
   >
     <View
-      bgColor="rgba(224, 48, 30, 0.2)"
+      bgColor="negative20"
       height={null}
       midHeight={false}
       style={
@@ -2834,7 +2834,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg info 1`] = `
     }
   >
     <View
-      bgColor="rgba(1, 154, 232, 0.2)"
+      bgColor="info20"
       height={null}
       midHeight={false}
       style={
@@ -2975,7 +2975,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg info long text 1`] = `
     }
   >
     <View
-      bgColor="rgba(1, 154, 232, 0.2)"
+      bgColor="info20"
       height={null}
       midHeight={false}
       style={
@@ -3116,7 +3116,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg success 1`] = `
     }
   >
     <View
-      bgColor="rgba(0, 159, 54, 0.2)"
+      bgColor="grass20"
       height={null}
       midHeight={false}
       style={
@@ -3257,7 +3257,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg warning 1`] = `
     }
   >
     <View
-      bgColor="rgba(245, 166, 35, 0.2)"
+      bgColor="notify20"
       height={null}
       midHeight={false}
       style={
@@ -3650,13 +3650,13 @@ exports[`Storyshots Common.Block Block 1`] = `
     }
   >
     <View
-      bgColor="green"
+      bgColor="grass"
       height={null}
       midHeight={false}
       style={
         Array [
           Object {
-            "backgroundColor": "green",
+            "backgroundColor": "#009f36",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -3719,13 +3719,13 @@ exports[`Storyshots Common.Block Block 100px fixed height 1`] = `
     }
   >
     <View
-      bgColor="green"
+      bgColor="grass"
       height={100}
       midHeight={false}
       style={
         Array [
           Object {
-            "backgroundColor": "green",
+            "backgroundColor": "#009f36",
             "height": 100,
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -3791,7 +3791,7 @@ exports[`Storyshots Common.Block Block 100px fixed height bgColor gray 1`] = `
     }
   >
     <View
-      bgColor="#777"
+      bgColor="gray"
       height={100}
       midHeight={false}
       style={
@@ -7183,7 +7183,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -8912,7 +8912,7 @@ exports[`Storyshots Common.DatePickerField DatePickerField white theme 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -9734,7 +9734,7 @@ exports[`Storyshots Common.Dropdown Dropdown 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "white",
+            "backgroundColor": "#fff",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -10476,7 +10476,7 @@ exports[`Storyshots Common.Dropdown Dropdown with error 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "white",
+            "backgroundColor": "#fff",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -11212,7 +11212,7 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -11954,7 +11954,7 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme size ML 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -15835,7 +15835,7 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField white theme 1
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -25635,7 +25635,7 @@ exports[`Storyshots Common.InputField InputField white theme 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -26018,7 +26018,7 @@ exports[`Storyshots Common.InputField InputField white theme with ERROR 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -26401,7 +26401,7 @@ exports[`Storyshots Common.LinkNavigate LinkNavigate 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -26512,7 +26512,7 @@ exports[`Storyshots Common.LinkNavigate LinkNavigate underline red 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -26626,7 +26626,7 @@ exports[`Storyshots Common.LinkNavigate LinkNavigate with icon 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -26757,7 +26757,7 @@ exports[`Storyshots Common.LinkOpenURL LinkOpenURL 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -26868,7 +26868,7 @@ exports[`Storyshots Common.LinkOpenURL LinkOpenURL underline 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -27002,7 +27002,7 @@ exports[`Storyshots Common.LinkOpenURL LinkOpenURL with icon 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -29036,7 +29036,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -30045,7 +30045,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -33299,13 +33299,13 @@ exports[`Storyshots Common.RaisedButton RaisedButton transparent 1`] = `
     }
   >
     <View
-      bgColor="green"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
         Array [
           Object {
-            "backgroundColor": "green",
+            "backgroundColor": "#009f36",
             "height": "auto",
             "paddingBottom": 16,
             "paddingLeft": 16,
@@ -35803,7 +35803,7 @@ exports[`Storyshots Common.Slider Slider default 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -35952,7 +35952,7 @@ exports[`Storyshots Common.Slider Slider initialValue 5 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -37334,7 +37334,7 @@ exports[`Storyshots Common.SportPickerField SportPickerField 1`] = `
         >
           <View>
             <View
-              bgColor="rgba(0,0,0,0)"
+              bgColor="transparent"
               height={null}
               midHeight={false}
               style={
@@ -37737,7 +37737,7 @@ exports[`Storyshots Common.SportPickerField SportPickerField fullWidth size ML 1
         >
           <View>
             <View
-              bgColor="rgba(0,0,0,0)"
+              bgColor="transparent"
               height={null}
               midHeight={false}
               style={
@@ -37856,7 +37856,7 @@ exports[`Storyshots Common.SportPickerField SportPickerField white theme 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -38236,7 +38236,7 @@ exports[`Storyshots Common.SportPickerField SportPickerField white theme 1`] = `
           >
             <View>
               <View
-                bgColor="rgba(0,0,0,0)"
+                bgColor="transparent"
                 height={null}
                 midHeight={false}
                 style={
@@ -38356,7 +38356,7 @@ exports[`Storyshots Common.SportsList SportsList 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -39080,7 +39080,7 @@ exports[`Storyshots Common.TextField TextField 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -39303,7 +39303,7 @@ exports[`Storyshots Common.TextField TextField disabled 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -39544,7 +39544,7 @@ exports[`Storyshots Common.TextField TextField with MIX theme 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -39795,7 +39795,7 @@ exports[`Storyshots Common.TextField TextField with WHITE theme 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -40046,7 +40046,7 @@ exports[`Storyshots Common.TextField TextField with WHITE theme with ERROR 1`] =
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -40300,7 +40300,7 @@ exports[`Storyshots Common.TextField TextField with characterRestriction = 20 1`
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -40551,7 +40551,7 @@ exports[`Storyshots Common.TextField TextField with error 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0)"
+      bgColor="transparent"
       height={null}
       midHeight={false}
       style={
@@ -40777,7 +40777,7 @@ exports[`Storyshots Common.TextField TextField with white theme size ML 1`] = `
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -44659,7 +44659,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
           >
             <View>
               <View
-                bgColor="rgba(0,0,0,0)"
+                bgColor="transparent"
                 height={null}
                 midHeight={false}
                 style={
@@ -44701,7 +44701,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                 }
               >
                 <View
-                  bgColor="rgba(0,0,0,0)"
+                  bgColor="transparent"
                   height={null}
                   midHeight={false}
                   style={
@@ -46116,7 +46116,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
           >
             <View>
               <View
-                bgColor="rgba(0,0,0,0)"
+                bgColor="transparent"
                 height={null}
                 midHeight={false}
                 style={
@@ -46173,7 +46173,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                 }
               >
                 <View
-                  bgColor="rgba(0,0,0,0)"
+                  bgColor="transparent"
                   height={null}
                   midHeight={false}
                   style={
@@ -48291,7 +48291,7 @@ exports[`Storyshots Modals.DialogModal DialogModal 1`] = `
           >
             <View>
               <View
-                bgColor="rgba(0,0,0,0)"
+                bgColor="transparent"
                 height={null}
                 midHeight={false}
                 style={
@@ -48513,7 +48513,7 @@ exports[`Storyshots Modals.DialogModal DialogModal big children 1`] = `
           >
             <View>
               <View
-                bgColor="rgba(0,0,0,0)"
+                bgColor="transparent"
                 height={null}
                 midHeight={false}
                 style={
@@ -48966,7 +48966,7 @@ exports[`Storyshots Modals.ImageModal ImageModal CancelConfirmModal comp 1`] = `
                 }
               >
                 <View
-                  bgColor="rgba(0,0,0,0)"
+                  bgColor="transparent"
                   height={null}
                   midHeight={false}
                   style={
@@ -49402,7 +49402,7 @@ exports[`Storyshots Modals.ImageModal ImageModal ConfirmModal comp 1`] = `
                 }
               >
                 <View
-                  bgColor="rgba(0,0,0,0)"
+                  bgColor="transparent"
                   height={null}
                   midHeight={false}
                   style={
@@ -50252,7 +50252,7 @@ exports[`Storyshots Modals.SportPickerModal SportPickerModal 1`] = `
           >
             <View>
               <View
-                bgColor="rgba(0,0,0,0)"
+                bgColor="transparent"
                 height={null}
                 midHeight={false}
                 style={
@@ -50477,7 +50477,7 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
           >
             <View>
               <View
-                bgColor="rgba(0,0,0,0)"
+                bgColor="transparent"
                 height={null}
                 midHeight={false}
                 style={
@@ -50703,7 +50703,7 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
       <RCTScrollView>
         <View>
           <View
-            bgColor="rgba(0,0,0,0)"
+            bgColor="transparent"
             height={null}
             midHeight={false}
             style={
@@ -52875,7 +52875,7 @@ exports[`Storyshots PlanGame.ShareLink ShareLink 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0.34)"
+      bgColor="black34"
       height={null}
       midHeight={false}
       style={
@@ -52971,7 +52971,7 @@ exports[`Storyshots PlanGame.ShareLink ShareLink long link 1`] = `
     }
   >
     <View
-      bgColor="rgba(0,0,0,0.34)"
+      bgColor="black34"
       height={null}
       midHeight={false}
       style={
@@ -53114,7 +53114,7 @@ exports[`Storyshots PlanGame.TitleDescriptionSlide TitleDescriptionSlide white t
     }
   >
     <View
-      bgColor="#009f36"
+      bgColor="primaryGreen"
       height={null}
       midHeight={false}
       style={
@@ -54348,7 +54348,7 @@ exports[`Storyshots Screen.Auth LoginScreen 1`] = `
           testID="LoginScreen"
         >
           <View
-            bgColor="rgba(0,0,0,0)"
+            bgColor="transparent"
             height={null}
             midHeight={true}
             style={
@@ -54524,7 +54524,7 @@ exports[`Storyshots Screen.Auth LoginScreen 1`] = `
             </View>
           </View>
           <View
-            bgColor="rgba(0,0,0,0)"
+            bgColor="transparent"
             height={null}
             midHeight={false}
             style={
@@ -54759,7 +54759,7 @@ exports[`Storyshots Screen.Auth SignupScreen 1`] = `
     }
   >
     <View
-      bgColor="#F5F5F5"
+      bgColor="concrete"
       height={null}
       midHeight={false}
       style={
@@ -56078,7 +56078,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
             }
           />
           <View
-            bgColor="rgba(0,0,0,0)"
+            bgColor="transparent"
             height={null}
             midHeight={false}
             style={
@@ -56937,7 +56937,7 @@ exports[`Storyshots Screens.Debug DebugScreen 1`] = `
     >
       <View>
         <View
-          bgColor="rgba(0,0,0,0)"
+          bgColor="transparent"
           height={null}
           midHeight={false}
           style={
@@ -58155,7 +58155,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
             }
           />
           <View
-            bgColor="rgba(0,0,0,0)"
+            bgColor="transparent"
             height={null}
             midHeigh={true}
             midHeight={false}
@@ -58252,7 +58252,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
             }
           />
           <View
-            bgColor="rgba(0,0,0,0)"
+            bgColor="transparent"
             height={null}
             midHeigh={true}
             midHeight={false}
@@ -58349,7 +58349,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
             }
           />
           <View
-            bgColor="rgba(0,0,0,0)"
+            bgColor="transparent"
             height={null}
             midHeigh={true}
             midHeight={false}
@@ -61257,7 +61257,7 @@ exports[`Storyshots Spots.SpotsList SpotsList big card 1`] = `
     }
   >
     <View
-      bgColor="#e6e6e6"
+      bgColor="silver"
       height={null}
       midHeight={false}
       style={
@@ -61370,7 +61370,7 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
     }
   >
     <View
-      bgColor="#e6e6e6"
+      bgColor="silver"
       height={null}
       midHeight={false}
       style={
