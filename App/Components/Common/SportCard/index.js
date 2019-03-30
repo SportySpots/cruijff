@@ -39,7 +39,7 @@ const SportCard = ({
         )}
         />
         <Spacer row size="XXL" />
-        <Text size="M">{I18n.t(sport.name)}</Text>
+        <Text size="M">{I18n.t(sport.category)}</Text>
       </Row>
     </Block>
   </TouchableOpacity>
