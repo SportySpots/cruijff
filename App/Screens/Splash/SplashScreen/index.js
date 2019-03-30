@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
 import { withLocation, locationPropTypes } from '../../../Context/Location';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import FieldBackground from '../../../Backgrounds/FieldBackground';
 import Block from '../../../Components/Common/Block';
@@ -17,12 +17,6 @@ import globalRefs from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-const Label = styled(Text.ML)`
-  color: ${Colors.white}
-  text-align: center;
-  font-size: 30px;
-`;
 //------------------------------------------------------------------------------
 const FlexOne = styled.View`
   flex: 1;
@@ -40,9 +34,15 @@ class SplashScreen extends React.Component {
 
     return (
       <FieldBackground>
-        <Label testID="splashText">
+        <Text
+          testID="splashText"
+          size="L"
+          color="white"
+          center
+          style={{ fontSize: 30 }}
+        >
           {I18n.t('splashScreen.title')}
-        </Label>
+        </Text>
         <FlexOne />
         <Block>
           <RaisedButton
@@ -62,7 +62,7 @@ class SplashScreen extends React.Component {
                 navigation={navigation}
                 to="LoginScreen"
                 text={I18n.t('splashScreen.loginLink')}
-                color={Colors.white}
+                color="white"
                 underline
               />
             </Row>

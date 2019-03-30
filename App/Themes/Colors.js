@@ -14,7 +14,7 @@ const colors = {
   secondaryLightBlueGreen: 'rgba(0, 53, 58, 0.4)',
   actionYellow: '#f5a623',
   actionBlue: '#019ae8',
-  black54: 'rgba(0,0,0,0.34)',
+  black34: 'rgba(0,0,0,0.34)',
   greenSemi: 'rgba(0,40,0,0.8)',
   white20: 'rgba(255,255,255,.2)',
   white85: 'rgba(255,255,255,0.85)',

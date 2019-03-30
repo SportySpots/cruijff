@@ -1,54 +1,52 @@
-import Colors from '../../../Themes/Colors';
-
 export const getPalette = (status, reverse) => {
   switch (status) {
     case 'default':
       return {
-        fontColor: !reverse ? Colors.white : Colors.actionYellow,
-        bgColor: !reverse ? Colors.actionYellow : Colors.white,
-        borderColor: Colors.actionYellow,
+        fontColor: !reverse ? 'white' : 'actionYellow',
+        bgColor: !reverse ? 'actionYellow' : 'white',
+        borderColor: 'actionYellow',
       };
     case 'primary':
       return {
-        fontColor: !reverse ? Colors.white : Colors.grass,
-        bgColor: !reverse ? Colors.grass : Colors.white,
-        borderColor: Colors.grass,
+        fontColor: !reverse ? 'white' : 'grass',
+        bgColor: !reverse ? 'grass' : 'white',
+        borderColor: 'grass',
       };
     case 'secondary':
       return {
-        fontColor: !reverse ? Colors.white : Colors.gray,
-        bgColor: !reverse ? Colors.gray : Colors.white,
-        borderColor: Colors.gray,
+        fontColor: !reverse ? 'white' : 'gray',
+        bgColor: !reverse ? 'gray' : 'white',
+        borderColor: 'gray',
       };
     case 'warning':
       return {
-        fontColor: !reverse ? Colors.white : Colors.negative,
-        bgColor: !reverse ? Colors.negative : Colors.white,
-        borderColor: Colors.negative,
+        fontColor: !reverse ? 'white' : 'negative',
+        bgColor: !reverse ? 'negative' : 'white',
+        borderColor: 'negative',
       };
     case 'info':
       return {
-        fontColor: !reverse ? Colors.white : Colors.info,
-        bgColor: !reverse ? Colors.info : Colors.white,
-        borderColor: Colors.info,
+        fontColor: !reverse ? 'white' : 'info',
+        bgColor: !reverse ? 'info' : 'white',
+        borderColor: 'info',
       };
     case 'ghost':
       return {
-        fontColor: !reverse ? Colors.black : Colors.white,
-        bgColor: !reverse ? Colors.white : Colors.black,
-        borderColor: Colors.darkGray,
+        fontColor: !reverse ? 'black' : 'white',
+        bgColor: !reverse ? 'white' : 'black',
+        borderColor: 'darkGray',
       };
     case 'dark':
       return {
-        fontColor: !reverse ? Colors.white : Colors.black,
-        bgColor: !reverse ? Colors.black : Colors.white,
-        borderColor: Colors.black,
+        fontColor: !reverse ? 'white' : 'black',
+        bgColor: !reverse ? 'black' : 'white',
+        borderColor: 'black',
       };
     case 'translucid':
       return {
-        fontColor: Colors.primaryGreen,
-        bgColor: Colors.white85,
-        borderColor: Colors.shade,
+        fontColor: 'primaryGreen',
+        bgColor: 'white85',
+        borderColor: 'shade',
       };
     default:
       throw new Error('Unknown status');

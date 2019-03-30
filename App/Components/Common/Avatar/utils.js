@@ -21,3 +21,13 @@ export const convertS3ToImgix = ({ image, height, width }) => (
       // .concat('&fm=png&fit=facearea&facepad=6')
     : image
 );
+
+const SMALL_AVATAR_SIZE = 40;
+const LARGE_AVATAR_SIZE = 80;
+
+export const getSize = (size) => {
+  if (!size || !['S', 'L'].includes(size)) {
+    throw new Error('Size is required');
+  }
+  return size === 'S' ? SMALL_AVATAR_SIZE : LARGE_AVATAR_SIZE;
+};

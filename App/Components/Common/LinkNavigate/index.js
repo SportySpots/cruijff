@@ -22,7 +22,6 @@ const LinkNavigate = ({
   size,
   underline,
 }) => {
-  const TextSize = Text[size];
   const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
@@ -31,16 +30,13 @@ const LinkNavigate = ({
         justifyContent="space-between"
         alignItems="center"
       >
-        <TextSize
-          style={{
-            color,
-            textDecorationLine: underline ? 'underline' : 'none',
-            textDecorationStyle: 'solid',
-            textDecorationColor: color,
-          }}
+        <Text
+          size={size}
+          underline={underline}
+          color={color}
         >
           {text}
-        </TextSize>
+        </Text>
         {!!iconName && (
           <Icon
             name={iconName}
@@ -60,10 +56,10 @@ LinkNavigate.propTypes = {
   params: PropTypes.object, // eslint-disable-line
   to: PropTypes.string,
   text: PropTypes.string,
-  color: PropTypes.string,
+  color: PropTypes.oneOf(Object.keys(Colors)),
   iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
   iconName: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  size: PropTypes.oneOf(Object.keys(Fonts)),
   underline: PropTypes.bool,
 };
 

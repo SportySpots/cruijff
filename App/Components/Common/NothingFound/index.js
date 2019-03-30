@@ -14,17 +14,14 @@ const Container = styled.View`
   align-items: center;
 `;
 //------------------------------------------------------------------------------
-const NotFoundText = styled(Text.L)`
-  color: ${Colors.link};
-  text-align: center;
-`;
-//------------------------------------------------------------------------------
-// STYLE:
+// COMPONENT:
 //------------------------------------------------------------------------------
 const NothingFound = ({ icon, text }) => (
   <Container>
     <Icon name={icon} size={96} color={Colors.link} />
-    <NotFoundText>{text}</NotFoundText>
+    <Text size="L" color="link" center>
+      {text}
+    </Text>
   </Container>
 );
 

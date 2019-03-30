@@ -5,6 +5,7 @@ import Colors from '../../../Themes/Colors';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
+// TODO: color should be one of Colors
 const Block = styled.View`
   padding: ${({ midHeight }) => (midHeight ? '8px 16px' : '16px')};
   height: ${({ height }) => (height ? `${height}px` : 'auto')}

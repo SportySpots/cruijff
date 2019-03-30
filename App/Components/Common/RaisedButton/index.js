@@ -5,28 +5,21 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
-import Text from '../Text';
+import Row from '../Row';
 import Spacer from '../Spacer';
+import Text from '../Text';
 import { getPalette, getPixelsFromSize } from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : bgColor)};
+const StyledRow = styled(Row)`
+  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : Colors[bgColor])};
   height: ${({ size }) => (getPixelsFromSize(size).height)};
   width: ${({ width }) => (width || '100%')};
   min-width: 80px;
   border-radius: ${({ size }) => (getPixelsFromSize(size).borderRadius)};
-  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : borderColor)};
-`;
-//------------------------------------------------------------------------------
-const Label = styled(Text.M)`
-  color: ${({ disabled, fontColor }) => (disabled ? Colors.white : fontColor)};
+  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : Colors[borderColor])};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -43,14 +36,16 @@ const RaisedButton = ({
   ...rest
 }) => {
   const palette = getPalette(variant);
-  const { fontColor, bgColor, borderColor } = palette;
+  const { fontColor, bgColor, borderColor } = palette; // string to be used with Colors[string]
 
   const Root = disabled ? View : TouchableOpacity;
   const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
     <Root {...rest}>
-      <Container
+      <StyledRow
+        justifyContent="center"
+        alignItems="center"
         size={size}
         bgColor={bgColor}
         borderColor={borderColor}
@@ -62,14 +57,17 @@ const RaisedButton = ({
             key="icon"
             name={iconName}
             size={iconSize}
-            color={fontColor}
+            color={Colors[fontColor]}
           />,
           <Spacer key="spacer" row size="L" />,
         ]}
-        <Label fontColor={fontColor} disabled={disabled}>
+        <Text
+          size="M"
+          color={disabled ? 'white' : fontColor}
+        >
           {label}
-        </Label>
-      </Container>
+        </Text>
+      </StyledRow>
     </Root>
   );
 };

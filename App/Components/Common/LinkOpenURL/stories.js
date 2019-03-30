@@ -17,4 +17,14 @@ storiesOf('Common.LinkOpenURL', module)
         iconName="account-circle"
       />
     </Block>
+  ))
+  .add('LinkOpenURL underline', () => (
+    <Block>
+      <LinkOpenURL
+        text="I'm the text"
+        href="I'm the href"
+        iconName="account-circle"
+        underline
+      />
+    </Block>
   ));

@@ -4,6 +4,7 @@ import { Dimensions } from 'react-native';
 import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
+import Block from '../../Common/Block';
 import BackgroundImage from '../BackgroundImage';
 import SpotHeader from '../SpotHeader';
 
@@ -13,6 +14,7 @@ import SpotHeader from '../SpotHeader';
 const CARD_HEIGHT = 240;
 const CARD_WIDTH = Dimensions.get('window').width; // aprox, we are not considering the padding from the parent container
 const FOOTER_HEIGHT = 80;
+
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -26,14 +28,11 @@ const Outer = styled.View`
   elevation: 2;
 `;
 //------------------------------------------------------------------------------
-const Top = styled.View`
+const FlexOne = styled.View`
   flex: 1;
 `;
 //------------------------------------------------------------------------------
-const Bottom = styled.View`
-  height: ${FOOTER_HEIGHT}px;
-  background-color: ${Colors.white};
-  padding: 16px;
+const StyledBlock = styled(Block)`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
@@ -42,7 +41,7 @@ const Bottom = styled.View`
 //------------------------------------------------------------------------------
 const SpotListCard = ({ spot }) => (
   <Outer>
-    <Top>
+    <FlexOne>
       <BackgroundImage
         images={spot.images}
         height={CARD_HEIGHT - FOOTER_HEIGHT}
@@ -50,14 +49,18 @@ const SpotListCard = ({ spot }) => (
         top
         withOverlay={false}
       />
-    </Top>
-    <Bottom>
+    </FlexOne>
+    <StyledBlock
+      midHeight
+      height={FOOTER_HEIGHT}
+      bgColor={Colors.white}
+    >
       <SpotHeader
         spot={spot}
         withDistance
         withGames
       />
-    </Bottom>
+    </StyledBlock>
   </Outer>
 );
 

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import settings from '../../../config';
-
 // import FormProps from '../../../RenderProps/form-props';
 import Block from '../../../Components/Common/Block';
 import Spacer from '../../../Components/Common/Spacer';

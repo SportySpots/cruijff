@@ -17,17 +17,14 @@ const Flex = styled.View`
   flex-wrap: wrap;
 `;
 // -----------------------------------------------------------------------------
-const Url = styled(Text.M)`
-  color: ${Colors.link};
-  text-align: center;
-`;
-// -----------------------------------------------------------------------------
 // COMPONENT:
 // -----------------------------------------------------------------------------
 const ShareLink = ({ link }) => (
-  <Block bgColor={Colors.black54}>
+  <Block bgColor={Colors.black34}>
     <Flex>
-      <Url>{link}</Url>
+      <Text size="M" color="link" center>
+        {link}
+      </Text>
     </Flex>
   </Block>
 );

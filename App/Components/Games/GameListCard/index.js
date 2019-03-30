@@ -7,12 +7,13 @@ import styled from 'styled-components';
 import moment from 'moment';
 import gameFragment from '../../../GraphQL/Games/Fragments/game';
 import Colors from '../../../Themes/Colors';
-import Fonts from '../../../Themes/Fonts';
+// import Fonts from '../../../Themes/Fonts';
 import I18n from '../../../I18n';
 import Text from '../../Common/Text';
 import DotSpacer from '../../Common/DotSpacer';
 import Spacer from '../../Common/Spacer';
 import Row from '../../Common/Row';
+import Avatar from '../../Common/Avatar';
 import BackgroundImage from '../../Spots/BackgroundImage';
 import Organizer from '../Organizer';
 import Attendees from '../Attendees';
@@ -22,8 +23,8 @@ import { getAttendees } from '../utils';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const CARD_HEIGHT = 232;
-const CARD_HEIGHT_CANCELED = 270;
+const CARD_HEIGHT = 192;
+const CARD_HEIGHT_CANCELED = 240;
 const CARD_WIDTH = Dimensions.get('window').width; // aprox, we are not considering the padding from the parent container
 const HEADER_HEIGHT = 58;
 //------------------------------------------------------------------------------
@@ -63,16 +64,6 @@ const Container = styled.View`
   padding: 16px;
 `;
 //------------------------------------------------------------------------------
-const SmallText = styled(Text.SM)`
-  color: ${Colors.white};
-`;
-//------------------------------------------------------------------------------
-const Title = styled(Text.M)`
-  color: ${Colors.white};
-  font-family: ${Fonts.type.emphasis};
-  font-size: 22px;
-`;
-//------------------------------------------------------------------------------
 const iconStyle = { backgroundColor: 'transparent' };
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -90,16 +81,16 @@ const GameListCard = ({ game }) => {
   const isCanceled = status === 'CANCELED';
   const attendees = getAttendees(game.attendees);
   const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
-  const cardHeight = isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT;
+  const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S') * (!!attendees && attendees.length > 0);
 
   return (
     <Outer height={cardHeight}>
       <Top>
         <Organizer organizer={organizer} textSize="M" />
         <DotSpacer />
-        <Text.M>
+        <Text size="M">
           {I18n.t(sport.category)}
-        </Text.M>
+        </Text>
       </Top>
       <Bottom>
         <BackgroundImage
@@ -112,7 +103,9 @@ const GameListCard = ({ game }) => {
           <GameCanceledFlag key="cancel-flag" />,
         ]}
         <Container>
-          <Title numberOfLines={2}>{name}</Title>
+          <Text size="ML" color="white" numberOfLines={2}>
+            {name}
+          </Text>
           <Spacer size="M" />
           <Row>
             <IonIcon
@@ -122,9 +115,9 @@ const GameListCard = ({ game }) => {
               style={iconStyle}
             />
             <Spacer row size="M" />
-            <SmallText>
+            <Text size="SM" color="white">
               {formattedStartTime}
-            </SmallText>
+            </Text>
             <Spacer row size="L" />
             <CommunityIcon
               name="map-marker"
@@ -133,9 +126,9 @@ const GameListCard = ({ game }) => {
               style={iconStyle}
             />
             <Spacer row size="M" />
-            <SmallText>
+            <Text size="SM" color="white">
               {spot.name}
-            </SmallText>
+            </Text>
           </Row>
           {attendees.length > 0 && [
             <Spacer key="spacer" size="L" />,

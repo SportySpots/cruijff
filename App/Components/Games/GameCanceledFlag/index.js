@@ -2,16 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
+import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-const Outer = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
 //------------------------------------------------------------------------------
 const Inner = styled.View`
   background-color: ${Colors.negative};
@@ -20,18 +15,16 @@ const Inner = styled.View`
   padding: 8px 16px;
 `;
 //------------------------------------------------------------------------------
-const WhiteText = styled(Text.M)`
-  color: ${Colors.white};
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const GameCanceledFlag = () => (
-  <Outer>
+  <Row justifyContent="flex-end">
     <Inner>
-      <WhiteText>{I18n.t('gameCanceledFlag.text')}</WhiteText>
+      <Text size="M" color="white">
+        {I18n.t('gameCanceledFlag.text')}
+      </Text>
     </Inner>
-  </Outer>
+  </Row>
 );
 
 export default GameCanceledFlag;

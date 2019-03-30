@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import ErrorHandling from 'error-handling-utils';
 import ImagePicker from 'react-native-image-picker';
-import styled from 'styled-components';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Row from '../Row';
 import Spacer from '../Spacer';
@@ -13,13 +11,6 @@ import Text from '../Text';
 import Avatar from '../Avatar';
 import RaisedButton from '../RaisedButton';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const ErrorMsg = styled(Text)`
-  color: ${Colors.negative};
-  text-align: center;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -113,11 +104,20 @@ class AvatarPickerForm extends React.PureComponent {
 
     return [
       <Row key="avatar" justifyContent="center">
-        <Avatar user={usr} size={80} />
+        <Avatar
+          user={usr}
+          size="L"
+        />
       </Row>,
       <Spacer key="spacer" size="XL" />,
       !!avatarErrors && avatarErrors.length > 0 && [
-        <ErrorMsg key="error">{avatarErrors}</ErrorMsg>,
+        <Text
+          key="error"
+          color="negative"
+          center
+        >
+          {avatarErrors}
+        </Text>,
         <Spacer key="spacer" size="XL" />,
       ],
       <RaisedButton

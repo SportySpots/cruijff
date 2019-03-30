@@ -4,20 +4,20 @@ import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
 import themeImages from '../../../Themes/Images';
 import Text from '../Text';
-import { userToInitials, convertS3ToImgix } from './utils';
+import { userToInitials, convertS3ToImgix, getSize } from './utils';
 
 //------------------------------------------------------------------------------
-// CONSTANTS:
+// AUX FUNCTIONS:
 //------------------------------------------------------------------------------
-const DEFAULT_AVATAR_SIZE = 40;
+const setSize = ({ size }) => getSize(size);
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Circle = styled.View`
-  width: ${({ size }) => (size)};
-  height: ${({ size }) => (size)};
-  border-radius: ${({ size }) => (size)};
-  background-color: ${({ bgColor }) => (bgColor || Colors.primaryGreen)};
+  width: ${setSize};
+  height: ${setSize};
+  border-radius: ${setSize};
+  background-color: ${({ bgColor }) => (Colors[bgColor] || Colors.primaryGreen)};
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -25,22 +25,13 @@ const Circle = styled.View`
 `;
 //------------------------------------------------------------------------------
 const StyledImage = styled.Image`
-  width: ${({ size }) => (size)};
-  height: ${({ size }) => (size)};
-`;
-//------------------------------------------------------------------------------
-const Initials = styled(Text.M)`
-  font-size: ${({ size }) => (size * (18 / 40))}px;
-  padding: 4px;
-  text-align: center;
-  color: ${Colors.white};
+  width: ${setSize};
+  height: ${setSize};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class Avatar extends React.PureComponent {
-  static size = () => DEFAULT_AVATAR_SIZE
-
   render() {
     const { user, text, size } = this.props;
 
@@ -69,14 +60,18 @@ class Avatar extends React.PureComponent {
       user
       && user.name
       && user.name.trim().length > 0
-    );
+    ) || false;
 
     if (hasName) {
       return (
         <Circle size={size}>
-          <Initials size={size}>
+          <Text
+            size={size === 'S' ? 'SM' : 'L'}
+            color="white"
+            center
+          >
             {userToInitials(user)}
-          </Initials>
+          </Text>
         </Circle>
       );
     }
@@ -84,16 +79,20 @@ class Avatar extends React.PureComponent {
     if (text && text.trim().length > 0) {
       return (
         <Circle size={size}>
-          <Text.SM style={{ color: Colors.white }}>
+          <Text
+            size={size === 'S' ? 'SM' : 'L'}
+            color="white"
+            center
+          >
             {text}
-          </Text.SM>
+          </Text>
         </Circle>
       );
     }
 
     // If no user and no text, display default avatar
     return (
-      <Circle bgColor={Colors.transparent} size={size}>
+      <Circle bgColor="transparent" size={size}>
         <StyledImage
           source={themeImages.spotOpenCircle}
           size={size}
@@ -103,6 +102,8 @@ class Avatar extends React.PureComponent {
   }
 }
 
+Avatar.size = getSize;
+
 Avatar.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string,
@@ -111,13 +112,12 @@ Avatar.propTypes = {
     }),
   }),
   text: PropTypes.string,
-  size: PropTypes.number,
+  size: PropTypes.oneOf(['S', 'L']).isRequired,
 };
 
 Avatar.defaultProps = {
   user: null,
   text: '',
-  size: DEFAULT_AVATAR_SIZE,
 };
 
 export default Avatar;

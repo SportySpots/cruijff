@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+// import './polyfills';
 import React, { Component } from 'react';
 import Crashes from 'appcenter-crashes';
 

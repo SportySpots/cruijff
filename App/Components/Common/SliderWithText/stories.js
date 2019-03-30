@@ -11,7 +11,15 @@ const StyledView = styled.View`
 `;
 
 class Container extends React.PureComponent {
-  state = { value: this.props.minimumValue }
+  constructor(props) {
+    super(props);
+
+    const { minimumValue } = props;
+
+    this.state = {
+      value: minimumValue,
+    };
+  }
 
   handleChange = (value) => {
     this.setState({ value });

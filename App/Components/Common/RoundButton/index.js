@@ -13,11 +13,11 @@ const Container = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : bgColor)};
+  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : Colors[bgColor])};
   height: ${({ size }) => (getPixelsFromSize(size))};
   width: ${({ size }) => (getPixelsFromSize(size))};
   border-radius: ${({ size }) => (getPixelsFromSize(size))};
-  border: 0.3px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : borderColor)};
+  border: 0.3px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : Colors[borderColor])};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -32,7 +32,7 @@ const RoundButton = ({
   ...rest
 }) => {
   const palette = getPalette(status, reverse);
-  const { fontColor, bgColor, borderColor } = palette;
+  const { fontColor, bgColor, borderColor } = palette; // string to be used Colors[string]
 
   return (
     <TouchableOpacity onPress={onPress} {...rest}>
@@ -45,7 +45,7 @@ const RoundButton = ({
         <Icon
           name={iconName}
           size={24}
-          color={disabled ? Colors.white : fontColor}
+          color={disabled ? Colors.white : Colors[fontColor]}
         />
       </Container>
     </TouchableOpacity>

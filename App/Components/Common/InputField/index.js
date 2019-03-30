@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import getInputPalette from '../../../Themes/Palettes';
 import Fonts from '../../../Themes/Fonts';
+import Colors from '../../../Themes/Colors';
 import Row from '../Row';
 import Spacer from '../Spacer';
 import Text from '../Text';
@@ -43,7 +44,7 @@ const InputField = ({
   const Root = disabled ? View : TouchableOpacity;
   const Comp = isTextField ? TextField : Dropdown;
   const pointerEvents = isTextField ? 'none' : 'auto';
-  const { baseColor, iconColor, disabledColor, errorColor } = getInputPalette(theme);
+  const { baseColor, iconColor, disabledColor, errorColor } = getInputPalette(theme); // string to be used Colors[string]
 
   let iColor = iconColor;
   if (disabled) { iColor = disabledColor; }
@@ -70,7 +71,7 @@ const InputField = ({
             <Icon
               size={24}
               name="keyboard-arrow-down"
-              color={iColor}
+              color={Colors[iColor]} // TODO: pass iColor instead
             />
           </View>
         </Row>
@@ -85,16 +86,14 @@ const InputField = ({
     (error && 6 * error.replace(' ', '').length) || MIN_WIDTH,
   );
 
-  const TextSize = Text[size];
-
   return (
     <Root onPress={onPress} testID={testID}>
       <Row>
         <View>
           <Spacer size="XXL" />
-          <TextSize style={{ color: baseColor }}>
+          <Text size={size} color={baseColor}>
             {prefix}
-          </TextSize>
+          </Text>
         </View>
         <Spacer row size="ML" />
         <View pointerEvents={pointerEvents}>
@@ -118,15 +117,15 @@ const InputField = ({
           <Icon
             size={24}
             name="keyboard-arrow-down"
-            color={iColor}
+            color={Colors[iColor]}
           />
         </View>
         <Spacer row size="ML" />
         <View>
           <Spacer size="XXL" />
-          <TextSize style={{ color: baseColor }}>
+          <Text size={size} color={baseColor}>
             {suffix}
-          </TextSize>
+          </Text>
         </View>
       </Row>
     </Root>
@@ -140,7 +139,7 @@ InputField.propTypes = {
   suffix: PropTypes.string,
   disabled: PropTypes.bool,
   theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
-  size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  size: PropTypes.oneOf(Object.keys(Fonts)),
   error: PropTypes.string,
   onPress: PropTypes.func,
   fullWidth: PropTypes.bool,

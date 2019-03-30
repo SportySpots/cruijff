@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react-native';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
@@ -23,8 +22,8 @@ const Container = () => (
     query={GET_SPOT_DETAILS}
     variables={{ uuid: dummyNavigator.state.params.spotId }}
   >
-    {({ loading, error, data }) =>
-      (loading || error ? null : (
+    {({ loading, error, data }) => (
+      loading || error ? null : (
         <Block>
           <StyledView>
             <SpotPickerFiled
@@ -35,14 +34,6 @@ const Container = () => (
       ))}
   </Query>
 );
-
-Container.propTypes = {
-  active: PropTypes.bool,
-};
-
-Container.defaultProps = {
-  active: false,
-};
 
 storiesOf('Spots.SpotPickerField', module)
   .add('SpotPickerField default', () => (

@@ -26,7 +26,7 @@ const SpotPickerModal = ({
   onSelect,
   onClose,
 }) => {
-  const header = <Text.ML>{I18n.t('spotPickerModal.header')}</Text.ML>;
+  const header = <Text size="ML">{I18n.t('spotPickerModal.header')}</Text>;
 
   return (
     <DialogModal

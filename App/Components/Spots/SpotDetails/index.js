@@ -12,7 +12,7 @@ import SpotMapWithLinkFallback from '../SpotMapWithLinkFallback';
 import SpotHeader from '../SpotHeader';
 // import SpotRating from './SpotRating';
 import SpotImages from '../SpotImages';
-import SpotProperties from '../SpotProperties';
+// import SpotAmenities from '../SpotAmenities';
 import curatedGames from './utils';
 
 //------------------------------------------------------------------------------
@@ -36,9 +36,11 @@ const SpotDetails = ({ spot, onGamePress, userUUID }) => {
       <SpotHeader spot={spot} withDistance withGames />
     </Block>,
     <SpotMapWithLinkFallback key="spot-map" spot={spot} />,
-    <SpotProperties key="spot-properties" spot={spot} />,
+    // <SpotAmenities key="spot-amenities" spot={spot} />,
     <Block key="games-title">
-      <Text.ML>{I18n.t('spotDetails.activities')}</Text.ML>
+      <Text size="ML">
+        {I18n.t('spotDetails.activities')}
+      </Text>
     </Block>,
     <GamesContainer key="games-list">
       <GamesList

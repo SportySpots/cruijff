@@ -1,60 +1,58 @@
-import Colors from '../../../Themes/Colors';
-
 export const getPalette = (variant) => {
   switch (variant) {
     case 'default':
       return {
-        fontColor: Colors.white,
-        bgColor: Colors.actionYellow,
-        borderColor: Colors.actionYellow,
+        fontColor: 'white',
+        bgColor: 'actionYellow',
+        borderColor: 'actionYellow',
       };
     case 'primary':
       return {
-        fontColor: Colors.white,
-        bgColor: Colors.grass,
-        borderColor: Colors.grass,
+        fontColor: 'white',
+        bgColor: 'grass',
+        borderColor: 'grass',
       };
     case 'secondary':
       return {
-        fontColor: Colors.white,
-        bgColor: Colors.gray,
-        borderColor: Colors.gray,
+        fontColor: 'white',
+        bgColor: 'gray',
+        borderColor: 'gray',
       };
     case 'warning':
       return {
-        fontColor: Colors.white,
-        bgColor: Colors.negative,
-        borderColor: Colors.negative,
+        fontColor: 'white',
+        bgColor: 'negative',
+        borderColor: 'negative',
       };
     case 'info':
       return {
-        fontColor: Colors.white,
-        bgColor: Colors.info,
-        borderColor: Colors.info,
+        fontColor: 'white',
+        bgColor: 'info',
+        borderColor: 'info',
       };
     case 'ghost':
       return {
-        fontColor: Colors.black,
-        bgColor: Colors.white,
-        borderColor: Colors.darkGray,
+        fontColor: 'black',
+        bgColor: 'white',
+        borderColor: 'darkGray',
       };
     case 'facebook':
       return {
-        fontColor: Colors.white,
-        bgColor: Colors.facebook,
-        borderColor: Colors.facebook,
+        fontColor: 'white',
+        bgColor: 'facebook',
+        borderColor: 'facebook',
       };
     case 'google':
       return {
-        fontColor: Colors.black,
-        bgColor: Colors.white,
-        borderColor: Colors.silver,
+        fontColor: 'black',
+        bgColor: 'white',
+        borderColor: 'silver',
       };
     case 'transparent':
       return {
-        fontColor: Colors.white,
-        bgColor: Colors.transparent,
-        borderColor: Colors.white,
+        fontColor: 'white',
+        bgColor: 'transparent',
+        borderColor: 'white',
       };
     default:
       throw new Error('Unknown variant');

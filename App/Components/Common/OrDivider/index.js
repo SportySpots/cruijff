@@ -1,35 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
+import Row from '../Row';
 import Spacer from '../Spacer';
+import Divider from '../Divider';
 import Text from '../Text';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-//------------------------------------------------------------------------------
-const Line = styled.View`
-  border-bottom-width: 2px;
-  border-bottom-color: ${Colors.silver};
+const StyledDivider = styled(Divider)`
   flex-grow: 1;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const OrDivider = () => (
-  <Container>
-    <Line />
+  <Row alignItems="center">
+    <StyledDivider />
     <Spacer row size="M" />
-    <Text.M>{I18n.t('orDivider.txt')}</Text.M>
+    <Text size="M">
+      {I18n.t('orDivider.txt')}
+    </Text>
     <Spacer row size="M" />
-    <Line />
-  </Container>
+    <StyledDivider />
+  </Row>
 );
 
 export default OrDivider;

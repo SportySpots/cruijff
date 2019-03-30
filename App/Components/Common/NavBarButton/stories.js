@@ -10,7 +10,16 @@ storiesOf('Common.NavBarButton', module)
     <View style={{ flex: 1 }}>
       <NavBarButton
         icon={{ set: MaterialIcon, name: 'info' }}
-        buttonText="test"
+        btnLabel="I'm the label"
+      />
+    </View>
+  ))
+  .add('NavBarButton main', () => (
+    <View style={{ flex: 1 }}>
+      <NavBarButton
+        icon={{ set: MaterialIcon, name: 'info' }}
+        btnLabel="I'm the label"
+        main
       />
     </View>
   ));

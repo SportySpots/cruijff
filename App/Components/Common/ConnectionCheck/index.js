@@ -43,12 +43,7 @@ class ConnectionCheck extends React.Component {
         midHeight
         bgColor={Colors.black}
       >
-        <Text
-          style={{
-            color: Colors.white,
-            textAlign: 'center',
-          }}
-        >
+        <Text color="white" center>
           {I18n.t('connectionCheck.noConnection')}
         </Text>
       </Block>

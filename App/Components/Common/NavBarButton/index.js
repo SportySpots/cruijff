@@ -25,10 +25,6 @@ const Center = styled.View`
   justify-content: center;
 `;
 //------------------------------------------------------------------------------
-const Label = styled(Text.S)`
-  color: ${props => (props.color ? props.color : Colors.white)};
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const NavBarButton = ({
@@ -40,20 +36,27 @@ const NavBarButton = ({
   ...otherProps
 }) => {
   const Icon = icon.set;
-  const baseColor = active ? Colors.primaryGreen : Colors.black54;
-  const color = main ? Colors.white : baseColor;
+  const baseColor = active ? 'primaryGreen' : 'black34';
+  const color = main ? 'white' : baseColor;
 
   return (
-    <Button main={main} onPress={onPress} {...otherProps}>
+    <Button
+      main={main}
+      onPress={onPress}
+      {...otherProps}
+    >
       <Center>
         <Icon
           name={icon.name}
           size={main ? 32 : 24}
-          color={color}
+          color={Colors[color]}
         />
-        <Label color={color}>
+        <Text
+          size="S"
+          color={color}
+        >
           {btnLabel}
-        </Label>
+        </Text>
       </Center>
     </Button>
   );

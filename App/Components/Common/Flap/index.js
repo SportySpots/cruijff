@@ -29,7 +29,6 @@ const AbsoluteRowHead = styled(Row)`
 `;
 //------------------------------------------------------------------------------
 const Head = styled(Block)`
-  background-color: ${Colors.white};
   border: 1px solid ${Colors.silver};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -63,7 +62,7 @@ const WhiteBg = styled.View`
 // TODO: add 'size' prop
 const Flap = ({ title }) => {
   // Determine flap based on title length (32 = padding)
-  const fontWidth = Fonts.style.M.fontSize * 0.43;
+  const fontWidth = Fonts.M.fontSize * 0.43;
   const width = title.length * fontWidth + 2 * 32;
 
   return (
@@ -72,7 +71,11 @@ const Flap = ({ title }) => {
         justifyContent="center"
         alignItems="center"
       >
-        <Head midHeight style={{ height: HEIGHT, width }} />
+        <Head
+          midHeight
+          bgColor={Colors.white}
+          style={{ height: HEIGHT, width }}
+        />
       </AbsoluteRowHead>
 
       <AbsoluteRectangle />
@@ -82,14 +85,14 @@ const Flap = ({ title }) => {
         alignItems="center"
       >
         <WhiteBg style={{ width: width - 3 }}>
-          <Text.M style={{ textAlign: 'center' }}>
+          <Text size="M" center>
             {title}
-          </Text.M>
+          </Text>
         </WhiteBg>
       </AbsoluteRowTitle>
     </Relative>
   );
-}
+};
 
 Flap.propTypes = {
   title: PropTypes.string,
