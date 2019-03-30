@@ -27,7 +27,7 @@ const AlertMsg = ({ status, value }) => {
   const { iconName, fontColor, bgColor } = palette; // string to be used Colors[string]
 
   return (
-    <StyledBlock bgColor={Colors[bgColor]}>
+    <StyledBlock bgColor={bgColor}>
       <Row>
         <Icon
           name={iconName}

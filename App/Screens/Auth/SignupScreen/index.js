@@ -3,7 +3,6 @@ import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import settings from '../../../config';
 // import FormProps from '../../../RenderProps/form-props';
 import Block from '../../../Components/Common/Block';
@@ -22,7 +21,7 @@ const Container = styled(Block)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const SignupScreen = ({ navigation, onSuccessHook }) => (
-  <Container bgColor={Colors.concrete}>
+  <Container bgColor="concrete">
     <Spacer size="XL" />
     <RaisedButton
       label={I18n.t('signupScreen.googlePlusBtnLabel')}

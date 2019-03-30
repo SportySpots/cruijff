@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
 import Block from '../../Common/Block';
 
@@ -20,7 +19,7 @@ const Flex = styled.View`
 // COMPONENT:
 // -----------------------------------------------------------------------------
 const ShareLink = ({ link }) => (
-  <Block bgColor={Colors.black34}>
+  <Block bgColor="black34">
     <Flex>
       <Text size="M" color="link" center>
         {link}

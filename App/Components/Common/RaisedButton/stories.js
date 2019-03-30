@@ -29,7 +29,7 @@ storiesOf('Common.RaisedButton', module)
     <RaisedButton variant="ghost" label="label" />
   ))
   .add('RaisedButton transparent', () => (
-    <Block bgColor="green">
+    <Block bgColor="primaryGreen">
       <RaisedButton variant="transparent" label="label" />
     </Block>
   ))

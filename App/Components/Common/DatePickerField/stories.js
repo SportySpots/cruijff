@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import DatePickerField from '.';
 
@@ -57,7 +56,7 @@ storiesOf('Common.DatePickerField', module)
     <Container />
   ))
   .add('DatePickerField white theme', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <Container theme="white" />
     </Block>
   ))

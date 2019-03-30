@@ -51,7 +51,7 @@ class Container extends React.PureComponent {
 }
 
 Container.propTypes = {
-  bgColor: PropTypes.string,
+  bgColor: PropTypes.oneOf(Object.keys(Colors)),
   theme: PropTypes.oneOf(['black', 'white']),
   size: PropTypes.string,
   error: PropTypes.string,
@@ -71,13 +71,13 @@ storiesOf('Common.Dropdown', module)
   ))
   .add('Dropdown with white theme', () => (
     <Container
-      bgColor={Colors.primaryGreen}
+      bgColor="primaryGreen"
       theme="white"
     />
   ))
   .add('Dropdown with white theme size ML', () => (
     <Container
-      bgColor={Colors.primaryGreen}
+      bgColor="primaryGreen"
       theme="white"
       size="ML"
     />
