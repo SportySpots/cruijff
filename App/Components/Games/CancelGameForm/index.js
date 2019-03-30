@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { Alert, View } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import ErrorHandling from 'error-handling-utils';
+import styled from 'styled-components';
 import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
@@ -32,6 +32,12 @@ const INIT_STATE = {
 const INIT_ERRORS = {
   cancelMsg: [],
 };
+//------------------------------------------------------------------------------
+// STYLES:
+//------------------------------------------------------------------------------
+const FlexOne = styled.View`
+  flex: 1;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -153,12 +159,7 @@ class CancelGameForm extends React.PureComponent {
     const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg', I18n.t);
 
     return (
-      <KeyboardAwareScrollView
-        extraHeight={220}
-        enableOnAndroid
-        keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{ flex: 1 }}
-      >
+      <FlexOne>
         <TopLayout>
           <Block>
             <GameProperties game={game} />
@@ -202,7 +203,7 @@ class CancelGameForm extends React.PureComponent {
             onPress={this.handleSubmit}
           />
         </BottomLayout>
-      </KeyboardAwareScrollView>
+      </FlexOne>
     );
   }
 }
