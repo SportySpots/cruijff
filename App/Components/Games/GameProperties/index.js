@@ -14,15 +14,13 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Label = ({ children, ...rest }) => (
+const Label = props => (
   <Text
     size="SM"
     color="black"
     style={{ flex: 1 }}
-    {...rest}
-  >
-    {children}
-  </Text>
+    {...props}
+  />
 );
 //------------------------------------------------------------------------------
 // COMPONENT:
