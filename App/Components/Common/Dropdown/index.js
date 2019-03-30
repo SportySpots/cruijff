@@ -56,7 +56,7 @@ const Dropdown = ({
       style={{
         fontSize: Fonts[size].fontSize,
         fontWeight: 'normal',
-        fontFamily: Fonts[size].fontFamily,
+        fontFamily: Fonts.SM.fontFamily,
         marginTop: 8,
         color: disabled ? Colors[disabledColor] : Colors[fontColor],
         ...style,
