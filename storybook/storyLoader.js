@@ -32,8 +32,8 @@ function loadStories() {
   require('../App/Components/Common/Icon/stories');
   // require('../App/Components/Common/ImageSwiper/stories');
   // require('../App/Components/Common/InputField/stories');
-  require('../App/Components/Common/LinkNavigate/stories');
-  // require('../App/Components/Common/LinkOpenURL/stories');
+  // require('../App/Components/Common/LinkNavigate/stories');
+  require('../App/Components/Common/LinkOpenURL/stories');
   // require('../App/Components/Common/LocationPickerField/stories');
   // require('../App/Components/Common/Logo/stories');
   // require('../App/Components/Common/Menu/stories');
@@ -161,8 +161,8 @@ const stories = [
   '../App/Components/Common/Icon/stories',
   // '../App/Components/Common/ImageSwiper/stories',
   // '../App/Components/Common/InputField/stories',
-  '../App/Components/Common/LinkNavigate/stories',
-  // '../App/Components/Common/LinkOpenURL/stories',
+  // '../App/Components/Common/LinkNavigate/stories',
+  '../App/Components/Common/LinkOpenURL/stories',
   // '../App/Components/Common/LocationPickerField/stories',
   // '../App/Components/Common/Logo/stories',
   // '../App/Components/Common/Menu/stories',
