@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import Colors from '../../../Themes/Colors';
 import RoundButton from '.';
 
 storiesOf('Common.RoundButton', module)
@@ -12,7 +11,7 @@ storiesOf('Common.RoundButton', module)
     <RoundButton status="primary" iconName="plus" />
   ))
   .add('RoundButton translucid', () => (
-    <View style={{ height: 100, backgroundColor: Colors.black }}>
+    <View style={{ height: 100, backgroundColor: 'black' }}>
       <RoundButton status="translucid" iconName="plus" />
     </View>
   ))

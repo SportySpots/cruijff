@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
+import Icon from '../Icon';
 import { getPalette, getPixelsFromSize } from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.View`
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : Colors[bgColor])};
@@ -22,6 +22,7 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: add iconSet prop
 const RoundButton = ({
   iconName,
   status,
@@ -43,9 +44,10 @@ const RoundButton = ({
         disabled={disabled}
       >
         <Icon
-          name={iconName}
+          iconSet="MaterialCommunityIcons"
+          iconName={iconName}
           size={24}
-          color={disabled ? Colors.white : Colors[fontColor]}
+          color={disabled ? 'white' : fontColor}
         />
       </Container>
     </TouchableOpacity>
