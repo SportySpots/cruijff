@@ -72,12 +72,12 @@ function loadStories() {
   // require('../App/Components/Games/AdminMenu/stories');
   // require('../App/Components/Games/Attendees/stories');
   // require('../App/Components/Games/CancelGameForm/stories');
-  require('../App/Components/Games/ClickableAttendees/stories');
+  // require('../App/Components/Games/ClickableAttendees/stories');
   // require('../App/Components/Games/DescriptionReadMore/stories');
   // require('../App/Components/Games/EditGameForm/stories');
   // require('../App/Components/Games/GameCanceledFlag/stories');
   // require('../App/Components/Games/GameDetails/stories');
-  // require('../App/Components/Games/GameListCard/stories');
+  require('../App/Components/Games/GameListCard/stories');
   // require('../App/Components/Games/GameProperties/stories');
   // require('../App/Components/Games/GamesList/stories');
   // require('../App/Components/Games/OpenSpots/stories');
@@ -201,12 +201,12 @@ const stories = [
   // '../App/Components/Games/AdminMenu/stories',
   // '../App/Components/Games/Attendees/stories',
   // '../App/Components/Games/CancelGameForm/stories',
-  '../App/Components/Games/ClickableAttendees/stories',
+  // '../App/Components/Games/ClickableAttendees/stories',
   // '../App/Components/Games/DescriptionReadMore/stories',
   // '../App/Components/Games/EditGameForm/stories',
   // '../App/Components/Games/GameCanceledFlag/stories',
   // '../App/Components/Games/GameDetails/stories',
-  // '../App/Components/Games/GameListCard/stories',
+  '../App/Components/Games/GameListCard/stories',
   // '../App/Components/Games/GameProperties/stories',
   // '../App/Components/Games/GamesList/stories',
   // '../App/Components/Games/OpenSpots/stories',
