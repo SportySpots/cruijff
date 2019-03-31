@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components';
 import Fonts from '../../../Themes/Fonts';
 import Colors from '../../../Themes/Colors';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
+import Icon from '../../Common/Icon';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -40,9 +40,10 @@ const ClosableLayout = ({
         {closable && (
           <TouchableOpacity onPress={onClose}>
             <Icon
-              name="close"
+              iconSet="MaterialCommunityIcons"
+              iconName="close"
               size={Fonts.L.fontSize}
-              color={isWhiteTheme ? Colors.white : Colors.black}
+              color={isWhiteTheme ? 'white' : 'black'}
             />
           </TouchableOpacity>
         )}
