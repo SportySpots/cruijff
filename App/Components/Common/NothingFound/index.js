@@ -15,12 +15,11 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: pass iconSet and iconName props
-const NothingFound = ({ icon, text }) => (
+const NothingFound = ({ iconSet, iconName, text }) => (
   <Container>
     <Icon
-      iconSet="MaterialCommunityIcons"
-      iconName={icon}
+      iconSet={iconSet}
+      iconName={iconName}
       size={96}
       color="link"
     />
@@ -31,7 +30,8 @@ const NothingFound = ({ icon, text }) => (
 );
 
 NothingFound.propTypes = {
-  icon: PropTypes.string.isRequired,
+  iconSet: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 

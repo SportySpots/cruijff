@@ -10,10 +10,11 @@ storiesOf('Profile.UserSpots', module)
       query={GET_USER_DETAILS}
       variables={{ uuid: 455 }}
     >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
+      {({ loading, error, data }) => (
+        loading || error ? null : (
           <UserSpots spots={data.user.profile.spots} />
         ))
       }
     </Query>
-  ));
+  ))
+  .add('UserSpots no results', () => <UserSpots spots={[]} />);

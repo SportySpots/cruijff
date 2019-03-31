@@ -5,7 +5,8 @@ import NothingFound from '.';
 storiesOf('Common.NothingFound', module)
   .add('NothingFound', () => (
     <NothingFound
-      icon="map-marker"
+      iconSet="MaterialCommunityIcons"
+      iconName="map-marker"
       text="Oops, nothing found"
     />
   ));
