@@ -14,7 +14,7 @@ const Icon = ({
   size,
   ...rest
 }) => {
-  const IconNative = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
+  const IconNative = iconSet === 'MaterialIcons' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
     <IconNative
@@ -27,7 +27,7 @@ const Icon = ({
 };
 
 Icon.propTypes = {
-  iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
+  iconSet: PropTypes.oneOf(['MaterialIcons', 'MaterialCommunityIcons']),
   iconName: PropTypes.string.isRequired,
   color: PropTypes.oneOf(Object.keys(Colors)),
   size: PropTypes.number,

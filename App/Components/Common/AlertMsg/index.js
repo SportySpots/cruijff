@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import Block from '../Block';
+import Icon from '../Icon';
 import Row from '../Row';
 import Spacer from '../Spacer';
 import getPalette from './utils';
@@ -30,9 +29,10 @@ const AlertMsg = ({ status, value }) => {
     <StyledBlock bgColor={bgColor}>
       <Row>
         <Icon
-          name={iconName}
+          iconSet="MaterialCommunityIcons"
+          iconName={iconName}
           size={24}
-          color={Colors[fontColor]}
+          color={fontColor}
         />
         <Spacer row size="M" />
         <FlexOne>
