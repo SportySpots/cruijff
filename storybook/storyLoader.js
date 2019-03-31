@@ -14,11 +14,11 @@ function loadStories() {
   // require('../App/Components/Common/Avatar/stories');
   // require('../App/Components/Common/AvatarPicker/stories');
   // require('../App/Components/Common/Block/stories');
-  require('../App/Components/Common/Calendar/stories');
+  // require('../App/Components/Common/Calendar/stories');
   // require('../App/Components/Common/CapacityPicker/stories');
   // require('../App/Components/Common/CapacityPickerField/stories');
   // require('../App/Components/Common/CenteredActivityIndicator/stories');
-  // require('../App/Components/Common/Checkbox/stories');
+  require('../App/Components/Common/Checkbox/stories');
   // require('../App/Components/Common/ConnectionCheck/stories');
   // require('../App/Components/Common/DarkFooter/stories');
   // require('../App/Components/Common/DarkFooterButton/stories');
@@ -143,11 +143,11 @@ const stories = [
   // '../App/Components/Common/Avatar/stories',
   // '../App/Components/Common/AvatarPicker/stories',
   // '../App/Components/Common/Block/stories',
-  '../App/Components/Common/Calendar/stories',
+  // '../App/Components/Common/Calendar/stories',
   // '../App/Components/Common/CapacityPicker/stories',
   // '../App/Components/Common/CapacityPickerField/stories',
   // '../App/Components/Common/CenteredActivityIndicator/stories',
-  // '../App/Components/Common/Checkbox/stories',
+  '../App/Components/Common/Checkbox/stories',
   // '../App/Components/Common/ConnectionCheck/stories',
   // '../App/Components/Common/DarkFooter/stories',
   // '../App/Components/Common/DarkFooterButton/stories',
