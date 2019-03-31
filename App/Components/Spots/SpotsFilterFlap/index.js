@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 // import { TouchableOpacity } from 'react-native';
 import { Query } from 'react-apollo';
 import { FlatList } from 'react-native';
-// import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
+// import Icon from '../../Common/Icon';
 import Tag from '../../Common/Tag';
 
 //------------------------------------------------------------------------------
@@ -80,8 +80,13 @@ const SpotsFilterFlap = ({
             />
           </FlexOne>
           {/* <TouchableOpacity onPress={onClose}>
-            <Icon size={24} name="close" color="black" />
-              </TouchableOpacity> */}
+            <Icon
+              iconSet="MaterialIcons"
+              iconName="close"
+              size={24}
+              color="black"
+            />
+          </TouchableOpacity> */}
         </Row>
       );
     }}

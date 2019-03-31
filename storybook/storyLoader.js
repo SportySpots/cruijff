@@ -108,7 +108,7 @@ function loadStories() {
   // require('../App/Components/Spots/SpotListCard/stories');
   // require('../App/Components/Spots/SpotListCardSmall/stories');
   // require('../App/Components/Spots/SpotMap/stories');
-  // require('../App/Components/Spots/SpotsFilterFlap/stories');
+  require('../App/Components/Spots/SpotsFilterFlap/stories');
   // require('../App/Components/Spots/SpotsList/stories');
   // require('../App/Screens/Auth/CheckEmailScreen/stories');
   // require('../App/Screens/Auth/ConfirmMagicTokenScreen/stories');
@@ -237,7 +237,7 @@ const stories = [
   // '../App/Components/Spots/SpotListCard/stories',
   // '../App/Components/Spots/SpotListCardSmall/stories',
   // '../App/Components/Spots/SpotMap/stories',
-  // '../App/Components/Spots/SpotsFilterFlap/stories',
+  '../App/Components/Spots/SpotsFilterFlap/stories',
   // '../App/Components/Spots/SpotsList/stories',
   // '../App/Screens/Auth/CheckEmailScreen/stories',
   // '../App/Screens/Auth/ConfirmMagicTokenScreen/stories',
