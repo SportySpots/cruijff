@@ -31,6 +31,7 @@ storiesOf('Common.LinkNavigate', module)
         navigation={navigation}
         to="MainNav"
         text="I'm the text"
+        iconSet="MaterialIcons"
         iconName="account-circle"
       />
     </Block>
