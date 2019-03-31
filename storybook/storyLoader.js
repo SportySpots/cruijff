@@ -28,10 +28,10 @@ function loadStories() {
   // require('../App/Components/Common/Dropdown/stories');
   // require('../App/Components/Common/DurationPickerField/stories');
   // require('../App/Components/Common/Flap/stories');
-  require('../App/Components/Common/HeaderBtn/stories');
+  // require('../App/Components/Common/HeaderBtn/stories');
   require('../App/Components/Common/Icon/stories');
   // require('../App/Components/Common/ImageSwiper/stories');
-  // require('../App/Components/Common/InputField/stories');
+  require('../App/Components/Common/InputField/stories');
   // require('../App/Components/Common/LinkNavigate/stories');
   // require('../App/Components/Common/LinkOpenURL/stories');
   // require('../App/Components/Common/LocationPickerField/stories');
@@ -157,10 +157,10 @@ const stories = [
   // '../App/Components/Common/Dropdown/stories',
   // '../App/Components/Common/DurationPickerField/stories',
   // '../App/Components/Common/Flap/stories',
-  '../App/Components/Common/HeaderBtn/stories',
+  // '../App/Components/Common/HeaderBtn/stories',
   '../App/Components/Common/Icon/stories',
   // '../App/Components/Common/ImageSwiper/stories',
-  // '../App/Components/Common/InputField/stories',
+  '../App/Components/Common/InputField/stories',
   // '../App/Components/Common/LinkNavigate/stories',
   // '../App/Components/Common/LinkOpenURL/stories',
   // '../App/Components/Common/LocationPickerField/stories',
