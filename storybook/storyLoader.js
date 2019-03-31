@@ -108,7 +108,8 @@ function loadStories() {
   // require('../App/Components/Spots/SpotListCard/stories');
   // require('../App/Components/Spots/SpotListCardSmall/stories');
   // require('../App/Components/Spots/SpotMap/stories');
-  require('../App/Components/Spots/SpotsFilterFlap/stories');
+  // require('../App/Components/Spots/SpotsFilterFlap/stories');
+  require('../App/Navigation/StackBackHeader/stories');
   // require('../App/Components/Spots/SpotsList/stories');
   // require('../App/Screens/Auth/CheckEmailScreen/stories');
   // require('../App/Screens/Auth/ConfirmMagicTokenScreen/stories');
@@ -219,7 +220,7 @@ const stories = [
   // '../App/Components/Onboarding/OnboardingForm/stories',
   // '../App/Components/PlanGame/InviteOnly/stories',
   // '../App/Components/PlanGame/PlanGameForm/stories',
-  '../App/Components/PlanGame/ShareGameForm/stories',
+  // '../App/Components/PlanGame/ShareGameForm/stories',
   // '../App/Components/PlanGame/ShareLink/stories',
   // '../App/Components/PlanGame/SportDateTimeSlide/stories',
   // '../App/Components/PlanGame/SpotSlide/stories',
@@ -237,7 +238,8 @@ const stories = [
   // '../App/Components/Spots/SpotListCard/stories',
   // '../App/Components/Spots/SpotListCardSmall/stories',
   // '../App/Components/Spots/SpotMap/stories',
-  '../App/Components/Spots/SpotsFilterFlap/stories',
+  // '../App/Components/Spots/SpotsFilterFlap/stories',
+  '../App/Navigation/StackBackHeader/stories',
   // '../App/Components/Spots/SpotsList/stories',
   // '../App/Screens/Auth/CheckEmailScreen/stories',
   // '../App/Screens/Auth/ConfirmMagicTokenScreen/stories',
