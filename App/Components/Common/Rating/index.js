@@ -1,42 +1,30 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Colors from '../../../Themes/Colors';
+import Row from '../Row';
+import Spacer from '../Spacer';
+import Icon from '../Icon';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Container = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-//------------------------------------------------------------------------------
-const Star = styled(Icon)`
-  color: ${Colors.black34};
-  padding-right: 10px;
-`;
-//------------------------------------------------------------------------------
-const FullStar = styled(Icon)`
-  color: ${Colors.primaryGreen};
-  padding-right: 10px;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Rating = ({ rating, onPress }) => (
-  <Container>
-    {[1, 2, 3, 4, 5].map((i) => {
-      const IconComp = i <= rating ? FullStar : Star;
-      return (
-        <TouchableOpacity key={i} onPress={() => { onPress(i); }}>
-          <IconComp name="stars" size={24} />
-        </TouchableOpacity>
-      );
-    })}
-  </Container>
+  <Row alignItems="center">
+    {[1, 2, 3, 4, 5].map(i => [
+      <TouchableOpacity
+        key={`star-${i}`}
+        onPress={() => { onPress(i); }}
+      >
+        <Icon
+          iconSet="MaterialIcons"
+          iconName="stars"
+          size={24}
+          color={i <= rating ? 'primaryGreen' : 'black34'}
+        />
+      </TouchableOpacity>,
+      <Spacer row key={`spacer-${i}`} />,
+    ])}
+  </Row>
 );
 
 Rating.propTypes = {
