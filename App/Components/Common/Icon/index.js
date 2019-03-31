@@ -27,7 +27,7 @@ const Icon = ({
 };
 
 Icon.propTypes = {
-  iconSet: PropTypes.oneOf(['MaterialIcons', 'MaterialCommunityIcons']),
+  iconSet: PropTypes.oneOf(['MaterialIcons', 'MaterialCommunityIcons']).isRequired,
   iconName: PropTypes.string.isRequired,
   color: PropTypes.oneOf(Object.keys(Colors)),
   size: PropTypes.number,
@@ -35,7 +35,6 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  iconSet: 'MaterialIcon',
   color: 'black',
   size: 24,
 };
