@@ -65,7 +65,7 @@ class LoginScreen extends React.Component {
               <Spacer size="XL" />
               <RaisedButton
                 label={I18n.t('loginScreen.googlePlusBtnLabel')}
-                iconSet="MaterialCommunityIcon"
+                iconSet="MaterialCommunityIcons"
                 iconName="google"
                 iconSize={20}
                 variant="google"
@@ -74,7 +74,7 @@ class LoginScreen extends React.Component {
               <Spacer size="XXL" />
               <RaisedButton
                 label={I18n.t('loginScreen.facebookBtnLabel')}
-                iconSet="MaterialCommunityIcon"
+                iconSet="MaterialCommunityIcons"
                 iconName="facebook-box"
                 variant="facebook"
                 onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/facebook/login?process=login`)}
