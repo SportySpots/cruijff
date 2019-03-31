@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import getInputPalette from '../../../Themes/Palettes';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import ModalProps from '../../../RenderProps/modal-props';
 import Row from '../Row';
 import Spacer from '../Spacer';
+import Icon from '../Icon';
 import SpotHeader from '../../Spots/SpotHeader';
 import SpotPickerModal from '../Modals/SpotPickerModal';
 
@@ -30,7 +30,7 @@ const SpotPickerField = ({
   disabled,
 }) => {
   const Root = disabled ? View : TouchableOpacity;
-  const { iconColor, disabledColor } = getInputPalette(theme);
+  const { iconColor, disabledColor } = getInputPalette(theme); // string to be used Colors[string]
 
   return (
     <ModalProps>
@@ -46,8 +46,9 @@ const SpotPickerField = ({
             </FlexGrow>
             <Spacer row size="M" />
             <Icon
+              iconSet="MaterialIcons"
+              iconName="keyboard-arrow-down"
               size={24}
-              name="keyboard-arrow-down"
               color={disabled ? disabledColor : iconColor}
             />
           </Row>
