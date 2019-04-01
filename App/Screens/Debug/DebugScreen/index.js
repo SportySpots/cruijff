@@ -8,6 +8,14 @@ import Text from '../../../Components/Common/Text';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import { log } from '../../../config';
 
+const safeStringify = (obj) => {
+  try {
+    return JSON.stringify(obj);
+  } catch (e) {
+    return '[Unserializable object]';
+  }
+};
+
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -32,7 +40,7 @@ const DebugScreen = ({ navigation }) => (
             <Text size="S" selectable>{logTime}</Text>
             {Object.keys(args).map(innerIdx => (
               <Text size="S" key={innerIdx} selectable>
-                {JSON.stringify(args[innerIdx])}
+                {safeStringify(args[innerIdx])}
               </Text>
             ))}
           </View>,
