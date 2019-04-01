@@ -667,6 +667,13 @@
     "title": "Choose your sport location:"
   },
 
+  "notificationPermissionSlide": {
+    "title": "Notificaties",
+    "text": "Mogen we je push notificaties sturen?",
+    "buttonYes": "Ja",
+    "buttonNo": "Nee"
+  },
+
   "queryCatchErrors": {
     "errorMsg": "Oeps, er is iets mis gegaan"
   }

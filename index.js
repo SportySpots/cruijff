@@ -1,6 +1,8 @@
-import { AppRegistry } from 'react-native';
+import { AppRegistry, AsyncStorage } from 'react-native';
 import './App/prototypes';
 import App from './App/App';
+
+AsyncStorage.removeItem('userLocation');
 
 // https://github.com/apollographql/apollo-client/issues/3236
 Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
@@ -10,4 +12,3 @@ Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 };
 
 AppRegistry.registerComponent('SportySpots', () => App);
-
