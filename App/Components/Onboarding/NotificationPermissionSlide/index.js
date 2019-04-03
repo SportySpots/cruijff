@@ -15,8 +15,10 @@ import RaisedButton from '../../Common/RaisedButton';
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-export const INIT_STATE = {
-  location: null,
+export const NOTIFICATION_PERMISSION = {
+  UNDEFINED: null,
+  YES: 'yes',
+  NO: 'no',
 };
 //------------------------------------------------------------------------------
 // STYLE:
@@ -31,11 +33,18 @@ const ButtonContainer = styled(View)`
 //------------------------------------------------------------------------------
 class NotificationPermissionSlide extends React.PureComponent {
   onYes = async () => {
+    const { onChange } = this.props;
     const hasPermission = await firebase.messaging().requestPermission();
+    onChange({ fieldName: 'notificationPermission', value: hasPermission ? NOTIFICATION_PERMISSION.YES : NOTIFICATION_PERMISSION.NO });
+  }
+
+  onNo = () => {
+    const { onChange } = this.props;
+    onChange({ fieldName: 'notificationPermission', value: NOTIFICATION_PERMISSION.NO });
   }
 
   render() {
-    const { location, onChange } = this.props;
+    const { notificationPermission } = this.props;
 
     return (
       <ImageBackground image={Images.locationOnboarding}>
@@ -49,8 +58,16 @@ class NotificationPermissionSlide extends React.PureComponent {
           <Block>
             <Text color="white">{ I18n.t('notificationPermissionSlide.text') }</Text>
             <ButtonContainer>
-              <RaisedButton onPress={this.onYes} variant="primary" label={I18n.t('notificationPermissionSlide.buttonYes')} />
-              <RaisedButton variant="secondary" label={I18n.t('notificationPermissionSlide.buttonNo')} />
+              <RaisedButton
+                onPress={this.onYes}
+                variant={notificationPermission === NOTIFICATION_PERMISSION.YES ? 'default' : 'transparent'}
+                label={I18n.t('notificationPermissionSlide.buttonYes')}
+              />
+              <RaisedButton
+                onPress={this.onNo}
+                variant={notificationPermission === NOTIFICATION_PERMISSION.NO ? 'default' : 'transparent'}
+                label={I18n.t('notificationPermissionSlide.buttonNo')}
+              />
             </ButtonContainer>
           </Block>
         </ScrollView>
@@ -59,23 +76,15 @@ class NotificationPermissionSlide extends React.PureComponent {
   }
 }
 
-NotificationPermissionSlide.requiredFields = ['hasChosen'];
+NotificationPermissionSlide.requiredFields = ['notificationPermission'];
 
 NotificationPermissionSlide.propTypes = {
-  location: PropTypes.shape({
-    id: PropTypes.string,
-    city: PropTypes.string,
-    country: PropTypes.string,
-    coords: PropTypes.shape({
-      latitude: PropTypes.number,
-      longitude: PropTypes.number,
-    }),
-  }),
+  notificationPermission: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 NotificationPermissionSlide.defaultProps = {
-  location: null,
+  notificationPermission: null,
   onChange: () => {},
 };
 

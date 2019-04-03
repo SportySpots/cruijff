@@ -12,7 +12,7 @@ import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../Common/DarkFooter';
 import LocationSlide, { INIT_STATE as LOCATION_INIT_STATE } from '../LocationSlide';
-import NotificationPermissionSlide from '../NotificationPermissionSlide';
+import NotificationPermissionSlide, { NOTIFICATION_PERMISSION } from '../NotificationPermissionSlide';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -57,9 +57,9 @@ const getSlides = async () => {
   ];
 
   const hasNotificationPermission = await firebase.messaging().hasPermission();
-  if (!hasNotificationPermission || true) {
+  if (!hasNotificationPermission) {
     slides.push({
-      id: 'locationSlide',
+      id: 'notificationPermissionSlide',
       Comp: NotificationPermissionSlide,
       requiredFields: NotificationPermissionSlide.requiredFields,
     });
@@ -89,6 +89,7 @@ class OnboardingForm extends React.Component {
     this.state = {
       slides: null,
       curSlide: 0,
+      notificationPermission: NOTIFICATION_PERMISSION.UNDEFINED,
       ...cloneDeep(INIT_STATE),
     };
 
@@ -111,8 +112,8 @@ class OnboardingForm extends React.Component {
 
     // Disable next btn (return 'true') if at least on of the required fields isn't set
     if (requiredFields) {
-      for (let i = 0; i < requiredFields.length; i += 1) {
-        const fieldName = requiredFields[i];
+      for (const fieldName of requiredFields) {
+        // const fieldName = requiredFields[i];
         if (!this.state[fieldName]) { // eslint-disable-line
           return true;
         }

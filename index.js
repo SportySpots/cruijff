@@ -2,8 +2,6 @@ import { AppRegistry, AsyncStorage } from 'react-native';
 import './App/prototypes';
 import App from './App/App';
 
-AsyncStorage.removeItem('userLocation');
-
 // https://github.com/apollographql/apollo-client/issues/3236
 Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 // eslint-disable-next-line no-proto
