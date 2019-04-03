@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import LocationSlide from '.';
+import NotificationPermissionSlide, { NOTIFICATION_PERMISSION } from '.';
 
 class Container extends React.PureComponent {
   state = {
-    location: null,
+    notificationPermission: NOTIFICATION_PERMISSION.UNDEFINED,
   }
 
   handleChange = ({ fieldName, value }) => {
@@ -13,16 +13,16 @@ class Container extends React.PureComponent {
   }
 
   render() {
-    const { location } = this.state;
+    const { notificationPermission } = this.state;
 
     return (
-      <LocationSlide
-        location={location}
+      <NotificationPermissionSlide
+        notificationPermission={notificationPermission}
         onChange={this.handleChange}
       />
     );
   }
 }
 
-storiesOf('Onboarding.LocationSlide', module)
-  .add('LocationSlide', () => <Container />);
+storiesOf('Onboarding.NotificationPermissionSlide', module)
+  .add('NotificationPermissionSlide', () => <Container />);
