@@ -25,11 +25,8 @@ storiesOf('Spots.SpotImage', module)
             <SpotImage
               images={data.spot.images}
               style={imgStyle}
-<<<<<<< HEAD
-=======
               height={200}
               width={300}
->>>>>>> e7eb30acc4cb31a5d347da6fe2f9c3ccfb5488c5
             />
           </Container>
         ))
