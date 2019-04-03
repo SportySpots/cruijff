@@ -1,7 +1,7 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
 import { Dimensions } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import moment from 'moment';
 import gameFragment from '../../../GraphQL/Games/Fragments/game';
 import Colors from '../../../Themes/Colors';

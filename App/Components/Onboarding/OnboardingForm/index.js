@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Keyboard, View } from 'react-native';
 import firebase from 'react-native-firebase';
 import Swiper from 'react-native-swiper';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import I18n from '../../../I18n';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, View } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
 import Spacer from '../../../Components/Common/Spacer';

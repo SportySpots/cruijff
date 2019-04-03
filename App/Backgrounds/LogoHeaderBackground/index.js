@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Spacer from '../../Components/Common/Spacer';
 import Logo from '../../Components/Common/Logo';
 import Text from '../../Components/Common/Text';

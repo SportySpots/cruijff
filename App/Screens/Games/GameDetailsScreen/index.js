@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
 import { Query } from 'react-apollo';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import client from '../../../GraphQL/ApolloClient';

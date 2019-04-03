@@ -31540,7 +31540,7 @@ exports[`Storyshots Common.NavDot NavDot active 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#000",
+          "backgroundColor": "black",
           "height": 100,
         }
       }
@@ -31651,7 +31651,7 @@ exports[`Storyshots Common.NavDot NavDot default 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#000",
+          "backgroundColor": "black",
           "height": 100,
         }
       }

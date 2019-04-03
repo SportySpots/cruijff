@@ -1,7 +1,7 @@
 import React from 'react';
 import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import settings from '../../../config';
 // import FormProps from '../../../RenderProps/form-props';

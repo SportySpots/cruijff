@@ -1,7 +1,7 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
 import { Dimensions } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Block from '../../Common/Block';
 import BackgroundImage from '../BackgroundImage';

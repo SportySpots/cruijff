@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { ScrollView } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { withUser, userPropTypes } from '../../../Context/User';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Text from '../../../Components/Common/Text';

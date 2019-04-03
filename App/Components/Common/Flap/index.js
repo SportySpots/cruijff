@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Fonts from '../../../Themes/Fonts';
 import Block from '../Block';
 import Row from '../Row';

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import Row from '../Row';

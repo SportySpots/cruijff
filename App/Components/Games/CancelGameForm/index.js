@@ -5,7 +5,7 @@ import { Alert, View } from 'react-native';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import ErrorHandling from 'error-handling-utils';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';

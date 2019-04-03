@@ -1,8 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
 import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
+import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import SpotSlide from '.';
 
 describe('SpotSlide', () => {
@@ -19,7 +21,9 @@ describe('SpotSlide', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(
       <ApolloMockProvider>
-        <SpotSlide />
+        <ThemeProvider theme={scTheme}>
+          <SpotSlide />
+        </ThemeProvider>
       </ApolloMockProvider>,
     ).toJSON();
     expect(rendered).toBeTruthy();

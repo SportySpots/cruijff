@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../../I18n';
 import spotFragment from '../../../../GraphQL/Spots/Fragments/spot';
 import sportFragment from '../../../../GraphQL/Sports/Fragments/sport';

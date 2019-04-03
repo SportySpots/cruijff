@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import { TouchableOpacity } from 'react-native';
 import { Query } from 'react-apollo';
 import { FlatList } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import GET_SPORTS from '../../../GraphQL/Sports/Queries/GET_SPORTS';
 import Row from '../../Common/Row';

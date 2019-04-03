@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AsyncStorage, Image } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import firebase from 'react-native-firebase';
 import client from '../../../GraphQL/ApolloClient';
 import SeedorfAPI from '../../../Services/SeedorfApi';

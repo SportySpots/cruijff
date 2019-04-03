@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 const Divider = styled.View`
   border-bottom-width: ${({ row }) => (row ? 0 : 1)}px;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import firebase from 'react-native-firebase';
 // import { NavigationActions } from 'react-navigation';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import Row from '../Row';
 import NavBarButton from '../NavBarButton';

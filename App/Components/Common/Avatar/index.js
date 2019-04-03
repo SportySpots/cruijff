@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import themeImages from '../../../Themes/Images';
 import Text from '../Text';
 import { userToInitials, convertS3ToImgix, getSize } from './utils';

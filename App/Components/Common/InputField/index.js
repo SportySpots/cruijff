@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import getInputPalette from '../../../Themes/Palettes';
 import Fonts from '../../../Themes/Fonts';
 import Row from '../Row';
