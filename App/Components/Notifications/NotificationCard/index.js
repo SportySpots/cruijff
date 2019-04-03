@@ -20,7 +20,7 @@ const IMG_WIDTH = 75;
 //------------------------------------------------------------------------------
 const RowContainer = styled(Row)`
   height: ${CARD_HEIGHT}px;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 const Left = styled.View`
@@ -34,14 +34,14 @@ const Right = styled.View`
   width: ${IMG_WIDTH}px;
 `;
 //------------------------------------------------------------------------------
-const Title = styled(Text.S)`
-  color: ${Colors.dusk}
-`;
-//------------------------------------------------------------------------------
-const Bold = styled(Text.SSM)`
-  font-weight: 500;
-  line-height: 18px;
-`;
+// const Title = styled(Text.S)`
+//   color: ${Colors.dusk}
+// `;
+// //------------------------------------------------------------------------------
+// const Bold = styled(Text.SSM)`
+//   font-weight: 500;
+//   line-height: 18px;
+// `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -59,17 +59,27 @@ const NotificationCard = ({ notification }) => {
             color={Colors.link}
           />
           <Spacer row size="ML" />
-          <Title>Update</Title>
+          <Text size="S" color="dusk">
+            Update
+          </Text>
           <DotSpacer row size="M" />
-          <Title>1 hour ago</Title>
+          <Text size="S" color="dusk">
+            1 hour ago
+          </Text>
         </Row>
         <Spacer size="S" />
         <Row alignItems="center">
-          <Bold>Sezayi</Bold>
+          <Text size="SSM" semibold>
+            Sezayi
+          </Text>
           <Spacer row size="S" />
-          <Text.SSM>attended</Text.SSM>
+          <Text size="SSM">
+            attended
+          </Text>
           <Spacer row size="S" />
-          <Bold>Soccer Rocker</Bold>
+          <Text size="SSM" semibold>
+            Soccer Rocker
+          </Text>
         </Row>
       </Left>
       <Right>
