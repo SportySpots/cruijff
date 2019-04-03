@@ -34,7 +34,13 @@ const NotificationsList = ({
         <NotificationCard notification={notification} />
       </TouchableOpacity>
     )}
-    ListEmptyComponent={!refreshing && <NothingFound icon="whistle" text={I18n.t('notificationsList.noResults')} />}
+    ListEmptyComponent={!refreshing && (
+      <NothingFound
+        iconSet="MaterialCommunityIcons"
+        iconName="whistle"
+        text={I18n.t('notificationsList.noResults')}
+      />
+    )}
     ItemSeparatorComponent={() => <Divider />}
     onEndReachedThreshold={0.1}
     contentContainerStyle={{
