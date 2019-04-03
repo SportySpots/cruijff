@@ -45,7 +45,7 @@ const SpotListCardSmall = ({ spot, active }) => (
   <Container active={active}>
     <Row>
       <FlexOne>
-        <Block>
+        <Block midHeight>
           <SpotHeader spot={spot} withDistance />
         </Block>
       </FlexOne>
