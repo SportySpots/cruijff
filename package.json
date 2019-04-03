@@ -105,7 +105,7 @@
     "react-navigation": "^2.18.0",
     "seamless-immutable": "^7.1.4",
     "stacktrace-js": "^2.0.0",
-    "styled-components": "^4.0.2",
+    "styled-components": "^4.2.0",
     "tinycolor2": "^1.4.1",
     "validator": "^10.8.0",
     "whatwg-fetch": "^3.0.0"

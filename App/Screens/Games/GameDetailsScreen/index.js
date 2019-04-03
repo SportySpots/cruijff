@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
 import { Query } from 'react-apollo';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import client from '../../../GraphQL/ApolloClient';
 import { addGlobalRef } from '../../../globalRefs';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
@@ -18,7 +17,7 @@ import GameDetails from '../../../Components/Games/GameDetails';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled(ScrollView)`
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

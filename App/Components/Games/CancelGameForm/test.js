@@ -2,9 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Alert } from 'react-native';
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
+import I18n from '../../../I18n';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import mockClient from '../../../GraphQL/ApolloMockClient';
-import I18n from '../../../I18n';
+import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import CancelGameForm, { MAX_CHARS } from '.';
 
 const validCancelMsg = new Array(MAX_CHARS + 1).join('a'); // aaaaaa... length = MAX_CHARS
@@ -43,7 +45,11 @@ describe('CancelGameForm', () => {
   });
 
   it('renders without crashing', () => {
-    const rendered = renderer.create(<CancelGameForm game={game} />).toJSON();
+    const rendered = renderer.create(
+      <ThemeProvider theme={scTheme}>
+        <CancelGameForm game={game} />
+      </ThemeProvider>,
+    ).toJSON();
     expect(rendered).toBeTruthy();
   });
 

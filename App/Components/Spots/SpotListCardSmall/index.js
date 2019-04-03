@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
@@ -19,13 +19,13 @@ const BORDER_RADIUS = 4;
 //------------------------------------------------------------------------------
 const Container = styled.View`
   height: ${SIZE}px;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${BORDER_RADIUS};
   shadow-offset: 1px 1px;
-  shadow-color: ${Colors.shade};
+  shadow-color: ${({ theme }) => theme.colors.shade};
   shadow-opacity: 0.8;
   elevation: 2;
-  border: ${({ active }) => (!active ? 1 : 2.5)}px solid ${({ active }) => (!active ? Colors.shade : Colors.actionYellow)};
+  border: ${({ active }) => (!active ? 1 : 2.5)}px solid ${({ theme, active }) => (!active ? theme.colors.shade : theme.colors.actionYellow)};
   overflow: hidden;
 `;
 //------------------------------------------------------------------------------

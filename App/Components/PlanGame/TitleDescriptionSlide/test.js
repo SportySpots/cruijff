@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
 import cloneDeep from 'lodash/cloneDeep';
 import I18n from '../../../I18n';
 import { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
+import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import TitleDescriptionSlide, {
   TITLE_MAX_CHARS,
   DESCRIPTION_MAX_CHARS,
@@ -20,7 +22,9 @@ describe('TitleDescriptionSlide', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(
       <ApolloMockProvider>
-        <TitleDescriptionSlide />
+        <ThemeProvider theme={scTheme}>
+          <TitleDescriptionSlide />
+        </ThemeProvider>
       </ApolloMockProvider>,
     ).toJSON();
     expect(rendered).toBeTruthy();

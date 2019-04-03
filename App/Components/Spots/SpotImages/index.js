@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Dimensions } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import ImageSwiper from '../../Common/ImageSwiper';
 import { getSpotImages } from '../../../utils';
 

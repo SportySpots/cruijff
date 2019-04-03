@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Dimensions, View } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Divider from '../../Divider';
 import Block from '../../Block';
 import Modal from '../Modal';

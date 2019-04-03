@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
 // import moment from 'moment';
 // import MockDate from 'mockdate';
 import I18n from '../../../I18n';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
+import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import EditProfileForm, { MAX_CHARS } from '.';
 
 const validName = 'John Doe';
@@ -26,7 +28,9 @@ describe('EditProfileForm', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(
       <ApolloMockProvider>
-        <EditProfileForm user={user} />
+        <ThemeProvider theme={scTheme}>
+          <EditProfileForm user={user} />
+        </ThemeProvider>
       </ApolloMockProvider>,
     ).toJSON();
     expect(rendered).toBeTruthy();

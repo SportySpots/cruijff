@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { TouchableOpacity, View } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import getInputPalette from '../../../Themes/Palettes';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';

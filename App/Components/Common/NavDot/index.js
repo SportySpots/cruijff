@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import Row from '../Row';
 import Spacer from '../Spacer';
 
@@ -16,7 +15,9 @@ const Circle = styled.View`
   width: ${SIZE};
   height: ${SIZE};
   border-radius: ${SIZE};
-  background-color: ${({ active }) => (!active ? Colors.white20 : Colors.actionYellow)}
+  background-color: ${({ theme, active }) => (
+    !active ? theme.colors.white20 : theme.colors.actionYellow
+  )}
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

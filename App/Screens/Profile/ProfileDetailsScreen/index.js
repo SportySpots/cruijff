@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
 import { withLocation, locationPropTypes } from '../../../Context/Location';
-import Colors from '../../../Themes/Colors';
 import ProfileDetails from '../../../Components/Profile/ProfileDetails';
 
 //------------------------------------------------------------------------------
@@ -12,7 +11,7 @@ import ProfileDetails from '../../../Components/Profile/ProfileDetails';
 // TODO: introduce/use DefaultLayout instead
 const Container = styled.View`
   flex: 1;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

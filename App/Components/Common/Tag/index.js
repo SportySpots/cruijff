@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import Text from '../Text';
 import Row from '../Row';
 import getPalette from './utils';
@@ -12,8 +11,8 @@ import getPalette from './utils';
 const Container = styled.View`
   padding: 4px 8px;
   border-radius: 4px;
-  background-color: ${({ bgColor }) => (Colors[bgColor])};
-  border: 1px solid ${({ borderColor }) => (Colors[borderColor])};
+  background-color: ${({ theme, bgColor }) => theme.colors[bgColor]};
+  border: 1px solid ${({ theme, borderColor }) => theme.colors[borderColor]};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

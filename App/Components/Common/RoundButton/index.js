@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
-import Colors from '../../../Themes/Colors';
 import Icon from '../Icon';
 import { getPalette, getPixelsFromSize } from './utils';
 
@@ -10,14 +9,17 @@ import { getPalette, getPixelsFromSize } from './utils';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.View`
-  /* display: flex; */
   justify-content: center;
   align-items: center;
-  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : Colors[bgColor])};
+  background-color: ${({ theme, disabled, bgColor }) => (
+    disabled ? theme.colors.silver : theme.colors[bgColor]
+  )};
   height: ${({ size }) => (getPixelsFromSize(size))};
   width: ${({ size }) => (getPixelsFromSize(size))};
   border-radius: ${({ size }) => (getPixelsFromSize(size))};
-  border: 0.3px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : Colors[borderColor])};
+  border: 0.3px solid ${({ theme, disabled, borderColor }) => (
+    disabled ? theme.colors.silver : theme.colors[borderColor]
+  )};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
