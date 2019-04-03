@@ -71,6 +71,7 @@ const SpotMap = ({ spot }) => {
           <Row>
             {/* <RoundButton
               status="translucid"
+              iconSet="MaterialCommunityIcons"
               iconName="directions"
               onPress={() => {
                 openGoogleMapsDirections({ latLng, title: spot.name });
@@ -79,6 +80,7 @@ const SpotMap = ({ spot }) => {
             <Spacer row size="M" /> */}
             <RoundButton
               status="translucid"
+              iconSet="MaterialCommunityIcons"
               iconName="google-maps"
               onPress={() => {
                 openGoogleMapsLocation({ latLng, title: spot.name });

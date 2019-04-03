@@ -38,6 +38,7 @@ class ShareGameButton extends React.PureComponent {
       <RoundButton
         size="XL"
         status="default"
+        iconSet="MaterialCommunityIcons"
         iconName="link-variant"
         onPress={this.handleShare}
       />
