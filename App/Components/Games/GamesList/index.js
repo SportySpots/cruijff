@@ -34,7 +34,13 @@ const GamesList = ({
         <GameListCard game={game} />
       </TouchableOpacity>
     )}
-    ListEmptyComponent={!refreshing && <NothingFound icon="calendar-plus" text={I18n.t('gamesList.noResults')} />}
+    ListEmptyComponent={!refreshing && (
+      <NothingFound
+        iconSet="MaterialCommunityIcons"
+        iconName="calendar-plus"
+        text={I18n.t('gamesList.noResults')}
+      />
+    )}
     ItemSeparatorComponent={() => (<Spacer size="ML" />)}
     onEndReachedThreshold={0.1}
     contentContainerStyle={{

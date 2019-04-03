@@ -29,6 +29,7 @@ function loadStories() {
   require('../App/Components/Common/DurationPickerField/stories');
   require('../App/Components/Common/Flap/stories');
   require('../App/Components/Common/HeaderBtn/stories');
+  require('../App/Components/Common/Icon/stories');
   require('../App/Components/Common/ImageSwiper/stories');
   require('../App/Components/Common/InputField/stories');
   require('../App/Components/Common/LinkNavigate/stories');
@@ -109,6 +110,7 @@ function loadStories() {
   require('../App/Components/Spots/SpotMap/stories');
   require('../App/Components/Spots/SpotsFilterFlap/stories');
   require('../App/Components/Spots/SpotsList/stories');
+  require('../App/Navigation/StackBackHeader/stories');
   require('../App/Screens/Auth/CheckEmailScreen/stories');
   require('../App/Screens/Auth/ConfirmMagicTokenScreen/stories');
   require('../App/Screens/Auth/LoggedOutScreen/stories');
@@ -157,6 +159,7 @@ const stories = [
   '../App/Components/Common/DurationPickerField/stories',
   '../App/Components/Common/Flap/stories',
   '../App/Components/Common/HeaderBtn/stories',
+  '../App/Components/Common/Icon/stories',
   '../App/Components/Common/ImageSwiper/stories',
   '../App/Components/Common/InputField/stories',
   '../App/Components/Common/LinkNavigate/stories',
@@ -237,6 +240,7 @@ const stories = [
   '../App/Components/Spots/SpotMap/stories',
   '../App/Components/Spots/SpotsFilterFlap/stories',
   '../App/Components/Spots/SpotsList/stories',
+  '../App/Navigation/StackBackHeader/stories',
   '../App/Screens/Auth/CheckEmailScreen/stories',
   '../App/Screens/Auth/ConfirmMagicTokenScreen/stories',
   '../App/Screens/Auth/LoggedOutScreen/stories',

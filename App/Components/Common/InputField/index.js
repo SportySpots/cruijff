@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 import getInputPalette from '../../../Themes/Palettes';
 import Fonts from '../../../Themes/Fonts';
-import Colors from '../../../Themes/Colors';
 import Row from '../Row';
 import Spacer from '../Spacer';
 import Text from '../Text';
 import TextField from '../TextField';
 import Dropdown from '../Dropdown';
+import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
 // CONST:
 //------------------------------------------------------------------------------
 const MIN_WIDTH = 80;
+
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -50,6 +50,15 @@ const InputField = ({
   if (disabled) { iColor = disabledColor; }
   if (error) { iColor = errorColor; }
 
+  const IconArrow = () => (
+    <Icon
+      iconSet="MaterialIcons"
+      iconName="keyboard-arrow-down"
+      size={24}
+      color={iColor}
+    />
+  );
+
   if (fullWidth) {
     return (
       <Root onPress={onPress} testID={testID}>
@@ -68,11 +77,7 @@ const InputField = ({
           {/* Add custom carret */}
           <View>
             <Spacer size="XXL" />
-            <Icon
-              size={24}
-              name="keyboard-arrow-down"
-              color={Colors[iColor]} // TODO: pass iColor instead
-            />
+            <IconArrow />
           </View>
         </Row>
       </Root>
@@ -114,11 +119,7 @@ const InputField = ({
         {/* Add custom carret */}
         <View>
           <Spacer size="XXL" />
-          <Icon
-            size={24}
-            name="keyboard-arrow-down"
-            color={Colors[iColor]}
-          />
+          <IconArrow />
         </View>
         <Spacer row size="ML" />
         <View>

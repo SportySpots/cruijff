@@ -25,7 +25,7 @@ const SignupScreen = ({ navigation, onSuccessHook }) => (
     <Spacer size="XL" />
     <RaisedButton
       label={I18n.t('signupScreen.googlePlusBtnLabel')}
-      iconSet="MaterialCommunityIcon"
+      iconSet="MaterialCommunityIcons"
       iconName="google"
       iconSize={20}
       variant="google"
@@ -35,7 +35,7 @@ const SignupScreen = ({ navigation, onSuccessHook }) => (
     <Spacer size="M" />
     <RaisedButton
       label={I18n.t('signupScreen.facebookBtnLabel')}
-      iconSet="MaterialCommunityIcon"
+      iconSet="MaterialCommunityIcons"
       iconName="facebook-box"
       variant="facebook"
       onPress={() => Linking.openURL(`${settings.seedorfRestUrl}/accounts/facebook/login?process=signup`)}
@@ -47,7 +47,7 @@ const SignupScreen = ({ navigation, onSuccessHook }) => (
     <Spacer size="M" />
     <RaisedButton
       label={I18n.t('signupScreen.emailBtnLabel')}
-      iconSet="MaterialCommunityIcon"
+      iconSet="MaterialCommunityIcons"
       iconName="email"
       variant="default"
       onPress={() => {

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../../Themes/Colors';
 import Fonts from '../../../Themes/Fonts';
 import Row from '../Row';
 import Text from '../Text';
+import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -21,33 +20,30 @@ const LinkNavigate = ({
   iconName,
   size,
   underline,
-}) => {
-  const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
-
-  return (
-    <TouchableOpacity onPress={() => { navigation.navigate(to, params); }}>
-      <Row
-        justifyContent="space-between"
-        alignItems="center"
+}) => (
+  <TouchableOpacity onPress={() => { navigation.navigate(to, params); }}>
+    <Row
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Text
+        size={size}
+        underline={underline}
+        color={color}
       >
-        <Text
-          size={size}
-          underline={underline}
-          color={color}
-        >
-          {text}
-        </Text>
-        {!!iconName && (
-          <Icon
-            name={iconName}
-            size={24}
-            color={Colors.black}
-          />
-        )}
-      </Row>
-    </TouchableOpacity>
-  );
-};
+        {text}
+      </Text>
+      {!!iconName && (
+        <Icon
+          iconSet={iconSet}
+          iconName={iconName}
+          size={24}
+          color="black"
+        />
+      )}
+    </Row>
+  </TouchableOpacity>
+);
 
 LinkNavigate.propTypes = {
   navigation: PropTypes.shape({
@@ -57,7 +53,7 @@ LinkNavigate.propTypes = {
   to: PropTypes.string,
   text: PropTypes.string,
   color: PropTypes.oneOf(Object.keys(Colors)),
-  iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
+  iconSet: PropTypes.string,
   iconName: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(Fonts)),
   underline: PropTypes.bool,
@@ -68,7 +64,7 @@ LinkNavigate.defaultProps = {
   to: '',
   text: '',
   color: 'black',
-  iconSet: 'MaterialIcon',
+  iconSet: '',
   iconName: '',
   size: 'M',
   underline: false,

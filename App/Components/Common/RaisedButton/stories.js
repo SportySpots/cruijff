@@ -10,6 +10,7 @@ storiesOf('Common.RaisedButton', module)
   .add('RaisedButton default with icon', () => (
     <RaisedButton
       label="label"
+      iconSet="MaterialIcons"
       iconName="bug-report"
     />
   ))

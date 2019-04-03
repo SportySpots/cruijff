@@ -7,8 +7,8 @@ import GamesList from '.';
 
 const Container = () => (
   <Query query={GET_GAMES_LIST}>
-    {({ loading, error, data }) =>
-      (loading || error ? null : (
+    {({ loading, error, data }) => (
+      loading || error ? null : (
         <Block bgColor="silver">
           <GamesList
             games={data.games || []}
@@ -20,4 +20,5 @@ const Container = () => (
 );
 
 storiesOf('Games.GamesList', module)
-  .add('GamesList', () => <Container />);
+  .add('GamesList', () => <Container />)
+  .add('GamesList no results', () => <GamesList games={[]} />);

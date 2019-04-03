@@ -14,6 +14,7 @@ storiesOf('Common.LinkOpenURL', module)
       <LinkOpenURL
         text="I'm the text"
         href="I'm the href"
+        iconSet="MaterialIcons"
         iconName="account-circle"
       />
     </Block>
@@ -23,6 +24,7 @@ storiesOf('Common.LinkOpenURL', module)
       <LinkOpenURL
         text="I'm the text"
         href="I'm the href"
+        iconSet="MaterialIcons"
         iconName="account-circle"
         underline
       />
