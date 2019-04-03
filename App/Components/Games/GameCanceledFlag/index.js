@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 
@@ -9,7 +8,7 @@ import Text from '../../Common/Text';
 // STYLE:
 //------------------------------------------------------------------------------
 const Inner = styled.View`
-  background-color: ${Colors.negative};
+  background-color: ${({ theme }) => theme.colors.negative};
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
   padding: 8px 16px;

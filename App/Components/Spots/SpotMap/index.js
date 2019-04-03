@@ -4,7 +4,6 @@ import { propType } from 'graphql-anywhere';
 import Secrets from 'react-native-config';
 import styled from 'styled-components';
 import GoogleStaticMap from 'react-native-google-static-map';
-import Colors from '../../../Themes/Colors';
 import spotMapFragment from '../../../GraphQL/Spots/Fragments/spotMap';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
@@ -30,7 +29,7 @@ const GOOGLE_MAPS_API_KEY = Platform.OS === 'ios'
 const Relative = styled.View`
   position: relative;
   margin: 0;
-  background-color: ${Colors.lightSkyBlue}
+  background-color: ${({ theme }) => theme.colors.lightSkyBlue}
 `;
 // -----------------------------------------------------------------------------
 const Absolute = styled.View`

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import moment from 'moment';
 import gameFragment from '../../../GraphQL/Games/Fragments/game';
 import Colors from '../../../Themes/Colors';
-// import Fonts from '../../../Themes/Fonts';
 import I18n from '../../../I18n';
 import Text from '../../Common/Text';
 import DotSpacer from '../../Common/DotSpacer';
@@ -30,10 +29,10 @@ const HEADER_HEIGHT = 58;
 // STYLE:
 //------------------------------------------------------------------------------
 const Outer = styled.View`
-  height: ${({ height }) => (height)}px;
+  height: ${({ height }) => height}px;
   border-radius: 8px;
   shadow-offset: 1px 1px;
-  shadow-color: ${Colors.shade};
+  shadow-color: ${({ theme }) => theme.colors.shade};
   shadow-opacity: 0.8;
   elevation: 2;
 `;
@@ -58,7 +57,7 @@ const Container = styled.View`
   padding: 16px;
 `;
 //------------------------------------------------------------------------------
-const iconStyle = { backgroundColor: 'transparent' };
+const iconStyle = { backgroundColor: Colors.transparent };
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------

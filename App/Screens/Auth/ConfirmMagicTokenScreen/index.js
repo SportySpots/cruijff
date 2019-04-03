@@ -7,7 +7,6 @@ import client from '../../../GraphQL/ApolloClient';
 import SeedorfAPI from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
-import Colors from '../../../Themes/Colors';
 import { withUser, userPropTypes } from '../../../Context/User';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
@@ -27,7 +26,7 @@ const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: ${Colors.concrete};
+  background-color: ${({ theme }) => theme.colors.concrete};
 `;
 //------------------------------------------------------------------------------
 const Center = styled.View`

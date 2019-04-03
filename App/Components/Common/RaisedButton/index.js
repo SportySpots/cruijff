@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
-import Colors from '../../../Themes/Colors';
 import Row from '../Row';
 import Spacer from '../Spacer';
 import Text from '../Text';
@@ -13,12 +12,16 @@ import { getPalette, getPixelsFromSize } from './utils';
 // STYLE:
 //------------------------------------------------------------------------------
 const StyledRow = styled(Row)`
-  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : Colors[bgColor])};
+  background-color: ${({ theme, disabled, bgColor }) => (
+    disabled ? theme.colors.silver : theme.colors[bgColor]
+  )};
   height: ${({ size }) => (getPixelsFromSize(size).height)};
   width: ${({ width }) => (width || '100%')};
   min-width: 80px;
   border-radius: ${({ size }) => (getPixelsFromSize(size).borderRadius)};
-  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : Colors[borderColor])};
+  border: 1px solid ${({ theme, disabled, borderColor }) => (
+    disabled ? theme.colors.silver : theme.colors[borderColor]
+  )};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

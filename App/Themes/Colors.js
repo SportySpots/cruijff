@@ -21,6 +21,7 @@ const colors = {
   bgGrey: '#f6f6f9',
   darkGreen: '#2F553C',
   red: '#ff0000',
+  transparent80: 'rgba(0, 0, 0, 0.8)',
 
   night: '#000',
   dusk: '#333',

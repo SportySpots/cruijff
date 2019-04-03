@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import I18n from '../../../../I18n';
-import Colors from '../../../../Themes/Colors';
 import spotFragment from '../../../../GraphQL/Spots/Fragments/spot';
 import sportFragment from '../../../../GraphQL/Sports/Fragments/sport';
 import Text from '../../Text';
@@ -13,7 +12,7 @@ import DialogModal from '../DialogModal';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   padding: 0 8px;
-  background-color: ${Colors.concrete}
+  background-color: ${({ theme }) => theme.colors.concrete}
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

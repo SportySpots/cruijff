@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
@@ -15,7 +14,7 @@ import curatedGames from './utils';
 const Container = styled.View`
   flex: 1;
   padding: 0 8px;
-  background-color: ${Colors.concrete};
+  background-color: ${({ theme }) => theme.colors.concrete};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

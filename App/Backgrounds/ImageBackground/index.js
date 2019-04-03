@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
 import styled from 'styled-components';
-import Colors from '../../Themes/Colors';
 import Row from '../../Components/Common/Row';
 import Block from '../../Components/Common/Block';
 import Spacer from '../../Components/Common/Spacer';
@@ -13,7 +12,7 @@ import Text from '../../Components/Common/Text';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   flex: 1;
-  background-color: ${Colors.secondaryGreen};
+  background-color: ${({ theme }) => theme.colors.secondaryGreen};
 `;
 //------------------------------------------------------------------------------
 const TextContainer = styled.View`

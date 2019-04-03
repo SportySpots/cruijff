@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import SpotImage from '../SpotImage';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.View`
-  background-color: ${Colors.darkGreen};
+  background-color: ${({ theme }) => theme.colors.darkGreen};
   position: absolute;
   top: 0;
   bottom: 0;

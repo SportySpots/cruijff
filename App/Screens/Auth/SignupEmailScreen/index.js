@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
 import SignupEmailApiCall from '../../../Components/Auth/SignupEmailApiCall';
 import SignupEmailForm from '../../../Components/Auth/SignupEmailForm';
@@ -13,7 +12,7 @@ import SignupEmailForm from '../../../Components/Auth/SignupEmailForm';
 const Container = styled.View`
   padding-top: 32px;
   flex: 1;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

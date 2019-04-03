@@ -1,12 +1,11 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import DarkFooterButton from '.';
 
 const Container = styled.View`
   height: 50px;
-  background-color: ${Colors.black}
+  background-color: ${({ theme }) => theme.colors.black}
 `;
 
 storiesOf('DarkFooterButton', module)

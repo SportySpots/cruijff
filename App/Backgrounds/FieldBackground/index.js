@@ -15,7 +15,7 @@ const { width: fullWidth, height: fullHeight } = Dimensions.get('window');
 // STYLE:
 //------------------------------------------------------------------------------
 const BgContainer = styled.View`
-  background-color: ${Colors.primaryGreen}
+  background-color: ${({ theme }) => theme.colors.primaryGreen}
   position: absolute;
   left: 0;
   top: 0;

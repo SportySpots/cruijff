@@ -4,7 +4,6 @@ import { Image, View } from 'react-native';
 import styled from 'styled-components';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
-import Colors from '../../../Themes/Colors';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 
@@ -16,7 +15,7 @@ const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: ${Colors.concrete};
+  background-color: ${({ theme }) => theme.colors.concrete};
 `;
 //------------------------------------------------------------------------------
 const Center = styled.View`

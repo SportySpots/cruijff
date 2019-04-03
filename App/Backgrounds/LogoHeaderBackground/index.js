@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
 import styled from 'styled-components';
-import Colors from '../../Themes/Colors';
 import Spacer from '../../Components/Common/Spacer';
 import Logo from '../../Components/Common/Logo';
 import Text from '../../Components/Common/Text';
@@ -12,7 +11,9 @@ import Text from '../../Components/Common/Text';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   flex: 1;
-  background-color: ${({ isWhiteTheme }) => (isWhiteTheme ? Colors.white : Colors.secondaryGreen)};
+  background-color: ${({ theme, isWhiteTheme }) => (
+    isWhiteTheme ? theme.colors.white : theme.colors.secondaryGreen
+  )};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

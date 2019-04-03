@@ -2,7 +2,6 @@ import React from 'react';
 import { propType } from 'graphql-anywhere';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Block from '../../Common/Block';
 import BackgroundImage from '../BackgroundImage';
@@ -23,7 +22,7 @@ const Outer = styled.View`
   height: ${CARD_HEIGHT}px;
   border-radius: 8px;
   shadow-offset: 1px 1px;
-  shadow-color: ${Colors.shade};
+  shadow-color: ${({ theme }) => theme.colors.shade};
   shadow-opacity: 0.8;
   elevation: 2;
 `;

@@ -1,7 +1,6 @@
 import React from 'react';
 // import styled from 'styled-components/native';
 import I18n from '../../../I18n';
-// import Colors from '../../../Themes/Colors';
 import { userPropTypes } from '../../../Context/User';
 import { locationPropTypes } from '../../../Context/Location';
 import Block from '../../Common/Block';
@@ -17,7 +16,7 @@ import Avatar from '../../Common/Avatar';
 //------------------------------------------------------------------------------
 // const Bottom = styled.View`
 //   flex: 1;
-//   background-color: ${Colors.bgGrey};
+//   background-color: ${({ theme }) => theme.colors.bgGrey};
 // `;
 //------------------------------------------------------------------------------
 // COMPONENT:

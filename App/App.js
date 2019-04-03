@@ -9,7 +9,7 @@ import { ApolloProvider } from 'react-apollo';
 import { StatusBar } from 'react-native';
 import firebase from 'react-native-firebase';
 import { MenuProvider } from 'react-native-popup-menu';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components/native';
 import config from './config';
 import client from './GraphQL/ApolloClient';
 // import mockClient from './GraphQL/ApolloMockClient';

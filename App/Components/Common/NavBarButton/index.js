@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import Icon from '../Icon';
 
@@ -10,13 +9,13 @@ import Icon from '../Icon';
 // STYLE:
 //------------------------------------------------------------------------------
 const Button = styled(TouchableOpacity)`
-  flex: ${props => (props.main ? 10 : 9)};
-  height: ${props => (props.main ? 56 : 48)};
-  border-top-width: ${props => (props.main ? 0 : StyleSheet.hairlineWidth)};
-  border-top-color: ${props => (props.main ? Colors.transparent : Colors.silver)};
-  background-color: ${props => (props.main ? Colors.primaryGreen : Colors.white)};
-  border-top-left-radius: ${props => (props.main ? 8 : 0)};
-  border-top-right-radius: ${props => (props.main ? 8 : 0)};
+  flex: ${({ main }) => (main ? 10 : 9)};
+  height: ${({ main }) => (main ? 56 : 48)};
+  border-top-width: ${({ main }) => (main ? 0 : StyleSheet.hairlineWidth)};
+  border-top-color: ${({ theme, main }) => (main ? theme.colors.transparent : theme.colors.silver)};
+  background-color: ${({ theme, main }) => (main ? theme.colors.primaryGreen : theme.colors.white)};
+  border-top-left-radius: ${({ main }) => (main ? 8 : 0)};
+  border-top-right-radius: ${({ main }) => (main ? 8 : 0)};
 `;
 //------------------------------------------------------------------------------
 const Center = styled.View`
