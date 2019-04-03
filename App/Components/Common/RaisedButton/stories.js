@@ -10,6 +10,7 @@ storiesOf('Common.RaisedButton', module)
   .add('RaisedButton default with icon', () => (
     <RaisedButton
       label="label"
+      iconSet="MaterialIcons"
       iconName="bug-report"
     />
   ))
@@ -29,7 +30,7 @@ storiesOf('Common.RaisedButton', module)
     <RaisedButton variant="ghost" label="label" />
   ))
   .add('RaisedButton transparent', () => (
-    <Block bgColor="green">
+    <Block bgColor="primaryGreen">
       <RaisedButton variant="transparent" label="label" />
     </Block>
   ))

@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import cloneDeep from 'lodash/cloneDeep';
 import I18n from '../../../I18n';
-import { ApolloMockProvider } from '../../../GraphQL';
+import { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
+import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import SportDateTimeSlide, { INIT_ERRORS } from '.';
 
 const mockMonth = 10; // november
@@ -39,7 +41,9 @@ describe('SportDateTimeSlide', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(
       <ApolloMockProvider>
-        <SportDateTimeSlide />
+        <ThemeProvider theme={scTheme}>
+          <SportDateTimeSlide />
+        </ThemeProvider>
       </ApolloMockProvider>,
     ).toJSON();
     expect(rendered).toBeTruthy();

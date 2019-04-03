@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import ModalProps from '../../../RenderProps/modal-props';
 import InputField from '../InputField';
 import DatePickerModal from '../Modals/DatePickerModal';
-
 
 //------------------------------------------------------------------------------
 // COMPONENT:

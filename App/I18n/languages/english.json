@@ -2,6 +2,7 @@
   "BASKETBALL": "Basketball",
   "BOOTCAMP": "Bootcamp",
   "SOCCER": "Soccer",
+  "TABLE_TENNIS": "Table tennis",
   "TENNIS": "Tennis",
   "FITNESS": "Fitness",
   "OTHERS": "Others",
@@ -11,11 +12,16 @@
   "Basketball": "Basketball",
   "Bootcamp": "Bootcamp",
   "Soccer": "Soccer",
+  "Table Tennis": "Table tennis",
   "Tennis": "Tennis",
   "Fitness": "Fitness",
-  "Others": "Others",
+  "Other": "Others",
   "Skating": "Skating",
+<<<<<<< HEAD
   "Beach_volleyball": "(Beach) Volleyball",
+=======
+  "Beach Volleyball": "(Beach) Volleyball",
+>>>>>>> e7eb30acc4cb31a5d347da6fe2f9c3ccfb5488c5
   "Boules": "Jeu de boules",
 
   "Netherlands": "Netherlands",
@@ -606,6 +612,12 @@
       "link": "Terms and conditions"
     },
     "btnLabel": "Submit and create account"
+  },
+
+  "confirmMagicTokenScreen": {
+    "title": "Je magische link is verlopen!",
+    "btnLabel": "Breng me naar login",
+    "link": "Laat me door de app bladeren"
   },
 
   "connectionCheck": {

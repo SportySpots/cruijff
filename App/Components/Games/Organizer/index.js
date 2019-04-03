@@ -11,23 +11,19 @@ import Row from '../../Common/Row';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Organizer = ({ organizer, textSize }) => {
-  const TextSize = Text[textSize.toUpperCase()];
-
-  return (
-    <Row alignItems="center">
-      <Avatar user={organizer} />
-      <Spacer row size="M" />
-      <TextSize>
-        {organizer.name}
-      </TextSize>
-    </Row>
-  );
-};
+const Organizer = ({ organizer, textSize }) => (
+  <Row alignItems="center">
+    <Avatar size="S" user={organizer} />
+    <Spacer row size="M" />
+    <Text size={textSize}>
+      {organizer.name}
+    </Text>
+  </Row>
+);
 
 Organizer.propTypes = {
   organizer: propType(userNameAvatarFragment).isRequired,
-  textSize: PropTypes.oneOf(Object.keys(Fonts.style)),
+  textSize: PropTypes.oneOf(Object.keys(Fonts)),
 };
 
 Organizer.defaultProps = {

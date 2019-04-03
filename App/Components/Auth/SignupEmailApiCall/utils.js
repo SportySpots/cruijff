@@ -22,7 +22,8 @@ const curateErrorMsg = (errorMsg) => {
     case 'A user is already registered with this e-mail address.':
       return 'signupEmailForm.fields.email.errors.inUse';
     default:
-      return 'signupEmailForm.fields.email.errors.unknown';
+      // return 'signupEmailForm.fields.email.errors.unknown';
+      return errorMsg;
   }
 };
 

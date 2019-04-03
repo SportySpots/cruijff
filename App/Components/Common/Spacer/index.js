@@ -1,29 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import getPixelsFromSize from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const StyledView = styled.View`
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.transparent};
   width: ${({ row, pixels }) => (row ? `${pixels}px` : 'auto')};
   height: ${({ row, pixels }) => (!row ? `${pixels}px` : 'auto')};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Spacer = ({ row, size }) => {
-  const pixels = getPixelsFromSize(size.toUpperCase());
-
-  return (
-    <StyledView
-      row={row}
-      pixels={pixels}
-    />
-  );
-};
+const Spacer = ({ row, size }) => (
+  <StyledView
+    row={row}
+    pixels={getPixelsFromSize(size)}
+  />
+);
 
 Spacer.propTypes = {
   row: PropTypes.bool,

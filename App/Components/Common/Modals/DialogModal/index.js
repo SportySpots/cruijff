@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dimensions } from 'react-native';
-import styled from 'styled-components';
+import { Dimensions, View } from 'react-native';
+import styled from 'styled-components/native';
 import Divider from '../../Divider';
 import Block from '../../Block';
 import Modal from '../Modal';
@@ -14,10 +14,6 @@ const MARGIN = 48;
 const MAX_BODY_HEIGHT = deviceHeight - (4 * MARGIN);
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-const Flex = styled.View`
-  display: flex;
-`;
 //------------------------------------------------------------------------------
 const Body = styled.View`
   max-height: ${({ height }) => (height ? Math.min(height, MAX_BODY_HEIGHT) : MAX_BODY_HEIGHT)}px;
@@ -37,7 +33,7 @@ const DialogModal = ({
   ...rest
 }) => (
   <Modal {...rest}>
-    <Flex>
+    <View>
       {header && (
         <Block>
           {header}
@@ -52,7 +48,7 @@ const DialogModal = ({
           {footer}
         </Footer>,
       ]}
-    </Flex>
+    </View>
   </Modal>
 );
 

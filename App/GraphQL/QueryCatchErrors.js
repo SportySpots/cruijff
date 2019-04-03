@@ -50,5 +50,11 @@ QueryCatchErrors.propTypes = {
 QueryCatchErrors.defaultProps = {
   logErrors: true,
   crashApp: false,
-  errorComponent: () => <NothingFound icon="alert" text={I18n.t('queryCatchErrors.errorMsg')} />,
+  errorComponent: () => (
+    <NothingFound
+      iconSet="MaterialCommunityIcons"
+      iconName="alert"
+      text={I18n.t('queryCatchErrors.errorMsg')}
+    />
+  ),
 };

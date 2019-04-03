@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react-native';
 import { Query } from 'react-apollo';
-import styled from 'styled-components';
-import colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Block from '../../Common/Block';
 import SpotListCardSmall from '.';
@@ -26,7 +25,7 @@ const Container = ({ active }) => (
   >
     {({ loading, error, data }) =>
       (loading || error ? null : (
-        <Block bgColor={colors.silver}>
+        <Block bgColor="silver">
           <StyledView>
             <SpotListCardSmall
               spot={data.spot}

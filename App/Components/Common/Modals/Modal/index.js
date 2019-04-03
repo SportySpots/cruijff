@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal as NativeModal } from 'react-native';
-import styled from 'styled-components';
-import Colors from '../../../../Themes/Colors';
+import styled from 'styled-components/native';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -11,7 +10,7 @@ const Overlay = styled.TouchableOpacity`
   flex: 1;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: ${({ theme }) => theme.colors.transparent80};
 `;
 //------------------------------------------------------------------------------
 const Container = styled.View`
@@ -20,7 +19,7 @@ const Container = styled.View`
   width: 90%;
   max-width: 320px;
   border-radius: 4px;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

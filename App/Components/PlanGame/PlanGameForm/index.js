@@ -5,7 +5,7 @@ import firebase from 'react-native-firebase';
 import Swiper from 'react-native-swiper';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import { addGlobalRef } from '../../../globalRefs';
@@ -64,7 +64,7 @@ const INIT_ERRORS = {
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const FullHeight = styled.View`
+const FlexOne = styled.View`
   flex: 1; /* full height */
 `;
 //------------------------------------------------------------------------------
@@ -240,7 +240,7 @@ class PlanGameForm extends React.Component {
     const { curSlide, ...rest } = this.state;
 
     return (
-      <FullHeight>
+      <FlexOne>
         <Swiper
           ref={(swiper) => { this.swiper = swiper; }}
           scrollEnabled={false}
@@ -248,7 +248,7 @@ class PlanGameForm extends React.Component {
           showsPagination={false}
         >
           {SLIDES.map(({ id, Comp, section }, index) => (
-            <FullHeight key={id}>
+            <FlexOne key={id}>
               <ClosableLayout
                 theme="white"
                 title={I18n.t(section)}
@@ -263,7 +263,7 @@ class PlanGameForm extends React.Component {
                 ) : <View />}
 
               </ClosableLayout>
-            </FullHeight>
+            </FlexOne>
           ))}
         </Swiper>
         <Footer
@@ -276,7 +276,7 @@ class PlanGameForm extends React.Component {
           showBack={this.showBack}
           buttonNextText={I18n.t(this.buttonNextText)}
         />
-      </FullHeight>
+      </FlexOne>
     );
   }
 }

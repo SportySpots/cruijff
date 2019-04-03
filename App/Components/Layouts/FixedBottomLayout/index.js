@@ -1,20 +1,19 @@
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 export const TopLayout = styled.ScrollView`
   flex: 1;
-  background-color: ${Colors.white}
+  background-color: ${({ theme }) => theme.colors.white}
 `;
 //------------------------------------------------------------------------------
 export const BottomLayout = styled.View`
   display: flex;
   justify-content: center;
   height: 88px;
-  background-color: ${Colors.white}
+  background-color: ${({ theme }) => theme.colors.white}
   border-top-width: 0.5px;
-  border-color: ${Colors.silver}
+  border-color: ${({ theme }) => theme.colors.silver}
   padding-horizontal: 16px;
 `;

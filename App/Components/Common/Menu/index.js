@@ -7,17 +7,11 @@ import {
   MenuOptions,
   MenuOption,
 } from 'react-native-popup-menu';
-import styled from 'styled-components/native';
-import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import HeaderBtn from '../HeaderBtn';
 
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-const StyledText = styled(Text.M)`
-  color: ${({ danger }) => (danger ? Colors.red : Colors.black)};
-`;
 //------------------------------------------------------------------------------
 // See: https://github.com/instea/react-native-popup-menu/blob/master/examples/StylingExample.js
 const optionsStyles = {
@@ -55,9 +49,12 @@ const Menu = ({
         onPress,
       }) => (
         <MenuOption key={id} onSelect={onPress}>
-          <StyledText danger={danger}>
+          <Text
+            size="M"
+            color={danger ? 'red' : 'black'}
+          >
             {text}
-          </StyledText>
+          </Text>
         </MenuOption>
       ))}
     </MenuOptions>

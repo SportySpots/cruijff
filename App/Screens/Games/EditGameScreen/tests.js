@@ -1,10 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
-import EditGameScreen from '.';
-import { navigation } from './mocks';
-import { ApolloMockProvider } from '../../../GraphQL';
+import { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
+import navigation from './mocks';
+import EditGameScreen from '.';
 
 describe('EditGameScreen', () => {
   it('renders', () => {

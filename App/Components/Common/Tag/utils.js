@@ -1,30 +1,28 @@
-import Colors from '../../../Themes/Colors';
-
 const getPalette = (status, reverse) => {
   switch (status) {
     case 'success':
       return {
-        fontColor: !reverse ? Colors.black : Colors.grass,
-        bgColor: !reverse ? Colors.grass20 : Colors.white,
-        borderColor: Colors.grass,
+        fontColor: !reverse ? 'black' : 'grass',
+        bgColor: !reverse ? 'grass20' : 'white',
+        borderColor: 'grass',
       };
     case 'error':
       return {
-        fontColor: !reverse ? Colors.black : Colors.negative,
-        bgColor: !reverse ? Colors.negative20 : Colors.white,
-        borderColor: Colors.negative,
+        fontColor: !reverse ? 'black' : 'negative',
+        bgColor: !reverse ? 'negative20' : 'white',
+        borderColor: 'negative',
       };
     case 'warning':
       return {
-        fontColor: !reverse ? Colors.black : Colors.notify,
-        bgColor: !reverse ? Colors.notify20 : Colors.white,
-        borderColor: Colors.notify,
+        fontColor: !reverse ? 'black' : 'notify',
+        bgColor: !reverse ? 'notify20' : 'white',
+        borderColor: 'notify',
       };
     case 'info':
       return {
-        fontColor: !reverse ? Colors.black : Colors.info,
-        bgColor: !reverse ? Colors.info20 : Colors.white,
-        borderColor: Colors.info,
+        fontColor: !reverse ? 'black' : 'info',
+        bgColor: !reverse ? 'info20' : 'white',
+        borderColor: 'info',
       };
     default:
       throw new Error('Unknown status');

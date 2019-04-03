@@ -3,17 +3,19 @@ import spotFragment from '../Fragments/spot';
 
 const GET_SPOTS = gql`
   query spots(
-    $limit: Int,
-    $offset: Int,
     $sports__ids: [ID],
     $distance: String,
+    $limit: Int,
+    $offset: Int,
+    $ordering: String,
   ) {
     spots(
       is_verified: true,
-      limit: $limit,
-      offset: $offset,
       sports__ids: $sports__ids,
       distance: $distance,
+      limit: $limit,
+      offset: $offset,
+      ordering: $ordering,
     ) {
       ...spotFragment
     }

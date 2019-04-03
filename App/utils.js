@@ -1,6 +1,8 @@
 import Config from 'react-native-config';
 import isString from 'lodash/isString';
+import castArray from 'lodash/castArray';
 import globalRefs from './globalRefs';
+import { Buffer } from "buffer";
 
 /* eslint-disable no-param-reassign */
 export const addModelState = (reactComponentInstance, modalName, isOpen = false) => {
@@ -94,10 +96,19 @@ export const curateErrors = (curateFieldName, curateErrorMsg) => (errors) => {
   const curatedErrors = {};
 
   keys.forEach((key) => {
-    const arrayError = errors[key];
+    const arrayError = castArray(errors[key]);
     const curatedArray = arrayError.map(errorMsg => (curateErrorMsg(errorMsg)));
     curatedErrors[curateFieldName(key)] = curatedArray;
   });
 
   return curatedErrors;
+};
+
+
+export const decodeJWTToken = (token) => {
+  if (!token) {
+    return null;
+  }
+  console.log('decode token', token);
+  return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
 };

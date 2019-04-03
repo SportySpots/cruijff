@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { AsyncStorage } from 'react-native';
+import client from '../../../GraphQL/ApolloClient';
 import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import Menu from '../../Common/Menu';
@@ -8,9 +10,14 @@ import Menu from '../../Common/Menu';
 // COMPONENT:
 //------------------------------------------------------------------------------
 class UserMenu extends React.PureComponent {
-  handleLogout = () => {
-    const { logout, navigation } = this.props;
-    logout();
+  handleLogout = async () => {
+    const { navigation, refetchUser } = this.props;
+    // Remove token from async storage and reset apollo store
+    await AsyncStorage.removeItem('TOKEN');
+    // OBS: we don't neet set token for ApolloClient or REST here,
+    // this is being handled for us on ApolloClient.setContext
+    client.resetStore();
+    await refetchUser(); // TODO: remove this after GET_ME is implemented
     navigation.navigate('SplashScreen');
   }
 
@@ -52,7 +59,7 @@ class UserMenu extends React.PureComponent {
 
 UserMenu.propTypes = {
   user: userPropTypes.user,
-  logout: userPropTypes.logout.isRequired,
+  refetchUser: userPropTypes.refetchUser.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SeedorfApi from '../../../Services/SeedorfApi';
+import SeedorfAPI from '../../../Services/SeedorfApi';
 import curateErrors from './utils';
 
 //------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ class LoginEmailApiCall extends React.PureComponent {
     const { email } = inputFields;
 
     try {
-      const res = await SeedorfApi.sendMagicLoginLink(email);
+      const res = await SeedorfAPI.sendMagicLoginLink(email);
 
       // Pass event up to parent component
       if (res && res.problem) {

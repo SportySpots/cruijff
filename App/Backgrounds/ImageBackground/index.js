@@ -1,36 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
-import styled from 'styled-components';
-import Colors from '../../Themes/Colors';
+import styled from 'styled-components/native';
 import Row from '../../Components/Common/Row';
 import Block from '../../Components/Common/Block';
 import Spacer from '../../Components/Common/Spacer';
 import Text from '../../Components/Common/Text';
 
-// TODO: move to background folder
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.View`
   flex: 1;
-  background-color: ${Colors.secondaryGreen};
+  background-color: ${({ theme }) => theme.colors.secondaryGreen};
 `;
 //------------------------------------------------------------------------------
 const TextContainer = styled.View`
   width: 100%;
   max-width: 280px;
   margin: 0 auto;
-`;
-//------------------------------------------------------------------------------
-const Title = styled(Text.L)`
-  color: ${Colors.white};
-  text-align: center;
-`;
-//------------------------------------------------------------------------------
-const Paragraph = styled(Text.M)`
-  color: ${Colors.white};
-  text-align: center;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -57,9 +45,13 @@ const ImageBackground = ({
     <Spacer size="XXXL" />
     {!!title && !!text && (
       <TextContainer>
-        <Title>{title}</Title>
+        <Text size="L" color="white" center>
+          {title}
+        </Text>
         <Spacer size="XL" />
-        <Paragraph>{text}</Paragraph>
+        <Text size="M" color="white" center>
+          {text}
+        </Text>
       </TextContainer>
     )}
     {children}

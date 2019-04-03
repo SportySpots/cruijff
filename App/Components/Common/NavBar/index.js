@@ -3,19 +3,16 @@ import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import firebase from 'react-native-firebase';
 // import { NavigationActions } from 'react-navigation';
-import styled from 'styled-components';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
+import Row from '../Row';
 import NavBarButton from '../NavBarButton';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled.View`
+const StyledRow = styled(Row)`
   height: 48;
-  flex-direction: row;
-  align-items: flex-end;
 `;
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -25,7 +22,7 @@ const buttons = [{
   label: 'navBar.spots',
   route: 'SpotSearchTab',
   icon: {
-    set: MaterialIcon,
+    set: 'MaterialIcons',
     name: 'search',
     // name: 'place',
   },
@@ -34,7 +31,7 @@ const buttons = [{
   label: 'navBar.activities',
   route: 'GameSearchTab',
   icon: {
-    set: MaterialCommunityIcon,
+    set: 'MaterialCommunityIcons',
     name: 'account-group',
   },
 }, {
@@ -43,7 +40,7 @@ const buttons = [{
   label: 'navBar.organize',
   route: 'PlanScreen',
   icon: {
-    set: MaterialCommunityIcon,
+    set: 'MaterialCommunityIcons',
     name: 'soccer-field',
     // name: 'calendar-plus',
   },
@@ -52,7 +49,7 @@ const buttons = [{
   label: 'navBar.notifications',
   route: 'NotificationsTab',
   icon: {
-    set: MaterialCommunityIcon,
+    set: 'MaterialCommunityIcons',
     name: 'bell',
   },
 }, {
@@ -60,7 +57,7 @@ const buttons = [{
   label: 'navBar.profile',
   route: 'ProfileTab',
   icon: {
-    set: MaterialIcon,
+    set: 'MaterialIcons',
     name: 'account-circle',
   },
 }];
@@ -70,11 +67,10 @@ const buttons = [{
 //   label: 'navBar.info',
 //   route: 'InfoTab',
 //   icon: {
-//     set: MaterialIcon,
+//     set: 'MaterialIcons',
 //     name: 'info',
 //   },
-// },
-
+// }
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -121,7 +117,7 @@ class NavBar extends React.Component {
     }
 
     return (
-      <Container>
+      <StyledRow alignItems="flex-end">
         {buttons.map(btn => (
           <NavBarButton
             testID={`navbarButton_${btn.id}`}
@@ -133,7 +129,7 @@ class NavBar extends React.Component {
             onPress={() => { this.handlePress(btn); }}
           />
         ))}
-      </Container>
+      </StyledRow>
     );
   }
 }

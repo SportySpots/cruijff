@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
@@ -84,13 +84,13 @@ class SpotsFilterForm extends React.PureComponent {
             label={I18n.t('spotsFilterScreen.slider.label')}
             description={(
               <Row alignItems="flex-end">
-                <Text.SM style={{ color: Colors.gray }}>
+                <Text size="SM" color="gray">
                   {I18n.t('spotsFilterScreen.slider.description')}
-                </Text.SM>
+                </Text>
                 <Spacer row size="S" />
-                <Text.SM style={{ fontWeight: 'bold' }}>
+                <Text size="SM" semibold>
                   {`${maxDistance.toFixed(1).toString().replace('.0', '')} KM`}
-                </Text.SM>
+                </Text>
               </Row>
             )}
           />

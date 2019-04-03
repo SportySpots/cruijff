@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import CancelGameScreen from '.';
 import { navigation } from './mocks';
-import { ApolloMockProvider } from '../../../GraphQL';
+import { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 
 describe('CancelGameScreen', () => {
@@ -13,7 +13,7 @@ describe('CancelGameScreen', () => {
         <CancelGameScreen
           navigation={navigation}
         />
-      </ApolloMockProvider>
+      </ApolloMockProvider>,
     );
     const Screen = WrappedScreen.root.findByType(CancelGameScreen);
     expect(Screen.instance.props).toHaveProperty('navigation', navigation);

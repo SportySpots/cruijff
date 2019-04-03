@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import Row from '../../Common/Row';
+import Icon from '../../Common/Icon';
 import Attendees from '../Attendees';
 
 //------------------------------------------------------------------------------
@@ -28,9 +27,10 @@ const ClickableAttendees = ({ attendees, onAttendeesPress }) => {
           <Attendees attendees={attendees} />
         </FlexOne>
         <Icon
-          name="chevron-right"
+          iconSet="MaterialIcons"
+          iconName="chevron-right"
           size={30}
-          color={Colors.black}
+          color="black"
         />
       </Row>
     </TouchableOpacity>

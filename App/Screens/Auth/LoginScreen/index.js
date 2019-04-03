@@ -1,17 +1,15 @@
 import React from 'react';
 // import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 // import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 // import settings from '../../../config';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
 import LoginEmailApiCall from '../../../Components/Auth/LoginEmailApiCall';
 import LoginEmailForm from '../../../Components/Auth/LoginEmailForm';
 // import Block from '../../../Components/Common/Block';
-import { IncomingLinks, Events } from '../../../Services/IncomingLinks';
-
+// import { IncomingLinks, Events } from '../../../Services/IncomingLinks';
 // import Row from '../../../Components/Common/Row';
 // import Spacer from '../../../Components/Common/Spacer';
 // import OrDivider from '../../../Components/Common/OrDivider';
@@ -29,12 +27,13 @@ import LinkNavigate from '../../../Components/Common/LinkNavigate';
 const Container = styled.View`
   flex: 1;
   justify-content: space-between;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 const Top = styled.View`
   padding-top: 32px;
 `;
+//------------------------------------------------------------------------------
 const Bottom = styled.View`
   padding-top: 16px;
   padding-bottom: 16px;
@@ -43,24 +42,11 @@ const Bottom = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class LoginScreen extends React.Component {
-  socialLoginNotRegisteredHandler = async () => {
-    console.log('trying to login, but not registered');
-  }
-
-  componentWillMount() {
-    IncomingLinks.on(Events.SOCIAL_LOGIN_NOT_REGISTERED, this.socialLoginNotRegisteredHandler);
-  }
-
-  componentWillUnmount() {
-    IncomingLinks.removeListener(
-      Events.SOCIAL_LOGIN_NOT_REGISTERED,
-      this.socialLoginNotRegisteredHandler,
-    );
-  }
-
+class LoginScreen extends React.PureComponent {
   render() {
     const { navigation, onSuccessHook } = this.props;
+    const { email = '' } = navigation.state.params;
+
     return (
       <Container>
         <Top>
@@ -80,9 +66,9 @@ class LoginScreen extends React.Component {
                   handleSuccess(onSuccessHook);
                 }}
               >
-                {({ loginUser }) => [
+                {({ loginUser }) => (
                   <LoginEmailForm
-                    key="form"
+                    email={email}
                     disabled={disabled}
                     errors={errors}
                     onBeforeHook={handleBefore}
@@ -90,8 +76,8 @@ class LoginScreen extends React.Component {
                     onClientErrorHook={handleClientError}
                     // Call api to authenticate user
                     onSuccessHook={loginUser}
-                  />,
-                ]}
+                  />
+                )}
               </LoginEmailApiCall>
             )}
           </FormProps>
@@ -122,3 +108,18 @@ LoginScreen.defaultProps = {
 };
 
 export default LoginScreen;
+
+// socialLoginNotRegisteredHandler = async () => {
+//   console.log('trying to login, but not registered');
+// }
+
+// componentWillMount() {
+//   IncomingLinks.on(Events.SOCIAL_LOGIN_NOT_REGISTERED, this.socialLoginNotRegisteredHandler);
+// }
+
+// componentWillUnmount() {
+//   IncomingLinks.removeListener(
+//     Events.SOCIAL_LOGIN_NOT_REGISTERED,
+//     this.socialLoginNotRegisteredHandler,
+//   );
+// }

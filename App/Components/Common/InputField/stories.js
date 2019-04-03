@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import InputField from '.';
 
@@ -134,7 +133,7 @@ storiesOf('Common.InputField', module)
     />
   ))
   .add('InputField white theme', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <InputField
         comp="TextField"
         label="I'm the label"
@@ -144,7 +143,7 @@ storiesOf('Common.InputField', module)
     </Block>
   ))
   .add('InputField white theme with ERROR', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <InputField
         comp="TextField"
         label="I'm the label"

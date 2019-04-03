@@ -29,6 +29,7 @@ function loadStories() {
   require('../App/Components/Common/DurationPickerField/stories');
   require('../App/Components/Common/Flap/stories');
   require('../App/Components/Common/HeaderBtn/stories');
+  require('../App/Components/Common/Icon/stories');
   require('../App/Components/Common/ImageSwiper/stories');
   require('../App/Components/Common/InputField/stories');
   require('../App/Components/Common/LinkNavigate/stories');
@@ -65,13 +66,14 @@ function loadStories() {
   require('../App/Components/Common/SpotPickerField/stories');
   require('../App/Components/Common/SwitchWithText/stories');
   require('../App/Components/Common/Tag/stories');
+  require('../App/Components/Common/Text/stories');
   require('../App/Components/Common/TextField/stories');
   require('../App/Components/Common/TimePickerField/stories');
   require('../App/Components/Games/AdminMenu/stories');
   require('../App/Components/Games/Attendees/stories');
   require('../App/Components/Games/CancelGameForm/stories');
-  require('../App/Components/Games/CancelMsg/stories');
   require('../App/Components/Games/ClickableAttendees/stories');
+  require('../App/Components/Games/DescriptionReadMore/stories');
   require('../App/Components/Games/EditGameForm/stories');
   require('../App/Components/Games/GameCanceledFlag/stories');
   require('../App/Components/Games/GameDetails/stories');
@@ -108,11 +110,11 @@ function loadStories() {
   require('../App/Components/Spots/SpotListCard/stories');
   require('../App/Components/Spots/SpotListCardSmall/stories');
   require('../App/Components/Spots/SpotMap/stories');
-  require('../App/Components/Spots/SpotProperties/stories');
   require('../App/Components/Spots/SpotsFilterFlap/stories');
   require('../App/Components/Spots/SpotsList/stories');
-  require('../App/Components/Stories');
+  require('../App/Navigation/StackBackHeader/stories');
   require('../App/Screens/Auth/CheckEmailScreen/stories');
+  require('../App/Screens/Auth/ConfirmMagicTokenScreen/stories');
   require('../App/Screens/Auth/LoggedOutScreen/stories');
   require('../App/Screens/Auth/LoginScreen/stories');
   require('../App/Screens/Auth/SignupEmailScreen/stories');
@@ -160,6 +162,7 @@ const stories = [
   '../App/Components/Common/DurationPickerField/stories',
   '../App/Components/Common/Flap/stories',
   '../App/Components/Common/HeaderBtn/stories',
+  '../App/Components/Common/Icon/stories',
   '../App/Components/Common/ImageSwiper/stories',
   '../App/Components/Common/InputField/stories',
   '../App/Components/Common/LinkNavigate/stories',
@@ -196,13 +199,14 @@ const stories = [
   '../App/Components/Common/SpotPickerField/stories',
   '../App/Components/Common/SwitchWithText/stories',
   '../App/Components/Common/Tag/stories',
+  '../App/Components/Common/Text/stories',
   '../App/Components/Common/TextField/stories',
   '../App/Components/Common/TimePickerField/stories',
   '../App/Components/Games/AdminMenu/stories',
   '../App/Components/Games/Attendees/stories',
   '../App/Components/Games/CancelGameForm/stories',
-  '../App/Components/Games/CancelMsg/stories',
   '../App/Components/Games/ClickableAttendees/stories',
+  '../App/Components/Games/DescriptionReadMore/stories',
   '../App/Components/Games/EditGameForm/stories',
   '../App/Components/Games/GameCanceledFlag/stories',
   '../App/Components/Games/GameDetails/stories',
@@ -239,11 +243,11 @@ const stories = [
   '../App/Components/Spots/SpotListCard/stories',
   '../App/Components/Spots/SpotListCardSmall/stories',
   '../App/Components/Spots/SpotMap/stories',
-  '../App/Components/Spots/SpotProperties/stories',
   '../App/Components/Spots/SpotsFilterFlap/stories',
   '../App/Components/Spots/SpotsList/stories',
-  '../App/Components/Stories',
+  '../App/Navigation/StackBackHeader/stories',
   '../App/Screens/Auth/CheckEmailScreen/stories',
+  '../App/Screens/Auth/ConfirmMagicTokenScreen/stories',
   '../App/Screens/Auth/LoggedOutScreen/stories',
   '../App/Screens/Auth/LoginScreen/stories',
   '../App/Screens/Auth/SignupEmailScreen/stories',

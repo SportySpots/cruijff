@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import styled from 'styled-components';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import styled from 'styled-components/native';
 import Row from '../Row';
+import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -20,7 +20,12 @@ const HeaderBtn = ({ iconName, onPress }) => (
       justifyContent="center"
       alignItems="center"
     >
-      <Icon size={32} name={iconName} color="black" />
+      <Icon
+        iconSet="MaterialIcons"
+        iconName={iconName}
+        size={32}
+        color="black"
+      />
     </StyledRow>
   </TouchableOpacity>
 );

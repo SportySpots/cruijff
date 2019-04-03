@@ -2,20 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { createMaterialTopTabNavigator } from 'react-navigation';
-import styled from 'styled-components';
 import Colors from '../../../Themes/Colors';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Text from '../../Common/Text';
 import PlayersList from '../PlayersList';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Label = styled(Text)`
-  font-weight: bold;
-  color: ${Colors.black};
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -26,7 +18,11 @@ const PlayersTabs = ({ attendees, absents }) => (
         <PlayersList players={attendees} />
       ),
       navigationOptions: {
-        tabBarLabel: <Label>{I18n.t('playersTabs.attending')}</Label>,
+        tabBarLabel: (
+          <Text bold>
+            {I18n.t('playersTabs.attending')}
+          </Text>
+        ),
       },
     },
     Declining: {
@@ -34,7 +30,11 @@ const PlayersTabs = ({ attendees, absents }) => (
         <PlayersList players={absents} />
       ),
       navigationOptions: {
-        tabBarLabel: <Label>{I18n.t('playersTabs.declined')}</Label>,
+        tabBarLabel: (
+          <Text bold>
+            {I18n.t('playersTabs.declined')}
+          </Text>
+        ),
       },
     },
   }, {

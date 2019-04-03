@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import spotDetailsFragment from '../../../GraphQL/Spots/Fragments/spotDetails';
-import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import Text from '../../Common/Text';
 import GamesList from '../../Games/GamesList';
@@ -12,7 +11,7 @@ import SpotMapWithLinkFallback from '../SpotMapWithLinkFallback';
 import SpotHeader from '../SpotHeader';
 // import SpotRating from './SpotRating';
 import SpotImages from '../SpotImages';
-import SpotProperties from '../SpotProperties';
+// import SpotAmenities from '../SpotAmenities';
 import curatedGames from './utils';
 
 //------------------------------------------------------------------------------
@@ -32,13 +31,15 @@ const SpotDetails = ({ spot, onGamePress, userUUID }) => {
 
   return [
     <SpotImages key="spot-images" images={(spot && spot.images) || []} />,
-    <Block key="spot-header" bgColor={Colors.white}>
+    <Block key="spot-header" bgColor="white">
       <SpotHeader spot={spot} withDistance withGames />
     </Block>,
     <SpotMapWithLinkFallback key="spot-map" spot={spot} />,
-    <SpotProperties key="spot-properties" spot={spot} />,
+    // <SpotAmenities key="spot-amenities" spot={spot} />,
     <Block key="games-title">
-      <Text.ML>{I18n.t('spotDetails.activities')}</Text.ML>
+      <Text size="ML">
+        {I18n.t('spotDetails.activities')}
+      </Text>
     </Block>,
     <GamesContainer key="games-list">
       <GamesList

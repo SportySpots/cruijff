@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, View } from 'react-native';
 import { propType } from 'graphql-anywhere';
+import { Alert, View } from 'react-native';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import ErrorHandling from 'error-handling-utils';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 import Block from '../../Common/Block';
 import Divider from '../../Common/Divider';
-import Label from '../../Common/Label';
+import Spacer from '../../Common/Spacer';
+import Text from '../../Common/Text';
+import TextField from '../../Common/TextField';
 // import AlertMsg from '../../Common/AlertMsg';
 import RaisedButton from '../../Common/RaisedButton';
 import GameProperties from '../GameProperties';
 import ClickableAttendees from '../ClickableAttendees';
-import CancelMsg from '../CancelMsg';
 import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
@@ -30,6 +32,12 @@ const INIT_STATE = {
 const INIT_ERRORS = {
   cancelMsg: [],
 };
+//------------------------------------------------------------------------------
+// STYLES:
+//------------------------------------------------------------------------------
+const FlexOne = styled.View`
+  flex: 1;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -151,7 +159,7 @@ class CancelGameForm extends React.PureComponent {
     const cancelMsgErrors = ErrorHandling.getFieldErrors(errors, 'cancelMsg', I18n.t);
 
     return (
-      <View style={{ flex: 1 }}>
+      <FlexOne>
         <TopLayout>
           <Block>
             <GameProperties game={game} />
@@ -160,7 +168,10 @@ class CancelGameForm extends React.PureComponent {
             <View>
               <Divider />
               <Block>
-                <Label>{I18n.t('cancelGameForm.attending')}</Label>
+                <Text size="M">
+                  {I18n.t('cancelGameForm.attending')}
+                </Text>
+                <Spacer size="L" />
                 <ClickableAttendees
                   attendees={attendees}
                   onAttendeesPress={onAttendeesPress}
@@ -168,13 +179,16 @@ class CancelGameForm extends React.PureComponent {
               </Block>
               <Divider />
               <Block>
-                <CancelMsg
+                <TextField
                   testID="cancelGameFormCancelMsgField"
                   value={cancelMsg}
-                  disabled={disabled}
-                  characterRestriction={MAX_CHARS}
                   onChangeText={this.handleCancelMsgChange}
+                  label={I18n.t('cancelMsg.label')}
+                  placeholder={I18n.t('cancelMsg.placeholder')}
                   error={cancelMsgErrors}
+                  multiline
+                  characterRestriction={MAX_CHARS}
+                  disabled={disabled}
                 />
               </Block>
             </View>
@@ -189,7 +203,7 @@ class CancelGameForm extends React.PureComponent {
             onPress={this.handleSubmit}
           />
         </BottomLayout>
-      </View>
+      </FlexOne>
     );
   }
 }

@@ -1,69 +1,46 @@
-import Colors from './Colors';
-
-const type = {
-  base: 'Rajdhani-Regular',
+export const FontFamilies = {
+  regular: 'Rajdhani-Regular',
+  semibold: 'Rajdhani-SemiBold',
   bold: 'Rajdhani-Bold',
-  emphasis: 'Rajdhani-SemiBold',
 };
 
-const size = {
-  h1: 38,
-  h2: 34,
-  h3: 30,
-  h4: 26,
-  h5: 20,
-  h6: 19,
-  input: 18,
-  regular: 16,
-  medium: 14,
-  small: 12,
-  tiny: 8.5,
-};
-
-const style = {
+const Fonts = {
   XL: {
-    fontFamily: 'Rajdhani-SemiBold',
+    fontFamily: FontFamilies.semibold,
     fontSize: 40,
-    color: Colors.black,
-    // lineHeight: 50
   },
   L: {
-    fontFamily: 'Rajdhani-SemiBold',
+    fontFamily: FontFamilies.semibold,
     fontSize: 32,
-    color: Colors.black,
-    // lineHeight: 50
   },
   ML: {
-    fontFamily: 'Rajdhani-SemiBold',
+    fontFamily: FontFamilies.semibold,
     fontSize: 24,
-    lineHeight: 36,
   },
   M: {
-    fontFamily: 'Rajdhani-SemiBold',
+    fontFamily: FontFamilies.semibold,
     fontSize: 18,
-    lineHeight: 27,
   },
   SM: {
-    fontFamily: 'Rajdhani-Regular',
+    fontFamily: FontFamilies.regular,
     fontSize: 16,
-    lineHeight: 24,
   },
   // TODO: rename to S
   SSM: {
+<<<<<<< HEAD
     fontFamily: 'Rajdhani-Regular',
     fontSize: 14,
     lineHeight: 21,
+=======
+    fontFamily: FontFamilies.regular,
+    fontSize: 14,
+>>>>>>> e7eb30acc4cb31a5d347da6fe2f9c3ccfb5488c5
   },
   // TODO: rename to XS
   S: {
-    fontFamily: 'Rajdhani-Regular',
+    fontFamily: FontFamilies.regular,
     fontSize: 12,
-    lineHeight: 18,
   },
 };
 
-export default {
-  type,
-  size,
-  style,
-};
+export default Fonts;

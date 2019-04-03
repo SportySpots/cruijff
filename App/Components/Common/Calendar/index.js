@@ -1,9 +1,9 @@
 import React from 'react';
 import { Calendar as NativeCalendar } from 'react-native-calendars';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Colors from '../../../Themes/Colors';
+import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -60,9 +60,10 @@ const Calendar = ({ value, onDayPress, ...rest }) => {
       hideExtraDays
       renderArrow={direction => (
         <Icon
+          iconSet="MaterialIcons"
+          iconName={`keyboard-arrow-${direction}`}
           size={24}
-          name={`keyboard-arrow-${direction}`}
-          color={Colors.darkGray}
+          color="darkGray"
         />
       )}
       markedDates={markedDates}

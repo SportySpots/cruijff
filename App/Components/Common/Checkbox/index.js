@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Colors from '../../../Themes/Colors';
+import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -15,17 +14,19 @@ const Checkbox = ({ theme, checked, ...rest }) => {
 
   const uncheckedIcon = (
     <Icon
-      name="check-box-outline-blank"
+      iconSet="MaterialIcons"
+      iconName="check-box-outline-blank"
       size={48}
-      color={isWhiteTheme ? Colors.white : Colors.black}
+      color={isWhiteTheme ? 'white' : 'black'}
     />
   );
 
   const checkedIcon = (
     <Icon
-      name="check-box"
+      iconSet="MaterialIcons"
+      iconName="check-box"
       size={48}
-      color={Colors.actionYellow}
+      color="actionYellow"
     />
   );
 
