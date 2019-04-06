@@ -24,8 +24,8 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: add iconSet prop
 const RoundButton = ({
+  iconSet,
   iconName,
   status,
   size,
@@ -46,7 +46,7 @@ const RoundButton = ({
         disabled={disabled}
       >
         <Icon
-          iconSet="MaterialCommunityIcons"
+          iconSet={iconSet}
           iconName={iconName}
           size={24}
           color={disabled ? 'white' : fontColor}
@@ -57,6 +57,7 @@ const RoundButton = ({
 };
 
 RoundButton.propTypes = {
+  iconSet: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired,
   status: PropTypes.oneOf([
     'default',

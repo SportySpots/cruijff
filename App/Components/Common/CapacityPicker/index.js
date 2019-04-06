@@ -53,6 +53,7 @@ const CapacityPicker = ({
       <RoundButton
         testID="capacityMinus"
         status="dark"
+        iconSet="MaterialCommunityIcons"
         iconName="minus"
         onPress={onDecrease}
       />
@@ -66,6 +67,7 @@ const CapacityPicker = ({
       <RoundButton
         testID="capacityPlus"
         status="dark"
+        iconSet="MaterialCommunityIcons"
         iconName="plus"
         onPress={onIncrease}
       />
