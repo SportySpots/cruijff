@@ -36,8 +36,8 @@ const GamesList = ({
     )}
     ListEmptyComponent={!refreshing && (
       <NothingFound
-        iconSet="MaterialCommunityIcons"
-        iconName="calendar-plus"
+        iconSet="MaterialIcons"
+        iconName="people"
         text={I18n.t('gamesList.noResults')}
       />
     )}

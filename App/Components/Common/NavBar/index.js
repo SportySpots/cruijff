@@ -22,17 +22,16 @@ const buttons = [{
   label: 'navBar.spots',
   route: 'SpotSearchTab',
   icon: {
-    set: 'MaterialIcons',
-    name: 'search',
-    // name: 'place',
+    set: 'MaterialCommunityIcons',
+    name: 'compass',
   },
 }, {
   id: 'activities',
   label: 'navBar.activities',
   route: 'GameSearchTab',
   icon: {
-    set: 'MaterialCommunityIcons',
-    name: 'account-group',
+    set: 'MaterialIcons',
+    name: 'people',
   },
 }, {
   id: 'organize',
@@ -42,7 +41,6 @@ const buttons = [{
   icon: {
     set: 'MaterialCommunityIcons',
     name: 'soccer-field',
-    // name: 'calendar-plus',
   },
 }, {
   id: 'notifications',
