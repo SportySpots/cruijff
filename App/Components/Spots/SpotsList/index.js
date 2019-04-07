@@ -99,7 +99,13 @@ const SpotsList = ({
                 />
               </TouchableOpacity>
             )}
-            ListEmptyComponent={(!loading && <NothingFound icon="map-marker" text={I18n.t('spotsList.noResults')} />)}
+            ListEmptyComponent={(!loading && (
+              <NothingFound
+                iconSet="MaterialCommunityIcons"
+                iconName="map-marker"
+                text={I18n.t('spotsList.noResults')}
+              />
+            ))}
             ItemSeparatorComponent={() => (<Spacer size="ML" />)}
             showsVerticalScrollIndicator={false}
             onRefresh={refetch}

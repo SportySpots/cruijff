@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components/native';
-import Colors from '../../../Themes/Colors';
 import Row from '../Row';
 import Spacer from '../Spacer';
 import Text from '../Text';
+import Icon from '../Icon';
 import { getPalette, getPixelsFromSize } from './utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const StyledRow = styled(Row)`
-  background-color: ${({ disabled, bgColor }) => (disabled ? Colors.silver : Colors[bgColor])};
+  background-color: ${({ theme, disabled, bgColor }) => (
+    disabled ? theme.colors.silver : theme.colors[bgColor]
+  )};
   height: ${({ size }) => (getPixelsFromSize(size).height)};
   width: ${({ width }) => (width || '100%')};
   min-width: 80px;
   border-radius: ${({ size }) => (getPixelsFromSize(size).borderRadius)};
-  border: 1px solid ${({ disabled, borderColor }) => (disabled ? Colors.silver : Colors[borderColor])};
+  border: 1px solid ${({ theme, disabled, borderColor }) => (
+    disabled ? theme.colors.silver : theme.colors[borderColor]
+  )};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -39,7 +41,6 @@ const RaisedButton = ({
   const { fontColor, bgColor, borderColor } = palette; // string to be used with Colors[string]
 
   const Root = disabled ? View : TouchableOpacity;
-  const Icon = iconSet === 'MaterialIcon' ? MaterialIcon : MaterialCommunityIcon;
 
   return (
     <Root {...rest}>
@@ -55,9 +56,10 @@ const RaisedButton = ({
         {!!iconName && [
           <Icon
             key="icon"
-            name={iconName}
+            iconSet={iconSet}
+            iconName={iconName}
             size={iconSize}
-            color={Colors[fontColor]}
+            color={fontColor}
           />,
           <Spacer key="spacer" row size="L" />,
         ]}
@@ -77,7 +79,7 @@ RaisedButton.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
-  iconSet: PropTypes.oneOf(['MaterialIcon', 'MaterialCommunityIcon']),
+  iconSet: PropTypes.string,
   iconName: PropTypes.string,
   iconSize: PropTypes.number,
   variant: PropTypes.oneOf([
@@ -93,7 +95,7 @@ RaisedButton.propTypes = {
 };
 
 RaisedButton.defaultProps = {
-  iconSet: 'MaterialIcon',
+  iconSet: '',
   iconName: '',
   iconSize: 24,
   variant: 'default',

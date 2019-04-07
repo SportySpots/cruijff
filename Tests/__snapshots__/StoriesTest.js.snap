@@ -6363,7 +6363,6 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "borderRadius": 40,
                   "borderStyle": "solid",
                   "borderWidth": 0.3,
-                  "display": "flex",
                   "height": 40,
                   "justifyContent": "center",
                   "width": 40,
@@ -6438,7 +6437,6 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "borderRadius": 40,
                   "borderStyle": "solid",
                   "borderWidth": 0.3,
-                  "display": "flex",
                   "height": 40,
                   "justifyContent": "center",
                   "width": 40,
@@ -17519,7 +17517,7 @@ exports[`Storyshots Common.HeaderBtn HeaderBtn 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "black",
+                    "color": "#000",
                     "fontSize": 32,
                   },
                   undefined,
@@ -30759,7 +30757,7 @@ exports[`Storyshots Common.Menu Menu 1`] = `
                         style={
                           Array [
                             Object {
-                              "color": "black",
+                              "color": "#000",
                               "fontSize": 32,
                             },
                             undefined,
@@ -30847,12 +30845,16 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
         }
       />
       <View
+        alignItems="flex-end"
+        justifyContent="flex-start"
         style={
           Array [
             Object {
               "alignItems": "flex-end",
+              "display": "flex",
               "flexDirection": "row",
               "height": 48,
+              "justifyContent": "flex-start",
             },
           ]
         }
@@ -30888,7 +30890,6 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 Object {
                   "alignItems": "center",
                   "flexBasis": 0,
-                  "flexDirection": "column",
                   "flexGrow": 1,
                   "flexShrink": 1,
                   "justifyContent": "center",
@@ -30963,7 +30964,6 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 Object {
                   "alignItems": "center",
                   "flexBasis": 0,
-                  "flexDirection": "column",
                   "flexGrow": 1,
                   "flexShrink": 1,
                   "justifyContent": "center",
@@ -31038,7 +31038,6 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 Object {
                   "alignItems": "center",
                   "flexBasis": 0,
-                  "flexDirection": "column",
                   "flexGrow": 1,
                   "flexShrink": 1,
                   "justifyContent": "center",
@@ -31113,7 +31112,6 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 Object {
                   "alignItems": "center",
                   "flexBasis": 0,
-                  "flexDirection": "column",
                   "flexGrow": 1,
                   "flexShrink": 1,
                   "justifyContent": "center",
@@ -31188,7 +31186,6 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 Object {
                   "alignItems": "center",
                   "flexBasis": 0,
-                  "flexDirection": "column",
                   "flexGrow": 1,
                   "flexShrink": 1,
                   "justifyContent": "center",
@@ -31319,7 +31316,6 @@ exports[`Storyshots Common.NavBarButton NavBarButton 1`] = `
               Object {
                 "alignItems": "center",
                 "flexBasis": 0,
-                "flexDirection": "column",
                 "flexGrow": 1,
                 "flexShrink": 1,
                 "justifyContent": "center",
@@ -31449,7 +31445,6 @@ exports[`Storyshots Common.NavBarButton NavBarButton main 1`] = `
               Object {
                 "alignItems": "center",
                 "flexBasis": 0,
-                "flexDirection": "column",
                 "flexGrow": 1,
                 "flexShrink": 1,
                 "justifyContent": "center",
@@ -31545,7 +31540,7 @@ exports[`Storyshots Common.NavDot NavDot active 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#000",
+          "backgroundColor": "black",
           "height": 100,
         }
       }
@@ -31656,7 +31651,7 @@ exports[`Storyshots Common.NavDot NavDot default 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#000",
+          "backgroundColor": "black",
           "height": 100,
         }
       }
@@ -33529,12 +33524,15 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
     }
   >
     <View
+      alignItems="center"
+      justifyContent="flex-start"
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
             "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
@@ -33559,15 +33557,10 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "#009f36",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33580,6 +33573,19 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -33600,15 +33606,10 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "rgba(0,0,0,0.34)",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33621,6 +33622,19 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -33641,15 +33655,10 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "rgba(0,0,0,0.34)",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33662,6 +33671,19 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -33682,15 +33704,10 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "rgba(0,0,0,0.34)",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33703,6 +33720,19 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -33723,15 +33753,10 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "rgba(0,0,0,0.34)",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33744,6 +33769,19 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
     </View>
   </View>
   <RCTSafeAreaView
@@ -33794,12 +33832,15 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
     }
   >
     <View
+      alignItems="center"
+      justifyContent="flex-start"
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
             "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
@@ -33824,15 +33865,10 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "#009f36",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33845,6 +33881,19 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -33865,15 +33914,10 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "#009f36",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33886,6 +33930,19 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -33906,15 +33963,10 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "#009f36",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33927,6 +33979,19 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -33947,15 +34012,10 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "rgba(0,0,0,0.34)",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -33968,6 +34028,19 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -33988,15 +34061,10 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "rgba(0,0,0,0.34)",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -34009,6 +34077,19 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
     </View>
   </View>
   <RCTSafeAreaView
@@ -34059,12 +34140,15 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
     }
   >
     <View
+      alignItems="center"
+      justifyContent="flex-start"
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
             "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
@@ -34089,15 +34173,10 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "#009f36",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -34110,6 +34189,19 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -34130,15 +34222,10 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "#009f36",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -34151,6 +34238,19 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -34171,15 +34271,10 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "#009f36",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -34192,6 +34287,19 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -34212,15 +34320,10 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "#009f36",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "#009f36",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -34233,6 +34336,19 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
       <View
         accessible={true}
         isTVSelectable={true}
@@ -34253,15 +34369,10 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           style={
             Array [
               Object {
-                "color": undefined,
+                "color": "rgba(0,0,0,0.34)",
                 "fontSize": 24,
               },
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.34)",
-                  "paddingRight": 10,
-                },
-              ],
+              undefined,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -34274,6 +34385,19 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
           
         </Text>
       </View>
+      <View
+        pixels={8}
+        row={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "width": 8,
+            },
+          ]
+        }
+      />
     </View>
   </View>
   <RCTSafeAreaView
@@ -34352,7 +34476,6 @@ exports[`Storyshots Common.RoundButton RoundButton dark 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -34459,7 +34582,6 @@ exports[`Storyshots Common.RoundButton RoundButton default 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -34566,7 +34688,6 @@ exports[`Storyshots Common.RoundButton RoundButton disabled 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -34673,7 +34794,6 @@ exports[`Storyshots Common.RoundButton RoundButton ghost 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -34780,7 +34900,6 @@ exports[`Storyshots Common.RoundButton RoundButton ghost disabled 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -34887,7 +35006,6 @@ exports[`Storyshots Common.RoundButton RoundButton info 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -34994,7 +35112,6 @@ exports[`Storyshots Common.RoundButton RoundButton primary 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -35101,7 +35218,6 @@ exports[`Storyshots Common.RoundButton RoundButton primary reverse 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -35208,7 +35324,6 @@ exports[`Storyshots Common.RoundButton RoundButton primary small 1`] = `
               "borderRadius": 32,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 32,
               "justifyContent": "center",
               "width": 32,
@@ -35315,7 +35430,6 @@ exports[`Storyshots Common.RoundButton RoundButton secondary 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -35396,7 +35510,7 @@ exports[`Storyshots Common.RoundButton RoundButton translucid 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#000",
+          "backgroundColor": "black",
           "height": 100,
         }
       }
@@ -35430,7 +35544,6 @@ exports[`Storyshots Common.RoundButton RoundButton translucid 1`] = `
                 "borderRadius": 40,
                 "borderStyle": "solid",
                 "borderWidth": 0.3,
-                "display": "flex",
                 "height": 40,
                 "justifyContent": "center",
                 "width": 40,
@@ -35538,7 +35651,6 @@ exports[`Storyshots Common.RoundButton RoundButton warning 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -35645,7 +35757,6 @@ exports[`Storyshots Common.RoundButton RoundButton warning reverse 1`] = `
               "borderRadius": 40,
               "borderStyle": "solid",
               "borderWidth": 0.3,
-              "display": "flex",
               "height": 40,
               "justifyContent": "center",
               "width": 40,
@@ -43405,6 +43516,144 @@ exports[`Storyshots Games.GamesList GamesList 1`] = `
 </View>
 `;
 
+exports[`Storyshots Games.GamesList GamesList no results 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <RCTScrollView
+      ItemSeparatorComponent={[Function]}
+      ListEmptyComponent={
+        <NothingFound
+          iconName="calendar-plus"
+          iconSet="MaterialCommunityIcons"
+          text="gamesList.noResults"
+        />
+      }
+      contentContainerStyle={
+        Object {
+          "flexGrow": 1,
+          "paddingVertical": 8,
+        }
+      }
+      data={Array []}
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={0.1}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      refreshing={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      testID="gamesFlatList"
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": "100%",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ccc",
+                  "fontSize": 96,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ccc",
+                "fontFamily": "Rajdhani-SemiBold",
+                "fontSize": 32,
+                "lineHeight": 48,
+                "textAlign": "center",
+              }
+            }
+          >
+            gamesList.noResults
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Games.OpenSpots OpenSpots 1`] = `
 <View
   onLayout={[Function]}
@@ -45394,7 +45643,6 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "borderRadius": 40,
                                 "borderStyle": "solid",
                                 "borderWidth": 0.3,
-                                "display": "flex",
                                 "height": 40,
                                 "justifyContent": "center",
                                 "width": 40,
@@ -45469,7 +45717,6 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "borderRadius": 40,
                                 "borderStyle": "solid",
                                 "borderWidth": 0.3,
-                                "display": "flex",
                                 "height": 40,
                                 "justifyContent": "center",
                                 "width": 40,
@@ -50612,6 +50859,129 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
 </View>
 `;
 
+exports[`Storyshots Navigation.StackBackHeader StackBackHeader 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "height": 48,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          alignItems="center"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            pixels={8}
+            row={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "height": "auto",
+                  "width": 8,
+                },
+              ]
+            }
+          />
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
 <View
   onLayout={[Function]}
@@ -52380,7 +52750,6 @@ exports[`Storyshots PlanGame.ShareGameForm ShareGameForm white theme 1`] = `
                     "borderRadius": 58,
                     "borderStyle": "solid",
                     "borderWidth": 0.3,
-                    "display": "flex",
                     "height": 58,
                     "justifyContent": "center",
                     "width": 58,
@@ -53876,7 +54245,7 @@ exports[`Storyshots Profile.UserMenu UserMenu 1`] = `
                         style={
                           Array [
                             Object {
-                              "color": "black",
+                              "color": "#000",
                               "fontSize": 32,
                             },
                             undefined,
@@ -53948,6 +54317,142 @@ exports[`Storyshots Profile.UserSpots UserSpots 1`] = `
       ]
     }
   />
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <RCTScrollView
+      ItemSeparatorComponent={[Function]}
+      ListEmptyComponent={
+        <NothingFound
+          iconName="map-marker"
+          iconSet="MaterialCommunityIcons"
+          text="userSpots.noSpots"
+        />
+      }
+      contentContainerStyle={
+        Object {
+          "flexGrow": 1,
+          "paddingVertical": 16,
+        }
+      }
+      data={Array []}
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": "100%",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ccc",
+                  "fontSize": 96,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ccc",
+                "fontFamily": "Rajdhani-SemiBold",
+                "fontSize": 32,
+                "lineHeight": 48,
+                "textAlign": "center",
+              }
+            }
+          >
+            userSpots.noSpots
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
   <RCTSafeAreaView
     pointerEvents="box-none"
     style={
@@ -59387,7 +59892,6 @@ exports[`Storyshots Screens.Plan.ShareGameScreen ShareGameScreen 1`] = `
                   "borderRadius": 58,
                   "borderStyle": "solid",
                   "borderWidth": 0.3,
-                  "display": "flex",
                   "height": 58,
                   "justifyContent": "center",
                   "width": 58,
@@ -61434,6 +61938,142 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
         <View />
       </RCTScrollView>
     </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots common.Icon Icon primaryGreen 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#009f36",
+            "fontSize": 24,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots common.Icon Icon size 30 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 30,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
   </View>
   <RCTSafeAreaView
     pointerEvents="box-none"

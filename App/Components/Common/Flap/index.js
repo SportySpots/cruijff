@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import Fonts from '../../../Themes/Fonts';
 import Block from '../Block';
 import Row from '../Row';
@@ -29,7 +28,7 @@ const AbsoluteRowHead = styled(Row)`
 `;
 //------------------------------------------------------------------------------
 const Head = styled(Block)`
-  border: 1px solid ${Colors.silver};
+  border: 1px solid ${({ theme }) => theme.colors.silver};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 `;
@@ -39,9 +38,9 @@ const AbsoluteRectangle = styled.View`
   top: ${HEIGHT - TOP_PADDING};
   left: 0;
   right: 0;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
   border-top-width: 1px;
-  border-top-color: ${Colors.silver};
+  border-top-color: ${({ theme }) => theme.colors.silver};
   height: ${TOP_PADDING};
 `;
 //------------------------------------------------------------------------------
@@ -54,7 +53,7 @@ const AbsoluteRowTitle = styled(Row)`
 `;
 //------------------------------------------------------------------------------
 const WhiteBg = styled.View`
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

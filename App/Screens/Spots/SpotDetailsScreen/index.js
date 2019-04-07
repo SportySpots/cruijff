@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { ScrollView } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { withUser, userPropTypes } from '../../../Context/User';
-import Colors from '../../../Themes/Colors';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Text from '../../../Components/Common/Text';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
@@ -14,7 +13,7 @@ import SpotDetails from '../../../Components/Spots/SpotDetails';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled(ScrollView)`
-  background-color: ${Colors.concrete};
+  background-color: ${({ theme }) => theme.colors.concrete};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

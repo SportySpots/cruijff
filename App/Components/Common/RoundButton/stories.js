@@ -1,52 +1,102 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import Colors from '../../../Themes/Colors';
 import RoundButton from '.';
 
 storiesOf('Common.RoundButton', module)
   .add('RoundButton default', () => (
-    <RoundButton iconName="plus" />
+    <RoundButton
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton primary', () => (
-    <RoundButton status="primary" iconName="plus" />
+    <RoundButton
+      status="primary"
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton translucid', () => (
-    <View style={{ height: 100, backgroundColor: Colors.black }}>
-      <RoundButton status="translucid" iconName="plus" />
+    <View style={{ height: 100, backgroundColor: 'black' }}>
+      <RoundButton
+        status="translucid"
+        iconSet="MaterialCommunityIcons"
+        iconName="plus"
+      />
     </View>
   ))
   .add('RoundButton primary reverse', () => (
-    <RoundButton status="primary" reverse iconName="plus" />
+    <RoundButton
+      status="primary"
+      reverse
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton secondary', () => (
-    <RoundButton status="secondary" iconName="plus" />
+    <RoundButton
+      status="secondary"
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton info', () => (
-    <RoundButton status="info" iconName="plus" />
+    <RoundButton
+      status="info"
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton warning', () => (
-    <RoundButton status="warning" iconName="plus" />
+    <RoundButton
+      status="warning"
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton warning reverse', () => (
-    <RoundButton status="warning" reverse iconName="plus" />
+    <RoundButton
+      status="warning"
+      reverse
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton ghost', () => (
-    <RoundButton status="ghost" iconName="plus" />
+    <RoundButton
+      status="ghost"
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton dark', () => (
-    <RoundButton status="dark" iconName="plus" />
+    <RoundButton
+      status="dark"
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton ghost disabled', () => (
-    <RoundButton status="ghost" disabled iconName="plus" />
+    <RoundButton
+      status="ghost"
+      disabled
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton disabled', () => (
-    <RoundButton disabled iconName="plus" />
+    <RoundButton
+      disabled
+      iconSet="MaterialCommunityIcons"
+      iconName="plus"
+    />
   ))
   .add('RoundButton primary small', () => (
     <RoundButton
       status="primary"
       size="S"
+      iconSet="MaterialCommunityIcons"
       iconName="plus"
       width={120}
     />

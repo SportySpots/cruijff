@@ -73,6 +73,7 @@ class InfoScreen extends React.Component {
           <LinkOpenURL
             text={I18n.t('infoScreen.feedback')}
             href="https://goo.gl/forms/3oc4XPVkQtXMSKK33"
+            iconSet="MaterialIcons"
             iconName="chat"
           />
         </Block>
@@ -81,7 +82,7 @@ class InfoScreen extends React.Component {
           <LinkOpenURL
             text={I18n.t('infoScreen.privacy')}
             href="https://www.sportyspots.com/privacy.html"
-            iconSet="MaterialCommunityIcon"
+            iconSet="MaterialCommunityIcons"
             iconName="security-account"
           />
         </Block>
@@ -90,6 +91,7 @@ class InfoScreen extends React.Component {
           <LinkOpenURL
             text={I18n.t('infoScreen.terms')}
             href="https://www.sportyspots.com/terms.html"
+            iconSet="MaterialIcons"
             iconName="info"
           />
         </Block>

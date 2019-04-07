@@ -35,6 +35,7 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set title
       const res = await SeedorfAPI.setGameName({ gameUUID, name });
+      console.log('EDIT GAME NAME RESPONSE', res);
 
       if (res && res.problem) {
         const errors = curateErrors(res.data);
@@ -70,6 +71,7 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set capacity
       const res = await SeedorfAPI.setGameCapacity({ gameUUID, capacity: capacity || null });
+      console.log('EDIT GAME CAPACITY RESPONSE', res);
 
       if (res && res.problem) {
         const errors = curateErrors(res.data);
@@ -85,6 +87,7 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set spot
       const res = await SeedorfAPI.setGameSpot({ gameUUID, spotUUID: spot.uuid });
+      console.log('EDIT GAME SPOT RESPONSE', res);
 
       if (res && res.problem) {
         const errors = curateErrors(res.data);
@@ -100,6 +103,7 @@ class EditGameApiCall extends React.PureComponent {
     try {
       // Set description
       const res = await SeedorfAPI.setGameDescription({ gameUUID, description });
+      console.log('EDIT GAME DESCRIPTION RESPONSE', res);
 
       if (res && res.problem) {
         const errors = curateErrors(res.data);

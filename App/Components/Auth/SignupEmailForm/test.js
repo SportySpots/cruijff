@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
 import I18n from '../../../I18n';
+import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import SignupEmailForm, { MAX_CHARS } from '.';
 
 const validName = 'John Doe';
@@ -12,7 +14,11 @@ const longEmail = `${new Array(MAX_CHARS - 8).join('a')}@email.com`; // aaaaaa..
 
 describe('SignupEmailForm', () => {
   it('renders without crashing', () => {
-    const rendered = renderer.create(<SignupEmailForm />).toJSON();
+    const rendered = renderer.create(
+      <ThemeProvider theme={scTheme}>
+        <SignupEmailForm />
+      </ThemeProvider>,
+    ).toJSON();
     expect(rendered).toBeTruthy();
   });
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import themeImages from '../../../Themes/Images';
 import Text from '../Text';
 import { userToInitials, convertS3ToImgix, getSize } from './utils';
@@ -17,7 +16,7 @@ const Circle = styled.View`
   width: ${setSize};
   height: ${setSize};
   border-radius: ${setSize};
-  background-color: ${({ bgColor }) => (Colors[bgColor] || Colors.primaryGreen)};
+  background-color: ${({ theme, bgColor }) => (theme.colors[bgColor] || theme.colors.primaryGreen)};
   flex-direction: column;
   justify-content: center;
   align-items: center;

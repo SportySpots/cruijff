@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import I18n from '../../../I18n';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
 import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
+import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import PlanGameForm from '.';
 
 const mockMonth = 10; // november
@@ -65,7 +67,9 @@ describe('PlanGameForm', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(
       <ApolloMockProvider>
-        <PlanGameForm />
+        <ThemeProvider theme={scTheme}>
+          <PlanGameForm username="username" />
+        </ThemeProvider>
       </ApolloMockProvider>,
     ).toJSON();
     expect(rendered).toBeTruthy();

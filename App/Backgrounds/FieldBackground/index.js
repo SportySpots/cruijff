@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dimensions, View, ScrollView } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Colors from '../../Themes/Colors';
 import Logo from '../../Components/Common/Logo';
 import Spacer from '../../Components/Common/Spacer';
@@ -15,7 +15,7 @@ const { width: fullWidth, height: fullHeight } = Dimensions.get('window');
 // STYLE:
 //------------------------------------------------------------------------------
 const BgContainer = styled.View`
-  background-color: ${Colors.primaryGreen}
+  background-color: ${({ theme }) => theme.colors.primaryGreen}
   position: absolute;
   left: 0;
   top: 0;

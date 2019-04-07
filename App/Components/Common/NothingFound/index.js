@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import Text from '../Text';
+import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -16,9 +15,14 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const NothingFound = ({ icon, text }) => (
+const NothingFound = ({ iconSet, iconName, text }) => (
   <Container>
-    <Icon name={icon} size={96} color={Colors.link} />
+    <Icon
+      iconSet={iconSet}
+      iconName={iconName}
+      size={96}
+      color="link"
+    />
     <Text size="L" color="link" center>
       {text}
     </Text>
@@ -26,7 +30,8 @@ const NothingFound = ({ icon, text }) => (
 );
 
 NothingFound.propTypes = {
-  icon: PropTypes.string.isRequired,
+  iconSet: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 

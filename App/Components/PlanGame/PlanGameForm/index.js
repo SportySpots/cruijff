@@ -5,7 +5,7 @@ import firebase from 'react-native-firebase';
 import Swiper from 'react-native-swiper';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import { addGlobalRef } from '../../../globalRefs';

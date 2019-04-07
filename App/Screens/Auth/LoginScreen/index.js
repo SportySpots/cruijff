@@ -1,11 +1,10 @@
 import React from 'react';
 // import { Linking } from 'react-native';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 // import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 // import settings from '../../../config';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
 import LoginEmailApiCall from '../../../Components/Auth/LoginEmailApiCall';
 import LoginEmailForm from '../../../Components/Auth/LoginEmailForm';
@@ -28,7 +27,7 @@ import LinkNavigate from '../../../Components/Common/LinkNavigate';
 const Container = styled.View`
   flex: 1;
   justify-content: space-between;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 const Top = styled.View`

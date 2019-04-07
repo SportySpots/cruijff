@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Divider from '../../Common/Divider';
 import PlayerRow from '../PlayerRow';
@@ -12,7 +11,7 @@ import PlayerRow from '../PlayerRow';
 //------------------------------------------------------------------------------
 const Container = styled.ScrollView`
   flex: 1;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

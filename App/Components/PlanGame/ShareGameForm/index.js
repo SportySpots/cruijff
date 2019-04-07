@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import firebase from 'react-native-firebase';
-import styled from 'styled-components';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
+import Icon from '../../Common/Icon';
 import Footer from '../../Common/DarkFooter';
 import ClosableLayout from '../../Layouts/ClosableLayout';
 import ShareGameButton from '../../Games/ShareGameButton';
@@ -75,9 +74,10 @@ class ShareGameForm extends React.PureComponent {
           <Spacer size="XXXL" />
           <Row alignItems="center">
             <Icon
-              name="share-variant"
+              iconSet="MaterialCommunityIcons"
+              iconName="share-variant"
               size={35}
-              color={Colors.white}
+              color="white"
             />
             <Spacer row size="L" />
             <Text size="ML" color="white">
