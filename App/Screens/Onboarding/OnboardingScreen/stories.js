@@ -7,7 +7,7 @@ const dummyNavigation = {
   navigate: () => {},
 };
 
-storiesOf('Screens.Plan.OnboardingScreen', module)
+storiesOf('Screens.Onboarding', module)
   .add('OnboardingScreen', () => (
     <OnboardingScreen navigation={dummyNavigation} />
   ));

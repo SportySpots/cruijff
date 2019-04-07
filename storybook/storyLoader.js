@@ -89,6 +89,7 @@ function loadStories() {
   require('../App/Components/Notifications/NotificationCard/stories');
   require('../App/Components/Notifications/NotificationsList/stories');
   require('../App/Components/Onboarding/LocationSlide/stories');
+  require('../App/Components/Onboarding/NotificationPermissionSlide/stories');
   require('../App/Components/Onboarding/OnboardingForm/stories');
   require('../App/Components/PlanGame/InviteOnly/stories');
   require('../App/Components/PlanGame/PlanGameForm/stories');
@@ -222,6 +223,7 @@ const stories = [
   '../App/Components/Notifications/NotificationCard/stories',
   '../App/Components/Notifications/NotificationsList/stories',
   '../App/Components/Onboarding/LocationSlide/stories',
+  '../App/Components/Onboarding/NotificationPermissionSlide/stories',
   '../App/Components/Onboarding/OnboardingForm/stories',
   '../App/Components/PlanGame/InviteOnly/stories',
   '../App/Components/PlanGame/PlanGameForm/stories',
