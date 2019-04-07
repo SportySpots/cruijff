@@ -87,6 +87,7 @@ function loadStories() {
   require('../App/Components/Layouts/FixedBottomLayout/stories');
   require('../App/Components/Layouts/FixedTopLayout/stories');
   require('../App/Components/Onboarding/LocationSlide/stories');
+  require('../App/Components/Onboarding/NotificationPermissionSlide/stories');
   require('../App/Components/Onboarding/OnboardingForm/stories');
   require('../App/Components/PlanGame/InviteOnly/stories');
   require('../App/Components/PlanGame/PlanGameForm/stories');
@@ -217,6 +218,7 @@ const stories = [
   '../App/Components/Layouts/FixedBottomLayout/stories',
   '../App/Components/Layouts/FixedTopLayout/stories',
   '../App/Components/Onboarding/LocationSlide/stories',
+  '../App/Components/Onboarding/NotificationPermissionSlide/stories',
   '../App/Components/Onboarding/OnboardingForm/stories',
   '../App/Components/PlanGame/InviteOnly/stories',
   '../App/Components/PlanGame/PlanGameForm/stories',

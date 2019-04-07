@@ -12,7 +12,7 @@ const dummyNavigation = {
   navigate: () => {},
 };
 
-storiesOf('Screens.Plan.PlanGameScreen', module)
+storiesOf('Screens.Plan', module)
   .add('PlanGameScreen', () => (
     <PlanGameScreen navigation={dummyNavigation} />
   ))
