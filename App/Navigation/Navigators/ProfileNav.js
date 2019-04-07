@@ -5,6 +5,8 @@ import StackBackHeader from '../StackBackHeader';
 import LoggedInRoute from '../LoggedInRoute';
 import AuthScreens from './AuthScreens';
 import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
+import InfoScreen from '../../Screens/Profile/InfoScreen';
+import SettingsScreen from '../../Screens/Profile/SettingsScreen';
 import ProfileDetailsScreen from '../../Screens/Profile/ProfileDetailsScreen';
 import ProfileEditScreen from '../../Screens/Profile/ProfileEditScreen';
 import UserMenu from '../../Components/Profile/UserMenu';
@@ -23,6 +25,20 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 const ProfileNav = createStackNavigator({
   ...AuthScreens,
+  InfoScreen: {
+    screen: InfoScreen,
+    navigationOptions: () => ({
+      headerTitle: I18n.t('infoScreen.title'),
+      headerTitleStyle,
+    }),
+  },
+  SettingsScreen: {
+    screen: SettingsScreen,
+    navigationOptions: () => ({
+      headerTitle: I18n.t('settingsScreen.title'),
+      headerTitleStyle,
+    }),
+  },
   ProfileEditScreen: {
     screen: ({ navigation }) => (
       <LoggedInRoute

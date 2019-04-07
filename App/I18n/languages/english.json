@@ -47,6 +47,10 @@
     "terms": "Terms and conditions"
   },
 
+  "settingsScreen": {
+    "title": "My Settings"
+  },
+
   "profileScreen": {
     "navigation": {
       "title": "Profile"
@@ -55,6 +59,8 @@
 
   "userMenu": {
     "edit": "Edit",
+    "settings": "Settings",
+    "info": "Info",
     "logout": "Log out"
   },
 
