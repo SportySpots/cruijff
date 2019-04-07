@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import Text from '../Text';
+import Spacer from '../Spacer';
 import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
@@ -11,6 +12,11 @@ const Container = styled.View`
   height: 100%;
   justify-content: center;
   align-items: center;
+`;
+//------------------------------------------------------------------------------
+const MaxWidth = styled.View`
+  width: 100%;
+  max-width: 270px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -23,9 +29,12 @@ const NothingFound = ({ iconSet, iconName, text }) => (
       size={96}
       color="link"
     />
-    <Text size="L" color="link" center>
-      {text}
-    </Text>
+    <Spacer size="XXL" />
+    <MaxWidth>
+      <Text size="L" color="link" center>
+        {text}
+      </Text>
+    </MaxWidth>
   </Container>
 );
 

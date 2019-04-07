@@ -31,11 +31,12 @@
   },
 
   "navBar": {
-    "spots": "Spots",
+    "spots": "Discover",
     "activities": "Activities",
     "organize": "Organize",
     "profile": "Profile",
-    "info": "Info"
+    "info": "Info",
+    "notifications": "Notifications"
   },
 
   "infoScreen": {
@@ -46,6 +47,10 @@
     "terms": "Terms and conditions"
   },
 
+  "settingsScreen": {
+    "title": "My Settings"
+  },
+
   "profileScreen": {
     "navigation": {
       "title": "Profile"
@@ -54,6 +59,8 @@
 
   "userMenu": {
     "edit": "Edit",
+    "settings": "Settings",
+    "info": "Info",
     "logout": "Log out"
   },
 
@@ -667,7 +674,24 @@
     "title": "Choose your sport location:"
   },
 
+  "notificationPermissionSlide": {
+    "title": "Notifications",
+    "text": "Can we send you push notifications",
+    "yesBtnLabel": "Yes",
+    "noBtnLabel": "No"
+  },
+
   "queryCatchErrors": {
     "errorMsg": "Oops, something went wrong"
+  },
+
+  "notificationsListScreen": {
+    "navigation": {
+      "title": "Notifications"
+    }
+  },
+
+  "notificationsList": {
+    "noResults": "Looks like you have no notifications"
   }
 }

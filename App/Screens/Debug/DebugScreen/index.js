@@ -7,14 +7,7 @@ import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import { log } from '../../../config';
-
-const safeStringify = (obj) => {
-  try {
-    return JSON.stringify(obj);
-  } catch (e) {
-    return '[Unserializable object]';
-  }
-};
+import safeStringify from './utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:

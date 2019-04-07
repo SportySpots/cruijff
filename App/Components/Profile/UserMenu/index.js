@@ -10,6 +10,21 @@ import Menu from '../../Common/Menu';
 // COMPONENT:
 //------------------------------------------------------------------------------
 class UserMenu extends React.PureComponent {
+  handleEdit = () => {
+    const { navigation } = this.props;
+    navigation.navigate('ProfileEditScreen');
+  }
+
+  handleSettings = () => {
+    const { navigation } = this.props;
+    navigation.navigate('SettingsScreen');
+  }
+
+  handleInfo = () => {
+    const { navigation } = this.props;
+    navigation.navigate('InfoScreen');
+  }
+
   handleLogout = async () => {
     const { navigation, refetchUser } = this.props;
     // Remove token from async storage and reset apollo store
@@ -19,11 +34,6 @@ class UserMenu extends React.PureComponent {
     client.resetStore();
     await refetchUser(); // TODO: remove this after GET_ME is implemented
     navigation.navigate('SplashScreen');
-  }
-
-  handleEdit = () => {
-    const { navigation } = this.props;
-    navigation.navigate('ProfileEditScreen');
   }
 
   render() {
@@ -38,6 +48,16 @@ class UserMenu extends React.PureComponent {
         id: 'edit',
         text: I18n.t('userMenu.edit'),
         onPress: this.handleEdit,
+      },
+      {
+        id: 'settings',
+        text: I18n.t('userMenu.settings'),
+        onPress: this.handleSettings,
+      },
+      {
+        id: 'info',
+        text: I18n.t('userMenu.info'),
+        onPress: this.handleInfo,
       },
       {
         id: 'logout',

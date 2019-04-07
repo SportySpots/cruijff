@@ -102,7 +102,7 @@ const SpotsList = ({
             ListEmptyComponent={(!loading && (
               <NothingFound
                 iconSet="MaterialCommunityIcons"
-                iconName="map-marker"
+                iconName="compass"
                 text={I18n.t('spotsList.noResults')}
               />
             ))}

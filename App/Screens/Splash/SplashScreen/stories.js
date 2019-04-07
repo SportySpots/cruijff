@@ -4,7 +4,7 @@ import navigation from './mocks';
 import SplashScreen from '.';
 
 // TODO: load/pass user context
-storiesOf('Screens', module)
+storiesOf('Screens.Splash', module)
   .add('SplashScreen', () => (
     <SplashScreen
       navigation={navigation}

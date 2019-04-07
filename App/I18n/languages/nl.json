@@ -31,11 +31,12 @@
   },
 
   "navBar": {
-    "spots": "Spots",
+    "spots": "Ontdekken",
     "activities": "Activiteiten",
     "organize": "Organiseer",
     "profile": "Profiel",
-    "info": "Info"
+    "info": "Info",
+    "notifications": "Meldingen"
   },
 
   "infoScreen": {
@@ -667,7 +668,24 @@
     "title": "Choose your sport location:"
   },
 
+  "notificationPermissionSlide": {
+    "title": "Notificaties",
+    "text": "Mogen we je push notificaties sturen?",
+    "yesBtnLabel": "Ja",
+    "noBtnLabel": "Nee"
+  },
+
   "queryCatchErrors": {
     "errorMsg": "Oeps, er is iets mis gegaan"
+  },
+
+  "notificationsListScreen": {
+    "navigation": {
+      "title": "Meldingen"
+    }
+  },
+
+  "notificationsList": {
+    "noResults": "Het lijkt erop dat je geen meldingen hebt"
   }
 }

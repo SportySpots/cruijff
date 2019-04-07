@@ -12,47 +12,61 @@ import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../Common/DarkFooter';
 import LocationSlide, { INIT_STATE as LOCATION_INIT_STATE } from '../LocationSlide';
+import NotificationPermissionSlide, { NOTIFICATION_PERMISSION } from '../NotificationPermissionSlide';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const SLIDES = [
-  {
-    id: 'welcomeSlide',
-    Comp: () => (
-      <ImageBackground
-        title={I18n.t('onboardingScreen.welcome.title')}
-        text={I18n.t('onboardingScreen.welcome.text')}
-        image={Images.illustrationWizard1}
-      />
-    ),
-  },
-  {
-    id: 'joinGameSlide',
-    Comp: () => (
-      <ImageBackground
-        title={I18n.t('onboardingScreen.joinGame.title')}
-        text={I18n.t('onboardingScreen.joinGame.text')}
-        image={Images.illustrationWizard2}
-      />
-    ),
-  },
-  {
-    id: 'planGameSlide',
-    Comp: () => (
-      <ImageBackground
-        title={I18n.t('onboardingScreen.planGame.title')}
-        text={I18n.t('onboardingScreen.planGame.text')}
-        image={Images.illustrationWizard3}
-      />
-    ),
-  },
-  {
-    id: 'locationSlide',
-    Comp: LocationSlide,
-    requiredFields: LocationSlide.requiredFields,
-  },
-];
+const getSlides = async () => {
+  const slides = [
+    {
+      id: 'welcomeSlide',
+      Comp: () => (
+        <ImageBackground
+          title={I18n.t('onboardingScreen.welcome.title')}
+          text={I18n.t('onboardingScreen.welcome.text')}
+          image={Images.illustrationWizard1}
+        />
+      ),
+    },
+    {
+      id: 'joinGameSlide',
+      Comp: () => (
+        <ImageBackground
+          title={I18n.t('onboardingScreen.joinGame.title')}
+          text={I18n.t('onboardingScreen.joinGame.text')}
+          image={Images.illustrationWizard2}
+        />
+      ),
+    },
+    {
+      id: 'planGameSlide',
+      Comp: () => (
+        <ImageBackground
+          title={I18n.t('onboardingScreen.planGame.title')}
+          text={I18n.t('onboardingScreen.planGame.text')}
+          image={Images.illustrationWizard3}
+        />
+      ),
+    },
+    {
+      id: 'locationSlide',
+      Comp: LocationSlide,
+      requiredFields: LocationSlide.requiredFields,
+    },
+  ];
+
+  const hasNotificationPermission = await firebase.messaging().hasPermission();
+  if (!hasNotificationPermission) {
+    slides.push({
+      id: 'notificationPermissionSlide',
+      Comp: NotificationPermissionSlide,
+      requiredFields: NotificationPermissionSlide.requiredFields,
+    });
+  }
+
+  return slides;
+};
 
 const INIT_STATE = {
   ...cloneDeep(LOCATION_INIT_STATE),
@@ -73,9 +87,15 @@ class OnboardingForm extends React.Component {
     addGlobalRef('OnBoardingScreen')(this);
 
     this.state = {
+      slides: null,
       curSlide: 0,
+      notificationPermission: NOTIFICATION_PERMISSION.UNDEFINED,
       ...cloneDeep(INIT_STATE),
     };
+
+    getSlides().then((slides) => {
+      this.setState({ slides });
+    });
 
     // console.log('INIT STATE', this.state);
   }
@@ -85,15 +105,15 @@ class OnboardingForm extends React.Component {
   }
 
   get disableNext() {
-    const { curSlide } = this.state;
+    const { curSlide, slides } = this.state;
 
     // Get required fields for the current slide
-    const { requiredFields } = SLIDES[curSlide];
+    const { requiredFields } = slides[curSlide];
 
     // Disable next btn (return 'true') if at least on of the required fields isn't set
     if (requiredFields) {
-      for (let i = 0; i < requiredFields.length; i += 1) {
-        const fieldName = requiredFields[i];
+      for (const fieldName of requiredFields) {
+        // const fieldName = requiredFields[i];
         if (!this.state[fieldName]) { // eslint-disable-line
           return true;
         }
@@ -105,20 +125,20 @@ class OnboardingForm extends React.Component {
   }
 
   get buttonNextText() {
-    const { curSlide } = this.state;
-    return curSlide < SLIDES.length - 1 ? 'onboardingScreen.nextBtnLabel' : 'onboardingScreen.lastBtnLabel';
+    const { curSlide, slides } = this.state;
+    return curSlide < slides.length - 1 ? 'onboardingScreen.nextBtnLabel' : 'onboardingScreen.lastBtnLabel';
   }
 
 
   handleNext = async () => {
     Keyboard.dismiss();
 
-    const { curSlide } = this.state;
+    const { curSlide, slides } = this.state;
 
     firebase.analytics().logEvent(`onboarding_footer_next_btn_press_idx_${curSlide}`);
 
     // If it's NOT the last slide, increment slide counter and slide forward one position
-    if (curSlide !== SLIDES.length - 1) {
+    if (curSlide !== slides.length - 1) {
       this.setState(
         prevState => ({ curSlide: prevState.curSlide + 1 }),
         () => { this.swiper.scrollBy(1); },
@@ -149,8 +169,10 @@ class OnboardingForm extends React.Component {
 
   render() {
     const { disabled } = this.props;
-    const { curSlide, ...rest } = this.state;
-
+    const { curSlide, slides, ...rest } = this.state;
+    if (!slides) {
+      return null;
+    }
     return (
       <FlexOne>
         <Swiper
@@ -159,7 +181,7 @@ class OnboardingForm extends React.Component {
           loop={false}
           showsPagination={false}
         >
-          {SLIDES.map(({ id, Comp }, index) => (
+          {slides.map(({ id, Comp }, index) => (
             <FlexOne key={id}>
               {index === curSlide ? (
                 <Comp
@@ -172,7 +194,7 @@ class OnboardingForm extends React.Component {
           ))}
         </Swiper>
         <Footer
-          numPages={SLIDES.length}
+          numPages={slides.length}
           currentPage={curSlide}
           onNext={this.handleNext}
           disableNext={this.disableNext || disabled}

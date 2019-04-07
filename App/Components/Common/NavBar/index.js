@@ -22,17 +22,16 @@ const buttons = [{
   label: 'navBar.spots',
   route: 'SpotSearchTab',
   icon: {
-    set: 'MaterialIcons',
-    name: 'search',
-    // name: 'place',
+    set: 'MaterialCommunityIcons',
+    name: 'compass',
   },
 }, {
   id: 'activities',
   label: 'navBar.activities',
   route: 'GameSearchTab',
   icon: {
-    set: 'MaterialCommunityIcons',
-    name: 'account-group',
+    set: 'MaterialIcons',
+    name: 'people',
   },
 }, {
   id: 'organize',
@@ -42,7 +41,14 @@ const buttons = [{
   icon: {
     set: 'MaterialCommunityIcons',
     name: 'soccer-field',
-    // name: 'calendar-plus',
+  },
+}, {
+  id: 'notifications',
+  label: 'navBar.notifications',
+  route: 'NotificationsTab',
+  icon: {
+    set: 'MaterialCommunityIcons',
+    name: 'bell',
   },
 }, {
   id: 'profile',
@@ -52,15 +58,8 @@ const buttons = [{
     set: 'MaterialIcons',
     name: 'account-circle',
   },
-}, {
-  id: 'info',
-  label: 'navBar.info',
-  route: 'InfoTab',
-  icon: {
-    set: 'MaterialIcons',
-    name: 'info',
-  },
 }];
+
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------

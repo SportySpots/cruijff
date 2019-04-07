@@ -14,9 +14,12 @@ const dummyNavigator = {
 storiesOf('Spots.SpotListCard', module)
   .add('SpotListCard', () => (
     <Query query={GET_SPOTS}>
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
-          <SpotListCard spot={data.spots[0]} navigation={dummyNavigator} />
+      {({ loading, error, data }) => (
+        loading || error ? null : (
+          <SpotListCard
+            spot={data.spots[0]}
+            navigation={dummyNavigator}
+          />
         ))
       }
     </Query>

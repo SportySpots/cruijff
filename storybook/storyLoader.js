@@ -86,7 +86,10 @@ function loadStories() {
   require('../App/Components/Layouts/ClosableLayout/stories');
   require('../App/Components/Layouts/FixedBottomLayout/stories');
   require('../App/Components/Layouts/FixedTopLayout/stories');
+  require('../App/Components/Notifications/NotificationCard/stories');
+  require('../App/Components/Notifications/NotificationsList/stories');
   require('../App/Components/Onboarding/LocationSlide/stories');
+  require('../App/Components/Onboarding/NotificationPermissionSlide/stories');
   require('../App/Components/Onboarding/OnboardingForm/stories');
   require('../App/Components/PlanGame/InviteOnly/stories');
   require('../App/Components/PlanGame/PlanGameForm/stories');
@@ -124,6 +127,7 @@ function loadStories() {
   require('../App/Screens/Games/GamesListScreen/stories');
   require('../App/Screens/Games/PlayersListScreen/stories');
   require('../App/Screens/Info/InfoScreen/stories');
+  require('../App/Screens/Notifications/NotificationsListScreen/stories');
   require('../App/Screens/Onboarding/OnboardingScreen/stories');
   require('../App/Screens/Plan/PlanGameScreen/stories');
   require('../App/Screens/Plan/ShareGameScreen/stories');
@@ -216,7 +220,10 @@ const stories = [
   '../App/Components/Layouts/ClosableLayout/stories',
   '../App/Components/Layouts/FixedBottomLayout/stories',
   '../App/Components/Layouts/FixedTopLayout/stories',
+  '../App/Components/Notifications/NotificationCard/stories',
+  '../App/Components/Notifications/NotificationsList/stories',
   '../App/Components/Onboarding/LocationSlide/stories',
+  '../App/Components/Onboarding/NotificationPermissionSlide/stories',
   '../App/Components/Onboarding/OnboardingForm/stories',
   '../App/Components/PlanGame/InviteOnly/stories',
   '../App/Components/PlanGame/PlanGameForm/stories',
@@ -254,6 +261,7 @@ const stories = [
   '../App/Screens/Games/GamesListScreen/stories',
   '../App/Screens/Games/PlayersListScreen/stories',
   '../App/Screens/Info/InfoScreen/stories',
+  '../App/Screens/Notifications/NotificationsListScreen/stories',
   '../App/Screens/Onboarding/OnboardingScreen/stories',
   '../App/Screens/Plan/PlanGameScreen/stories',
   '../App/Screens/Plan/ShareGameScreen/stories',

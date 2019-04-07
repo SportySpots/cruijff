@@ -31,11 +31,12 @@
   },
 
   "navBar": {
-    "spots": "Spots",
+    "spots": "Descubre",
     "activities": "Actividades",
     "organize": "Organiza",
     "profile": "Perfil",
-    "info": "Info"
+    "info": "Info",
+    "notifications": "Notificaciones"
   },
 
   "infoScreen": {
@@ -667,7 +668,24 @@
     "title": "Elige tu ubicación deportiva:"
   },
 
+  "notificationPermissionSlide": {
+    "title": "Notificaciones",
+    "text": "¿Podemos enviarle notificaciones?",
+    "yesBtnLabel": "Si",
+    "noBtnLabel": "No"
+  },
+
   "queryCatchErrors": {
     "errorMsg": "Huy! Algo salió mal"
+  },
+
+  "notificationsListScreen": {
+    "navigation": {
+      "title": "Notificaciones"
+    }
+  },
+
+  "notificationsList": {
+    "noResults": "Parece que no tienes notificaciones"
   }
 }

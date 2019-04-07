@@ -12,7 +12,7 @@ const dummyNavigation = {
   },
 };
 
-storiesOf('Screens.Plan.ShareGameScreen', module)
+storiesOf('Screens.Plan', module)
   .add('ShareGameScreen', () => (
     <ShareGameScreen navigation={dummyNavigation} />
   ));
