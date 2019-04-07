@@ -663,14 +663,16 @@
     "nextBtnLabel": "continue",
     "lastBtnLabel": "let's go"
   },
+
+  "locationSlide": {
+    "title": "Choose your sport location:"
+  },
+
   "notificationPermissionSlide": {
     "title": "Notifications",
     "text": "Can we send you push notifications",
-    "buttonYes": "Yes",
-    "buttonNo": "No"
-  },
-  "locationSlide": {
-    "title": "Choose your sport location:"
+    "yesBtnLabel": "Yes",
+    "noBtnLabel": "No"
   },
 
   "queryCatchErrors": {

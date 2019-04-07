@@ -668,6 +668,13 @@
     "title": "Elige tu ubicación deportiva:"
   },
 
+  "notificationPermissionSlide": {
+    "title": "Notificaciones",
+    "text": "¿Podemos enviarle notificaciones?",
+    "yesBtnLabel": "Si",
+    "noBtnLabel": "No"
+  },
+
   "queryCatchErrors": {
     "errorMsg": "Huy! Algo salió mal"
   },

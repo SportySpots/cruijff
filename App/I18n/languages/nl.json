@@ -671,8 +671,8 @@
   "notificationPermissionSlide": {
     "title": "Notificaties",
     "text": "Mogen we je push notificaties sturen?",
-    "buttonYes": "Ja",
-    "buttonNo": "Nee"
+    "yesBtnLabel": "Ja",
+    "noBtnLabel": "Nee"
   },
 
   "queryCatchErrors": {

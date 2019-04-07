@@ -61,12 +61,12 @@ class NotificationPermissionSlide extends React.PureComponent {
               <RaisedButton
                 onPress={this.onYes}
                 variant={notificationPermission === NOTIFICATION_PERMISSION.YES ? 'default' : 'transparent'}
-                label={I18n.t('notificationPermissionSlide.buttonYes')}
+                label={I18n.t('notificationPermissionSlide.yesBtnLabel')}
               />
               <RaisedButton
                 onPress={this.onNo}
                 variant={notificationPermission === NOTIFICATION_PERMISSION.NO ? 'default' : 'transparent'}
-                label={I18n.t('notificationPermissionSlide.buttonNo')}
+                label={I18n.t('notificationPermissionSlide.noBtnLabel')}
               />
             </ButtonContainer>
           </Block>
