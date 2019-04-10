@@ -2,25 +2,26 @@
   "BASKETBALL": "Basketbal",
   "BOOTCAMP": "Bootcamp",
   "SOCCER": "Voetbal",
+  "TABLE_TENNIS": "Tafeltennis",
   "TENNIS": "Tennis",
   "FITNESS": "Fitness",
   "OTHERS": "Overig",
   "SKATING": "Skaten",
-  "BEACH_VOLLEYBALL": "Beachvolleybal",
+  "BEACH_VOLLEYBALL": "(Beach) Volleybal",
   "BOULES": "Jeu de boules",
   "Basketball": "Basketbal",
   "Bootcamp": "Bootcamp",
   "Soccer": "Voetbal",
+  "Table Tennis": "Tafeltennis",
   "Tennis": "Tennis",
   "Fitness": "Fitness",
-  "Others": "Overig",
+  "Other": "Overig",
   "Skating": "Skaten",
-  "Beach_volleyball": "Beachvolleybal",
+  "Beach Volleyball": "(Beach) Volleybal",
   "Boules": "Jeu de boules",
 
   "Netherlands": "Nederland",
   "Argentina": "Argentinië",
-
 
   "splashScreen": {
     "title": "Ontdek sportlocaties en activiteiten bij jou in de buurt",
@@ -529,7 +530,7 @@
     "googlePlusBtnLabel": "Login met Google",
     "facebookBtnLabel": "Login met facebook",
     "emailSectionTitle": "Login met magic link",
-    "signupLink": "Nog niet een lid? Inschrijven"
+    "signupLink": "Nog geen lid? Schrijf je in"
   },
 
   "orDivider": {
@@ -585,7 +586,7 @@
 
   "signupEmailScreen": {
     "navigation": {
-      "title": "Schrijf je in met email"
+      "title": "Inschrijven"
     }
   },
 
@@ -615,7 +616,13 @@
       "prefix": "Door je aan te melden ga je akkoord met de",
       "link": "Algemene voorwaarden"
     },
-    "btnLabel": "Sign up"
+    "btnLabel": "Inschrijven"
+  },
+
+  "confirmMagicTokenScreen": {
+    "title": "Your magic link expired!",
+    "btnLabel": "Take me to login",
+    "link": "Let me browse the app"
   },
 
   "connectionCheck": {

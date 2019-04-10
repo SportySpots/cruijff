@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
 import { withLocation, locationPropTypes } from '../../../Context/Location';
-import Colors from '../../../Themes/Colors';
 import FormProps from '../../../RenderProps/form-props';
 import EditProfileApiCall from '../../../Components/Profile/EditProfileApiCall';
 import EditProfileForm from '../../../Components/Profile/EditProfileForm';
@@ -15,15 +14,16 @@ import EditProfileForm from '../../../Components/Profile/EditProfileForm';
 // TODO: introduce/use DefaultLayout instead
 const Container = styled.View`
   flex: 1;
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ProfileEditScreen = ({
   user,
+  refetchUser,
   location,
-  refresh,
+  refetchLocation,
   navigation,
 }) => (
   <FormProps>
@@ -40,8 +40,9 @@ const ProfileEditScreen = ({
         onEditError={handleServerError}
         onEditSuccess={() => {
           // Extend formProps.handleSuccess' default functionality
-          handleSuccess(() => {
-            refresh();
+          handleSuccess(async () => {
+            await refetchUser();
+            await refetchLocation();
             navigation.goBack(null);
           });
         }}
@@ -68,8 +69,9 @@ const ProfileEditScreen = ({
 
 ProfileEditScreen.propTypes = {
   user: userPropTypes.user.isRequired,
+  refetchUser: userPropTypes.refetchUser.isRequired,
   location: locationPropTypes.location.isRequired,
-  refresh: userPropTypes.refresh.isRequired,
+  refetchLocation: locationPropTypes.refetchLocation.isRequired,
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,

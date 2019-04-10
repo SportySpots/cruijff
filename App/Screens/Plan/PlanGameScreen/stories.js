@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import Colors from '../../../Themes/Colors';
 import Block from '../../../Components/Common/Block';
 import Row from '../../../Components/Common/Row';
 import DatePickerField from '../../../Components/Common/DatePickerField';
@@ -18,7 +17,7 @@ storiesOf('Screens.Plan.PlanGameScreen', module)
     <PlanGameScreen navigation={dummyNavigation} />
   ))
   .add('PlanGameScreen inputs', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <Row>
         <View style={{ flex: 1 }}>
           <DatePickerField

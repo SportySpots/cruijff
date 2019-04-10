@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import TextField from '.';
 
@@ -47,7 +46,7 @@ storiesOf('Common.TextField', module)
     </Block>
   ))
   .add('TextField with WHITE theme', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <TextField
         theme="white"
         label="I'm the label"
@@ -58,7 +57,7 @@ storiesOf('Common.TextField', module)
     </Block>
   ))
   .add('TextField with WHITE theme with ERROR', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <TextField
         theme="white"
         label="I'm the label"
@@ -70,7 +69,7 @@ storiesOf('Common.TextField', module)
     </Block>
   ))
   .add('TextField with MIX theme', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <TextField
         theme="mix"
         label="I'm the label"
@@ -81,7 +80,7 @@ storiesOf('Common.TextField', module)
     </Block>
   ))
   .add('TextField with white theme size ML', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <TextField
         theme="white"
         size="ML"

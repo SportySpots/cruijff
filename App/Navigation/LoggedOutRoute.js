@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../Context/User';
+import { withLocation, locationPropTypes } from '../Context/Location';
+import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -10,32 +13,50 @@ import { withUser, userPropTypes } from '../Context/User';
  * is NOT authenticated. In case she is, call onLoggedIn callback.
  */
 class LoggedOutRoute extends React.PureComponent {
-  componentWillMount() {
-    const { user, onLoggedIn } = this.props;
+  isLoggedIn = (props) => {
+    const {
+      loadingUser,
+      user,
+      loadingLocation,
+    } = props;
 
-    // In case user IS logged in, fire onLoggedIn callback
-    if (user && user.uuid) {
-      onLoggedIn();
+    return !loadingUser && !loadingLocation && user && user.uuid;
+  }
+
+  componentWillMount() {
+    const { location, onLoggedIn, ...rest } = this.props;
+    if (this.isLoggedIn(rest)) {
+      onLoggedIn({ location });
     }
   }
 
-  // eslint-disable-next-line no-unused-vars
-  componentDidUpdate(prevState, prevProps, snapshot) {
-    const { user, onLoggedIn } = this.props;
-
-    // In case user IS logged in, fire onLoggedIn callback
-    if (user && user.uuid) {
-      onLoggedIn();
+  componentWillUpdate(nextProps) {
+    const { location, onLoggedIn, ...rest } = nextProps;
+    if (this.isLoggedIn(rest)) {
+      onLoggedIn({ location });
     }
   }
 
   render() {
     const {
+      loadingUser,
       user,
+      loadingLocation,
+      location,
       component: Component,
       onLoggedIn,
       ...rest
     } = this.props;
+
+    // Wait until user is ready
+    if (loadingUser || loadingLocation) {
+      return <CenteredActivityIndicator />;
+    }
+
+    // In case user IS logged in, render overlay component
+    if (user && user.uuid) {
+      return <CenteredActivityIndicator />;
+    }
 
     // ...Otherwise, render requested component
     return <Component {...rest} />;
@@ -43,60 +64,23 @@ class LoggedOutRoute extends React.PureComponent {
 }
 
 LoggedOutRoute.propTypes = {
+  loadingUser: userPropTypes.loadingUser.isRequired,
   user: userPropTypes.user,
+  loadingLocation: locationPropTypes.loadingLocation.isRequired,
+  location: locationPropTypes.location,
   component: PropTypes.func.isRequired,
   onLoggedIn: PropTypes.func,
 };
 
 LoggedOutRoute.defaultProps = {
   user: null,
+  location: null,
   onLoggedIn: () => {},
 };
 
-export default withUser(LoggedOutRoute);
+const enhance = compose(
+  withUser,
+  withLocation,
+);
 
-
-/*
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withUser, userPropTypes } from '../Context/User';
-
-//------------------------------------------------------------------------------
-// COMPONENT:
-//------------------------------------------------------------------------------
-/**
- * @summary Makes sure that the user that is trying to access the wrapped route
- * is NOT authenticated. In case she is, call onLoggedIn callback.
- //
-const LoggedOutRoute = ({
-  user,
-  component: Component,
-  onLoggedIn,
-  ...rest
-}) => {
-  const childProps = { ...rest };
-
-  // In case user IS logged in, render overlay component
-  if (user && user.uuid) {
-    onLoggedIn();
-    return null;
-  }
-
-  // ...Otherwise, render requested component
-  return <Component {...childProps} />;
-};
-
-LoggedOutRoute.propTypes = {
-  user: userPropTypes.user,
-  component: PropTypes.func.isRequired,
-  onLoggedIn: PropTypes.func,
-};
-
-LoggedOutRoute.defaultProps = {
-  user: null,
-  onLoggedIn: () => {},
-};
-
-export default withUser(LoggedOutRoute);
-
-*/
+export default enhance(LoggedOutRoute);

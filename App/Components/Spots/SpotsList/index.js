@@ -4,7 +4,7 @@ import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import geolib from 'geolib';
 import I18n from '../../../I18n';
-import { locationPropTypes, withLocation } from '../../../Context/Location';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
@@ -27,16 +27,18 @@ const SpotsList = ({
   onCardPress,
   ...rest
 }) => {
+  if (!location || !location.coords) { return null; }
+
   const { coords } = location;
   const Card = cardComponent === 'SpotListCard' ? SpotListCard : SpotListCardSmall;
 
   // Set query variables
   const variables = {
+    sports__ids: sportsIds, // empty array will return all spots
+    distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
     offset: 0,
     limit: 10,
     ordering: 'distance',
-    sports__ids: sportsIds, // empty array will return all spots
-    distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
   };
 
   const numGenerator = makeNumGenerator();
@@ -45,7 +47,6 @@ const SpotsList = ({
     <QueryCatchErrors
       query={GET_SPOTS}
       variables={variables}
-      // TODO: pass ordering var in order to get results sorted by distance (closest first)
       fetchPolicy="cache-and-network"
     >
       {({
@@ -98,7 +99,13 @@ const SpotsList = ({
                 />
               </TouchableOpacity>
             )}
-            ListEmptyComponent={(!loading && <NothingFound icon="map-marker" text={I18n.t('spotsList.noResults')} />)}
+            ListEmptyComponent={(!loading && (
+              <NothingFound
+                iconSet="MaterialCommunityIcons"
+                iconName="map-marker"
+                text={I18n.t('spotsList.noResults')}
+              />
+            ))}
             ItemSeparatorComponent={() => (<Spacer size="ML" />)}
             showsVerticalScrollIndicator={false}
             onRefresh={refetch}
@@ -120,7 +127,7 @@ const SpotsList = ({
 SpotsList.propTypes = {
   cardComponent: PropTypes.oneOf(['SpotListCard', 'SpotListCardSmall']).isRequired,
   sportsIds: PropTypes.arrayOf(PropTypes.string),
-  location: locationPropTypes.location.isRequired,
+  location: locationPropTypes.location,
   maxDistance: PropTypes.number, // km
   selectedSpot: propType(spotFragment),
   onCardPress: PropTypes.func,
@@ -129,6 +136,7 @@ SpotsList.propTypes = {
 
 SpotsList.defaultProps = {
   sportsIds: [],
+  location: null,
   maxDistance: 50,
   selectedSpot: null,
   onCardPress: () => {},

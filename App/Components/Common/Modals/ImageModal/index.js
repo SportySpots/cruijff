@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Text from '../../Text';
 import Spacer from '../../Spacer';
 import Block from '../../Block';
@@ -21,14 +21,6 @@ const Img = styled.Image`
   width: 116px;
 `;
 //------------------------------------------------------------------------------
-const Title = styled(Text.M)`
-  text-align: center;
-`;
-//------------------------------------------------------------------------------
-const Subtitle = styled(Text.SM)`
-  text-align: center;
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ImageModal = ({
@@ -46,10 +38,14 @@ const ImageModal = ({
         <Container>
           <Img source={src} />
           <Spacer size="L" />
-          <Title>{title}</Title>
+          <Text size="M" center>
+            {title}
+          </Text>
           {!!subtitle && subtitle.length > 0 && [
             <Spacer key="spacer" size="M" />,
-            <Subtitle key="subtitle">{subtitle}</Subtitle>,
+            <Text key="subtitle" size="SM" center>
+              {subtitle}
+            </Text>,
           ]}
         </Container>
       </Block>

@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import ChatBubble from '.';
 
@@ -28,7 +27,7 @@ storiesOf('Common.ChatBubble', module)
     </Block>
   ))
   .add('ChatBubble', () => (
-    <Block bgColor={Colors.concrete}>
+    <Block bgColor="concrete">
       <ChatBubble
         title="Jannis Teunissen"
         text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.

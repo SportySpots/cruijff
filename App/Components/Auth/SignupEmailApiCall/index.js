@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import I18n from '../../../I18n';
+import SeedorfApi from '../../../Services/SeedorfApi';
 import curateErrors from './utils';
-import { withUser, userPropTypes } from '../../../Context/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -12,15 +13,19 @@ import { withUser, userPropTypes } from '../../../Context/User';
  */
 class SignupEmailApiCall extends React.PureComponent {
   handleSignup = async (inputFields) => {
-    const { onSignupError, onSignupSuccess, signup } = this.props;
+    const { onSignupError, onSignupSuccess } = this.props;
     const { name, email } = inputFields;
 
     try {
-      const res = await signup({ name, email });
+      const res = await SeedorfApi.signup({
+        email,
+        name,
+        language: I18n.locale.substr(0, 2),
+      });
+      console.log('SIGNUP RESPONSE', res);
 
       // Pass event up to parent component
       if (res && res.problem) {
-        console.log('RESPONSE', res.data);
         const errors = curateErrors(res.data);
         console.log('CURATED ERRORS', errors);
         onSignupError(errors);
@@ -52,7 +57,6 @@ SignupEmailApiCall.propTypes = {
   ]).isRequired,
   onSignupError: PropTypes.func,
   onSignupSuccess: PropTypes.func,
-  signup: userPropTypes.signup.isRequired,
 };
 
 SignupEmailApiCall.defaultProps = {
@@ -60,4 +64,4 @@ SignupEmailApiCall.defaultProps = {
   onSignupSuccess: () => {},
 };
 
-export default withUser(SignupEmailApiCall);
+export default SignupEmailApiCall;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import Text from '../Text';
 import getPixelsFromSize from './utils';
 
@@ -12,15 +11,11 @@ const Container = styled.View`
   margin-horizontal: ${({ size }) => (getPixelsFromSize(size))}px;
 `;
 //------------------------------------------------------------------------------
-const StyledText = styled(Text.M)`
-  color: ${Colors.shade};
-`;
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const DotSpacer = ({ size }) => (
   <Container size={size}>
-    <StyledText>·</StyledText>
+    <Text size="M" color="shade">·</Text>
   </Container>
 );
 
@@ -33,4 +28,3 @@ DotSpacer.defaultProps = {
 };
 
 export default DotSpacer;
-

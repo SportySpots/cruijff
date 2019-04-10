@@ -1,12 +1,11 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import Triangle from '.';
 
 storiesOf('Common.Triangle', module)
   .add('Triangle top left', () => (
-    <Block bgColor={Colors.link}>
+    <Block bgColor="link">
       <Triangle />
     </Block>
   ))

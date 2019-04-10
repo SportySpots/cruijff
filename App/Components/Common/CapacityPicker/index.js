@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import styled from 'styled-components';
 import Text from '../Text';
 import Row from '../Row';
 import Spacer from '../Spacer';
@@ -16,13 +15,6 @@ const BUTTONS = [
   { row: 1, labels: [9, 10, 12] },
   { row: 2, labels: [14, 16, 22] },
 ];
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Counter = styled(Text.XL)`
-  flex-grow: 1;
-  text-align: center;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -56,18 +48,26 @@ const CapacityPicker = ({
       />,
     ])}
     <Spacer size="L" />
-    <Row>
+    <Row alignItems="center">
       <Spacer row size="L" />
       <RoundButton
         testID="capacityMinus"
         status="dark"
+        iconSet="MaterialCommunityIcons"
         iconName="minus"
         onPress={onDecrease}
       />
-      <Counter>{value || 0}</Counter>
+      <Text
+        size="XL"
+        center
+        style={{ flexGrow: 1 }}
+      >
+        {value || 0}
+      </Text>
       <RoundButton
         testID="capacityPlus"
         status="dark"
+        iconSet="MaterialCommunityIcons"
         iconName="plus"
         onPress={onIncrease}
       />

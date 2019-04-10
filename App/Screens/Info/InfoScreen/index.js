@@ -1,7 +1,6 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import codePush from 'react-native-code-push';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import I18n from '../../../I18n';
 import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
@@ -10,21 +9,16 @@ import Spacer from '../../../Components/Common/Spacer';
 import Divider from '../../../Components/Common/Divider';
 import Text from '../../../Components/Common/Text';
 import LinkOpenURL from '../../../Components/Common/LinkOpenURL';
+import { version as packageJSONVersion } from '../../../../package.json';
 
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Version = styled(Text.M)`
-  text-align: center;
-`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class InfoScreen extends React.Component {
   state = {
-    // label: '?',
-    version: '?',
-    // description: '?',
+    label: '',
+    codePushVersion: '',
+    description: '',
     versionTaps: 0,
   }
 
@@ -32,9 +26,9 @@ class InfoScreen extends React.Component {
     if (codePush) {
       codePush.getUpdateMetadata().then((metadata) => {
         this.setState({
-          // label: metadata.label,
-          version: metadata.appVersion,
-          // description: metadata.description,
+          label: metadata.label,
+          codePushVersion: metadata.appVersion,
+          description: metadata.description,
         });
       }).catch(() => null);
     }
@@ -64,14 +58,14 @@ class InfoScreen extends React.Component {
   }
 
   render() {
-    const { version } = this.state;
+    const { label, description, codePushVersion } = this.state;
 
     return (
       <LogoHeaderBackground>
         <TouchableWithoutFeedback onPress={() => { this.versionPress(); }}>
-          <Version>
-            {`${I18n.t('infoScreen.appVersion')} ${version}`}
-          </Version>
+          <Text size="M" center>
+            {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${label}`}
+          </Text>
         </TouchableWithoutFeedback>
         <Spacer size="XXXL" />
         <Divider />
@@ -79,6 +73,7 @@ class InfoScreen extends React.Component {
           <LinkOpenURL
             text={I18n.t('infoScreen.feedback')}
             href="https://goo.gl/forms/3oc4XPVkQtXMSKK33"
+            iconSet="MaterialIcons"
             iconName="chat"
           />
         </Block>
@@ -87,7 +82,7 @@ class InfoScreen extends React.Component {
           <LinkOpenURL
             text={I18n.t('infoScreen.privacy')}
             href="https://www.sportyspots.com/privacy.html"
-            iconSet="MaterialCommunityIcon"
+            iconSet="MaterialCommunityIcons"
             iconName="security-account"
           />
         </Block>
@@ -96,6 +91,7 @@ class InfoScreen extends React.Component {
           <LinkOpenURL
             text={I18n.t('infoScreen.terms')}
             href="https://www.sportyspots.com/terms.html"
+            iconSet="MaterialIcons"
             iconName="info"
           />
         </Block>

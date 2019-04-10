@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
-import I18n from '../../../I18n/index';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
+import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import FieldBackground from '../../../Backgrounds/FieldBackground';
 import Block from '../../../Components/Common/Block';
@@ -16,12 +18,6 @@ import globalRefs from '../../../globalRefs';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Label = styled(Text.ML)`
-  color: ${Colors.white}
-  text-align: center;
-  font-size: 30px;
-`;
-//------------------------------------------------------------------------------
 const FlexOne = styled.View`
   flex: 1;
 `;
@@ -29,18 +25,24 @@ const FlexOne = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class SplashScreen extends React.Component {
-  async componentDidMount() {
+  componentDidMount() {
     globalRefs.SplashScreen = this;
   }
 
   render() {
-    const { navigation, user, firstRun } = this.props;
+    const { navigation, user, location } = this.props;
 
     return (
       <FieldBackground>
-        <Label testID="splashText">
+        <Text
+          testID="splashText"
+          size="L"
+          color="white"
+          center
+          style={{ fontSize: 30 }}
+        >
           {I18n.t('splashScreen.title')}
-        </Label>
+        </Text>
         <FlexOne />
         <Block>
           <RaisedButton
@@ -49,8 +51,7 @@ class SplashScreen extends React.Component {
             label={I18n.t('splashScreen.btnLabel')}
             accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
-              // navigation.navigate('OnboardingScreen');
-              navigation.navigate(firstRun ? 'OnboardingScreen' : 'MainNav');
+              navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
             }}
           />
           <Spacer size="XL" />
@@ -61,7 +62,7 @@ class SplashScreen extends React.Component {
                 navigation={navigation}
                 to="LoginScreen"
                 text={I18n.t('splashScreen.loginLink')}
-                color={Colors.white}
+                color="white"
                 underline
               />
             </Row>
@@ -75,7 +76,7 @@ class SplashScreen extends React.Component {
 
 SplashScreen.propTypes = {
   user: userPropTypes.user,
-  firstRun: userPropTypes.firstRun,
+  location: locationPropTypes.location,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -83,7 +84,12 @@ SplashScreen.propTypes = {
 
 SplashScreen.defaultProps = {
   user: null,
-  firstRun: false,
+  location: null,
 };
 
-export default withUser(SplashScreen);
+const enhance = compose(
+  withUser,
+  withLocation,
+);
+
+export default enhance(SplashScreen);

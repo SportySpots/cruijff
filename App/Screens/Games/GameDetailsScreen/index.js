@@ -2,23 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
 import { Query } from 'react-apollo';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { withUser, userPropTypes } from '../../../Context/User';
-import I18n from '../../../I18n/index';
-import Colors from '../../../Themes/Colors';
-import { client } from '../../../GraphQL';
+import I18n from '../../../I18n';
+import client from '../../../GraphQL/ApolloClient';
+import { addGlobalRef } from '../../../globalRefs';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import NothingFound from '../../../Components/Common/NothingFound';
 import GameDetails from '../../../Components/Games/GameDetails';
-import { addGlobalRef } from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled(ScrollView)`
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -81,7 +80,8 @@ class GameDetailsScreen extends React.PureComponent {
           if (error || !data || !data.game) {
             return (
               <NothingFound
-                icon="calendar-plus"
+                iconSet="MaterialCommunityIcons"
+                iconName="calendar-plus"
                 text={I18n.t('gameDetailsScreen.notFound')}
               />
             );

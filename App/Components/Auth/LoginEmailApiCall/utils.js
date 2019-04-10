@@ -27,7 +27,8 @@ const curateErrorMsg = (errorMsg) => {
     case 'Email not registered':
       return 'loginEmailForm.fields.email.errors.notRegistered';
     default:
-      return 'loginEmailForm.fields.email.errors.unknown';
+      // return 'loginEmailForm.fields.email.errors.unknown';
+      return errorMsg;
   }
 };
 

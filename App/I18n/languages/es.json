@@ -1,21 +1,23 @@
 {
   "BASKETBALL": "Basquet",
   "BOOTCAMP": "Bootcamp",
-  "SOCCER": "Futbol",
+  "SOCCER": "Fútbol",
+  "TABLE_TENNIS": "Tenis de mesa",
   "TENNIS": "Tenis",
   "FITNESS": "Fitness",
   "OTHERS": "Otros",
   "SKATING": "Skate",
-  "BEACH_VOLLEYBALL": "Voley playa",
+  "BEACH_VOLLEYBALL": "(Beach) Voley",
   "BOULES": "Bochas",
   "Basketball": "Basquet",
   "Bootcamp": "Bootcamp",
-  "Soccer": "Futbol",
+  "Soccer": "Fútbol",
+  "Table Tennis": "Tenis de mesa",
   "Tennis": "Tenis",
   "Fitness": "Fitness",
-  "Others": "Otros",
+  "Other": "Otros",
   "Skating": "Skate",
-  "Beach_volleyball": "Voley playa",
+  "Beach Volleyball": "(Beach) Voley",
   "Boules": "Bochas",
 
   "Netherlands": "Holanda",
@@ -173,7 +175,7 @@
   },
 
   "gameDetails": {
-    "cancelMsg": "Esta actividad está cancelada.",
+    "cancelMsg": "Esta actividad ha sido cancelada.",
     "organizer": "Organizador",
     "description": "Descripción",
     "attending": "Participantes",
@@ -608,18 +610,6 @@
           "inUse": "El email ya ha sido registrado",
           "unknown": "Error inesperado"
         }
-      },
-      "password": {
-        "label": "Contraseña",
-        "placeholder": "",
-        "errors": {
-          "required": "Contraseña es requerida",
-          "tooLong": "Contraseña es muy larga",
-          "tooShort": "Contraseña debe tener al menos 8 caracteres",
-          "tooCommon": "Esta contraseña es demasiado común",
-          "numeric": "Esta contraseña es enteramente numérica",
-          "unknown": "Algo malo sucedio"
-        }
       }
     },
     "terms": {
@@ -627,6 +617,12 @@
       "link": "Términos y condiciones"
     },
     "btnLabel": "Registrarse gratis"
+  },
+
+  "confirmMagicTokenScreen": {
+    "title": "Tu link mágico ha expirado!",
+    "btnLabel": "Iniciar sesión",
+    "link": "Déjame navegar por la aplicación"
   },
 
   "connectionCheck": {
@@ -663,15 +659,15 @@
     },
     "welcome": {
       "title": "Hola deportista!",
-      "text": "Gracias por unirte a SportySpots. Diviértete!"
+      "text": "Gracias por unirte a SportySpots. Que te diviertas!"
     },
     "joinGame": {
-      "title": "Unirse a un juego",
+      "title": "Unete a un juego",
       "text": "Descubre centros deportivos y actividades cerca tuyo."
     },
     "planGame": {
       "title": "Organiza una actividad",
-      "text": "Planea tu deporte favorito en el lugar perfecto con tus amigos u otros deportistas."
+      "text": "Planea tu deporte favorito en el lugar perfecto con tus amigos y otros deportistas."
     },
     "nextBtnLabel": "continuar",
     "lastBtnLabel": "comenzar"

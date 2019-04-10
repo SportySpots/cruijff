@@ -1,7 +1,7 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
 // import { TabBarTop, TabNavigator } from 'react-navigation';
-// import I18n from '../../../I18n/index';
+// import I18n from '../../../I18n';
 // import Colors from '../../../Themes/Colors';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 // import Text from '../../Text';

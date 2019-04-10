@@ -10,11 +10,10 @@ storiesOf('Games.ShareGameButton', module)
       query={GET_GAME_DETAILS}
       variables={{ uuid: 455 }}
     >
-      {({ loading, error, data }) =>
-        (loading || error ? null : (
-          <ShareGameButton game={data.game} />
+      {({ loading, error, data }) => (
+        loading || error ? null : (
+          <ShareGameButton gameUUID={data.game.uuid} />
         ))
       }
     </Query>
   ));
-

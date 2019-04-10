@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import getInputPalette from '../../../Themes/Palettes';
 import Fonts from '../../../Themes/Fonts';
 import Row from '../Row';
@@ -10,11 +9,13 @@ import Spacer from '../Spacer';
 import Text from '../Text';
 import TextField from '../TextField';
 import Dropdown from '../Dropdown';
+import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
 // CONST:
 //------------------------------------------------------------------------------
 const MIN_WIDTH = 80;
+
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -43,11 +44,20 @@ const InputField = ({
   const Root = disabled ? View : TouchableOpacity;
   const Comp = isTextField ? TextField : Dropdown;
   const pointerEvents = isTextField ? 'none' : 'auto';
-  const { baseColor, iconColor, disabledColor, errorColor } = getInputPalette(theme);
+  const { baseColor, iconColor, disabledColor, errorColor } = getInputPalette(theme); // string to be used Colors[string]
 
   let iColor = iconColor;
   if (disabled) { iColor = disabledColor; }
   if (error) { iColor = errorColor; }
+
+  const IconArrow = () => (
+    <Icon
+      iconSet="MaterialIcons"
+      iconName="keyboard-arrow-down"
+      size={24}
+      color={iColor}
+    />
+  );
 
   if (fullWidth) {
     return (
@@ -67,11 +77,7 @@ const InputField = ({
           {/* Add custom carret */}
           <View>
             <Spacer size="XXL" />
-            <Icon
-              size={24}
-              name="keyboard-arrow-down"
-              color={iColor}
-            />
+            <IconArrow />
           </View>
         </Row>
       </Root>
@@ -85,16 +91,14 @@ const InputField = ({
     (error && 6 * error.replace(' ', '').length) || MIN_WIDTH,
   );
 
-  const TextSize = Text[size];
-
   return (
     <Root onPress={onPress} testID={testID}>
       <Row>
         <View>
           <Spacer size="XXL" />
-          <TextSize style={{ color: baseColor }}>
+          <Text size={size} color={baseColor}>
             {prefix}
-          </TextSize>
+          </Text>
         </View>
         <Spacer row size="ML" />
         <View pointerEvents={pointerEvents}>
@@ -115,18 +119,14 @@ const InputField = ({
         {/* Add custom carret */}
         <View>
           <Spacer size="XXL" />
-          <Icon
-            size={24}
-            name="keyboard-arrow-down"
-            color={iColor}
-          />
+          <IconArrow />
         </View>
         <Spacer row size="ML" />
         <View>
           <Spacer size="XXL" />
-          <TextSize style={{ color: baseColor }}>
+          <Text size={size} color={baseColor}>
             {suffix}
-          </TextSize>
+          </Text>
         </View>
       </Row>
     </Root>
@@ -140,7 +140,7 @@ InputField.propTypes = {
   suffix: PropTypes.string,
   disabled: PropTypes.bool,
   theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
-  size: PropTypes.oneOf(Object.keys(Fonts.style)),
+  size: PropTypes.oneOf(Object.keys(Fonts)),
   error: PropTypes.string,
   onPress: PropTypes.func,
   fullWidth: PropTypes.bool,

@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import styled from 'styled-components';
 import I18n from '../../../I18n';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import Block from '../../Common/Block';
-import Label from '../../Common/Label';
 import Text from '../../Common/Text';
 import AlertMsg from '../../Common/AlertMsg';
 import GameProperties from '../GameProperties';
@@ -23,9 +21,14 @@ import { getAttendees } from '../utils';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const NoOpenSpots = styled(Text.M)`
-  font-family: Rajdhani-Regular;
-`;
+const Label = props => (
+  <Text
+    size="M"
+    color="black"
+    style={{ marginBottom: 16 }}
+    {...props}
+  />
+);
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -92,9 +95,9 @@ const GameDetails = ({
         <Label>{I18n.t('gameDetails.openSpots')}</Label>
         <OpenSpots game={game} />
         {isFull && (
-          <NoOpenSpots>
+          <Text size="M" regular>
             {I18n.t('gameDetails.fullMsg')}
-          </NoOpenSpots>
+          </Text>
         )}
       </Block>,
     ],

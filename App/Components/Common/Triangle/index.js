@@ -36,7 +36,7 @@ const Triangle = ({ position, primary }) => {
 };
 
 Triangle.propTypes = {
-  position: PropTypes.oneOf('top-right', 'top-left'),
+  position: PropTypes.oneOf(['top-right', 'top-left']),
   primary: PropTypes.bool,
 };
 

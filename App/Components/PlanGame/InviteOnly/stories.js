@@ -9,4 +9,3 @@ storiesOf('PlanGame.InviteOnly', module)
   .add('InviteOnly isPrivate', () => (
     <InviteOnly isPublic={false} />
   ));
-

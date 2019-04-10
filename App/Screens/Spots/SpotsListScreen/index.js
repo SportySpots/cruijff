@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
 import SpotsList from '../../../Components/Spots/SpotsList';
@@ -9,7 +9,7 @@ import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Outer = styled.View`
+const FlexOne = styled.View`
   flex: 1;
 `;
 //------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ class SpotsListScreen extends React.Component {
     const { maxDistance, allSports, selectedSportIds } = this.props;
 
     return (
-      <Outer testID="SpotsListScreen">
+      <FlexOne testID="SpotsListScreen">
         {(!allSports || maxDistance < 20) && (
           <TopLayout>
             <SpotsFilterFlap
@@ -60,7 +60,7 @@ class SpotsListScreen extends React.Component {
             />
           </Inner>
         </BottomLayout>
-      </Outer>
+      </FlexOne>
     );
   }
 }

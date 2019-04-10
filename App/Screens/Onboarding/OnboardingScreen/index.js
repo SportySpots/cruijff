@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  AsyncStorage,
   Alert,
   Keyboard,
   Platform,
   BackHandler,
 } from 'react-native';
-import I18n from '../../../I18n/index';
-import { withLocation } from '../../../Context/Location';
+import I18n from '../../../I18n';
+import { withLocation, locationPropTypes } from '../../../Context/Location';
 import FormProps from '../../../RenderProps/form-props';
 import OnboardingForm from '../../../Components/Onboarding/OnboardingForm';
 import { addGlobalRef } from '../../../globalRefs';
@@ -56,7 +57,7 @@ class OnboardingScreen extends React.Component {
   }
 
   render() {
-    const { setLocation, navigation } = this.props;
+    const { refetchLocation, navigation } = this.props;
 
     return (
       <FormProps>
@@ -73,10 +74,11 @@ class OnboardingScreen extends React.Component {
             onBeforeHook={handleBefore}
             onClientCancelHook={handleClientCancel}
             onClientErrorHook={handleClientError}
-            // Call api to store data into DB
+            // Store location data into local storage.
             onSuccessHook={({ location }) => {
               handleSuccess(async () => {
-                await setLocation(location);
+                await AsyncStorage.setItem('userLocation', JSON.stringify(location));
+                await refetchLocation();
                 navigation.navigate('MainNav');
               });
             }}
@@ -92,7 +94,7 @@ OnboardingScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  setLocation: PropTypes.func.isRequired,
+  refetchLocation: locationPropTypes.refetchLocation.isRequired,
 };
 
 export default withLocation(OnboardingScreen);

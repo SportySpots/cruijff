@@ -3,7 +3,6 @@ import { propType } from 'graphql-anywhere';
 import { showLocation } from 'react-native-map-link';
 import I18n from '../../../I18n';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
-import Colors from '../../../Themes/Colors';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
 import Block from '../../Common/Block';
@@ -36,7 +35,7 @@ const SpotLink = ({ spot }) => {
 
   const link = (
     <Text
-      style={{ color: Colors.actionBlue }}
+      color="actionBlue"
       onPress={() => {
         handleLocationBtnPress({ latLng, title: spot.name });
       }}
@@ -47,7 +46,9 @@ const SpotLink = ({ spot }) => {
 
   return (
     <Block>
-      <Text.M>{I18n.t('spotLink.error')}</Text.M>
+      <Text size="M">
+        {I18n.t('spotLink.error')}
+      </Text>
       <Spacer size="M" />
       <Text>
         {I18n.t('spotLink.link.prefix')}

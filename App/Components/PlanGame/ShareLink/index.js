@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Colors from '../../../Themes/Colors';
+import styled from 'styled-components/native';
 import Text from '../../Common/Text';
 import Block from '../../Common/Block';
 
@@ -17,17 +16,14 @@ const Flex = styled.View`
   flex-wrap: wrap;
 `;
 // -----------------------------------------------------------------------------
-const Url = styled(Text.M)`
-  color: ${Colors.link};
-  text-align: center;
-`;
-// -----------------------------------------------------------------------------
 // COMPONENT:
 // -----------------------------------------------------------------------------
 const ShareLink = ({ link }) => (
-  <Block bgColor={Colors.black54}>
+  <Block bgColor="black34">
     <Flex>
-      <Url>{link}</Url>
+      <Text size="M" color="link" center>
+        {link}
+      </Text>
     </Flex>
   </Block>
 );

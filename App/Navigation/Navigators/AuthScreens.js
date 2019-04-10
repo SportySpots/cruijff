@@ -7,26 +7,16 @@ import SignupScreen from '../../Screens/Auth/SignupScreen';
 import SignupEmailScreen from '../../Screens/Auth/SignupEmailScreen';
 import CheckEmailScreen from '../../Screens/Auth/CheckEmailScreen';
 import LoggedOutScreen from '../../Screens/Auth/LoggedOutScreen';
+import ConfirmMagicTokenScreen from '../../Screens/Auth/ConfirmMagicTokenScreen';
 import { headerTitleStyle } from './style';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
 const handleLoggedIn = (navigation) => {
-  // In case the user is logged in when trying to access a logged out route,
-
-  const authScreenNames = Object.keys(AuthScreens);
-
-  // get this screens' parent Stack nav and the route names it contains.
-  const parentNav = navigation.dangerouslyGetParent();
-  const parentNavRoutes = parentNav.state.routes;
-  const routeNames = parentNavRoutes.map(r => r.routeName);
-
-  // number of items to pop equals number of AuthScreens in the stack.
-  const numAuthRoutes = routeNames.filter(name => authScreenNames.indexOf(name) !== -1).length;
-  parentNav.pop(numAuthRoutes);
+  // Simply go back one screen in the stack navigator
+  navigation.goBack(null);
 };
-
 //------------------------------------------------------------------------------
 const backBtn = navigation => (
   <StackBackHeader
@@ -37,6 +27,18 @@ const backBtn = navigation => (
 // COMPONENT:
 //------------------------------------------------------------------------------
 const AuthScreens = {
+  ConfirmMagicTokenScreen: {
+    screen: ({ navigation }) => (
+      <LoggedOutRoute
+        navigation={navigation}
+        component={ConfirmMagicTokenScreen}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
+      />
+    ),
+    navigationOptions: {
+      header: null,
+    },
+  },
   LoginCheckEmailScreen: {
     screen: ({ navigation }) => (
       <LoggedOutRoute

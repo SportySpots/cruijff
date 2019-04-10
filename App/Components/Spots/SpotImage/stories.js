@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import SpotImage from '.';
 
@@ -19,14 +19,16 @@ storiesOf('Spots.SpotImage', module)
       query={GET_SPOT_DETAILS}
       variables={{ uuid: 455 }}
     >
-      {({ loading, error, data }) =>
-      (loading || error ? null : (
-        <Container>
-          <SpotImage
-            images={data.spot.images}
-            style={imgStyle}
-          />
-        </Container>
+      {({ loading, error, data }) => (
+        loading || error ? null : (
+          <Container>
+            <SpotImage
+              images={data.spot.images}
+              style={imgStyle}
+              height={200}
+              width={300}
+            />
+          </Container>
         ))
       }
     </Query>

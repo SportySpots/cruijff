@@ -14,12 +14,24 @@ storiesOf('Common.LinkNavigate', module)
       />
     </Block>
   ))
+  .add('LinkNavigate underline red', () => (
+    <Block>
+      <LinkNavigate
+        navigation={navigation}
+        to="MainNav"
+        text="I'm the text"
+        underline
+        color="red"
+      />
+    </Block>
+  ))
   .add('LinkNavigate with icon', () => (
     <Block>
       <LinkNavigate
         navigation={navigation}
         to="MainNav"
         text="I'm the text"
+        iconSet="MaterialIcons"
         iconName="account-circle"
       />
     </Block>

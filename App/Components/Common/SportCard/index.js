@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { TouchableOpacity, Image } from 'react-native';
-import I18n from '../../../I18n/index';
+import I18n from '../../../I18n';
 import themeIcons from '../../../Themes/Icons';
-import Colors from '../../../Themes/Colors';
 import Fonts from '../../../Themes/Fonts';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import Block from '../Block';
@@ -16,7 +15,7 @@ import Text from '../Text';
 // COMPONENT:
 //------------------------------------------------------------------------------
 // 16 = padding from Block
-export const SPORT_CARD_HEIGHT = (16 * 2) + (1.4 * Fonts.style.M.fontSize);
+export const SPORT_CARD_HEIGHT = (16 * 2) + (1.4 * Fonts.M.fontSize);
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -30,7 +29,7 @@ const SportCard = ({
     onPress={() => { onPress(sport); }}
     testID={testID}
   >
-    <Block bgColor={isSelected ? Colors.grass10 : Colors.transparent}>
+    <Block bgColor={isSelected ? 'grass10' : 'transparent'}>
       <Row>
         <Image source={(
           sport && sport.category
@@ -39,7 +38,7 @@ const SportCard = ({
         )}
         />
         <Spacer row size="XXL" />
-        <Text.M>{I18n.t(sport.name)}</Text.M>
+        <Text size="M">{I18n.t(sport.category)}</Text>
       </Row>
     </Block>
   </TouchableOpacity>

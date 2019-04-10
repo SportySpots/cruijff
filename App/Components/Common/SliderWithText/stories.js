@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import SliderWithText from '.';
 
 const StyledView = styled.View`
@@ -11,7 +11,15 @@ const StyledView = styled.View`
 `;
 
 class Container extends React.PureComponent {
-  state = { value: this.props.minimumValue }
+  constructor(props) {
+    super(props);
+
+    const { minimumValue } = props;
+
+    this.state = {
+      value: minimumValue,
+    };
+  }
 
   handleChange = (value) => {
     this.setState({ value });

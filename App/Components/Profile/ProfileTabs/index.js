@@ -1,7 +1,7 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
 import { createMaterialTopTabNavigator } from 'react-navigation';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
@@ -11,11 +11,6 @@ import UserSpots from '../UserSpots';
 
 //------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
-const Label = styled(Text)`
-  font-weight: bold;
-  color: ${Colors.black};
-`;
 //------------------------------------------------------------------------------
 const Container = styled.View`
   padding: 0 16px;
@@ -32,7 +27,11 @@ const ProfileTabs = ({ user }) => (
         </Container>
       ),
       navigationOptions: {
-        tabBarLabel: <Label>{I18n.t('profileTabs.spots')}</Label>,
+        tabBarLabel: (
+          <Text bold>
+            {I18n.t('profileTabs.spots')}
+          </Text>
+        ),
       },
     },
     /* Games: {

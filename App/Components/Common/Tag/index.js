@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Text from '../Text';
 import Row from '../Row';
 import getPalette from './utils';
@@ -11,27 +11,22 @@ import getPalette from './utils';
 const Container = styled.View`
   padding: 4px 8px;
   border-radius: 4px;
-  background-color: ${({ bgColor }) => (bgColor)};
-  border: 1px solid ${({ borderColor }) => (borderColor)};
-`;
-//------------------------------------------------------------------------------
-// TODO: replace this with Text.M[color]
-const Message = styled(Text.SM)`
-  color: ${({ color }) => (color)};
+  background-color: ${({ theme, bgColor }) => theme.colors[bgColor]};
+  border: 1px solid ${({ theme, borderColor }) => theme.colors[borderColor]};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Tag = ({ status, value, reverse }) => {
   const palette = getPalette(status, reverse);
-  const { fontColor, bgColor, borderColor } = palette;
+  const { fontColor, bgColor, borderColor } = palette; // string to be use Colors[string]
 
   return (
     <Row>
       <Container bgColor={bgColor} borderColor={borderColor}>
-        <Message color={fontColor}>
+        <Text size="SM" color={fontColor}>
           {value}
-        </Message>
+        </Text>
       </Container>
     </Row>
   );

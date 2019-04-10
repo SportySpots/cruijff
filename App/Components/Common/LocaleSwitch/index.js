@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import moment from 'moment';
 // import styled from 'styled-components/native';
 /// import I18nNative from 'react-native-i18n';
-// import I18n from '../../../I18n/index';
+// import I18n from '../../../I18n';
 // import Block from '../../../Components/Common/Block';
 import Row from '../Row';
 import Spacer from '../Spacer';

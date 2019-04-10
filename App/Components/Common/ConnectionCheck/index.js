@@ -1,7 +1,6 @@
 import React from 'react';
 import { NetInfo } from 'react-native';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import Block from '../Block';
 import Text from '../Text';
 
@@ -41,14 +40,9 @@ class ConnectionCheck extends React.Component {
     return (
       <Block
         midHeight
-        bgColor={Colors.black}
+        bgColor="black"
       >
-        <Text
-          style={{
-            color: Colors.white,
-            textAlign: 'center',
-          }}
-        >
+        <Text color="white" center>
           {I18n.t('connectionCheck.noConnection')}
         </Text>
       </Block>

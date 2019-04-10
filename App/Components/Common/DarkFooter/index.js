@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import { addGlobalRef } from '../../../globalRefs';
-import Colors from '../../../Themes/Colors';
 import NavDots from '../NavDots';
 import Row from '../Row';
 import Spacer from '../Spacer';
@@ -14,7 +13,7 @@ import DarkFooterButton from '../DarkFooterButton';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   height: 50px;
-  background-color: ${Colors.black};
+  background-color: ${({ theme }) => theme.colors.black};
 `;
 //------------------------------------------------------------------------------
 const StyledRow = styled(Row)`

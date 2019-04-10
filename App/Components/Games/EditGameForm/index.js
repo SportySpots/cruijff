@@ -7,7 +7,6 @@ import moment from 'moment';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
@@ -23,7 +22,7 @@ import Row from '../../Common/Row';
 import Divider from '../../Common/Divider';
 // import Text from '../../Common/Text';
 import TextField from '../../Common/TextField';
-import SwitchWithText from '../../Common/SwitchWithText';
+// import SwitchWithText from '../../Common/SwitchWithText';
 import RaisedButton from '../../Common/RaisedButton';
 import { getAttendees } from '../utils';
 
@@ -75,12 +74,8 @@ const INIT_ERRORS = {
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Half = styled.View`
-  flex: 1;
-`;
-//------------------------------------------------------------------------------
-const FullHeight = styled.View`
-  flex: 1; /* full height */
+const FlexOne = styled.View`
+  flex: 1; /* full height/width */
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -275,7 +270,7 @@ class EditGameForm extends React.PureComponent {
     const descriptionErrors = ErrorHandling.getFieldErrors(errors, 'description', I18n.t);
 
     return (
-      <FullHeight>
+      <FlexOne>
         <TopLayout ref={(scroller) => { this.scroller = scroller; }}>
           <Block
             midHeight
@@ -295,7 +290,7 @@ class EditGameForm extends React.PureComponent {
           </Block>
           <Block
             midHeight
-            bgColor={Colors.silver}
+            bgColor="silver"
           >
             <TextField
               label={I18n.t('editGameForm.fields.sport.label')}
@@ -324,7 +319,7 @@ class EditGameForm extends React.PureComponent {
           </Block>
           <Divider />
           <Row onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'time', nativeEvent }); }}>
-            <Half>
+            <FlexOne>
               <Block midHeight>
                 <TimePickerField
                   testID="editGameFieldTime"
@@ -338,9 +333,9 @@ class EditGameForm extends React.PureComponent {
                   onChange={(value) => { this.handleChange({ fieldName: 'time', value }); }}
                 />
               </Block>
-            </Half>
+            </FlexOne>
             <Divider row />
-            <Half>
+            <FlexOne>
               <Block
                 midHeight
                 onLayout={({ nativeEvent }) => { this.handleLayout({ fieldName: 'duration', nativeEvent }); }}
@@ -357,7 +352,7 @@ class EditGameForm extends React.PureComponent {
                   onChange={(value) => { this.handleChange({ fieldName: 'duration', value }); }}
                 />
               </Block>
-            </Half>
+            </FlexOne>
           </Row>
           <Divider />
           <Block
@@ -422,7 +417,7 @@ class EditGameForm extends React.PureComponent {
             onPress={this.handleSubmit}
           />
         </BottomLayout>
-      </FullHeight>
+      </FlexOne>
     );
   }
 }

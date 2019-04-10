@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
-import styled from 'styled-components';
-import Colors from '../../Themes/Colors';
+import styled from 'styled-components/native';
 import Spacer from '../../Components/Common/Spacer';
 import Logo from '../../Components/Common/Logo';
 import Text from '../../Components/Common/Text';
@@ -12,11 +11,9 @@ import Text from '../../Components/Common/Text';
 //------------------------------------------------------------------------------
 const Container = styled.View`
   flex: 1;
-  background-color: ${({ isWhiteTheme }) => (isWhiteTheme ? Colors.white : Colors.secondaryGreen)};
-`;
-//------------------------------------------------------------------------------
-const Brand = styled(Text.L)`
-  color: ${({ color }) => (color)};
+  background-color: ${({ theme, isWhiteTheme }) => (
+    isWhiteTheme ? theme.colors.white : theme.colors.secondaryGreen
+  )};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -39,12 +36,13 @@ const LogoHeaderBackground = ({
           >
             <Logo scale={1} />
             <Spacer size="L" />
-            <Brand
-              color={isWhiteTheme ? Colors.black : Colors.white}
+            <Text
+              size="L"
+              color={isWhiteTheme ? 'black' : 'white'}
               bold
             >
               SPORTYSPOTS
-            </Brand>
+            </Text>
           </View>,
           <Spacer key="spacer" size="XL" />,
         ]}

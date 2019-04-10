@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import I18n from '../../../I18n';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
-import { ApolloMockProvider, createMockClient } from '../../../GraphQL';
+import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
+import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import EditGameForm, { NAME_MAX_CHARS, DESCRIPTION_MAX_CHARS } from '.';
 
 const mockMonth = 10; // november
@@ -78,7 +80,6 @@ describe('EditGameForm', () => {
   let game;
 
   beforeAll(async () => {
-    const mockClient = createMockClient();
     const res = await mockClient.query({
       query: GET_GAME_DETAILS,
       variables: { uuid: 455 },
@@ -105,7 +106,9 @@ describe('EditGameForm', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(
       <ApolloMockProvider>
-        <EditGameForm game={game} />
+        <ThemeProvider theme={scTheme}>
+          <EditGameForm game={game} />
+        </ThemeProvider>
       </ApolloMockProvider>,
     ).toJSON();
     expect(rendered).toBeTruthy();

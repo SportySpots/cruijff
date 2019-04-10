@@ -7,10 +7,10 @@ import AuthScreens from './AuthScreens';
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
-const handleLoggedIn = (navigation) => {
-  // In case the user is logged in when trying to access a logged out route,
-  // redirect to MainNav
-  navigation.navigate('MainNav');
+const handleLoggedIn = (navigation, location) => {
+  // In case the user is logged in when trying to access the SplashScreen,
+  // redirect him to MainNav unless onboarding isn't completed yet.
+  navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
 };
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -22,7 +22,7 @@ const SplashNav = createStackNavigator({
       <LoggedOutRoute
         navigation={navigation}
         component={SplashScreen}
-        onLoggedIn={() => { handleLoggedIn(navigation); }}
+        onLoggedIn={({ location }) => { handleLoggedIn(navigation, location); }}
       />
     ),
     navigationOptions: { header: null },

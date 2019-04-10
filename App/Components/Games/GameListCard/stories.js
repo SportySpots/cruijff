@@ -1,80 +1,49 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { Query } from 'react-apollo';
 import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import GameListCard from '.';
 
+const Container = ({ mutate }) => (
+  <View>
+    <Query
+      query={GET_GAME_DETAILS}
+      variables={{ uuid: 455 }}
+    >
+      {({ loading, error, data }) => (
+        loading || error ? null : (
+          <GameListCard
+            game={mutate(data.game)}
+          />
+        ))
+      }
+    </Query>
+  </View>
+);
+
+Container.propTypes = {
+  mutate: PropTypes.func,
+};
+
+Container.defaultProps = {
+  mutate: g => g,
+};
+
 storiesOf('Games.GameListCard', module)
   .add('GameListCard PLANNED', () => (
-    <View>
-      <Query
-        query={GET_GAME_DETAILS}
-        variables={{ uuid: 455 }}
-      >
-        {({ loading, error, data }) =>
-          (loading || error ? null : (
-            <GameListCard
-              game={Object.assign({}, data.game, { status: 'PLANNED' })}
-            />
-          ))
-        }
-      </Query>
-    </View>
+    <Container mutate={g => Object.assign({}, g, { status: 'PLANNED' })} />
+  ))
+  .add('GameListCard PLANNED long title/name', () => (
+    <Container mutate={g => Object.assign({}, g, { status: 'PLANNED', name: 'Some Looooong Title/Name Some Looooong Title/Name Some Looooong Title/Name Some Looooong Title/Name Some Looooong Title/Name' })} />
   ))
   .add('GameListCard CANCELED', () => (
-    <View>
-      <Query
-        query={GET_GAME_DETAILS}
-        variables={{ uuid: 455 }}
-      >
-        {({ loading, error, data }) =>
-          (loading || error ? null : (
-            <GameListCard
-              game={Object.assign({}, data.game, { status: 'CANCELED' })}
-            />
-          ))
-        }
-      </Query>
-    </View>
+    <Container mutate={g => Object.assign({}, g, { status: 'CANCELED' })} />
   ))
   .add('GameListCard PLANNED short title/name', () => (
-    <View>
-      <Query
-        query={GET_GAME_DETAILS}
-        variables={{ uuid: 455 }}
-      >
-        {({ loading, error, data }) =>
-          (loading || error ? null : (
-            <GameListCard
-              game={
-                Object.assign(
-                  {},
-                  data.game,
-                  { status: 'PLANNED', name: 'Some Short Name' })}
-            />
-          ))
-        }
-      </Query>
-    </View>
+    <Container mutate={g => Object.assign({}, g, { status: 'PLANNED', name: 'Some Short Name' })} />
   ))
-  .add('GameListCard CANCELED short title/name', () => (
-    <View>
-      <Query
-        query={GET_GAME_DETAILS}
-        variables={{ uuid: 455 }}
-      >
-        {({ loading, error, data }) =>
-          (loading || error ? null : (
-            <GameListCard
-              game={
-                Object.assign(
-                  {},
-                  data.game,
-                  { status: 'CANCELED', name: 'Some Short Name' })}
-            />
-          ))
-        }
-      </Query>
-    </View>
+  .add('GameListCard CANCELED long title/name', () => (
+    <Container mutate={g => Object.assign({}, g, { status: 'CANCELED', name: 'Some Looooong Title/Name Some Looooong Title/Name Some Looooong Title/Name Some Looooong Title/Name Some Looooong Title/Name' })} />
   ));

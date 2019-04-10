@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Slider from '../Slider';
 import Spacer from '../Spacer';
 import Text from '../Text';
@@ -14,11 +14,11 @@ const FullHeight = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-// TODO: replace Text.SM style={{ color: Colors.gray }} with Text.SM.gray
-// (or something along those lines)
 const SliderWithText = ({ label, description, ...rest }) => (
   <FullHeight>
-    <Text.M>{label}</Text.M>
+    <Text size="M">
+      {label}
+    </Text>
     {description}
     <Spacer size="L" />
     <Slider {...rest} />

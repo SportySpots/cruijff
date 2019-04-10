@@ -46,7 +46,7 @@ storiesOf('Common.ChatMsg', module)
     </Block>
   ))
   .add('ChatMsg', () => (
-    <Block bgColor={Colors.concrete}>
+    <Block bgColor="concrete">
       <Container
         title="Jannis Teunissen"
         text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.

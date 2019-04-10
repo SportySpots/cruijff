@@ -43,7 +43,9 @@ class CapacityPickerModal extends React.PureComponent {
     const { value } = this.state;
 
     const header = (
-      <Text.ML>{I18n.t('capacityPickerModal.header')}</Text.ML>
+      <Text size="ML">
+        {I18n.t('capacityPickerModal.header')}
+      </Text>
     );
 
     return (

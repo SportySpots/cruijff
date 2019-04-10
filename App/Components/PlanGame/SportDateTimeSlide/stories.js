@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cloneDeep from 'lodash/cloneDeep';
-import Colors from '../../../Themes/Colors';
 import Block from '../../Common/Block';
 import SportDateTimeSlide, { INIT_STATE, INIT_ERRORS } from '.';
 
@@ -39,7 +38,7 @@ Container.defaultProps = {
 
 storiesOf('PlanGame.SportDateTimeSlide', module)
   .add('SportDateTimeSlide white theme', () => (
-    <Block bgColor={Colors.primaryGreen}>
+    <Block bgColor="primaryGreen">
       <Container theme="white" />
     </Block>
   ));

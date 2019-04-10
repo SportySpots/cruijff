@@ -28,7 +28,9 @@ const ChatWithGroup = ({ onChatPress }) => (
           color={Colors.black}
         />
         <Spacer row size="XL" />
-        <Text.M>{I18n.t('chatWithGroup.text')}</Text.M>
+        <Text size="M">
+          {I18n.t('chatWithGroup.text')}
+        </Text>
       </FlexOneRow>
       <Icon
         name="chevron-right"

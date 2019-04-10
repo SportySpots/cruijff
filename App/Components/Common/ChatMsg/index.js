@@ -15,7 +15,7 @@ const ChatMsg = ({
   ...rest
 }) => (
   <Row justifyContent={position === 'left' ? 'flex-start' : 'flex-end'}>
-    {!primary && <Avatar user={user} />}
+    {!primary && <Avatar size="S" user={user} />}
     {!primary && <Spacer row size="S" />}
     <ChatBubble
       primary={primary}

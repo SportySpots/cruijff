@@ -12,14 +12,14 @@ storiesOf('Common.Avatar', module)
     >
       {({ loading, error, data }) => (
         loading || error ? null : (
-          <Avatar user={data.game.organizer} />
+          <Avatar size="S" user={data.game.organizer} />
         ))
       }
     </Query>
   ))
-  .add('Avatar with TEXT', () => (
-    <Avatar text="Hola" />
+  .add('Avatar with TEXT size L', () => (
+    <Avatar size="L" text="FR" />
   ))
-  .add('Avatar no props', () => (
-    <Avatar />
+  .add('Avatar no props size S', () => (
+    <Avatar size="S" />
   ));

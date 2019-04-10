@@ -1,16 +1,15 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
-import Colors from '../../../Themes/Colors';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import Block from '../../Common/Block';
 import GamesList from '.';
 
 const Container = () => (
   <Query query={GET_GAMES_LIST}>
-    {({ loading, error, data }) =>
-      (loading || error ? null : (
-        <Block bgColor={Colors.silver}>
+    {({ loading, error, data }) => (
+      loading || error ? null : (
+        <Block bgColor="silver">
           <GamesList
             games={data.games || []}
             onCardPress={() => {}}
@@ -21,4 +20,5 @@ const Container = () => (
 );
 
 storiesOf('Games.GamesList', module)
-  .add('GamesList', () => <Container />);
+  .add('GamesList', () => <Container />)
+  .add('GamesList no results', () => <GamesList games={[]} />);
