@@ -64,6 +64,8 @@
 
   "userMenu": {
     "edit": "Editar",
+    "settings": "Ajustes",
+    "info": "Info",
     "logout": "Cerrar sesión"
   },
 

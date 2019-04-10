@@ -64,6 +64,8 @@
 
   "userMenu": {
     "edit": "Wijzigen",
+    "settings": "Instellingen",
+    "info": "Info",
     "logout": "Uitloggen"
   },
 

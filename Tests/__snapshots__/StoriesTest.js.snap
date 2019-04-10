@@ -30907,7 +30907,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                   },
                   undefined,
                   Object {
-                    "fontFamily": "Material Icons",
+                    "fontFamily": "Material Design Icons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
@@ -30915,7 +30915,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
             <Text
               style={
@@ -30981,7 +30981,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                   },
                   undefined,
                   Object {
-                    "fontFamily": "Material Design Icons",
+                    "fontFamily": "Material Icons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
@@ -30989,7 +30989,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
             <Text
               style={
@@ -43565,8 +43565,8 @@ exports[`Storyshots Games.GamesList GamesList no results 1`] = `
       ItemSeparatorComponent={[Function]}
       ListEmptyComponent={
         <NothingFound
-          iconName="calendar-plus"
-          iconSet="MaterialCommunityIcons"
+          iconName="people"
+          iconSet="MaterialIcons"
           text="gamesList.noResults"
         />
       }
@@ -43624,7 +43624,7 @@ exports[`Storyshots Games.GamesList GamesList no results 1`] = `
                 },
                 undefined,
                 Object {
-                  "fontFamily": "Material Design Icons",
+                  "fontFamily": "Material Icons",
                   "fontStyle": "normal",
                   "fontWeight": "normal",
                 },
@@ -43632,7 +43632,7 @@ exports[`Storyshots Games.GamesList GamesList no results 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View
             pixels={32}
@@ -51856,8 +51856,8 @@ exports[`Storyshots Onboarding.NotificationPermissionSlide NotificationPermissio
               "backgroundColor": "rgba(0,0,0,0)",
               "color": "#fff",
               "fontFamily": "Rajdhani-SemiBold",
-              "fontSize": 18,
-              "lineHeight": 27,
+              "fontSize": 32,
+              "lineHeight": 48,
               "textAlign": "center",
             }
           }
@@ -51894,6 +51894,9 @@ exports[`Storyshots Onboarding.NotificationPermissionSlide NotificationPermissio
                   "paddingRight": 16,
                   "paddingTop": 16,
                 },
+                Object {
+                  "flex": 1,
+                },
               ]
             }
           >
@@ -51902,24 +51905,51 @@ exports[`Storyshots Onboarding.NotificationPermissionSlide NotificationPermissio
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
                   "color": "#fff",
-                  "fontFamily": "Rajdhani-Regular",
+                  "fontFamily": "Rajdhani-SemiBold",
                   "fontSize": 16,
                   "lineHeight": 24,
-                  "textAlign": "left",
+                  "textAlign": "center",
                 }
               }
             >
               notificationPermissionSlide.text
             </Text>
             <View
+              pixels={32}
+              row={false}
               style={
                 Array [
                   Object {
-                    "flexBasis": 0,
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "height": 32,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <View
+              pixels={8}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "height": 8,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+            <View
+              alignItems="stretch"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "stretch",
+                    "display": "flex",
                     "flexDirection": "row",
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "space-between",
+                    "justifyContent": "center",
                   },
                 ]
               }
@@ -51935,14 +51965,15 @@ exports[`Storyshots Onboarding.NotificationPermissionSlide NotificationPermissio
                 onStartShouldSetResponder={[Function]}
                 style={
                   Object {
+                    "flex": 1,
                     "opacity": 1,
                   }
                 }
               >
                 <View
                   alignItems="center"
-                  bgColor="transparent"
-                  borderColor="white"
+                  bgColor="actionYellow"
+                  borderColor="actionYellow"
                   disabled={false}
                   justifyContent="center"
                   size="M"
@@ -51950,8 +51981,8 @@ exports[`Storyshots Onboarding.NotificationPermissionSlide NotificationPermissio
                     Array [
                       Object {
                         "alignItems": "center",
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "borderColor": "#fff",
+                        "backgroundColor": "#f5a623",
+                        "borderColor": "#f5a623",
                         "borderRadius": 8,
                         "borderStyle": "solid",
                         "borderWidth": 1,
@@ -51978,65 +52009,7 @@ exports[`Storyshots Onboarding.NotificationPermissionSlide NotificationPermissio
                       }
                     }
                   >
-                    notificationPermissionSlide.buttonYes
-                  </Text>
-                </View>
-              </View>
-              <View
-                accessible={true}
-                isTVSelectable={true}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-              >
-                <View
-                  alignItems="center"
-                  bgColor="transparent"
-                  borderColor="white"
-                  disabled={false}
-                  justifyContent="center"
-                  size="M"
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "borderColor": "#fff",
-                        "borderRadius": 8,
-                        "borderStyle": "solid",
-                        "borderWidth": 1,
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "height": 48,
-                        "justifyContent": "center",
-                        "minWidth": 80,
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                  width="100%"
-                >
-                  <Text
-                    style={
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#fff",
-                        "fontFamily": "Rajdhani-SemiBold",
-                        "fontSize": 18,
-                        "lineHeight": 27,
-                        "textAlign": "left",
-                      }
-                    }
-                  >
-                    notificationPermissionSlide.buttonNo
+                    notificationPermissionSlide.btnLabel
                   </Text>
                 </View>
               </View>
@@ -52092,7 +52065,677 @@ exports[`Storyshots Onboarding.OnboardingForm OnboardingForm 1`] = `
         undefined,
       ]
     }
-  />
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+          },
+        ]
+      }
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "flex": 1,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <RCTScrollView
+          automaticallyAdjustContentInsets={false}
+          autoplay={false}
+          autoplayDirection={true}
+          autoplayTimeout={2.5}
+          bounces={false}
+          contentContainerStyle={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          contentOffset={
+            Object {
+              "x": 0,
+            }
+          }
+          disableNextButton={false}
+          horizontal={true}
+          index={0}
+          loadMinimal={false}
+          loadMinimalSize={1}
+          loop={false}
+          onIndexChanged={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          pagingEnabled={true}
+          removeClippedSubviews={true}
+          scrollEnabled={false}
+          scrollsToTop={false}
+          showsButtons={false}
+          showsHorizontalScrollIndicator={false}
+          showsPagination={false}
+          showsVerticalScrollIndicator={false}
+        >
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#005537",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    pixels={32}
+                    row={false}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "height": 32,
+                          "width": "auto",
+                        },
+                      ]
+                    }
+                  />
+                  <View
+                    pixels={56}
+                    row={false}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "height": 56,
+                          "width": "auto",
+                        },
+                      ]
+                    }
+                  />
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "marginBottom": 0,
+                          "marginLeft": "auto",
+                          "marginRight": "auto",
+                          "marginTop": 0,
+                          "maxWidth": 280,
+                          "width": "100%",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 32,
+                          "lineHeight": 48,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      onboardingScreen.welcome.title
+                    </Text>
+                    <View
+                      pixels={24}
+                      row={false}
+                      style={
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "height": 24,
+                            "width": "auto",
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": 27,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      onboardingScreen.welcome.text
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                  ]
+                }
+              >
+                <View />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                  ]
+                }
+              >
+                <View />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                  ]
+                }
+              >
+                <View />
+              </View>
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#000",
+              "height": 50,
+            },
+          ]
+        }
+      >
+        <View
+          alignItems="center"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexBasis": 0,
+                "flexDirection": "row",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            pixels={4}
+            row={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "height": "auto",
+                  "width": 4,
+                },
+              ]
+            }
+          />
+          <View
+            alignItems="stretch"
+            justifyContent="flex-start"
+            style={
+              Array [
+                Object {
+                  "alignItems": "stretch",
+                  "display": "flex",
+                  "flexBasis": 0,
+                  "flexDirection": "row",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          />
+          <View
+            alignItems="center"
+            justifyContent="center"
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <View
+              alignItems="center"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+              <View
+                active={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#f5a623",
+                      "borderRadius": 10,
+                      "height": 10,
+                      "width": 10,
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              alignItems="center"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+              <View
+                active={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(255,255,255,.2)",
+                      "borderRadius": 10,
+                      "height": 10,
+                      "width": 10,
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              alignItems="center"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+              <View
+                active={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(255,255,255,.2)",
+                      "borderRadius": 10,
+                      "height": 10,
+                      "width": 10,
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              alignItems="center"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+              <View
+                active={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(255,255,255,.2)",
+                      "borderRadius": 10,
+                      "height": 10,
+                      "width": 10,
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+            </View>
+          </View>
+          <View
+            alignItems="stretch"
+            justifyContent="flex-end"
+            style={
+              Array [
+                Object {
+                  "alignItems": "stretch",
+                  "display": "flex",
+                  "flexBasis": 0,
+                  "flexDirection": "row",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="footerNextButton"
+            >
+              <View
+                alignItems="center"
+                justifyContent="center"
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  ONBOARDINGSCREEN.NEXTBTNLABEL
+                </Text>
+                <View
+                  pixels={4}
+                  row={true}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "height": "auto",
+                        "width": 4,
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 27,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "Material Icons",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            pixels={4}
+            row={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "height": "auto",
+                  "width": 4,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
   <RCTSafeAreaView
     pointerEvents="box-none"
     style={
@@ -58062,7 +58705,677 @@ exports[`Storyshots Screens.Onboarding OnboardingScreen 1`] = `
         undefined,
       ]
     }
-  />
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+          },
+        ]
+      }
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "flex": 1,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <RCTScrollView
+          automaticallyAdjustContentInsets={false}
+          autoplay={false}
+          autoplayDirection={true}
+          autoplayTimeout={2.5}
+          bounces={false}
+          contentContainerStyle={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          contentOffset={
+            Object {
+              "x": 0,
+            }
+          }
+          disableNextButton={false}
+          horizontal={true}
+          index={0}
+          loadMinimal={false}
+          loadMinimalSize={1}
+          loop={false}
+          onIndexChanged={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          pagingEnabled={true}
+          removeClippedSubviews={true}
+          scrollEnabled={false}
+          scrollsToTop={false}
+          showsButtons={false}
+          showsHorizontalScrollIndicator={false}
+          showsPagination={false}
+          showsVerticalScrollIndicator={false}
+        >
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#005537",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    pixels={32}
+                    row={false}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "height": 32,
+                          "width": "auto",
+                        },
+                      ]
+                    }
+                  />
+                  <View
+                    pixels={56}
+                    row={false}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "height": 56,
+                          "width": "auto",
+                        },
+                      ]
+                    }
+                  />
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "marginBottom": 0,
+                          "marginLeft": "auto",
+                          "marginRight": "auto",
+                          "marginTop": 0,
+                          "maxWidth": 280,
+                          "width": "100%",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 32,
+                          "lineHeight": 48,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      onboardingScreen.welcome.title
+                    </Text>
+                    <View
+                      pixels={24}
+                      row={false}
+                      style={
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "height": 24,
+                            "width": "auto",
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "lineHeight": 27,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      onboardingScreen.welcome.text
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                  ]
+                }
+              >
+                <View />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                  ]
+                }
+              >
+                <View />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                  ]
+                }
+              >
+                <View />
+              </View>
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#000",
+              "height": 50,
+            },
+          ]
+        }
+      >
+        <View
+          alignItems="center"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexBasis": 0,
+                "flexDirection": "row",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            pixels={4}
+            row={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "height": "auto",
+                  "width": 4,
+                },
+              ]
+            }
+          />
+          <View
+            alignItems="stretch"
+            justifyContent="flex-start"
+            style={
+              Array [
+                Object {
+                  "alignItems": "stretch",
+                  "display": "flex",
+                  "flexBasis": 0,
+                  "flexDirection": "row",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          />
+          <View
+            alignItems="center"
+            justifyContent="center"
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <View
+              alignItems="center"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+              <View
+                active={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#f5a623",
+                      "borderRadius": 10,
+                      "height": 10,
+                      "width": 10,
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              alignItems="center"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+              <View
+                active={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(255,255,255,.2)",
+                      "borderRadius": 10,
+                      "height": 10,
+                      "width": 10,
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              alignItems="center"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+              <View
+                active={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(255,255,255,.2)",
+                      "borderRadius": 10,
+                      "height": 10,
+                      "width": 10,
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              alignItems="center"
+              justifyContent="center"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+              <View
+                active={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(255,255,255,.2)",
+                      "borderRadius": 10,
+                      "height": 10,
+                      "width": 10,
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={4}
+                row={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": "auto",
+                      "width": 4,
+                    },
+                  ]
+                }
+              />
+            </View>
+          </View>
+          <View
+            alignItems="stretch"
+            justifyContent="flex-end"
+            style={
+              Array [
+                Object {
+                  "alignItems": "stretch",
+                  "display": "flex",
+                  "flexBasis": 0,
+                  "flexDirection": "row",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="footerNextButton"
+            >
+              <View
+                alignItems="center"
+                justifyContent="center"
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  ONBOARDINGSCREEN.NEXTBTNLABEL
+                </Text>
+                <View
+                  pixels={4}
+                  row={true}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "height": "auto",
+                        "width": 4,
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 27,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "Material Icons",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            pixels={4}
+            row={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "height": "auto",
+                  "width": 4,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
   <RCTSafeAreaView
     pointerEvents="box-none"
     style={
@@ -59499,7 +60812,7 @@ exports[`Storyshots Screens.Plan PlanGameScreen 1`] = `
                             >
                               <View>
                                 <RCTDatePicker
-                                  date={1554664327076}
+                                  date={1554903532565}
                                   minuteInterval={1}
                                   mode="time"
                                   onChange={[Function]}
@@ -64795,6 +66108,187 @@ exports[`Storyshots Screens.Profile ProfileEditScreen 1`] = `
       ]
     }
   />
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Screens.Profile SettingsScreen 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#fff",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+          },
+        ]
+      }
+    >
+      <View
+        bgColor="transparent"
+        height={null}
+        midHeight={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "height": "auto",
+              "paddingBottom": 16,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+              "paddingTop": 16,
+            },
+          ]
+        }
+      >
+        <View
+          alignItems="center"
+          justifyContent="flex-start"
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flexGrow": 1,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#000",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": 27,
+                  "textAlign": "left",
+                }
+              }
+            >
+              settingsScreen.switch.pushNotifications.label
+            </Text>
+            <Text
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#777",
+                  "fontFamily": "Rajdhani-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "textAlign": "left",
+                }
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            pixels={8}
+            row={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "height": "auto",
+                  "width": 8,
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "marginRight": -3,
+                },
+              ]
+            }
+          >
+            <RCTSwitch
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "height": 31,
+                  "width": 51,
+                }
+              }
+              thumbTintColor="#009f36"
+              value={true}
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        row={false}
+        style={
+          Array [
+            Object {
+              "borderBottomColor": "#e6e6e6",
+              "borderBottomWidth": 1,
+              "borderRightColor": "rgba(0,0,0,0)",
+              "borderRightWidth": 0,
+            },
+          ]
+        }
+      />
+    </View>
+  </View>
   <RCTSafeAreaView
     pointerEvents="box-none"
     style={
