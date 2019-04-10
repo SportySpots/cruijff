@@ -47,6 +47,15 @@
     "terms": "Algemene voorwaarden"
   },
 
+  "settingsScreen": {
+    "title": "Mijn Instellingen",
+    "switch": {
+      "pushNotifications": {
+        "label": "Push-meldingen"
+      }
+    }
+  },
+
   "profileScreen": {
     "navigation": {
       "title": "Profiel"
@@ -669,10 +678,9 @@
   },
 
   "notificationPermissionSlide": {
-    "title": "Notificaties",
-    "text": "Mogen we je push notificaties sturen?",
-    "yesBtnLabel": "Ja",
-    "noBtnLabel": "Nee"
+    "title": "Ontvang updates",
+    "text": "Door notificaties te accepteren krijg je live notificaties over de activiteiten die je organiseert of waaraan je deelneemt.",
+    "btnLabel": "Ik ontvang graag notificaties"
   },
 
   "queryCatchErrors": {

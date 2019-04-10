@@ -47,6 +47,15 @@
     "terms": "Términos y condiciones"
   },
 
+  "settingsScreen": {
+    "title": "Mi configuración",
+    "switch": {
+      "pushNotifications": {
+        "label": "Notificaciones push"
+      }
+    }
+  },
+
   "profileScreen": {
     "navigation": {
       "title": "Perfil"

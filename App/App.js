@@ -30,7 +30,6 @@ import { logNavigationState } from './utils';
 //------------------------------------------------------------------------------
 const AppRootView = styled.View`
   flex: 1;
-  flex-direction: column;
   background-color: ${({ theme }) => theme.colors.black};
   margin-bottom: ${getBottomSpace()}px;
   margin-top: ${ifIphoneX() ? 30 : 0}px;
