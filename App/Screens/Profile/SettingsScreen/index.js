@@ -37,7 +37,6 @@ class SettingsScreen extends React.PureComponent {
 
   render() {
     const { notificationsEnabled } = this.props;
-    console.log('SETTINGS SCREEN PROPS', this.props);
 
     return (
       <Container>
