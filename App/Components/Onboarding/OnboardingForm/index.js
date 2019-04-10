@@ -8,6 +8,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import I18n from '../../../I18n';
 import { addGlobalRef } from '../../../globalRefs';
+import { withUser, userPropTypes } from '../../../Context/User';
 import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../Common/DarkFooter';
@@ -17,7 +18,9 @@ import NotificationPermissionSlide, { NOTIFICATION_PERMISSION } from '../Notific
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
-const getSlides = async () => {
+let SLIDES = [];
+
+const getSlides = ({ notificationsEnabled }) => {
   const slides = [
     {
       id: 'welcomeSlide',
@@ -49,21 +52,22 @@ const getSlides = async () => {
         />
       ),
     },
-    {
-      id: 'locationSlide',
-      Comp: LocationSlide,
-      requiredFields: LocationSlide.requiredFields,
-    },
   ];
 
-  const hasNotificationPermission = await firebase.messaging().hasPermission();
-  if (!hasNotificationPermission) {
+  if (!notificationsEnabled) {
     slides.push({
       id: 'notificationPermissionSlide',
       Comp: NotificationPermissionSlide,
       requiredFields: NotificationPermissionSlide.requiredFields,
     });
   }
+
+  // Let's keep location as the last slide
+  slides.push({
+    id: 'locationSlide',
+    Comp: LocationSlide,
+    requiredFields: LocationSlide.requiredFields,
+  });
 
   return slides;
 };
@@ -86,16 +90,17 @@ class OnboardingForm extends React.Component {
 
     addGlobalRef('OnBoardingScreen')(this);
 
+    SLIDES = getSlides(props);
+
     this.state = {
-      slides: null,
       curSlide: 0,
-      notificationPermission: NOTIFICATION_PERMISSION.UNDEFINED,
+      // notificationPermission: NOTIFICATION_PERMISSION.UNDEFINED,
       ...cloneDeep(INIT_STATE),
     };
 
-    getSlides().then((slides) => {
-      this.setState({ slides });
-    });
+    // getSlides().then((slides) => {
+    //   this.setState({ slides });
+    // });
 
     // console.log('INIT STATE', this.state);
   }
@@ -105,15 +110,14 @@ class OnboardingForm extends React.Component {
   }
 
   get disableNext() {
-    const { curSlide, slides } = this.state;
+    const { curSlide } = this.state;
 
     // Get required fields for the current slide
-    const { requiredFields } = slides[curSlide];
+    const { requiredFields } = SLIDES[curSlide];
 
     // Disable next btn (return 'true') if at least on of the required fields isn't set
     if (requiredFields) {
       for (const fieldName of requiredFields) {
-        // const fieldName = requiredFields[i];
         if (!this.state[fieldName]) { // eslint-disable-line
           return true;
         }
@@ -125,20 +129,19 @@ class OnboardingForm extends React.Component {
   }
 
   get buttonNextText() {
-    const { curSlide, slides } = this.state;
-    return curSlide < slides.length - 1 ? 'onboardingScreen.nextBtnLabel' : 'onboardingScreen.lastBtnLabel';
+    const { curSlide } = this.state;
+    return curSlide < SLIDES.length - 1 ? 'onboardingScreen.nextBtnLabel' : 'onboardingScreen.lastBtnLabel';
   }
-
 
   handleNext = async () => {
     Keyboard.dismiss();
 
-    const { curSlide, slides } = this.state;
+    const { curSlide } = this.state;
 
     firebase.analytics().logEvent(`onboarding_footer_next_btn_press_idx_${curSlide}`);
 
     // If it's NOT the last slide, increment slide counter and slide forward one position
-    if (curSlide !== slides.length - 1) {
+    if (curSlide !== SLIDES.length - 1) {
       this.setState(
         prevState => ({ curSlide: prevState.curSlide + 1 }),
         () => { this.swiper.scrollBy(1); },
@@ -169,10 +172,8 @@ class OnboardingForm extends React.Component {
 
   render() {
     const { disabled } = this.props;
-    const { curSlide, slides, ...rest } = this.state;
-    if (!slides) {
-      return null;
-    }
+    const { curSlide, ...rest } = this.state;
+
     return (
       <FlexOne>
         <Swiper
@@ -181,7 +182,7 @@ class OnboardingForm extends React.Component {
           loop={false}
           showsPagination={false}
         >
-          {slides.map(({ id, Comp }, index) => (
+          {SLIDES.map(({ id, Comp }, index) => (
             <FlexOne key={id}>
               {index === curSlide ? (
                 <Comp
@@ -194,7 +195,7 @@ class OnboardingForm extends React.Component {
           ))}
         </Swiper>
         <Footer
-          numPages={slides.length}
+          numPages={SLIDES.length}
           currentPage={curSlide}
           onNext={this.handleNext}
           disableNext={this.disableNext || disabled}
@@ -207,6 +208,7 @@ class OnboardingForm extends React.Component {
 }
 
 OnboardingForm.propTypes = {
+  notificationsEnabled: userPropTypes.notificationsEnabled,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
   onClientCancelHook: PropTypes.func,
@@ -214,13 +216,238 @@ OnboardingForm.propTypes = {
 };
 
 OnboardingForm.defaultProps = {
+  notificationsEnabled: false,
   disabled: false,
   onBeforeHook: () => {},
   onClientCancelHook: () => {},
   onSuccessHook: () => {},
 };
 
-export default OnboardingForm;
+export default withUser(OnboardingForm);
+
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import { Keyboard, View } from 'react-native';
+// import firebase from 'react-native-firebase';
+// import Swiper from 'react-native-swiper';
+// import styled from 'styled-components/native';
+// import cloneDeep from 'lodash/cloneDeep';
+// import pick from 'lodash/pick';
+// import I18n from '../../../I18n';
+// import { addGlobalRef } from '../../../globalRefs';
+// import Images from '../../../Themes/Images';
+// import ImageBackground from '../../../Backgrounds/ImageBackground';
+// import Footer from '../../Common/DarkFooter';
+// import LocationSlide, { INIT_STATE as LOCATION_INIT_STATE } from '../LocationSlide';
+// import NotificationPermissionSlide, { NOTIFICATION_PERMISSION } from '../NotificationPermissionSlide';
+
+// //------------------------------------------------------------------------------
+// // CONSTANTS:
+// //------------------------------------------------------------------------------
+// const getSlides = async () => {
+//   const slides = [
+//     {
+//       id: 'welcomeSlide',
+//       Comp: () => (
+//         <ImageBackground
+//           title={I18n.t('onboardingScreen.welcome.title')}
+//           text={I18n.t('onboardingScreen.welcome.text')}
+//           image={Images.illustrationWizard1}
+//         />
+//       ),
+//     },
+//     {
+//       id: 'joinGameSlide',
+//       Comp: () => (
+//         <ImageBackground
+//           title={I18n.t('onboardingScreen.joinGame.title')}
+//           text={I18n.t('onboardingScreen.joinGame.text')}
+//           image={Images.illustrationWizard2}
+//         />
+//       ),
+//     },
+//     {
+//       id: 'planGameSlide',
+//       Comp: () => (
+//         <ImageBackground
+//           title={I18n.t('onboardingScreen.planGame.title')}
+//           text={I18n.t('onboardingScreen.planGame.text')}
+//           image={Images.illustrationWizard3}
+//         />
+//       ),
+//     },
+//     {
+//       id: 'locationSlide',
+//       Comp: LocationSlide,
+//       requiredFields: LocationSlide.requiredFields,
+//     },
+//   ];
+
+//   const enabled = await firebase.messaging().hasPermission();
+//   if (!enabled) {
+//     slides.push({
+//       id: 'notificationPermissionSlide',
+//       Comp: NotificationPermissionSlide,
+//       requiredFields: NotificationPermissionSlide.requiredFields,
+//     });
+//   }
+
+//   return slides;
+// };
+
+// const INIT_STATE = {
+//   ...cloneDeep(LOCATION_INIT_STATE),
+// };
+// //------------------------------------------------------------------------------
+// // STYLE:
+// //------------------------------------------------------------------------------
+// const FlexOne = styled.View`
+//   flex: 1; /* full height */
+// `;
+// //------------------------------------------------------------------------------
+// // COMPONENT:
+// //------------------------------------------------------------------------------
+// class OnboardingForm extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     addGlobalRef('OnBoardingScreen')(this);
+
+//     this.state = {
+//       slides: null,
+//       curSlide: 0,
+//       notificationPermission: NOTIFICATION_PERMISSION.UNDEFINED,
+//       ...cloneDeep(INIT_STATE),
+//     };
+
+//     getSlides().then((slides) => {
+//       this.setState({ slides });
+//     });
+
+//     // console.log('INIT STATE', this.state);
+//   }
+
+//   handleChange = ({ fieldName, value }) => {
+//     this.setState({ [fieldName]: value });
+//   }
+
+//   get disableNext() {
+//     const { curSlide, slides } = this.state;
+
+//     // Get required fields for the current slide
+//     const { requiredFields } = slides[curSlide];
+
+//     // Disable next btn (return 'true') if at least on of the required fields isn't set
+//     if (requiredFields) {
+//       for (const fieldName of requiredFields) {
+//         if (!this.state[fieldName]) { // eslint-disable-line
+//           return true;
+//         }
+//       }
+//     }
+
+//     // Enable btn otherwise (all required fields are set)
+//     return false;
+//   }
+
+//   get buttonNextText() {
+//     const { curSlide, slides } = this.state;
+//     return curSlide < slides.length - 1 ? 'onboardingScreen.nextBtnLabel' : 'onboardingScreen.lastBtnLabel';
+//   }
+
+
+//   handleNext = async () => {
+//     Keyboard.dismiss();
+
+//     const { curSlide, slides } = this.state;
+
+//     firebase.analytics().logEvent(`onboarding_footer_next_btn_press_idx_${curSlide}`);
+
+//     // If it's NOT the last slide, increment slide counter and slide forward one position
+//     if (curSlide !== slides.length - 1) {
+//       this.setState(
+//         prevState => ({ curSlide: prevState.curSlide + 1 }),
+//         () => { this.swiper.scrollBy(1); },
+//       );
+//       return;
+//     }
+
+//     // Otherwise, gather input field values and pass event up to parent component
+//     const {
+//       onBeforeHook,
+//       onClientCancelHook,
+//       // onClientErrorHook,
+//       onSuccessHook,
+//     } = this.props;
+
+//     // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
+//     // value to 'true' so that the user cannot re-submit the form
+//     try {
+//       onBeforeHook();
+//     } catch (exc) {
+//       onClientCancelHook();
+//       return; // return silently
+//     }
+
+//     // Pass event up to parent component
+//     onSuccessHook(pick(this.state, Object.keys(INIT_STATE)));
+//   }
+
+//   render() {
+//     const { disabled } = this.props;
+//     const { curSlide, slides, ...rest } = this.state;
+//     if (!slides) {
+//       return null;
+//     }
+//     return (
+//       <FlexOne>
+//         <Swiper
+//           ref={(swiper) => { this.swiper = swiper; }}
+//           scrollEnabled={false}
+//           loop={false}
+//           showsPagination={false}
+//         >
+//           {slides.map(({ id, Comp }, index) => (
+//             <FlexOne key={id}>
+//               {index === curSlide ? (
+//                 <Comp
+//                   onChange={this.handleChange}
+//                   // Pass down all state values: location, sports, etc.
+//                   {...rest}
+//                 />
+//               ) : <View />}
+//             </FlexOne>
+//           ))}
+//         </Swiper>
+//         <Footer
+//           numPages={slides.length}
+//           currentPage={curSlide}
+//           onNext={this.handleNext}
+//           disableNext={this.disableNext || disabled}
+//           buttonNextText={I18n.t(this.buttonNextText)}
+//           showBack={false}
+//         />
+//       </FlexOne>
+//     );
+//   }
+// }
+
+// OnboardingForm.propTypes = {
+//   disabled: PropTypes.bool,
+//   onBeforeHook: PropTypes.func,
+//   onClientCancelHook: PropTypes.func,
+//   onSuccessHook: PropTypes.func,
+// };
+
+// OnboardingForm.defaultProps = {
+//   disabled: false,
+//   onBeforeHook: () => {},
+//   onClientCancelHook: () => {},
+//   onSuccessHook: () => {},
+// };
+
+// export default OnboardingForm;
+
 
 /*
 import React from 'react';

@@ -669,10 +669,9 @@
   },
 
   "notificationPermissionSlide": {
-    "title": "Notificaciones",
-    "text": "¿Podemos enviarle notificaciones?",
-    "yesBtnLabel": "Si",
-    "noBtnLabel": "No"
+    "title": "Recibe notificaciones",
+    "text": "Al permitir notificaciones, recibirás actualizaciones en tiempo real sobre las actividades que organizas o participas.",
+    "btnLabel": "Mantenme informado"
   },
 
   "queryCatchErrors": {

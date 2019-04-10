@@ -675,10 +675,9 @@
   },
 
   "notificationPermissionSlide": {
-    "title": "Notifications",
-    "text": "Can we send you push notifications",
-    "yesBtnLabel": "Yes",
-    "noBtnLabel": "No"
+    "title": "Get notified",
+    "text": "By allowing notifcations you get real time updates about activities you organise or have joined.",
+    "btnLabel": "Keep me updated"
   },
 
   "queryCatchErrors": {
