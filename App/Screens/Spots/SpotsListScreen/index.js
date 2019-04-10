@@ -46,7 +46,6 @@ class SpotsListScreen extends React.Component {
           contentContainerStyle={{
             flex: 1,
             display: 'flex',
-            justifyContent: 'center',
           }}
         >
           <Inner>

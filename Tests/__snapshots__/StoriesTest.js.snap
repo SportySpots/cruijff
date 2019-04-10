@@ -60477,7 +60477,6 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
           Object {
             "display": "flex",
             "flex": 1,
-            "justifyContent": "center",
           }
         }
         style={

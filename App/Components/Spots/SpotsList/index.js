@@ -106,7 +106,7 @@ const SpotsList = ({
                 text={I18n.t('spotsList.noResults')}
               />
             ))}
-            ItemSeparatorComponent={() => (<Spacer size="ML" />)}
+            ItemSeparatorComponent={() => <Spacer size="ML" />}
             showsVerticalScrollIndicator={false}
             onRefresh={refetch}
             refreshing={loading}

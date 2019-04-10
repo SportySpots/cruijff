@@ -41,7 +41,7 @@ const GamesList = ({
         text={I18n.t('gamesList.noResults')}
       />
     )}
-    ItemSeparatorComponent={() => (<Spacer size="ML" />)}
+    ItemSeparatorComponent={() => <Spacer size="ML" />}
     onEndReachedThreshold={0.1}
     contentContainerStyle={{
       flexGrow: 1, // centers not-found-component
