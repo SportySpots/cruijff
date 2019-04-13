@@ -15,7 +15,9 @@ Text.allowFontScaling = true;
 const settings = {
   seedorfRestUrl: Config.SEEDORF_REST_URL,
   seedorfGraphQLUrl: Config.SEEDORF_GRAPHQL_URL,
-  useFixtures: Config.USE_FIXTURES === 'YES',
+  seedorfChatkitUrl: Config.SEEDORF_CHATKIT_URL,
+  chatkitInstanceLocator: Config.CHATKIT_INSTANCE_LOCATOR,
+  useFixtures: Config.USE_FIXTURES === 'YES', // DISABLED FOR NOW DUE TO BUG
   deeplinkHost: Config.DEEPLINK_HOST,
   testBuild: Config.TEST_BUILD === 'YES',
   testHostUrl: Config.TEST_HOST_URL,

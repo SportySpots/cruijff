@@ -1,31 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
 import { View } from 'react-native';
-import GET_GAME_USERS_LIST from '../../../GraphQL/Games/Queries/GET_GAME_USERS_LIST';
-import Text from '../../../Components/Common/Text';
-import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
+import styled from 'styled-components/native';
+import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedBottomLayout';
+import ChatManagerProps from '../../../RenderProps/chat-manager-props';
+import Block from '../../../Components/Common/Block';
+import Spacer from '../../../Components/Common/Spacer';
+import ChatMsg from '../../../Components/Common/ChatMsg';
 import ChatForm from '../../../Components/Games/ChatForm';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const FlexOne = styled.View`
+  flex: 1; /* full height */
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const GameChatScreen = ({ navigation }) => (
-  <Query
-    query={GET_GAME_USERS_LIST}
-    variables={{ uuid: navigation.state.params.uuid }}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <CenteredActivityIndicator />;
-      if (error) return <Text>{JSON.stringify(error)}</Text>;
-
-      return (
-        <View style={{ flex: 1 }}>
-          <ChatForm />
-        </View>
-      );
-    }}
-  </Query>
+  <FlexOne>
+    <TopLayout>
+      <Block>
+        <ChatManagerProps roomId={navigation.state.params.uuid}>
+          {({ loading, chatkitUser, messages }) => (
+            messages.map(msg => (
+              <View>
+                <ChatMsg
+                  title="Jannis Teunissen"
+                  text={msg.text}
+                  date="10:13"
+                />
+                <Spacer size="L" />
+              </View>
+            ))
+          )}
+        </ChatManagerProps>
+      </Block>
+    </TopLayout>
+    <BottomLayout>
+      <ChatForm />
+    </BottomLayout>
+  </FlexOne>
 );
 
 GameChatScreen.propTypes = {

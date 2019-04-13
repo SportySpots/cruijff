@@ -9,7 +9,6 @@ import pick from 'lodash/pick';
 import I18n from '../../../I18n';
 import Colors from '../../../Themes/Colors';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
-import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 // import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 // import SportPickerField from '../../Common/SportPickerField';
 import Spacer from '../../Common/Spacer';
@@ -17,8 +16,7 @@ import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 // import Text from '../../Common/Text';
 import TextField from '../../Common/TextField';
-// import RaisedButton from '../../Common/RaisedButton';
-import ChatMsg from '../../Common/ChatMsg';
+import RaisedButton from '../../Common/RaisedButton';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -33,16 +31,7 @@ const INIT_STATE = {
 const INIT_ERRORS = {
   msg: [],
 };
-//------------------------------------------------------------------------------
-// STYLE:
-//------------------------------------------------------------------------------
-const Half = styled.View`
-  flex: 1;
-`;
-//------------------------------------------------------------------------------
-const FullHeight = styled.View`
-  flex: 1; /* full height */
-`;
+
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -189,69 +178,28 @@ class ChatForm extends React.PureComponent {
     const msgErrors = ErrorHandling.getFieldErrors(errors, 'msg', I18n.t);
 
     return (
-      <FullHeight>
-        <TopLayout>
-          <Block>
-            <ChatMsg
-              title="Jannis Teunissen"
-              text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.
-              Ik kan wel een extra paar meenmemen of Sjors kan de voetbaltas meenemen want daar zitten sokken in."
-              date="10:13"
-            />
-            <Spacer size="L" />
-            <ChatMsg
-              primary
-              position="right"
-              text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.
-              Ik kan wel een extra paar meenmemen of Sjors kan de voetbaltas meenemen want daar zitten sokken in."
-              date="10:13"
-            />
-            <Spacer size="L" />
-            <ChatMsg
-              title="Jannis Teunissen"
-              text="Ik heb ook nog wel wat extra voetbalschoenen thuis liggen."
-              date="10:13"
-            />
-            <Spacer size="L" />
-            <ChatMsg
-              primary
-              position="right"
-              text="Joehoe, even een shout out naar alle luitjes. Er is een kans dat we van locatie veranderen."
-              date="10:13"
-            />
-            <Spacer size="L" />
-            <ChatMsg
-              title="Jannis Teunissen"
-              text="Ik heb ook nog wel wat extra voetbalschoenen thuis liggen."
-              date="10:13"
-            />
-          </Block>
-        </TopLayout>
-        <BottomLayout>
-          <Row>
-            <Block midHeight>
-              <TextField
-                testID="chatFieldMsg"
-                // label={I18n.t('chatForm.fields.title.label')}
-                value={msg}
-                error={msgErrors}
-                // placeholder={I18n.t('chatForm.fields.title.placeholder')}
-                size="ML"
-                disabled={disabled}
-                // multiline
-                onChangeText={(value) => { this.handleChange({ fieldName: 'msg', value }); }}
-              />
-            </Block>
-            {/* <RaisedButton
-              testID="editGameSubmitButton"
-              variant="primary"
-              label={I18n.t('ChatForm.btnLabel')}
-              disabled={disabled}
-              onPress={this.handleSubmit}
-            /> */}
-          </Row>
-        </BottomLayout>
-      </FullHeight>
+      <Row>
+        <Block midHeight>
+          <TextField
+            testID="chatFieldMsg"
+            // label={I18n.t('chatForm.fields.title.label')}
+            value={msg}
+            error={msgErrors}
+            // placeholder={I18n.t('chatForm.fields.title.placeholder')}
+            size="ML"
+            disabled={disabled}
+            // multiline
+            onChangeText={(value) => { this.handleChange({ fieldName: 'msg', value }); }}
+          />
+        </Block>
+        <RaisedButton
+          testID="editGameSubmitButton"
+          variant="primary"
+          label={I18n.t('ChatForm.btnLabel')}
+          disabled={disabled}
+          onPress={this.handleSubmit}
+        />
+      </Row>
     );
   }
 }

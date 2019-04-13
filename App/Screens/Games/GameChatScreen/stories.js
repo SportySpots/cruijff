@@ -6,7 +6,7 @@ import GameChatScreen from '.';
 const dummyNavigator = {
   navigate: () => null,
   state: {
-    params: { uuid: 'cdfa268a-e809-43be-a659-bd2310737baa' },
+    params: { uuid: '19405948' },
   },
 };
 
