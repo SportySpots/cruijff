@@ -27,7 +27,7 @@ class ChatManagerProps extends React.PureComponent {
 
     const chatManager = new Chatkit.ChatManager({
       instanceLocator: config.chatkitInstanceLocator,
-      userId: user.uuid,
+      userId: (user && user.uuid) || null,
       tokenProvider: new Chatkit.TokenProvider({
         url: config.seedorfChatkitUrl,
         // headers: {
@@ -99,7 +99,7 @@ class ChatManagerProps extends React.PureComponent {
 }
 
 ChatManagerProps.propTypes = {
-  user: userPropTypes.user.isRequired,
+  user: userPropTypes.user,
   roomId: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.func,
@@ -108,6 +108,7 @@ ChatManagerProps.propTypes = {
 };
 
 ChatManagerProps.defaultProps = {
+  user: null,
   roomId: null,
 };
 

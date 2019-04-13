@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
+import { withUser, userPropTypes } from '../../../Context/User';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedBottomLayout';
 import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 import Block from '../../../Components/Common/Block';
@@ -18,22 +19,27 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameChatScreen = ({ navigation }) => (
+const GameChatScreen = ({ user, navigation }) => (
   <FlexOne>
     <TopLayout>
       <Block>
         <ChatManagerProps roomId={navigation.state.params.uuid}>
           {({ loading, chatkitUser, messages }) => (
-            messages.map(msg => (
-              <View>
-                <ChatMsg
-                  title="Jannis Teunissen"
-                  text={msg.text}
-                  date="10:13"
-                />
-                <Spacer size="L" />
-              </View>
-            ))
+            messages.map((msg) => {
+              const isSender = user && user.uuid && msg.senderId === user.uuid;
+              return (
+                <View key={msg.id}>
+                  <ChatMsg
+                    title="Jannis Teunissen"
+                    text={msg.text}
+                    date={msg.createdAt}
+                    primary={isSender}
+                    position={isSender ? 'right' : 'left'}
+                  />
+                  <Spacer size="L" />
+                </View>
+              );
+            })
           )}
         </ChatManagerProps>
       </Block>
@@ -45,6 +51,7 @@ const GameChatScreen = ({ navigation }) => (
 );
 
 GameChatScreen.propTypes = {
+  user: userPropTypes.user,
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -54,4 +61,8 @@ GameChatScreen.propTypes = {
   }).isRequired,
 };
 
-export default GameChatScreen;
+GameChatScreen.defaultProps = {
+  user: null,
+};
+
+export default withUser(GameChatScreen);
