@@ -19,36 +19,41 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameChatScreen = ({ user, navigation }) => (
-  <FlexOne>
-    <TopLayout>
-      <Block>
-        <ChatManagerProps roomId={navigation.state.params.uuid}>
-          {({ loading, chatkitUser, messages }) => (
-            messages.map((msg) => {
-              const isSender = user && user.uuid && msg.senderId === user.uuid;
-              return (
-                <View key={msg.id}>
-                  <ChatMsg
-                    title="Jannis Teunissen"
-                    text={msg.text}
-                    date={msg.createdAt}
-                    primary={isSender}
-                    position={isSender ? 'right' : 'left'}
-                  />
-                  <Spacer size="L" />
-                </View>
-              );
-            })
-          )}
-        </ChatManagerProps>
-      </Block>
-    </TopLayout>
-    <BottomLayout>
-      <ChatForm />
-    </BottomLayout>
-  </FlexOne>
-);
+const GameChatScreen = ({ user, navigation }) => {
+  const gameUUID = navigation.state.params.uuid;
+  const handlerId = `game_${gameUUID}`;
+
+  return (
+    <FlexOne>
+      <TopLayout>
+        <Block>
+          <ChatManagerProps handlerId={handlerId}>
+            {({ loading, chatkitUser, messages }) => (
+              messages.map((msg) => {
+                const isSender = user && user.uuid && msg.senderId === `user_${user.uuid}`;
+                return (
+                  <View key={msg.id}>
+                    <ChatMsg
+                      title="Jannis Teunissen"
+                      text={msg.text}
+                      date={msg.createdAt}
+                      primary={isSender}
+                      position={isSender ? 'right' : 'left'}
+                    />
+                    <Spacer size="L" />
+                  </View>
+                );
+              })
+            )}
+          </ChatManagerProps>
+        </Block>
+      </TopLayout>
+      <BottomLayout>
+        <ChatForm />
+      </BottomLayout>
+    </FlexOne>
+  );
+};
 
 GameChatScreen.propTypes = {
   user: userPropTypes.user,
