@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextInput } from 'react-native';
 import styled from 'styled-components';
+import { View } from 'react-native';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import ErrorHandling from 'error-handling-utils';
@@ -16,8 +16,12 @@ import RoundButton from '../../Common/RoundButton';
 const Input = styled.TextInput`
   /* height: 40;*/
   flex: 1;
-  border: 1px solid ${({ theme }) => theme.colors.gray};
-  border-radius: 2px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.silver};
+  border-radius: 5px;
+  font-family: ${({ theme }) => theme.fonts.M.fontFamily};
+  font-size: ${({ theme }) => theme.fonts.M.fontSize};
+  padding: 8px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -28,20 +32,26 @@ const ChatInputField = ({
   onChangeText,
   onSubmit,
 }) => (
-  <Row>
+  <Row alignItems="flex-end">
     <Input
       onChangeText={onChangeText}
       value={value}
       disabled={disabled}
+      placeholder="Type a message here..."
+      multiline
+      maxHeight={70}
     />
-    <Spacer row size="L" />
-    <RoundButton
-      iconSet="MaterialIcons"
-      iconName="send"
-      status="primary"
-      disabled={disabled}
-      onPress={onSubmit}
-    />
+    <Spacer row size="S" />
+    <View>
+      <RoundButton
+        iconSet="MaterialIcons"
+        iconName="send"
+        status="primary"
+        disabled={disabled}
+        onPress={onSubmit}
+      />
+      <Spacer size="S" />
+    </View>
   </Row>
 );
 
@@ -63,12 +73,3 @@ ChatInputField.defaultProps = {
 };
 
 export default ChatInputField;
-
-/* <Input
-  type="text"
-  placeholder="Type a message here..."
-  onChange={this.handleChange}
-  value={text}
-  className="flex-auto"
-  disabled={disabled}
-/> */

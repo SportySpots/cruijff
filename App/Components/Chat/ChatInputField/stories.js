@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import { View } from 'react-native';
+import Block from '../../Common/Block';
 import ChatInputField from '.';
 
 class Container extends React.PureComponent {
@@ -16,14 +16,14 @@ class Container extends React.PureComponent {
     const { msg } = this.state;
 
     return (
-      <View>
+      <Block>
         <ChatInputField
           value={msg}
           onChangeText={(value) => {
             this.handleChange({ fieldName: 'msg', value });
           }}
         />
-      </View>
+      </Block>
     );
   }
 }
