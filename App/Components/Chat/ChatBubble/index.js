@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import styled from 'styled-components';
-import Row from '../Row';
-import Spacer from '../Spacer';
-import Text from '../Text';
-import Triangle from '../Triangle';
+import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
+import Text from '../../Common/Text';
+import Triangle from '../../Common/Triangle';
 
 //------------------------------------------------------------------------------
 // STYLE:

@@ -10,6 +10,11 @@ function loadStories() {
   // require('../App/Backgrounds/LogoHeaderBackground/stories');
   // require('../App/Components/Auth/LoginEmailForm/stories');
   // require('../App/Components/Auth/SignupEmailForm/stories');
+  require('../App/Components/Chat/ChatBubble/stories');
+  require('../App/Components/Chat/ChatForm/stories');
+  require('../App/Components/Chat/ChatInputField/stories');
+  require('../App/Components/Chat/ChatMsg/stories');
+  require('../App/Components/Chat/ChatWithGroup/stories');
   // require('../App/Components/Common/AlertMsg/stories');
   // require('../App/Components/Common/Avatar/stories');
   // require('../App/Components/Common/AvatarPicker/stories');
@@ -18,9 +23,6 @@ function loadStories() {
   // require('../App/Components/Common/CapacityPicker/stories');
   // require('../App/Components/Common/CapacityPickerField/stories');
   // require('../App/Components/Common/CenteredActivityIndicator/stories');
-  // require('../App/Components/Common/ChatBubble/stories');
-  // require('../App/Components/Common/ChatInputField/stories');
-  // require('../App/Components/Common/ChatMsg/stories');
   // require('../App/Components/Common/Checkbox/stories');
   // require('../App/Components/Common/ConnectionCheck/stories');
   // require('../App/Components/Common/DarkFooter/stories');
@@ -76,8 +78,6 @@ function loadStories() {
   // require('../App/Components/Games/AdminMenu/stories');
   // require('../App/Components/Games/Attendees/stories');
   // require('../App/Components/Games/CancelGameForm/stories');
-  // require('../App/Components/Games/ChatForm/stories');
-  // require('../App/Components/Games/ChatWithGroup/stories');
   // require('../App/Components/Games/ClickableAttendees/stories');
   // require('../App/Components/Games/DescriptionReadMore/stories');
   // require('../App/Components/Games/EditGameForm/stories');
@@ -147,6 +147,11 @@ const stories = [
   // '../App/Backgrounds/LogoHeaderBackground/stories',
   // '../App/Components/Auth/LoginEmailForm/stories',
   // '../App/Components/Auth/SignupEmailForm/stories',
+  '../App/Components/Chat/ChatBubble/stories',
+  '../App/Components/Chat/ChatForm/stories',
+  '../App/Components/Chat/ChatInputField/stories',
+  '../App/Components/Chat/ChatMsg/stories',
+  '../App/Components/Chat/ChatWithGroup/stories',
   // '../App/Components/Common/AlertMsg/stories',
   // '../App/Components/Common/Avatar/stories',
   // '../App/Components/Common/AvatarPicker/stories',
@@ -155,9 +160,6 @@ const stories = [
   // '../App/Components/Common/CapacityPicker/stories',
   // '../App/Components/Common/CapacityPickerField/stories',
   // '../App/Components/Common/CenteredActivityIndicator/stories',
-  // '../App/Components/Common/ChatBubble/stories',
-  // '../App/Components/Common/ChatInputField/stories',
-  // '../App/Components/Common/ChatMsg/stories',
   // '../App/Components/Common/Checkbox/stories',
   // '../App/Components/Common/ConnectionCheck/stories',
   // '../App/Components/Common/DarkFooter/stories',
@@ -213,8 +215,6 @@ const stories = [
   // '../App/Components/Games/AdminMenu/stories',
   // '../App/Components/Games/Attendees/stories',
   // '../App/Components/Games/CancelGameForm/stories',
-  // '../App/Components/Games/ChatForm/stories',
-  // '../App/Components/Games/ChatWithGroup/stories',
   // '../App/Components/Games/ClickableAttendees/stories',
   // '../App/Components/Games/DescriptionReadMore/stories',
   // '../App/Components/Games/EditGameForm/stories',

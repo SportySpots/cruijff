@@ -14,12 +14,13 @@ class ChatManagerProps extends React.PureComponent {
     chatkitHandler: null,
     room: null,
     messages: [],
+    joinableRooms: [],
   }
 
   async componentDidMount() {
-    const { handlerId, roomId } = this.props;
+    const { handlerId, getJoinableRooms } = this.props;
     console.log('HANDLER ID', handlerId); // handler can be a user / game
-    console.log('ROOM ID', roomId);
+
     // Get the authentication token from async storage if it exists
     // const token = await AsyncStorage.getItem('TOKEN');
 
@@ -43,38 +44,57 @@ class ChatManagerProps extends React.PureComponent {
       this.setState({ chatkitHandler });
     } catch (exc) {
       console.error('exc', exc);
+      return;
     }
 
-    if (handlerId.contains('user_') && !roomId) {
-      throw new Error('Room ID is required');
-    }
-    if (handlerId.contains('game_') && roomId) {
-      throw new Error('Room ID should not be present');
-    }
-
-    try {
-      const room = chatkitHandler.subscribeToRoom({
-        roomId: roomId || chatkitHandler.rooms[0].id, // games should have one room only
-        messageLimit: 100,
-        hooks: {
-          onMessage: (message) => {
-            this.setState(prevState => ({
-              messages: [...prevState.messages, message],
-            }));
+    if (handlerId.contains('game_')) {
+      try {
+        const room = chatkitHandler.subscribeToRoom({
+          roomId: chatkitHandler.rooms[0].id, // games should have one room only
+          messageLimit: 100,
+          hooks: {
+            onMessage: (message) => {
+              this.setState(prevState => ({
+                messages: [...prevState.messages, message],
+              }));
+            },
           },
-        },
-      });
-      this.setState({ room });
-    } catch (exc) {
-      console.error('exc', exc);
+        });
+        this.setState({ room });
+      } catch (exc) {
+        console.error('exc', exc);
+      }
+    }
+
+    if (getJoinableRooms) {
+      await this.getJoinableRooms();
     }
 
     this.setState({ loading: false });
   }
 
+  getJoinableRooms = async () => {
+    const { chatkitHandler } = this.state;
+
+    if (chatkitHandler) {
+      try {
+        const joinableRooms = await chatkitHandler.getJoinableRooms();
+        this.setState({ joinableRooms });
+      } catch (exc) {
+        console.log('getJoinableRooms exc', exc);
+      }
+    }
+  }
+
   render() {
     const { children } = this.props;
-    const { loading, chatkitHandler, room, messages } = this.state;
+    const {
+      loading,
+      chatkitHandler,
+      room,
+      messages,
+      joinableRooms,
+    } = this.state;
 
     console.log('messages', messages);
     // Public API
@@ -83,6 +103,7 @@ class ChatManagerProps extends React.PureComponent {
       chatkitHandler,
       room,
       messages,
+      joinableRooms,
     };
 
     return children(api);
@@ -91,7 +112,7 @@ class ChatManagerProps extends React.PureComponent {
 
 ChatManagerProps.propTypes = {
   handlerId: PropTypes.string.isRequired,
-  roomId: PropTypes.string,
+  getJoinableRooms: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
@@ -99,7 +120,7 @@ ChatManagerProps.propTypes = {
 };
 
 ChatManagerProps.defaultProps = {
-  roomId: null,
+  getJoinableRooms: false,
 };
 
 export default ChatManagerProps;
@@ -115,6 +136,127 @@ export const disabledPropTypes = {
   // disableBtn: PropTypes.func.isRequired,
   // enableBtn: PropTypes.func.isRequired,
 };
+
+
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import { AsyncStorage } from 'react-native';
+// import Chatkit from '@pusher/chatkit-client/react-native';
+// import config from '../config';
+// // import { withUser, userPropTypes } from '../Context/User';
+
+// //------------------------------------------------------------------------------
+// // PROPS AND METHODS PROVIDER:
+// //------------------------------------------------------------------------------
+// class ChatManagerProps extends React.PureComponent {
+//   state = {
+//     loading: true,
+//     chatkitHandler: null,
+//     room: null,
+//     messages: [],
+//   }
+
+//   async componentDidMount() {
+//     const { handlerId, roomId } = this.props;
+//     console.log('HANDLER ID', handlerId); // handler can be a user / game
+//     console.log('ROOM ID', roomId);
+//     // Get the authentication token from async storage if it exists
+//     // const token = await AsyncStorage.getItem('TOKEN');
+
+//     const chatManager = new Chatkit.ChatManager({
+//       instanceLocator: config.chatkitInstanceLocator,
+//       userId: handlerId,
+//       tokenProvider: new Chatkit.TokenProvider({
+//         url: config.seedorfChatkitUrl,
+//         // headers: {
+//         //   'Content-Type': 'application/json',
+//         //   authorization: token ? `JWT ${token}` : null,
+//         //   cookie: null,
+//         // },
+//       }),
+//     });
+
+//     let chatkitHandler = null;
+
+//     try {
+//       chatkitHandler = await chatManager.connect();
+//       this.setState({ chatkitHandler });
+//     } catch (exc) {
+//       console.error('exc', exc);
+//       return;
+//     }
+
+//     if (handlerId.contains('user_') && !roomId) {
+//       throw new Error('Room ID is required');
+//     }
+//     if (handlerId.contains('game_') && roomId) {
+//       throw new Error('Room ID should not be present');
+//     }
+
+//     try {
+//       const room = chatkitHandler.subscribeToRoom({
+//         roomId: roomId || chatkitHandler.rooms[0].id, // games should have one room only
+//         messageLimit: 100,
+//         hooks: {
+//           onMessage: (message) => {
+//             this.setState(prevState => ({
+//               messages: [...prevState.messages, message],
+//             }));
+//           },
+//         },
+//       });
+//       this.setState({ room });
+//     } catch (exc) {
+//       console.error('exc', exc);
+//     }
+
+//     this.setState({ loading: false });
+//   }
+
+//   render() {
+//     const { children } = this.props;
+//     const { loading, chatkitHandler, room, messages } = this.state;
+
+//     console.log('messages', messages);
+//     // Public API
+//     const api = {
+//       loading,
+//       chatkitHandler,
+//       room,
+//       messages,
+//     };
+
+//     return children(api);
+//   }
+// }
+
+// ChatManagerProps.propTypes = {
+//   handlerId: PropTypes.string.isRequired,
+//   roomId: PropTypes.string,
+//   children: PropTypes.oneOfType([
+//     PropTypes.func,
+//     PropTypes.object,
+//   ]).isRequired,
+// };
+
+// ChatManagerProps.defaultProps = {
+//   roomId: null,
+// };
+
+// export default ChatManagerProps;
+
+// //------------------------------------------------------------------------------
+// // PROP TYPES:
+// //------------------------------------------------------------------------------
+// export const disabledPropTypes = {
+//   loading: PropTypes.bool.isRequired,
+//   chatkitHandler: PropTypes.object.isRequired,
+//   room: PropTypes.object,
+//   messages: PropTypes.arrayOf(PropTypes.object),
+//   // disableBtn: PropTypes.func.isRequired,
+//   // enableBtn: PropTypes.func.isRequired,
+// };
+
 
 
 // import React from 'react';

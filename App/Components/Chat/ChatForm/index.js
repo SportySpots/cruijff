@@ -17,6 +17,7 @@ import Row from '../../Common/Row';
 // import Text from '../../Common/Text';
 import TextField from '../../Common/TextField';
 import RaisedButton from '../../Common/RaisedButton';
+import ChatInputField from '../ChatInputField';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -25,11 +26,11 @@ export const NAME_MAX_CHARS = 120;
 export const DESCRIPTION_MAX_CHARS = 2000;
 
 const INIT_STATE = {
-  msg: '',
+  text: '',
 };
 
 const INIT_ERRORS = {
-  msg: [],
+  text: [],
 };
 
 //------------------------------------------------------------------------------
@@ -51,6 +52,7 @@ class ChatForm extends React.PureComponent {
 
   componentWillReceiveProps({ errors }) {
     // Display (server side) errors coming from parent component
+    // TODO: if (errors && ErrorHandling.hasErrors(errors)) {
     if (errors) {
       this.setState({
         errors: {
@@ -75,55 +77,19 @@ class ChatForm extends React.PureComponent {
     });
   }
 
-  validateFields = ({ msg }) => {
+  validateFields = ({ text }) => {
     // Initialize errors
     const errors = cloneDeep(INIT_ERRORS);
 
-    // const { game } = this.props;
-
     // Sanitize input
-    // const _name = name && name.trim(); // eslint-disable-line no-underscore-dangle
+    const _text = text && text.trim(); // eslint-disable-line no-underscore-dangle
 
-    // if (!_name) {
-    //   errors.name.push('ChatForm.fields.title.errors.required');
-    // } else if (_name.length > NAME_MAX_CHARS) {
-    //   errors.name.push('ChatForm.fields.title.errors.tooLong');
-    // }
+    if (!_text) {
+      errors.text.push('Message is required!');
+    }
 
-    // if (!date) {
-    //   errors.date.push('ChatForm.fields.date.errors.required');
-    // }
-
-    // if (!time) {
-    //   errors.time.push('ChatForm.fields.time.errors.required');
-    // }
-
-    // if (date && time) {
-    //   const hours = time.hours();
-    //   const minutes = time.minutes();
-    //   const dateTime = date.clone().add(hours, 'hours').add(minutes, 'minutes');
-    //   const now = moment.utc();
-    //   const diff = dateTime.diff(now, 'seconds');
-
-    //   if (diff < 0) {
-    //     errors.time.push('ChatForm.fields.time.errors.pastDateTime');
-    //   }
-    // }
-
-    // if (!duration) {
-    //   errors.duration.push('ChatForm.fields.duration.errors.required');
-    // }
-
-    // // Sanitize input
-    // const _description = description && description.trim(); // eslint-disable-line no-underscore-dangle
-
-    // if (_description.length > DESCRIPTION_MAX_CHARS) {
-    //   errors.description.push('ChatForm.fields.description.errors.tooLong');
-    // }
-
-    // const attendees = getAttendees(game.attendees);
-    // if (capacity && attendees.length > capacity) {
-    //   errors.capacity.push('ChatForm.fields.capacity.errors.noFit');
+    // if (_text && _text.length > 4) {
+    //   errors.text.push('Message is too long!');
     // }
 
     return errors;
@@ -168,38 +134,31 @@ class ChatForm extends React.PureComponent {
       // gameUUID: game.uuid,
       ...pick(this.state, Object.keys(INIT_STATE)),
     });
+
+    // Clear input field
+    this.setState({ text: '' });
   }
 
   render() {
     const { disabled } = this.props;
-    const { msg, errors } = this.state;
+    const { text, errors } = this.state;
 
     // Apply translation and concatenate field errors (string)
-    const msgErrors = ErrorHandling.getFieldErrors(errors, 'msg', I18n.t);
+    const textErrors = ErrorHandling.getFieldErrors(errors, 'text', I18n.t);
 
     return (
-      <Row>
-        <Block midHeight>
-          <TextField
-            testID="chatFieldMsg"
-            // label={I18n.t('chatForm.fields.title.label')}
-            value={msg}
-            error={msgErrors}
-            // placeholder={I18n.t('chatForm.fields.title.placeholder')}
-            size="ML"
-            disabled={disabled}
-            // multiline
-            onChangeText={(value) => { this.handleChange({ fieldName: 'msg', value }); }}
-          />
-        </Block>
-        <RaisedButton
-          testID="editGameSubmitButton"
-          variant="primary"
-          label={I18n.t('ChatForm.btnLabel')}
-          disabled={disabled}
-          onPress={this.handleSubmit}
-        />
-      </Row>
+      <ChatInputField
+        testID="chatInputField"
+        // label={I18n.t('chatForm.fields.title.label')}
+        value={text}
+        error={textErrors}
+        // placeholder={I18n.t('chatForm.fields.title.placeholder')}
+        size="ML"
+        disabled={disabled}
+        // multiline
+        onChangeText={(value) => { this.handleChange({ fieldName: 'text', value }); }}
+        onSubmit={this.handleSubmit}
+      />
     );
   }
 }

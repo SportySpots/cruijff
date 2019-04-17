@@ -7,7 +7,7 @@ const Box = styled.View`
   border: 1px solid black;
 `;
 
-storiesOf('Games.ChatWithGroup', module)
+storiesOf('Chat.ChatWithGroup', module)
   .add('ChatWithGroup', () => (
     <Box>
       <ChatWithGroup />

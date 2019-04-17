@@ -1,12 +1,30 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import Block from '../Block';
-import ChatBubble from '.';
+import { Query } from 'react-apollo';
+import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import Block from '../../Common/Block';
+import ChatMsg from '.';
 
-storiesOf('Common.ChatBubble', module)
-  .add('ChatBubble PRIMARY', () => (
+const Container = props => (
+  <Query
+    query={GET_GAME_DETAILS}
+    variables={{ uuid: '455' }}
+  >
+    {({ loading, error, data }) => (
+      loading || error ? null : (
+        <ChatMsg
+          user={data.game.organizer}
+          {...props}
+        />
+      ))
+    }
+  </Query>
+);
+
+storiesOf('Chat.ChatMsg', module)
+  .add('ChatMsg PRIMARY', () => (
     <Block>
-      <ChatBubble
+      <Container
         primary
         position="right"
         title="Jannis Teunissen"
@@ -16,9 +34,9 @@ storiesOf('Common.ChatBubble', module)
       />
     </Block>
   ))
-  .add('ChatBubble PRIMARY no title', () => (
+  .add('ChatMsg PRIMARY no title', () => (
     <Block>
-      <ChatBubble
+      <Container
         primary
         position="right"
         text="Ok prima dan neem ik de voetbaltas mee"
@@ -26,9 +44,9 @@ storiesOf('Common.ChatBubble', module)
       />
     </Block>
   ))
-  .add('ChatBubble', () => (
+  .add('ChatMsg', () => (
     <Block bgColor="concrete">
-      <ChatBubble
+      <Container
         title="Jannis Teunissen"
         text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.
         Ik kan wel een extra paar meenmemen of Sjors kan de voetbaltas meenemen want daar zitten sokken in."

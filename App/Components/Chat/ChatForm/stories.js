@@ -6,7 +6,7 @@ import Colors from '../../../Themes/Colors';
 // import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import ChatForm from '.';
 
-storiesOf('Games.ChatForm', module)
+storiesOf('Chat.ChatForm', module)
   .add('ChatForm', () => (
     <View
       style={{

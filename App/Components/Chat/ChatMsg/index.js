@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Row from '../Row';
-import Spacer from '../Spacer';
-import Avatar from '../Avatar';
+import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
+import Avatar from '../../Common/Avatar';
 import ChatBubble from '../ChatBubble';
 
 //------------------------------------------------------------------------------
