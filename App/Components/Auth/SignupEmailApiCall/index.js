@@ -29,13 +29,13 @@ class SignupEmailApiCall extends React.PureComponent {
         const errors = curateErrors(res.data);
         console.log('CURATED ERRORS', errors);
         onSignupError(errors);
-      } else {
-        // onSignupSuccess({ token: res.data.token });
-        onSignupSuccess();
       }
     } catch (exc) {
       onSignupError(exc);
     }
+
+    // onSignupSuccess({ token: res.data.token });
+    onSignupSuccess();
   }
 
   render() {

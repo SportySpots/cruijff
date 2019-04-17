@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
 import union from 'lodash/union';
+import moment from 'moment';
 import { withUser, userPropTypes } from '../../../Context/User';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedBottomLayout';
 import ChatManagerProps from '../../../RenderProps/chat-manager-props';
@@ -40,12 +41,13 @@ const GameChatScreen = ({ user, navigation }) => {
 
               return messages.map((msg) => {
                 const isSender = msg.senderId === userHandlerId;
+                const date = moment.utc(msg.createdAt).local().format('HH:mm');
                 return (
                   <View key={msg.id}>
                     <ChatMsg
                       title="Jannis Teunissen"
                       text={msg.text}
-                      date={msg.createdAt}
+                      date={date}
                       primary={isSender}
                       position={isSender ? 'right' : 'left'}
                     />
