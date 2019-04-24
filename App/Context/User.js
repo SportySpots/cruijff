@@ -66,6 +66,7 @@ const me = async () => {
 };
 
 const chatkitMe = async ({ userId }) => {
+  console.log('USER ID', userId);
   if (!userId) { return null; }
 
   try {

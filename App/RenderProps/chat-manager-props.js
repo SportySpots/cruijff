@@ -18,7 +18,7 @@ class ChatManagerProps extends React.PureComponent {
 
   async componentDidMount() {
     const { roomId } = this.props;
-    console.log('config', config);
+    console.log('CHAT MANAGER ROOM ID', roomId);
 
     // Get the authentication token from async storage if it exists
     // const token = await AsyncStorage.getItem('TOKEN');
@@ -43,8 +43,11 @@ class ChatManagerProps extends React.PureComponent {
       this.setState({ chatkitUser });
     } catch (exc) {
       console.error('exc', exc);
+      this.setState({ loading: false });
       return;
     }
+
+    console.log('CHAT MANAGER CHATKITUSER', chatkitUser);
 
     try {
       const room = chatkitUser.subscribeToRoom({

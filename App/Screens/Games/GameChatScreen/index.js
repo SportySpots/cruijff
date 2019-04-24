@@ -23,6 +23,8 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 const GameChatScreen = ({ user, chatkitUser, navigation }) => {
   const gameUUID = navigation.state.params.uuid;
+  console.log('USER', user);
+  console.log('CHATKIT USER', chatkitUser);
 
   return (
     <Query
@@ -38,6 +40,7 @@ const GameChatScreen = ({ user, chatkitUser, navigation }) => {
         }
 
         const { roomId = '19397290' } = data.game; // TODO: 19397290 is for test purpose only
+        console.log('ROOM ID', roomId);
 
         return (
           <FlexOne>
