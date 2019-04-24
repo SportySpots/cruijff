@@ -17,7 +17,6 @@ const settings = {
   seedorfGraphQLUrl: Config.SEEDORF_GRAPHQL_URL,
   seedorfChatkitUrl: Config.SEEDORF_CHATKIT_URL,
   chatkitInstanceLocator: Config.CHATKIT_INSTANCE_LOCATOR,
-  chatkitSecretKey: Config.CHATKIT_SECRET_KEY, // TODO: test purpose only
   useFixtures: Config.USE_FIXTURES === 'YES', // DISABLED FOR NOW DUE TO BUG
   deeplinkHost: Config.DEEPLINK_HOST,
   testBuild: Config.TEST_BUILD === 'YES',

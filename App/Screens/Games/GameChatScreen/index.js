@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { Query } from 'react-apollo';
 import styled from 'styled-components/native';
-import union from 'lodash/union';
-import moment from 'moment';
 import { withUser, userPropTypes } from '../../../Context/User';
+import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedBottomLayout';
 import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 import Block from '../../../Components/Common/Block';
-import Spacer from '../../../Components/Common/Spacer';
+import Text from '../../../Components/Common/Text';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import ChatMsg from '../../../Components/Chat/ChatMsg';
+import ChatMsgList from '../../../Components/Chat/ChatMsgList';
 import ChatForm from '../../../Components/Chat/ChatForm';
 
 //------------------------------------------------------------------------------
@@ -22,71 +21,50 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameChatScreen = ({ user, navigation }) => {
+const GameChatScreen = ({ user, chatkitUser, navigation }) => {
   const gameUUID = navigation.state.params.uuid;
-  const isLoggedIn = !!(user && user.uuid);
-  const gameHandlerId = `game_${gameUUID}`;
-  const userHandlerId = `user_${isLoggedIn ? user.uuid : ''}`;
-  const roomName = `room_${gameUUID}`;
 
   return (
-    <FlexOne>
-      <TopLayout bgColor="transparent">
-        <Block>
-          <ChatManagerProps handlerId={gameHandlerId}>
-            {({ loading, messages }) => {
-              if (loading) {
-                return <CenteredActivityIndicator />;
-              }
+    <Query
+      query={GET_GAME_DETAILS}
+      variables={{ uuid: gameUUID }}
+      fetchPolicy="cache-and-network"
+    >
+      {({ loading, error, data }) => {
+        if (loading) { return <CenteredActivityIndicator />; }
+        if (error) {
+          console.log(error);
+          return <Text>Something went wrong :(</Text>;
+        }
 
-              return messages.map((msg) => {
-                const isSender = msg.senderId === userHandlerId;
-                const date = moment.utc(msg.createdAt).local().format('HH:mm');
-                return (
-                  <View key={msg.id}>
-                    <ChatMsg
-                      title={msg.sender.name}
-                      text={msg.text}
-                      date={date}
-                      primary={isSender}
-                      position={isSender ? 'right' : 'left'}
-                      user={{
-                        name: msg.sender.name,
-                        profile: {
-                          avatar: msg.sender.avatarURL,
-                        },
-                      }}
-                    />
-                    <Spacer size="L" />
-                  </View>
-                );
-              });
-            }}
-          </ChatManagerProps>
-        </Block>
-      </TopLayout>
-      <BottomLayout
-        bgColor="transparent"
-        borderColor="transparent"
-      >
-        {isLoggedIn && (
-          <ChatManagerProps
-            handlerId={userHandlerId}
-            getJoinableRooms
-          >
-            {({ loading, chatkitHandler, joinableRooms }) => {
-              if (loading) {
-                return <CenteredActivityIndicator />;
-              }
+        const { roomId = '19397290' } = data.game; // TODO: 19397290 is for test purpose only
 
-              const allRooms = union(chatkitHandler.rooms, joinableRooms);
-              const roomId = allRooms.find(({ name }) => name === roomName).id;
+        return (
+          <FlexOne>
+            <TopLayout bgColor="transparent">
+              <Block>
+                <ChatManagerProps roomId={roomId}>
+                  {({ loading: wait, messages }) => {
+                    if (wait) {
+                      return <CenteredActivityIndicator />;
+                    }
 
-              return (
+                    return (
+                      <ChatMsgList
+                        userId={user ? user.uuid : ''}
+                        messages={messages}
+                      />
+                    );
+                  }}
+                </ChatManagerProps>
+              </Block>
+            </TopLayout>
+            <BottomLayout bgColor="transparent" borderColor="transparent">
+              {chatkitUser && (
                 <ChatForm
                   onSuccessHook={async ({ text }) => {
                     try {
-                      await chatkitHandler.sendMessage({ text, roomId });
+                      await chatkitUser.sendMessage({ text, roomId });
                     } catch (exc) {
                       console.log(exc);
                       // onError({ text: [sanitizeChatkitServerError(exc)] });
@@ -94,17 +72,18 @@ const GameChatScreen = ({ user, navigation }) => {
                     }
                   }}
                 />
-              );
-            }}
-          </ChatManagerProps>
-        )}
-      </BottomLayout>
-    </FlexOne>
+              )}
+            </BottomLayout>
+          </FlexOne>
+        );
+      }}
+    </Query>
   );
 };
 
 GameChatScreen.propTypes = {
   user: userPropTypes.user,
+  chatkitUser: userPropTypes.chatkitUser,
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -116,6 +95,7 @@ GameChatScreen.propTypes = {
 
 GameChatScreen.defaultProps = {
   user: null,
+  chatkitUser: null,
 };
 
 export default withUser(GameChatScreen);
