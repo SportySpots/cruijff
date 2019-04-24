@@ -40,7 +40,7 @@ const ChatBubble = ({
     )}
     <Bubble primary={primary}>
       {!!title && (
-        <Text semibold>
+        <Text semibold numberOfLines={1}>
           {title}
         </Text>
       )}

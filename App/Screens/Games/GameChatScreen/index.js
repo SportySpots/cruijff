@@ -45,11 +45,17 @@ const GameChatScreen = ({ user, navigation }) => {
                 return (
                   <View key={msg.id}>
                     <ChatMsg
-                      title="Jannis Teunissen"
+                      title={msg.sender.name}
                       text={msg.text}
                       date={date}
                       primary={isSender}
                       position={isSender ? 'right' : 'left'}
+                      user={{
+                        name: msg.sender.name,
+                        profile: {
+                          avatar: msg.sender.avatarURL,
+                        },
+                      }}
                     />
                     <Spacer size="L" />
                   </View>
