@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { View } from 'react-native';
-import cloneDeep from 'lodash/cloneDeep';
-import pick from 'lodash/pick';
-import ErrorHandling from 'error-handling-utils';
+// import cloneDeep from 'lodash/cloneDeep';
+// import pick from 'lodash/pick';
+// import ErrorHandling from 'error-handling-utils';
+import I18n from '../../../I18n';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import RoundButton from '../../Common/RoundButton';
@@ -37,7 +38,7 @@ const ChatInputField = ({
       onChangeText={onChangeText}
       value={value}
       disabled={disabled}
-      placeholder="Type a message here..."
+      placeholder={I18n.t('chatInputField.placeholder')}
       multiline
       maxHeight={70}
     />

@@ -214,6 +214,10 @@
     }
   },
 
+  "chatInputField": {
+    "placeholder": "Schrijf je bericht..."
+  },
+
   "playersListScreen": {
     "navigation": {
       "title": "Deelnemers"

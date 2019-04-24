@@ -214,6 +214,10 @@
     }
   },
 
+  "chatInputField": {
+    "placeholder": "Escribe tu mensaje..."
+  },
+
   "playersListScreen": {
     "navigation": {
       "title": "Participantes"
