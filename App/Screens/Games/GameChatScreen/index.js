@@ -11,6 +11,7 @@ import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 // import ChatMsgList from '../../../Components/Chat/ChatMsgList';
 import ChatDay from '../../../Components/Chat/ChatDay';
 import ChatBubble from '../../../Components/Chat/ChatBubble';
+import ChatInputToolbar from '../../../Components/Chat/ChatInputToolbar';
 import ChatComposer from '../../../Components/Chat/ChatComposer';
 import ChatSend from '../../../Components/Chat/ChatSend';
 
@@ -39,6 +40,7 @@ const GameChatScreen = ({ user, navigation }) => {
 
               return (
                 <GiftedChat
+                  user={{ _id: user ? user.uuid : null }}
                   // isLoadingEarlier={chatHandler.loading}
                   // renderLoading={() => <CenteredActivityIndicator />}
                   messages={chatHandler.messages}
@@ -47,6 +49,7 @@ const GameChatScreen = ({ user, navigation }) => {
                   // renderUsernameOnMessage
                   renderBubble={props => <ChatBubble {...props} />}
                   renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
+                  renderInputToolbar={props => <ChatInputToolbar {...props} />}
                   renderComposer={props => <ChatComposer {...props} />}
                   placeholder={I18n.t('chatInputField.placeholder')}
                   textInputProps={{ editable: !disabled }}
@@ -61,8 +64,6 @@ const GameChatScreen = ({ user, navigation }) => {
                       // return;
                     }
                   }}
-                  // TODO: disable send button is user is not logged in
-                  user={{ _id: user ? user.uuid : null }}
                 />
               );
             }}
