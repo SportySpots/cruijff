@@ -50,6 +50,7 @@ const GameChatScreen = ({ user, navigation }) => {
                   renderBubble={props => <ChatBubble {...props} />}
                   renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
                   renderInputToolbar={props => <ChatInputToolbar {...props} />}
+                  minInputToolbarHeight={66}
                   renderComposer={props => <ChatComposer {...props} />}
                   placeholder={I18n.t('chatInputField.placeholder')}
                   textInputProps={{ editable: !disabled }}
