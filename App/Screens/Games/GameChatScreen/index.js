@@ -11,6 +11,7 @@ import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 // import ChatMsgList from '../../../Components/Chat/ChatMsgList';
 import ChatDay from '../../../Components/Chat/ChatDay';
 import ChatBubble from '../../../Components/Chat/ChatBubble';
+import ChatComposer from '../../../Components/Chat/ChatComposer';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -38,13 +39,16 @@ const GameChatScreen = ({ user, navigation }) => {
                 // renderLoading={() => <CenteredActivityIndicator />}
                 messages={chatHandler.messages}
                 inverted={false}
-                renderUsernameOnMessage
+                isAnimated
+                // renderUsernameOnMessage
                 renderBubble={props => <ChatBubble {...props} />}
                 renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
+                renderComposer={props => <ChatComposer {...props} />}
                 placeholder={I18n.t('chatInputField.placeholder')}
                 textInputProps={{
                   editable: user && user.uuid && !userHandler.loading,
                 }}
+                alwaysShowSend
                 onSend={async (messages) => {
                   try {
                     await userHandler.chatkitUser.sendMessage({ text: messages[0].text, roomId });
