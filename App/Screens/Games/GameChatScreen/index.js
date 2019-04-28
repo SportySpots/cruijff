@@ -12,6 +12,7 @@ import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 import ChatDay from '../../../Components/Chat/ChatDay';
 import ChatBubble from '../../../Components/Chat/ChatBubble';
 import ChatComposer from '../../../Components/Chat/ChatComposer';
+import ChatSend from '../../../Components/Chat/ChatSend';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -33,35 +34,38 @@ const GameChatScreen = ({ user, navigation }) => {
       <ChatManagerProps userId="readonly" roomId={roomId}>
         {chatHandler => (
           <ChatManagerProps userId={user ? user.uuid : null}>
-            {userHandler => (
-              <GiftedChat
-                // isLoadingEarlier={chatHandler.loading}
-                // renderLoading={() => <CenteredActivityIndicator />}
-                messages={chatHandler.messages}
-                inverted={false}
-                isAnimated
-                // renderUsernameOnMessage
-                renderBubble={props => <ChatBubble {...props} />}
-                renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
-                renderComposer={props => <ChatComposer {...props} />}
-                placeholder={I18n.t('chatInputField.placeholder')}
-                textInputProps={{
-                  editable: user && user.uuid && !userHandler.loading,
-                }}
-                alwaysShowSend
-                onSend={async (messages) => {
-                  try {
-                    await userHandler.chatkitUser.sendMessage({ text: messages[0].text, roomId });
-                  } catch (exc) {
-                    console.log(exc);
-                    // onError({ text: [sanitizeChatkitServerError(exc)] });
-                    // return;
-                  }
-                }}
-                // TODO: disable send button is user is not logged in
-                user={{ _id: user ? user.uuid : null }}
-              />
-            )}
+            {(userHandler) => {
+              const disabled = !(user && user.uuid && !userHandler.loading);
+
+              return (
+                <GiftedChat
+                  // isLoadingEarlier={chatHandler.loading}
+                  // renderLoading={() => <CenteredActivityIndicator />}
+                  messages={chatHandler.messages}
+                  inverted={false}
+                  isAnimated
+                  // renderUsernameOnMessage
+                  renderBubble={props => <ChatBubble {...props} />}
+                  renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
+                  renderComposer={props => <ChatComposer {...props} />}
+                  placeholder={I18n.t('chatInputField.placeholder')}
+                  textInputProps={{ editable: !disabled }}
+                  renderSend={props => <ChatSend {...props} disabled={disabled} />}
+                  alwaysShowSend
+                  onSend={async (messages) => {
+                    try {
+                      await userHandler.chatkitUser.sendMessage({ text: messages[0].text, roomId });
+                    } catch (exc) {
+                      console.log(exc);
+                      // onError({ text: [sanitizeChatkitServerError(exc)] });
+                      // return;
+                    }
+                  }}
+                  // TODO: disable send button is user is not logged in
+                  user={{ _id: user ? user.uuid : null }}
+                />
+              );
+            }}
           </ChatManagerProps>
         )}
       </ChatManagerProps>
