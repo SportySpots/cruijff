@@ -9,6 +9,7 @@ import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 // import Block from '../../../Components/Common/Block';
 // import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 // import ChatMsgList from '../../../Components/Chat/ChatMsgList';
+import ChatDay from '../../../Components/Chat/ChatDay';
 import ChatBubble from '../../../Components/Chat/ChatBubble';
 
 //------------------------------------------------------------------------------
@@ -33,13 +34,13 @@ const GameChatScreen = ({ user, navigation }) => {
           <ChatManagerProps userId={user ? user.uuid : null}>
             {userHandler => (
               <GiftedChat
-                locale={I18n.locale.substr(0, 2)}
                 // isLoadingEarlier={chatHandler.loading}
                 // renderLoading={() => <CenteredActivityIndicator />}
                 messages={chatHandler.messages}
                 inverted={false}
                 renderUsernameOnMessage
                 renderBubble={props => <ChatBubble {...props} />}
+                renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
                 placeholder={I18n.t('chatInputField.placeholder')}
                 textInputProps={{
                   editable: user && user.uuid && !userHandler.loading,
