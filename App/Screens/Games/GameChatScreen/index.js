@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import { GiftedChat } from 'react-native-gifted-chat';
+import I18n from '../../../I18n';
 import { withUser, userPropTypes } from '../../../Context/User';
-import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedBottomLayout';
+// import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedBottomLayout';
 import ChatManagerProps from '../../../RenderProps/chat-manager-props';
-import Block from '../../../Components/Common/Block';
-import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-import ChatMsgList from '../../../Components/Chat/ChatMsgList';
-import ChatForm from '../../../Components/Chat/ChatForm';
+// import Block from '../../../Components/Common/Block';
+// import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
+// import ChatMsgList from '../../../Components/Chat/ChatMsgList';
+import ChatBubble from '../../../Components/Chat/ChatBubble';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -18,54 +20,52 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameChatScreen = ({ user, chatkitUser, navigation }) => {
+const GameChatScreen = ({ user, navigation }) => {
   const { roomId } = navigation.state.params;
   console.log('USER', user);
-  console.log('CHATKIT USER', chatkitUser);
   console.log('ROOM ID', roomId);
+  console.log('I18N LOCALE', I18n.locale.substr(0, 2));
 
   return (
     <FlexOne>
-      <TopLayout bgColor="transparent">
-        <Block>
-          <ChatManagerProps roomId={roomId}>
-            {({ loading: wait, messages }) => {
-              if (wait) {
-                return <CenteredActivityIndicator />;
-              }
-
-              return (
-                <ChatMsgList
-                  userId={user ? user.uuid : ''}
-                  messages={messages}
-                />
-              );
-            }}
+      <ChatManagerProps userId="readonly" roomId={roomId}>
+        {chatHandler => (
+          <ChatManagerProps userId={user ? user.uuid : null}>
+            {userHandler => (
+              <GiftedChat
+                locale={I18n.locale.substr(0, 2)}
+                // isLoadingEarlier={chatHandler.loading}
+                // renderLoading={() => <CenteredActivityIndicator />}
+                messages={chatHandler.messages}
+                inverted={false}
+                renderUsernameOnMessage
+                renderBubble={props => <ChatBubble {...props} />}
+                placeholder={I18n.t('chatInputField.placeholder')}
+                textInputProps={{
+                  editable: user && user.uuid && !userHandler.loading,
+                }}
+                onSend={async (messages) => {
+                  try {
+                    await userHandler.chatkitUser.sendMessage({ text: messages[0].text, roomId });
+                  } catch (exc) {
+                    console.log(exc);
+                    // onError({ text: [sanitizeChatkitServerError(exc)] });
+                    // return;
+                  }
+                }}
+                // TODO: disable send button is user is not logged in
+                user={{ _id: user ? user.uuid : null }}
+              />
+            )}
           </ChatManagerProps>
-        </Block>
-      </TopLayout>
-      <BottomLayout bgColor="transparent" borderColor="transparent">
-        {chatkitUser && (
-          <ChatForm
-            onSuccessHook={async ({ text }) => {
-              try {
-                await chatkitUser.sendMessage({ text, roomId });
-              } catch (exc) {
-                console.log(exc);
-                // onError({ text: [sanitizeChatkitServerError(exc)] });
-                // return;
-              }
-            }}
-          />
         )}
-      </BottomLayout>
+      </ChatManagerProps>
     </FlexOne>
   );
 };
 
 GameChatScreen.propTypes = {
   user: userPropTypes.user,
-  chatkitUser: userPropTypes.chatkitUser,
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -77,7 +77,6 @@ GameChatScreen.propTypes = {
 
 GameChatScreen.defaultProps = {
   user: null,
-  chatkitUser: null,
 };
 
 export default withUser(GameChatScreen);

@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import Block from '../Block';
+import Block from '../../Common/Block';
 import Triangle from '.';
 
 storiesOf('Common.Triangle', module)

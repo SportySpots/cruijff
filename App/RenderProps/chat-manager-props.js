@@ -7,7 +7,6 @@ import config from '../config';
 //------------------------------------------------------------------------------
 // PROPS AND METHODS PROVIDER:
 //------------------------------------------------------------------------------
-// TODO: change name to ...
 class ChatManagerProps extends React.PureComponent {
   state = {
     loading: true,
@@ -17,15 +16,21 @@ class ChatManagerProps extends React.PureComponent {
   }
 
   async componentDidMount() {
-    const { roomId } = this.props;
+    const { userId, roomId } = this.props;
+    console.log('CHAT MANAGER USER ID', userId);
     console.log('CHAT MANAGER ROOM ID', roomId);
+
+    if (!userId) {
+      this.setState({ loading: false });
+      return;
+    }
 
     // Get the authentication token from async storage if it exists
     // const token = await AsyncStorage.getItem('TOKEN');
 
     const chatManager = new Chatkit.ChatManager({
       instanceLocator: config.chatkitInstanceLocator,
-      userId: 'readonly',
+      userId,
       tokenProvider: new Chatkit.TokenProvider({
         url: config.seedorfChatkitUrl,
         // headers: {
@@ -47,23 +52,37 @@ class ChatManagerProps extends React.PureComponent {
       return;
     }
 
-    console.log('CHAT MANAGER CHATKITUSER', chatkitUser);
+    // console.log('CHAT MANAGER CHATKITUSER', chatkitUser);
 
-    try {
-      const room = chatkitUser.subscribeToRoom({
-        roomId,
-        messageLimit: 100,
-        hooks: {
-          onMessage: (message) => {
-            this.setState(prevState => ({
-              messages: [...prevState.messages, message],
-            }));
+    if (roomId) {
+      try {
+        const room = chatkitUser.subscribeToRoom({
+          roomId,
+          messageLimit: 100,
+          hooks: {
+            onMessage: ({ id, text, createdAt, sender }) => {
+              this.setState(prevState => ({
+                messages: [
+                  ...prevState.messages,
+                  {
+                    _id: id,
+                    text,
+                    createdAt: new Date(createdAt),
+                    user: {
+                      _id: sender.id,
+                      name: sender.name,
+                      avatar: sender.avatarURL,
+                    },
+                  },
+                ],
+              }));
+            },
           },
-        },
-      });
-      this.setState({ room });
-    } catch (exc) {
-      console.error('exc', exc);
+        });
+        this.setState({ room });
+      } catch (exc) {
+        console.error('exc', exc);
+      }
     }
 
     this.setState({ loading: false });
@@ -103,11 +122,17 @@ class ChatManagerProps extends React.PureComponent {
 }
 
 ChatManagerProps.propTypes = {
-  roomId: PropTypes.string.isRequired,
+  userId: PropTypes.string,
+  roomId: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
   ]).isRequired,
+};
+
+ChatManagerProps.defaultProps = {
+  userId: '',
+  roomId: '',
 };
 
 export default ChatManagerProps;

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { AsyncStorage } from 'react-native';
 // import { Query } from 'react-apollo';
-import Chatkit from '@pusher/chatkit-client/react-native';
-import config from '../config';
 import client from '../GraphQL/ApolloClient';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';
 import GET_USER_DETAILS from '../GraphQL/Users/Queries/GET_USER_DETAILS';
@@ -34,7 +32,6 @@ const defaultValue = {
       spots: [],
     },
   },
-  chatkitUser: null, // TODO: can we improve?
   refetchUser: () => {},
 };
 
@@ -65,37 +62,6 @@ const me = async () => {
   }
 };
 
-const chatkitMe = async ({ userId }) => {
-  console.log('USER ID', userId);
-  if (!userId) { return null; }
-
-  try {
-    const token = await AsyncStorage.getItem('TOKEN');
-    console.log('TOKEN', token);
-    if (!token) {
-      return null;
-    }
-
-    const chatManager = new Chatkit.ChatManager({
-      instanceLocator: config.chatkitInstanceLocator,
-      userId,
-      tokenProvider: new Chatkit.TokenProvider({
-        url: config.seedorfChatkitUrl,
-        // headers: {
-        //   'Content-Type': 'application/json',
-        //   authorization: token ? `JWT ${token}` : null,
-        //   cookie: null,
-        // },
-      }),
-    });
-
-    return chatManager.connect();
-  } catch (exc) {
-    console.log(exc);
-    return null;
-  }
-};
-
 // TODO: use stateless function
 // TODO: user GET_ME instead of GET_USER_DETAILS
 // TODO: use Query instead of client.query
@@ -103,15 +69,12 @@ export class UserProvider extends React.Component {
   state = {
     loading: true, // set initial value to true to avoid flickering
     user: null,
-    chatkitUser: null,
   }
 
   queryUser = async () => {
     // Do not set loading state
     const user = await me();
-    const chatkitUser = await chatkitMe({ userId: user ? user.uuid : null });
-    console.log('QUERY USER', user);
-    this.setState({ user, chatkitUser });
+    this.setState({ user });
   }
 
   async componentWillMount() {
@@ -122,7 +85,7 @@ export class UserProvider extends React.Component {
 
   render() {
     const { children } = this.props;
-    const { loading, user, chatkitUser } = this.state;
+    const { loading, user } = this.state;
     console.log('USER STATE', this.state);
 
     return (
@@ -130,7 +93,6 @@ export class UserProvider extends React.Component {
         value={{
           loadingUser: loading,
           user,
-          chatkitUser,
           refetchUser: this.queryUser,
         }}
       >
@@ -155,6 +117,5 @@ export const withUser = Component => props => (
 export const userPropTypes = {
   loadingUser: PropTypes.bool,
   user: propType(userDetailsFragment),
-  chatkitUser: PropTypes.object, // TODO
   refetchUser: PropTypes.func,
 };
