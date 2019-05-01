@@ -61,17 +61,16 @@ const GameChatScreen = ({ user, navigation }) => {
                       {({ sendMessage }) => (
                         <GiftedChat
                           user={{ _id: user ? user.uuid : null }}
-                          messages={chatHandler.messages}
-                          inverted={false}
+                          messages={JSON.parse(JSON.stringify(chatHandler.messages)).reverse()}
                           renderAvatarOnTop
                           isAnimated
-                          // scrollToBottom
                           // renderUsernameOnMessage
                           renderBubble={props => <ChatBubble {...props} />}
                           renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
                           renderInputToolbar={props => <ChatInputToolbar {...props} />}
                           minInputToolbarHeight={50}
                           maxComposerHeight={70}
+                          keyboardShouldPersistTaps="never"
                           renderComposer={props => <ChatComposer {...props} />}
                           placeholder={I18n.t('chatInputField.placeholder')}
                           textInputProps={{ editable }}
