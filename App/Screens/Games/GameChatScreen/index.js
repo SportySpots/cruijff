@@ -61,7 +61,7 @@ const GameChatScreen = ({ user, navigation }) => {
                       {({ sendMessage }) => (
                         <GiftedChat
                           user={{ _id: user ? user.uuid : null }}
-                          messages={JSON.parse(JSON.stringify(chatHandler.messages)).reverse()}
+                          messages={chatHandler.messages}
                           renderAvatarOnTop
                           isAnimated
                           // renderUsernameOnMessage

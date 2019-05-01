@@ -61,9 +61,9 @@ class ChatManagerProps extends React.PureComponent {
           messageLimit: 100,
           hooks: {
             onMessage: ({ id, text, createdAt, sender }) => {
+              // Invert sense for gifted chat to work
               this.setState(prevState => ({
                 messages: [
-                  ...prevState.messages,
                   {
                     _id: id,
                     text,
@@ -74,6 +74,7 @@ class ChatManagerProps extends React.PureComponent {
                       avatar: sender.avatarURL,
                     },
                   },
+                  ...prevState.messages,
                 ],
               }));
             },
