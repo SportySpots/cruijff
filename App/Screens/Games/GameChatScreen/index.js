@@ -41,16 +41,15 @@ const GameChatScreen = ({ user, navigation }) => {
               return (
                 <GiftedChat
                   user={{ _id: user ? user.uuid : null }}
-                  // isLoadingEarlier={chatHandler.loading}
-                  // renderLoading={() => <CenteredActivityIndicator />}
                   messages={chatHandler.messages}
                   inverted={false}
+                  renderAvatarOnTop
                   isAnimated
                   // renderUsernameOnMessage
                   renderBubble={props => <ChatBubble {...props} />}
                   renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
                   renderInputToolbar={props => <ChatInputToolbar {...props} />}
-                  minInputToolbarHeight={66}
+                  minInputToolbarHeight={50}
                   renderComposer={props => <ChatComposer {...props} />}
                   placeholder={I18n.t('chatInputField.placeholder')}
                   textInputProps={{ editable: !disabled }}

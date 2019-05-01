@@ -30,14 +30,14 @@ const ChatDay = ({
       <Block>
         <Row alignItems="center">
           <StyledDivider />
-          <Spacer row size="M" />
+          <Spacer row size="L" />
           <Text color="shade">
             {moment(currentMessage.createdAt)
               .locale(locale)
               .format('dddd')
               .toTitleCase()}
           </Text>
-          <Spacer row size="M" />
+          <Spacer row size="L" />
           <StyledDivider />
         </Row>
       </Block>

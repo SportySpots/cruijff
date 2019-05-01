@@ -90,7 +90,7 @@
     "react-native-cookies": "^3.3.0",
     "react-native-device-info": "0.24.2",
     "react-native-firebase": "^5.1.1",
-    "react-native-gifted-chat": "^0.7.3",
+    "react-native-gifted-chat": "0.7.3",
     "react-native-google-static-map": "^0.1.13",
     "react-native-image-picker": "^0.27.1",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",

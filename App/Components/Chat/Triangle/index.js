@@ -11,8 +11,8 @@ const triangleTopLeft = {
   height: 0,
   backgroundColor: 'transparent',
   borderStyle: 'solid',
-  borderRightWidth: 10,
-  borderTopWidth: 10,
+  borderRightWidth: 6,
+  borderTopWidth: 6,
   borderRightColor: 'transparent',
   borderTopColor: 'red',
 };
