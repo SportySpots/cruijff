@@ -1,11 +1,11 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import Block from '../../Common/Block';
-import ChatInputField from '.';
+import ChatComposer from '.';
 
 class Container extends React.PureComponent {
   state = {
-    msg: '',
+    text: '',
   }
 
   handleChange = ({ fieldName, value }) => {
@@ -13,14 +13,15 @@ class Container extends React.PureComponent {
   }
 
   render() {
-    const { msg } = this.state;
+    const { text } = this.state;
 
     return (
-      <Block>
-        <ChatInputField
-          value={msg}
-          onChangeText={(value) => {
-            this.handleChange({ fieldName: 'msg', value });
+      <Block bgColor="silver" style={{ height: 200 }}>
+        <ChatComposer
+          text={text}
+          placeholder="placeholder"
+          onTextChanged={(value) => {
+            this.handleChange({ fieldName: 'text', value });
           }}
         />
       </Block>
@@ -28,5 +29,5 @@ class Container extends React.PureComponent {
   }
 }
 
-storiesOf('Chat.ChatInputField', module)
-  .add('ChatInputField', () => <Container />);
+storiesOf('Chat.ChatComposer', module)
+  .add('ChatComposer', () => <Container />);

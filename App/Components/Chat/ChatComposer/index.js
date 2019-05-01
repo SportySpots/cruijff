@@ -20,9 +20,6 @@ const ChatComposer = props => (
       lineHeight: 1.5 * Fonts.M.fontSize,
       marginLeft: 0,
     }}
-    textInputProps={{
-      maxHeight: 70,
-    }}
   />
 );
 
