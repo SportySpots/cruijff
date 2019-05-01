@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { GiftedChat } from 'react-native-gifted-chat';
+import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import { withUser, userPropTypes } from '../../../Context/User';
-// import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedBottomLayout';
+import FormProps from '../../../RenderProps/form-props';
 import ChatManagerProps from '../../../RenderProps/chat-manager-props';
-// import Block from '../../../Components/Common/Block';
-// import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
-// import ChatMsgList from '../../../Components/Chat/ChatMsgList';
+import Text from '../../../Components/Common/Text';
+import ChatkitApiCall from '../../../Components/Chat/ChatkitApiCall';
 import ChatDay from '../../../Components/Chat/ChatDay';
 import ChatBubble from '../../../Components/Chat/ChatBubble';
 import ChatInputToolbar from '../../../Components/Chat/ChatInputToolbar';
@@ -32,44 +32,63 @@ const GameChatScreen = ({ user, navigation }) => {
 
   return (
     <FlexOne>
-      <ChatManagerProps userId="readonly" roomId={roomId}>
-        {chatHandler => (
-          <ChatManagerProps userId={user ? user.uuid : null}>
-            {(userHandler) => {
-              const disabled = !(user && user.uuid && !userHandler.loading);
+      <FormProps>
+        {({
+          disabled,
+          errors,
+          handleBefore,
+          handleServerError,
+          handleSuccess,
+        }) => (
+          <ChatManagerProps userId="readonly" roomId={roomId}>
+            {chatHandler => (
+              <ChatManagerProps userId={user ? user.uuid : null}>
+                {(userHandler) => {
+                  const loggedOut = !(user && user.uuid && !userHandler.loading);
+                  const serverErrors = errors ? ErrorHandling.getFieldErrors(errors, 'server') : '';
 
-              return (
-                <GiftedChat
-                  user={{ _id: user ? user.uuid : null }}
-                  messages={chatHandler.messages}
-                  inverted={false}
-                  renderAvatarOnTop
-                  isAnimated
-                  // renderUsernameOnMessage
-                  renderBubble={props => <ChatBubble {...props} />}
-                  renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
-                  renderInputToolbar={props => <ChatInputToolbar {...props} />}
-                  minInputToolbarHeight={50}
-                  renderComposer={props => <ChatComposer {...props} />}
-                  placeholder={I18n.t('chatInputField.placeholder')}
-                  textInputProps={{ editable: !disabled }}
-                  renderSend={props => <ChatSend {...props} disabled={disabled} />}
-                  alwaysShowSend
-                  onSend={async (messages) => {
-                    try {
-                      await userHandler.chatkitUser.sendMessage({ text: messages[0].text, roomId });
-                    } catch (exc) {
-                      console.log(exc);
-                      // onError({ text: [sanitizeChatkitServerError(exc)] });
-                      // return;
-                    }
-                  }}
-                />
-              );
-            }}
+                  return (
+                    <ChatkitApiCall
+                      chatkitUser={userHandler.chatkitUser}
+                      roomId={roomId}
+                      onSuccess={handleSuccess}
+                      onError={handleServerError}
+                    >
+                      {({ sendMessage }) => (
+                        <GiftedChat
+                          user={{ _id: user ? user.uuid : null }}
+                          messages={chatHandler.messages}
+                          inverted={false}
+                          renderAvatarOnTop
+                          isAnimated
+                          // renderUsernameOnMessage
+                          renderBubble={props => <ChatBubble {...props} />}
+                          renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
+                          renderInputToolbar={props => <ChatInputToolbar {...props} />}
+                          minInputToolbarHeight={50}
+                          renderComposer={props => <ChatComposer {...props} />}
+                          placeholder={I18n.t('chatInputField.placeholder')}
+                          textInputProps={{ editable: !(loggedOut || disabled) }}
+                          renderSend={props => <ChatSend {...props} disabled={loggedOut || disabled} />}
+                          alwaysShowSend
+                          onSend={(messages) => {
+                            handleBefore(); // set disable props to true
+                            sendMessage(messages);
+                          }}
+                          // Display server side errors if any
+                          renderChatFooter={() => (
+                            serverErrors.length > 0 ? <Text color="error">{serverErrors}</Text> : null
+                          )}
+                        />
+                      )}
+                    </ChatkitApiCall>
+                  );
+                }}
+              </ChatManagerProps>
+            )}
           </ChatManagerProps>
         )}
-      </ChatManagerProps>
+      </FormProps>
     </FlexOne>
   );
 };
