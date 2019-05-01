@@ -29,9 +29,9 @@ const FlexOne = styled.View`
 const GameChatScreen = ({ user, navigation }) => {
   const { roomId } = navigation.state.params;
 
-  console.log('USER', user);
-  console.log('ROOM ID', roomId);
-  console.log('I18N LOCALE', I18n.locale.substr(0, 2));
+  // console.log('USER', user);
+  // console.log('ROOM ID', roomId);
+  // console.log('I18N LOCALE', I18n.locale.substr(0, 2));
 
   return (
     <FlexOne>
