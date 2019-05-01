@@ -1,38 +1,19 @@
-// import { storiesOf } from '@storybook/react-native';
-// import React from 'react';
-// import Block from '../../Common/Block';
-// import ChatBubble from '.';
+import { storiesOf } from '@storybook/react-native';
+import React from 'react';
+import Block from '../../Common/Block';
+import ChatDay from '.';
 
-// storiesOf('Chat.ChatBubble', module)
-//   .add('ChatBubble PRIMARY', () => (
-//     <Block>
-//       <ChatBubble
-//         primary
-//         position="right"
-//         title="Jannis Teunissen"
-//         text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.
-//         Ik kan wel een extra paar meenmemen of Sjors kan de voetbaltas meenemen want daar zitten sokken in."
-//         date="10:13"
-//       />
-//     </Block>
-//   ))
-//   .add('ChatBubble PRIMARY no title', () => (
-//     <Block>
-//       <ChatBubble
-//         primary
-//         position="right"
-//         text="Ok prima dan neem ik de voetbaltas mee"
-//         date="10:13"
-//       />
-//     </Block>
-//   ))
-//   .add('ChatBubble', () => (
-//     <Block bgColor="concrete">
-//       <ChatBubble
-//         title="Jannis Teunissen"
-//         text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.
-//         Ik kan wel een extra paar meenmemen of Sjors kan de voetbaltas meenemen want daar zitten sokken in."
-//         date="10:13"
-//       />
-//     </Block>
-//   ));
+storiesOf('Chat.ChatDay', module)
+  .add('ChatDay', () => (
+    <Block bgColor="white" style={{ height: 100 }}>
+      <ChatDay
+        user={{ _id: 1 }}
+        currentMessage={{
+          user: {
+            _id: 1,
+          },
+          createdAt: '1970-01-01T00:00:00Z',
+        }}
+      />
+    </Block>
+  ));

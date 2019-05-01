@@ -13,7 +13,7 @@ function loadStories() {
   require('../App/Components/Chat/ChatBubble/stories');
   // require('../App/Components/Chat/ChatForm/stories');
   require('../App/Components/Chat/ChatComposer/stories');
-  // require('../App/Components/Chat/ChatMsg/stories');
+  require('../App/Components/Chat/ChatDay/stories');
   // require('../App/Components/Chat/ChatWithGroup/stories');
   // require('../App/Components/Common/AlertMsg/stories');
   // require('../App/Components/Common/Avatar/stories');
@@ -150,7 +150,7 @@ const stories = [
   '../App/Components/Chat/ChatBubble/stories',
   // '../App/Components/Chat/ChatForm/stories',
   '../App/Components/Chat/ChatComposer/stories',
-  // '../App/Components/Chat/ChatMsg/stories',
+  '../App/Components/Chat/ChatDay/stories',
   // '../App/Components/Chat/ChatWithGroup/stories',
   // '../App/Components/Common/AlertMsg/stories',
   // '../App/Components/Common/Avatar/stories',
