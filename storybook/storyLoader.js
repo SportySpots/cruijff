@@ -10,7 +10,7 @@ function loadStories() {
   // require('../App/Backgrounds/LogoHeaderBackground/stories');
   // require('../App/Components/Auth/LoginEmailForm/stories');
   // require('../App/Components/Auth/SignupEmailForm/stories');
-  // require('../App/Components/Chat/ChatBubble/stories');
+  require('../App/Components/Chat/ChatBubble/stories');
   // require('../App/Components/Chat/ChatForm/stories');
   // require('../App/Components/Chat/ChatInputField/stories');
   // require('../App/Components/Chat/ChatMsg/stories');
@@ -147,7 +147,7 @@ const stories = [
   // '../App/Backgrounds/LogoHeaderBackground/stories',
   // '../App/Components/Auth/LoginEmailForm/stories',
   // '../App/Components/Auth/SignupEmailForm/stories',
-  // '../App/Components/Chat/ChatBubble/stories',
+  '../App/Components/Chat/ChatBubble/stories',
   // '../App/Components/Chat/ChatForm/stories',
   // '../App/Components/Chat/ChatInputField/stories',
   // '../App/Components/Chat/ChatMsg/stories',

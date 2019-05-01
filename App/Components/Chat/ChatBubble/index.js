@@ -78,7 +78,7 @@ const ChatBubble = (props) => {
     >
       {position === 'left' && (
         <View>
-          <Spacer size="XL" />
+          <Spacer size="L" />
           <Triangle
             position="top-right"
             primary={false}
@@ -95,7 +95,7 @@ const ChatBubble = (props) => {
       />
       {position === 'right' && (
         <View>
-          <Spacer size="XL" />
+          <Spacer size="L" />
           <Triangle
             position="top-left"
             primary

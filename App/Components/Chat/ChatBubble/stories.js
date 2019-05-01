@@ -1,38 +1,34 @@
-// import { storiesOf } from '@storybook/react-native';
-// import React from 'react';
-// import Block from '../../Common/Block';
-// import ChatBubble from '.';
+import { storiesOf } from '@storybook/react-native';
+import React from 'react';
+import Block from '../../Common/Block';
+import ChatBubble from '.';
 
-// storiesOf('Chat.ChatBubble', module)
-//   .add('ChatBubble PRIMARY', () => (
-//     <Block>
-//       <ChatBubble
-//         primary
-//         position="right"
-//         title="Jannis Teunissen"
-//         text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.
-//         Ik kan wel een extra paar meenmemen of Sjors kan de voetbaltas meenemen want daar zitten sokken in."
-//         date="10:13"
-//       />
-//     </Block>
-//   ))
-//   .add('ChatBubble PRIMARY no title', () => (
-//     <Block>
-//       <ChatBubble
-//         primary
-//         position="right"
-//         text="Ok prima dan neem ik de voetbaltas mee"
-//         date="10:13"
-//       />
-//     </Block>
-//   ))
-//   .add('ChatBubble', () => (
-//     <Block bgColor="concrete">
-//       <ChatBubble
-//         title="Jannis Teunissen"
-//         text="Hey jongens, hoe laat begint het nu precies? Ik begreep van Karel dat Jan nog op zoek is naar voetbalschoenen.
-//         Ik kan wel een extra paar meenmemen of Sjors kan de voetbaltas meenemen want daar zitten sokken in."
-//         date="10:13"
-//       />
-//     </Block>
-//   ));
+storiesOf('Chat.ChatBubble', module)
+  .add('ChatBubble RIGHT', () => (
+    <Block bgColor="silver" style={{ height: 100 }}>
+      <ChatBubble
+        position="right"
+        user={{ _id: 1 }}
+        currentMessage={{
+          user: {
+            _id: 1,
+          },
+          text: 'Im the text msg',
+        }}
+      />
+    </Block>
+  ))
+  .add('ChatBubble LEFT', () => (
+    <Block bgColor="silver" style={{ height: 100 }}>
+      <ChatBubble
+        position="left"
+        user={{ _id: 1 }}
+        currentMessage={{
+          user: {
+            _id: 2, // other user, not cuurently logged in
+          },
+          text: 'Im the text msg',
+        }}
+      />
+    </Block>
+  ));
