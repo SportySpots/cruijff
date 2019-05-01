@@ -100,7 +100,7 @@ class GameDetailsScreen extends React.PureComponent {
                 userRSVP={userRSVP}
                 userStatus={userStatus}
                 onSpotPress={this.handleSpotPress}
-                onChatPress={this.handleChatPress(data.game.roomId)}
+                onChatPress={this.handleChatPress(data.game.chatkit_room_id.toString())}
                 onAttendeesPress={this.handleAttendeesPress}
                 onRSVPLoggedOut={this.handleRSVPLoggedOut}
                 onRSVPSuccess={async () => {

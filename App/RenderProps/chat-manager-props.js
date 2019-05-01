@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { AsyncStorage } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import Chatkit from '@pusher/chatkit-client/react-native';
 import config from '../config';
 
@@ -26,18 +26,18 @@ class ChatManagerProps extends React.PureComponent {
     }
 
     // Get the authentication token from async storage if it exists
-    // const token = await AsyncStorage.getItem('TOKEN');
+    const token = await AsyncStorage.getItem('TOKEN');
 
     const chatManager = new Chatkit.ChatManager({
       instanceLocator: config.chatkitInstanceLocator,
       userId,
       tokenProvider: new Chatkit.TokenProvider({
         url: config.seedorfChatkitUrl,
-        // headers: {
-        //   'Content-Type': 'application/json',
-        //   authorization: token ? `JWT ${token}` : null,
-        //   cookie: null,
-        // },
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: token ? `JWT ${token}` : null,
+          cookie: null,
+        },
       }),
     });
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import ErrorHandling from 'error-handling-utils';
@@ -29,36 +30,35 @@ const FlexOne = styled.View`
 const GameChatScreen = ({ user, navigation }) => {
   const { roomId } = navigation.state.params;
 
-  // console.log('USER', user);
-  // console.log('ROOM ID', roomId);
+  console.log('USER', user);
+  console.log('ROOM ID', roomId);
   // console.log('I18N LOCALE', I18n.locale.substr(0, 2));
 
   return (
-    <FlexOne>
-      <FormProps>
-        {({
-          disabled,
-          errors,
-          handleBefore,
-          handleServerError,
-          handleSuccess,
-        }) => (
-          <ChatManagerProps userId="readonly" roomId={roomId}>
-            {chatHandler => (
-              <ChatManagerProps userId={user ? user.uuid : null}>
-                {(userHandler) => {
-                  const loggedOut = !(user && user.uuid && !userHandler.loading);
-                  const serverErrors = errors ? ErrorHandling.getFieldErrors(errors, 'server') : '';
-                  const editable = !(loggedOut || disabled);
+    <FormProps>
+      {({
+        disabled,
+        errors,
+        handleBefore,
+        handleServerError,
+        handleSuccess,
+      }) => (
+        <ChatManagerProps userId="readonly" roomId={roomId}>
+          {chatHandler => (
+            <ChatManagerProps userId={user ? user.uuid : null}>
+              {(userHandler) => {
+                const loggedOut = !(user && user.uuid && !userHandler.loading);
+                const serverErrors = errors ? ErrorHandling.getFieldErrors(errors, 'server') : '';
 
-                  return (
-                    <ChatkitApiCall
-                      chatkitUser={userHandler.chatkitUser}
-                      roomId={roomId}
-                      onSuccess={handleSuccess}
-                      onError={handleServerError}
-                    >
-                      {({ sendMessage }) => (
+                return (
+                  <ChatkitApiCall
+                    chatkitUser={userHandler.chatkitUser}
+                    roomId={roomId}
+                    onSuccess={handleSuccess}
+                    onError={handleServerError}
+                  >
+                    {({ sendMessage }) => (
+                      <FlexOne>
                         <GiftedChat
                           user={{ _id: user ? user.uuid : null }}
                           messages={chatHandler.messages}
@@ -73,8 +73,8 @@ const GameChatScreen = ({ user, navigation }) => {
                           keyboardShouldPersistTaps="never"
                           renderComposer={props => <ChatComposer {...props} />}
                           placeholder={I18n.t('chatInputField.placeholder')}
-                          textInputProps={{ editable }}
-                          renderSend={props => <ChatSend {...props} disabled={!editable} />}
+                          textInputProps={{ editable: !(loggedOut || disabled) }}
+                          renderSend={props => <ChatSend {...props} disabled={disabled} />}
                           alwaysShowSend
                           onSend={(messages) => {
                             handleBefore(); // set disable props to true
@@ -90,16 +90,17 @@ const GameChatScreen = ({ user, navigation }) => {
                             ) : null
                           )}
                         />
-                      )}
-                    </ChatkitApiCall>
-                  );
-                }}
-              </ChatManagerProps>
-            )}
-          </ChatManagerProps>
-        )}
-      </FormProps>
-    </FlexOne>
+                        <Spacer size="L" />
+                      </FlexOne>
+                    )}
+                  </ChatkitApiCall>
+                );
+              }}
+            </ChatManagerProps>
+          )}
+        </ChatManagerProps>
+      )}
+    </FormProps>
   );
 };
 
