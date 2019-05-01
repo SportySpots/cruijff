@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
 import styled from 'styled-components/native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import ErrorHandling from 'error-handling-utils';
@@ -23,6 +22,7 @@ import ChatSend from '../../../Components/Chat/ChatSend';
 //------------------------------------------------------------------------------
 const FlexOne = styled.View`
   flex: 1; /* full height */
+  background-color: ${({ theme }) => theme.colors.concrete};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -90,7 +90,7 @@ const GameChatScreen = ({ user, navigation }) => {
                             ) : null
                           )}
                         />
-                        <Spacer size="L" />
+                        <Spacer size="ML" />
                       </FlexOne>
                     )}
                   </ChatkitApiCall>
