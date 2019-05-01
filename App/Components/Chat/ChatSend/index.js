@@ -18,6 +18,7 @@ const ChatSend = ({ text, disabled, onSend }) => (
         status="primary"
         disabled={disabled}
         onPress={() => {
+          if (text.trim().length === 0) return;
           onSend({ text: text.trim() }, true);
         }}
       />

@@ -16,7 +16,7 @@ class ChatkitApiCall extends React.PureComponent {
       try {
         await chatkitUser.sendMessage({ text: messages[0].text, roomId });
       } catch (exc) {
-        console.log(exc);
+        console.log('Send msg exc', exc);
         onError({ server: [sanitizeChatkitServerError(exc)] });
         return;
       }

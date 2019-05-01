@@ -7,6 +7,8 @@ import I18n from '../../../I18n';
 import { withUser, userPropTypes } from '../../../Context/User';
 import FormProps from '../../../RenderProps/form-props';
 import ChatManagerProps from '../../../RenderProps/chat-manager-props';
+import Row from '../../../Components/Common/Row';
+import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 import ChatkitApiCall from '../../../Components/Chat/ChatkitApiCall';
 import ChatDay from '../../../Components/Chat/ChatDay';
@@ -26,6 +28,7 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 const GameChatScreen = ({ user, navigation }) => {
   const { roomId } = navigation.state.params;
+
   console.log('USER', user);
   console.log('ROOM ID', roomId);
   console.log('I18N LOCALE', I18n.locale.substr(0, 2));
@@ -46,6 +49,7 @@ const GameChatScreen = ({ user, navigation }) => {
                 {(userHandler) => {
                   const loggedOut = !(user && user.uuid && !userHandler.loading);
                   const serverErrors = errors ? ErrorHandling.getFieldErrors(errors, 'server') : '';
+                  const editable = !(loggedOut || disabled);
 
                   return (
                     <ChatkitApiCall
@@ -68,8 +72,8 @@ const GameChatScreen = ({ user, navigation }) => {
                           minInputToolbarHeight={50}
                           renderComposer={props => <ChatComposer {...props} />}
                           placeholder={I18n.t('chatInputField.placeholder')}
-                          textInputProps={{ editable: !(loggedOut || disabled) }}
-                          renderSend={props => <ChatSend {...props} disabled={loggedOut || disabled} />}
+                          textInputProps={{ editable }}
+                          renderSend={props => <ChatSend {...props} disabled={!editable} />}
                           alwaysShowSend
                           onSend={(messages) => {
                             handleBefore(); // set disable props to true
@@ -77,7 +81,12 @@ const GameChatScreen = ({ user, navigation }) => {
                           }}
                           // Display server side errors if any
                           renderChatFooter={() => (
-                            serverErrors.length > 0 ? <Text color="error">{serverErrors}</Text> : null
+                            serverErrors.length > 0 ? (
+                              <Row>
+                                <Spacer row size="ML" />
+                                <Text color="error">{serverErrors}</Text>
+                              </Row>
+                            ) : null
                           )}
                         />
                       )}
