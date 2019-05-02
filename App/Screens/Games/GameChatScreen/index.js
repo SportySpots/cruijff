@@ -45,7 +45,7 @@ const GameChatScreen = ({ user, navigation }) => {
       }) => (
         <ChatManagerProps userId="readonly" roomId={roomId}>
           {chatHandler => (
-            <ChatManagerProps userId={user ? user.uuid : null}>
+            <ChatManagerProps userId={user ? user.uuid : null} roomId={roomId}>
               {(userHandler) => {
                 const loggedOut = !(user && user.uuid && !userHandler.loading);
                 const serverErrors = errors ? ErrorHandling.getFieldErrors(errors, 'server') : '';

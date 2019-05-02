@@ -35,7 +35,7 @@ class ChatManagerProps extends React.PureComponent {
         url: config.seedorfChatkitUrl,
         headers: {
           'Content-Type': 'application/json',
-          authorization: token ? `JWT ${token}` : null,
+          authorization: userId === 'readonly' ? null : (token ? `JWT ${token}` : null),
           cookie: null,
         },
       }),
