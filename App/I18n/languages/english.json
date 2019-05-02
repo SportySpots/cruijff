@@ -191,6 +191,10 @@
     "readLess": "Read less"
   },
 
+  "chatWithGroup": {
+    "text": "Chat with the group"
+  },
+
   "rsvpButtons": {
     "leaveAlert": {
       "header": "Confirm",
@@ -202,6 +206,16 @@
     },
     "attendingBtnLabel": "I'm attending",
     "unattendingBtnLabel": "I'm not attending"
+  },
+
+  "gameChatScreen": {
+    "navigation": {
+      "title": "Chat with the group"
+    }
+  },
+
+  "chatInputField": {
+    "placeholder": "Type your message..."
   },
 
   "playersListScreen": {

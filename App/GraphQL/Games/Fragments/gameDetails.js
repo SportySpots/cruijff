@@ -67,6 +67,7 @@ const gameDetailsFragment = gql`
         ...userNameAvatarFragment
       }
     }
+    chatkit_room_id
   }
   ${userNameAvatarFragment}
 `;

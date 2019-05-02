@@ -1671,6 +1671,12 @@
             "description": "Tennis",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "TABLE_TENNIS",
+            "description": "Table Tennis",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -1967,6 +1973,30 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "share_link",
+            "description": "Shareable link (app/web) to this game.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "chatkit_room_id",
+            "description": "ChatKit room ID.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
               "ofType": null
             },
             "isDeprecated": false,

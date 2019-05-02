@@ -1,5 +1,7 @@
 const getPixelsFromSize = (size) => {
   switch (size) {
+    case 'XS':
+      return 2;
     case 'S':
       return 4;
     case 'M':

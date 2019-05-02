@@ -191,6 +191,10 @@
     "readLess": "Leer menos"
   },
 
+  "chatWithGroup": {
+    "text": "Chatea con el grupo"
+  },
+
   "rsvpButtons": {
     "leaveAlert": {
       "header": "Confirmar",
@@ -202,6 +206,16 @@
     },
     "attendingBtnLabel": "Apuntarme",
     "unattendingBtnLabel": "No puedo asistir"
+  },
+
+  "gameChatScreen": {
+    "navigation": {
+      "title": "Chatea con el grupo"
+    }
+  },
+
+  "chatInputField": {
+    "placeholder": "Escribe tu mensaje..."
   },
 
   "playersListScreen": {

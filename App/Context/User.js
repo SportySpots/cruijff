@@ -74,7 +74,6 @@ export class UserProvider extends React.Component {
   queryUser = async () => {
     // Do not set loading state
     const user = await me();
-    console.log('QUERY USER', user);
     this.setState({ user });
   }
 

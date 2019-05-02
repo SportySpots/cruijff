@@ -10,6 +10,12 @@ function loadStories() {
   require('../App/Backgrounds/LogoHeaderBackground/stories');
   require('../App/Components/Auth/LoginEmailForm/stories');
   require('../App/Components/Auth/SignupEmailForm/stories');
+  require('../App/Components/Chat/ChatBubble/stories');
+  require('../App/Components/Chat/ChatComposer/stories');
+  require('../App/Components/Chat/ChatDay/stories');
+  require('../App/Components/Chat/ChatSend/stories');
+  require('../App/Components/Chat/ChatWithGroup/stories');
+  require('../App/Components/Chat/Triangle/stories');
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/Avatar/stories');
   require('../App/Components/Common/AvatarPicker/stories');
@@ -120,6 +126,7 @@ function loadStories() {
   require('../App/Screens/Debug/DebugScreen/stories');
   require('../App/Screens/Games/CancelGameScreen/stories');
   require('../App/Screens/Games/EditGameScreen/stories');
+  require('../App/Screens/Games/GameChatScreen/stories');
   require('../App/Screens/Games/GameDetailsScreen/stories');
   require('../App/Screens/Games/GamesListScreen/stories');
   require('../App/Screens/Games/PlayersListScreen/stories');
@@ -140,6 +147,12 @@ const stories = [
   '../App/Backgrounds/LogoHeaderBackground/stories',
   '../App/Components/Auth/LoginEmailForm/stories',
   '../App/Components/Auth/SignupEmailForm/stories',
+  '../App/Components/Chat/ChatBubble/stories',
+  '../App/Components/Chat/ChatComposer/stories',
+  '../App/Components/Chat/ChatDay/stories',
+  '../App/Components/Chat/ChatSend/stories',
+  '../App/Components/Chat/ChatWithGroup/stories',
+  '../App/Components/Chat/Triangle/stories',
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/Avatar/stories',
   '../App/Components/Common/AvatarPicker/stories',
@@ -250,6 +263,7 @@ const stories = [
   '../App/Screens/Debug/DebugScreen/stories',
   '../App/Screens/Games/CancelGameScreen/stories',
   '../App/Screens/Games/EditGameScreen/stories',
+  '../App/Screens/Games/GameChatScreen/stories',
   '../App/Screens/Games/GameDetailsScreen/stories',
   '../App/Screens/Games/GamesListScreen/stories',
   '../App/Screens/Games/PlayersListScreen/stories',

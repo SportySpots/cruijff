@@ -191,6 +191,10 @@
     "readLess": "Lees minder"
   },
 
+  "chatWithGroup": {
+    "text": "Chat met de groep"
+  },
+
   "rsvpButtons": {
     "leaveAlert": {
       "header": "Bevestigen",
@@ -202,6 +206,16 @@
     },
     "attendingBtnLabel": "Ik doe mee",
     "unattendingBtnLabel": "Ik doe niet mee"
+  },
+
+  "gameChatScreen": {
+    "navigation": {
+      "title": "Chat met de groep"
+    }
+  },
+
+  "chatInputField": {
+    "placeholder": "Schrijf je bericht..."
   },
 
   "playersListScreen": {
