@@ -59034,6 +59034,7 @@ exports[`Storyshots Screens.Games GameChatScreen 1`] = `
         style={
           Array [
             Object {
+              "backgroundColor": "#F5F5F5",
               "flexBasis": 0,
               "flexGrow": 1,
               "flexShrink": 1,
@@ -59047,6 +59048,19 @@ exports[`Storyshots Screens.Games GameChatScreen 1`] = `
             Object {
               "flex": 1,
             }
+          }
+        />
+        <View
+          pixels={12}
+          row={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "height": 12,
+                "width": "auto",
+              },
+            ]
           }
         />
       </View>
