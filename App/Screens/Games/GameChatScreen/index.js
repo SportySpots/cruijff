@@ -10,7 +10,7 @@ import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 import Row from '../../../Components/Common/Row';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
-import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
+import AbsoluteCenteredActivityIndicator from '../../../Components/Common/AbsoluteCenteredActivityIndicator';
 import ChatkitApiCall from '../../../Components/Chat/ChatkitApiCall';
 import ChatDay from '../../../Components/Chat/ChatDay';
 import ChatBubble from '../../../Components/Chat/ChatBubble';
@@ -25,15 +25,6 @@ const Relative = styled.View`
   flex: 1; /* full height */
   position: relative;
   background-color: ${({ theme }) => theme.colors.concrete};
-`;
-//------------------------------------------------------------------------------
-const Absolute = styled.View`
-  flex: 1; /* full height */
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -70,11 +61,9 @@ const GameChatScreen = ({ user, navigation }) => {
                   >
                     {({ sendMessage }) => (
                       <Relative>
-                        <Absolute>
-                          {chatHandler.loading && (
-                            <CenteredActivityIndicator />
-                          )}
-                        </Absolute>
+                        {chatHandler.loading && (
+                          <AbsoluteCenteredActivityIndicator />
+                        )}
                         <GiftedChat
                           user={{ _id: user ? user.uuid : null }}
                           messages={chatHandler.messages}
