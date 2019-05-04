@@ -78,7 +78,7 @@ const GameChatScreen = ({ user, navigation }) => {
                           renderAvatarOnTop
                           isAnimated
                           alignTop
-                          // renderUsernameOnMessage
+                          renderUsernameOnMessage
                           renderBubble={props => <ChatBubble {...props} />}
                           renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
                           renderInputToolbar={props => <ChatInputToolbar {...props} />}

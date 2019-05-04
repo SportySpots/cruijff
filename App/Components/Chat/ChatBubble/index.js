@@ -18,27 +18,27 @@ const wrapperStyle = {
 };
 const textStyle = {
   left: {
-    fontFamily: Fonts.SM.fontFamily,
-    fontSize: Fonts.SM.fontSize,
+    ...Fonts.SM,
     color: Colors.black,
   },
   right: {
-    fontFamily: Fonts.SM.fontFamily,
-    fontSize: Fonts.SM.fontSize,
+    ...Fonts.SM,
     color: Colors.black,
   },
 };
 const timeTextStyle = {
   left: {
-    fontFamily: Fonts.SSM.fontFamily,
-    fontSize: Fonts.SSM.fontSize,
+    ...Fonts.SSM,
     color: Colors.link,
   },
   right: {
-    fontFamily: Fonts.SSM.fontFamily,
-    fontSize: Fonts.SSM.fontSize,
+    ...Fonts.SSM,
     color: Colors.white,
   },
+};
+const usernameStyle = {
+  ...Fonts.SSM,
+  color: Colors.link,
 };
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -50,6 +50,7 @@ const ChatBubble = props => (
     wrapperStyle={wrapperStyle}
     textStyle={textStyle}
     timeTextStyle={timeTextStyle}
+    usernameStyle={usernameStyle}
   />
 );
 
