@@ -19,6 +19,11 @@ const ChatComposer = props => (
       fontSize: Fonts.M.fontSize,
       lineHeight: 1.5 * Fonts.M.fontSize,
       marginLeft: 0,
+      elevation: 1.5,
+      shadowOffset: { width: 1, height: 1 },
+      shadowColor: Colors.black,
+      shadowOpacity: 0.5,
+      shadowRadius: 5,
     }}
   />
 );

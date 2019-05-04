@@ -2822,7 +2822,9 @@ exports[`Storyshots Chat.ChatBubble ChatBubble LEFT 1`] = `
                     "flexDirection": "row",
                     "justifyContent": "flex-start",
                   },
-                  undefined,
+                  Object {
+                    "justifyContent": "space-between",
+                  },
                 ]
               }
             />
@@ -3110,11 +3112,19 @@ exports[`Storyshots Chat.ChatComposer ChatComposer 1`] = `
               "borderColor": "#e6e6e6",
               "borderRadius": 5,
               "borderWidth": 1,
+              "elevation": 1.5,
               "fontFamily": "Rajdhani-SemiBold",
               "fontSize": 18,
               "lineHeight": 27,
               "marginLeft": 0,
               "padding": 8,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 1,
+                "width": 1,
+              },
+              "shadowOpacity": 0.5,
+              "shadowRadius": 5,
             },
             Object {
               "height": 33,
@@ -6911,7 +6921,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -6920,7 +6930,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -6930,6 +6940,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -6969,7 +6989,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -6978,7 +6998,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -6988,6 +7008,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -7027,7 +7057,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -7036,7 +7066,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -7046,6 +7076,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -7113,7 +7153,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -7122,7 +7162,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -7132,6 +7172,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -7171,7 +7221,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -7180,7 +7230,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -7190,6 +7240,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -7229,7 +7289,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -7238,7 +7298,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -7248,6 +7308,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -7315,7 +7385,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -7324,7 +7394,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -7334,6 +7404,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -7373,7 +7453,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -7382,7 +7462,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -7392,6 +7472,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -7431,7 +7521,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
           <View
             alignItems="center"
             bgColor="white"
-            borderColor="darkGray"
+            borderColor="shade"
             disabled={false}
             justifyContent="center"
             size="M"
@@ -7440,7 +7530,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#fff",
-                  "borderColor": "#979797",
+                  "borderColor": "#BDBDBD",
                   "borderRadius": 8,
                   "borderStyle": "solid",
                   "borderWidth": 1,
@@ -7450,6 +7540,16 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "justifyContent": "center",
                   "minWidth": 80,
                   "width": 80,
+                },
+                Object {
+                  "elevation": 1.5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 1,
+                  },
+                  "shadowOpacity": 0.5,
+                  "shadowRadius": 5,
                 },
               ]
             }
@@ -33632,6 +33732,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton default 1`] = `
               "minWidth": 80,
               "width": "100%",
             },
+            Object {},
           ]
         }
         width="100%"
@@ -33738,6 +33839,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton default with icon 1`] = `
               "minWidth": 80,
               "width": "100%",
             },
+            Object {},
           ]
         }
         width="100%"
@@ -33863,6 +33965,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton disabled 1`] = `
               "minWidth": 80,
               "width": "100%",
             },
+            Object {},
           ]
         }
         width="100%"
@@ -33949,7 +34052,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost 1`] = `
       <View
         alignItems="center"
         bgColor="white"
-        borderColor="darkGray"
+        borderColor="shade"
         disabled={false}
         justifyContent="center"
         size="M"
@@ -33958,7 +34061,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#fff",
-              "borderColor": "#979797",
+              "borderColor": "#BDBDBD",
               "borderRadius": 8,
               "borderStyle": "solid",
               "borderWidth": 1,
@@ -33968,6 +34071,16 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost 1`] = `
               "justifyContent": "center",
               "minWidth": 80,
               "width": "100%",
+            },
+            Object {
+              "elevation": 1.5,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 1,
+                "width": 1,
+              },
+              "shadowOpacity": 0.5,
+              "shadowRadius": 5,
             },
           ]
         }
@@ -34041,7 +34154,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost disabled 1`] = `
       <View
         alignItems="center"
         bgColor="white"
-        borderColor="darkGray"
+        borderColor="shade"
         disabled={true}
         justifyContent="center"
         size="M"
@@ -34060,6 +34173,16 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost disabled 1`] = `
               "justifyContent": "center",
               "minWidth": 80,
               "width": "100%",
+            },
+            Object {
+              "elevation": 1.5,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 1,
+                "width": 1,
+              },
+              "shadowOpacity": 0.5,
+              "shadowRadius": 5,
             },
           ]
         }
@@ -34167,6 +34290,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton info 1`] = `
               "minWidth": 80,
               "width": "100%",
             },
+            Object {},
           ]
         }
         width="100%"
@@ -34273,6 +34397,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton primary 1`] = `
               "minWidth": 80,
               "width": "100%",
             },
+            Object {},
           ]
         }
         width="100%"
@@ -34379,6 +34504,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton primary small 1`] = `
               "minWidth": 80,
               "width": 120,
             },
+            Object {},
           ]
         }
         width={120}
@@ -34485,6 +34611,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton secondary 1`] = `
               "minWidth": 80,
               "width": "100%",
             },
+            Object {},
           ]
         }
         width="100%"
@@ -34608,6 +34735,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton transparent 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -34715,6 +34843,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton warning 1`] = `
               "minWidth": 80,
               "width": "100%",
             },
+            Object {},
           ]
         }
         width="100%"
@@ -45940,6 +46069,7 @@ exports[`Storyshots Modals.CancelConfirmModal CancelConfirmModal 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -46097,6 +46227,7 @@ exports[`Storyshots Modals.CancelConfirmModal CancelConfirmModal 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -46168,6 +46299,7 @@ exports[`Storyshots Modals.CancelConfirmModal CancelConfirmModal 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -46282,6 +46414,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -46460,6 +46593,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "minWidth": 80,
                                 "width": 80,
                               },
+                              Object {},
                             ]
                           }
                           width={80}
@@ -46498,7 +46632,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                         <View
                           alignItems="center"
                           bgColor="white"
-                          borderColor="darkGray"
+                          borderColor="shade"
                           disabled={false}
                           justifyContent="center"
                           size="M"
@@ -46507,7 +46641,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "backgroundColor": "#fff",
-                                "borderColor": "#979797",
+                                "borderColor": "#BDBDBD",
                                 "borderRadius": 8,
                                 "borderStyle": "solid",
                                 "borderWidth": 1,
@@ -46517,6 +46651,16 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "justifyContent": "center",
                                 "minWidth": 80,
                                 "width": 80,
+                              },
+                              Object {
+                                "elevation": 1.5,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 1,
+                                  "width": 1,
+                                },
+                                "shadowOpacity": 0.5,
+                                "shadowRadius": 5,
                               },
                             ]
                           }
@@ -46556,7 +46700,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                         <View
                           alignItems="center"
                           bgColor="white"
-                          borderColor="darkGray"
+                          borderColor="shade"
                           disabled={false}
                           justifyContent="center"
                           size="M"
@@ -46565,7 +46709,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "backgroundColor": "#fff",
-                                "borderColor": "#979797",
+                                "borderColor": "#BDBDBD",
                                 "borderRadius": 8,
                                 "borderStyle": "solid",
                                 "borderWidth": 1,
@@ -46575,6 +46719,16 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "justifyContent": "center",
                                 "minWidth": 80,
                                 "width": 80,
+                              },
+                              Object {
+                                "elevation": 1.5,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 1,
+                                  "width": 1,
+                                },
+                                "shadowOpacity": 0.5,
+                                "shadowRadius": 5,
                               },
                             ]
                           }
@@ -46642,7 +46796,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                         <View
                           alignItems="center"
                           bgColor="white"
-                          borderColor="darkGray"
+                          borderColor="shade"
                           disabled={false}
                           justifyContent="center"
                           size="M"
@@ -46651,7 +46805,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "backgroundColor": "#fff",
-                                "borderColor": "#979797",
+                                "borderColor": "#BDBDBD",
                                 "borderRadius": 8,
                                 "borderStyle": "solid",
                                 "borderWidth": 1,
@@ -46661,6 +46815,16 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "justifyContent": "center",
                                 "minWidth": 80,
                                 "width": 80,
+                              },
+                              Object {
+                                "elevation": 1.5,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 1,
+                                  "width": 1,
+                                },
+                                "shadowOpacity": 0.5,
+                                "shadowRadius": 5,
                               },
                             ]
                           }
@@ -46700,7 +46864,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                         <View
                           alignItems="center"
                           bgColor="white"
-                          borderColor="darkGray"
+                          borderColor="shade"
                           disabled={false}
                           justifyContent="center"
                           size="M"
@@ -46709,7 +46873,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "backgroundColor": "#fff",
-                                "borderColor": "#979797",
+                                "borderColor": "#BDBDBD",
                                 "borderRadius": 8,
                                 "borderStyle": "solid",
                                 "borderWidth": 1,
@@ -46719,6 +46883,16 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "justifyContent": "center",
                                 "minWidth": 80,
                                 "width": 80,
+                              },
+                              Object {
+                                "elevation": 1.5,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 1,
+                                  "width": 1,
+                                },
+                                "shadowOpacity": 0.5,
+                                "shadowRadius": 5,
                               },
                             ]
                           }
@@ -46758,7 +46932,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                         <View
                           alignItems="center"
                           bgColor="white"
-                          borderColor="darkGray"
+                          borderColor="shade"
                           disabled={false}
                           justifyContent="center"
                           size="M"
@@ -46767,7 +46941,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "backgroundColor": "#fff",
-                                "borderColor": "#979797",
+                                "borderColor": "#BDBDBD",
                                 "borderRadius": 8,
                                 "borderStyle": "solid",
                                 "borderWidth": 1,
@@ -46777,6 +46951,16 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "justifyContent": "center",
                                 "minWidth": 80,
                                 "width": 80,
+                              },
+                              Object {
+                                "elevation": 1.5,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 1,
+                                  "width": 1,
+                                },
+                                "shadowOpacity": 0.5,
+                                "shadowRadius": 5,
                               },
                             ]
                           }
@@ -46844,7 +47028,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                         <View
                           alignItems="center"
                           bgColor="white"
-                          borderColor="darkGray"
+                          borderColor="shade"
                           disabled={false}
                           justifyContent="center"
                           size="M"
@@ -46853,7 +47037,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "backgroundColor": "#fff",
-                                "borderColor": "#979797",
+                                "borderColor": "#BDBDBD",
                                 "borderRadius": 8,
                                 "borderStyle": "solid",
                                 "borderWidth": 1,
@@ -46863,6 +47047,16 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "justifyContent": "center",
                                 "minWidth": 80,
                                 "width": 80,
+                              },
+                              Object {
+                                "elevation": 1.5,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 1,
+                                  "width": 1,
+                                },
+                                "shadowOpacity": 0.5,
+                                "shadowRadius": 5,
                               },
                             ]
                           }
@@ -46902,7 +47096,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                         <View
                           alignItems="center"
                           bgColor="white"
-                          borderColor="darkGray"
+                          borderColor="shade"
                           disabled={false}
                           justifyContent="center"
                           size="M"
@@ -46911,7 +47105,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "backgroundColor": "#fff",
-                                "borderColor": "#979797",
+                                "borderColor": "#BDBDBD",
                                 "borderRadius": 8,
                                 "borderStyle": "solid",
                                 "borderWidth": 1,
@@ -46921,6 +47115,16 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "justifyContent": "center",
                                 "minWidth": 80,
                                 "width": 80,
+                              },
+                              Object {
+                                "elevation": 1.5,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 1,
+                                  "width": 1,
+                                },
+                                "shadowOpacity": 0.5,
+                                "shadowRadius": 5,
                               },
                             ]
                           }
@@ -46960,7 +47164,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                         <View
                           alignItems="center"
                           bgColor="white"
-                          borderColor="darkGray"
+                          borderColor="shade"
                           disabled={false}
                           justifyContent="center"
                           size="M"
@@ -46969,7 +47173,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                               Object {
                                 "alignItems": "center",
                                 "backgroundColor": "#fff",
-                                "borderColor": "#979797",
+                                "borderColor": "#BDBDBD",
                                 "borderRadius": 8,
                                 "borderStyle": "solid",
                                 "borderWidth": 1,
@@ -46979,6 +47183,16 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "justifyContent": "center",
                                 "minWidth": 80,
                                 "width": 80,
+                              },
+                              Object {
+                                "elevation": 1.5,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 1,
+                                  "width": 1,
+                                },
+                                "shadowOpacity": 0.5,
+                                "shadowRadius": 5,
                               },
                             ]
                           }
@@ -47281,6 +47495,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -47352,6 +47567,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -47466,6 +47682,7 @@ exports[`Storyshots Modals.ConfirmModal ConfirmModal 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -47623,6 +47840,7 @@ exports[`Storyshots Modals.ConfirmModal ConfirmModal 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -47737,6 +47955,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -49727,6 +49946,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -49798,6 +50018,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -49912,6 +50133,7 @@ exports[`Storyshots Modals.DialogModal DialogModal 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -50134,6 +50356,7 @@ exports[`Storyshots Modals.DialogModal DialogModal big children 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -50366,6 +50589,7 @@ exports[`Storyshots Modals.DialogModal DialogModal big children no header 1`] = 
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -50577,6 +50801,7 @@ exports[`Storyshots Modals.ImageModal ImageModal CancelConfirmModal comp 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -50826,6 +51051,7 @@ exports[`Storyshots Modals.ImageModal ImageModal CancelConfirmModal comp 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -50897,6 +51123,7 @@ exports[`Storyshots Modals.ImageModal ImageModal CancelConfirmModal comp 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -51011,6 +51238,7 @@ exports[`Storyshots Modals.ImageModal ImageModal ConfirmModal comp 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -51262,6 +51490,7 @@ exports[`Storyshots Modals.ImageModal ImageModal ConfirmModal comp 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -51376,6 +51605,7 @@ exports[`Storyshots Modals.Modal Modal no footer 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -51535,6 +51765,7 @@ exports[`Storyshots Modals.Modal Modal no footer big children 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -51704,6 +51935,7 @@ exports[`Storyshots Modals.Modal Modal no footer overflow children 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -51873,6 +52105,7 @@ exports[`Storyshots Modals.SportPickerModal SportPickerModal 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -52098,6 +52331,7 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -52645,6 +52879,7 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -52721,6 +52956,7 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -52797,6 +53033,7 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -52873,6 +53110,7 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
                             "minWidth": 80,
                             "width": "100%",
                           },
+                          Object {},
                         ]
                       }
                       width="100%"
@@ -56525,6 +56763,7 @@ exports[`Storyshots Screen.Auth LoginScreen 1`] = `
                       "minWidth": 80,
                       "width": "100%",
                     },
+                    Object {},
                   ]
                 }
                 width="100%"
@@ -56775,6 +57014,7 @@ exports[`Storyshots Screen.Auth SignupScreen 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -56892,6 +57132,7 @@ exports[`Storyshots Screen.Auth SignupScreen 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -57118,6 +57359,7 @@ exports[`Storyshots Screen.Auth SignupScreen 1`] = `
                 "minWidth": 80,
                 "width": "100%",
               },
+              Object {},
             ]
           }
           width="100%"
@@ -58080,6 +58322,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                       "minWidth": 80,
                       "width": "100%",
                     },
+                    Object {},
                   ]
                 }
                 width="100%"
@@ -58360,6 +58603,7 @@ exports[`Storyshots Screens.Auth LoggedOutScreen 1`] = `
                       "minWidth": 80,
                       "width": "100%",
                     },
+                    Object {},
                   ]
                 }
                 width="100%"
@@ -58726,6 +58970,7 @@ exports[`Storyshots Screens.Auth LoggedOutScreen closable 1`] = `
                       "minWidth": 80,
                       "width": "100%",
                     },
+                    Object {},
                   ]
                 }
                 width="100%"
@@ -58937,6 +59182,7 @@ exports[`Storyshots Screens.Debug DebugScreen 1`] = `
                     "minWidth": 80,
                     "width": "100%",
                   },
+                  Object {},
                 ]
               }
               width="100%"

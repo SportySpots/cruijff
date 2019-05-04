@@ -216,7 +216,7 @@
 
   "chatInputField": {
     "placeholder": "Escribe tu mensaje...",
-    "noMessages": "Se el primero en dejar un mensaje..."
+    "noMessages": "Sé el primero en dejar un mensaje..."
   },
 
   "playersListScreen": {

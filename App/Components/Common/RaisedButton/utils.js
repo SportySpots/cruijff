@@ -34,7 +34,8 @@ export const getPalette = (variant) => {
       return {
         fontColor: 'black',
         bgColor: 'white',
-        borderColor: 'darkGray',
+        borderColor: 'shade',
+        withShadow: true,
       };
     case 'facebook':
       return {

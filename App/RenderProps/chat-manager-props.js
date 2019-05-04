@@ -71,7 +71,7 @@ class ChatManagerProps extends React.PureComponent {
                     createdAt: new Date(createdAt),
                     user: {
                       _id: sender.id,
-                      name: sender.name,
+                      name: sender.name ? sender.name.split(' ')[0] : '',
                       avatar: sender.avatarURL,
                     },
                   },

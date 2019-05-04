@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
+import Colors from '../../../Themes/Colors';
 import Row from '../Row';
 import Spacer from '../Spacer';
 import Text from '../Text';
@@ -38,9 +39,17 @@ const RaisedButton = ({
   ...rest
 }) => {
   const palette = getPalette(variant);
-  const { fontColor, bgColor, borderColor } = palette; // string to be used with Colors[string]
+  const { fontColor, bgColor, borderColor, withShadow } = palette; // string to be used with Colors[string]
 
   const Root = disabled ? View : TouchableOpacity;
+
+  const style = !withShadow ? {} : {
+    elevation: 1.5,
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: Colors.black,
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+  };
 
   return (
     <Root {...rest}>
@@ -52,6 +61,7 @@ const RaisedButton = ({
         borderColor={borderColor}
         width={width}
         disabled={disabled}
+        style={style}
       >
         {!!iconName && [
           <Icon
