@@ -16,6 +16,7 @@ function loadStories() {
   require('../App/Components/Chat/ChatSend/stories');
   require('../App/Components/Chat/ChatWithGroup/stories');
   require('../App/Components/Chat/Triangle/stories');
+  require('../App/Components/Common/AbsoluteCenteredActivityIndicator/stories');
   require('../App/Components/Common/AlertMsg/stories');
   require('../App/Components/Common/Avatar/stories');
   require('../App/Components/Common/AvatarPicker/stories');
@@ -153,6 +154,7 @@ const stories = [
   '../App/Components/Chat/ChatSend/stories',
   '../App/Components/Chat/ChatWithGroup/stories',
   '../App/Components/Chat/Triangle/stories',
+  '../App/Components/Common/AbsoluteCenteredActivityIndicator/stories',
   '../App/Components/Common/AlertMsg/stories',
   '../App/Components/Common/Avatar/stories',
   '../App/Components/Common/AvatarPicker/stories',

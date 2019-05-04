@@ -10,6 +10,8 @@ import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
 import { addGlobalRef } from '../../../globalRefs';
 import ClosableLayout from '../../Layouts/ClosableLayout';
+import AbsoluteCenteredActivityIndicator from '../../Common/AbsoluteCenteredActivityIndicator';
+import CenteredActivityIndicator from '../../Common/CenteredActivityIndicator';
 import Footer from '../../Common/DarkFooter';
 import SportDateTimeSlide, {
   INIT_STATE as SPORT_DATE_TIME_INIT_STATE,
@@ -63,6 +65,11 @@ const INIT_ERRORS = {
 };
 //------------------------------------------------------------------------------
 // STYLE:
+//------------------------------------------------------------------------------
+const Relative = styled.View`
+  flex: 1; /* full height */
+  position: relative;
+`;
 //------------------------------------------------------------------------------
 const FlexOne = styled.View`
   flex: 1; /* full height */
@@ -240,7 +247,10 @@ class PlanGameForm extends React.Component {
     const { curSlide, ...rest } = this.state;
 
     return (
-      <FlexOne>
+      <Relative>
+        {disabled && (
+          <AbsoluteCenteredActivityIndicator secondary />
+        )}
         <Swiper
           ref={(swiper) => { this.swiper = swiper; }}
           scrollEnabled={false}
@@ -276,7 +286,7 @@ class PlanGameForm extends React.Component {
           showBack={this.showBack}
           buttonNextText={I18n.t(this.buttonNextText)}
         />
-      </FlexOne>
+      </Relative>
     );
   }
 }

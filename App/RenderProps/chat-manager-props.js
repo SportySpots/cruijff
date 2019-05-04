@@ -7,6 +7,7 @@ import config from '../config';
 //------------------------------------------------------------------------------
 // PROPS AND METHODS PROVIDER:
 //------------------------------------------------------------------------------
+// TODO: do not hard code readonly user, get value from config var instead
 class ChatManagerProps extends React.PureComponent {
   state = {
     loading: true,
@@ -90,6 +91,7 @@ class ChatManagerProps extends React.PureComponent {
   }
 
   async componentWillUnmount() {
+    const { userId, roomId } = this.props;
     const { chatkitUser } = this.state;
 
     if (chatkitUser) {
@@ -97,6 +99,14 @@ class ChatManagerProps extends React.PureComponent {
         chatkitUser.disconnect();
       } catch (exc) {
         console.error('disconnect exc', exc);
+      }
+    }
+
+    if (chatkitUser && userId && userId !== 'readonly') {
+      try {
+        chatkitUser.roomSubscriptions[roomId].cancel();
+      } catch (exc) {
+        console.error('unsubscribe exc', exc);
       }
     }
   }

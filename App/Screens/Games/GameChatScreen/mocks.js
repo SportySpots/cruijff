@@ -1,7 +1,7 @@
 const navigation = {
   state: {
     params: {
-      roomId: '19397290',
+      roomId: '19397290', // from chatkit
     },
   },
 };

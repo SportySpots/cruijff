@@ -215,7 +215,8 @@
   },
 
   "chatInputField": {
-    "placeholder": "Schrijf je bericht..."
+    "placeholder": "Schrijf je bericht...",
+    "noMessages": "Wees de eerste om een bericht achter te laten..."
   },
 
   "playersListScreen": {

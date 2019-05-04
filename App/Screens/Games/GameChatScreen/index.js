@@ -10,8 +10,10 @@ import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 import Row from '../../../Components/Common/Row';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
+import AbsoluteCenteredActivityIndicator from '../../../Components/Common/AbsoluteCenteredActivityIndicator';
 import ChatkitApiCall from '../../../Components/Chat/ChatkitApiCall';
 import ChatDay from '../../../Components/Chat/ChatDay';
+import ChatSystemMessage from '../../../Components/Chat/ChatSystemMessage';
 import ChatBubble from '../../../Components/Chat/ChatBubble';
 import ChatInputToolbar from '../../../Components/Chat/ChatInputToolbar';
 import ChatComposer from '../../../Components/Chat/ChatComposer';
@@ -20,8 +22,9 @@ import ChatSend from '../../../Components/Chat/ChatSend';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const FlexOne = styled.View`
+const Relative = styled.View`
   flex: 1; /* full height */
+  position: relative;
   background-color: ${({ theme }) => theme.colors.concrete};
 `;
 //------------------------------------------------------------------------------
@@ -49,6 +52,13 @@ const GameChatScreen = ({ user, navigation }) => {
               {(userHandler) => {
                 const loggedOut = !(user && user.uuid && !userHandler.loading);
                 const serverErrors = errors ? ErrorHandling.getFieldErrors(errors, 'server') : '';
+                const noMessages = chatHandler.loading ? [] : [{
+                  _id: 1,
+                  text: I18n.t('chatInputField.noMessages'),
+                  createdAt: new Date(),
+                  system: true,
+                  // Any additional custom parameters are passed through
+                }];
 
                 return (
                   <ChatkitApiCall
@@ -58,17 +68,22 @@ const GameChatScreen = ({ user, navigation }) => {
                     onError={handleServerError}
                   >
                     {({ sendMessage }) => (
-                      <FlexOne>
+                      <Relative>
+                        {chatHandler.loading && (
+                          <AbsoluteCenteredActivityIndicator />
+                        )}
                         <GiftedChat
                           user={{ _id: user ? user.uuid : null }}
-                          messages={chatHandler.messages}
+                          messages={chatHandler.messages.length > 0 ? chatHandler.messages : noMessages}
                           renderAvatarOnTop
                           isAnimated
-                          // renderUsernameOnMessage
+                          alignTop
+                          renderUsernameOnMessage
                           renderBubble={props => <ChatBubble {...props} />}
                           renderDay={props => <ChatDay {...props} locale={I18n.locale.substr(0, 2)} />}
                           renderInputToolbar={props => <ChatInputToolbar {...props} />}
                           minInputToolbarHeight={50}
+                          renderSystemMessage={props => <ChatSystemMessage {...props} />}
                           maxComposerHeight={70}
                           keyboardShouldPersistTaps="never"
                           renderComposer={props => <ChatComposer {...props} />}
@@ -91,7 +106,7 @@ const GameChatScreen = ({ user, navigation }) => {
                           )}
                         />
                         <Spacer size="ML" />
-                      </FlexOne>
+                      </Relative>
                     )}
                   </ChatkitApiCall>
                 );

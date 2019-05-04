@@ -2713,178 +2713,119 @@ exports[`Storyshots Chat.ChatBubble ChatBubble LEFT 1`] = `
       }
     >
       <View
-        alignItems="stretch"
-        justifyContent="flex-start"
         style={
           Array [
             Object {
-              "alignItems": "stretch",
-              "display": "flex",
-              "flexDirection": "row",
-              "justifyContent": "flex-start",
-            },
-            Object {
+              "alignItems": "flex-start",
               "flex": 1,
             },
+            undefined,
           ]
         }
       >
-        <View>
-          <View
-            pixels={16}
-            row={false}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "height": 16,
-                  "width": "auto",
-                },
-              ]
-            }
-          />
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderRightColor": "transparent",
-                  "borderRightWidth": 6,
-                  "borderStyle": "solid",
-                  "borderTopColor": "red",
-                  "borderTopWidth": 6,
-                  "height": 0,
-                  "width": 0,
-                },
-                Object {
-                  "borderTopColor": "#fff",
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "90deg",
-                    },
-                  ],
-                },
-              ]
-            }
-          />
-        </View>
         <View
           style={
             Array [
               Object {
-                "alignItems": "flex-start",
-                "flex": 1,
+                "backgroundColor": "#f0f0f0",
+                "borderRadius": 15,
+                "justifyContent": "flex-end",
+                "marginRight": 60,
+                "minHeight": 20,
               },
-              undefined,
+              Object {
+                "backgroundColor": "#fff",
+                "borderRadius": 8,
+              },
+              null,
+              null,
             ]
           }
         >
           <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#f0f0f0",
-                  "borderRadius": 15,
-                  "justifyContent": "flex-end",
-                  "marginRight": 60,
-                  "minHeight": 20,
-                },
-                Object {
-                  "backgroundColor": "#fff",
-                  "borderRadius": 8,
-                },
-                null,
-                null,
-              ]
-            }
+            accessibilityTraits="text"
+            accessible={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
           >
             <View
-              accessibilityTraits="text"
-              accessible={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {},
+                  undefined,
+                ]
+              }
             >
-              <View
-                style={
+              <Text
+                childrenProps={Object {}}
+                parse={
                   Array [
-                    Object {},
-                    undefined,
+                    Object {
+                      "onPress": [Function],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
+                      "type": "url",
+                    },
+                    Object {
+                      "onPress": [Function],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
+                      "type": "phone",
+                    },
+                    Object {
+                      "onPress": [Function],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
+                      "type": "email",
+                    },
                   ]
                 }
-              >
-                <Text
-                  childrenProps={Object {}}
-                  parse={
-                    Array [
-                      Object {
-                        "onPress": [Function],
-                        "style": Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        "type": "url",
-                      },
-                      Object {
-                        "onPress": [Function],
-                        "style": Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        "type": "phone",
-                      },
-                      Object {
-                        "onPress": [Function],
-                        "style": Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        "type": "email",
-                      },
-                    ]
-                  }
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontSize": 16,
-                        "lineHeight": 20,
-                        "marginBottom": 5,
-                        "marginLeft": 10,
-                        "marginRight": 10,
-                        "marginTop": 5,
-                      },
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "Rajdhani-Regular",
-                        "fontSize": 16,
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  <Text>
-                    Im the text msg
-                  </Text>
-                </Text>
-              </View>
-              <View
                 style={
                   Array [
                     Object {
-                      "flexDirection": "row",
-                      "justifyContent": "flex-start",
+                      "color": "black",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                      "marginBottom": 5,
+                      "marginLeft": 10,
+                      "marginRight": 10,
+                      "marginTop": 5,
                     },
-                    undefined,
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 16,
+                    },
+                    Object {},
                   ]
                 }
-              />
+              >
+                <Text>
+                  Im the text msg
+                </Text>
+              </Text>
             </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "justifyContent": "flex-start",
+                  },
+                  undefined,
+                ]
+              }
+            />
           </View>
         </View>
       </View>
@@ -2958,19 +2899,13 @@ exports[`Storyshots Chat.ChatBubble ChatBubble RIGHT 1`] = `
       }
     >
       <View
-        alignItems="stretch"
-        justifyContent="flex-end"
         style={
           Array [
             Object {
-              "alignItems": "stretch",
-              "display": "flex",
-              "flexDirection": "row",
-              "justifyContent": "flex-end",
-            },
-            Object {
+              "alignItems": "flex-end",
               "flex": 1,
             },
+            undefined,
           ]
         }
       >
@@ -2978,153 +2913,106 @@ exports[`Storyshots Chat.ChatBubble ChatBubble RIGHT 1`] = `
           style={
             Array [
               Object {
-                "alignItems": "flex-end",
-                "flex": 1,
+                "backgroundColor": "#0084ff",
+                "borderRadius": 15,
+                "justifyContent": "flex-end",
+                "marginLeft": 60,
+                "minHeight": 20,
               },
-              undefined,
+              Object {
+                "backgroundColor": "#f5a623",
+                "borderRadius": 8,
+              },
+              null,
+              null,
             ]
           }
         >
           <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#0084ff",
-                  "borderRadius": 15,
-                  "justifyContent": "flex-end",
-                  "marginLeft": 60,
-                  "minHeight": 20,
-                },
-                Object {
-                  "backgroundColor": "#f5a623",
-                  "borderRadius": 8,
-                },
-                null,
-                null,
-              ]
-            }
+            accessibilityTraits="text"
+            accessible={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
           >
             <View
-              accessibilityTraits="text"
-              accessible={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {},
+                  undefined,
+                ]
+              }
             >
-              <View
-                style={
+              <Text
+                childrenProps={Object {}}
+                parse={
                   Array [
-                    Object {},
-                    undefined,
+                    Object {
+                      "onPress": [Function],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
+                      "type": "url",
+                    },
+                    Object {
+                      "onPress": [Function],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
+                      "type": "phone",
+                    },
+                    Object {
+                      "onPress": [Function],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
+                      "type": "email",
+                    },
                   ]
                 }
-              >
-                <Text
-                  childrenProps={Object {}}
-                  parse={
-                    Array [
-                      Object {
-                        "onPress": [Function],
-                        "style": Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        "type": "url",
-                      },
-                      Object {
-                        "onPress": [Function],
-                        "style": Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        "type": "phone",
-                      },
-                      Object {
-                        "onPress": [Function],
-                        "style": Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        "type": "email",
-                      },
-                    ]
-                  }
-                  style={
-                    Array [
-                      Object {
-                        "color": "white",
-                        "fontSize": 16,
-                        "lineHeight": 20,
-                        "marginBottom": 5,
-                        "marginLeft": 10,
-                        "marginRight": 10,
-                        "marginTop": 5,
-                      },
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "Rajdhani-Regular",
-                        "fontSize": 16,
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  <Text>
-                    Im the text msg
-                  </Text>
-                </Text>
-              </View>
-              <View
                 style={
                   Array [
                     Object {
-                      "flexDirection": "row",
-                      "justifyContent": "flex-end",
+                      "color": "white",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                      "marginBottom": 5,
+                      "marginLeft": 10,
+                      "marginRight": 10,
+                      "marginTop": 5,
                     },
-                    undefined,
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Rajdhani-Regular",
+                      "fontSize": 16,
+                    },
+                    Object {},
                   ]
                 }
-              />
+              >
+                <Text>
+                  Im the text msg
+                </Text>
+              </Text>
             </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                  },
+                  undefined,
+                ]
+              }
+            />
           </View>
-        </View>
-        <View>
-          <View
-            pixels={16}
-            row={false}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "height": 16,
-                  "width": "auto",
-                },
-              ]
-            }
-          />
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderRightColor": "transparent",
-                  "borderRightWidth": 6,
-                  "borderStyle": "solid",
-                  "borderTopColor": "red",
-                  "borderTopWidth": 6,
-                  "height": 0,
-                  "width": 0,
-                },
-                Object {
-                  "borderTopColor": "#f5a623",
-                },
-                Object {},
-              ]
-            }
-          />
         </View>
       </View>
     </View>
@@ -3751,6 +3639,200 @@ exports[`Storyshots Chat.ChatWithGroup ChatWithGroup 1`] = `
           >
             
           </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.AbsoluteCenteredActivityIndicator AbsoluteCenteredActivityIndicator 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#F5F5F5",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "position": "relative",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "zIndex": 100,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <ActivityIndicator
+            animating={true}
+            color="#009f36"
+            hidesWhenStopped={true}
+            size="large"
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.AbsoluteCenteredActivityIndicator AbsoluteCenteredActivityIndicator secondary 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#F5F5F5",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "position": "relative",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "zIndex": 100,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <ActivityIndicator
+            animating={true}
+            color="#f5a623"
+            hidesWhenStopped={true}
+            size="large"
+          />
         </View>
       </View>
     </View>
@@ -9054,6 +9136,74 @@ exports[`Storyshots Common.CenteredActivityIndicator CenteredActivityIndicator 1
       <ActivityIndicator
         animating={true}
         color="#009f36"
+        hidesWhenStopped={true}
+        size="large"
+      />
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.CenteredActivityIndicator CenteredActivityIndicator secondary 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <ActivityIndicator
+        animating={true}
+        color="#f5a623"
         hidesWhenStopped={true}
         size="large"
       />
@@ -59038,10 +59188,46 @@ exports[`Storyshots Screens.Games GameChatScreen 1`] = `
               "flexBasis": 0,
               "flexGrow": 1,
               "flexShrink": 1,
+              "position": "relative",
             },
           ]
         }
       >
+        <View
+          style={
+            Array [
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "zIndex": 100,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <ActivityIndicator
+              animating={true}
+              color="#009f36"
+              hidesWhenStopped={true}
+              size="large"
+            />
+          </View>
+        </View>
         <View
           onLayout={[Function]}
           style={
