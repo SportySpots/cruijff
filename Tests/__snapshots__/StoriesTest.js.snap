@@ -3712,6 +3712,7 @@ exports[`Storyshots Common.AbsoluteCenteredActivityIndicator AbsoluteCenteredAct
               "position": "absolute",
               "right": 0,
               "top": 0,
+              "zIndex": 100,
             },
           ]
         }
@@ -3732,6 +3733,103 @@ exports[`Storyshots Common.AbsoluteCenteredActivityIndicator AbsoluteCenteredAct
           <ActivityIndicator
             animating={true}
             color="#009f36"
+            hidesWhenStopped={true}
+            size="large"
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.AbsoluteCenteredActivityIndicator AbsoluteCenteredActivityIndicator secondary 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#F5F5F5",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "position": "relative",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "zIndex": 100,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <ActivityIndicator
+            animating={true}
+            color="#f5a623"
             hidesWhenStopped={true}
             size="large"
           />
@@ -9038,6 +9136,74 @@ exports[`Storyshots Common.CenteredActivityIndicator CenteredActivityIndicator 1
       <ActivityIndicator
         animating={true}
         color="#009f36"
+        hidesWhenStopped={true}
+        size="large"
+      />
+    </View>
+  </View>
+  <RCTSafeAreaView
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Common.CenteredActivityIndicator CenteredActivityIndicator secondary 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <ActivityIndicator
+        animating={true}
+        color="#f5a623"
         hidesWhenStopped={true}
         size="large"
       />
@@ -59036,6 +59202,7 @@ exports[`Storyshots Screens.Games GameChatScreen 1`] = `
                 "position": "absolute",
                 "right": 0,
                 "top": 0,
+                "zIndex": 100,
               },
             ]
           }
