@@ -40,9 +40,6 @@ const bottomContainerStyle = {
   left: {
     justifyContent: 'space-between',
   },
-  right: {
-    justifyContent: 'space-between',
-  },
 };
 const usernameStyle = {
   ...Fonts.SSM,
