@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
@@ -14,12 +15,21 @@ const Centered = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const CenteredActivityIndicator = () => (
+const CenteredActivityIndicator = ({ secondary }) => (
   <Centered>
     <ActivityIndicator
       size="large"
-      color={Colors.primaryGreen}
+      color={secondary ? Colors.actionYellow : Colors.primaryGreen}
     />
   </Centered>
 );
+
+CenteredActivityIndicator.propTypes = {
+  secondary: PropTypes.bool,
+};
+
+CenteredActivityIndicator.defaultProps = {
+  secondary: false,
+};
+
 export default CenteredActivityIndicator;

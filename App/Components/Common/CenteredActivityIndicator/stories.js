@@ -3,4 +3,5 @@ import React from 'react';
 import CenteredActivityIndicator from '.';
 
 storiesOf('Common.CenteredActivityIndicator', module)
-  .add('CenteredActivityIndicator', () => <CenteredActivityIndicator />);
+  .add('CenteredActivityIndicator', () => <CenteredActivityIndicator />)
+  .add('CenteredActivityIndicator secondary', () => <CenteredActivityIndicator secondary />);

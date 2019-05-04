@@ -14,4 +14,9 @@ storiesOf('Common.AbsoluteCenteredActivityIndicator', module)
     <Relative>
       <AbsoluteCenteredActivityIndicator />
     </Relative>
+  ))
+  .add('AbsoluteCenteredActivityIndicator secondary', () => (
+    <Relative>
+      <AbsoluteCenteredActivityIndicator secondary />
+    </Relative>
   ));
