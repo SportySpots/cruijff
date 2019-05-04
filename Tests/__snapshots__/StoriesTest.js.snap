@@ -2822,7 +2822,9 @@ exports[`Storyshots Chat.ChatBubble ChatBubble LEFT 1`] = `
                     "flexDirection": "row",
                     "justifyContent": "flex-start",
                   },
-                  undefined,
+                  Object {
+                    "justifyContent": "space-between",
+                  },
                 ]
               }
             />
@@ -3008,7 +3010,9 @@ exports[`Storyshots Chat.ChatBubble ChatBubble RIGHT 1`] = `
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
                   },
-                  undefined,
+                  Object {
+                    "justifyContent": "space-between",
+                  },
                 ]
               }
             />
@@ -3110,11 +3114,19 @@ exports[`Storyshots Chat.ChatComposer ChatComposer 1`] = `
               "borderColor": "#e6e6e6",
               "borderRadius": 5,
               "borderWidth": 1,
+              "elevation": 1.5,
               "fontFamily": "Rajdhani-SemiBold",
               "fontSize": 18,
               "lineHeight": 27,
               "marginLeft": 0,
               "padding": 8,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 1,
+                "width": 1,
+              },
+              "shadowOpacity": 0.5,
+              "shadowRadius": 5,
             },
             Object {
               "height": 33,
