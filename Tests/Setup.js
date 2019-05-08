@@ -2,7 +2,6 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import fetch from 'node-fetch';
 import '../storybook/setup_faker';
-import './Mocks/firebase';
 
 global.fetch = fetch;
 
