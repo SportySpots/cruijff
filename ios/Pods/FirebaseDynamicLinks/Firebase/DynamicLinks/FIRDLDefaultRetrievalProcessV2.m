@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
   return [self.requestResults filteredArrayUsingPredicate:predicate];
 }
 
-- (FIRDLRetrievalProcessResult *)resultWithUniqueMatchedDynamicLink {
+- (nullable FIRDLRetrievalProcessResult *)resultWithUniqueMatchedDynamicLink {
   // return result with unique-matched dynamic link if found
   NSArray<FIRDLRetrievalProcessResult *> *foundResultsWithDynamicLinks =
       [self foundResultsWithDynamicLinks];
@@ -309,11 +309,10 @@ NS_ASSUME_NONNULL_BEGIN
   if (_jsExecutor) {
     return;
   }
-  NSString *jsString =
-      @"window.generateFingerprint=function(){try{var "
-      @"languageCode=navigator.languages?navigator.languages[0]:navigator."
-      @"language;return languageCode;}catch(b){return"
-       "}};";
+  NSString *jsString = @"window.generateFingerprint=function(){try{var "
+                       @"languageCode=navigator.languages?navigator.languages[0]:navigator."
+                       @"language;return languageCode;}catch(b){return"
+                        "}};";
   _jsExecutor = [[FIRDLJavaScriptExecutor alloc] initWithDelegate:self script:jsString];
 }
 

@@ -83,6 +83,7 @@
 
 /**
  * Enable or disable the SDK as a whole. In addition to AppCenter resources, it will also enable or disable all registered services.
+ * The state is persisted in the device's storage across application launches.
  *
  * @param isEnabled YES to enable, NO to disable.
  *
@@ -177,8 +178,8 @@
  * Set the maximum size of the internal storage. This method must be called before App Center is started. This method is only intended for
  * applications.
  *
- * @param sizeInBytes Maximum size in bytes. This will be rounded up to the nearest multiple of 4096. Values below 20,480 (20 KiB) will be
- * ignored.
+ * @param sizeInBytes Maximum size of the internal storage in bytes. This will be rounded up to the nearest multiple of a SQLite page size
+ * (default is 4096 bytes). Values below 20,480 bytes (20 KiB) will be ignored.
  *
  * @param completionHandler Callback that is invoked when the database size has been set. The `BOOL` parameter is `YES` if changing the size
  * is successful, and `NO` otherwise. This parameter can be null.
@@ -187,5 +188,26 @@
  * The value passed to this method is not persisted on disk. The default maximum database size is 10485760 bytes (10 MiB).
  */
 + (void)setMaxStorageSize:(long)sizeInBytes completionHandler:(void (^)(BOOL))completionHandler;
+
+/**
+ * Set the user identifier.
+ *
+ * @param userId User identifier.
+ *
+ * @discussion Set the user identifier for logs sent for the default target token when the secret passed in @c
+ * MSAppCenter:start:withServices: contains "target={targetToken}".
+ *
+ * For App Center backend the user identifier maximum length is 256 characters.
+ *
+ * AppCenter must be configured or started before this API can be used.
+ */
++ (void)setUserId:(NSString *)userId;
+
+/**
+ * Set country code to use when building device properties.
+ *
+ * @param countryCode The two-letter ISO country code. @see https://www.iso.org/obp/ui/#search for more information.
+ */
++ (void)setCountryCode:(NSString *)countryCode;
 
 @end
