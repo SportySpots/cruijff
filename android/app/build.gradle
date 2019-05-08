@@ -175,3 +175,6 @@ task copyDownloadableDepsToLibs(type: Copy) {
 
 // firebase support
 apply plugin: 'com.google.gms.google-services'
+
+// https://github.com/microsoft/react-native-code-push/issues/1448
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
