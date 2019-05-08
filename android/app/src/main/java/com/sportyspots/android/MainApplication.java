@@ -3,6 +3,7 @@ package com.sportyspots.android;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.reactcommunity.rnlocalize.RNLocalizePackage;
 
 import io.invertase.firebase.RNFirebasePackage;
@@ -47,6 +48,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGestureHandlerPackage(),
           new RNLocalizePackage(),
           new RNFirebasePackage(),
           new RNFirebaseAnalyticsPackage(),

@@ -18,4 +18,6 @@ target 'SportySpots' do
   platform :ios, '9.0'
   # pod 'RNLanguages', :path => '../node_modules/react-native-languages'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
 end
