@@ -1,5 +1,5 @@
 import React from 'react';
-import { NetInfo } from 'react-native';
+import NetInfo from '@react-native-community/netinfo';
 import I18n from '../../../I18n';
 import Block from '../Block';
 import Text from '../Text';
