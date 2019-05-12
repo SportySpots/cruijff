@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "@pusher/chatkit-client": "^1.4.1",
+    "@react-native-community/netinfo": "^2.0.10",
     "apisauce": "^1.0.0",
     "apollo-cache-inmemory": "1.5.1",
     "apollo-client": "2.5.1",
