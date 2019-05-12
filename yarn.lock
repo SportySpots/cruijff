@@ -984,6 +984,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-2.0.10.tgz#d28a446352e75754b78509557988359133cdbcca"
   integrity sha512-NrIzyLe0eSbhgMnHl2QdSEhaA7yXh6p9jzMomfUa//hoTXE+xbObGDdiWWSQm2bnXnZJg8XCU3AB9qzvqcuLnA==
 
+"@react-native-community/slider@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-1.1.1.tgz#eb549f37cf19dcd449d5df39d98fd1260903c309"
+  integrity sha512-8Ql9zrHOZnjtrTcZxlctP1yMYrpJtfiCZxciGR97/tt3MKBznDGAzP1CDKgYmm5ub/djJnvVdFQOfjSLRDgzdw==
+
 "@react-navigation/core@~3.4.1":
   version "3.4.1"
   resolved "https://registry.npmjs.org/@react-navigation/core/-/core-3.4.1.tgz#8c7e0e53cfb8ccaf87afb76a2733f5e5fde20cd8"
