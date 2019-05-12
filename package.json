@@ -67,6 +67,7 @@
     "appcenter-crashes": "1.13.0",
     "buffer": "^5.2.1",
     "error-handling-utils": "^1.1.0",
+    "events": "^3.0.0",
     "format-json": "^1.0.3",
     "geolib": "^2.0.24",
     "graphql": "14.3.0",
