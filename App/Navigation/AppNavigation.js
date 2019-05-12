@@ -1,4 +1,9 @@
-import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import {
+  createStackNavigator,
+  createSwitchNavigator,
+  createBottomTabNavigator,
+  createAppContainer,
+} from 'react-navigation';
 import {
   SplashNav,
   SpotSearchNav,

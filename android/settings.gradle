@@ -1,4 +1,6 @@
 rootProject.name = 'SportySpots'
+include ':react-native-reanimated'
+project(':react-native-reanimated').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-reanimated/android')
 include ':@react-native-community_slider'
 project(':@react-native-community_slider').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/slider/android')
 include ':@react-native-community_async-storage'

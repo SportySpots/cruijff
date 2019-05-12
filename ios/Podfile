@@ -26,4 +26,6 @@ target 'SportySpots' do
 
   pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
 
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
 end
