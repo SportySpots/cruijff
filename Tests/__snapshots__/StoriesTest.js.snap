@@ -60103,8 +60103,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
           >
             <RNSVGSvgView
               align="xMidYMid"
-              bbHeight="88"
-              bbWidth="88"
+              bbHeight={88}
+              bbWidth={88}
               height={88}
               meetOrSlice={0}
               minX={0}
@@ -60116,7 +60116,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     "borderWidth": 0,
                   },
                   undefined,
-                  false,
+                  null,
                   Object {
                     "flex": 0,
                     "height": 88,
@@ -60134,10 +60134,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                 fill={
                   Array [
                     0,
-                    0,
-                    0,
-                    0,
-                    1,
+                    4278190080,
                   ]
                 }
                 fillOpacity={1}
@@ -60169,7 +60166,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               >
@@ -60194,8 +60192,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                   originY={0}
                   propList={
                     Array [
-                      "stroke",
                       "fill",
+                      "stroke",
                     ]
                   }
                   rotation={0}
@@ -60210,7 +60208,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 >
@@ -60219,10 +60218,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.027450980392156862,
-                        0.8392156862745098,
-                        0.32941176470588235,
-                        1,
+                        4278703700,
                       ]
                     }
                     fillOpacity={1}
@@ -60258,7 +60254,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60267,10 +60264,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        1,
-                        1,
-                        1,
-                        1,
+                        4294967295,
                       ]
                     }
                     fillOpacity={1}
@@ -60306,7 +60300,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60315,10 +60310,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -60354,7 +60346,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60363,10 +60356,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -60402,7 +60392,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60411,10 +60402,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.16862745098039217,
-                        0.6588235294117647,
-                        0.2901960784313726,
-                        1,
+                        4281051210,
                       ]
                     }
                     fillOpacity={1}
@@ -60450,7 +60438,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60459,10 +60448,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.16862745098039217,
-                        0.6588235294117647,
-                        0.2901960784313726,
-                        1,
+                        4281051210,
                       ]
                     }
                     fillOpacity={1}
@@ -60498,7 +60484,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60507,10 +60494,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0,
-                        0,
-                        0,
-                        1,
+                        4278190080,
                       ]
                     }
                     fillOpacity={1}
@@ -60542,7 +60526,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60551,10 +60536,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -60590,7 +60572,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60599,10 +60582,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -60638,7 +60618,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -61029,6 +61010,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
