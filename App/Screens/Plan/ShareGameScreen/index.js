@@ -88,14 +88,7 @@ class ShareGameScreen extends React.Component {
                 // Go back to main tabs navigation
                 navigation.goBack(null);
                 // Go to games list screen
-                navigation.navigate('GamesListScreen');
-                // Reset stack (otherwise we'll get a back arrow for some wired reason :S)
-                navigation.dispatch(StackActions.reset({
-                  index: 0,
-                  actions: [
-                    NavigationActions.navigate({ routeName: 'GamesListScreen' }),
-                  ],
-                }));
+                navigation.navigate('GameSearchTab');
                 // Finally go to recently created game
                 navigation.navigate('GameDetailsScreen', { uuid: gameUUID });
               });
