@@ -2711,35 +2711,26 @@ exports[`Storyshots Chat.ChatBubble ChatBubble LEFT 1`] = `
                   Array [
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "url",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "phone",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "email",
                     },
                   ]
@@ -2909,35 +2900,26 @@ exports[`Storyshots Chat.ChatBubble ChatBubble RIGHT 1`] = `
                   Array [
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "url",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "phone",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "email",
                     },
                   ]
@@ -3062,7 +3044,6 @@ exports[`Storyshots Chat.ChatComposer ChatComposer 1`] = `
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         placeholder="placeholder"
-        placeholderTextColor="#b2b2b2"
         style={
           Array [
             Object {
@@ -37437,7 +37418,7 @@ exports[`Storyshots Common.Slider Slider default 1`] = `
           ]
         }
       />
-      <RCTSlider
+      <RNCSlider
         disabled={false}
         enabled={true}
         maximumValue={20}
@@ -37445,6 +37426,8 @@ exports[`Storyshots Common.Slider Slider default 1`] = `
         minimumValue={0}
         onChange={[Function]}
         onResponderTerminationRequest={[Function]}
+        onSlidingComplete={null}
+        onSlidingStart={null}
         onStartShouldSetResponder={[Function]}
         onValueChange={[Function]}
         step={0}
@@ -37507,6 +37490,7 @@ exports[`Storyshots Common.Slider Slider default 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37586,7 +37570,7 @@ exports[`Storyshots Common.Slider Slider initialValue 5 1`] = `
           ]
         }
       />
-      <RCTSlider
+      <RNCSlider
         disabled={false}
         enabled={true}
         maximumValue={20}
@@ -37594,6 +37578,8 @@ exports[`Storyshots Common.Slider Slider initialValue 5 1`] = `
         minimumValue={0}
         onChange={[Function]}
         onResponderTerminationRequest={[Function]}
+        onSlidingComplete={null}
+        onSlidingStart={null}
         onStartShouldSetResponder={[Function]}
         onValueChange={[Function]}
         step={0}
@@ -37656,6 +37642,7 @@ exports[`Storyshots Common.Slider Slider initialValue 5 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37758,7 +37745,7 @@ exports[`Storyshots Common.SliderWithText SliderWithText 1`] = `
             ]
           }
         />
-        <RCTSlider
+        <RNCSlider
           disabled={false}
           enabled={true}
           maximumValue={20}
@@ -37766,6 +37753,8 @@ exports[`Storyshots Common.SliderWithText SliderWithText 1`] = `
           minimumValue={0}
           onChange={[Function]}
           onResponderTerminationRequest={[Function]}
+          onSlidingComplete={null}
+          onSlidingStart={null}
           onStartShouldSetResponder={[Function]}
           onValueChange={[Function]}
           step={0}
@@ -37829,6 +37818,7 @@ exports[`Storyshots Common.SliderWithText SliderWithText 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45521,6 +45511,54 @@ exports[`Storyshots Games.Organizer Organizer S textSize 1`] = `
 `;
 
 exports[`Storyshots Games.Organizer Organizer default textSize (SM) 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Games.PlayersTabs PlayersTabs 1`] = `
 <View
   onLayout={[Function]}
   style={
