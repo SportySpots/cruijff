@@ -13,7 +13,7 @@ import styled, { ThemeProvider } from 'styled-components/native';
 import config from './config';
 import client from './GraphQL/ApolloClient';
 // import mockClient from './GraphQL/ApolloMockClient';
-import ConnectionCheck from './Components/Common/ConnectionCheck';
+// import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
@@ -147,7 +147,7 @@ class App extends Component {
                 <MenuProvider>
                   <AppRootView>
                     <StatusBar barStyle="light-content" />
-                    <ConnectionCheck />
+                    {/* <ConnectionCheck /> */}
                     <AppNavigation
                       ref={(ref) => {
                         this.router = ref;

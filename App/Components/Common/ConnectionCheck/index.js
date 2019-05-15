@@ -7,6 +7,7 @@ import Text from '../Text';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: need to be updated using NetInfo from react-native-community
 class ConnectionCheck extends React.Component {
   state = {
     connType: '', // 'none', 'wifi', 'cellular', 'unknown'
