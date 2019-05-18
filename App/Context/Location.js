@@ -34,6 +34,15 @@ export const CITIES = [
     },
   },
   {
+    id: 'barcelona',
+    city: 'Barcelona',
+    country: 'Spain',
+    coords: {
+      latitude: 41.3948975,
+      longitude: 2.0785562,
+    },
+  },
+  {
     id: 'buenosAires',
     city: 'Buenos Aires',
     country: 'Argentina',
