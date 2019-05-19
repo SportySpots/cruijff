@@ -15,13 +15,13 @@ import curatedGames from './utils';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const FlexThree = styled.View`
-  flex: 3;
+const FlexOne = styled.View`
+  flex: 1;
   overflow: hidden;
 `;
 //------------------------------------------------------------------------------
-const FlexTwo = styled.View`
-  flex: 2;
+const FlexZero = styled.View`
+  flex: none;
   overflow: hidden;
 `;
 //------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ const SpotHeader = ({
           <Rating key="rating" rating={spot.rating || 4} />,
           <DotSpacer key="spacer" />,
         ] */}
-        <FlexThree>
+        <FlexOne>
           <Row>
             {sports.map(({ category }, index) => [
               <Text
@@ -74,9 +74,9 @@ const SpotHeader = ({
               ),
             ])}
           </Row>
-        </FlexThree>
+        </FlexOne>
         <Spacer row size="L" />
-        <FlexTwo>
+        <FlexZero>
           <Row justifyContent="flex-end">
             {withDistance && !!distance && (
               <Text
@@ -97,7 +97,7 @@ const SpotHeader = ({
               </Text>,
             ]}
           </Row>
-        </FlexTwo>
+        </FlexZero>
       </Row>
     </View>
   );
