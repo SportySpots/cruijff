@@ -271,7 +271,6 @@ class PlanGameForm extends React.Component {
                     {...rest}
                   />
                 ) : <View />}
-
               </ClosableLayout>
             </FlexOne>
           ))}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
 import cloneDeep from 'lodash/cloneDeep';
+import styled from 'styled-components';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Spacer from '../../Common/Spacer';
@@ -17,6 +18,12 @@ export const INIT_STATE = {
 
 export const INIT_ERRORS = {};
 //------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const FlexOne = styled.View`
+  flex: 1;
+`;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: probably move maxDistance to SpotsList and get said value from context
@@ -25,7 +32,7 @@ class SpotSlide extends React.PureComponent {
     const { sport, spot, onChange } = this.props;
 
     return (
-      <View style={{ flexGrow: 1 }}>
+      <FlexOne>
         <Spacer size="XL" />
         <SpotsList
           testID="pickSpot"
@@ -35,7 +42,7 @@ class SpotSlide extends React.PureComponent {
           selectedSpot={spot}
           onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
         />
-      </View>
+      </FlexOne>
     );
   }
 }
