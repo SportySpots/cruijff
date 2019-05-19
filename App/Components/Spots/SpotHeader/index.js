@@ -20,7 +20,7 @@ const FlexOne = styled.View`
   overflow: hidden;
 `;
 //------------------------------------------------------------------------------
-const FlexZero = styled.View`
+const FlexNone = styled.View`
   flex: none;
   overflow: hidden;
 `;
@@ -76,7 +76,7 @@ const SpotHeader = ({
           </Row>
         </FlexOne>
         <Spacer row size="L" />
-        <FlexZero>
+        <FlexNone>
           <Row justifyContent="flex-end">
             {withDistance && !!distance && (
               <Text
@@ -97,7 +97,7 @@ const SpotHeader = ({
               </Text>,
             ]}
           </Row>
-        </FlexZero>
+        </FlexNone>
       </Row>
     </View>
   );
