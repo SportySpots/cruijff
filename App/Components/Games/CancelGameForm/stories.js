@@ -12,8 +12,8 @@ storiesOf('Games.CancelGameForm', module)
         query={GET_GAME_DETAILS}
         variables={{ uuid: 455 }}
       >
-        {({ loading, error, data }) =>
-          (loading || error ? null : (
+        {({ loading, error, data }) => (
+          loading || error ? null : (
             <CancelGameForm
               game={data.game}
             />

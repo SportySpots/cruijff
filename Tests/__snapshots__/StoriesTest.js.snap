@@ -28645,6 +28645,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                               "value": "Rotterdam",
                             },
                             Object {
+                              "value": "Barcelona",
+                            },
+                            Object {
                               "value": "Buenos Aires",
                             },
                           ]
@@ -28662,11 +28665,11 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                             "top": 0,
                           }
                         }
-                        dropdownPosition={-4}
+                        dropdownPosition={-5}
                         editable={false}
                         error=""
                         itemColor="rgba(0, 0, 0, .54)"
-                        itemCount={4}
+                        itemCount={5}
                         itemPadding={8}
                         labelExtractor={[Function]}
                         onBlur={[Function]}
@@ -28884,7 +28887,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                           "shadowRadius": 2,
                         },
                         Object {
-                          "height": 176,
+                          "height": 216,
                           "left": undefined,
                           "top": undefined,
                           "transform": Array [
@@ -28914,6 +28917,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                           },
                           Object {
                             "value": "Rotterdam",
+                          },
+                          Object {
+                            "value": "Barcelona",
                           },
                           Object {
                             "value": "Buenos Aires",
@@ -29207,6 +29213,103 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                               }
                             >
                               Rotterdam
+                            </Text>
+                            <View
+                              style={
+                                Object {
+                                  "backgroundColor": "#000",
+                                  "borderRadius": 0,
+                                  "bottom": 0,
+                                  "left": 0,
+                                  "opacity": 0,
+                                  "position": "absolute",
+                                  "right": 0,
+                                  "top": 0,
+                                }
+                              }
+                            />
+                            <View
+                              style={
+                                Array [
+                                  Object {
+                                    "backgroundColor": "transparent",
+                                    "bottom": 0,
+                                    "left": 0,
+                                    "overflow": "hidden",
+                                    "position": "absolute",
+                                    "right": 0,
+                                    "top": 0,
+                                  },
+                                  Object {
+                                    "borderRadius": 0,
+                                  },
+                                ]
+                              }
+                            />
+                          </View>
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            focusAnimation={null}
+                            focusAnimationDuration={225}
+                            hitSlop={
+                              Object {
+                                "bottom": 6,
+                                "left": 4,
+                                "right": 4,
+                                "top": 6,
+                              }
+                            }
+                            onLayout={[Function]}
+                            onPress={[Function]}
+                            onPressIn={[Function]}
+                            onPressOut={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            pointerEvents="box-only"
+                            rippleCentered={false}
+                            rippleColor="#000"
+                            rippleDuration={400}
+                            rippleFades={true}
+                            rippleOpacity={0}
+                            rippleSequential={true}
+                            rippleSize={0}
+                            style={
+                              Object {
+                                "backgroundColor": "transparent",
+                                "borderRadius": 0,
+                                "height": 40,
+                                "justifyContent": "center",
+                                "paddingLeft": undefined,
+                                "paddingRight": undefined,
+                                "paddingVertical": 8,
+                              }
+                            }
+                          >
+                            <Text
+                              numberOfLines={1}
+                              style={
+                                Array [
+                                  Object {
+                                    "textAlign": "left",
+                                  },
+                                  undefined,
+                                  Object {
+                                    "color": "rgba(0, 0, 0, .87)",
+                                    "fontSize": 16,
+                                  },
+                                ]
+                              }
+                            >
+                              Barcelona
                             </Text>
                             <View
                               style={
@@ -29603,6 +29706,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                               "value": "Rotterdam",
                             },
                             Object {
+                              "value": "Barcelona",
+                            },
+                            Object {
                               "value": "Buenos Aires",
                             },
                           ]
@@ -29620,11 +29726,11 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                             "top": 0,
                           }
                         }
-                        dropdownPosition={-4}
+                        dropdownPosition={-5}
                         editable={false}
                         error=""
                         itemColor="rgba(0, 0, 0, .54)"
-                        itemCount={4}
+                        itemCount={5}
                         itemPadding={8}
                         labelExtractor={[Function]}
                         onBlur={[Function]}
@@ -29840,7 +29946,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                           "shadowRadius": 2,
                         },
                         Object {
-                          "height": 176,
+                          "height": 216,
                           "left": undefined,
                           "top": undefined,
                           "transform": Array [
@@ -29870,6 +29976,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                           },
                           Object {
                             "value": "Rotterdam",
+                          },
+                          Object {
+                            "value": "Barcelona",
                           },
                           Object {
                             "value": "Buenos Aires",
@@ -30163,6 +30272,103 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                               }
                             >
                               Rotterdam
+                            </Text>
+                            <View
+                              style={
+                                Object {
+                                  "backgroundColor": "#000",
+                                  "borderRadius": 0,
+                                  "bottom": 0,
+                                  "left": 0,
+                                  "opacity": 0,
+                                  "position": "absolute",
+                                  "right": 0,
+                                  "top": 0,
+                                }
+                              }
+                            />
+                            <View
+                              style={
+                                Array [
+                                  Object {
+                                    "backgroundColor": "transparent",
+                                    "bottom": 0,
+                                    "left": 0,
+                                    "overflow": "hidden",
+                                    "position": "absolute",
+                                    "right": 0,
+                                    "top": 0,
+                                  },
+                                  Object {
+                                    "borderRadius": 0,
+                                  },
+                                ]
+                              }
+                            />
+                          </View>
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            focusAnimation={null}
+                            focusAnimationDuration={225}
+                            hitSlop={
+                              Object {
+                                "bottom": 6,
+                                "left": 4,
+                                "right": 4,
+                                "top": 6,
+                              }
+                            }
+                            onLayout={[Function]}
+                            onPress={[Function]}
+                            onPressIn={[Function]}
+                            onPressOut={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            pointerEvents="box-only"
+                            rippleCentered={false}
+                            rippleColor="#000"
+                            rippleDuration={400}
+                            rippleFades={true}
+                            rippleOpacity={0}
+                            rippleSequential={true}
+                            rippleSize={0}
+                            style={
+                              Object {
+                                "backgroundColor": "transparent",
+                                "borderRadius": 0,
+                                "height": 40,
+                                "justifyContent": "center",
+                                "paddingLeft": undefined,
+                                "paddingRight": undefined,
+                                "paddingVertical": 8,
+                              }
+                            }
+                          >
+                            <Text
+                              numberOfLines={1}
+                              style={
+                                Array [
+                                  Object {
+                                    "textAlign": "left",
+                                  },
+                                  undefined,
+                                  Object {
+                                    "color": "rgba(0, 0, 0, .87)",
+                                    "fontSize": 16,
+                                  },
+                                ]
+                              }
+                            >
+                              Barcelona
                             </Text>
                             <View
                               style={
@@ -30569,6 +30775,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                                 "value": "Rotterdam",
                               },
                               Object {
+                                "value": "Barcelona",
+                              },
+                              Object {
                                 "value": "Buenos Aires",
                               },
                             ]
@@ -30586,11 +30795,11 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                               "top": 0,
                             }
                           }
-                          dropdownPosition={-4}
+                          dropdownPosition={-5}
                           editable={false}
                           error=""
                           itemColor="rgba(0, 0, 0, .54)"
-                          itemCount={4}
+                          itemCount={5}
                           itemPadding={8}
                           labelExtractor={[Function]}
                           onBlur={[Function]}
@@ -30808,7 +31017,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                             "shadowRadius": 2,
                           },
                           Object {
-                            "height": 176,
+                            "height": 216,
                             "left": undefined,
                             "top": undefined,
                             "transform": Array [
@@ -30838,6 +31047,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                             },
                             Object {
                               "value": "Rotterdam",
+                            },
+                            Object {
+                              "value": "Barcelona",
                             },
                             Object {
                               "value": "Buenos Aires",
@@ -31131,6 +31343,103 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                                 }
                               >
                                 Rotterdam
+                              </Text>
+                              <View
+                                style={
+                                  Object {
+                                    "backgroundColor": "#fff",
+                                    "borderRadius": 0,
+                                    "bottom": 0,
+                                    "left": 0,
+                                    "opacity": 0,
+                                    "position": "absolute",
+                                    "right": 0,
+                                    "top": 0,
+                                  }
+                                }
+                              />
+                              <View
+                                style={
+                                  Array [
+                                    Object {
+                                      "backgroundColor": "transparent",
+                                      "bottom": 0,
+                                      "left": 0,
+                                      "overflow": "hidden",
+                                      "position": "absolute",
+                                      "right": 0,
+                                      "top": 0,
+                                    },
+                                    Object {
+                                      "borderRadius": 0,
+                                    },
+                                  ]
+                                }
+                              />
+                            </View>
+                          </View>
+                          <View
+                            onLayout={[Function]}
+                            style={null}
+                          >
+                            <View
+                              accessible={true}
+                              focusAnimation={null}
+                              focusAnimationDuration={225}
+                              hitSlop={
+                                Object {
+                                  "bottom": 6,
+                                  "left": 4,
+                                  "right": 4,
+                                  "top": 6,
+                                }
+                              }
+                              onLayout={[Function]}
+                              onPress={[Function]}
+                              onPressIn={[Function]}
+                              onPressOut={[Function]}
+                              onResponderGrant={[Function]}
+                              onResponderMove={[Function]}
+                              onResponderRelease={[Function]}
+                              onResponderTerminate={[Function]}
+                              onResponderTerminationRequest={[Function]}
+                              onStartShouldSetResponder={[Function]}
+                              pointerEvents="box-only"
+                              rippleCentered={false}
+                              rippleColor="#fff"
+                              rippleDuration={400}
+                              rippleFades={true}
+                              rippleOpacity={0}
+                              rippleSequential={true}
+                              rippleSize={0}
+                              style={
+                                Object {
+                                  "backgroundColor": "transparent",
+                                  "borderRadius": 0,
+                                  "height": 40,
+                                  "justifyContent": "center",
+                                  "paddingLeft": undefined,
+                                  "paddingRight": undefined,
+                                  "paddingVertical": 8,
+                                }
+                              }
+                            >
+                              <Text
+                                numberOfLines={1}
+                                style={
+                                  Array [
+                                    Object {
+                                      "textAlign": "left",
+                                    },
+                                    undefined,
+                                    Object {
+                                      "color": "rgba(0, 0, 0, .87)",
+                                      "fontSize": 16,
+                                    },
+                                  ]
+                                }
+                              >
+                                Barcelona
                               </Text>
                               <View
                                 style={
@@ -52988,6 +53297,15 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
                     "id": "rotterdam",
                   },
                   Object {
+                    "city": "Barcelona",
+                    "coords": Object {
+                      "latitude": 41.3948975,
+                      "longitude": 2.0785562,
+                    },
+                    "country": "Spain",
+                    "id": "barcelona",
+                  },
+                  Object {
                     "city": "Buenos Aires",
                     "coords": Object {
                       "latitude": -34.6156624,
@@ -53236,6 +53554,83 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
                         }
                       >
                         Rotterdam
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    pixels={24}
+                    row={false}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "height": 24,
+                          "width": "auto",
+                        },
+                      ]
+                    }
+                  />
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      alignItems="center"
+                      bgColor="transparent"
+                      borderColor="white"
+                      disabled={false}
+                      justifyContent="center"
+                      size="M"
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "borderColor": "#fff",
+                            "borderRadius": 8,
+                            "borderStyle": "solid",
+                            "borderWidth": 1,
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "height": 48,
+                            "justifyContent": "center",
+                            "minWidth": 80,
+                            "width": "100%",
+                          },
+                          Object {},
+                        ]
+                      }
+                      width="100%"
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#fff",
+                            "fontFamily": "Rajdhani-SemiBold",
+                            "fontSize": 18,
+                            "lineHeight": 27,
+                            "textAlign": "left",
+                          }
+                        }
+                      >
+                        Barcelona
                       </Text>
                     </View>
                   </View>
@@ -62488,6 +62883,9 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
             style={
               Array [
                 Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
                   "paddingBottom": 0,
                   "paddingLeft": 8,
                   "paddingRight": 8,
