@@ -22,6 +22,7 @@
 
   "Netherlands": "Holanda",
   "Argentina": "Argentina",
+  "Spain": "España",
 
   "splashScreen": {
     "title": "Descubre centros deportivos y actividades cerca tuyo",
@@ -97,7 +98,7 @@
 
   "spotsListScreen": {
     "navigation": {
-      "title": "Encontrar un spot"
+      "title": "Encuentra un spot"
     }
   },
 
@@ -155,7 +156,7 @@
 
   "gamesListScreen": {
     "navigation": {
-      "title": "Encontrar una actividad"
+      "title": "Encuentra una actividad"
     }
   },
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Slider as SliderNative } from 'react-native';
+import SliderNative from '@react-native-community/slider';
 import Colors from '../../../Themes/Colors';
 import Row from '../Row';
 import Text from '../Text';

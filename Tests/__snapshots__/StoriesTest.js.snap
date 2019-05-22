@@ -146,6 +146,7 @@ exports[`Storyshots Auth.Flap Flap 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -193,6 +194,7 @@ exports[`Storyshots Auth.LoginEmailForm LoginEmailForm 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -240,6 +242,7 @@ exports[`Storyshots Auth.SignupEmailForm SignupEmailForm 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -307,8 +310,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
           }
         >
           <RNSVGSvgView
-            bbHeight="1334"
-            bbWidth="750"
+            bbHeight={1334}
+            bbWidth={750}
             height={1334}
             style={
               Array [
@@ -317,7 +320,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   "borderWidth": 0,
                 },
                 undefined,
-                false,
+                null,
                 Object {
                   "flex": 0,
                   "height": 1334,
@@ -331,10 +334,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
               fill={
                 Array [
                   0,
-                  0,
-                  0,
-                  0,
-                  1,
+                  4278190080,
                 ]
               }
               fillOpacity={1}
@@ -366,7 +366,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             >
@@ -375,10 +376,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                 fill={
                   Array [
                     0,
-                    1,
-                    1,
-                    1,
-                    1,
+                    4294967295,
                   ]
                 }
                 fillOpacity={1}
@@ -413,7 +411,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               />
@@ -422,10 +421,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                 fill={
                   Array [
                     0,
-                    0,
-                    0.20784313725490197,
-                    0.22745098039215686,
-                    0.84,
+                    3590337850,
                   ]
                 }
                 fillOpacity={1}
@@ -460,7 +456,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               />
@@ -498,8 +495,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
         >
           <RNSVGSvgView
             align="xMidYMid"
-            bbHeight="88"
-            bbWidth="88"
+            bbHeight={88}
+            bbWidth={88}
             height={88}
             meetOrSlice={0}
             minX={0}
@@ -511,7 +508,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   "borderWidth": 0,
                 },
                 undefined,
-                false,
+                null,
                 Object {
                   "flex": 0,
                   "height": 88,
@@ -529,10 +526,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
               fill={
                 Array [
                   0,
-                  0,
-                  0,
-                  0,
-                  1,
+                  4278190080,
                 ]
               }
               fillOpacity={1}
@@ -564,7 +558,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             >
@@ -589,8 +584,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                 originY={0}
                 propList={
                   Array [
-                    "stroke",
                     "fill",
+                    "stroke",
                   ]
                 }
                 rotation={0}
@@ -605,7 +600,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               >
@@ -614,10 +610,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      0.027450980392156862,
-                      0.8392156862745098,
-                      0.32941176470588235,
-                      1,
+                      4278703700,
                     ]
                   }
                   fillOpacity={1}
@@ -653,7 +646,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -662,10 +656,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      1,
-                      1,
-                      1,
-                      1,
+                      4294967295,
                     ]
                   }
                   fillOpacity={1}
@@ -701,7 +692,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -710,10 +702,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      0.1411764705882353,
-                      0.5098039215686274,
-                      0.19607843137254902,
-                      1,
+                      4280582706,
                     ]
                   }
                   fillOpacity={1}
@@ -749,7 +738,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -758,10 +748,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      0.1411764705882353,
-                      0.5098039215686274,
-                      0.19607843137254902,
-                      1,
+                      4280582706,
                     ]
                   }
                   fillOpacity={1}
@@ -797,7 +784,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -806,10 +794,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      0.16862745098039217,
-                      0.6588235294117647,
-                      0.2901960784313726,
-                      1,
+                      4281051210,
                     ]
                   }
                   fillOpacity={1}
@@ -845,7 +830,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -854,10 +840,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      0.16862745098039217,
-                      0.6588235294117647,
-                      0.2901960784313726,
-                      1,
+                      4281051210,
                     ]
                   }
                   fillOpacity={1}
@@ -893,7 +876,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -902,10 +886,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      0,
-                      0,
-                      0,
-                      1,
+                      4278190080,
                     ]
                   }
                   fillOpacity={1}
@@ -937,7 +918,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -946,10 +928,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      0.1411764705882353,
-                      0.5098039215686274,
-                      0.19607843137254902,
-                      1,
+                      4280582706,
                     ]
                   }
                   fillOpacity={1}
@@ -985,7 +964,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -994,10 +974,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   fill={
                     Array [
                       0,
-                      0.1411764705882353,
-                      0.5098039215686274,
-                      0.19607843137254902,
-                      1,
+                      4280582706,
                     ]
                   }
                   fillOpacity={1}
@@ -1033,7 +1010,8 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -1071,6 +1049,7 @@ exports[`Storyshots Backgrounds.FieldBackground FieldBackground 1`] = `
     </RCTScrollView>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -1163,6 +1142,7 @@ exports[`Storyshots Backgrounds.ImageBackground ImageBackground Children 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -1306,6 +1286,7 @@ exports[`Storyshots Backgrounds.ImageBackground ImageBackground Title Text 1`] =
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -1385,8 +1366,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
           >
             <RNSVGSvgView
               align="xMidYMid"
-              bbHeight="88"
-              bbWidth="88"
+              bbHeight={88}
+              bbWidth={88}
               height={88}
               meetOrSlice={0}
               minX={0}
@@ -1398,7 +1379,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     "borderWidth": 0,
                   },
                   undefined,
-                  false,
+                  null,
                   Object {
                     "flex": 0,
                     "height": 88,
@@ -1416,10 +1397,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                 fill={
                   Array [
                     0,
-                    0,
-                    0,
-                    0,
-                    1,
+                    4278190080,
                   ]
                 }
                 fillOpacity={1}
@@ -1451,7 +1429,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               >
@@ -1476,8 +1455,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                   originY={0}
                   propList={
                     Array [
-                      "stroke",
                       "fill",
+                      "stroke",
                     ]
                   }
                   rotation={0}
@@ -1492,7 +1471,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 >
@@ -1501,10 +1481,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        0.027450980392156862,
-                        0.8392156862745098,
-                        0.32941176470588235,
-                        1,
+                        4278703700,
                       ]
                     }
                     fillOpacity={1}
@@ -1540,7 +1517,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1549,10 +1527,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        1,
-                        1,
-                        1,
-                        1,
+                        4294967295,
                       ]
                     }
                     fillOpacity={1}
@@ -1588,7 +1563,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1597,10 +1573,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -1636,7 +1609,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1645,10 +1619,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -1684,7 +1655,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1693,10 +1665,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        0.16862745098039217,
-                        0.6588235294117647,
-                        0.2901960784313726,
-                        1,
+                        4281051210,
                       ]
                     }
                     fillOpacity={1}
@@ -1732,7 +1701,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1741,10 +1711,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        0.16862745098039217,
-                        0.6588235294117647,
-                        0.2901960784313726,
-                        1,
+                        4281051210,
                       ]
                     }
                     fillOpacity={1}
@@ -1780,7 +1747,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1789,10 +1757,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        0,
-                        0,
-                        0,
-                        1,
+                        4278190080,
                       ]
                     }
                     fillOpacity={1}
@@ -1824,7 +1789,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1833,10 +1799,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -1872,7 +1835,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1881,10 +1845,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -1920,7 +1881,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -1976,6 +1938,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground green 
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -2055,8 +2018,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
           >
             <RNSVGSvgView
               align="xMidYMid"
-              bbHeight="88"
-              bbWidth="88"
+              bbHeight={88}
+              bbWidth={88}
               height={88}
               meetOrSlice={0}
               minX={0}
@@ -2068,7 +2031,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     "borderWidth": 0,
                   },
                   undefined,
-                  false,
+                  null,
                   Object {
                     "flex": 0,
                     "height": 88,
@@ -2086,10 +2049,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                 fill={
                   Array [
                     0,
-                    0,
-                    0,
-                    0,
-                    1,
+                    4278190080,
                   ]
                 }
                 fillOpacity={1}
@@ -2121,7 +2081,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               >
@@ -2146,8 +2107,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                   originY={0}
                   propList={
                     Array [
-                      "stroke",
                       "fill",
+                      "stroke",
                     ]
                   }
                   rotation={0}
@@ -2162,7 +2123,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 >
@@ -2171,10 +2133,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        0.027450980392156862,
-                        0.8392156862745098,
-                        0.32941176470588235,
-                        1,
+                        4278703700,
                       ]
                     }
                     fillOpacity={1}
@@ -2210,7 +2169,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2219,10 +2179,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        1,
-                        1,
-                        1,
-                        1,
+                        4294967295,
                       ]
                     }
                     fillOpacity={1}
@@ -2258,7 +2215,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2267,10 +2225,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -2306,7 +2261,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2315,10 +2271,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -2354,7 +2307,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2363,10 +2317,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        0.16862745098039217,
-                        0.6588235294117647,
-                        0.2901960784313726,
-                        1,
+                        4281051210,
                       ]
                     }
                     fillOpacity={1}
@@ -2402,7 +2353,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2411,10 +2363,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        0.16862745098039217,
-                        0.6588235294117647,
-                        0.2901960784313726,
-                        1,
+                        4281051210,
                       ]
                     }
                     fillOpacity={1}
@@ -2450,7 +2399,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2459,10 +2409,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        0,
-                        0,
-                        0,
-                        1,
+                        4278190080,
                       ]
                     }
                     fillOpacity={1}
@@ -2494,7 +2441,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2503,10 +2451,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -2542,7 +2487,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2551,10 +2497,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -2590,7 +2533,8 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -2646,6 +2590,7 @@ exports[`Storyshots Backgrounds.LogoHeaderBackground LogoHeaderBackground white 
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -2766,26 +2711,35 @@ exports[`Storyshots Chat.ChatBubble ChatBubble LEFT 1`] = `
                   Array [
                     Object {
                       "onPress": [Function],
-                      "style": Object {
-                        "color": "black",
-                        "textDecorationLine": "underline",
-                      },
+                      "style": Array [
+                        Object {
+                          "color": "black",
+                          "textDecorationLine": "underline",
+                        },
+                        undefined,
+                      ],
                       "type": "url",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Object {
-                        "color": "black",
-                        "textDecorationLine": "underline",
-                      },
+                      "style": Array [
+                        Object {
+                          "color": "black",
+                          "textDecorationLine": "underline",
+                        },
+                        undefined,
+                      ],
                       "type": "phone",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Object {
-                        "color": "black",
-                        "textDecorationLine": "underline",
-                      },
+                      "style": Array [
+                        Object {
+                          "color": "black",
+                          "textDecorationLine": "underline",
+                        },
+                        undefined,
+                      ],
                       "type": "email",
                     },
                   ]
@@ -2834,6 +2788,7 @@ exports[`Storyshots Chat.ChatBubble ChatBubble LEFT 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -2954,26 +2909,35 @@ exports[`Storyshots Chat.ChatBubble ChatBubble RIGHT 1`] = `
                   Array [
                     Object {
                       "onPress": [Function],
-                      "style": Object {
-                        "color": "white",
-                        "textDecorationLine": "underline",
-                      },
+                      "style": Array [
+                        Object {
+                          "color": "white",
+                          "textDecorationLine": "underline",
+                        },
+                        undefined,
+                      ],
                       "type": "url",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Object {
-                        "color": "white",
-                        "textDecorationLine": "underline",
-                      },
+                      "style": Array [
+                        Object {
+                          "color": "white",
+                          "textDecorationLine": "underline",
+                        },
+                        undefined,
+                      ],
                       "type": "phone",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Object {
-                        "color": "white",
-                        "textDecorationLine": "underline",
-                      },
+                      "style": Array [
+                        Object {
+                          "color": "white",
+                          "textDecorationLine": "underline",
+                        },
+                        undefined,
+                      ],
                       "type": "email",
                     },
                   ]
@@ -3020,6 +2984,7 @@ exports[`Storyshots Chat.ChatBubble ChatBubble RIGHT 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -3097,6 +3062,7 @@ exports[`Storyshots Chat.ChatComposer ChatComposer 1`] = `
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         placeholder="placeholder"
+        placeholderTextColor="#b2b2b2"
         style={
           Array [
             Object {
@@ -3138,6 +3104,7 @@ exports[`Storyshots Chat.ChatComposer ChatComposer 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -3308,6 +3275,7 @@ exports[`Storyshots Chat.ChatDay ChatDay 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -3478,6 +3446,7 @@ exports[`Storyshots Chat.ChatSend ChatSend 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -3654,6 +3623,7 @@ exports[`Storyshots Chat.ChatWithGroup ChatWithGroup 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -3751,6 +3721,7 @@ exports[`Storyshots Common.AbsoluteCenteredActivityIndicator AbsoluteCenteredAct
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -3848,6 +3819,7 @@ exports[`Storyshots Common.AbsoluteCenteredActivityIndicator AbsoluteCenteredAct
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -3989,6 +3961,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg error 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4130,6 +4103,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg info 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4271,6 +4245,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg info long text 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4412,6 +4387,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg success 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4553,6 +4529,7 @@ exports[`Storyshots Common.AlertMsg AlertMsg warning 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4631,6 +4608,7 @@ exports[`Storyshots Common.Avatar Avatar no props size S 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4711,6 +4689,7 @@ exports[`Storyshots Common.Avatar Avatar with TEXT size L 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4758,6 +4737,7 @@ exports[`Storyshots Common.Avatar Avatar with USER 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4805,6 +4785,7 @@ exports[`Storyshots Common.AvatarPicker AvatarPicker with USER 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4874,6 +4855,7 @@ exports[`Storyshots Common.Block Block 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -4946,6 +4928,7 @@ exports[`Storyshots Common.Block Block 100px fixed height 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -5018,6 +5001,7 @@ exports[`Storyshots Common.Block Block 100px fixed height bgColor gray 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -5394,6 +5378,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-01"
               >
                 <Text
                   allowFontScaling={false}
@@ -5439,6 +5424,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-02"
               >
                 <Text
                   allowFontScaling={false}
@@ -5484,6 +5470,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-03"
               >
                 <Text
                   allowFontScaling={false}
@@ -5529,6 +5516,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-04"
               >
                 <Text
                   allowFontScaling={false}
@@ -5574,6 +5562,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-05"
               >
                 <Text
                   allowFontScaling={false}
@@ -5619,6 +5608,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-06"
               >
                 <Text
                   allowFontScaling={false}
@@ -5664,6 +5654,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-07"
               >
                 <Text
                   allowFontScaling={false}
@@ -5720,6 +5711,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-08"
               >
                 <Text
                   allowFontScaling={false}
@@ -5765,6 +5757,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-09"
               >
                 <Text
                   allowFontScaling={false}
@@ -5810,6 +5803,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-10"
               >
                 <Text
                   allowFontScaling={false}
@@ -5855,6 +5849,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-11"
               >
                 <Text
                   allowFontScaling={false}
@@ -5900,6 +5895,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-12"
               >
                 <Text
                   allowFontScaling={false}
@@ -5945,6 +5941,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-13"
               >
                 <Text
                   allowFontScaling={false}
@@ -5990,6 +5987,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-14"
               >
                 <Text
                   allowFontScaling={false}
@@ -6046,6 +6044,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-15"
               >
                 <Text
                   allowFontScaling={false}
@@ -6091,6 +6090,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-16"
               >
                 <Text
                   allowFontScaling={false}
@@ -6136,6 +6136,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-17"
               >
                 <Text
                   allowFontScaling={false}
@@ -6181,6 +6182,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-18"
               >
                 <Text
                   allowFontScaling={false}
@@ -6226,6 +6228,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-19"
               >
                 <Text
                   allowFontScaling={false}
@@ -6271,6 +6274,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-20"
               >
                 <Text
                   allowFontScaling={false}
@@ -6316,6 +6320,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-21"
               >
                 <Text
                   allowFontScaling={false}
@@ -6372,6 +6377,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-22"
               >
                 <Text
                   allowFontScaling={false}
@@ -6417,6 +6423,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-23"
               >
                 <Text
                   allowFontScaling={false}
@@ -6462,6 +6469,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-24"
               >
                 <Text
                   allowFontScaling={false}
@@ -6507,6 +6515,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-25"
               >
                 <Text
                   allowFontScaling={false}
@@ -6552,6 +6561,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-26"
               >
                 <Text
                   allowFontScaling={false}
@@ -6597,6 +6607,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-27"
               >
                 <Text
                   allowFontScaling={false}
@@ -6642,6 +6653,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-28"
               >
                 <Text
                   allowFontScaling={false}
@@ -6698,6 +6710,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-29"
               >
                 <Text
                   allowFontScaling={false}
@@ -6743,6 +6756,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-30"
               >
                 <Text
                   allowFontScaling={false}
@@ -6788,6 +6802,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
                     "width": 32,
                   }
                 }
+                testID="native.calendar.SELECT_DATE_SLOT-2017-01-31"
               >
                 <Text
                   allowFontScaling={false}
@@ -6842,6 +6857,7 @@ exports[`Storyshots Common.Calendar Calendar 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -7775,6 +7791,7 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -8140,6 +8157,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -8426,6 +8444,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField fullWidth siz
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -8809,6 +8828,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -9174,6 +9194,7 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField with ERROR 1`
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -9242,6 +9263,7 @@ exports[`Storyshots Common.CenteredActivityIndicator CenteredActivityIndicator 1
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -9310,6 +9332,7 @@ exports[`Storyshots Common.CenteredActivityIndicator CenteredActivityIndicator s
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -9408,6 +9431,7 @@ exports[`Storyshots Common.Checkbox Checkbox 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -9506,72 +9530,7 @@ exports[`Storyshots Common.Checkbox Checkbox white theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
-    pointerEvents="box-none"
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    />
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`Storyshots Common.ConnectionCheck ConnectionCheck 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Object {
-          "backgroundColor": "green",
-          "flex": 1,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "white",
-          }
-        }
-      >
-        Disconnect internet connection or set phone on flying mode!
-      </Text>
-    </View>
-  </View>
-  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -9937,6 +9896,7 @@ exports[`Storyshots Common.DatePickerField DatePickerField 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -10223,6 +10183,7 @@ exports[`Storyshots Common.DatePickerField DatePickerField fullWidth size ML dat
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -10606,6 +10567,7 @@ exports[`Storyshots Common.DatePickerField DatePickerField white theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -10675,6 +10637,7 @@ exports[`Storyshots Common.Divider Divider 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -10757,6 +10720,7 @@ exports[`Storyshots Common.Divider Divider row 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -10851,6 +10815,7 @@ exports[`Storyshots Common.DotSpacer DotSpacer default size M 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -10945,6 +10910,7 @@ exports[`Storyshots Common.DotSpacer DotSpacer size L 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -11039,6 +11005,7 @@ exports[`Storyshots Common.DotSpacer DotSpacer size S 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -11466,6 +11433,7 @@ exports[`Storyshots Common.Dropdown Dropdown 1`] = `
                 onScroll={[Function]}
                 onScrollBeginDrag={[Function]}
                 onScrollEndDrag={[Function]}
+                removeClippedSubviews={false}
                 renderItem={[Function]}
                 scrollEnabled={false}
                 scrollEventThrottle={50}
@@ -11781,6 +11749,7 @@ exports[`Storyshots Common.Dropdown Dropdown 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -12208,6 +12177,7 @@ exports[`Storyshots Common.Dropdown Dropdown with error 1`] = `
                 onScroll={[Function]}
                 onScrollBeginDrag={[Function]}
                 onScrollEndDrag={[Function]}
+                removeClippedSubviews={false}
                 renderItem={[Function]}
                 scrollEnabled={false}
                 scrollEventThrottle={50}
@@ -12523,6 +12493,7 @@ exports[`Storyshots Common.Dropdown Dropdown with error 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -12950,6 +12921,7 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme 1`] = `
                 onScroll={[Function]}
                 onScrollBeginDrag={[Function]}
                 onScrollEndDrag={[Function]}
+                removeClippedSubviews={false}
                 renderItem={[Function]}
                 scrollEnabled={false}
                 scrollEventThrottle={50}
@@ -13265,6 +13237,7 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -13692,6 +13665,7 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme size ML 1`] = `
                 onScroll={[Function]}
                 onScrollBeginDrag={[Function]}
                 onScrollEndDrag={[Function]}
+                removeClippedSubviews={false}
                 renderItem={[Function]}
                 scrollEnabled={false}
                 scrollEventThrottle={50}
@@ -14007,6 +13981,7 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme size ML 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -14542,6 +14517,7 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField 1`] = `
                       onScroll={[Function]}
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEnabled={true}
                       scrollEventThrottle={50}
@@ -15616,6 +15592,7 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -16114,6 +16091,7 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField fullWidth siz
                       onScroll={[Function]}
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEnabled={true}
                       scrollEventThrottle={50}
@@ -17146,6 +17124,7 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField fullWidth siz
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -17698,6 +17677,7 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField white theme 1
                         onScroll={[Function]}
                         onScrollBeginDrag={[Function]}
                         onScrollEndDrag={[Function]}
+                        removeClippedSubviews={false}
                         renderItem={[Function]}
                         scrollEnabled={true}
                         scrollEventThrottle={50}
@@ -18773,6 +18753,7 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField white theme 1
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -18898,6 +18879,7 @@ exports[`Storyshots Common.HeaderBtn HeaderBtn 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -19160,6 +19142,7 @@ exports[`Storyshots Common.ImageSwiper ImageSwiper 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -19652,6 +19635,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp 1`] = `
                     onScroll={[Function]}
                     onScrollBeginDrag={[Function]}
                     onScrollEndDrag={[Function]}
+                    removeClippedSubviews={false}
                     renderItem={[Function]}
                     scrollEnabled={false}
                     scrollEventThrottle={50}
@@ -20046,6 +20030,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -20544,6 +20529,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp DISABLED 1`] = `
                     onScroll={[Function]}
                     onScrollBeginDrag={[Function]}
                     onScrollEndDrag={[Function]}
+                    removeClippedSubviews={false}
                     renderItem={[Function]}
                     scrollEnabled={false}
                     scrollEventThrottle={50}
@@ -20938,6 +20924,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp DISABLED 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -21393,6 +21380,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth 1`] = `
                     onScroll={[Function]}
                     onScrollBeginDrag={[Function]}
                     onScrollEndDrag={[Function]}
+                    removeClippedSubviews={false}
                     renderItem={[Function]}
                     scrollEnabled={false}
                     scrollEventThrottle={50}
@@ -21745,6 +21733,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -22206,6 +22195,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth DISABLE
                     onScroll={[Function]}
                     onScrollBeginDrag={[Function]}
                     onScrollEndDrag={[Function]}
+                    removeClippedSubviews={false}
                     renderItem={[Function]}
                     scrollEnabled={false}
                     scrollEventThrottle={50}
@@ -22558,6 +22548,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth DISABLE
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -23013,6 +23004,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth with ER
                     onScroll={[Function]}
                     onScrollBeginDrag={[Function]}
                     onScrollEndDrag={[Function]}
+                    removeClippedSubviews={false}
                     renderItem={[Function]}
                     scrollEnabled={false}
                     scrollEventThrottle={50}
@@ -23365,6 +23357,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth with ER
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -23857,6 +23850,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp with ERROR 1`] = 
                     onScroll={[Function]}
                     onScrollBeginDrag={[Function]}
                     onScrollEndDrag={[Function]}
+                    removeClippedSubviews={false}
                     renderItem={[Function]}
                     scrollEnabled={false}
                     scrollEventThrottle={50}
@@ -24251,6 +24245,7 @@ exports[`Storyshots Common.InputField InputField Dropdown comp with ERROR 1`] = 
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -24616,6 +24611,7 @@ exports[`Storyshots Common.InputField InputField TextField comp 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -24987,6 +24983,7 @@ exports[`Storyshots Common.InputField InputField TextField comp DISABLED 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -25273,6 +25270,7 @@ exports[`Storyshots Common.InputField InputField TextField comp fullWidth 1`] = 
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -25565,6 +25563,7 @@ exports[`Storyshots Common.InputField InputField TextField comp fullWidth DISABL
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -25851,6 +25850,7 @@ exports[`Storyshots Common.InputField InputField TextField comp fullWidth with E
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -26216,6 +26216,7 @@ exports[`Storyshots Common.InputField InputField TextField comp with ERROR 1`] =
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -26581,6 +26582,7 @@ exports[`Storyshots Common.InputField InputField size ML 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -26946,6 +26948,7 @@ exports[`Storyshots Common.InputField InputField size S 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -27329,6 +27332,7 @@ exports[`Storyshots Common.InputField InputField white theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -27712,6 +27716,7 @@ exports[`Storyshots Common.InputField InputField white theme with ERROR 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -27823,6 +27828,7 @@ exports[`Storyshots Common.LinkNavigate LinkNavigate 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -27937,6 +27943,7 @@ exports[`Storyshots Common.LinkNavigate LinkNavigate underline red 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -28068,6 +28075,7 @@ exports[`Storyshots Common.LinkNavigate LinkNavigate with icon 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -28179,6 +28187,7 @@ exports[`Storyshots Common.LinkOpenURL LinkOpenURL 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -28313,6 +28322,7 @@ exports[`Storyshots Common.LinkOpenURL LinkOpenURL underline 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -28444,6 +28454,7 @@ exports[`Storyshots Common.LinkOpenURL LinkOpenURL with icon 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -28653,6 +28664,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                               "value": "Rotterdam",
                             },
                             Object {
+                              "value": "Barcelona",
+                            },
+                            Object {
                               "value": "Buenos Aires",
                             },
                           ]
@@ -28670,11 +28684,11 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                             "top": 0,
                           }
                         }
-                        dropdownPosition={-4}
+                        dropdownPosition={-5}
                         editable={false}
                         error=""
                         itemColor="rgba(0, 0, 0, .54)"
-                        itemCount={4}
+                        itemCount={5}
                         itemPadding={8}
                         labelExtractor={[Function]}
                         onBlur={[Function]}
@@ -28892,7 +28906,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                           "shadowRadius": 2,
                         },
                         Object {
-                          "height": 176,
+                          "height": 216,
                           "left": undefined,
                           "top": undefined,
                           "transform": Array [
@@ -28924,6 +28938,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                             "value": "Rotterdam",
                           },
                           Object {
+                            "value": "Barcelona",
+                          },
+                          Object {
                             "value": "Buenos Aires",
                           },
                         ]
@@ -28943,6 +28960,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                       onScroll={[Function]}
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEnabled={false}
                       scrollEventThrottle={50}
@@ -29214,6 +29232,103 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                               }
                             >
                               Rotterdam
+                            </Text>
+                            <View
+                              style={
+                                Object {
+                                  "backgroundColor": "#000",
+                                  "borderRadius": 0,
+                                  "bottom": 0,
+                                  "left": 0,
+                                  "opacity": 0,
+                                  "position": "absolute",
+                                  "right": 0,
+                                  "top": 0,
+                                }
+                              }
+                            />
+                            <View
+                              style={
+                                Array [
+                                  Object {
+                                    "backgroundColor": "transparent",
+                                    "bottom": 0,
+                                    "left": 0,
+                                    "overflow": "hidden",
+                                    "position": "absolute",
+                                    "right": 0,
+                                    "top": 0,
+                                  },
+                                  Object {
+                                    "borderRadius": 0,
+                                  },
+                                ]
+                              }
+                            />
+                          </View>
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            focusAnimation={null}
+                            focusAnimationDuration={225}
+                            hitSlop={
+                              Object {
+                                "bottom": 6,
+                                "left": 4,
+                                "right": 4,
+                                "top": 6,
+                              }
+                            }
+                            onLayout={[Function]}
+                            onPress={[Function]}
+                            onPressIn={[Function]}
+                            onPressOut={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            pointerEvents="box-only"
+                            rippleCentered={false}
+                            rippleColor="#000"
+                            rippleDuration={400}
+                            rippleFades={true}
+                            rippleOpacity={0}
+                            rippleSequential={true}
+                            rippleSize={0}
+                            style={
+                              Object {
+                                "backgroundColor": "transparent",
+                                "borderRadius": 0,
+                                "height": 40,
+                                "justifyContent": "center",
+                                "paddingLeft": undefined,
+                                "paddingRight": undefined,
+                                "paddingVertical": 8,
+                              }
+                            }
+                          >
+                            <Text
+                              numberOfLines={1}
+                              style={
+                                Array [
+                                  Object {
+                                    "textAlign": "left",
+                                  },
+                                  undefined,
+                                  Object {
+                                    "color": "rgba(0, 0, 0, .87)",
+                                    "fontSize": 16,
+                                  },
+                                ]
+                              }
+                            >
+                              Barcelona
                             </Text>
                             <View
                               style={
@@ -29435,6 +29550,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -29609,6 +29725,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                               "value": "Rotterdam",
                             },
                             Object {
+                              "value": "Barcelona",
+                            },
+                            Object {
                               "value": "Buenos Aires",
                             },
                           ]
@@ -29626,11 +29745,11 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                             "top": 0,
                           }
                         }
-                        dropdownPosition={-4}
+                        dropdownPosition={-5}
                         editable={false}
                         error=""
                         itemColor="rgba(0, 0, 0, .54)"
-                        itemCount={4}
+                        itemCount={5}
                         itemPadding={8}
                         labelExtractor={[Function]}
                         onBlur={[Function]}
@@ -29846,7 +29965,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                           "shadowRadius": 2,
                         },
                         Object {
-                          "height": 176,
+                          "height": 216,
                           "left": undefined,
                           "top": undefined,
                           "transform": Array [
@@ -29878,6 +29997,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                             "value": "Rotterdam",
                           },
                           Object {
+                            "value": "Barcelona",
+                          },
+                          Object {
                             "value": "Buenos Aires",
                           },
                         ]
@@ -29897,6 +30019,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                       onScroll={[Function]}
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEnabled={false}
                       scrollEventThrottle={50}
@@ -30264,6 +30387,103 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                                 ]
                               }
                             >
+                              Barcelona
+                            </Text>
+                            <View
+                              style={
+                                Object {
+                                  "backgroundColor": "#000",
+                                  "borderRadius": 0,
+                                  "bottom": 0,
+                                  "left": 0,
+                                  "opacity": 0,
+                                  "position": "absolute",
+                                  "right": 0,
+                                  "top": 0,
+                                }
+                              }
+                            />
+                            <View
+                              style={
+                                Array [
+                                  Object {
+                                    "backgroundColor": "transparent",
+                                    "bottom": 0,
+                                    "left": 0,
+                                    "overflow": "hidden",
+                                    "position": "absolute",
+                                    "right": 0,
+                                    "top": 0,
+                                  },
+                                  Object {
+                                    "borderRadius": 0,
+                                  },
+                                ]
+                              }
+                            />
+                          </View>
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            focusAnimation={null}
+                            focusAnimationDuration={225}
+                            hitSlop={
+                              Object {
+                                "bottom": 6,
+                                "left": 4,
+                                "right": 4,
+                                "top": 6,
+                              }
+                            }
+                            onLayout={[Function]}
+                            onPress={[Function]}
+                            onPressIn={[Function]}
+                            onPressOut={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            pointerEvents="box-only"
+                            rippleCentered={false}
+                            rippleColor="#000"
+                            rippleDuration={400}
+                            rippleFades={true}
+                            rippleOpacity={0}
+                            rippleSequential={true}
+                            rippleSize={0}
+                            style={
+                              Object {
+                                "backgroundColor": "transparent",
+                                "borderRadius": 0,
+                                "height": 40,
+                                "justifyContent": "center",
+                                "paddingLeft": undefined,
+                                "paddingRight": undefined,
+                                "paddingVertical": 8,
+                              }
+                            }
+                          >
+                            <Text
+                              numberOfLines={1}
+                              style={
+                                Array [
+                                  Object {
+                                    "textAlign": "left",
+                                  },
+                                  undefined,
+                                  Object {
+                                    "color": "rgba(0, 0, 0, .87)",
+                                    "fontSize": 16,
+                                  },
+                                ]
+                              }
+                            >
                               Buenos Aires
                             </Text>
                             <View
@@ -30347,6 +30567,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -30573,6 +30794,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                                 "value": "Rotterdam",
                               },
                               Object {
+                                "value": "Barcelona",
+                              },
+                              Object {
                                 "value": "Buenos Aires",
                               },
                             ]
@@ -30590,11 +30814,11 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                               "top": 0,
                             }
                           }
-                          dropdownPosition={-4}
+                          dropdownPosition={-5}
                           editable={false}
                           error=""
                           itemColor="rgba(0, 0, 0, .54)"
-                          itemCount={4}
+                          itemCount={5}
                           itemPadding={8}
                           labelExtractor={[Function]}
                           onBlur={[Function]}
@@ -30812,7 +31036,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                             "shadowRadius": 2,
                           },
                           Object {
-                            "height": 176,
+                            "height": 216,
                             "left": undefined,
                             "top": undefined,
                             "transform": Array [
@@ -30844,6 +31068,9 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                               "value": "Rotterdam",
                             },
                             Object {
+                              "value": "Barcelona",
+                            },
+                            Object {
                               "value": "Buenos Aires",
                             },
                           ]
@@ -30863,6 +31090,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                         onScroll={[Function]}
                         onScrollBeginDrag={[Function]}
                         onScrollEndDrag={[Function]}
+                        removeClippedSubviews={false}
                         renderItem={[Function]}
                         scrollEnabled={false}
                         scrollEventThrottle={50}
@@ -31230,6 +31458,103 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                                   ]
                                 }
                               >
+                                Barcelona
+                              </Text>
+                              <View
+                                style={
+                                  Object {
+                                    "backgroundColor": "#fff",
+                                    "borderRadius": 0,
+                                    "bottom": 0,
+                                    "left": 0,
+                                    "opacity": 0,
+                                    "position": "absolute",
+                                    "right": 0,
+                                    "top": 0,
+                                  }
+                                }
+                              />
+                              <View
+                                style={
+                                  Array [
+                                    Object {
+                                      "backgroundColor": "transparent",
+                                      "bottom": 0,
+                                      "left": 0,
+                                      "overflow": "hidden",
+                                      "position": "absolute",
+                                      "right": 0,
+                                      "top": 0,
+                                    },
+                                    Object {
+                                      "borderRadius": 0,
+                                    },
+                                  ]
+                                }
+                              />
+                            </View>
+                          </View>
+                          <View
+                            onLayout={[Function]}
+                            style={null}
+                          >
+                            <View
+                              accessible={true}
+                              focusAnimation={null}
+                              focusAnimationDuration={225}
+                              hitSlop={
+                                Object {
+                                  "bottom": 6,
+                                  "left": 4,
+                                  "right": 4,
+                                  "top": 6,
+                                }
+                              }
+                              onLayout={[Function]}
+                              onPress={[Function]}
+                              onPressIn={[Function]}
+                              onPressOut={[Function]}
+                              onResponderGrant={[Function]}
+                              onResponderMove={[Function]}
+                              onResponderRelease={[Function]}
+                              onResponderTerminate={[Function]}
+                              onResponderTerminationRequest={[Function]}
+                              onStartShouldSetResponder={[Function]}
+                              pointerEvents="box-only"
+                              rippleCentered={false}
+                              rippleColor="#fff"
+                              rippleDuration={400}
+                              rippleFades={true}
+                              rippleOpacity={0}
+                              rippleSequential={true}
+                              rippleSize={0}
+                              style={
+                                Object {
+                                  "backgroundColor": "transparent",
+                                  "borderRadius": 0,
+                                  "height": 40,
+                                  "justifyContent": "center",
+                                  "paddingLeft": undefined,
+                                  "paddingRight": undefined,
+                                  "paddingVertical": 8,
+                                }
+                              }
+                            >
+                              <Text
+                                numberOfLines={1}
+                                style={
+                                  Array [
+                                    Object {
+                                      "textAlign": "left",
+                                    },
+                                    undefined,
+                                    Object {
+                                      "color": "rgba(0, 0, 0, .87)",
+                                      "fontSize": 16,
+                                    },
+                                  ]
+                                }
+                              >
                                 Buenos Aires
                               </Text>
                               <View
@@ -31356,6 +31681,7 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -31421,8 +31747,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
     >
       <RNSVGSvgView
         align="xMidYMid"
-        bbHeight="88"
-        bbWidth="88"
+        bbHeight={88}
+        bbWidth={88}
         height={88}
         meetOrSlice={0}
         minX={0}
@@ -31434,7 +31760,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               "borderWidth": 0,
             },
             undefined,
-            false,
+            null,
             Object {
               "flex": 0,
               "height": 88,
@@ -31452,10 +31778,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
           fill={
             Array [
               0,
-              0,
-              0,
-              0,
-              1,
+              4278190080,
             ]
           }
           fillOpacity={1}
@@ -31487,7 +31810,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
           strokeLinejoin={0}
           strokeMiterlimit={4}
           strokeOpacity={1}
-          strokeWidth="1"
+          strokeWidth={1}
+          vectorEffect={0}
           x={0}
           y={0}
         >
@@ -31512,8 +31836,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
             originY={0}
             propList={
               Array [
-                "stroke",
                 "fill",
+                "stroke",
               ]
             }
             rotation={0}
@@ -31528,7 +31852,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
             strokeLinejoin={0}
             strokeMiterlimit={4}
             strokeOpacity={1}
-            strokeWidth="1"
+            strokeWidth={1}
+            vectorEffect={0}
             x={0}
             y={0}
           >
@@ -31537,10 +31862,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  0.027450980392156862,
-                  0.8392156862745098,
-                  0.32941176470588235,
-                  1,
+                  4278703700,
                 ]
               }
               fillOpacity={1}
@@ -31576,7 +31898,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31585,10 +31908,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  1,
-                  1,
-                  1,
-                  1,
+                  4294967295,
                 ]
               }
               fillOpacity={1}
@@ -31624,7 +31944,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31633,10 +31954,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  0.1411764705882353,
-                  0.5098039215686274,
-                  0.19607843137254902,
-                  1,
+                  4280582706,
                 ]
               }
               fillOpacity={1}
@@ -31672,7 +31990,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31681,10 +32000,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  0.1411764705882353,
-                  0.5098039215686274,
-                  0.19607843137254902,
-                  1,
+                  4280582706,
                 ]
               }
               fillOpacity={1}
@@ -31720,7 +32036,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31729,10 +32046,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  0.16862745098039217,
-                  0.6588235294117647,
-                  0.2901960784313726,
-                  1,
+                  4281051210,
                 ]
               }
               fillOpacity={1}
@@ -31768,7 +32082,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31777,10 +32092,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  0.16862745098039217,
-                  0.6588235294117647,
-                  0.2901960784313726,
-                  1,
+                  4281051210,
                 ]
               }
               fillOpacity={1}
@@ -31816,7 +32128,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31825,10 +32138,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  0,
-                  0,
-                  0,
-                  1,
+                  4278190080,
                 ]
               }
               fillOpacity={1}
@@ -31860,7 +32170,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31869,10 +32180,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  0.1411764705882353,
-                  0.5098039215686274,
-                  0.19607843137254902,
-                  1,
+                  4280582706,
                 ]
               }
               fillOpacity={1}
@@ -31908,7 +32216,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31917,10 +32226,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               fill={
                 Array [
                   0,
-                  0.1411764705882353,
-                  0.5098039215686274,
-                  0.19607843137254902,
-                  1,
+                  4280582706,
                 ]
               }
               fillOpacity={1}
@@ -31956,7 +32262,8 @@ exports[`Storyshots Common.Logo Logo 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             />
@@ -31966,6 +32273,7 @@ exports[`Storyshots Common.Logo Logo 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -32143,6 +32451,7 @@ exports[`Storyshots Common.Menu Menu 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -32593,6 +32902,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -32722,6 +33032,7 @@ exports[`Storyshots Common.NavBarButton NavBarButton 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -32851,6 +33162,7 @@ exports[`Storyshots Common.NavBarButton NavBarButton main 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -32962,6 +33274,7 @@ exports[`Storyshots Common.NavDot NavDot active 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -33073,6 +33386,7 @@ exports[`Storyshots Common.NavDot NavDot default 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -33415,6 +33729,7 @@ exports[`Storyshots Common.NavDots Default 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -33509,6 +33824,7 @@ exports[`Storyshots Common.NothingFound NothingFound 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -33648,6 +33964,7 @@ exports[`Storyshots Common.OrDivider OrDivider 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -33755,6 +34072,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton default 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -33895,6 +34213,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton default with icon 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -33988,6 +34307,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton disabled 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -34104,6 +34424,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -34206,6 +34527,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost disabled 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -34313,6 +34635,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton info 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -34420,6 +34743,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton primary 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -34527,6 +34851,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton primary small 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -34634,6 +34959,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton secondary 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -34759,6 +35085,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton transparent 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -34866,6 +35193,7 @@ exports[`Storyshots Common.RaisedButton RaisedButton warning 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -35174,6 +35502,7 @@ exports[`Storyshots Common.Rating Rating 1 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -35482,6 +35811,7 @@ exports[`Storyshots Common.Rating Rating 3 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -35790,6 +36120,7 @@ exports[`Storyshots Common.Rating Rating 4.5 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -35896,6 +36227,7 @@ exports[`Storyshots Common.RoundButton RoundButton dark 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36002,6 +36334,7 @@ exports[`Storyshots Common.RoundButton RoundButton default 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36108,6 +36441,7 @@ exports[`Storyshots Common.RoundButton RoundButton disabled 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36214,6 +36548,7 @@ exports[`Storyshots Common.RoundButton RoundButton ghost 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36320,6 +36655,7 @@ exports[`Storyshots Common.RoundButton RoundButton ghost disabled 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36426,6 +36762,7 @@ exports[`Storyshots Common.RoundButton RoundButton info 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36532,6 +36869,7 @@ exports[`Storyshots Common.RoundButton RoundButton primary 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36638,6 +36976,7 @@ exports[`Storyshots Common.RoundButton RoundButton primary reverse 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36744,6 +37083,7 @@ exports[`Storyshots Common.RoundButton RoundButton primary small 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36850,6 +37190,7 @@ exports[`Storyshots Common.RoundButton RoundButton secondary 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -36965,6 +37306,7 @@ exports[`Storyshots Common.RoundButton RoundButton translucid 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37071,6 +37413,7 @@ exports[`Storyshots Common.RoundButton RoundButton warning 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37177,6 +37520,7 @@ exports[`Storyshots Common.RoundButton RoundButton warning reverse 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37256,6 +37600,7 @@ exports[`Storyshots Common.Row Row 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37335,7 +37680,7 @@ exports[`Storyshots Common.Slider Slider default 1`] = `
           ]
         }
       />
-      <RCTSlider
+      <RNCSlider
         disabled={false}
         enabled={true}
         maximumValue={20}
@@ -37343,6 +37688,8 @@ exports[`Storyshots Common.Slider Slider default 1`] = `
         minimumValue={0}
         onChange={[Function]}
         onResponderTerminationRequest={[Function]}
+        onSlidingComplete={null}
+        onSlidingStart={null}
         onStartShouldSetResponder={[Function]}
         onValueChange={[Function]}
         step={0}
@@ -37405,6 +37752,7 @@ exports[`Storyshots Common.Slider Slider default 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37484,7 +37832,7 @@ exports[`Storyshots Common.Slider Slider initialValue 5 1`] = `
           ]
         }
       />
-      <RCTSlider
+      <RNCSlider
         disabled={false}
         enabled={true}
         maximumValue={20}
@@ -37492,6 +37840,8 @@ exports[`Storyshots Common.Slider Slider initialValue 5 1`] = `
         minimumValue={0}
         onChange={[Function]}
         onResponderTerminationRequest={[Function]}
+        onSlidingComplete={null}
+        onSlidingStart={null}
         onStartShouldSetResponder={[Function]}
         onValueChange={[Function]}
         step={0}
@@ -37554,6 +37904,7 @@ exports[`Storyshots Common.Slider Slider initialValue 5 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37656,7 +38007,7 @@ exports[`Storyshots Common.SliderWithText SliderWithText 1`] = `
             ]
           }
         />
-        <RCTSlider
+        <RNCSlider
           disabled={false}
           enabled={true}
           maximumValue={20}
@@ -37664,6 +38015,8 @@ exports[`Storyshots Common.SliderWithText SliderWithText 1`] = `
           minimumValue={0}
           onChange={[Function]}
           onResponderTerminationRequest={[Function]}
+          onSlidingComplete={null}
+          onSlidingStart={null}
           onStartShouldSetResponder={[Function]}
           onValueChange={[Function]}
           step={0}
@@ -37727,6 +38080,7 @@ exports[`Storyshots Common.SliderWithText SliderWithText 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37822,6 +38176,7 @@ exports[`Storyshots Common.Spacer Spacer size L 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -37928,6 +38283,7 @@ exports[`Storyshots Common.Spacer Spacer size L row 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -38023,6 +38379,7 @@ exports[`Storyshots Common.Spacer Spacer size M 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -38129,6 +38486,7 @@ exports[`Storyshots Common.Spacer Spacer size M row 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -38224,6 +38582,7 @@ exports[`Storyshots Common.Spacer Spacer size S 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -38330,6 +38689,7 @@ exports[`Storyshots Common.Spacer Spacer size S row 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -38377,6 +38737,7 @@ exports[`Storyshots Common.SportCard SportCard 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -38424,6 +38785,7 @@ exports[`Storyshots Common.SportCard SportCard isSelected 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -38906,6 +39268,7 @@ exports[`Storyshots Common.SportPickerField SportPickerField 1`] = `
     </Modal>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -39309,6 +39672,7 @@ exports[`Storyshots Common.SportPickerField SportPickerField fullWidth size ML 1
     </Modal>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -39809,6 +40173,7 @@ exports[`Storyshots Common.SportPickerField SportPickerField white theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -39895,6 +40260,7 @@ exports[`Storyshots Common.SportsList SportsList 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -40031,6 +40397,7 @@ exports[`Storyshots Common.SwitchWithText SwitchWithText 1`] = `
           }
         >
           <RCTSwitch
+            accessibilityRole="button"
             onChange={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
@@ -40048,6 +40415,7 @@ exports[`Storyshots Common.SwitchWithText SwitchWithText 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -40145,6 +40513,7 @@ exports[`Storyshots Common.Tag Tag error 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -40242,6 +40611,7 @@ exports[`Storyshots Common.Tag Tag info 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -40339,6 +40709,7 @@ exports[`Storyshots Common.Tag Tag info long text 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -40436,6 +40807,7 @@ exports[`Storyshots Common.Tag Tag success 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -40533,6 +40905,7 @@ exports[`Storyshots Common.Tag Tag warning 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -40756,6 +41129,7 @@ exports[`Storyshots Common.TextField TextField 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -40997,6 +41371,7 @@ exports[`Storyshots Common.TextField TextField disabled 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -41248,6 +41623,7 @@ exports[`Storyshots Common.TextField TextField with MIX theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -41499,6 +41875,7 @@ exports[`Storyshots Common.TextField TextField with WHITE theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -41753,6 +42130,7 @@ exports[`Storyshots Common.TextField TextField with WHITE theme with ERROR 1`] =
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -42004,6 +42382,7 @@ exports[`Storyshots Common.TextField TextField with characterRestriction = 20 1`
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -42230,6 +42609,7 @@ exports[`Storyshots Common.TextField TextField with error 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -42481,6 +42861,7 @@ exports[`Storyshots Common.TextField TextField with white theme size ML 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -42567,6 +42948,7 @@ exports[`Storyshots Common.Triangle Triangle top left 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -42659,6 +43041,7 @@ exports[`Storyshots Common.Triangle Triangle top right primary 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -43115,6 +43498,7 @@ exports[`Storyshots DarkFooter DarkFooter NO Back button 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -43650,6 +44034,7 @@ exports[`Storyshots DarkFooter DarkFooter default 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -43787,6 +44172,7 @@ exports[`Storyshots DarkFooterButton DarkFooterButton BACK 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -43924,6 +44310,7 @@ exports[`Storyshots DarkFooterButton DarkFooterButton NEXT 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44049,6 +44436,7 @@ exports[`Storyshots DarkFooterButton DarkFooterButton NEXT disabled 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44122,6 +44510,7 @@ exports[`Storyshots Games.AdminMenu AdminMenu 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44169,6 +44558,7 @@ exports[`Storyshots Games.Attendees Attendees 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44224,6 +44614,7 @@ exports[`Storyshots Games.CancelGameForm CancelGameForm 1`] = `
     />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44283,6 +44674,7 @@ exports[`Storyshots Games.ClickableAttendees ClickableAttendees 1`] = `
     />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44347,6 +44739,7 @@ exports[`Storyshots Games.DescriptionReadMore DescriptionReadMore 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44457,6 +44850,7 @@ exports[`Storyshots Games.DescriptionReadMore DescriptionReadMorelong descriptio
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44512,6 +44906,7 @@ exports[`Storyshots Games.EditGameForm EditGameForm 1`] = `
     />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44605,6 +45000,7 @@ exports[`Storyshots Games.GameCanceledFlag GameCanceledFlag 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44662,6 +45058,7 @@ exports[`Storyshots Games.GameDetails GameDetails CANCELED 1`] = `
     </RCTScrollView>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44719,6 +45116,7 @@ exports[`Storyshots Games.GameDetails GameDetails PLANNED 1`] = `
     </RCTScrollView>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44768,6 +45166,7 @@ exports[`Storyshots Games.GameListCard GameListCard CANCELED 1`] = `
     <View />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44817,6 +45216,7 @@ exports[`Storyshots Games.GameListCard GameListCard CANCELED long title/name 1`]
     <View />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44866,6 +45266,7 @@ exports[`Storyshots Games.GameListCard GameListCard PLANNED 1`] = `
     <View />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44915,6 +45316,7 @@ exports[`Storyshots Games.GameListCard GameListCard PLANNED long title/name 1`] 
     <View />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -44964,6 +45366,7 @@ exports[`Storyshots Games.GameListCard GameListCard PLANNED short title/name 1`]
     <View />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45011,6 +45414,7 @@ exports[`Storyshots Games.GameProperties GameProperties 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45058,6 +45462,7 @@ exports[`Storyshots Games.GamesList GamesList 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45136,6 +45541,7 @@ exports[`Storyshots Games.GamesList GamesList no results 1`] = `
       onScrollBeginDrag={[Function]}
       onScrollEndDrag={[Function]}
       refreshing={false}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
@@ -45196,6 +45602,7 @@ exports[`Storyshots Games.GamesList GamesList no results 1`] = `
     </RCTScrollView>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45243,6 +45650,7 @@ exports[`Storyshots Games.OpenSpots OpenSpots 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45290,6 +45698,7 @@ exports[`Storyshots Games.Organizer Organizer M textSize 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45337,6 +45746,7 @@ exports[`Storyshots Games.Organizer Organizer S textSize 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45384,6 +45794,55 @@ exports[`Storyshots Games.Organizer Organizer default textSize (SM) 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Storyshots Games.PlayersTabs PlayersTabs 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45431,6 +45890,7 @@ exports[`Storyshots Games.ShareGameButton ShareGameButton default 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45567,6 +46027,7 @@ exports[`Storyshots Layouts.ClosableLayout ClosableLayout black theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45703,6 +46164,7 @@ exports[`Storyshots Layouts.ClosableLayout ClosableLayout white theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45803,6 +46265,7 @@ exports[`Storyshots Layouts.ClosableLayout ClosableLayout white theme NOT closab
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45892,6 +46355,7 @@ exports[`Storyshots Layouts.FixedTopLayout FixedTopLayout 1`] = `
     </RCTScrollView>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -45984,6 +46448,7 @@ exports[`Storyshots Layouts.TopBottomLayout TopBottomLayout black theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -46329,6 +46794,7 @@ exports[`Storyshots Modals.CancelConfirmModal CancelConfirmModal 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -47597,6 +48063,7 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -47870,6 +48337,7 @@ exports[`Storyshots Modals.ConfirmModal ConfirmModal 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -48422,6 +48890,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-01"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48467,6 +48936,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-02"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48512,6 +48982,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-03"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48557,6 +49028,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-04"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48602,6 +49074,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-05"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48647,6 +49120,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-06"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48692,6 +49166,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-07"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48748,6 +49223,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-08"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48793,6 +49269,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-09"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48838,6 +49315,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-10"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48883,6 +49361,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-11"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48928,6 +49407,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-12"
                           >
                             <Text
                               allowFontScaling={false}
@@ -48973,6 +49453,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-13"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49018,6 +49499,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-14"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49074,6 +49556,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-15"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49119,6 +49602,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-16"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49164,6 +49648,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-17"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49209,6 +49694,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-18"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49254,6 +49740,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-19"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49299,6 +49786,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-20"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49344,6 +49832,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-21"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49400,6 +49889,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-22"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49445,6 +49935,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-23"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49490,6 +49981,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-24"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49535,6 +50027,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-25"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49580,6 +50073,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-26"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49625,6 +50119,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-27"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49670,6 +50165,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-28"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49726,6 +50222,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-29"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49771,6 +50268,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-30"
                           >
                             <Text
                               allowFontScaling={false}
@@ -49816,6 +50314,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
                                 "width": 32,
                               }
                             }
+                            testID="native.calendar.SELECT_DATE_SLOT-2017-01-31"
                           >
                             <Text
                               allowFontScaling={false}
@@ -50048,6 +50547,7 @@ exports[`Storyshots Modals.DatePickerModal DatePickerModal 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -50271,6 +50771,7 @@ exports[`Storyshots Modals.DialogModal DialogModal 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -50504,6 +51005,7 @@ exports[`Storyshots Modals.DialogModal DialogModal big children 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -50716,6 +51218,7 @@ exports[`Storyshots Modals.DialogModal DialogModal big children no header 1`] = 
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -51153,6 +51656,7 @@ exports[`Storyshots Modals.ImageModal ImageModal CancelConfirmModal comp 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -51520,6 +52024,7 @@ exports[`Storyshots Modals.ImageModal ImageModal ConfirmModal comp 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -51680,6 +52185,7 @@ exports[`Storyshots Modals.Modal Modal no footer 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -51850,6 +52356,7 @@ exports[`Storyshots Modals.Modal Modal no footer big children 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -52020,6 +52527,7 @@ exports[`Storyshots Modals.Modal Modal no footer overflow children 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -52246,6 +52754,7 @@ exports[`Storyshots Modals.SportPickerModal SportPickerModal 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -52489,6 +52998,7 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
                       />
                     }
                     refreshing={true}
+                    removeClippedSubviews={false}
                     renderItem={[Function]}
                     scrollEventThrottle={50}
                     showsVerticalScrollIndicator={false}
@@ -52509,6 +53019,7 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -52632,6 +53143,7 @@ exports[`Storyshots Navigation.StackBackHeader StackBackHeader 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -52804,6 +53316,15 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
                     "id": "rotterdam",
                   },
                   Object {
+                    "city": "Barcelona",
+                    "coords": Object {
+                      "latitude": 41.3948975,
+                      "longitude": 2.0785562,
+                    },
+                    "country": "Spain",
+                    "id": "barcelona",
+                  },
+                  Object {
                     "city": "Buenos Aires",
                     "coords": Object {
                       "latitude": -34.6156624,
@@ -52829,6 +53350,7 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
               onScroll={[Function]}
               onScrollBeginDrag={[Function]}
               onScrollEndDrag={[Function]}
+              removeClippedSubviews={false}
               renderItem={[Function]}
               scrollEventThrottle={50}
               stickyHeaderIndices={Array []}
@@ -53127,6 +53649,83 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
                           }
                         }
                       >
+                        Barcelona
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    pixels={24}
+                    row={false}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "height": 24,
+                          "width": "auto",
+                        },
+                      ]
+                    }
+                  />
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      alignItems="center"
+                      bgColor="transparent"
+                      borderColor="white"
+                      disabled={false}
+                      justifyContent="center"
+                      size="M"
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "borderColor": "#fff",
+                            "borderRadius": 8,
+                            "borderStyle": "solid",
+                            "borderWidth": 1,
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "height": 48,
+                            "justifyContent": "center",
+                            "minWidth": 80,
+                            "width": "100%",
+                          },
+                          Object {},
+                        ]
+                      }
+                      width="100%"
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#fff",
+                            "fontFamily": "Rajdhani-SemiBold",
+                            "fontSize": 18,
+                            "lineHeight": 27,
+                            "textAlign": "left",
+                          }
+                        }
+                      >
                         Buenos Aires
                       </Text>
                     </View>
@@ -53140,6 +53739,7 @@ exports[`Storyshots Onboarding.LocationSlide LocationSlide 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -53857,6 +54457,7 @@ exports[`Storyshots Onboarding.OnboardingForm OnboardingForm 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -54002,6 +54603,7 @@ exports[`Storyshots PlanGame.InviteOnly InviteOnly isPrivate 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -54147,6 +54749,7 @@ exports[`Storyshots PlanGame.InviteOnly InviteOnly isPublic 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -54202,6 +54805,7 @@ exports[`Storyshots PlanGame.PlanGameForm PlanGameForm 1`] = `
     />
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -54876,6 +55480,7 @@ exports[`Storyshots PlanGame.ShareGameForm ShareGameForm white theme 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -54972,6 +55577,7 @@ exports[`Storyshots PlanGame.ShareLink ShareLink 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55068,6 +55674,7 @@ exports[`Storyshots PlanGame.ShareLink ShareLink long link 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55115,6 +55722,7 @@ exports[`Storyshots PlanGame.SpotSlide SpotSlide white theme 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55585,6 +56193,7 @@ exports[`Storyshots PlanGame.TitleDescriptionSlide TitleDescriptionSlide white t
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55632,6 +56241,7 @@ exports[`Storyshots Profile.EditProfileForm EditProfileForm 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55679,6 +56289,7 @@ exports[`Storyshots Profile.ProfileDetails ProfileDetails 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55726,6 +56337,7 @@ exports[`Storyshots Profile.ProfileEditScreen ProfileEditScreen 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55773,6 +56385,7 @@ exports[`Storyshots Profile.ProfileTabs ProfileTabs 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55950,6 +56563,7 @@ exports[`Storyshots Profile.UserMenu UserMenu 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -55997,6 +56611,7 @@ exports[`Storyshots Profile.UserSpots UserSpots 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -56074,6 +56689,7 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
       onScroll={[Function]}
       onScrollBeginDrag={[Function]}
       onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
@@ -56133,6 +56749,7 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
     </RCTScrollView>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -56273,6 +56890,7 @@ exports[`Storyshots Screen.Auth CheckEmailScreen LOGIN 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -56413,6 +57031,7 @@ exports[`Storyshots Screen.Auth CheckEmailScreen SIGNUP 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -56460,6 +57079,7 @@ exports[`Storyshots Screen.Auth ConfirmMagicTokenScreen 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -56850,6 +57470,7 @@ exports[`Storyshots Screen.Auth LoginScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -56897,6 +57518,7 @@ exports[`Storyshots Screen.Auth SignupEmailScreen 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -57416,6 +58038,7 @@ exports[`Storyshots Screen.Auth SignupScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -57483,8 +58106,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
           }
         >
           <RNSVGSvgView
-            bbHeight="1334"
-            bbWidth="750"
+            bbHeight={1334}
+            bbWidth={750}
             height={1334}
             style={
               Array [
@@ -57493,7 +58116,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   "borderWidth": 0,
                 },
                 undefined,
-                false,
+                null,
                 Object {
                   "flex": 0,
                   "height": 1334,
@@ -57507,10 +58130,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
               fill={
                 Array [
                   0,
-                  0,
-                  0,
-                  0,
-                  1,
+                  4278190080,
                 ]
               }
               fillOpacity={1}
@@ -57542,7 +58162,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             >
@@ -57551,10 +58172,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                 fill={
                   Array [
                     0,
-                    1,
-                    1,
-                    1,
-                    1,
+                    4294967295,
                   ]
                 }
                 fillOpacity={1}
@@ -57589,7 +58207,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               />
@@ -57598,10 +58217,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                 fill={
                   Array [
                     0,
-                    0,
-                    0.20784313725490197,
-                    0.22745098039215686,
-                    0.84,
+                    3590337850,
                   ]
                 }
                 fillOpacity={1}
@@ -57636,7 +58252,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               />
@@ -57674,8 +58291,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
         >
           <RNSVGSvgView
             align="xMidYMid"
-            bbHeight="88"
-            bbWidth="88"
+            bbHeight={88}
+            bbWidth={88}
             height={88}
             meetOrSlice={0}
             minX={0}
@@ -57687,7 +58304,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   "borderWidth": 0,
                 },
                 undefined,
-                false,
+                null,
                 Object {
                   "flex": 0,
                   "height": 88,
@@ -57705,10 +58322,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
               fill={
                 Array [
                   0,
-                  0,
-                  0,
-                  0,
-                  1,
+                  4278190080,
                 ]
               }
               fillOpacity={1}
@@ -57740,7 +58354,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
               strokeLinejoin={0}
               strokeMiterlimit={4}
               strokeOpacity={1}
-              strokeWidth="1"
+              strokeWidth={1}
+              vectorEffect={0}
               x={0}
               y={0}
             >
@@ -57765,8 +58380,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                 originY={0}
                 propList={
                   Array [
-                    "stroke",
                     "fill",
+                    "stroke",
                   ]
                 }
                 rotation={0}
@@ -57781,7 +58396,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               >
@@ -57790,10 +58406,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      0.027450980392156862,
-                      0.8392156862745098,
-                      0.32941176470588235,
-                      1,
+                      4278703700,
                     ]
                   }
                   fillOpacity={1}
@@ -57829,7 +58442,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -57838,10 +58452,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      1,
-                      1,
-                      1,
-                      1,
+                      4294967295,
                     ]
                   }
                   fillOpacity={1}
@@ -57877,7 +58488,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -57886,10 +58498,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      0.1411764705882353,
-                      0.5098039215686274,
-                      0.19607843137254902,
-                      1,
+                      4280582706,
                     ]
                   }
                   fillOpacity={1}
@@ -57925,7 +58534,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -57934,10 +58544,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      0.1411764705882353,
-                      0.5098039215686274,
-                      0.19607843137254902,
-                      1,
+                      4280582706,
                     ]
                   }
                   fillOpacity={1}
@@ -57973,7 +58580,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -57982,10 +58590,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      0.16862745098039217,
-                      0.6588235294117647,
-                      0.2901960784313726,
-                      1,
+                      4281051210,
                     ]
                   }
                   fillOpacity={1}
@@ -58021,7 +58626,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -58030,10 +58636,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      0.16862745098039217,
-                      0.6588235294117647,
-                      0.2901960784313726,
-                      1,
+                      4281051210,
                     ]
                   }
                   fillOpacity={1}
@@ -58069,7 +58672,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -58078,10 +58682,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      0,
-                      0,
-                      0,
-                      1,
+                      4278190080,
                     ]
                   }
                   fillOpacity={1}
@@ -58113,7 +58714,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -58122,10 +58724,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      0.1411764705882353,
-                      0.5098039215686274,
-                      0.19607843137254902,
-                      1,
+                      4280582706,
                     ]
                   }
                   fillOpacity={1}
@@ -58161,7 +58760,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -58170,10 +58770,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   fill={
                     Array [
                       0,
-                      0.1411764705882353,
-                      0.5098039215686274,
-                      0.19607843137254902,
-                      1,
+                      4280582706,
                     ]
                   }
                   fillOpacity={1}
@@ -58209,7 +58806,8 @@ exports[`Storyshots Screens SplashScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 />
@@ -58375,6 +58973,7 @@ exports[`Storyshots Screens SplashScreen 1`] = `
     </RCTScrollView>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -58706,6 +59305,7 @@ exports[`Storyshots Screens.Auth LoggedOutScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59073,6 +59673,7 @@ exports[`Storyshots Screens.Auth LoggedOutScreen closable 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59221,6 +59822,7 @@ exports[`Storyshots Screens.Debug DebugScreen 1`] = `
     </RCTScrollView>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59297,6 +59899,7 @@ exports[`Storyshots Screens.Games CancelGameScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59373,6 +59976,7 @@ exports[`Storyshots Screens.Games EditGameScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59499,6 +60103,7 @@ exports[`Storyshots Screens.Games GameChatScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59575,6 +60180,7 @@ exports[`Storyshots Screens.Games GameDetailsScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59672,6 +60278,7 @@ exports[`Storyshots Screens.Games GamesListScreen 1`] = `
           />
         }
         refreshing={true}
+        removeClippedSubviews={false}
         renderItem={[Function]}
         scrollEventThrottle={50}
         showsVerticalScrollIndicator={false}
@@ -59687,6 +60294,7 @@ exports[`Storyshots Screens.Games GamesListScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59763,6 +60371,7 @@ exports[`Storyshots Screens.Games PlayersListScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -59842,8 +60451,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
           >
             <RNSVGSvgView
               align="xMidYMid"
-              bbHeight="88"
-              bbWidth="88"
+              bbHeight={88}
+              bbWidth={88}
               height={88}
               meetOrSlice={0}
               minX={0}
@@ -59855,7 +60464,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     "borderWidth": 0,
                   },
                   undefined,
-                  false,
+                  null,
                   Object {
                     "flex": 0,
                     "height": 88,
@@ -59873,10 +60482,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                 fill={
                   Array [
                     0,
-                    0,
-                    0,
-                    0,
-                    1,
+                    4278190080,
                   ]
                 }
                 fillOpacity={1}
@@ -59908,7 +60514,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                 strokeLinejoin={0}
                 strokeMiterlimit={4}
                 strokeOpacity={1}
-                strokeWidth="1"
+                strokeWidth={1}
+                vectorEffect={0}
                 x={0}
                 y={0}
               >
@@ -59933,8 +60540,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                   originY={0}
                   propList={
                     Array [
-                      "stroke",
                       "fill",
+                      "stroke",
                     ]
                   }
                   rotation={0}
@@ -59949,7 +60556,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                   strokeLinejoin={0}
                   strokeMiterlimit={4}
                   strokeOpacity={1}
-                  strokeWidth="1"
+                  strokeWidth={1}
+                  vectorEffect={0}
                   x={0}
                   y={0}
                 >
@@ -59958,10 +60566,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.027450980392156862,
-                        0.8392156862745098,
-                        0.32941176470588235,
-                        1,
+                        4278703700,
                       ]
                     }
                     fillOpacity={1}
@@ -59997,7 +60602,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60006,10 +60612,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        1,
-                        1,
-                        1,
-                        1,
+                        4294967295,
                       ]
                     }
                     fillOpacity={1}
@@ -60045,7 +60648,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60054,10 +60658,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -60093,7 +60694,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60102,10 +60704,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -60141,7 +60740,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60150,10 +60750,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.16862745098039217,
-                        0.6588235294117647,
-                        0.2901960784313726,
-                        1,
+                        4281051210,
                       ]
                     }
                     fillOpacity={1}
@@ -60189,7 +60786,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60198,10 +60796,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.16862745098039217,
-                        0.6588235294117647,
-                        0.2901960784313726,
-                        1,
+                        4281051210,
                       ]
                     }
                     fillOpacity={1}
@@ -60237,7 +60832,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60246,10 +60842,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0,
-                        0,
-                        0,
-                        1,
+                        4278190080,
                       ]
                     }
                     fillOpacity={1}
@@ -60281,7 +60874,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60290,10 +60884,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -60329,7 +60920,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60338,10 +60930,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     fill={
                       Array [
                         0,
-                        0.1411764705882353,
-                        0.5098039215686274,
-                        0.19607843137254902,
-                        1,
+                        4280582706,
                       ]
                     }
                     fillOpacity={1}
@@ -60377,7 +60966,8 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
                     strokeLinejoin={0}
                     strokeMiterlimit={4}
                     strokeOpacity={1}
-                    strokeWidth="1"
+                    strokeWidth={1}
+                    vectorEffect={0}
                     x={0}
                     y={0}
                   />
@@ -60768,6 +61358,7 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -61485,6 +62076,7 @@ exports[`Storyshots Screens.Plan.OnboardingScreen OnboardingScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -62151,6 +62743,7 @@ exports[`Storyshots Screens.Plan.ShareGameScreen ShareGameScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -62227,6 +62820,7 @@ exports[`Storyshots Screens.Spots SpotsFilterScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -62308,6 +62902,9 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
             style={
               Array [
                 Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
                   "paddingBottom": 0,
                   "paddingLeft": 8,
                   "paddingRight": 8,
@@ -62352,6 +62949,7 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
                 />
               }
               refreshing={true}
+              removeClippedSubviews={false}
               renderItem={[Function]}
               scrollEventThrottle={50}
               showsVerticalScrollIndicator={false}
@@ -62369,6 +62967,7 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -62915,6 +63514,7 @@ exports[`Storyshots Screenslider ScreenSlider 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -62962,6 +63562,7 @@ exports[`Storyshots Spots.BackgroundImage BackgroundImage 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63009,6 +63610,7 @@ exports[`Storyshots Spots.SpotAmenities SpotAmenities 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63056,6 +63658,7 @@ exports[`Storyshots Spots.SpotHeader SpotHeader default 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63103,6 +63706,7 @@ exports[`Storyshots Spots.SpotHeader SpotHeader withDistance withGames 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63150,6 +63754,7 @@ exports[`Storyshots Spots.SpotHeader SpotHeader withDistance withGames gray 1`] 
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63197,6 +63802,7 @@ exports[`Storyshots Spots.SpotImage SpotImage 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63244,6 +63850,7 @@ exports[`Storyshots Spots.SpotLink SpotLink 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63291,6 +63898,7 @@ exports[`Storyshots Spots.SpotListCard SpotListCard 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63338,6 +63946,7 @@ exports[`Storyshots Spots.SpotListCardSmall SpotListCardSmall active 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63385,6 +63994,7 @@ exports[`Storyshots Spots.SpotListCardSmall SpotListCardSmall default 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63432,6 +64042,7 @@ exports[`Storyshots Spots.SpotMap SpotMap 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63479,6 +64090,7 @@ exports[`Storyshots Spots.SpotPickerField SpotPickerField default 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63526,6 +64138,7 @@ exports[`Storyshots Spots.SpotsFilterFlap SpotsFilterFlap 1`] = `
     }
   />
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63625,6 +64238,7 @@ exports[`Storyshots Spots.SpotsList SpotsList big card 1`] = `
           />
         }
         refreshing={true}
+        removeClippedSubviews={false}
         renderItem={[Function]}
         scrollEventThrottle={50}
         showsVerticalScrollIndicator={false}
@@ -63639,6 +64253,7 @@ exports[`Storyshots Spots.SpotsList SpotsList big card 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63738,6 +64353,7 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
           />
         }
         refreshing={true}
+        removeClippedSubviews={false}
         renderItem={[Function]}
         scrollEventThrottle={50}
         showsVerticalScrollIndicator={false}
@@ -63752,6 +64368,7 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
     </View>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63820,6 +64437,7 @@ exports[`Storyshots common.Icon Icon primaryGreen 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63888,6 +64506,7 @@ exports[`Storyshots common.Icon Icon size 30 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -63950,6 +64569,7 @@ exports[`Storyshots common.Text Text L size 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64012,6 +64632,7 @@ exports[`Storyshots common.Text Text M size 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64074,6 +64695,7 @@ exports[`Storyshots common.Text Text ML size 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64136,6 +64758,7 @@ exports[`Storyshots common.Text Text S size 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64198,6 +64821,7 @@ exports[`Storyshots common.Text Text XL bold 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64260,6 +64884,7 @@ exports[`Storyshots common.Text Text XL size 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64322,6 +64947,7 @@ exports[`Storyshots common.Text Text XL size error color 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64384,6 +65010,7 @@ exports[`Storyshots common.Text Text default SM size 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64446,6 +65073,7 @@ exports[`Storyshots common.Text Text default SM size bold 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64511,6 +65139,7 @@ exports[`Storyshots common.Text Text default SM size underline 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {
@@ -64574,6 +65203,7 @@ exports[`Storyshots common.Text Text numberOfLines={1} 1`] = `
     </Text>
   </View>
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       Object {

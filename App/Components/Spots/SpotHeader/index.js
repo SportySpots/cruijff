@@ -2,14 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
+import styled from 'styled-components';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import I18n from '../../../I18n';
 // import Rating from '../../Common/Rating';
 import Text from '../../Common/Text';
 import Row from '../../Common/Row';
+import Spacer from '../../Common/Spacer';
 import DotSpacer from '../../Common/DotSpacer';
 import curatedGames from './utils';
 
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const FlexOne = styled.View`
+  flex: 1;
+  overflow: hidden;
+`;
+//------------------------------------------------------------------------------
+const FlexNone = styled.View`
+  flex: none;
+  overflow: hidden;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -43,39 +57,47 @@ const SpotHeader = ({
           <Rating key="rating" rating={spot.rating || 4} />,
           <DotSpacer key="spacer" />,
         ] */}
-        {sports.map(({ category }, index) => [
-          <Text
-            key={category}
-            size="SM"
-            color={gray ? 'gray' : 'black'}
-          >
-            {I18n.t(category)}
-          </Text>,
-          // Don't add spacer in case it's the last item
-          index !== sports.length - 1 && (
-            <DotSpacer key={`spacer-${category}`} />
-          ),
-        ])}
-        {withDistance && !!distance && [
-          <DotSpacer key="spacer" />,
-          <Text
-            key="distance"
-            size="SM"
-            color={gray ? 'gray' : 'black'}
-          >
-            {`${distance} KM`}
-          </Text>,
-        ]}
-        {withGames && !!games && games.length > 0 && [
-          <DotSpacer key="spacer" />,
-          <Text
-            key="games"
-            size="SM"
-            color={gray ? 'gray' : 'actionYellow'}
-          >
-            {`${games.length} ${I18n.t('spotHeader.activities', { count: games.length }).toTitleCase()}`}
-          </Text>,
-        ]}
+        <FlexOne>
+          <Row>
+            {sports.map(({ category }, index) => [
+              <Text
+                key={category}
+                size="SM"
+                color={gray ? 'gray' : 'black'}
+                numberOfLines={1}
+              >
+                {I18n.t(category)}
+              </Text>,
+              // Don't add spacer in case it's the last item
+              index !== sports.length - 1 && (
+                <DotSpacer key={`spacer-${category}`} />
+              ),
+            ])}
+          </Row>
+        </FlexOne>
+        <Spacer row size="L" />
+        <FlexNone>
+          <Row justifyContent="flex-end">
+            {withDistance && !!distance && (
+              <Text
+                size="SM"
+                color={gray ? 'gray' : 'black'}
+              >
+                {`${distance} KM`}
+              </Text>
+            )}
+            {withGames && !!games && games.length > 0 && [
+              <DotSpacer key="spacer" />,
+              <Text
+                key="games"
+                size="SM"
+                color={gray ? 'gray' : 'actionYellow'}
+              >
+                {`${games.length} ${I18n.t('spotHeader.activities', { count: games.length }).toTitleCase()}`}
+              </Text>,
+            ]}
+          </Row>
+        </FlexNone>
       </Row>
     </View>
   );

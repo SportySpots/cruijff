@@ -24,6 +24,7 @@ const GamesContainer = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // <SpotRating spot={spot} userUUID={userUUID} />
+// TODO: we need get spot distance from query
 // eslint-disable-next-line
 const SpotDetails = ({ spot, onGamePress, userUUID }) => {
   // Filter passed games

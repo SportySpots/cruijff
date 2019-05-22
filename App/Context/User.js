@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 // import { Query } from 'react-apollo';
 import client from '../GraphQL/ApolloClient';
 import userDetailsFragment from '../GraphQL/Users/Fragments/userDetails';

@@ -25,8 +25,8 @@ const Overlay = styled.View`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: black;
-  opacity: .5;
+  background-color: ${({ theme }) => theme.colors.black};
+  opacity: 0.5;
   border-bottom-left-radius: ${({ top }) => (top ? 0 : 8)}px;
   border-bottom-right-radius: ${({ top }) => (top ? 0 : 8)}px;
   border-top-left-radius: ${({ top }) => (top ? 8 : 0)}px;

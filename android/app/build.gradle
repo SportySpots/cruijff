@@ -142,13 +142,18 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-reanimated')
+    implementation project(':@react-native-community_slider')
+    implementation project(':@react-native-community_async-storage')
+    implementation project(':@react-native-community_netinfo')
+    implementation project(':react-native-gesture-handler')
     implementation project(':react-native-localize')
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation "com.google.android.gms:play-services-base:16.0.1"
-    implementation "com.google.firebase:firebase-invites:16.0.4"
-    implementation 'com.google.firebase:firebase-core:16.0.4'
-    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation "com.google.android.gms:play-services-base:16.1.0"
+    implementation "com.google.firebase:firebase-invites:16.1.1"
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-messaging:17.5.0'
     // Add this line if you wish to use badge on Android
     implementation 'me.leolin:ShortcutBadger:1.1.21@aar'
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -174,3 +179,6 @@ task copyDownloadableDepsToLibs(type: Copy) {
 
 // firebase support
 apply plugin: 'com.google.gms.google-services'
+
+// https://github.com/microsoft/react-native-code-push/issues/1448
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

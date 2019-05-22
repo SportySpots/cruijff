@@ -26,9 +26,20 @@
 @property(nonatomic, copy) NSString *distributionGroupId;
 
 /**
+ * Optional user identifier.
+ */
+@property(nonatomic, copy) NSString *userId;
+
+/**
  * Device properties associated to this log.
  */
 @property(nonatomic) MSDevice *device;
+
+/**
+ * Transient object tag. For example, a log can be tagged with a transmission target. We do this currently to prevent properties being
+ * applied retroactively to previous logs by comparing their tags.
+ */
+@property(nonatomic) NSObject *tag;
 
 /**
  * Checks if the object's values are valid.

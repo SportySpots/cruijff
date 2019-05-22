@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import SeedorfAPI from '../../../Services/SeedorfApi';
 import curateErrors from './utils';
 
@@ -45,7 +45,7 @@ class EditProfileApiCall extends React.PureComponent {
     if (avatar.substr(0, 4) === 'data') {
       try {
         const res = await SeedorfAPI.updateUserAvatar({ userUUID, userProfileUUID, avatar });
-        console.log('RES AVATAR', res);
+        // console.log('RES AVATAR', res);
 
         // Pass event up to parent component in case of error
         if (res && res.problem) {

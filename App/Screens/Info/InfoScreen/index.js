@@ -83,7 +83,7 @@ class InfoScreen extends React.Component {
             text={I18n.t('infoScreen.privacy')}
             href="https://www.sportyspots.com/privacy.html"
             iconSet="MaterialCommunityIcons"
-            iconName="security-account"
+            iconName="shield-account"
           />
         </Block>
         <Divider />

@@ -9,5 +9,5 @@ console.warn = (...args) => {
 };
 
 initStoryshots({
-  storyKindRegex: /^((?!.*?(PlanGameScreen|TimePickerField|SportDateTimeSlide)).)*$/,
+  storyKindRegex: /^((?!.*?(PlanGameScreen|TimePickerField|SportDateTimeSlide|ConnectionCheck)).)*$/,
 });

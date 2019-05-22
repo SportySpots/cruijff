@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AsyncStorage, Image } from 'react-native';
+import { Image } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native';
 import firebase from 'react-native-firebase';
 import client from '../../../GraphQL/ApolloClient';

@@ -1,4 +1,9 @@
-import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+import {
+  createStackNavigator,
+  createSwitchNavigator,
+  createBottomTabNavigator,
+  createAppContainer,
+} from 'react-navigation';
 import {
   SplashNav,
   SpotSearchNav,
@@ -43,7 +48,7 @@ const AppNavigation = createSwitchNavigator({
   tabBarComponent: () => null,
 });
 
-export default AppNavigation;
+export default createAppContainer(AppNavigation);
 
 export const getActiveRouteName = (navigationState) => {
   if (!navigationState) {
