@@ -1,9 +1,10 @@
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import fetch from 'node-fetch';
-import { NativeModules as RNNativeModules } from 'react-native';
+import { NativeModules as RNNativeModules, Image } from 'react-native';
 import mockAsyncStorage from '@react-native-community/async-storage/jest/async-storage-mock';
 import '../storybook/setup_faker';
+import PropTypes from 'prop-types';
 
 global.fetch = fetch;
 
@@ -26,6 +27,12 @@ RNNativeModules.RNGestureHandlerModule = RNNativeModules.RNGestureHandlerModule 
 };
 RNNativeModules.PlatformConstants = RNNativeModules.PlatformConstants || {
   forceTouchAvailable: false,
+};
+
+Image.propTypes = {
+  ...Image.propTypes,
+  // eslint-disable-next-line react/forbid-prop-types
+  source: PropTypes.any,
 };
 
 // Mock your external modules here if needed
