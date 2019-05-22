@@ -1,3 +1,4 @@
+import '../App/prototypes/string';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import fetch from 'node-fetch';
@@ -103,8 +104,6 @@ jest.mock('../package.json', () => ({
 jest.mock('../App/Themes/Images.js', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/next.png', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/previous.png', () => jest.fn());
-
-String.prototype.toTitleCase = jest.fn(); // eslint-disable-line no-extend-native
 
 jest.useFakeTimers();
 Date.now = jest.fn(() => new Date(Date.UTC(2017, 0, 1)).valueOf());
