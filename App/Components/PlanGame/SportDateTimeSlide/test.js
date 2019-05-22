@@ -15,6 +15,12 @@ const mockYear = 2018;
 const mockDate = 1;
 
 const validSport = 'SOCCER';
+const mockSport = {
+  uuid: '1234',
+  id: 123,
+  name: 'Soccer',
+  category: 'SOCCER',
+};
 let validDate;
 let validTime;
 const validDuration = 120;
@@ -79,7 +85,7 @@ describe('SportDateTimeSlide', () => {
       {
         fieldName: 'sport',
         testID: 'pickSport',
-        value: validSport,
+        value: mockSport,
       },
       {
         fieldName: 'date',
@@ -144,14 +150,14 @@ describe('SportDateTimeSlide', () => {
       },
       {
         fieldName: 'date',
-        sport: validSport,
+        sport: mockSport,
         date: '',
         time: validTime,
         errorMsg: 'sportDateTimeSlide.fields.date.errors.required',
       },
       {
         fieldName: 'time',
-        sport: validSport,
+        sport: mockSport,
         date: validDate,
         time: '',
         errorMsg: 'sportDateTimeSlide.fields.time.errors.required',
@@ -173,7 +179,7 @@ describe('SportDateTimeSlide', () => {
 
   it('errors when form is submitted with past date-time', () => {
     const args = {
-      sport: validSport,
+      sport: mockSport,
       date: validDate.clone().subtract(1, 'days'),
       time: validTime,
     };
@@ -186,7 +192,7 @@ describe('SportDateTimeSlide', () => {
 
   it('errors when form is submitted with past date-time sooner than 15 min from now', () => {
     const args = {
-      sport: validSport,
+      sport: mockSport,
       date: validDate,
       time: validTime.clone().subtract(45, 'minutes'),
     };

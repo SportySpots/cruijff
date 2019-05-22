@@ -17,24 +17,29 @@ export const QueryCatchErrors = (props) => {
   return (
     <Query {...queryProps}>
       { (queryResultProps) => {
-        if (queryResultProps.error) {
-          const queryText = queryProps.query.loc && queryProps.query.loc.source.body.replace(/\n|\r/g, '');
-          console.log(
-            queryResultProps.error,
-            queryText,
-          );
-          if (logErrors) {
-            Analytics.trackEvent('GraphQL error', {
-              error: JSON.stringify(queryResultProps.error),
-              query: queryText,
-            });
+        try {
+          if (queryResultProps.error) {
+            const queryText = queryProps.query.loc && queryProps.query.loc.source.body.replace(/\n|\r/g, '');
+            console.log(
+              queryResultProps.error,
+              queryText,
+            );
+            if (logErrors) {
+              Analytics.trackEvent('GraphQL error', {
+                error: JSON.stringify(queryResultProps.error),
+                query: queryText,
+              });
+            }
+            return <ErrorComponent {...queryResultProps} />;
           }
+          return children(queryResultProps);
+        } catch (e) {
           if (crashApp) {
-            throw new Error(`GraphQL Error ${JSON.stringify(queryResultProps.error)}${queryText}`);
+            throw new Error(`GraphQL Error ${JSON.stringify(queryResultProps.error)}`);
           }
-          return <ErrorComponent {...queryResultProps} />;
+          // console.error(e);
+          return null;
         }
-        return children(queryResultProps);
       } }
     </Query>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
-import { View } from 'react-native';
 import cloneDeep from 'lodash/cloneDeep';
 import styled from 'styled-components';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';

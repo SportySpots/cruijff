@@ -15,6 +15,12 @@ const mockYear = 2018;
 const mockDate = 1;
 
 const validSport = 'SOCCER';
+const mockSport = {
+  uuid: '1234',
+  id: 123,
+  name: 'Soccer',
+  category: 'SOCCER',
+};
 let validDate;
 let validTime;
 
@@ -97,7 +103,7 @@ describe('PlanGameForm', () => {
     expect(wrapper.instance().state).toMatchObject(INIT_STATE);
 
     wrapper.instance().setState({
-      sport: validSport,
+      sport: mockSport,
       date: validDate,
       time: validTime,
     });
@@ -112,7 +118,7 @@ describe('PlanGameForm', () => {
     expect(wrapper.instance().state).toMatchObject(INIT_STATE);
 
     wrapper.instance().setState({
-      sport: validSport,
+      sport: mockSport,
       date: validDate,
       time: validTime,
     });
@@ -243,7 +249,7 @@ describe('PlanGameForm', () => {
 
     wrapper.instance().setState({
       curSlide: 2,
-      sport: validSport,
+      sport: mockSport,
       date: validDate,
       time: validTime,
       spot: spots[0],
@@ -277,7 +283,7 @@ describe('PlanGameForm', () => {
 
     wrapper.instance().setState({
       curSlide: 2,
-      sport: validSport,
+      sport: mockSport,
       date: validDate,
       time: validTime,
       spot: spots[0],
@@ -289,7 +295,7 @@ describe('PlanGameForm', () => {
     expect(handleClientCancel).not.toBeCalled();
     expect(handleSuccess).toBeCalledWith(
       expect.objectContaining({
-        sport: validSport,
+        sport: mockSport,
         date: validDate,
         time: validTime,
         spot: spots[0],
