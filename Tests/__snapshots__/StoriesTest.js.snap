@@ -2711,35 +2711,26 @@ exports[`Storyshots Chat.ChatBubble ChatBubble LEFT 1`] = `
                   Array [
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "url",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "phone",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "black",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "black",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "email",
                     },
                   ]
@@ -2909,35 +2900,26 @@ exports[`Storyshots Chat.ChatBubble ChatBubble RIGHT 1`] = `
                   Array [
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "url",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "phone",
                     },
                     Object {
                       "onPress": [Function],
-                      "style": Array [
-                        Object {
-                          "color": "white",
-                          "textDecorationLine": "underline",
-                        },
-                        undefined,
-                      ],
+                      "style": Object {
+                        "color": "white",
+                        "textDecorationLine": "underline",
+                      },
                       "type": "email",
                     },
                   ]
@@ -3062,7 +3044,6 @@ exports[`Storyshots Chat.ChatComposer ChatComposer 1`] = `
         onChangeText={[Function]}
         onContentSizeChange={[Function]}
         placeholder="placeholder"
-        placeholderTextColor="#b2b2b2"
         style={
           Array [
             Object {
