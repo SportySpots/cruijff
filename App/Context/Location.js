@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -31,6 +31,15 @@ export const CITIES = [
     coords: {
       latitude: 51.9280572,
       longitude: 4.420195,
+    },
+  },
+  {
+    id: 'barcelona',
+    city: 'Barcelona',
+    country: 'Spain',
+    coords: {
+      latitude: 41.3948975,
+      longitude: 2.0785562,
     },
   },
   {

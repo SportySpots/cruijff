@@ -13,14 +13,20 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Label = props => (
+const Label = ({ children, ...rest }) => (
   <Text
     size="SM"
     color="black"
     style={{ flex: 1 }}
-    {...props}
-  />
+    {...rest}
+  >
+    {children}
+  </Text>
 );
+
+Label.propTypes = {
+  ...Text.propTypes,
+};
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -38,7 +44,7 @@ const GameProperties = ({ game, onSpotPress }) => {
   return (
     <View>
       <Text size="ML" color="black">
-        {name}
+        {name || '?'}
       </Text>
       <Spacer size="L" />
       <Row>
@@ -49,7 +55,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         />
         <Spacer row size="L" />
         <Label>
-          {moment.utc(startTime).format('dddd, D MMMM').toTitleCase()}
+          {startTime ? moment.utc(startTime).format('dddd, D MMMM').toTitleCase() : '?'}
         </Label>
       </Row>
       <Spacer size="M" />
@@ -61,7 +67,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         />
         <Spacer row size="L" />
         <Label>
-          {`${moment.utc(startTime).local().format('HH:mm')} ${endTime ? ` - ${moment.utc(endTime).local().format('HH:mm')}` : ''}`}
+          {`${startTime ? moment.utc(startTime).local().format('HH:mm') : '?'}${endTime ? ` - ${moment.utc(endTime).local().format('HH:mm')}` : ''}`}
         </Label>
       </Row>
       <Spacer size="M" />
@@ -73,7 +79,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         />
         <Spacer row size="L" />
         <Label>
-          {I18n.t(sport.category)}
+          {(sport && sport.category && I18n.t(sport.category)) || '?'}
         </Label>
       </Row>
       <Spacer size="M" />

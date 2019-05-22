@@ -1,33 +1,77 @@
+import '../App/prototypes/string';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import fetch from 'node-fetch';
+import { NativeModules as RNNativeModules, Image } from 'react-native';
+import mockAsyncStorage from '@react-native-community/async-storage/jest/async-storage-mock';
 import '../storybook/setup_faker';
+import PropTypes from 'prop-types';
 
 global.fetch = fetch;
 
 Enzyme.configure({ adapter: new Adapter() });
 
+RNNativeModules.UIManager = RNNativeModules.UIManager || {};
+RNNativeModules.UIManager.RCTView = RNNativeModules.UIManager.RCTView || {};
+RNNativeModules.RNGestureHandlerModule = RNNativeModules.RNGestureHandlerModule || {
+  State: {
+    BEGAN: 'BEGAN',
+    FAILED: 'FAILED',
+    ACTIVE: 'ACTIVE',
+    END: 'END',
+  },
+  attachGestureHandler: jest.fn(),
+  createGestureHandler: jest.fn(),
+  dropGestureHandler: jest.fn(),
+  updateGestureHandler: jest.fn(),
+
+};
+RNNativeModules.PlatformConstants = RNNativeModules.PlatformConstants || {
+  forceTouchAvailable: false,
+};
+
+Image.propTypes = {
+  ...Image.propTypes,
+  // eslint-disable-next-line react/forbid-prop-types
+  source: PropTypes.any,
+};
+
 // Mock your external modules here if needed
-jest
-  .mock('i18n-js', () => {
-    const english = require('../App/I18n/languages/english.json');
-    const keys = require('ramda');
-    const replace = require('ramda');
-    const forEach = require('ramda');
+jest.mock('i18n-js', () => {
+  const english = require('../App/I18n/languages/english.json');
+  const keys = require('ramda');
+  const replace = require('ramda');
+  const forEach = require('ramda');
 
-    return {
-      t: (key, replacements) => {
-        let value = english[key];
-        if (!value) return key;
-        if (!replacements) return value;
+  return {
+    t: (key, replacements) => {
+      let value = english[key];
+      if (!value) return key;
+      if (!replacements) return value;
 
-        forEach((r) => {
-          value = replace(`{{${r}}}`, replacements[r], value);
-        }, keys(replacements));
-        return value;
-      },
-    };
-  });
+      forEach((r) => {
+        value = replace(`{{${r}}}`, replacements[r], value);
+      }, keys(replacements));
+      return value;
+    },
+  };
+});
+
+jest.mock('react-native-tab-view', () => ({
+  out: jest.fn(),
+}));
+
+jest.mock('react-native-reanimated', () => ({
+  Value: jest.fn(),
+  event: jest.fn(),
+  add: jest.fn(),
+  eq: jest.fn(),
+  set: jest.fn(),
+  cond: jest.fn(),
+  interpolate: jest.fn(),
+  // View,
+  Extrapolate: { CLAMP: jest.fn() },
+}));
 
 // Mock react-native-cookies
 // REF: https://github.com/joeferraro/react-native-cookies/issues/16
@@ -61,8 +105,6 @@ jest.mock('../App/Themes/Images.js', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/next.png', () => jest.fn());
 jest.mock('../node_modules/react-native-calendars/src/calendar/img/previous.png', () => jest.fn());
 
-String.prototype.toTitleCase = jest.fn(); // eslint-disable-line no-extend-native
-
 jest.useFakeTimers();
 Date.now = jest.fn(() => new Date(Date.UTC(2017, 0, 1)).valueOf());
 
@@ -86,15 +128,7 @@ jest.mock('../App/Components/Spots/SpotsList/utils.js', () => ({
   curatedSpots: jest.fn(),
 }));
 
-// jest.mock('react-native/Libraries/Storage/AsyncStorage', () => ({
-//   AsyncStorage: {
-//     setItem: jest.fn(() => Promise.resolve()),
-//     getItem: jest.fn(() => Promise.resolve(JSON.stringify({
-//       latitude: 52.379189,
-//       longitude: 4.899431,
-//     }))),
-//   },
-// }));
+jest.mock('@react-native-community/async-storage', () => mockAsyncStorage);
 
 const localStorageMock = {
   getItem: jest.fn(),

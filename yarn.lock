@@ -934,6 +934,11 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@react-native-community/async-storage@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.4.0.tgz#11864c8ff61b7f8c7062cb8f5c3a721f6a648ede"
+  integrity sha512-Aksg16keqrxaluFRZwmo8O8ppP9TFylyCEwBElmxeZ+a6DQAvyMn5nS3n+lgSpkYsrwU2ZGVjDluhkjtBrkEqQ==
+
 "@react-native-community/cli@^1.2.1":
   version "1.9.4"
   resolved "https://registry.npmjs.org/@react-native-community/cli/-/cli-1.9.4.tgz#51e4ba30aa6ee29f0c1e2bedf69ac7d1a4df1a8c"
@@ -973,6 +978,16 @@
     ws "^1.1.0"
     xcode "^2.0.0"
     xmldoc "^0.4.0"
+
+"@react-native-community/netinfo@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-2.0.10.tgz#d28a446352e75754b78509557988359133cdbcca"
+  integrity sha512-NrIzyLe0eSbhgMnHl2QdSEhaA7yXh6p9jzMomfUa//hoTXE+xbObGDdiWWSQm2bnXnZJg8XCU3AB9qzvqcuLnA==
+
+"@react-native-community/slider@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-1.1.1.tgz#eb549f37cf19dcd449d5df39d98fd1260903c309"
+  integrity sha512-8Ql9zrHOZnjtrTcZxlctP1yMYrpJtfiCZxciGR97/tt3MKBznDGAzP1CDKgYmm5ub/djJnvVdFQOfjSLRDgzdw==
 
 "@react-navigation/core@~3.4.1":
   version "3.4.1"
@@ -3694,6 +3709,11 @@ eventemitter3@^3.0.0, eventemitter3@^3.1.0:
   version "3.1.2"
   resolved "https://registry.npmjs.org/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
+
+events@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/events/-/events-3.0.0.tgz#9a0a0dfaf62893d92b875b8f2698ca4114973e88"
+  integrity sha512-Dc381HFWJzEOhQ+d8pkNon++bk9h6cdAoAj4iE6Q4y6xgTzySWXlKn05/TVNpjnfRqi/X0EpJEJohPjNI3zpVA==
 
 exec-sh@^0.2.0:
   version "0.2.2"
@@ -8489,21 +8509,22 @@ react-native-firebase@^5.1.1:
 
 react-native-gesture-handler@^1.2.1:
   version "1.2.1"
-  resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-1.2.1.tgz#9c48fb1ab13d29cece24bbb77b1e847eebf27a2b"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.2.1.tgz#9c48fb1ab13d29cece24bbb77b1e847eebf27a2b"
   integrity sha512-c1+L72Vjc/bwHKcIJ8a2/88SW9l3/axcAIpg3zB1qTzwdCxHZJeQn6d58cQXHPepxFBbgfTCo60B7SipSfo+zw==
   dependencies:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
-react-native-gifted-chat@0.8.0:
-  version "0.8.0"
-  resolved "https://registry.npmjs.org/react-native-gifted-chat/-/react-native-gifted-chat-0.8.0.tgz#7303f6cb1930679c179fed546da3800c24a5070d"
-  integrity sha512-exzSPxyH3+OLGTKrJHlz8yKrCNQ8xWclE74zw4ZVyj2vYAE73kKC3ehiZ4eMUZJlaJWynov7B2rlE9N72YTw6w==
+react-native-gifted-chat@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-gifted-chat/-/react-native-gifted-chat-0.9.0.tgz#d427bcccafd4527f60479294ffe7ca074cd24642"
+  integrity sha512-fl+G6VA8KjH4nF8wtsZC5v78Qcxw9+Sggob6NNa+T5jrklbeHSOLWadJPSozVv5IAxoTG+yokUILlLB5zXklAw==
   dependencies:
     "@expo/react-native-action-sheet" "^2.0.1"
     moment "^2.19.0"
     react-native-communications "2.2.1"
+    react-native-iphone-x-helper "^1.2.0"
     react-native-lightbox "^0.7.0"
     react-native-parsed-text "^0.0.20"
     react-native-video "^3.2.1"
@@ -8519,7 +8540,7 @@ react-native-image-picker@^0.28.1:
   resolved "https://registry.npmjs.org/react-native-image-picker/-/react-native-image-picker-0.28.1.tgz#1127460522e0c9741fc62f3d040271d298fb6a6e"
   integrity sha512-CW2dm+cjsdW2fjBW2WD/cSufNG0x0UpljwGHrjSzyB0TckoW+tjYv44UWtckCWxr1JtCg+QrYDO/MzlRyFcjwQ==
 
-react-native-iphone-x-helper@^1.0.3:
+react-native-iphone-x-helper@^1.0.3, react-native-iphone-x-helper@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.0.tgz#9f8a376eb00bc712115abff4420318a0063fa796"
   integrity sha512-xIeTo4s77wwKgBZLVRIZC9tM9/PkXS46Ul76NXmvmixEb3ZwqGdQesR3zRiLMOoIdfOURB6N9bba9po7+x9Bag==
@@ -8624,6 +8645,11 @@ react-native-popup-menu@0.15.6:
   resolved "https://registry.npmjs.org/react-native-popup-menu/-/react-native-popup-menu-0.15.6.tgz#ebf885c289028e330dd66d887e685a8b0c2de970"
   integrity sha512-ILFbQEofZQThVYAtVcOEgHJ+9wvn8992J+Oy/ByX83PoP88Meq3iw3pG1AwxMOoAPm/LjihtsDBqZ1lxjvosDg==
 
+react-native-reanimated@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.0.1.tgz#5ecb6a2f6dad0351077ac9b771ca943b7ad6feda"
+  integrity sha512-RENoo6/sJc3FApP7vJ1Js7WyDuTVh97bbr5aMjJyw3kqpR2/JDHyL/dQFfOvSSAc+VjitpR9/CfPPad7tLRiIA==
+
 react-native-safe-area-view@^0.13.0:
   version "0.13.1"
   resolved "https://registry.npmjs.org/react-native-safe-area-view/-/react-native-safe-area-view-0.13.1.tgz#834bbb6d22f76a7ff07de56725ee5667ba1386b0"
@@ -8670,6 +8696,11 @@ react-native-tab-view@^1.2.0, react-native-tab-view@^1.3.4:
   integrity sha512-YnTO4tavO0TXN1nHVQel+4IB0SYoke+moAbdsai9I5DlQ2PTtW4077Vm2N9cdN7zCb5JoWKHulyB9jtTdKR3fQ==
   dependencies:
     prop-types "^15.6.1"
+
+react-native-tab-view@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.2.0.tgz#30d015b8f33f497d82419b56df7d43ecfcc3f9b1"
+  integrity sha512-mhFDRvPH/kmvqfAzTwNptbOM/xXmpqYRsD0PSMJX1nP0LzhU4uRI1QmSW6sWZGLyOwKgVw0ZYkwZ54N8AmoO1A==
 
 react-native-vector-icons@^6.0.2:
   version "6.4.2"

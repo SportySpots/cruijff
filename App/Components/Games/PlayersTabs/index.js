@@ -1,74 +1,71 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import { Dimensions } from 'react-native';
+import { TabView, TabBar } from 'react-native-tab-view';
 import Colors from '../../../Themes/Colors';
 import I18n from '../../../I18n';
-import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Text from '../../Common/Text';
 import PlayersList from '../PlayersList';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const PlayersTabs = ({ attendees, absents }) => (
-  React.createElement(createMaterialTopTabNavigator({
-    Attending: {
-      screen: () => (
-        <PlayersList players={attendees} />
-      ),
-      navigationOptions: {
-        tabBarLabel: (
-          <Text bold>
-            {I18n.t('playersTabs.attending')}
-          </Text>
-        ),
-      },
-    },
-    Declining: {
-      screen: () => (
-        <PlayersList players={absents} />
-      ),
-      navigationOptions: {
-        tabBarLabel: (
-          <Text bold>
-            {I18n.t('playersTabs.declined')}
-          </Text>
-        ),
-      },
-    },
-  }, {
-    tabBarPosition: 'top',
-    tabBarOptions: {
-      style: {
-        backgroundColor: Colors.white,
-      },
-      labelStyle: {
-        color: 'black',
-        fontWeight: '700',
-      },
-      indicatorStyle: {
-        backgroundColor: Colors.primaryGreen,
-        height: 4,
-      },
-    },
-    initialRouteName: 'Attending',
-  }))
-);
+class PlayersTabs extends React.PureComponent {
+  state = {
+    index: 0,
+    routes: [
+      { key: 'attending', title: 'Attending' },
+      { key: 'declined', title: 'Declined' },
+    ],
+  }
+
+  handleIndexChange = (index) => {
+    this.setState({ index });
+  }
+
+  render() {
+    const { attendees, absents } = this.props;
+    const { index, routes } = this.state;
+
+    return (
+      <TabView
+        navigationState={{ index, routes }}
+        renderScene={({ route }) => {
+          switch (route.key) {
+            case 'attending':
+              return <PlayersList players={attendees} />;
+            case 'declined':
+              return <PlayersList players={absents} />;
+            default:
+              return null;
+          }
+        }}
+        onIndexChange={this.handleIndexChange}
+        initialLayout={{ width: Dimensions.get('window').width }}
+        renderTabBar={props => (
+          <TabBar
+            {...props}
+            indicatorStyle={{
+              backgroundColor: Colors.primaryGreen,
+              height: 4,
+            }}
+            style={{
+              backgroundColor: Colors.white,
+            }}
+            renderLabel={({ route }) => (
+              <Text bold>
+                {I18n.t(`playersTabs.${route.key}`)}
+              </Text>
+            )}
+          />
+        )}
+      />
+    );
+  }
+}
 
 PlayersTabs.propTypes = {
-  attendees: PropTypes.arrayOf(
-    PropTypes.shape({
-      user: propType(userDetailsFragment),
-      createdAt: PropTypes.instanceOf(Date),
-    }),
-  ),
-  absents: PropTypes.arrayOf(
-    PropTypes.shape({
-      user: propType(userDetailsFragment),
-      createdAt: PropTypes.instanceOf(Date),
-    }),
-  ),
+  attendees: PlayersList.propTypes.players,
+  absents: PlayersList.propTypes.players,
 };
 
 PlayersTabs.defaultProps = {

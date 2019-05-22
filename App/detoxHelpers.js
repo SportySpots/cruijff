@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
 import _React from 'react';
 import _expect from 'expect';
-// eslint-disable-next-line quotes
-import { AsyncStorage as _AsyncStorage } from "react-native";
-
+import _AsyncStorage from '@react-native-community/async-storage';
 import _refs from './globalRefs';
 import config from './config';
 

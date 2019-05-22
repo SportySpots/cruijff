@@ -13,9 +13,9 @@ const setSize = ({ size }) => getSize(size);
 // STYLE:
 //------------------------------------------------------------------------------
 const Circle = styled.View`
-  width: ${setSize};
-  height: ${setSize};
-  border-radius: ${setSize};
+  width: ${setSize}px;
+  height: ${setSize}px;
+  border-radius: ${setSize}px;
   background-color: ${({ theme, bgColor }) => (theme.colors[bgColor] || theme.colors.primaryGreen)};
   flex-direction: column;
   justify-content: center;
@@ -24,8 +24,8 @@ const Circle = styled.View`
 `;
 //------------------------------------------------------------------------------
 const StyledImage = styled.Image`
-  width: ${setSize};
-  height: ${setSize};
+  width: ${setSize}px;
+  height: ${setSize}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

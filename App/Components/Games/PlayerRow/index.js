@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
 import moment from 'moment';
 import I18n from '../../../I18n';
-import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -25,9 +23,7 @@ const PlayerRow = ({ player }) => {
         <View>
           <Text size="M">{user.name}</Text>
           <Text size="SM" color="gray">
-            {I18n.t(player.status === 'ATTENDING' ? 'playerRow.signedUpOn' : 'playerRow.signedOutOn')}
-            &nbsp;
-            {moment.utc(createdAt).local().format('D MMMM HH:mm')}
+            {`${I18n.t(player.status === 'ATTENDING' ? 'playerRow.signedUpOn' : 'playerRow.signedOutOn')} ${moment.utc(createdAt).local().format('D MMMM HH:mm')}`}
           </Text>
         </View>
       </Row>
@@ -37,8 +33,8 @@ const PlayerRow = ({ player }) => {
 
 PlayerRow.propTypes = {
   player: PropTypes.shape({
-    user: propType(userDetailsFragment).isRequired,
-    created_at: PropTypes.instanceOf(Date).isRequired,
+    user: Avatar.propTypes.user.isRequired,
+    created_at: PropTypes.string.isRequired,
   }).isRequired,
 };
 

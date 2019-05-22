@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import client from '../../../GraphQL/ApolloClient';
 import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
