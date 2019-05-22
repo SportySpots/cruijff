@@ -48,8 +48,8 @@ const getInitState = (game) => {
 
   // throw new Error(typeof endTime + typeof startTime);
 
-  const startMoment = startTime ? moment.utc(startTime) : moment.now();
-  const endMoment = endTime ? moment.utc(endTime) : moment.now();
+  const startMoment = startTime ? moment.utc(startTime) : moment.utc();
+  const endMoment = endTime ? moment.utc(endTime) : moment.utc();
 
   // TODO: handle case when startMoment is null
   return {
