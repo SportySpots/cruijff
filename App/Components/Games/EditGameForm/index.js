@@ -46,8 +46,10 @@ const getInitState = (game) => {
     invite_mode: inviteMode,
   } = game;
 
-  const startMoment = startTime ? moment.utc(startTime) : null;
-  const endMoment = endTime ? moment.utc(endTime) : null;
+  // throw new Error(typeof endTime + typeof startTime);
+
+  const startMoment = startTime ? moment.utc(startTime) : moment.utc();
+  const endMoment = endTime ? moment.utc(endTime) : moment.utc();
 
   // TODO: handle case when startMoment is null
   return {
@@ -129,7 +131,6 @@ class EditGameForm extends React.PureComponent {
 
   handleChange = ({ fieldName, value }) => {
     const { errors } = this.state;
-
     // Update value and clear errors for the given field
     this.setState({
       [fieldName]: value,
@@ -307,7 +308,7 @@ class EditGameForm extends React.PureComponent {
             <DatePickerField
               testID="editGameFieldDate"
               label={I18n.t('editGameForm.fields.date.label')}
-              value={date}
+              value={date || moment.utc()}
               error={dateErrors}
               size="ML"
               disabled={disabled}
@@ -324,7 +325,7 @@ class EditGameForm extends React.PureComponent {
                 <TimePickerField
                   testID="editGameFieldTime"
                   label={I18n.t('editGameForm.fields.time.label')}
-                  value={time}
+                  value={time || moment.utc()}
                   error={timeErrors}
                   size="ML"
                   disabled={disabled}

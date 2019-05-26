@@ -11,7 +11,6 @@ import I18n from '../../../I18n';
 import { addGlobalRef } from '../../../globalRefs';
 import ClosableLayout from '../../Layouts/ClosableLayout';
 import AbsoluteCenteredActivityIndicator from '../../Common/AbsoluteCenteredActivityIndicator';
-import CenteredActivityIndicator from '../../Common/CenteredActivityIndicator';
 import Footer from '../../Common/DarkFooter';
 import SportDateTimeSlide, {
   INIT_STATE as SPORT_DATE_TIME_INIT_STATE,
