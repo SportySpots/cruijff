@@ -25,7 +25,7 @@
   "Spain": "España",
 
   "splashScreen": {
-    "title": "Descubre centros deportivos y actividades cerca tuyo",
+    "title": "Descubre centros deportivos y actividades cerca de ti",
     "btnLabel": "Empezar a descubrir",
     "loginLink": "Ya registrado? Iniciar sesión",
     "signupLink": "Registrarse"
@@ -180,8 +180,8 @@
     "organizer": "Organizador",
     "description": "Descripción",
     "attending": "Participantes",
-    "openSpots": "Lugares disponibles",
-    "fullMsg": "No hay lugares disponibles",
+    "openSpots": "Plazas disponibles",
+    "fullMsg": "No hay plazas disponibles",
     "join": "Te apuntas?",
     "edit": "Editar presencia",
     "share": "Compartir con amigos"
@@ -669,7 +669,7 @@
     },
     "joinGame": {
       "title": "Unete a un juego",
-      "text": "Descubre centros deportivos y actividades cerca tuyo."
+      "text": "Descubre centros deportivos y actividades cerca de ti."
     },
     "planGame": {
       "title": "Organiza una actividad",
