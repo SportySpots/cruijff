@@ -1,24 +1,12 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
-import { showLocation } from 'react-native-map-link';
 import I18n from '../../../I18n';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
 import Block from '../../Common/Block';
-import getSpotLocation from './utils';
+import { getSpotLocation, openGoogleMapsLocation } from '../utils';
 
-// -----------------------------------------------------------------------------
-// AUX FUNCTIONS:
-// -----------------------------------------------------------------------------
-const handleLocationBtnPress = ({ latLng, title = '' }) => {
-  showLocation({
-    ...latLng,
-    title,
-    // force GoogleMaps to use the latLng from the query instead of the title
-    googleForceLatLon: true,
-  });
-};
 // -----------------------------------------------------------------------------
 // COMPONENT:
 // -----------------------------------------------------------------------------
@@ -37,7 +25,7 @@ const SpotLink = ({ spot }) => {
     <Text
       color="actionBlue"
       onPress={() => {
-        handleLocationBtnPress({ latLng, title: spot.name });
+        openGoogleMapsLocation({ latLng, title: spot.name });
       }}
     >
       {I18n.t('spotLink.link.anchor')}

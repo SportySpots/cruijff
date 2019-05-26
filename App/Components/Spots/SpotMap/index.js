@@ -13,7 +13,7 @@ import {
   getSpotLocation,
   openGoogleMapsLocation,
   // openGoogleMapsDirections,
-} from './utils';
+} from '../utils';
 
 // -----------------------------------------------------------------------------
 // CONSTANTS:
