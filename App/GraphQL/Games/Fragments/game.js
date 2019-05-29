@@ -12,6 +12,7 @@ const gameFragment = gql`
     is_featured
     show_remaining
     capacity
+    share_link
     sport {
       id
       uuid

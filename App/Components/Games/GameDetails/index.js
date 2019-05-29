@@ -118,7 +118,7 @@ const GameDetails = ({
     ),
     <Block key="share">
       <Label>{I18n.t('gameDetails.share')}</Label>
-      <ShareGameButton gameUUID={game.uuid} />
+      <ShareGameButton shareLink={game.share_link} />
     </Block>,
   ];
 };

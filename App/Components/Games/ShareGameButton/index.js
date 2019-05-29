@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Share } from 'react-native';
 import firebase from 'react-native-firebase';
-import config from '../../../config';
 import I18n from '../../../I18n';
 import RoundButton from '../../Common/RoundButton';
 
@@ -11,15 +10,14 @@ import RoundButton from '../../Common/RoundButton';
 //------------------------------------------------------------------------------
 class ShareGameButton extends React.PureComponent {
   handleShare = () => {
-    const { gameUUID } = this.props;
+    const { shareLink } = this.props;
 
     firebase.analytics().logEvent('share_btn_press');
 
     const title = 'SportySpots';
-    const url = `https://${config.deeplinkHost}/games/${gameUUID}`;
-    const message = `${I18n.t('shareGameButton.msg')} ${url}`;
+    const message = `${I18n.t('shareGameButton.msg')} ${shareLink}`;
 
-    const content = { title, message, url };
+    const content = { title, message, url: shareLink };
     const options = { dialogTitle: I18n.t('shareGameButton.dialogTitle'), subject: title };
 
     Share.share(content, options)
@@ -46,7 +44,8 @@ class ShareGameButton extends React.PureComponent {
   }
 }
 ShareGameButton.propTypes = {
-  gameUUID: PropTypes.string.isRequired,
+  // gameUUID: PropTypes.string.isRequired,
+  shareLink: PropTypes.string.isRequired,
 };
 
 export default ShareGameButton;

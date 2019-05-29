@@ -61,8 +61,8 @@ class ShareGameForm extends React.PureComponent {
   }
 
   render() {
-    const { gameUUID, disabled } = this.props;
-    const { isPublic } = this.state;
+    const { shareLink, disabled } = this.props;
+    // const { isPublic } = this.state;
 
     return (
       <FlexOne>
@@ -85,7 +85,7 @@ class ShareGameForm extends React.PureComponent {
             </Text>
           </Row>
           <Spacer size="XXL" />
-          <ShareGameButton gameUUID={gameUUID} />
+          <ShareGameButton shareLink={shareLink} />
           <Spacer size="XXXL" />
           {/* <InviteOnly
             isPublic={isPublic}
@@ -106,6 +106,7 @@ class ShareGameForm extends React.PureComponent {
 }
 
 ShareGameForm.propTypes = {
+  shareLink: PropTypes.string.isRequired,
   gameUUID: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,

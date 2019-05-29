@@ -1,0 +1,3661 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: Query
+}
+
+type AddressType {
+  created_at: DateTime!
+  deleted_at: DateTime
+  "Formatted address returned by the geocoding service"
+  formatted_address: String!
+  "Geocoder used to convert raw address into latlong coordinates."
+  geocoder_service: AddressGeocoderService
+  id: ID!
+  lat: Float
+  lng: Float
+  modified_at: DateTime!
+  plus_global_code: String
+  plus_local_code: String
+  "Lat/Lng Point"
+  point: GeoJSON
+  "Complete address"
+  raw_address: String!
+  "Raw api response from the geocoder service. e.g. google maps"
+  raw_geocoder_response: JSONString
+  spot: SpotType
+  uuid: UUID!
+}
+
+type DjangoDebug {
+  sql: [DjangoDebugSQL]
+}
+
+type DjangoDebugSQL {
+  alias: String
+  duration: Float
+  encoding: String
+  is_select: Boolean
+  is_slow: Boolean
+  iso_level: String
+  params: String
+  raw_sql: String
+  sql: String
+  start_time: Float
+  stop_time: Float
+  trans_id: String
+  trans_status: String
+  vendor: String
+}
+
+type GameType {
+  attendees: [RsvpStatusType]
+  "Capacity"
+  capacity: Int
+  "ChatKit room ID."
+  chatkit_room_id: Int
+  "Created At"
+  created_at: CustomDateTime
+  "Deleted At"
+  deleted_at: CustomDateTime
+  "Description of the game."
+  description: String
+  "End time of the game in UTC."
+  end_time: CustomDateTime
+  "Timezone of the end time of the game."
+  end_timezone: GameEndTimezoneEnum
+  "Django object unique identification field"
+  id: ID!
+  "If the game is open for everyone to join or based on organizers approval or is invite only."
+  invite_mode: GameInviteModeEnum
+  "If this game is featured."
+  is_featured: Boolean
+  "If this game is publicly searchable on SportySpots."
+  is_listed: Boolean
+  "If this game shows social sharing buttons."
+  is_shareable: Boolean
+  "Modified At"
+  modified_at: CustomDateTime
+  "name"
+  name: String
+  organizer: UserType
+  "UTC time after that RSVPs will no longer be accepted, though organizers may close RSVPs earlier"
+  rsvp_close_time: CustomDateTime
+  "Is RSVPing explicitly closed for the game."
+  rsvp_closed: Boolean
+  "UTC time before that RSVPs will no longer be accepted, though organizers may close RSVPs earlier"
+  rsvp_open_time: CustomDateTime
+  "Shareable link (app/web) to this game."
+  share_link: String
+  "If the game page should show the number of open player spots left."
+  show_remaining: Boolean
+  "Sport"
+  sport: SportType
+  spot: SpotType
+  "Start time of the game in UTC."
+  start_time: CustomDateTime
+  "Timezone of the start time of the game."
+  start_timezone: GameStartTimezoneEnum
+  "Status"
+  status: GameStatusEnum
+  "Unique Identifier"
+  uuid: UUID
+}
+
+type Query {
+  address(uuid: UUID): AddressType
+  addresses: [AddressType]
+  debug: DjangoDebug
+  game(uuid: UUID): GameType
+  "Game list"
+  games(
+    capacity__gte: Float,
+    capacity__lte: Float,
+    distance: String,
+    end_time__gte: DateTime,
+    end_time__lte: DateTime,
+    #Django object unique identification field
+    id: ID,
+    invite_mode: String,
+    is_featured: Boolean,
+    is_listed: Boolean,
+    is_shareable: Boolean,
+    #Number of results to return per page. Default 'default_limit': 20, and 'max_limit': 50
+    limit: Int = 20,
+    name: String,
+    name__icontains: String,
+    #The initial index from which to return the results. Default: 0
+    offset: Int,
+    #A string or comma delimited string values that indicate the default ordering when obtaining lists of objects.
+    ordering: String,
+    organizer__uuid: UUID,
+    rsvp_close_time__gte: DateTime,
+    rsvp_close_time__lte: DateTime,
+    rsvp_closed: Boolean,
+    rsvp_open_time__gte: DateTime,
+    rsvp_open_time__lte: DateTime,
+    show_remaining: Boolean,
+    sport__category: String,
+    sport__uuid: UUID,
+    spot__name: String,
+    spot__name__icontains: String,
+    spot__uuid: UUID,
+    start_time__gte: DateTime,
+    start_time__lte: DateTime,
+    status: String
+  ): [GameType]
+  rsvp_status(uuid: UUID): RsvpStatusType
+  "RsvpStatus list"
+  rsvp_statuses(
+    game__uuid: UUID,
+    #Django object unique identification field
+    id: ID,
+    #Number of results to return per page. Default 'default_limit': 20, and 'max_limit': 50
+    limit: Int = 20,
+    #The initial index from which to return the results. Default: 0
+    offset: Int,
+    #A string or comma delimited string values that indicate the default ordering when obtaining lists of objects.
+    ordering: String,
+    status: String,
+    user__uuid: UUID
+  ): [RsvpStatusType]
+  sport(uuid: UUID): SportType
+  "Sport list"
+  sports(
+    category: String,
+    description__icontains: String,
+    #Django object unique identification field
+    id: ID,
+    #Number of results to return per page. Default 'default_limit': 20, and 'max_limit': 50
+    limit: Int = 20,
+    name: String,
+    name__icontains: String,
+    #The initial index from which to return the results. Default: 0
+    offset: Int,
+    #A string or comma delimited string values that indicate the default ordering when obtaining lists of objects.
+    ordering: String
+  ): [SportType]
+  spot(uuid: UUID): SpotType
+  "Spot list"
+  spots(
+    distance: String,
+    #Django object unique identification field
+    id: ID,
+    is_permanently_closed: Boolean,
+    is_public: Boolean,
+    is_temporary: Boolean,
+    is_verified: Boolean,
+    #Number of results to return per page. Default 'default_limit': 20, and 'max_limit': 50
+    limit: Int = 20,
+    name: String,
+    name__icontains: String,
+    #The initial index from which to return the results. Default: 0
+    offset: Int,
+    #A string or comma delimited string values that indicate the default ordering when obtaining lists of objects.
+    ordering: String,
+    owner: String,
+    owner__icontains: String,
+    sports__category: String,
+    sports__ids: [ID]
+  ): [SpotType]
+  user(email: String, id: ID, uuid: UUID): UserType
+  users: [UserType]
+}
+
+type RsvpStatusType {
+  "Created At"
+  created_at: CustomDateTime
+  "Deleted At"
+  deleted_at: CustomDateTime
+  "Game"
+  game: GameType
+  "Django object unique identification field"
+  id: ID!
+  "Modified At"
+  modified_at: CustomDateTime
+  "Status"
+  status: RsvpStatusStatusEnum
+  user: UserType
+  "Unique Identifier"
+  uuid: UUID
+}
+
+type SportType {
+  "Name of the main category of the sport (e.g. Soccer)."
+  category: SportCategoryEnum
+  "Created At"
+  created_at: CustomDateTime
+  "Deleted At"
+  deleted_at: CustomDateTime
+  "Sport Description"
+  description: String
+  "Django object unique identification field"
+  id: ID!
+  "Modified At"
+  modified_at: CustomDateTime
+  "Name of the sub category of the sport (e.g. Soccer 5x5)."
+  name: String
+  sport_games: [GameType]
+  "translations"
+  translations: JSONString
+  "Unique Identifier"
+  uuid: UUID
+}
+
+type SpotAmenityType {
+  created_at: DateTime!
+  data: JSONString!
+  deleted_at: DateTime
+  id: ID!
+  modified_at: DateTime!
+  spot: SpotType!
+  uuid: UUID!
+}
+
+type SpotImageType {
+  created_at: DateTime!
+  deleted_at: DateTime
+  id: ID!
+  image: String!
+  "Is this image marked as offensive/ non-relevant ?"
+  is_flagged: Boolean!
+  "Is this image submitted by the user ?"
+  is_user_submitted: Boolean!
+  modified_at: DateTime!
+  spot: SpotType!
+  uuid: UUID!
+}
+
+type SpotOpeningTimeType {
+  created_at: DateTime!
+  day: SpotOpeningTimeDay!
+  deleted_at: DateTime
+  end_time: Time!
+  id: ID!
+  is_closed: Boolean!
+  modified_at: DateTime!
+  spot: SpotType!
+  start_time: Time!
+  uuid: UUID!
+}
+
+"Type definition for a single spot"
+type SpotType {
+  address: AddressType
+  amenities: [SpotAmenityType]
+  closure_date: Date
+  created_at: DateTime!
+  deleted_at: DateTime
+  description: String!
+  establishment_date: Date
+  followers: [UserProfileType]
+  games: [GameType]
+  "Where can we find out more about this spot ?"
+  homepage_url: String!
+  id: ID!
+  images: [SpotImageType]
+  "Is this Spot permanently closed ?"
+  is_permanently_closed: Boolean!
+  "Is this Spot a public spot ?"
+  is_public: Boolean!
+  "Is this spot temporary (e.g. for a special event) ?"
+  is_temporary: Boolean!
+  "Is this Spot verfified by the SportySpots team ?"
+  is_verified: Boolean!
+  logo: String!
+  modified_at: DateTime!
+  name: String!
+  opening_times: [SpotOpeningTimeType]
+  owner: String!
+  slug: String!
+  sports: [SportType]
+  uuid: UUID!
+}
+
+type UserProfileType {
+  avatar: String
+  bio: String!
+  country: UserProfileCountry!
+  created_at: DateTime!
+  deleted_at: DateTime
+  gender: UserProfileGender!
+  id: ID!
+  language: UserProfileLanguage!
+  modified_at: DateTime!
+  sports: [SportType]
+  spots: [SpotType]
+  timezone: UserProfileTimezone!
+  uuid: UUID!
+  year_of_birth: Int
+}
+
+type UserType {
+  created_at: DateTime!
+  date_joined: DateTime!
+  deleted_at: DateTime
+  email: String!
+  first_name: String!
+  id: ID!
+  "Designates whether this user should be treated as active. Unselect this instead of deleting accounts."
+  is_active: Boolean!
+  "Designates whether the user can log into this admin site."
+  is_staff: Boolean!
+  "Designates that this user has all permissions without explicitly assigning them."
+  is_superuser: Boolean!
+  last_login: DateTime
+  last_name: String!
+  modified_at: DateTime!
+  name: String!
+  profile: UserProfileType
+  sports: [SportType]
+  spots: [SpotType]
+  "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+  username: String!
+  uuid: UUID!
+}
+
+"An enumeration."
+enum AddressGeocoderService {
+  #Bing
+  BING
+  #Google
+  GOOGLE
+  #Here Maps
+  HERE
+  #Manual
+  MANUAL
+  #Open Street Maps
+  OPEN_STREET_MAPS
+}
+
+"An enumeration."
+enum GameEndTimezoneEnum {
+  #Africa/Abidjan
+  AFRICA_ABIDJAN
+  #Africa/Accra
+  AFRICA_ACCRA
+  #Africa/Addis_Ababa
+  AFRICA_ADDIS_ABABA
+  #Africa/Algiers
+  AFRICA_ALGIERS
+  #Africa/Asmara
+  AFRICA_ASMARA
+  #Africa/Bamako
+  AFRICA_BAMAKO
+  #Africa/Bangui
+  AFRICA_BANGUI
+  #Africa/Banjul
+  AFRICA_BANJUL
+  #Africa/Bissau
+  AFRICA_BISSAU
+  #Africa/Blantyre
+  AFRICA_BLANTYRE
+  #Africa/Brazzaville
+  AFRICA_BRAZZAVILLE
+  #Africa/Bujumbura
+  AFRICA_BUJUMBURA
+  #Africa/Cairo
+  AFRICA_CAIRO
+  #Africa/Casablanca
+  AFRICA_CASABLANCA
+  #Africa/Ceuta
+  AFRICA_CEUTA
+  #Africa/Conakry
+  AFRICA_CONAKRY
+  #Africa/Dakar
+  AFRICA_DAKAR
+  #Africa/Dar_es_Salaam
+  AFRICA_DAR_ES_SALAAM
+  #Africa/Djibouti
+  AFRICA_DJIBOUTI
+  #Africa/Douala
+  AFRICA_DOUALA
+  #Africa/El_Aaiun
+  AFRICA_EL_AAIUN
+  #Africa/Freetown
+  AFRICA_FREETOWN
+  #Africa/Gaborone
+  AFRICA_GABORONE
+  #Africa/Harare
+  AFRICA_HARARE
+  #Africa/Johannesburg
+  AFRICA_JOHANNESBURG
+  #Africa/Juba
+  AFRICA_JUBA
+  #Africa/Kampala
+  AFRICA_KAMPALA
+  #Africa/Khartoum
+  AFRICA_KHARTOUM
+  #Africa/Kigali
+  AFRICA_KIGALI
+  #Africa/Kinshasa
+  AFRICA_KINSHASA
+  #Africa/Lagos
+  AFRICA_LAGOS
+  #Africa/Libreville
+  AFRICA_LIBREVILLE
+  #Africa/Lome
+  AFRICA_LOME
+  #Africa/Luanda
+  AFRICA_LUANDA
+  #Africa/Lubumbashi
+  AFRICA_LUBUMBASHI
+  #Africa/Lusaka
+  AFRICA_LUSAKA
+  #Africa/Malabo
+  AFRICA_MALABO
+  #Africa/Maputo
+  AFRICA_MAPUTO
+  #Africa/Maseru
+  AFRICA_MASERU
+  #Africa/Mbabane
+  AFRICA_MBABANE
+  #Africa/Mogadishu
+  AFRICA_MOGADISHU
+  #Africa/Monrovia
+  AFRICA_MONROVIA
+  #Africa/Nairobi
+  AFRICA_NAIROBI
+  #Africa/Ndjamena
+  AFRICA_NDJAMENA
+  #Africa/Niamey
+  AFRICA_NIAMEY
+  #Africa/Nouakchott
+  AFRICA_NOUAKCHOTT
+  #Africa/Ouagadougou
+  AFRICA_OUAGADOUGOU
+  #Africa/Porto-Novo
+  AFRICA_PORTO_NOVO
+  #Africa/Sao_Tome
+  AFRICA_SAO_TOME
+  #Africa/Tripoli
+  AFRICA_TRIPOLI
+  #Africa/Tunis
+  AFRICA_TUNIS
+  #Africa/Windhoek
+  AFRICA_WINDHOEK
+  #America/Adak
+  AMERICA_ADAK
+  #America/Anchorage
+  AMERICA_ANCHORAGE
+  #America/Anguilla
+  AMERICA_ANGUILLA
+  #America/Antigua
+  AMERICA_ANTIGUA
+  #America/Araguaina
+  AMERICA_ARAGUAINA
+  #America/Argentina/Buenos_Aires
+  AMERICA_ARGENTINA_BUENOS_AIRES
+  #America/Argentina/Catamarca
+  AMERICA_ARGENTINA_CATAMARCA
+  #America/Argentina/Cordoba
+  AMERICA_ARGENTINA_CORDOBA
+  #America/Argentina/Jujuy
+  AMERICA_ARGENTINA_JUJUY
+  #America/Argentina/La_Rioja
+  AMERICA_ARGENTINA_LA_RIOJA
+  #America/Argentina/Mendoza
+  AMERICA_ARGENTINA_MENDOZA
+  #America/Argentina/Rio_Gallegos
+  AMERICA_ARGENTINA_RIO_GALLEGOS
+  #America/Argentina/Salta
+  AMERICA_ARGENTINA_SALTA
+  #America/Argentina/San_Juan
+  AMERICA_ARGENTINA_SAN_JUAN
+  #America/Argentina/San_Luis
+  AMERICA_ARGENTINA_SAN_LUIS
+  #America/Argentina/Tucuman
+  AMERICA_ARGENTINA_TUCUMAN
+  #America/Argentina/Ushuaia
+  AMERICA_ARGENTINA_USHUAIA
+  #America/Aruba
+  AMERICA_ARUBA
+  #America/Asuncion
+  AMERICA_ASUNCION
+  #America/Atikokan
+  AMERICA_ATIKOKAN
+  #America/Bahia
+  AMERICA_BAHIA
+  #America/Bahia_Banderas
+  AMERICA_BAHIA_BANDERAS
+  #America/Barbados
+  AMERICA_BARBADOS
+  #America/Belem
+  AMERICA_BELEM
+  #America/Belize
+  AMERICA_BELIZE
+  #America/Blanc-Sablon
+  AMERICA_BLANC_SABLON
+  #America/Boa_Vista
+  AMERICA_BOA_VISTA
+  #America/Bogota
+  AMERICA_BOGOTA
+  #America/Boise
+  AMERICA_BOISE
+  #America/Cambridge_Bay
+  AMERICA_CAMBRIDGE_BAY
+  #America/Campo_Grande
+  AMERICA_CAMPO_GRANDE
+  #America/Cancun
+  AMERICA_CANCUN
+  #America/Caracas
+  AMERICA_CARACAS
+  #America/Cayenne
+  AMERICA_CAYENNE
+  #America/Cayman
+  AMERICA_CAYMAN
+  #America/Chicago
+  AMERICA_CHICAGO
+  #America/Chihuahua
+  AMERICA_CHIHUAHUA
+  #America/Costa_Rica
+  AMERICA_COSTA_RICA
+  #America/Creston
+  AMERICA_CRESTON
+  #America/Cuiaba
+  AMERICA_CUIABA
+  #America/Curacao
+  AMERICA_CURACAO
+  #America/Danmarkshavn
+  AMERICA_DANMARKSHAVN
+  #America/Dawson
+  AMERICA_DAWSON
+  #America/Dawson_Creek
+  AMERICA_DAWSON_CREEK
+  #America/Denver
+  AMERICA_DENVER
+  #America/Detroit
+  AMERICA_DETROIT
+  #America/Dominica
+  AMERICA_DOMINICA
+  #America/Edmonton
+  AMERICA_EDMONTON
+  #America/Eirunepe
+  AMERICA_EIRUNEPE
+  #America/El_Salvador
+  AMERICA_EL_SALVADOR
+  #America/Fortaleza
+  AMERICA_FORTALEZA
+  #America/Fort_Nelson
+  AMERICA_FORT_NELSON
+  #America/Glace_Bay
+  AMERICA_GLACE_BAY
+  #America/Godthab
+  AMERICA_GODTHAB
+  #America/Goose_Bay
+  AMERICA_GOOSE_BAY
+  #America/Grand_Turk
+  AMERICA_GRAND_TURK
+  #America/Grenada
+  AMERICA_GRENADA
+  #America/Guadeloupe
+  AMERICA_GUADELOUPE
+  #America/Guatemala
+  AMERICA_GUATEMALA
+  #America/Guayaquil
+  AMERICA_GUAYAQUIL
+  #America/Guyana
+  AMERICA_GUYANA
+  #America/Halifax
+  AMERICA_HALIFAX
+  #America/Havana
+  AMERICA_HAVANA
+  #America/Hermosillo
+  AMERICA_HERMOSILLO
+  #America/Indiana/Indianapolis
+  AMERICA_INDIANA_INDIANAPOLIS
+  #America/Indiana/Knox
+  AMERICA_INDIANA_KNOX
+  #America/Indiana/Marengo
+  AMERICA_INDIANA_MARENGO
+  #America/Indiana/Petersburg
+  AMERICA_INDIANA_PETERSBURG
+  #America/Indiana/Tell_City
+  AMERICA_INDIANA_TELL_CITY
+  #America/Indiana/Vevay
+  AMERICA_INDIANA_VEVAY
+  #America/Indiana/Vincennes
+  AMERICA_INDIANA_VINCENNES
+  #America/Indiana/Winamac
+  AMERICA_INDIANA_WINAMAC
+  #America/Inuvik
+  AMERICA_INUVIK
+  #America/Iqaluit
+  AMERICA_IQALUIT
+  #America/Jamaica
+  AMERICA_JAMAICA
+  #America/Juneau
+  AMERICA_JUNEAU
+  #America/Kentucky/Louisville
+  AMERICA_KENTUCKY_LOUISVILLE
+  #America/Kentucky/Monticello
+  AMERICA_KENTUCKY_MONTICELLO
+  #America/Kralendijk
+  AMERICA_KRALENDIJK
+  #America/La_Paz
+  AMERICA_LA_PAZ
+  #America/Lima
+  AMERICA_LIMA
+  #America/Los_Angeles
+  AMERICA_LOS_ANGELES
+  #America/Lower_Princes
+  AMERICA_LOWER_PRINCES
+  #America/Maceio
+  AMERICA_MACEIO
+  #America/Managua
+  AMERICA_MANAGUA
+  #America/Manaus
+  AMERICA_MANAUS
+  #America/Marigot
+  AMERICA_MARIGOT
+  #America/Martinique
+  AMERICA_MARTINIQUE
+  #America/Matamoros
+  AMERICA_MATAMOROS
+  #America/Mazatlan
+  AMERICA_MAZATLAN
+  #America/Menominee
+  AMERICA_MENOMINEE
+  #America/Merida
+  AMERICA_MERIDA
+  #America/Metlakatla
+  AMERICA_METLAKATLA
+  #America/Mexico_City
+  AMERICA_MEXICO_CITY
+  #America/Miquelon
+  AMERICA_MIQUELON
+  #America/Moncton
+  AMERICA_MONCTON
+  #America/Monterrey
+  AMERICA_MONTERREY
+  #America/Montevideo
+  AMERICA_MONTEVIDEO
+  #America/Montserrat
+  AMERICA_MONTSERRAT
+  #America/Nassau
+  AMERICA_NASSAU
+  #America/New_York
+  AMERICA_NEW_YORK
+  #America/Nipigon
+  AMERICA_NIPIGON
+  #America/Nome
+  AMERICA_NOME
+  #America/Noronha
+  AMERICA_NORONHA
+  #America/North_Dakota/Beulah
+  AMERICA_NORTH_DAKOTA_BEULAH
+  #America/North_Dakota/Center
+  AMERICA_NORTH_DAKOTA_CENTER
+  #America/North_Dakota/New_Salem
+  AMERICA_NORTH_DAKOTA_NEW_SALEM
+  #America/Ojinaga
+  AMERICA_OJINAGA
+  #America/Panama
+  AMERICA_PANAMA
+  #America/Pangnirtung
+  AMERICA_PANGNIRTUNG
+  #America/Paramaribo
+  AMERICA_PARAMARIBO
+  #America/Phoenix
+  AMERICA_PHOENIX
+  #America/Porto_Velho
+  AMERICA_PORTO_VELHO
+  #America/Port-au-Prince
+  AMERICA_PORT_AU_PRINCE
+  #America/Port_of_Spain
+  AMERICA_PORT_OF_SPAIN
+  #America/Puerto_Rico
+  AMERICA_PUERTO_RICO
+  #America/Punta_Arenas
+  AMERICA_PUNTA_ARENAS
+  #America/Rainy_River
+  AMERICA_RAINY_RIVER
+  #America/Rankin_Inlet
+  AMERICA_RANKIN_INLET
+  #America/Recife
+  AMERICA_RECIFE
+  #America/Regina
+  AMERICA_REGINA
+  #America/Resolute
+  AMERICA_RESOLUTE
+  #America/Rio_Branco
+  AMERICA_RIO_BRANCO
+  #America/Santarem
+  AMERICA_SANTAREM
+  #America/Santiago
+  AMERICA_SANTIAGO
+  #America/Santo_Domingo
+  AMERICA_SANTO_DOMINGO
+  #America/Sao_Paulo
+  AMERICA_SAO_PAULO
+  #America/Scoresbysund
+  AMERICA_SCORESBYSUND
+  #America/Sitka
+  AMERICA_SITKA
+  #America/St_Barthelemy
+  AMERICA_ST_BARTHELEMY
+  #America/St_Johns
+  AMERICA_ST_JOHNS
+  #America/St_Kitts
+  AMERICA_ST_KITTS
+  #America/St_Lucia
+  AMERICA_ST_LUCIA
+  #America/St_Thomas
+  AMERICA_ST_THOMAS
+  #America/St_Vincent
+  AMERICA_ST_VINCENT
+  #America/Swift_Current
+  AMERICA_SWIFT_CURRENT
+  #America/Tegucigalpa
+  AMERICA_TEGUCIGALPA
+  #America/Thule
+  AMERICA_THULE
+  #America/Thunder_Bay
+  AMERICA_THUNDER_BAY
+  #America/Tijuana
+  AMERICA_TIJUANA
+  #America/Toronto
+  AMERICA_TORONTO
+  #America/Tortola
+  AMERICA_TORTOLA
+  #America/Vancouver
+  AMERICA_VANCOUVER
+  #America/Whitehorse
+  AMERICA_WHITEHORSE
+  #America/Winnipeg
+  AMERICA_WINNIPEG
+  #America/Yakutat
+  AMERICA_YAKUTAT
+  #America/Yellowknife
+  AMERICA_YELLOWKNIFE
+  #Antarctica/Casey
+  ANTARCTICA_CASEY
+  #Antarctica/Davis
+  ANTARCTICA_DAVIS
+  #Antarctica/DumontDUrville
+  ANTARCTICA_DUMONTDURVILLE
+  #Antarctica/Macquarie
+  ANTARCTICA_MACQUARIE
+  #Antarctica/Mawson
+  ANTARCTICA_MAWSON
+  #Antarctica/McMurdo
+  ANTARCTICA_MCMURDO
+  #Antarctica/Palmer
+  ANTARCTICA_PALMER
+  #Antarctica/Rothera
+  ANTARCTICA_ROTHERA
+  #Antarctica/Syowa
+  ANTARCTICA_SYOWA
+  #Antarctica/Troll
+  ANTARCTICA_TROLL
+  #Antarctica/Vostok
+  ANTARCTICA_VOSTOK
+  #Arctic/Longyearbyen
+  ARCTIC_LONGYEARBYEN
+  #Asia/Aden
+  ASIA_ADEN
+  #Asia/Almaty
+  ASIA_ALMATY
+  #Asia/Amman
+  ASIA_AMMAN
+  #Asia/Anadyr
+  ASIA_ANADYR
+  #Asia/Aqtau
+  ASIA_AQTAU
+  #Asia/Aqtobe
+  ASIA_AQTOBE
+  #Asia/Ashgabat
+  ASIA_ASHGABAT
+  #Asia/Atyrau
+  ASIA_ATYRAU
+  #Asia/Baghdad
+  ASIA_BAGHDAD
+  #Asia/Bahrain
+  ASIA_BAHRAIN
+  #Asia/Baku
+  ASIA_BAKU
+  #Asia/Bangkok
+  ASIA_BANGKOK
+  #Asia/Barnaul
+  ASIA_BARNAUL
+  #Asia/Beirut
+  ASIA_BEIRUT
+  #Asia/Bishkek
+  ASIA_BISHKEK
+  #Asia/Brunei
+  ASIA_BRUNEI
+  #Asia/Chita
+  ASIA_CHITA
+  #Asia/Choibalsan
+  ASIA_CHOIBALSAN
+  #Asia/Colombo
+  ASIA_COLOMBO
+  #Asia/Damascus
+  ASIA_DAMASCUS
+  #Asia/Dhaka
+  ASIA_DHAKA
+  #Asia/Dili
+  ASIA_DILI
+  #Asia/Dubai
+  ASIA_DUBAI
+  #Asia/Dushanbe
+  ASIA_DUSHANBE
+  #Asia/Famagusta
+  ASIA_FAMAGUSTA
+  #Asia/Gaza
+  ASIA_GAZA
+  #Asia/Hebron
+  ASIA_HEBRON
+  #Asia/Hong_Kong
+  ASIA_HONG_KONG
+  #Asia/Hovd
+  ASIA_HOVD
+  #Asia/Ho_Chi_Minh
+  ASIA_HO_CHI_MINH
+  #Asia/Irkutsk
+  ASIA_IRKUTSK
+  #Asia/Jakarta
+  ASIA_JAKARTA
+  #Asia/Jayapura
+  ASIA_JAYAPURA
+  #Asia/Jerusalem
+  ASIA_JERUSALEM
+  #Asia/Kabul
+  ASIA_KABUL
+  #Asia/Kamchatka
+  ASIA_KAMCHATKA
+  #Asia/Karachi
+  ASIA_KARACHI
+  #Asia/Kathmandu
+  ASIA_KATHMANDU
+  #Asia/Khandyga
+  ASIA_KHANDYGA
+  #Asia/Kolkata
+  ASIA_KOLKATA
+  #Asia/Krasnoyarsk
+  ASIA_KRASNOYARSK
+  #Asia/Kuala_Lumpur
+  ASIA_KUALA_LUMPUR
+  #Asia/Kuching
+  ASIA_KUCHING
+  #Asia/Kuwait
+  ASIA_KUWAIT
+  #Asia/Macau
+  ASIA_MACAU
+  #Asia/Magadan
+  ASIA_MAGADAN
+  #Asia/Makassar
+  ASIA_MAKASSAR
+  #Asia/Manila
+  ASIA_MANILA
+  #Asia/Muscat
+  ASIA_MUSCAT
+  #Asia/Nicosia
+  ASIA_NICOSIA
+  #Asia/Novokuznetsk
+  ASIA_NOVOKUZNETSK
+  #Asia/Novosibirsk
+  ASIA_NOVOSIBIRSK
+  #Asia/Omsk
+  ASIA_OMSK
+  #Asia/Oral
+  ASIA_ORAL
+  #Asia/Phnom_Penh
+  ASIA_PHNOM_PENH
+  #Asia/Pontianak
+  ASIA_PONTIANAK
+  #Asia/Pyongyang
+  ASIA_PYONGYANG
+  #Asia/Qatar
+  ASIA_QATAR
+  #Asia/Qyzylorda
+  ASIA_QYZYLORDA
+  #Asia/Riyadh
+  ASIA_RIYADH
+  #Asia/Sakhalin
+  ASIA_SAKHALIN
+  #Asia/Samarkand
+  ASIA_SAMARKAND
+  #Asia/Seoul
+  ASIA_SEOUL
+  #Asia/Shanghai
+  ASIA_SHANGHAI
+  #Asia/Singapore
+  ASIA_SINGAPORE
+  #Asia/Srednekolymsk
+  ASIA_SREDNEKOLYMSK
+  #Asia/Taipei
+  ASIA_TAIPEI
+  #Asia/Tashkent
+  ASIA_TASHKENT
+  #Asia/Tbilisi
+  ASIA_TBILISI
+  #Asia/Tehran
+  ASIA_TEHRAN
+  #Asia/Thimphu
+  ASIA_THIMPHU
+  #Asia/Tokyo
+  ASIA_TOKYO
+  #Asia/Tomsk
+  ASIA_TOMSK
+  #Asia/Ulaanbaatar
+  ASIA_ULAANBAATAR
+  #Asia/Urumqi
+  ASIA_URUMQI
+  #Asia/Ust-Nera
+  ASIA_UST_NERA
+  #Asia/Vientiane
+  ASIA_VIENTIANE
+  #Asia/Vladivostok
+  ASIA_VLADIVOSTOK
+  #Asia/Yakutsk
+  ASIA_YAKUTSK
+  #Asia/Yangon
+  ASIA_YANGON
+  #Asia/Yekaterinburg
+  ASIA_YEKATERINBURG
+  #Asia/Yerevan
+  ASIA_YEREVAN
+  #Atlantic/Azores
+  ATLANTIC_AZORES
+  #Atlantic/Bermuda
+  ATLANTIC_BERMUDA
+  #Atlantic/Canary
+  ATLANTIC_CANARY
+  #Atlantic/Cape_Verde
+  ATLANTIC_CAPE_VERDE
+  #Atlantic/Faroe
+  ATLANTIC_FAROE
+  #Atlantic/Madeira
+  ATLANTIC_MADEIRA
+  #Atlantic/Reykjavik
+  ATLANTIC_REYKJAVIK
+  #Atlantic/South_Georgia
+  ATLANTIC_SOUTH_GEORGIA
+  #Atlantic/Stanley
+  ATLANTIC_STANLEY
+  #Atlantic/St_Helena
+  ATLANTIC_ST_HELENA
+  #Australia/Adelaide
+  AUSTRALIA_ADELAIDE
+  #Australia/Brisbane
+  AUSTRALIA_BRISBANE
+  #Australia/Broken_Hill
+  AUSTRALIA_BROKEN_HILL
+  #Australia/Currie
+  AUSTRALIA_CURRIE
+  #Australia/Darwin
+  AUSTRALIA_DARWIN
+  #Australia/Eucla
+  AUSTRALIA_EUCLA
+  #Australia/Hobart
+  AUSTRALIA_HOBART
+  #Australia/Lindeman
+  AUSTRALIA_LINDEMAN
+  #Australia/Lord_Howe
+  AUSTRALIA_LORD_HOWE
+  #Australia/Melbourne
+  AUSTRALIA_MELBOURNE
+  #Australia/Perth
+  AUSTRALIA_PERTH
+  #Australia/Sydney
+  AUSTRALIA_SYDNEY
+  #Canada/Atlantic
+  CANADA_ATLANTIC
+  #Canada/Central
+  CANADA_CENTRAL
+  #Canada/Eastern
+  CANADA_EASTERN
+  #Canada/Mountain
+  CANADA_MOUNTAIN
+  #Canada/Newfoundland
+  CANADA_NEWFOUNDLAND
+  #Canada/Pacific
+  CANADA_PACIFIC
+  #Europe/Amsterdam
+  EUROPE_AMSTERDAM
+  #Europe/Andorra
+  EUROPE_ANDORRA
+  #Europe/Astrakhan
+  EUROPE_ASTRAKHAN
+  #Europe/Athens
+  EUROPE_ATHENS
+  #Europe/Belgrade
+  EUROPE_BELGRADE
+  #Europe/Berlin
+  EUROPE_BERLIN
+  #Europe/Bratislava
+  EUROPE_BRATISLAVA
+  #Europe/Brussels
+  EUROPE_BRUSSELS
+  #Europe/Bucharest
+  EUROPE_BUCHAREST
+  #Europe/Budapest
+  EUROPE_BUDAPEST
+  #Europe/Busingen
+  EUROPE_BUSINGEN
+  #Europe/Chisinau
+  EUROPE_CHISINAU
+  #Europe/Copenhagen
+  EUROPE_COPENHAGEN
+  #Europe/Dublin
+  EUROPE_DUBLIN
+  #Europe/Gibraltar
+  EUROPE_GIBRALTAR
+  #Europe/Guernsey
+  EUROPE_GUERNSEY
+  #Europe/Helsinki
+  EUROPE_HELSINKI
+  #Europe/Isle_of_Man
+  EUROPE_ISLE_OF_MAN
+  #Europe/Istanbul
+  EUROPE_ISTANBUL
+  #Europe/Jersey
+  EUROPE_JERSEY
+  #Europe/Kaliningrad
+  EUROPE_KALININGRAD
+  #Europe/Kiev
+  EUROPE_KIEV
+  #Europe/Kirov
+  EUROPE_KIROV
+  #Europe/Lisbon
+  EUROPE_LISBON
+  #Europe/Ljubljana
+  EUROPE_LJUBLJANA
+  #Europe/London
+  EUROPE_LONDON
+  #Europe/Luxembourg
+  EUROPE_LUXEMBOURG
+  #Europe/Madrid
+  EUROPE_MADRID
+  #Europe/Malta
+  EUROPE_MALTA
+  #Europe/Mariehamn
+  EUROPE_MARIEHAMN
+  #Europe/Minsk
+  EUROPE_MINSK
+  #Europe/Monaco
+  EUROPE_MONACO
+  #Europe/Moscow
+  EUROPE_MOSCOW
+  #Europe/Oslo
+  EUROPE_OSLO
+  #Europe/Paris
+  EUROPE_PARIS
+  #Europe/Podgorica
+  EUROPE_PODGORICA
+  #Europe/Prague
+  EUROPE_PRAGUE
+  #Europe/Riga
+  EUROPE_RIGA
+  #Europe/Rome
+  EUROPE_ROME
+  #Europe/Samara
+  EUROPE_SAMARA
+  #Europe/San_Marino
+  EUROPE_SAN_MARINO
+  #Europe/Sarajevo
+  EUROPE_SARAJEVO
+  #Europe/Saratov
+  EUROPE_SARATOV
+  #Europe/Simferopol
+  EUROPE_SIMFEROPOL
+  #Europe/Skopje
+  EUROPE_SKOPJE
+  #Europe/Sofia
+  EUROPE_SOFIA
+  #Europe/Stockholm
+  EUROPE_STOCKHOLM
+  #Europe/Tallinn
+  EUROPE_TALLINN
+  #Europe/Tirane
+  EUROPE_TIRANE
+  #Europe/Ulyanovsk
+  EUROPE_ULYANOVSK
+  #Europe/Uzhgorod
+  EUROPE_UZHGOROD
+  #Europe/Vaduz
+  EUROPE_VADUZ
+  #Europe/Vatican
+  EUROPE_VATICAN
+  #Europe/Vienna
+  EUROPE_VIENNA
+  #Europe/Vilnius
+  EUROPE_VILNIUS
+  #Europe/Volgograd
+  EUROPE_VOLGOGRAD
+  #Europe/Warsaw
+  EUROPE_WARSAW
+  #Europe/Zagreb
+  EUROPE_ZAGREB
+  #Europe/Zaporozhye
+  EUROPE_ZAPOROZHYE
+  #Europe/Zurich
+  EUROPE_ZURICH
+  #GMT
+  GMT
+  #Indian/Antananarivo
+  INDIAN_ANTANANARIVO
+  #Indian/Chagos
+  INDIAN_CHAGOS
+  #Indian/Christmas
+  INDIAN_CHRISTMAS
+  #Indian/Cocos
+  INDIAN_COCOS
+  #Indian/Comoro
+  INDIAN_COMORO
+  #Indian/Kerguelen
+  INDIAN_KERGUELEN
+  #Indian/Mahe
+  INDIAN_MAHE
+  #Indian/Maldives
+  INDIAN_MALDIVES
+  #Indian/Mauritius
+  INDIAN_MAURITIUS
+  #Indian/Mayotte
+  INDIAN_MAYOTTE
+  #Indian/Reunion
+  INDIAN_REUNION
+  #Pacific/Apia
+  PACIFIC_APIA
+  #Pacific/Auckland
+  PACIFIC_AUCKLAND
+  #Pacific/Bougainville
+  PACIFIC_BOUGAINVILLE
+  #Pacific/Chatham
+  PACIFIC_CHATHAM
+  #Pacific/Chuuk
+  PACIFIC_CHUUK
+  #Pacific/Easter
+  PACIFIC_EASTER
+  #Pacific/Efate
+  PACIFIC_EFATE
+  #Pacific/Enderbury
+  PACIFIC_ENDERBURY
+  #Pacific/Fakaofo
+  PACIFIC_FAKAOFO
+  #Pacific/Fiji
+  PACIFIC_FIJI
+  #Pacific/Funafuti
+  PACIFIC_FUNAFUTI
+  #Pacific/Galapagos
+  PACIFIC_GALAPAGOS
+  #Pacific/Gambier
+  PACIFIC_GAMBIER
+  #Pacific/Guadalcanal
+  PACIFIC_GUADALCANAL
+  #Pacific/Guam
+  PACIFIC_GUAM
+  #Pacific/Honolulu
+  PACIFIC_HONOLULU
+  #Pacific/Kiritimati
+  PACIFIC_KIRITIMATI
+  #Pacific/Kosrae
+  PACIFIC_KOSRAE
+  #Pacific/Kwajalein
+  PACIFIC_KWAJALEIN
+  #Pacific/Majuro
+  PACIFIC_MAJURO
+  #Pacific/Marquesas
+  PACIFIC_MARQUESAS
+  #Pacific/Midway
+  PACIFIC_MIDWAY
+  #Pacific/Nauru
+  PACIFIC_NAURU
+  #Pacific/Niue
+  PACIFIC_NIUE
+  #Pacific/Norfolk
+  PACIFIC_NORFOLK
+  #Pacific/Noumea
+  PACIFIC_NOUMEA
+  #Pacific/Pago_Pago
+  PACIFIC_PAGO_PAGO
+  #Pacific/Palau
+  PACIFIC_PALAU
+  #Pacific/Pitcairn
+  PACIFIC_PITCAIRN
+  #Pacific/Pohnpei
+  PACIFIC_POHNPEI
+  #Pacific/Port_Moresby
+  PACIFIC_PORT_MORESBY
+  #Pacific/Rarotonga
+  PACIFIC_RAROTONGA
+  #Pacific/Saipan
+  PACIFIC_SAIPAN
+  #Pacific/Tahiti
+  PACIFIC_TAHITI
+  #Pacific/Tarawa
+  PACIFIC_TARAWA
+  #Pacific/Tongatapu
+  PACIFIC_TONGATAPU
+  #Pacific/Wake
+  PACIFIC_WAKE
+  #Pacific/Wallis
+  PACIFIC_WALLIS
+  #US/Alaska
+  US_ALASKA
+  #US/Arizona
+  US_ARIZONA
+  #US/Central
+  US_CENTRAL
+  #US/Eastern
+  US_EASTERN
+  #US/Hawaii
+  US_HAWAII
+  #US/Mountain
+  US_MOUNTAIN
+  #US/Pacific
+  US_PACIFIC
+  #UTC
+  UTC
+}
+
+"An enumeration."
+enum GameInviteModeEnum {
+  #Approval
+  APPROVAL
+  #Invite Only
+  INVITE_ONLY
+  #Open
+  OPEN
+}
+
+"An enumeration."
+enum GameStartTimezoneEnum {
+  #Africa/Abidjan
+  AFRICA_ABIDJAN
+  #Africa/Accra
+  AFRICA_ACCRA
+  #Africa/Addis_Ababa
+  AFRICA_ADDIS_ABABA
+  #Africa/Algiers
+  AFRICA_ALGIERS
+  #Africa/Asmara
+  AFRICA_ASMARA
+  #Africa/Bamako
+  AFRICA_BAMAKO
+  #Africa/Bangui
+  AFRICA_BANGUI
+  #Africa/Banjul
+  AFRICA_BANJUL
+  #Africa/Bissau
+  AFRICA_BISSAU
+  #Africa/Blantyre
+  AFRICA_BLANTYRE
+  #Africa/Brazzaville
+  AFRICA_BRAZZAVILLE
+  #Africa/Bujumbura
+  AFRICA_BUJUMBURA
+  #Africa/Cairo
+  AFRICA_CAIRO
+  #Africa/Casablanca
+  AFRICA_CASABLANCA
+  #Africa/Ceuta
+  AFRICA_CEUTA
+  #Africa/Conakry
+  AFRICA_CONAKRY
+  #Africa/Dakar
+  AFRICA_DAKAR
+  #Africa/Dar_es_Salaam
+  AFRICA_DAR_ES_SALAAM
+  #Africa/Djibouti
+  AFRICA_DJIBOUTI
+  #Africa/Douala
+  AFRICA_DOUALA
+  #Africa/El_Aaiun
+  AFRICA_EL_AAIUN
+  #Africa/Freetown
+  AFRICA_FREETOWN
+  #Africa/Gaborone
+  AFRICA_GABORONE
+  #Africa/Harare
+  AFRICA_HARARE
+  #Africa/Johannesburg
+  AFRICA_JOHANNESBURG
+  #Africa/Juba
+  AFRICA_JUBA
+  #Africa/Kampala
+  AFRICA_KAMPALA
+  #Africa/Khartoum
+  AFRICA_KHARTOUM
+  #Africa/Kigali
+  AFRICA_KIGALI
+  #Africa/Kinshasa
+  AFRICA_KINSHASA
+  #Africa/Lagos
+  AFRICA_LAGOS
+  #Africa/Libreville
+  AFRICA_LIBREVILLE
+  #Africa/Lome
+  AFRICA_LOME
+  #Africa/Luanda
+  AFRICA_LUANDA
+  #Africa/Lubumbashi
+  AFRICA_LUBUMBASHI
+  #Africa/Lusaka
+  AFRICA_LUSAKA
+  #Africa/Malabo
+  AFRICA_MALABO
+  #Africa/Maputo
+  AFRICA_MAPUTO
+  #Africa/Maseru
+  AFRICA_MASERU
+  #Africa/Mbabane
+  AFRICA_MBABANE
+  #Africa/Mogadishu
+  AFRICA_MOGADISHU
+  #Africa/Monrovia
+  AFRICA_MONROVIA
+  #Africa/Nairobi
+  AFRICA_NAIROBI
+  #Africa/Ndjamena
+  AFRICA_NDJAMENA
+  #Africa/Niamey
+  AFRICA_NIAMEY
+  #Africa/Nouakchott
+  AFRICA_NOUAKCHOTT
+  #Africa/Ouagadougou
+  AFRICA_OUAGADOUGOU
+  #Africa/Porto-Novo
+  AFRICA_PORTO_NOVO
+  #Africa/Sao_Tome
+  AFRICA_SAO_TOME
+  #Africa/Tripoli
+  AFRICA_TRIPOLI
+  #Africa/Tunis
+  AFRICA_TUNIS
+  #Africa/Windhoek
+  AFRICA_WINDHOEK
+  #America/Adak
+  AMERICA_ADAK
+  #America/Anchorage
+  AMERICA_ANCHORAGE
+  #America/Anguilla
+  AMERICA_ANGUILLA
+  #America/Antigua
+  AMERICA_ANTIGUA
+  #America/Araguaina
+  AMERICA_ARAGUAINA
+  #America/Argentina/Buenos_Aires
+  AMERICA_ARGENTINA_BUENOS_AIRES
+  #America/Argentina/Catamarca
+  AMERICA_ARGENTINA_CATAMARCA
+  #America/Argentina/Cordoba
+  AMERICA_ARGENTINA_CORDOBA
+  #America/Argentina/Jujuy
+  AMERICA_ARGENTINA_JUJUY
+  #America/Argentina/La_Rioja
+  AMERICA_ARGENTINA_LA_RIOJA
+  #America/Argentina/Mendoza
+  AMERICA_ARGENTINA_MENDOZA
+  #America/Argentina/Rio_Gallegos
+  AMERICA_ARGENTINA_RIO_GALLEGOS
+  #America/Argentina/Salta
+  AMERICA_ARGENTINA_SALTA
+  #America/Argentina/San_Juan
+  AMERICA_ARGENTINA_SAN_JUAN
+  #America/Argentina/San_Luis
+  AMERICA_ARGENTINA_SAN_LUIS
+  #America/Argentina/Tucuman
+  AMERICA_ARGENTINA_TUCUMAN
+  #America/Argentina/Ushuaia
+  AMERICA_ARGENTINA_USHUAIA
+  #America/Aruba
+  AMERICA_ARUBA
+  #America/Asuncion
+  AMERICA_ASUNCION
+  #America/Atikokan
+  AMERICA_ATIKOKAN
+  #America/Bahia
+  AMERICA_BAHIA
+  #America/Bahia_Banderas
+  AMERICA_BAHIA_BANDERAS
+  #America/Barbados
+  AMERICA_BARBADOS
+  #America/Belem
+  AMERICA_BELEM
+  #America/Belize
+  AMERICA_BELIZE
+  #America/Blanc-Sablon
+  AMERICA_BLANC_SABLON
+  #America/Boa_Vista
+  AMERICA_BOA_VISTA
+  #America/Bogota
+  AMERICA_BOGOTA
+  #America/Boise
+  AMERICA_BOISE
+  #America/Cambridge_Bay
+  AMERICA_CAMBRIDGE_BAY
+  #America/Campo_Grande
+  AMERICA_CAMPO_GRANDE
+  #America/Cancun
+  AMERICA_CANCUN
+  #America/Caracas
+  AMERICA_CARACAS
+  #America/Cayenne
+  AMERICA_CAYENNE
+  #America/Cayman
+  AMERICA_CAYMAN
+  #America/Chicago
+  AMERICA_CHICAGO
+  #America/Chihuahua
+  AMERICA_CHIHUAHUA
+  #America/Costa_Rica
+  AMERICA_COSTA_RICA
+  #America/Creston
+  AMERICA_CRESTON
+  #America/Cuiaba
+  AMERICA_CUIABA
+  #America/Curacao
+  AMERICA_CURACAO
+  #America/Danmarkshavn
+  AMERICA_DANMARKSHAVN
+  #America/Dawson
+  AMERICA_DAWSON
+  #America/Dawson_Creek
+  AMERICA_DAWSON_CREEK
+  #America/Denver
+  AMERICA_DENVER
+  #America/Detroit
+  AMERICA_DETROIT
+  #America/Dominica
+  AMERICA_DOMINICA
+  #America/Edmonton
+  AMERICA_EDMONTON
+  #America/Eirunepe
+  AMERICA_EIRUNEPE
+  #America/El_Salvador
+  AMERICA_EL_SALVADOR
+  #America/Fortaleza
+  AMERICA_FORTALEZA
+  #America/Fort_Nelson
+  AMERICA_FORT_NELSON
+  #America/Glace_Bay
+  AMERICA_GLACE_BAY
+  #America/Godthab
+  AMERICA_GODTHAB
+  #America/Goose_Bay
+  AMERICA_GOOSE_BAY
+  #America/Grand_Turk
+  AMERICA_GRAND_TURK
+  #America/Grenada
+  AMERICA_GRENADA
+  #America/Guadeloupe
+  AMERICA_GUADELOUPE
+  #America/Guatemala
+  AMERICA_GUATEMALA
+  #America/Guayaquil
+  AMERICA_GUAYAQUIL
+  #America/Guyana
+  AMERICA_GUYANA
+  #America/Halifax
+  AMERICA_HALIFAX
+  #America/Havana
+  AMERICA_HAVANA
+  #America/Hermosillo
+  AMERICA_HERMOSILLO
+  #America/Indiana/Indianapolis
+  AMERICA_INDIANA_INDIANAPOLIS
+  #America/Indiana/Knox
+  AMERICA_INDIANA_KNOX
+  #America/Indiana/Marengo
+  AMERICA_INDIANA_MARENGO
+  #America/Indiana/Petersburg
+  AMERICA_INDIANA_PETERSBURG
+  #America/Indiana/Tell_City
+  AMERICA_INDIANA_TELL_CITY
+  #America/Indiana/Vevay
+  AMERICA_INDIANA_VEVAY
+  #America/Indiana/Vincennes
+  AMERICA_INDIANA_VINCENNES
+  #America/Indiana/Winamac
+  AMERICA_INDIANA_WINAMAC
+  #America/Inuvik
+  AMERICA_INUVIK
+  #America/Iqaluit
+  AMERICA_IQALUIT
+  #America/Jamaica
+  AMERICA_JAMAICA
+  #America/Juneau
+  AMERICA_JUNEAU
+  #America/Kentucky/Louisville
+  AMERICA_KENTUCKY_LOUISVILLE
+  #America/Kentucky/Monticello
+  AMERICA_KENTUCKY_MONTICELLO
+  #America/Kralendijk
+  AMERICA_KRALENDIJK
+  #America/La_Paz
+  AMERICA_LA_PAZ
+  #America/Lima
+  AMERICA_LIMA
+  #America/Los_Angeles
+  AMERICA_LOS_ANGELES
+  #America/Lower_Princes
+  AMERICA_LOWER_PRINCES
+  #America/Maceio
+  AMERICA_MACEIO
+  #America/Managua
+  AMERICA_MANAGUA
+  #America/Manaus
+  AMERICA_MANAUS
+  #America/Marigot
+  AMERICA_MARIGOT
+  #America/Martinique
+  AMERICA_MARTINIQUE
+  #America/Matamoros
+  AMERICA_MATAMOROS
+  #America/Mazatlan
+  AMERICA_MAZATLAN
+  #America/Menominee
+  AMERICA_MENOMINEE
+  #America/Merida
+  AMERICA_MERIDA
+  #America/Metlakatla
+  AMERICA_METLAKATLA
+  #America/Mexico_City
+  AMERICA_MEXICO_CITY
+  #America/Miquelon
+  AMERICA_MIQUELON
+  #America/Moncton
+  AMERICA_MONCTON
+  #America/Monterrey
+  AMERICA_MONTERREY
+  #America/Montevideo
+  AMERICA_MONTEVIDEO
+  #America/Montserrat
+  AMERICA_MONTSERRAT
+  #America/Nassau
+  AMERICA_NASSAU
+  #America/New_York
+  AMERICA_NEW_YORK
+  #America/Nipigon
+  AMERICA_NIPIGON
+  #America/Nome
+  AMERICA_NOME
+  #America/Noronha
+  AMERICA_NORONHA
+  #America/North_Dakota/Beulah
+  AMERICA_NORTH_DAKOTA_BEULAH
+  #America/North_Dakota/Center
+  AMERICA_NORTH_DAKOTA_CENTER
+  #America/North_Dakota/New_Salem
+  AMERICA_NORTH_DAKOTA_NEW_SALEM
+  #America/Ojinaga
+  AMERICA_OJINAGA
+  #America/Panama
+  AMERICA_PANAMA
+  #America/Pangnirtung
+  AMERICA_PANGNIRTUNG
+  #America/Paramaribo
+  AMERICA_PARAMARIBO
+  #America/Phoenix
+  AMERICA_PHOENIX
+  #America/Porto_Velho
+  AMERICA_PORTO_VELHO
+  #America/Port-au-Prince
+  AMERICA_PORT_AU_PRINCE
+  #America/Port_of_Spain
+  AMERICA_PORT_OF_SPAIN
+  #America/Puerto_Rico
+  AMERICA_PUERTO_RICO
+  #America/Punta_Arenas
+  AMERICA_PUNTA_ARENAS
+  #America/Rainy_River
+  AMERICA_RAINY_RIVER
+  #America/Rankin_Inlet
+  AMERICA_RANKIN_INLET
+  #America/Recife
+  AMERICA_RECIFE
+  #America/Regina
+  AMERICA_REGINA
+  #America/Resolute
+  AMERICA_RESOLUTE
+  #America/Rio_Branco
+  AMERICA_RIO_BRANCO
+  #America/Santarem
+  AMERICA_SANTAREM
+  #America/Santiago
+  AMERICA_SANTIAGO
+  #America/Santo_Domingo
+  AMERICA_SANTO_DOMINGO
+  #America/Sao_Paulo
+  AMERICA_SAO_PAULO
+  #America/Scoresbysund
+  AMERICA_SCORESBYSUND
+  #America/Sitka
+  AMERICA_SITKA
+  #America/St_Barthelemy
+  AMERICA_ST_BARTHELEMY
+  #America/St_Johns
+  AMERICA_ST_JOHNS
+  #America/St_Kitts
+  AMERICA_ST_KITTS
+  #America/St_Lucia
+  AMERICA_ST_LUCIA
+  #America/St_Thomas
+  AMERICA_ST_THOMAS
+  #America/St_Vincent
+  AMERICA_ST_VINCENT
+  #America/Swift_Current
+  AMERICA_SWIFT_CURRENT
+  #America/Tegucigalpa
+  AMERICA_TEGUCIGALPA
+  #America/Thule
+  AMERICA_THULE
+  #America/Thunder_Bay
+  AMERICA_THUNDER_BAY
+  #America/Tijuana
+  AMERICA_TIJUANA
+  #America/Toronto
+  AMERICA_TORONTO
+  #America/Tortola
+  AMERICA_TORTOLA
+  #America/Vancouver
+  AMERICA_VANCOUVER
+  #America/Whitehorse
+  AMERICA_WHITEHORSE
+  #America/Winnipeg
+  AMERICA_WINNIPEG
+  #America/Yakutat
+  AMERICA_YAKUTAT
+  #America/Yellowknife
+  AMERICA_YELLOWKNIFE
+  #Antarctica/Casey
+  ANTARCTICA_CASEY
+  #Antarctica/Davis
+  ANTARCTICA_DAVIS
+  #Antarctica/DumontDUrville
+  ANTARCTICA_DUMONTDURVILLE
+  #Antarctica/Macquarie
+  ANTARCTICA_MACQUARIE
+  #Antarctica/Mawson
+  ANTARCTICA_MAWSON
+  #Antarctica/McMurdo
+  ANTARCTICA_MCMURDO
+  #Antarctica/Palmer
+  ANTARCTICA_PALMER
+  #Antarctica/Rothera
+  ANTARCTICA_ROTHERA
+  #Antarctica/Syowa
+  ANTARCTICA_SYOWA
+  #Antarctica/Troll
+  ANTARCTICA_TROLL
+  #Antarctica/Vostok
+  ANTARCTICA_VOSTOK
+  #Arctic/Longyearbyen
+  ARCTIC_LONGYEARBYEN
+  #Asia/Aden
+  ASIA_ADEN
+  #Asia/Almaty
+  ASIA_ALMATY
+  #Asia/Amman
+  ASIA_AMMAN
+  #Asia/Anadyr
+  ASIA_ANADYR
+  #Asia/Aqtau
+  ASIA_AQTAU
+  #Asia/Aqtobe
+  ASIA_AQTOBE
+  #Asia/Ashgabat
+  ASIA_ASHGABAT
+  #Asia/Atyrau
+  ASIA_ATYRAU
+  #Asia/Baghdad
+  ASIA_BAGHDAD
+  #Asia/Bahrain
+  ASIA_BAHRAIN
+  #Asia/Baku
+  ASIA_BAKU
+  #Asia/Bangkok
+  ASIA_BANGKOK
+  #Asia/Barnaul
+  ASIA_BARNAUL
+  #Asia/Beirut
+  ASIA_BEIRUT
+  #Asia/Bishkek
+  ASIA_BISHKEK
+  #Asia/Brunei
+  ASIA_BRUNEI
+  #Asia/Chita
+  ASIA_CHITA
+  #Asia/Choibalsan
+  ASIA_CHOIBALSAN
+  #Asia/Colombo
+  ASIA_COLOMBO
+  #Asia/Damascus
+  ASIA_DAMASCUS
+  #Asia/Dhaka
+  ASIA_DHAKA
+  #Asia/Dili
+  ASIA_DILI
+  #Asia/Dubai
+  ASIA_DUBAI
+  #Asia/Dushanbe
+  ASIA_DUSHANBE
+  #Asia/Famagusta
+  ASIA_FAMAGUSTA
+  #Asia/Gaza
+  ASIA_GAZA
+  #Asia/Hebron
+  ASIA_HEBRON
+  #Asia/Hong_Kong
+  ASIA_HONG_KONG
+  #Asia/Hovd
+  ASIA_HOVD
+  #Asia/Ho_Chi_Minh
+  ASIA_HO_CHI_MINH
+  #Asia/Irkutsk
+  ASIA_IRKUTSK
+  #Asia/Jakarta
+  ASIA_JAKARTA
+  #Asia/Jayapura
+  ASIA_JAYAPURA
+  #Asia/Jerusalem
+  ASIA_JERUSALEM
+  #Asia/Kabul
+  ASIA_KABUL
+  #Asia/Kamchatka
+  ASIA_KAMCHATKA
+  #Asia/Karachi
+  ASIA_KARACHI
+  #Asia/Kathmandu
+  ASIA_KATHMANDU
+  #Asia/Khandyga
+  ASIA_KHANDYGA
+  #Asia/Kolkata
+  ASIA_KOLKATA
+  #Asia/Krasnoyarsk
+  ASIA_KRASNOYARSK
+  #Asia/Kuala_Lumpur
+  ASIA_KUALA_LUMPUR
+  #Asia/Kuching
+  ASIA_KUCHING
+  #Asia/Kuwait
+  ASIA_KUWAIT
+  #Asia/Macau
+  ASIA_MACAU
+  #Asia/Magadan
+  ASIA_MAGADAN
+  #Asia/Makassar
+  ASIA_MAKASSAR
+  #Asia/Manila
+  ASIA_MANILA
+  #Asia/Muscat
+  ASIA_MUSCAT
+  #Asia/Nicosia
+  ASIA_NICOSIA
+  #Asia/Novokuznetsk
+  ASIA_NOVOKUZNETSK
+  #Asia/Novosibirsk
+  ASIA_NOVOSIBIRSK
+  #Asia/Omsk
+  ASIA_OMSK
+  #Asia/Oral
+  ASIA_ORAL
+  #Asia/Phnom_Penh
+  ASIA_PHNOM_PENH
+  #Asia/Pontianak
+  ASIA_PONTIANAK
+  #Asia/Pyongyang
+  ASIA_PYONGYANG
+  #Asia/Qatar
+  ASIA_QATAR
+  #Asia/Qyzylorda
+  ASIA_QYZYLORDA
+  #Asia/Riyadh
+  ASIA_RIYADH
+  #Asia/Sakhalin
+  ASIA_SAKHALIN
+  #Asia/Samarkand
+  ASIA_SAMARKAND
+  #Asia/Seoul
+  ASIA_SEOUL
+  #Asia/Shanghai
+  ASIA_SHANGHAI
+  #Asia/Singapore
+  ASIA_SINGAPORE
+  #Asia/Srednekolymsk
+  ASIA_SREDNEKOLYMSK
+  #Asia/Taipei
+  ASIA_TAIPEI
+  #Asia/Tashkent
+  ASIA_TASHKENT
+  #Asia/Tbilisi
+  ASIA_TBILISI
+  #Asia/Tehran
+  ASIA_TEHRAN
+  #Asia/Thimphu
+  ASIA_THIMPHU
+  #Asia/Tokyo
+  ASIA_TOKYO
+  #Asia/Tomsk
+  ASIA_TOMSK
+  #Asia/Ulaanbaatar
+  ASIA_ULAANBAATAR
+  #Asia/Urumqi
+  ASIA_URUMQI
+  #Asia/Ust-Nera
+  ASIA_UST_NERA
+  #Asia/Vientiane
+  ASIA_VIENTIANE
+  #Asia/Vladivostok
+  ASIA_VLADIVOSTOK
+  #Asia/Yakutsk
+  ASIA_YAKUTSK
+  #Asia/Yangon
+  ASIA_YANGON
+  #Asia/Yekaterinburg
+  ASIA_YEKATERINBURG
+  #Asia/Yerevan
+  ASIA_YEREVAN
+  #Atlantic/Azores
+  ATLANTIC_AZORES
+  #Atlantic/Bermuda
+  ATLANTIC_BERMUDA
+  #Atlantic/Canary
+  ATLANTIC_CANARY
+  #Atlantic/Cape_Verde
+  ATLANTIC_CAPE_VERDE
+  #Atlantic/Faroe
+  ATLANTIC_FAROE
+  #Atlantic/Madeira
+  ATLANTIC_MADEIRA
+  #Atlantic/Reykjavik
+  ATLANTIC_REYKJAVIK
+  #Atlantic/South_Georgia
+  ATLANTIC_SOUTH_GEORGIA
+  #Atlantic/Stanley
+  ATLANTIC_STANLEY
+  #Atlantic/St_Helena
+  ATLANTIC_ST_HELENA
+  #Australia/Adelaide
+  AUSTRALIA_ADELAIDE
+  #Australia/Brisbane
+  AUSTRALIA_BRISBANE
+  #Australia/Broken_Hill
+  AUSTRALIA_BROKEN_HILL
+  #Australia/Currie
+  AUSTRALIA_CURRIE
+  #Australia/Darwin
+  AUSTRALIA_DARWIN
+  #Australia/Eucla
+  AUSTRALIA_EUCLA
+  #Australia/Hobart
+  AUSTRALIA_HOBART
+  #Australia/Lindeman
+  AUSTRALIA_LINDEMAN
+  #Australia/Lord_Howe
+  AUSTRALIA_LORD_HOWE
+  #Australia/Melbourne
+  AUSTRALIA_MELBOURNE
+  #Australia/Perth
+  AUSTRALIA_PERTH
+  #Australia/Sydney
+  AUSTRALIA_SYDNEY
+  #Canada/Atlantic
+  CANADA_ATLANTIC
+  #Canada/Central
+  CANADA_CENTRAL
+  #Canada/Eastern
+  CANADA_EASTERN
+  #Canada/Mountain
+  CANADA_MOUNTAIN
+  #Canada/Newfoundland
+  CANADA_NEWFOUNDLAND
+  #Canada/Pacific
+  CANADA_PACIFIC
+  #Europe/Amsterdam
+  EUROPE_AMSTERDAM
+  #Europe/Andorra
+  EUROPE_ANDORRA
+  #Europe/Astrakhan
+  EUROPE_ASTRAKHAN
+  #Europe/Athens
+  EUROPE_ATHENS
+  #Europe/Belgrade
+  EUROPE_BELGRADE
+  #Europe/Berlin
+  EUROPE_BERLIN
+  #Europe/Bratislava
+  EUROPE_BRATISLAVA
+  #Europe/Brussels
+  EUROPE_BRUSSELS
+  #Europe/Bucharest
+  EUROPE_BUCHAREST
+  #Europe/Budapest
+  EUROPE_BUDAPEST
+  #Europe/Busingen
+  EUROPE_BUSINGEN
+  #Europe/Chisinau
+  EUROPE_CHISINAU
+  #Europe/Copenhagen
+  EUROPE_COPENHAGEN
+  #Europe/Dublin
+  EUROPE_DUBLIN
+  #Europe/Gibraltar
+  EUROPE_GIBRALTAR
+  #Europe/Guernsey
+  EUROPE_GUERNSEY
+  #Europe/Helsinki
+  EUROPE_HELSINKI
+  #Europe/Isle_of_Man
+  EUROPE_ISLE_OF_MAN
+  #Europe/Istanbul
+  EUROPE_ISTANBUL
+  #Europe/Jersey
+  EUROPE_JERSEY
+  #Europe/Kaliningrad
+  EUROPE_KALININGRAD
+  #Europe/Kiev
+  EUROPE_KIEV
+  #Europe/Kirov
+  EUROPE_KIROV
+  #Europe/Lisbon
+  EUROPE_LISBON
+  #Europe/Ljubljana
+  EUROPE_LJUBLJANA
+  #Europe/London
+  EUROPE_LONDON
+  #Europe/Luxembourg
+  EUROPE_LUXEMBOURG
+  #Europe/Madrid
+  EUROPE_MADRID
+  #Europe/Malta
+  EUROPE_MALTA
+  #Europe/Mariehamn
+  EUROPE_MARIEHAMN
+  #Europe/Minsk
+  EUROPE_MINSK
+  #Europe/Monaco
+  EUROPE_MONACO
+  #Europe/Moscow
+  EUROPE_MOSCOW
+  #Europe/Oslo
+  EUROPE_OSLO
+  #Europe/Paris
+  EUROPE_PARIS
+  #Europe/Podgorica
+  EUROPE_PODGORICA
+  #Europe/Prague
+  EUROPE_PRAGUE
+  #Europe/Riga
+  EUROPE_RIGA
+  #Europe/Rome
+  EUROPE_ROME
+  #Europe/Samara
+  EUROPE_SAMARA
+  #Europe/San_Marino
+  EUROPE_SAN_MARINO
+  #Europe/Sarajevo
+  EUROPE_SARAJEVO
+  #Europe/Saratov
+  EUROPE_SARATOV
+  #Europe/Simferopol
+  EUROPE_SIMFEROPOL
+  #Europe/Skopje
+  EUROPE_SKOPJE
+  #Europe/Sofia
+  EUROPE_SOFIA
+  #Europe/Stockholm
+  EUROPE_STOCKHOLM
+  #Europe/Tallinn
+  EUROPE_TALLINN
+  #Europe/Tirane
+  EUROPE_TIRANE
+  #Europe/Ulyanovsk
+  EUROPE_ULYANOVSK
+  #Europe/Uzhgorod
+  EUROPE_UZHGOROD
+  #Europe/Vaduz
+  EUROPE_VADUZ
+  #Europe/Vatican
+  EUROPE_VATICAN
+  #Europe/Vienna
+  EUROPE_VIENNA
+  #Europe/Vilnius
+  EUROPE_VILNIUS
+  #Europe/Volgograd
+  EUROPE_VOLGOGRAD
+  #Europe/Warsaw
+  EUROPE_WARSAW
+  #Europe/Zagreb
+  EUROPE_ZAGREB
+  #Europe/Zaporozhye
+  EUROPE_ZAPOROZHYE
+  #Europe/Zurich
+  EUROPE_ZURICH
+  #GMT
+  GMT
+  #Indian/Antananarivo
+  INDIAN_ANTANANARIVO
+  #Indian/Chagos
+  INDIAN_CHAGOS
+  #Indian/Christmas
+  INDIAN_CHRISTMAS
+  #Indian/Cocos
+  INDIAN_COCOS
+  #Indian/Comoro
+  INDIAN_COMORO
+  #Indian/Kerguelen
+  INDIAN_KERGUELEN
+  #Indian/Mahe
+  INDIAN_MAHE
+  #Indian/Maldives
+  INDIAN_MALDIVES
+  #Indian/Mauritius
+  INDIAN_MAURITIUS
+  #Indian/Mayotte
+  INDIAN_MAYOTTE
+  #Indian/Reunion
+  INDIAN_REUNION
+  #Pacific/Apia
+  PACIFIC_APIA
+  #Pacific/Auckland
+  PACIFIC_AUCKLAND
+  #Pacific/Bougainville
+  PACIFIC_BOUGAINVILLE
+  #Pacific/Chatham
+  PACIFIC_CHATHAM
+  #Pacific/Chuuk
+  PACIFIC_CHUUK
+  #Pacific/Easter
+  PACIFIC_EASTER
+  #Pacific/Efate
+  PACIFIC_EFATE
+  #Pacific/Enderbury
+  PACIFIC_ENDERBURY
+  #Pacific/Fakaofo
+  PACIFIC_FAKAOFO
+  #Pacific/Fiji
+  PACIFIC_FIJI
+  #Pacific/Funafuti
+  PACIFIC_FUNAFUTI
+  #Pacific/Galapagos
+  PACIFIC_GALAPAGOS
+  #Pacific/Gambier
+  PACIFIC_GAMBIER
+  #Pacific/Guadalcanal
+  PACIFIC_GUADALCANAL
+  #Pacific/Guam
+  PACIFIC_GUAM
+  #Pacific/Honolulu
+  PACIFIC_HONOLULU
+  #Pacific/Kiritimati
+  PACIFIC_KIRITIMATI
+  #Pacific/Kosrae
+  PACIFIC_KOSRAE
+  #Pacific/Kwajalein
+  PACIFIC_KWAJALEIN
+  #Pacific/Majuro
+  PACIFIC_MAJURO
+  #Pacific/Marquesas
+  PACIFIC_MARQUESAS
+  #Pacific/Midway
+  PACIFIC_MIDWAY
+  #Pacific/Nauru
+  PACIFIC_NAURU
+  #Pacific/Niue
+  PACIFIC_NIUE
+  #Pacific/Norfolk
+  PACIFIC_NORFOLK
+  #Pacific/Noumea
+  PACIFIC_NOUMEA
+  #Pacific/Pago_Pago
+  PACIFIC_PAGO_PAGO
+  #Pacific/Palau
+  PACIFIC_PALAU
+  #Pacific/Pitcairn
+  PACIFIC_PITCAIRN
+  #Pacific/Pohnpei
+  PACIFIC_POHNPEI
+  #Pacific/Port_Moresby
+  PACIFIC_PORT_MORESBY
+  #Pacific/Rarotonga
+  PACIFIC_RAROTONGA
+  #Pacific/Saipan
+  PACIFIC_SAIPAN
+  #Pacific/Tahiti
+  PACIFIC_TAHITI
+  #Pacific/Tarawa
+  PACIFIC_TARAWA
+  #Pacific/Tongatapu
+  PACIFIC_TONGATAPU
+  #Pacific/Wake
+  PACIFIC_WAKE
+  #Pacific/Wallis
+  PACIFIC_WALLIS
+  #US/Alaska
+  US_ALASKA
+  #US/Arizona
+  US_ARIZONA
+  #US/Central
+  US_CENTRAL
+  #US/Eastern
+  US_EASTERN
+  #US/Hawaii
+  US_HAWAII
+  #US/Mountain
+  US_MOUNTAIN
+  #US/Pacific
+  US_PACIFIC
+  #UTC
+  UTC
+}
+
+"An enumeration."
+enum GameStatusEnum {
+  #Canceled
+  CANCELED
+  #Completed
+  COMPLETED
+  #Draft
+  DRAFT
+  #Ended
+  ENDED
+  #Live
+  LIVE
+  #Planned
+  PLANNED
+  #Started
+  STARTED
+  #Updated
+  UPDATED
+}
+
+"An enumeration."
+enum RsvpStatusStatusEnum {
+  #Accepted
+  ACCEPTED
+  #Attending
+  ATTENDING
+  #Checked In
+  CHECKED_IN
+  #Declined
+  DECLINED
+  #Interested
+  INTERESTED
+  #Invited
+  INVITED
+  #Unknown
+  UNKNOWN
+}
+
+"An enumeration."
+enum SportCategoryEnum {
+  #Basketball
+  BASKETBALL
+  #Beach Volleyball
+  BEACH_VOLLEYBALL
+  #Bootcamp
+  BOOTCAMP
+  #Boules
+  BOULES
+  #Fitness
+  FITNESS
+  #Others
+  OTHERS
+  #Skating
+  SKATING
+  #Soccer
+  SOCCER
+  #Table Tennis
+  TABLE_TENNIS
+  #Tennis
+  TENNIS
+}
+
+"An enumeration."
+enum SpotOpeningTimeDay {
+  #Friday
+  FRIDAY
+  #Monday
+  MONDAY
+  #Saturday
+  SATURDAY
+  #Sunday
+  SUNDAY
+  #Thursday
+  THURSDAY
+  #Tuesday
+  TUESDAY
+  #Wednesday
+  WEDNESDAY
+}
+
+"An enumeration."
+enum UserProfileCountry {
+  #Andorra
+  AD
+  #United Arab Emirates
+  AE
+  #Afghanistan
+  AF
+  #Antigua and Barbuda
+  AG
+  #Anguilla
+  AI
+  #Albania
+  AL
+  #Armenia
+  AM
+  #Angola
+  AO
+  #Antarctica
+  AQ
+  #Argentina
+  AR
+  #American Samoa
+  AS
+  #Austria
+  AT
+  #Australia
+  AU
+  #Aruba
+  AW
+  #Åland Islands
+  AX
+  #Azerbaijan
+  AZ
+  #Bosnia and Herzegovina
+  BA
+  #Barbados
+  BB
+  #Bangladesh
+  BD
+  #Belgium
+  BE
+  #Burkina Faso
+  BF
+  #Bulgaria
+  BG
+  #Bahrain
+  BH
+  #Burundi
+  BI
+  #Benin
+  BJ
+  #Saint Barthélemy
+  BL
+  #Bermuda
+  BM
+  #Brunei
+  BN
+  #Bolivia
+  BO
+  #Bonaire, Sint Eustatius and Saba
+  BQ
+  #Brazil
+  BR
+  #Bahamas
+  BS
+  #Bhutan
+  BT
+  #Bouvet Island
+  BV
+  #Botswana
+  BW
+  #Belarus
+  BY
+  #Belize
+  BZ
+  #Canada
+  CA
+  #Cocos (Keeling) Islands
+  CC
+  #Congo (the Democratic Republic of the)
+  CD
+  #Central African Republic
+  CF
+  #Congo
+  CG
+  #Switzerland
+  CH
+  #Côte d'Ivoire
+  CI
+  #Cook Islands
+  CK
+  #Chile
+  CL
+  #Cameroon
+  CM
+  #China
+  CN
+  #Colombia
+  CO
+  #Costa Rica
+  CR
+  #Cuba
+  CU
+  #Cabo Verde
+  CV
+  #Curaçao
+  CW
+  #Christmas Island
+  CX
+  #Cyprus
+  CY
+  #Czechia
+  CZ
+  #Germany
+  DE
+  #Djibouti
+  DJ
+  #Denmark
+  DK
+  #Dominica
+  DM
+  #Dominican Republic
+  DO
+  #Algeria
+  DZ
+  #Ecuador
+  EC
+  #Estonia
+  EE
+  #Egypt
+  EG
+  #Western Sahara
+  EH
+  #Eritrea
+  ER
+  #Spain
+  ES
+  #Ethiopia
+  ET
+  #Finland
+  FI
+  #Fiji
+  FJ
+  #Falkland Islands  [Malvinas]
+  FK
+  #Micronesia (Federated States of)
+  FM
+  #Faroe Islands
+  FO
+  #France
+  FR
+  #Gabon
+  GA
+  #United Kingdom
+  GB
+  #Grenada
+  GD
+  #Georgia
+  GE
+  #French Guiana
+  GF
+  #Guernsey
+  GG
+  #Ghana
+  GH
+  #Gibraltar
+  GI
+  #Greenland
+  GL
+  #Gambia
+  GM
+  #Guinea
+  GN
+  #Guadeloupe
+  GP
+  #Equatorial Guinea
+  GQ
+  #Greece
+  GR
+  #South Georgia and the South Sandwich Islands
+  GS
+  #Guatemala
+  GT
+  #Guam
+  GU
+  #Guinea-Bissau
+  GW
+  #Guyana
+  GY
+  #Hong Kong
+  HK
+  #Heard Island and McDonald Islands
+  HM
+  #Honduras
+  HN
+  #Croatia
+  HR
+  #Haiti
+  HT
+  #Hungary
+  HU
+  #Indonesia
+  ID
+  #Ireland
+  IE
+  #Israel
+  IL
+  #Isle of Man
+  IM
+  #India
+  IN
+  #British Indian Ocean Territory
+  IO
+  #Iraq
+  IQ
+  #Iran
+  IR
+  #Iceland
+  IS
+  #Italy
+  IT
+  #Jersey
+  JE
+  #Jamaica
+  JM
+  #Jordan
+  JO
+  #Japan
+  JP
+  #Kenya
+  KE
+  #Kyrgyzstan
+  KG
+  #Cambodia
+  KH
+  #Kiribati
+  KI
+  #Comoros
+  KM
+  #Saint Kitts and Nevis
+  KN
+  #North Korea
+  KP
+  #South Korea
+  KR
+  #Kuwait
+  KW
+  #Cayman Islands
+  KY
+  #Kazakhstan
+  KZ
+  #Laos
+  LA
+  #Lebanon
+  LB
+  #Saint Lucia
+  LC
+  #Liechtenstein
+  LI
+  #Sri Lanka
+  LK
+  #Liberia
+  LR
+  #Lesotho
+  LS
+  #Lithuania
+  LT
+  #Luxembourg
+  LU
+  #Latvia
+  LV
+  #Libya
+  LY
+  #Morocco
+  MA
+  #Monaco
+  MC
+  #Moldova
+  MD
+  #Montenegro
+  ME
+  #Saint Martin (French part)
+  MF
+  #Madagascar
+  MG
+  #Marshall Islands
+  MH
+  #Macedonia
+  MK
+  #Mali
+  ML
+  #Myanmar
+  MM
+  #Mongolia
+  MN
+  #Macao
+  MO
+  #Northern Mariana Islands
+  MP
+  #Martinique
+  MQ
+  #Mauritania
+  MR
+  #Montserrat
+  MS
+  #Malta
+  MT
+  #Mauritius
+  MU
+  #Maldives
+  MV
+  #Malawi
+  MW
+  #Mexico
+  MX
+  #Malaysia
+  MY
+  #Mozambique
+  MZ
+  #Namibia
+  NA
+  #New Caledonia
+  NC
+  #Niger
+  NE
+  #Norfolk Island
+  NF
+  #Nigeria
+  NG
+  #Nicaragua
+  NI
+  #Netherlands
+  NL
+  #Norway
+  NO
+  #Nepal
+  NP
+  #Nauru
+  NR
+  #Niue
+  NU
+  #New Zealand
+  NZ
+  #Oman
+  OM
+  #Panama
+  PA
+  #Peru
+  PE
+  #French Polynesia
+  PF
+  #Papua New Guinea
+  PG
+  #Philippines
+  PH
+  #Pakistan
+  PK
+  #Poland
+  PL
+  #Saint Pierre and Miquelon
+  PM
+  #Pitcairn
+  PN
+  #Puerto Rico
+  PR
+  #Palestine, State of
+  PS
+  #Portugal
+  PT
+  #Palau
+  PW
+  #Paraguay
+  PY
+  #Qatar
+  QA
+  #Réunion
+  RE
+  #Romania
+  RO
+  #Serbia
+  RS
+  #Russia
+  RU
+  #Rwanda
+  RW
+  #Saudi Arabia
+  SA
+  #Solomon Islands
+  SB
+  #Seychelles
+  SC
+  #Sudan
+  SD
+  #Sweden
+  SE
+  #Singapore
+  SG
+  #Saint Helena, Ascension and Tristan da Cunha
+  SH
+  #Slovenia
+  SI
+  #Svalbard and Jan Mayen
+  SJ
+  #Slovakia
+  SK
+  #Sierra Leone
+  SL
+  #San Marino
+  SM
+  #Senegal
+  SN
+  #Somalia
+  SO
+  #Suriname
+  SR
+  #South Sudan
+  SS
+  #Sao Tome and Principe
+  ST
+  #El Salvador
+  SV
+  #Sint Maarten (Dutch part)
+  SX
+  #Syria
+  SY
+  #Swaziland
+  SZ
+  #Turks and Caicos Islands
+  TC
+  #Chad
+  TD
+  #French Southern Territories
+  TF
+  #Togo
+  TG
+  #Thailand
+  TH
+  #Tajikistan
+  TJ
+  #Tokelau
+  TK
+  #Timor-Leste
+  TL
+  #Turkmenistan
+  TM
+  #Tunisia
+  TN
+  #Tonga
+  TO
+  #Turkey
+  TR
+  #Trinidad and Tobago
+  TT
+  #Tuvalu
+  TV
+  #Taiwan
+  TW
+  #Tanzania
+  TZ
+  #Ukraine
+  UA
+  #Uganda
+  UG
+  #United States Minor Outlying Islands
+  UM
+  #United States of America
+  US
+  #Uruguay
+  UY
+  #Uzbekistan
+  UZ
+  #Holy See
+  VA
+  #Saint Vincent and the Grenadines
+  VC
+  #Venezuela
+  VE
+  #Virgin Islands (British)
+  VG
+  #Virgin Islands (U.S.)
+  VI
+  #Vietnam
+  VN
+  #Vanuatu
+  VU
+  #Wallis and Futuna
+  WF
+  #Samoa
+  WS
+  #Yemen
+  YE
+  #Mayotte
+  YT
+  #South Africa
+  ZA
+  #Zambia
+  ZM
+  #Zimbabwe
+  ZW
+}
+
+"An enumeration."
+enum UserProfileGender {
+  #Female
+  FEMALE
+  #Male
+  MALE
+  #Not Specified
+  NOT_SPECIFIED
+  #Other
+  OTHER
+}
+
+"An enumeration."
+enum UserProfileLanguage {
+  #English
+  EN
+  #Spanish
+  ES
+  #Dutch
+  NL
+}
+
+"An enumeration."
+enum UserProfileTimezone {
+  #Africa/Abidjan
+  AFRICA_ABIDJAN
+  #Africa/Accra
+  AFRICA_ACCRA
+  #Africa/Addis Ababa
+  AFRICA_ADDIS_ABABA
+  #Africa/Algiers
+  AFRICA_ALGIERS
+  #Africa/Asmara
+  AFRICA_ASMARA
+  #Africa/Bamako
+  AFRICA_BAMAKO
+  #Africa/Bangui
+  AFRICA_BANGUI
+  #Africa/Banjul
+  AFRICA_BANJUL
+  #Africa/Bissau
+  AFRICA_BISSAU
+  #Africa/Blantyre
+  AFRICA_BLANTYRE
+  #Africa/Brazzaville
+  AFRICA_BRAZZAVILLE
+  #Africa/Bujumbura
+  AFRICA_BUJUMBURA
+  #Africa/Cairo
+  AFRICA_CAIRO
+  #Africa/Casablanca
+  AFRICA_CASABLANCA
+  #Africa/Ceuta
+  AFRICA_CEUTA
+  #Africa/Conakry
+  AFRICA_CONAKRY
+  #Africa/Dakar
+  AFRICA_DAKAR
+  #Africa/Dar es Salaam
+  AFRICA_DAR_ES_SALAAM
+  #Africa/Djibouti
+  AFRICA_DJIBOUTI
+  #Africa/Douala
+  AFRICA_DOUALA
+  #Africa/El Aaiun
+  AFRICA_EL_AAIUN
+  #Africa/Freetown
+  AFRICA_FREETOWN
+  #Africa/Gaborone
+  AFRICA_GABORONE
+  #Africa/Harare
+  AFRICA_HARARE
+  #Africa/Johannesburg
+  AFRICA_JOHANNESBURG
+  #Africa/Juba
+  AFRICA_JUBA
+  #Africa/Kampala
+  AFRICA_KAMPALA
+  #Africa/Khartoum
+  AFRICA_KHARTOUM
+  #Africa/Kigali
+  AFRICA_KIGALI
+  #Africa/Kinshasa
+  AFRICA_KINSHASA
+  #Africa/Lagos
+  AFRICA_LAGOS
+  #Africa/Libreville
+  AFRICA_LIBREVILLE
+  #Africa/Lome
+  AFRICA_LOME
+  #Africa/Luanda
+  AFRICA_LUANDA
+  #Africa/Lubumbashi
+  AFRICA_LUBUMBASHI
+  #Africa/Lusaka
+  AFRICA_LUSAKA
+  #Africa/Malabo
+  AFRICA_MALABO
+  #Africa/Maputo
+  AFRICA_MAPUTO
+  #Africa/Maseru
+  AFRICA_MASERU
+  #Africa/Mbabane
+  AFRICA_MBABANE
+  #Africa/Mogadishu
+  AFRICA_MOGADISHU
+  #Africa/Monrovia
+  AFRICA_MONROVIA
+  #Africa/Nairobi
+  AFRICA_NAIROBI
+  #Africa/Ndjamena
+  AFRICA_NDJAMENA
+  #Africa/Niamey
+  AFRICA_NIAMEY
+  #Africa/Nouakchott
+  AFRICA_NOUAKCHOTT
+  #Africa/Ouagadougou
+  AFRICA_OUAGADOUGOU
+  #Africa/Porto-Novo
+  AFRICA_PORTO_NOVO
+  #Africa/Sao Tome
+  AFRICA_SAO_TOME
+  #Africa/Tripoli
+  AFRICA_TRIPOLI
+  #Africa/Tunis
+  AFRICA_TUNIS
+  #Africa/Windhoek
+  AFRICA_WINDHOEK
+  #America/Adak
+  AMERICA_ADAK
+  #America/Anchorage
+  AMERICA_ANCHORAGE
+  #America/Anguilla
+  AMERICA_ANGUILLA
+  #America/Antigua
+  AMERICA_ANTIGUA
+  #America/Araguaina
+  AMERICA_ARAGUAINA
+  #America/Argentina/Buenos Aires
+  AMERICA_ARGENTINA_BUENOS_AIRES
+  #America/Argentina/Catamarca
+  AMERICA_ARGENTINA_CATAMARCA
+  #America/Argentina/Cordoba
+  AMERICA_ARGENTINA_CORDOBA
+  #America/Argentina/Jujuy
+  AMERICA_ARGENTINA_JUJUY
+  #America/Argentina/La Rioja
+  AMERICA_ARGENTINA_LA_RIOJA
+  #America/Argentina/Mendoza
+  AMERICA_ARGENTINA_MENDOZA
+  #America/Argentina/Rio Gallegos
+  AMERICA_ARGENTINA_RIO_GALLEGOS
+  #America/Argentina/Salta
+  AMERICA_ARGENTINA_SALTA
+  #America/Argentina/San Juan
+  AMERICA_ARGENTINA_SAN_JUAN
+  #America/Argentina/San Luis
+  AMERICA_ARGENTINA_SAN_LUIS
+  #America/Argentina/Tucuman
+  AMERICA_ARGENTINA_TUCUMAN
+  #America/Argentina/Ushuaia
+  AMERICA_ARGENTINA_USHUAIA
+  #America/Aruba
+  AMERICA_ARUBA
+  #America/Asuncion
+  AMERICA_ASUNCION
+  #America/Atikokan
+  AMERICA_ATIKOKAN
+  #America/Bahia
+  AMERICA_BAHIA
+  #America/Bahia Banderas
+  AMERICA_BAHIA_BANDERAS
+  #America/Barbados
+  AMERICA_BARBADOS
+  #America/Belem
+  AMERICA_BELEM
+  #America/Belize
+  AMERICA_BELIZE
+  #America/Blanc-Sablon
+  AMERICA_BLANC_SABLON
+  #America/Boa Vista
+  AMERICA_BOA_VISTA
+  #America/Bogota
+  AMERICA_BOGOTA
+  #America/Boise
+  AMERICA_BOISE
+  #America/Cambridge Bay
+  AMERICA_CAMBRIDGE_BAY
+  #America/Campo Grande
+  AMERICA_CAMPO_GRANDE
+  #America/Cancun
+  AMERICA_CANCUN
+  #America/Caracas
+  AMERICA_CARACAS
+  #America/Cayenne
+  AMERICA_CAYENNE
+  #America/Cayman
+  AMERICA_CAYMAN
+  #America/Chicago
+  AMERICA_CHICAGO
+  #America/Chihuahua
+  AMERICA_CHIHUAHUA
+  #America/Costa Rica
+  AMERICA_COSTA_RICA
+  #America/Creston
+  AMERICA_CRESTON
+  #America/Cuiaba
+  AMERICA_CUIABA
+  #America/Curacao
+  AMERICA_CURACAO
+  #America/Danmarkshavn
+  AMERICA_DANMARKSHAVN
+  #America/Dawson
+  AMERICA_DAWSON
+  #America/Dawson Creek
+  AMERICA_DAWSON_CREEK
+  #America/Denver
+  AMERICA_DENVER
+  #America/Detroit
+  AMERICA_DETROIT
+  #America/Dominica
+  AMERICA_DOMINICA
+  #America/Edmonton
+  AMERICA_EDMONTON
+  #America/Eirunepe
+  AMERICA_EIRUNEPE
+  #America/El Salvador
+  AMERICA_EL_SALVADOR
+  #America/Fortaleza
+  AMERICA_FORTALEZA
+  #America/Fort Nelson
+  AMERICA_FORT_NELSON
+  #America/Glace Bay
+  AMERICA_GLACE_BAY
+  #America/Godthab
+  AMERICA_GODTHAB
+  #America/Goose Bay
+  AMERICA_GOOSE_BAY
+  #America/Grand Turk
+  AMERICA_GRAND_TURK
+  #America/Grenada
+  AMERICA_GRENADA
+  #America/Guadeloupe
+  AMERICA_GUADELOUPE
+  #America/Guatemala
+  AMERICA_GUATEMALA
+  #America/Guayaquil
+  AMERICA_GUAYAQUIL
+  #America/Guyana
+  AMERICA_GUYANA
+  #America/Halifax
+  AMERICA_HALIFAX
+  #America/Havana
+  AMERICA_HAVANA
+  #America/Hermosillo
+  AMERICA_HERMOSILLO
+  #America/Indiana/Indianapolis
+  AMERICA_INDIANA_INDIANAPOLIS
+  #America/Indiana/Knox
+  AMERICA_INDIANA_KNOX
+  #America/Indiana/Marengo
+  AMERICA_INDIANA_MARENGO
+  #America/Indiana/Petersburg
+  AMERICA_INDIANA_PETERSBURG
+  #America/Indiana/Tell City
+  AMERICA_INDIANA_TELL_CITY
+  #America/Indiana/Vevay
+  AMERICA_INDIANA_VEVAY
+  #America/Indiana/Vincennes
+  AMERICA_INDIANA_VINCENNES
+  #America/Indiana/Winamac
+  AMERICA_INDIANA_WINAMAC
+  #America/Inuvik
+  AMERICA_INUVIK
+  #America/Iqaluit
+  AMERICA_IQALUIT
+  #America/Jamaica
+  AMERICA_JAMAICA
+  #America/Juneau
+  AMERICA_JUNEAU
+  #America/Kentucky/Louisville
+  AMERICA_KENTUCKY_LOUISVILLE
+  #America/Kentucky/Monticello
+  AMERICA_KENTUCKY_MONTICELLO
+  #America/Kralendijk
+  AMERICA_KRALENDIJK
+  #America/La Paz
+  AMERICA_LA_PAZ
+  #America/Lima
+  AMERICA_LIMA
+  #America/Los Angeles
+  AMERICA_LOS_ANGELES
+  #America/Lower Princes
+  AMERICA_LOWER_PRINCES
+  #America/Maceio
+  AMERICA_MACEIO
+  #America/Managua
+  AMERICA_MANAGUA
+  #America/Manaus
+  AMERICA_MANAUS
+  #America/Marigot
+  AMERICA_MARIGOT
+  #America/Martinique
+  AMERICA_MARTINIQUE
+  #America/Matamoros
+  AMERICA_MATAMOROS
+  #America/Mazatlan
+  AMERICA_MAZATLAN
+  #America/Menominee
+  AMERICA_MENOMINEE
+  #America/Merida
+  AMERICA_MERIDA
+  #America/Metlakatla
+  AMERICA_METLAKATLA
+  #America/Mexico City
+  AMERICA_MEXICO_CITY
+  #America/Miquelon
+  AMERICA_MIQUELON
+  #America/Moncton
+  AMERICA_MONCTON
+  #America/Monterrey
+  AMERICA_MONTERREY
+  #America/Montevideo
+  AMERICA_MONTEVIDEO
+  #America/Montserrat
+  AMERICA_MONTSERRAT
+  #America/Nassau
+  AMERICA_NASSAU
+  #America/New York
+  AMERICA_NEW_YORK
+  #America/Nipigon
+  AMERICA_NIPIGON
+  #America/Nome
+  AMERICA_NOME
+  #America/Noronha
+  AMERICA_NORONHA
+  #America/North Dakota/Beulah
+  AMERICA_NORTH_DAKOTA_BEULAH
+  #America/North Dakota/Center
+  AMERICA_NORTH_DAKOTA_CENTER
+  #America/North Dakota/New Salem
+  AMERICA_NORTH_DAKOTA_NEW_SALEM
+  #America/Ojinaga
+  AMERICA_OJINAGA
+  #America/Panama
+  AMERICA_PANAMA
+  #America/Pangnirtung
+  AMERICA_PANGNIRTUNG
+  #America/Paramaribo
+  AMERICA_PARAMARIBO
+  #America/Phoenix
+  AMERICA_PHOENIX
+  #America/Porto Velho
+  AMERICA_PORTO_VELHO
+  #America/Port-au-Prince
+  AMERICA_PORT_AU_PRINCE
+  #America/Port of Spain
+  AMERICA_PORT_OF_SPAIN
+  #America/Puerto Rico
+  AMERICA_PUERTO_RICO
+  #America/Punta Arenas
+  AMERICA_PUNTA_ARENAS
+  #America/Rainy River
+  AMERICA_RAINY_RIVER
+  #America/Rankin Inlet
+  AMERICA_RANKIN_INLET
+  #America/Recife
+  AMERICA_RECIFE
+  #America/Regina
+  AMERICA_REGINA
+  #America/Resolute
+  AMERICA_RESOLUTE
+  #America/Rio Branco
+  AMERICA_RIO_BRANCO
+  #America/Santarem
+  AMERICA_SANTAREM
+  #America/Santiago
+  AMERICA_SANTIAGO
+  #America/Santo Domingo
+  AMERICA_SANTO_DOMINGO
+  #America/Sao Paulo
+  AMERICA_SAO_PAULO
+  #America/Scoresbysund
+  AMERICA_SCORESBYSUND
+  #America/Sitka
+  AMERICA_SITKA
+  #America/St Barthelemy
+  AMERICA_ST_BARTHELEMY
+  #America/St Johns
+  AMERICA_ST_JOHNS
+  #America/St Kitts
+  AMERICA_ST_KITTS
+  #America/St Lucia
+  AMERICA_ST_LUCIA
+  #America/St Thomas
+  AMERICA_ST_THOMAS
+  #America/St Vincent
+  AMERICA_ST_VINCENT
+  #America/Swift Current
+  AMERICA_SWIFT_CURRENT
+  #America/Tegucigalpa
+  AMERICA_TEGUCIGALPA
+  #America/Thule
+  AMERICA_THULE
+  #America/Thunder Bay
+  AMERICA_THUNDER_BAY
+  #America/Tijuana
+  AMERICA_TIJUANA
+  #America/Toronto
+  AMERICA_TORONTO
+  #America/Tortola
+  AMERICA_TORTOLA
+  #America/Vancouver
+  AMERICA_VANCOUVER
+  #America/Whitehorse
+  AMERICA_WHITEHORSE
+  #America/Winnipeg
+  AMERICA_WINNIPEG
+  #America/Yakutat
+  AMERICA_YAKUTAT
+  #America/Yellowknife
+  AMERICA_YELLOWKNIFE
+  #Antarctica/Casey
+  ANTARCTICA_CASEY
+  #Antarctica/Davis
+  ANTARCTICA_DAVIS
+  #Antarctica/DumontDUrville
+  ANTARCTICA_DUMONTDURVILLE
+  #Antarctica/Macquarie
+  ANTARCTICA_MACQUARIE
+  #Antarctica/Mawson
+  ANTARCTICA_MAWSON
+  #Antarctica/McMurdo
+  ANTARCTICA_MCMURDO
+  #Antarctica/Palmer
+  ANTARCTICA_PALMER
+  #Antarctica/Rothera
+  ANTARCTICA_ROTHERA
+  #Antarctica/Syowa
+  ANTARCTICA_SYOWA
+  #Antarctica/Troll
+  ANTARCTICA_TROLL
+  #Antarctica/Vostok
+  ANTARCTICA_VOSTOK
+  #Arctic/Longyearbyen
+  ARCTIC_LONGYEARBYEN
+  #Asia/Aden
+  ASIA_ADEN
+  #Asia/Almaty
+  ASIA_ALMATY
+  #Asia/Amman
+  ASIA_AMMAN
+  #Asia/Anadyr
+  ASIA_ANADYR
+  #Asia/Aqtau
+  ASIA_AQTAU
+  #Asia/Aqtobe
+  ASIA_AQTOBE
+  #Asia/Ashgabat
+  ASIA_ASHGABAT
+  #Asia/Atyrau
+  ASIA_ATYRAU
+  #Asia/Baghdad
+  ASIA_BAGHDAD
+  #Asia/Bahrain
+  ASIA_BAHRAIN
+  #Asia/Baku
+  ASIA_BAKU
+  #Asia/Bangkok
+  ASIA_BANGKOK
+  #Asia/Barnaul
+  ASIA_BARNAUL
+  #Asia/Beirut
+  ASIA_BEIRUT
+  #Asia/Bishkek
+  ASIA_BISHKEK
+  #Asia/Brunei
+  ASIA_BRUNEI
+  #Asia/Chita
+  ASIA_CHITA
+  #Asia/Choibalsan
+  ASIA_CHOIBALSAN
+  #Asia/Colombo
+  ASIA_COLOMBO
+  #Asia/Damascus
+  ASIA_DAMASCUS
+  #Asia/Dhaka
+  ASIA_DHAKA
+  #Asia/Dili
+  ASIA_DILI
+  #Asia/Dubai
+  ASIA_DUBAI
+  #Asia/Dushanbe
+  ASIA_DUSHANBE
+  #Asia/Famagusta
+  ASIA_FAMAGUSTA
+  #Asia/Gaza
+  ASIA_GAZA
+  #Asia/Hebron
+  ASIA_HEBRON
+  #Asia/Hong Kong
+  ASIA_HONG_KONG
+  #Asia/Hovd
+  ASIA_HOVD
+  #Asia/Ho Chi Minh
+  ASIA_HO_CHI_MINH
+  #Asia/Irkutsk
+  ASIA_IRKUTSK
+  #Asia/Jakarta
+  ASIA_JAKARTA
+  #Asia/Jayapura
+  ASIA_JAYAPURA
+  #Asia/Jerusalem
+  ASIA_JERUSALEM
+  #Asia/Kabul
+  ASIA_KABUL
+  #Asia/Kamchatka
+  ASIA_KAMCHATKA
+  #Asia/Karachi
+  ASIA_KARACHI
+  #Asia/Kathmandu
+  ASIA_KATHMANDU
+  #Asia/Khandyga
+  ASIA_KHANDYGA
+  #Asia/Kolkata
+  ASIA_KOLKATA
+  #Asia/Krasnoyarsk
+  ASIA_KRASNOYARSK
+  #Asia/Kuala Lumpur
+  ASIA_KUALA_LUMPUR
+  #Asia/Kuching
+  ASIA_KUCHING
+  #Asia/Kuwait
+  ASIA_KUWAIT
+  #Asia/Macau
+  ASIA_MACAU
+  #Asia/Magadan
+  ASIA_MAGADAN
+  #Asia/Makassar
+  ASIA_MAKASSAR
+  #Asia/Manila
+  ASIA_MANILA
+  #Asia/Muscat
+  ASIA_MUSCAT
+  #Asia/Nicosia
+  ASIA_NICOSIA
+  #Asia/Novokuznetsk
+  ASIA_NOVOKUZNETSK
+  #Asia/Novosibirsk
+  ASIA_NOVOSIBIRSK
+  #Asia/Omsk
+  ASIA_OMSK
+  #Asia/Oral
+  ASIA_ORAL
+  #Asia/Phnom Penh
+  ASIA_PHNOM_PENH
+  #Asia/Pontianak
+  ASIA_PONTIANAK
+  #Asia/Pyongyang
+  ASIA_PYONGYANG
+  #Asia/Qatar
+  ASIA_QATAR
+  #Asia/Qyzylorda
+  ASIA_QYZYLORDA
+  #Asia/Riyadh
+  ASIA_RIYADH
+  #Asia/Sakhalin
+  ASIA_SAKHALIN
+  #Asia/Samarkand
+  ASIA_SAMARKAND
+  #Asia/Seoul
+  ASIA_SEOUL
+  #Asia/Shanghai
+  ASIA_SHANGHAI
+  #Asia/Singapore
+  ASIA_SINGAPORE
+  #Asia/Srednekolymsk
+  ASIA_SREDNEKOLYMSK
+  #Asia/Taipei
+  ASIA_TAIPEI
+  #Asia/Tashkent
+  ASIA_TASHKENT
+  #Asia/Tbilisi
+  ASIA_TBILISI
+  #Asia/Tehran
+  ASIA_TEHRAN
+  #Asia/Thimphu
+  ASIA_THIMPHU
+  #Asia/Tokyo
+  ASIA_TOKYO
+  #Asia/Tomsk
+  ASIA_TOMSK
+  #Asia/Ulaanbaatar
+  ASIA_ULAANBAATAR
+  #Asia/Urumqi
+  ASIA_URUMQI
+  #Asia/Ust-Nera
+  ASIA_UST_NERA
+  #Asia/Vientiane
+  ASIA_VIENTIANE
+  #Asia/Vladivostok
+  ASIA_VLADIVOSTOK
+  #Asia/Yakutsk
+  ASIA_YAKUTSK
+  #Asia/Yangon
+  ASIA_YANGON
+  #Asia/Yekaterinburg
+  ASIA_YEKATERINBURG
+  #Asia/Yerevan
+  ASIA_YEREVAN
+  #Atlantic/Azores
+  ATLANTIC_AZORES
+  #Atlantic/Bermuda
+  ATLANTIC_BERMUDA
+  #Atlantic/Canary
+  ATLANTIC_CANARY
+  #Atlantic/Cape Verde
+  ATLANTIC_CAPE_VERDE
+  #Atlantic/Faroe
+  ATLANTIC_FAROE
+  #Atlantic/Madeira
+  ATLANTIC_MADEIRA
+  #Atlantic/Reykjavik
+  ATLANTIC_REYKJAVIK
+  #Atlantic/South Georgia
+  ATLANTIC_SOUTH_GEORGIA
+  #Atlantic/Stanley
+  ATLANTIC_STANLEY
+  #Atlantic/St Helena
+  ATLANTIC_ST_HELENA
+  #Australia/Adelaide
+  AUSTRALIA_ADELAIDE
+  #Australia/Brisbane
+  AUSTRALIA_BRISBANE
+  #Australia/Broken Hill
+  AUSTRALIA_BROKEN_HILL
+  #Australia/Currie
+  AUSTRALIA_CURRIE
+  #Australia/Darwin
+  AUSTRALIA_DARWIN
+  #Australia/Eucla
+  AUSTRALIA_EUCLA
+  #Australia/Hobart
+  AUSTRALIA_HOBART
+  #Australia/Lindeman
+  AUSTRALIA_LINDEMAN
+  #Australia/Lord Howe
+  AUSTRALIA_LORD_HOWE
+  #Australia/Melbourne
+  AUSTRALIA_MELBOURNE
+  #Australia/Perth
+  AUSTRALIA_PERTH
+  #Australia/Sydney
+  AUSTRALIA_SYDNEY
+  #Canada/Atlantic
+  CANADA_ATLANTIC
+  #Canada/Central
+  CANADA_CENTRAL
+  #Canada/Eastern
+  CANADA_EASTERN
+  #Canada/Mountain
+  CANADA_MOUNTAIN
+  #Canada/Newfoundland
+  CANADA_NEWFOUNDLAND
+  #Canada/Pacific
+  CANADA_PACIFIC
+  #Europe/Amsterdam
+  EUROPE_AMSTERDAM
+  #Europe/Andorra
+  EUROPE_ANDORRA
+  #Europe/Astrakhan
+  EUROPE_ASTRAKHAN
+  #Europe/Athens
+  EUROPE_ATHENS
+  #Europe/Belgrade
+  EUROPE_BELGRADE
+  #Europe/Berlin
+  EUROPE_BERLIN
+  #Europe/Bratislava
+  EUROPE_BRATISLAVA
+  #Europe/Brussels
+  EUROPE_BRUSSELS
+  #Europe/Bucharest
+  EUROPE_BUCHAREST
+  #Europe/Budapest
+  EUROPE_BUDAPEST
+  #Europe/Busingen
+  EUROPE_BUSINGEN
+  #Europe/Chisinau
+  EUROPE_CHISINAU
+  #Europe/Copenhagen
+  EUROPE_COPENHAGEN
+  #Europe/Dublin
+  EUROPE_DUBLIN
+  #Europe/Gibraltar
+  EUROPE_GIBRALTAR
+  #Europe/Guernsey
+  EUROPE_GUERNSEY
+  #Europe/Helsinki
+  EUROPE_HELSINKI
+  #Europe/Isle of Man
+  EUROPE_ISLE_OF_MAN
+  #Europe/Istanbul
+  EUROPE_ISTANBUL
+  #Europe/Jersey
+  EUROPE_JERSEY
+  #Europe/Kaliningrad
+  EUROPE_KALININGRAD
+  #Europe/Kiev
+  EUROPE_KIEV
+  #Europe/Kirov
+  EUROPE_KIROV
+  #Europe/Lisbon
+  EUROPE_LISBON
+  #Europe/Ljubljana
+  EUROPE_LJUBLJANA
+  #Europe/London
+  EUROPE_LONDON
+  #Europe/Luxembourg
+  EUROPE_LUXEMBOURG
+  #Europe/Madrid
+  EUROPE_MADRID
+  #Europe/Malta
+  EUROPE_MALTA
+  #Europe/Mariehamn
+  EUROPE_MARIEHAMN
+  #Europe/Minsk
+  EUROPE_MINSK
+  #Europe/Monaco
+  EUROPE_MONACO
+  #Europe/Moscow
+  EUROPE_MOSCOW
+  #Europe/Oslo
+  EUROPE_OSLO
+  #Europe/Paris
+  EUROPE_PARIS
+  #Europe/Podgorica
+  EUROPE_PODGORICA
+  #Europe/Prague
+  EUROPE_PRAGUE
+  #Europe/Riga
+  EUROPE_RIGA
+  #Europe/Rome
+  EUROPE_ROME
+  #Europe/Samara
+  EUROPE_SAMARA
+  #Europe/San Marino
+  EUROPE_SAN_MARINO
+  #Europe/Sarajevo
+  EUROPE_SARAJEVO
+  #Europe/Saratov
+  EUROPE_SARATOV
+  #Europe/Simferopol
+  EUROPE_SIMFEROPOL
+  #Europe/Skopje
+  EUROPE_SKOPJE
+  #Europe/Sofia
+  EUROPE_SOFIA
+  #Europe/Stockholm
+  EUROPE_STOCKHOLM
+  #Europe/Tallinn
+  EUROPE_TALLINN
+  #Europe/Tirane
+  EUROPE_TIRANE
+  #Europe/Ulyanovsk
+  EUROPE_ULYANOVSK
+  #Europe/Uzhgorod
+  EUROPE_UZHGOROD
+  #Europe/Vaduz
+  EUROPE_VADUZ
+  #Europe/Vatican
+  EUROPE_VATICAN
+  #Europe/Vienna
+  EUROPE_VIENNA
+  #Europe/Vilnius
+  EUROPE_VILNIUS
+  #Europe/Volgograd
+  EUROPE_VOLGOGRAD
+  #Europe/Warsaw
+  EUROPE_WARSAW
+  #Europe/Zagreb
+  EUROPE_ZAGREB
+  #Europe/Zaporozhye
+  EUROPE_ZAPOROZHYE
+  #Europe/Zurich
+  EUROPE_ZURICH
+  #GMT
+  GMT
+  #Indian/Antananarivo
+  INDIAN_ANTANANARIVO
+  #Indian/Chagos
+  INDIAN_CHAGOS
+  #Indian/Christmas
+  INDIAN_CHRISTMAS
+  #Indian/Cocos
+  INDIAN_COCOS
+  #Indian/Comoro
+  INDIAN_COMORO
+  #Indian/Kerguelen
+  INDIAN_KERGUELEN
+  #Indian/Mahe
+  INDIAN_MAHE
+  #Indian/Maldives
+  INDIAN_MALDIVES
+  #Indian/Mauritius
+  INDIAN_MAURITIUS
+  #Indian/Mayotte
+  INDIAN_MAYOTTE
+  #Indian/Reunion
+  INDIAN_REUNION
+  #Pacific/Apia
+  PACIFIC_APIA
+  #Pacific/Auckland
+  PACIFIC_AUCKLAND
+  #Pacific/Bougainville
+  PACIFIC_BOUGAINVILLE
+  #Pacific/Chatham
+  PACIFIC_CHATHAM
+  #Pacific/Chuuk
+  PACIFIC_CHUUK
+  #Pacific/Easter
+  PACIFIC_EASTER
+  #Pacific/Efate
+  PACIFIC_EFATE
+  #Pacific/Enderbury
+  PACIFIC_ENDERBURY
+  #Pacific/Fakaofo
+  PACIFIC_FAKAOFO
+  #Pacific/Fiji
+  PACIFIC_FIJI
+  #Pacific/Funafuti
+  PACIFIC_FUNAFUTI
+  #Pacific/Galapagos
+  PACIFIC_GALAPAGOS
+  #Pacific/Gambier
+  PACIFIC_GAMBIER
+  #Pacific/Guadalcanal
+  PACIFIC_GUADALCANAL
+  #Pacific/Guam
+  PACIFIC_GUAM
+  #Pacific/Honolulu
+  PACIFIC_HONOLULU
+  #Pacific/Kiritimati
+  PACIFIC_KIRITIMATI
+  #Pacific/Kosrae
+  PACIFIC_KOSRAE
+  #Pacific/Kwajalein
+  PACIFIC_KWAJALEIN
+  #Pacific/Majuro
+  PACIFIC_MAJURO
+  #Pacific/Marquesas
+  PACIFIC_MARQUESAS
+  #Pacific/Midway
+  PACIFIC_MIDWAY
+  #Pacific/Nauru
+  PACIFIC_NAURU
+  #Pacific/Niue
+  PACIFIC_NIUE
+  #Pacific/Norfolk
+  PACIFIC_NORFOLK
+  #Pacific/Noumea
+  PACIFIC_NOUMEA
+  #Pacific/Pago Pago
+  PACIFIC_PAGO_PAGO
+  #Pacific/Palau
+  PACIFIC_PALAU
+  #Pacific/Pitcairn
+  PACIFIC_PITCAIRN
+  #Pacific/Pohnpei
+  PACIFIC_POHNPEI
+  #Pacific/Port Moresby
+  PACIFIC_PORT_MORESBY
+  #Pacific/Rarotonga
+  PACIFIC_RAROTONGA
+  #Pacific/Saipan
+  PACIFIC_SAIPAN
+  #Pacific/Tahiti
+  PACIFIC_TAHITI
+  #Pacific/Tarawa
+  PACIFIC_TARAWA
+  #Pacific/Tongatapu
+  PACIFIC_TONGATAPU
+  #Pacific/Wake
+  PACIFIC_WAKE
+  #Pacific/Wallis
+  PACIFIC_WALLIS
+  #US/Alaska
+  US_ALASKA
+  #US/Arizona
+  US_ARIZONA
+  #US/Central
+  US_CENTRAL
+  #US/Eastern
+  US_EASTERN
+  #US/Hawaii
+  US_HAWAII
+  #US/Mountain
+  US_MOUNTAIN
+  #US/Pacific
+  US_PACIFIC
+  #UTC
+  UTC
+}
+
+
+"UUID"
+scalar UUID
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+scalar CustomDateTime
+
+"JSON String"
+scalar JSONString
+
+scalar GeoJSON
+
+"""
+The `Date` scalar type represents a Date
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar Date
+
+"""
+The `Time` scalar type represents a Time value as
+specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar Time

@@ -16,6 +16,7 @@ const gameDetailsFragment = gql`
     capacity
     description
     invite_mode
+    share_link
     sport {
       id
       uuid
