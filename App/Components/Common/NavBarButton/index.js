@@ -11,7 +11,6 @@ import Icon from '../Icon';
 //------------------------------------------------------------------------------
 const Button = styled(TouchableHighlight)`
   flex: 1;
-  height: 48px;
   background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------

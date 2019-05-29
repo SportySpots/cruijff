@@ -32520,6 +32520,8 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
           Array [
             Object {
               "alignItems": "flex-end",
+              "borderTopColor": "#e6e6e6",
+              "borderTopWidth": 1,
               "display": "flex",
               "flexDirection": "row",
               "height": 48,
@@ -32538,18 +32540,14 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "#fff",
-              "borderTopColor": "#e6e6e6",
-              "borderTopLeftRadius": 0,
-              "borderTopRightRadius": 0,
-              "borderTopWidth": 0.5,
-              "flexBasis": 0,
-              "flexGrow": 9,
-              "flexShrink": 1,
-              "height": 48,
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+            ]
           }
           testID="navbarButton_spots"
         >
@@ -32563,6 +32561,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                   "flexShrink": 1,
                   "justifyContent": "center",
                 },
+                null,
               ]
             }
           >
@@ -32576,7 +32575,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                   },
                   undefined,
                   Object {
-                    "fontFamily": "Material Icons",
+                    "fontFamily": "Material Design Icons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
@@ -32584,7 +32583,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
             <Text
               style={
@@ -32612,18 +32611,14 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "#fff",
-              "borderTopColor": "#e6e6e6",
-              "borderTopLeftRadius": 0,
-              "borderTopRightRadius": 0,
-              "borderTopWidth": 0.5,
-              "flexBasis": 0,
-              "flexGrow": 9,
-              "flexShrink": 1,
-              "height": 48,
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+            ]
           }
           testID="navbarButton_activities"
         >
@@ -32637,6 +32632,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                   "flexShrink": 1,
                   "justifyContent": "center",
                 },
+                null,
               ]
             }
           >
@@ -32686,18 +32682,14 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "#009f36",
-              "borderTopColor": "rgba(0,0,0,0)",
-              "borderTopLeftRadius": 8,
-              "borderTopRightRadius": 8,
-              "borderTopWidth": 0,
-              "flexBasis": 0,
-              "flexGrow": 10,
-              "flexShrink": 1,
-              "height": 56,
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+            ]
           }
           testID="navbarButton_organize"
         >
@@ -32711,6 +32703,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                   "flexShrink": 1,
                   "justifyContent": "center",
                 },
+                null,
               ]
             }
           >
@@ -32719,8 +32712,8 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#fff",
-                    "fontSize": 32,
+                    "color": "#009f36",
+                    "fontSize": 24,
                   },
                   undefined,
                   Object {
@@ -32732,14 +32725,14 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
             <Text
               style={
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#fff",
-                  "fontFamily": "Rajdhani-Regular",
+                  "color": "#009f36",
+                  "fontFamily": "Rajdhani-SemiBold",
                   "fontSize": 12,
                   "lineHeight": 18,
                   "textAlign": "left",
@@ -32760,18 +32753,14 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "#fff",
-              "borderTopColor": "#e6e6e6",
-              "borderTopLeftRadius": 0,
-              "borderTopRightRadius": 0,
-              "borderTopWidth": 0.5,
-              "flexBasis": 0,
-              "flexGrow": 9,
-              "flexShrink": 1,
-              "height": 48,
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+            ]
           }
           testID="navbarButton_profile"
         >
@@ -32785,6 +32774,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                   "flexShrink": 1,
                   "justifyContent": "center",
                 },
+                null,
               ]
             }
           >
@@ -32834,18 +32824,14 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "#fff",
-              "borderTopColor": "#e6e6e6",
-              "borderTopLeftRadius": 0,
-              "borderTopRightRadius": 0,
-              "borderTopWidth": 0.5,
-              "flexBasis": 0,
-              "flexGrow": 9,
-              "flexShrink": 1,
-              "height": 48,
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+            ]
           }
           testID="navbarButton_info"
         >
@@ -32859,6 +32845,7 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
                   "flexShrink": 1,
                   "justifyContent": "center",
                 },
+                null,
               ]
             }
           >
@@ -32966,18 +32953,14 @@ exports[`Storyshots Common.NavBarButton NavBarButton 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderTopColor": "#e6e6e6",
-            "borderTopLeftRadius": 0,
-            "borderTopRightRadius": 0,
-            "borderTopWidth": 0.5,
-            "flexBasis": 0,
-            "flexGrow": 9,
-            "flexShrink": 1,
-            "height": 48,
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+            },
+          ]
         }
       >
         <View
@@ -32990,6 +32973,7 @@ exports[`Storyshots Common.NavBarButton NavBarButton 1`] = `
                 "flexShrink": 1,
                 "justifyContent": "center",
               },
+              null,
             ]
           }
         >
@@ -33096,18 +33080,14 @@ exports[`Storyshots Common.NavBarButton NavBarButton main 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "backgroundColor": "#009f36",
-            "borderTopColor": "rgba(0,0,0,0)",
-            "borderTopLeftRadius": 8,
-            "borderTopRightRadius": 8,
-            "borderTopWidth": 0,
-            "flexBasis": 0,
-            "flexGrow": 10,
-            "flexShrink": 1,
-            "height": 56,
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+            },
+          ]
         }
       >
         <View
@@ -33120,6 +33100,7 @@ exports[`Storyshots Common.NavBarButton NavBarButton main 1`] = `
                 "flexShrink": 1,
                 "justifyContent": "center",
               },
+              null,
             ]
           }
         >
@@ -33128,8 +33109,8 @@ exports[`Storyshots Common.NavBarButton NavBarButton main 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#fff",
-                  "fontSize": 32,
+                  "color": "rgba(0,0,0,0.34)",
+                  "fontSize": 24,
                 },
                 undefined,
                 Object {
@@ -33147,7 +33128,7 @@ exports[`Storyshots Common.NavBarButton NavBarButton main 1`] = `
             style={
               Object {
                 "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#fff",
+                "color": "rgba(0,0,0,0.34)",
                 "fontFamily": "Rajdhani-Regular",
                 "fontSize": 12,
                 "lineHeight": 18,
@@ -62122,626 +62103,7 @@ exports[`Storyshots Screens.Plan.ShareGameScreen ShareGameScreen 1`] = `
         undefined,
       ]
     }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "flexBasis": 0,
-            "flexGrow": 1,
-            "flexShrink": 1,
-          },
-        ]
-      }
-    >
-      <View
-        bgColor="primaryGreen"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#009f36",
-              "flexBasis": 0,
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "paddingBottom": 0,
-              "paddingLeft": 16,
-              "paddingRight": 16,
-              "paddingTop": 32,
-            },
-          ]
-        }
-      >
-        <View
-          alignItems="center"
-          justifyContent="space-between"
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "display": "flex",
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
-          }
-        >
-          <Text
-            style={
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#fff",
-                "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 32,
-                "lineHeight": 48,
-                "textAlign": "left",
-              }
-            }
-          >
-            shareGameScreen.title
-          </Text>
-        </View>
-        <View
-          pixels={56}
-          row={false}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "height": 56,
-                "width": "auto",
-              },
-            ]
-          }
-        />
-        <View
-          alignItems="center"
-          justifyContent="flex-start"
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "display": "flex",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
-              },
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#fff",
-                  "fontSize": 35,
-                },
-                undefined,
-                Object {
-                  "fontFamily": "Material Design Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <View
-            pixels={16}
-            row={true}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "height": "auto",
-                  "width": 16,
-                },
-              ]
-            }
-          />
-          <Text
-            style={
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#fff",
-                "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 24,
-                "lineHeight": 36,
-                "textAlign": "left",
-              }
-            }
-          >
-            shareGameScreen.invite
-          </Text>
-        </View>
-        <View
-          pixels={32}
-          row={false}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "height": 32,
-                "width": "auto",
-              },
-            ]
-          }
-        />
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            bgColor="actionYellow"
-            borderColor="actionYellow"
-            disabled={false}
-            size="XL"
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#f5a623",
-                  "borderColor": "#f5a623",
-                  "borderRadius": 58,
-                  "borderStyle": "solid",
-                  "borderWidth": 0.3,
-                  "height": 58,
-                  "justifyContent": "center",
-                  "width": 58,
-                },
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 24,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "Material Design Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-        <View
-          pixels={56}
-          row={false}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "height": 56,
-                "width": "auto",
-              },
-            ]
-          }
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#000",
-              "height": 50,
-            },
-          ]
-        }
-      >
-        <View
-          alignItems="center"
-          justifyContent="flex-start"
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "display": "flex",
-                "flexBasis": 0,
-                "flexDirection": "row",
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "justifyContent": "flex-start",
-              },
-            ]
-          }
-        >
-          <View
-            pixels={4}
-            row={true}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "height": "auto",
-                  "width": 4,
-                },
-              ]
-            }
-          />
-          <View
-            alignItems="stretch"
-            justifyContent="flex-start"
-            style={
-              Array [
-                Object {
-                  "alignItems": "stretch",
-                  "display": "flex",
-                  "flexBasis": 0,
-                  "flexDirection": "row",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "flex-start",
-                },
-              ]
-            }
-          />
-          <View
-            alignItems="center"
-            justifyContent="center"
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "display": "flex",
-                  "flexDirection": "row",
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <View
-              alignItems="center"
-              justifyContent="center"
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "display": "flex",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                pixels={4}
-                row={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "height": "auto",
-                      "width": 4,
-                    },
-                  ]
-                }
-              />
-              <View
-                active={false}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(255,255,255,.2)",
-                      "borderRadius": 10,
-                      "height": 10,
-                      "width": 10,
-                    },
-                  ]
-                }
-              />
-              <View
-                pixels={4}
-                row={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "height": "auto",
-                      "width": 4,
-                    },
-                  ]
-                }
-              />
-            </View>
-            <View
-              alignItems="center"
-              justifyContent="center"
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "display": "flex",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                pixels={4}
-                row={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "height": "auto",
-                      "width": 4,
-                    },
-                  ]
-                }
-              />
-              <View
-                active={false}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(255,255,255,.2)",
-                      "borderRadius": 10,
-                      "height": 10,
-                      "width": 10,
-                    },
-                  ]
-                }
-              />
-              <View
-                pixels={4}
-                row={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "height": "auto",
-                      "width": 4,
-                    },
-                  ]
-                }
-              />
-            </View>
-            <View
-              alignItems="center"
-              justifyContent="center"
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "display": "flex",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                pixels={4}
-                row={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "height": "auto",
-                      "width": 4,
-                    },
-                  ]
-                }
-              />
-              <View
-                active={false}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(255,255,255,.2)",
-                      "borderRadius": 10,
-                      "height": 10,
-                      "width": 10,
-                    },
-                  ]
-                }
-              />
-              <View
-                pixels={4}
-                row={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "height": "auto",
-                      "width": 4,
-                    },
-                  ]
-                }
-              />
-            </View>
-            <View
-              alignItems="center"
-              justifyContent="center"
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "display": "flex",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                pixels={4}
-                row={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "height": "auto",
-                      "width": 4,
-                    },
-                  ]
-                }
-              />
-              <View
-                active={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#f5a623",
-                      "borderRadius": 10,
-                      "height": 10,
-                      "width": 10,
-                    },
-                  ]
-                }
-              />
-              <View
-                pixels={4}
-                row={true}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "height": "auto",
-                      "width": 4,
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <View
-            alignItems="stretch"
-            justifyContent="flex-end"
-            style={
-              Array [
-                Object {
-                  "alignItems": "stretch",
-                  "display": "flex",
-                  "flexBasis": 0,
-                  "flexDirection": "row",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "flex-end",
-                },
-              ]
-            }
-          >
-            <View
-              accessible={true}
-              isTVSelectable={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="footerNextButton"
-            >
-              <View
-                alignItems="center"
-                justifyContent="center"
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "display": "flex",
-                      "flexDirection": "row",
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#fff",
-                      "fontFamily": "Rajdhani-SemiBold",
-                      "fontSize": 18,
-                      "lineHeight": 27,
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  SHAREGAMESCREEN.FOOTER.NEXTBTNLABEL
-                </Text>
-                <View
-                  pixels={4}
-                  row={true}
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "height": "auto",
-                        "width": 4,
-                      },
-                    ]
-                  }
-                />
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#fff",
-                        "fontSize": 27,
-                      },
-                      undefined,
-                      Object {
-                        "fontFamily": "Material Icons",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            pixels={4}
-            row={true}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "height": "auto",
-                  "width": 4,
-                },
-              ]
-            }
-          />
-        </View>
-      </View>
-    </View>
-  </View>
+  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     pointerEvents="box-none"

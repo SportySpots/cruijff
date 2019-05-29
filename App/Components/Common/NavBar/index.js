@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import firebase from 'react-native-firebase';
-// import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import Row from '../Row';
@@ -26,7 +25,6 @@ const buttons = [{
   icon: {
     set: 'MaterialCommunityIcons',
     name: 'near-me',
-    // name: 'place',
   },
 }, {
   id: 'activities',
@@ -34,7 +32,7 @@ const buttons = [{
   route: 'GameSearchTab',
   icon: {
     set: 'MaterialCommunityIcons',
-    name: 'account-multiple',
+    name: 'account-group',
   },
 }, {
   id: 'organize',
@@ -50,8 +48,8 @@ const buttons = [{
   label: 'navBar.profile',
   route: 'ProfileTab',
   icon: {
-    set: 'MaterialCommunityIcons',
-    name: 'account-box',
+    set: 'MaterialIcons',
+    name: 'account-circle',
   },
 }, {
   id: 'info',
