@@ -5,6 +5,28 @@ import firebase from 'react-native-firebase';
 import I18n from '../../../I18n';
 import RoundButton from '../../Common/RoundButton';
 
+const iconStyle = {
+  facebook: {
+    iconSet: 'FontAwesome',
+    iconName: 'facebook',
+    color: 'facebook',
+  },
+  whatsapp: {
+    iconSet: 'FontAwesome',
+    iconName: 'whatsapp',
+    color: 'whatsapp',
+  },
+  email: {
+    iconSet: 'FontAwesome',
+    iconName: 'envelope',
+    color: 'grassDark',
+  },
+  native: {
+    iconSet: 'FontAwesome',
+    iconName: 'link',
+    color: 'notify',
+  },
+};
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -46,12 +68,15 @@ class ShareGameButton extends React.PureComponent {
   }
 
   render() {
+    const { variant } = this.props;
+    const style = iconStyle[variant];
     return (
       <RoundButton
         size="XL"
         status="default"
-        iconSet="MaterialCommunityIcons"
-        iconName="link-variant"
+        iconSet={style.iconSet}
+        iconName={style.iconName}
+        bgColor={style.color}
         onPress={this.handlePress}
       />
     );

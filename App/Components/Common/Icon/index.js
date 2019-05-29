@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicon from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Colors from '../../../Themes/Colors';
 
 //------------------------------------------------------------------------------
@@ -27,6 +29,10 @@ const Icon = ({
     case 'Ionicons':
       IconNative = Ionicon;
       break;
+    case 'FontAwesome':
+      IconNative = FontAwesome;
+      break;
+
     default:
       throw new Error('Unknown icon set', iconSet);
   }
@@ -46,6 +52,7 @@ Icon.propTypes = {
     'MaterialIcons',
     'MaterialCommunityIcons',
     'Ionicons',
+    'FontAwesome',
   ]).isRequired,
   iconName: PropTypes.string.isRequired,
   color: PropTypes.oneOf(Object.keys(Colors)),

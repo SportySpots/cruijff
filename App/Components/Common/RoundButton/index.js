@@ -32,6 +32,7 @@ const RoundButton = ({
   disabled,
   reverse,
   onPress,
+  bgColor: bgOverride,
   ...rest
 }) => {
   const palette = getPalette(status, reverse);
@@ -41,7 +42,7 @@ const RoundButton = ({
     <TouchableOpacity onPress={onPress} {...rest}>
       <Container
         size={size}
-        bgColor={bgColor}
+        bgColor={bgOverride || bgColor}
         borderColor={borderColor}
         disabled={disabled}
       >
@@ -73,6 +74,7 @@ RoundButton.propTypes = {
   disabled: PropTypes.bool,
   reverse: PropTypes.bool,
   onPress: PropTypes.func,
+  bgColor: PropTypes.string,
   // Plus all props from native TouchableOpacity
 };
 
@@ -82,6 +84,7 @@ RoundButton.defaultProps = {
   disabled: false,
   reverse: false,
   onPress: () => {},
+  bgColor: undefined,
 };
 
 export default RoundButton;
