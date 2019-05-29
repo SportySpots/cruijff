@@ -72,16 +72,24 @@ class ShareGameForm extends React.PureComponent {
           title={I18n.t('shareGameScreen.title')}
           closable={false}
         >
-          <Spacer size="XXXL" />
+          <Spacer size="XXL" />
+          <Spacer size="L" />
+          <Text size="ML" color="white">
+            {I18n.t('shareGameScreen.invite')}
+          </Text>
+          <Spacer size="XL" />
+          <Text color="white" semibold>
+            {I18n.t('shareGameScreen.shareVia')}
+          </Text>
+          <Spacer size="XXL" />
           <Row alignItems="center">
             <ShareGameButton shareLink={game.share_link} />
-            <Spacer row size="L" />
-            <Text size="ML" color="white">
-              {I18n.t('shareGameScreen.invite')}
-            </Text>
           </Row>
           <Spacer size="XXL" />
-          <Spacer size="XXXL" />
+          <Spacer size="L" />
+          <Text color="white" semibold>
+            {I18n.t('shareGameScreen.remember')}
+          </Text>
           {/* <InviteOnly
             isPublic={isPublic}
             onPress={(value) => { this.handleChange({ fieldName: 'isPublic', value }); }}
