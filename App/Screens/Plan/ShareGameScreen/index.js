@@ -102,8 +102,7 @@ class ShareGameScreen extends React.Component {
                 >
                   {({ shareGame }) => (
                     <ShareGameForm
-                      gameUUID={gameUUID}
-                      shareLink={data.game.share_link}
+                      game={data.game}
                       disabled={disabled}
                       onBeforeHook={handleBefore}
                       onClientCancelHook={handleClientCancel}
