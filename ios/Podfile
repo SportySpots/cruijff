@@ -13,19 +13,7 @@ target 'SportySpots' do
   pod 'GoogleAppMeasurement', '~> 5.8.0'
   pod 'Firebase/Messaging', '~> 5.20.1'
   pod 'Firebase/DynamicLinks', '~> 5.20.1'
-  # pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
   platform :ios, '9.0'
-  # pod 'RNLanguages', :path => '../node_modules/react-native-languages'
-
-  #pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-
-  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
-
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
-
-  pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
-
-  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
-
+  
 end
