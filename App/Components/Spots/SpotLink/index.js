@@ -24,8 +24,8 @@ const SpotLink = ({ spot }) => {
   const link = (
     <Text
       color="actionBlue"
-      onPress={() => {
-        openGoogleMapsLocation({ latLng, title: spot.name });
+      onPress={async () => {
+        await openGoogleMapsLocation({ latLng, title: spot.name });
       }}
     >
       {I18n.t('spotLink.link.anchor')}

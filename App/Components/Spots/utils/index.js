@@ -20,12 +20,13 @@ export const getSpotLocation = spot => ({
   longitude: spot && spot.address && spot.address.lng,
 });
 // -----------------------------------------------------------------------------
-export const openGoogleMapsLocation = ({ latLng, title = '' }) => {
-  showLocation({
+export const openGoogleMapsLocation = async ({ latLng, title = '' }) => {
+  await showLocation({
     ...latLng,
-    title,
+    // title,
     // Force GoogleMaps to use the latLng from the query instead of the title
     googleForceLatLon: true,
+    appsWhiteList: ['google-maps'],
   });
 };
 // -----------------------------------------------------------------------------
