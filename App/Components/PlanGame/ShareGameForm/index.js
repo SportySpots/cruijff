@@ -77,8 +77,8 @@ class ShareGameForm extends React.PureComponent {
             {I18n.t('shareGameScreen.invite')}
           </Text>
           <Row alignItems="center" justifyContent="space-between">
-            <ShareGameButton variant="facebook" shareLink={shareLink} />
             <ShareGameButton variant="whatsapp" shareLink={shareLink} />
+            <ShareGameButton variant="facebook" shareLink={shareLink} />
             <ShareGameButton variant="email" shareLink={shareLink} />
             <ShareGameButton variant="native" shareLink={shareLink} />
           </Row>
