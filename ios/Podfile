@@ -16,16 +16,12 @@ target 'SportySpots' do
   # pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
   platform :ios, '9.0'
+  pod 'React', :path => '../node_modules/react-native'
   # pod 'RNLanguages', :path => '../node_modules/react-native-languages'
-
-  #pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-
+  # pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
   pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
-
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
-
   pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
-
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
 end
