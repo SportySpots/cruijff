@@ -12,6 +12,8 @@ import NavBarButton from '../NavBarButton';
 // STYLE:
 //------------------------------------------------------------------------------
 const StyledRow = styled(Row)`
+  border-top-width: 1px;
+  border-top-color: ${({ theme }) => theme.colors.silver};
   height: 48;
 `;
 //------------------------------------------------------------------------------
@@ -22,8 +24,8 @@ const buttons = [{
   label: 'navBar.spots',
   route: 'SpotSearchTab',
   icon: {
-    set: 'MaterialIcons',
-    name: 'search',
+    set: 'MaterialCommunityIcons',
+    name: 'near-me',
     // name: 'place',
   },
 }, {
@@ -32,7 +34,7 @@ const buttons = [{
   route: 'GameSearchTab',
   icon: {
     set: 'MaterialCommunityIcons',
-    name: 'account-group',
+    name: 'account-multiple',
   },
 }, {
   id: 'organize',
@@ -41,16 +43,15 @@ const buttons = [{
   route: 'PlanScreen',
   icon: {
     set: 'MaterialCommunityIcons',
-    name: 'soccer-field',
-    // name: 'calendar-plus',
+    name: 'plus-box',
   },
 }, {
   id: 'profile',
   label: 'navBar.profile',
   route: 'ProfileTab',
   icon: {
-    set: 'MaterialIcons',
-    name: 'account-circle',
+    set: 'MaterialCommunityIcons',
+    name: 'account-box',
   },
 }, {
   id: 'info',

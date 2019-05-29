@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
+import Colors from '../../../Themes/Colors';
 import Text from '../Text';
 import Icon from '../Icon';
 
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Button = styled(TouchableOpacity)`
-  flex: ${({ main }) => (main ? 10 : 9)};
-  height: ${({ main }) => (main ? 56 : 48)};
-  border-top-width: ${({ main }) => (main ? 0 : StyleSheet.hairlineWidth)};
-  border-top-color: ${({ theme, main }) => (main ? theme.colors.transparent : theme.colors.silver)};
-  background-color: ${({ theme, main }) => (main ? theme.colors.primaryGreen : theme.colors.white)};
-  border-top-left-radius: ${({ main }) => (main ? 8 : 0)};
-  border-top-right-radius: ${({ main }) => (main ? 8 : 0)};
+const Button = styled(TouchableHighlight)`
+  flex: 1;
+  height: 48px;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 const Center = styled.View`
@@ -28,31 +25,31 @@ const Center = styled.View`
 //------------------------------------------------------------------------------
 const NavBarButton = ({
   btnLabel,
-  main,
   icon,
   active,
   onPress,
   ...otherProps
 }) => {
   const baseColor = active ? 'primaryGreen' : 'black34';
-  const color = main ? 'white' : baseColor;
 
   return (
     <Button
-      main={main}
       onPress={onPress}
+      activeOpacity={1}
+      underlayColor={Colors.grass10}
       {...otherProps}
     >
       <Center>
         <Icon
           iconSet={icon.set}
           iconName={icon.name}
-          size={main ? 32 : 24}
-          color={color}
+          size={24}
+          color={baseColor}
         />
         <Text
           size="S"
-          color={color}
+          color={baseColor}
+          semibold={active}
         >
           {btnLabel}
         </Text>
