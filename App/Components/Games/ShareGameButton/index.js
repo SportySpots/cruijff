@@ -9,22 +9,22 @@ const iconStyle = {
   facebook: {
     iconSet: 'FontAwesome',
     iconName: 'facebook',
-    color: 'facebook',
+    status: 'facebook',
   },
   whatsapp: {
     iconSet: 'FontAwesome',
     iconName: 'whatsapp',
-    color: 'whatsapp',
+    status: 'whatsapp',
   },
   email: {
-    iconSet: 'FontAwesome',
-    iconName: 'envelope',
-    color: 'grassDark',
+    iconSet: 'MaterialCommunityIcons',
+    iconName: 'email-outline',
+    status: 'email',
   },
   native: {
-    iconSet: 'FontAwesome',
-    iconName: 'link',
-    color: 'notify',
+    iconSet: 'MaterialCommunityIcons',
+    iconName: 'link-variant',
+    status: 'default',
   },
 };
 //------------------------------------------------------------------------------
@@ -69,14 +69,14 @@ class ShareGameButton extends React.PureComponent {
 
   render() {
     const { variant } = this.props;
-    const style = iconStyle[variant];
+    const { iconSet, iconName, status } = iconStyle[variant];
+
     return (
       <RoundButton
         size="XL"
-        status="default"
-        iconSet={style.iconSet}
-        iconName={style.iconName}
-        bgColor={style.color}
+        status={status} // TODO: change name to 'variant'
+        iconSet={iconSet}
+        iconName={iconName}
         onPress={this.handlePress}
       />
     );
