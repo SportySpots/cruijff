@@ -15,5 +15,5 @@ target 'SportySpots' do
   pod 'Firebase/DynamicLinks', '~> 5.20.1'
 
   platform :ios, '9.0'
-  
+
 end
