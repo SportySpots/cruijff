@@ -82,8 +82,8 @@ const SpotMap = ({ spot }) => {
               status="translucid"
               iconSet="MaterialCommunityIcons"
               iconName="google-maps"
-              onPress={() => {
-                openGoogleMapsLocation({ latLng, title: spot.name });
+              onPress={async () => {
+                await openGoogleMapsLocation({ latLng, title: spot.name });
               }}
             />
           </Row>

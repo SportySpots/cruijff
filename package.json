@@ -100,7 +100,7 @@
     "react-native-image-picker": "^0.28.1",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-localize": "^1.0.1",
-    "react-native-map-link": "^2.1.1",
+    "react-native-map-link": "2.1.1",
     "react-native-material-dropdown": "^0.11.1",
     "react-native-material-textfield": "^0.12.0",
     "react-native-modal-datetime-picker": "^7.4.0",

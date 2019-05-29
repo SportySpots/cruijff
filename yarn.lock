@@ -8565,13 +8565,13 @@ react-native-localize@^1.0.1:
   resolved "https://registry.npmjs.org/react-native-localize/-/react-native-localize-1.1.2.tgz#738b2b3bc86a9a451e0989f67b11ac289971b8b2"
   integrity sha512-evyah0AVmJ0YuaPOFy4cfeQvxZdDHKbhw+IpN6QA9t6jqsaF+GfQxm95IoPig5T7lGCVVXyAorD3/0axsZZPzw==
 
-react-native-map-link@^2.1.1:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/react-native-map-link/-/react-native-map-link-2.4.0.tgz#1c86fd1193e3c7578c76e0cc98e892ae418284cd"
-  integrity sha512-Rlw1O+zMibGL49V1ZBo97rST6zZOcnZdMenz+9tw4DVilP8fP0PZh+pY2JvN87I93U8bmuai3EZs0dpfQo5Gkw==
+react-native-map-link@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-map-link/-/react-native-map-link-2.1.1.tgz#84ab42a1a8aedc95b9621be94a0de142c39afd6b"
+  integrity sha512-/ugQ1guu4GXuBerKTScdNXNb/myGHWygbN1e+kA0xQ9MjS/ypDN40cPfmptKh4tqKRMI3hjrYe2n8cJUICkxUw==
   dependencies:
     prop-types "^15.6.1"
-    react-native-modal "^9.0.0"
+    react-native-modal "^6.4.0"
 
 react-native-material-buttons@^0.5.0:
   version "0.5.0"
@@ -8619,6 +8619,14 @@ react-native-modal-datetime-picker@^7.4.0:
   dependencies:
     prop-types "^15.7.2"
     react-native-modal "^9.0.0"
+
+react-native-modal@^6.4.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-6.5.0.tgz#46220b2289a41597d344c1db17454611b426a758"
+  integrity sha512-ewchdETAGd32xLGLK93NETEGkRcePtN7ZwjmLSQnNW1Zd0SRUYE8NqftjamPyfKvK0i2DZjX4YAghGZTqaRUbA==
+  dependencies:
+    prop-types "^15.6.1"
+    react-native-animatable "^1.2.4"
 
 react-native-modal@^9.0.0:
   version "9.0.0"
