@@ -6,6 +6,6 @@ import ShareGameForm from '.';
 storiesOf('PlanGame.ShareGameForm', module)
   .add('ShareGameForm white theme', () => (
     <View style={{ flex: 1 }}>
-      <ShareGameForm gameUUID="455" />
+      <ShareGameForm gameUUID="455" shareLink="http://some-link" />
     </View>
   ));

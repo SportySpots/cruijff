@@ -54924,26 +54924,64 @@ exports[`Storyshots PlanGame.ShareGameForm ShareGameForm white theme 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 35,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "Material Design Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
+                Object {
+                  "opacity": 1,
+                }
               }
             >
-              
-            </Text>
+              <View
+                bgColor="actionYellow"
+                borderColor="actionYellow"
+                disabled={false}
+                size="XL"
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#f5a623",
+                      "borderColor": "#f5a623",
+                      "borderRadius": 58,
+                      "borderStyle": "solid",
+                      "borderWidth": 0.3,
+                      "height": 58,
+                      "justifyContent": "center",
+                      "width": 58,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 24,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "Material Design Icons",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
             <View
               pixels={16}
               row={true}
@@ -54985,64 +55023,6 @@ exports[`Storyshots PlanGame.ShareGameForm ShareGameForm white theme 1`] = `
               ]
             }
           />
-          <View
-            accessible={true}
-            isTVSelectable={true}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              bgColor="actionYellow"
-              borderColor="actionYellow"
-              disabled={false}
-              size="XL"
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#f5a623",
-                    "borderColor": "#f5a623",
-                    "borderRadius": 58,
-                    "borderStyle": "solid",
-                    "borderWidth": 0.3,
-                    "height": 58,
-                    "justifyContent": "center",
-                    "width": 58,
-                  },
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#fff",
-                      "fontSize": 24,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "Material Design Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
           <View
             pixels={56}
             row={false}
