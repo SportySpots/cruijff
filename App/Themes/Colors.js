@@ -43,6 +43,7 @@ const colors = {
   lightSkyBlue: '#87CEFA',
   orange: 'orange',
   facebook: '#3B5998',
+  whatsapp: '#25d366',
 };
 
 export default colors;
