@@ -73,19 +73,13 @@ class ShareGameForm extends React.PureComponent {
         >
           <Spacer size="XXXL" />
           <Row alignItems="center">
-            <Icon
-              iconSet="MaterialCommunityIcons"
-              iconName="share-variant"
-              size={35}
-              color="white"
-            />
+            <ShareGameButton shareLink={shareLink} />
             <Spacer row size="L" />
             <Text size="ML" color="white">
               {I18n.t('shareGameScreen.invite')}
             </Text>
           </Row>
           <Spacer size="XXL" />
-          <ShareGameButton shareLink={shareLink} />
           <Spacer size="XXXL" />
           {/* <InviteOnly
             isPublic={isPublic}
