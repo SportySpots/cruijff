@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicon from 'react-native-vector-icons/Ionicons';
@@ -32,7 +31,6 @@ const Icon = ({
     case 'FontAwesome':
       IconNative = FontAwesome;
       break;
-
     default:
       throw new Error('Unknown icon set', iconSet);
   }

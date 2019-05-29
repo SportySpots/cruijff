@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { propType } from 'graphql-anywhere';
 import firebase from 'react-native-firebase';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n';
+import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
-import Icon from '../../Common/Icon';
 import Footer from '../../Common/DarkFooter';
 import ClosableLayout from '../../Layouts/ClosableLayout';
 import ShareGameButton from '../../Games/ShareGameButton';
@@ -35,7 +36,7 @@ class ShareGameForm extends React.PureComponent {
 
   handleNext = async () => {
     const {
-      gameUUID,
+      game,
       onBeforeHook,
       onClientCancelHook,
       // onClientErrorHook,
@@ -57,12 +58,13 @@ class ShareGameForm extends React.PureComponent {
     const { isPublic } = this.state;
 
     // Pass event up to parent component
-    onSuccessHook({ gameUUID, isPublic });
+    onSuccessHook({ gameUUID: game.uuid, isPublic });
   }
 
   render() {
-    const { shareLink, disabled } = this.props;
+    const { game, disabled } = this.props;
     // const { isPublic } = this.state;
+    const childProps = { shareLink: game.share_link };
 
     return (
       <FlexOne>
@@ -71,19 +73,28 @@ class ShareGameForm extends React.PureComponent {
           title={I18n.t('shareGameScreen.title')}
           closable={false}
         >
-          <Spacer size="XXXL" />
-          <Spacer row size="L" />
+          <Spacer size="XXL" />
+          <Spacer size="L" />
           <Text size="ML" color="white">
             {I18n.t('shareGameScreen.invite')}
           </Text>
+          <Spacer size="XL" />
+          <Text color="white" semibold>
+            {I18n.t('shareGameScreen.shareVia')}
+          </Text>
+          <Spacer size="XXL" />
           <Row alignItems="center" justifyContent="space-between">
-            <ShareGameButton variant="whatsapp" shareLink={shareLink} />
-            <ShareGameButton variant="facebook" shareLink={shareLink} />
-            <ShareGameButton variant="email" shareLink={shareLink} />
-            <ShareGameButton variant="native" shareLink={shareLink} />
+            <ShareGameButton variant="whatsapp" {...childProps} />
+            <ShareGameButton variant="facebook" {...childProps} />
+            <ShareGameButton variant="email" {...childProps} />
+            <ShareGameButton variant="native" {...childProps} />
+            <Spacer row size="XL" />
           </Row>
           <Spacer size="XXL" />
-          <Spacer size="XXXL" />
+          <Spacer size="L" />
+          <Text color="white" semibold>
+            {I18n.t('shareGameScreen.remember')}
+          </Text>
           {/* <InviteOnly
             isPublic={isPublic}
             onPress={(value) => { this.handleChange({ fieldName: 'isPublic', value }); }}
@@ -103,8 +114,7 @@ class ShareGameForm extends React.PureComponent {
 }
 
 ShareGameForm.propTypes = {
-  shareLink: PropTypes.string.isRequired,
-  gameUUID: PropTypes.string.isRequired,
+  game: propType(gameDetailsFragment).isRequired,
   disabled: PropTypes.bool,
   onBeforeHook: PropTypes.func,
   onClientCancelHook: PropTypes.func,

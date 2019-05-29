@@ -466,12 +466,14 @@
         "cancelBtnLabel": "No"
       }
     },
-    "title": "Activity created!",
+    "title": "Woohoo!\nYour activity is created.",
+    "invite": "It's time to invite some people",
+    "shareVia": "Share your activity via",
+    "remember": "Also be sure to keep your attendees updated on the specifics of your activity.",
     "footer": {
-      "nextBtnLabel": "Close",
+      "nextBtnLabel": "Go to activity",
       "backBtnLabel": ""
-    },
-    "invite": "Share this activity"
+    }
   },
 
   "inviteOnly": {

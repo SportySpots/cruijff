@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import firebase from 'react-native-firebase';
-// import { NavigationActions } from 'react-navigation';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import Row from '../Row';
@@ -12,6 +11,8 @@ import NavBarButton from '../NavBarButton';
 // STYLE:
 //------------------------------------------------------------------------------
 const StyledRow = styled(Row)`
+  border-top-width: 1px;
+  border-top-color: ${({ theme }) => theme.colors.silver};
   height: 48;
 `;
 //------------------------------------------------------------------------------
@@ -22,9 +23,8 @@ const buttons = [{
   label: 'navBar.spots',
   route: 'SpotSearchTab',
   icon: {
-    set: 'MaterialIcons',
-    name: 'search',
-    // name: 'place',
+    set: 'MaterialCommunityIcons',
+    name: 'near-me',
   },
 }, {
   id: 'activities',
@@ -41,8 +41,7 @@ const buttons = [{
   route: 'PlanScreen',
   icon: {
     set: 'MaterialCommunityIcons',
-    name: 'soccer-field',
-    // name: 'calendar-plus',
+    name: 'plus-box',
   },
 }, {
   id: 'profile',
