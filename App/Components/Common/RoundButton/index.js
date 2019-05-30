@@ -24,6 +24,7 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: name change from 'status' to 'variant'
 const RoundButton = ({
   iconSet,
   iconName,
@@ -68,6 +69,9 @@ RoundButton.propTypes = {
     'ghost',
     'dark',
     'translucid',
+    'facebook',
+    'whatsapp',
+    'email',
   ]),
   size: PropTypes.oneOf(['S', 'M', 'L', 'XL']),
   disabled: PropTypes.bool,

@@ -25,6 +25,7 @@ const mocks = {
   GameType: () => ({
     uuid: faker.random.uuid,
     attendees: () => new MockList([1, 20]),
+    share_link: () => 'https://example.share.link/12345',
   }),
   UserType: () => ({
     uuid: faker.random.uuid,

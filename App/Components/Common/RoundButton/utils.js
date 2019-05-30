@@ -48,6 +48,24 @@ export const getPalette = (status, reverse) => {
         bgColor: 'white85',
         borderColor: 'shade',
       };
+    case 'facebook':
+      return {
+        fontColor: 'white',
+        bgColor: 'facebook',
+        borderColor: 'facebook',
+      };
+    case 'whatsapp':
+      return {
+        fontColor: 'white',
+        bgColor: 'whatsapp',
+        borderColor: 'whatsapp',
+      };
+    case 'email':
+      return {
+        fontColor: 'white',
+        bgColor: 'grassDark',
+        borderColor: 'grassDark',
+      };
     default:
       throw new Error('Unknown status');
   }
