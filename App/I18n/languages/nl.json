@@ -687,5 +687,10 @@
 
   "queryCatchErrors": {
     "errorMsg": "Oeps, er is iets mis gegaan"
+  },
+
+  "codePush": {
+    "notificationTitle": "Update beschikbaar",
+    "notificationBody": "Herstart de app om de update te installeren."
   }
 }

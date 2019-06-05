@@ -12,8 +12,6 @@ import { MenuProvider } from 'react-native-popup-menu';
 import styled, { ThemeProvider } from 'styled-components/native';
 import config from './config';
 import client from './GraphQL/ApolloClient';
-// import mockClient from './GraphQL/ApolloMockClient';
-// import ConnectionCheck from './Components/Common/ConnectionCheck';
 import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
@@ -24,6 +22,7 @@ import globalRefs, { addGlobalRef } from './globalRefs';
 
 import scTheme from './Themes/scTheme'; // styled-components theme
 import { logNavigationState } from './utils';
+import { CodePushProvider } from './Context/CodePush';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -41,11 +40,14 @@ const AppRootView = styled.View`
 class App extends Component {
   constructor() {
     super();
-    codePush.checkForUpdate().then(r => console.log('codepush', r));
     Crashes.setEnabled(true).then(() => {});
   }
 
   componentDidMount() {
+    // signals codepush that the app is ready. If this is not called, CodePush rolls back
+    // the last update.
+    codePush.notifyAppReady();
+
     // create android notification channel to display notifications while app in foreground
     const channel = new firebase.notifications.Android
       .Channel('notifications', 'Notification Channel', firebase.notifications.Android.Importance.Max)
@@ -128,8 +130,9 @@ class App extends Component {
 
   // NOTE: https://github.com/Microsoft/react-native-code-push/issues/516#issuecomment-275688344
   // To remove warning caused by required listener
+  // update: removed this, seems only necessary if using codePush.sync()
   // eslint-disable-next-line
-  codePushDownloadDidProgress(progress) {}
+  // codePushDownloadDidProgress(progress) {}
 
   render() {
     console.log('render App');
@@ -140,38 +143,40 @@ class App extends Component {
         // client={config.useFixtures ? mockClient : client} // TODO
         client={client}
       >
-        <ThemeProvider theme={scTheme}>
-          <UserProvider>
-            <SpotFiltersProvider>
-              <LocationProvider>
-                <MenuProvider>
-                  <AppRootView>
-                    <StatusBar barStyle="light-content" />
-                    {/* <ConnectionCheck /> */}
-                    <AppNavigation
-                      ref={(ref) => {
-                        this.router = ref;
-                        globalRefs.rootNavigator = ref;
-                      }}
-                      // See: https://reactnavigation.org/docs/en/screen-tracking.html
-                      onNavigationStateChange={(prevState, currState) => {
-                        if (config.logRoute) logNavigationState();
-                        const currScreen = getActiveRouteName(currState);
-                        const prevScreen = getActiveRouteName(prevState);
-                        if (prevScreen !== currScreen) {
-                          firebase.analytics().setCurrentScreen(currScreen);
-                        }
-                      }}
-                    />
-                  </AppRootView>
-                </MenuProvider>
-              </LocationProvider>
-            </SpotFiltersProvider>
-          </UserProvider>
-        </ThemeProvider>
+        <CodePushProvider>
+          <ThemeProvider theme={scTheme}>
+            <UserProvider>
+              <SpotFiltersProvider>
+                <LocationProvider>
+                  <MenuProvider>
+                    <AppRootView>
+                      <StatusBar barStyle="light-content" />
+                      {/* <ConnectionCheck /> */}
+                      <AppNavigation
+                        ref={(ref) => {
+                          this.router = ref;
+                          globalRefs.rootNavigator = ref;
+                        }}
+                        // See: https://reactnavigation.org/docs/en/screen-tracking.html
+                        onNavigationStateChange={(prevState, currState) => {
+                          if (config.logRoute) logNavigationState();
+                          const currScreen = getActiveRouteName(currState);
+                          const prevScreen = getActiveRouteName(prevState);
+                          if (prevScreen !== currScreen) {
+                            firebase.analytics().setCurrentScreen(currScreen);
+                          }
+                        }}
+                      />
+                    </AppRootView>
+                  </MenuProvider>
+                </LocationProvider>
+              </SpotFiltersProvider>
+            </UserProvider>
+          </ThemeProvider>
+        </CodePushProvider>
       </ApolloProvider>
     );
   }
 }
 
-export default codePush(App);
+export default App;
