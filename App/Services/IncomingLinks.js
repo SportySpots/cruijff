@@ -44,13 +44,16 @@ urlParsers.push((url) => {
 urlParsers.push((url) => {
   const splitURL = url.split('login?token=');
   const token = splitURL[1];
-  if (token) {
-    return {
-      type: Events.LOGIN_TOKEN,
-      args: [token],
-    };
+  if (splitURL.length === 2) {
+    if (token) {
+      return {
+        type: Events.LOGIN_TOKEN,
+        args: [token],
+      };
+    }
+    throw new Error('Login url received without token.');
   }
-  throw new Error('Login url received without token.');
+  return null;
 });
 
 // Game link parser
@@ -80,6 +83,7 @@ export const urlToEvent = (url) => {
 };
 
 firebase.links().onLink((url) => {
+  console.log('link received', url);
   const event = urlToEvent(url);
   if (event) {
     IncomingLinks.emitEvent(event);

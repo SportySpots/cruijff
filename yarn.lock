@@ -8494,11 +8494,6 @@ react-native-cookies@^3.3.0:
   dependencies:
     invariant "^2.1.0"
 
-react-native-device-info@1.6.1:
-  version "1.6.1"
-  resolved "https://registry.npmjs.org/react-native-device-info/-/react-native-device-info-1.6.1.tgz#717171d9ad1ce38358e8f92ade21d41a7047fc02"
-  integrity sha512-txl6xVbRyGe3QTIRtMgUXZqwxcTT5w48urbFWVlGmbR0fi49GsoVY1q6DiA2fa/HMksD8osAZh8eHuNLSiRMhg==
-
 react-native-firebase@^5.1.1:
   version "5.3.1"
   resolved "https://registry.npmjs.org/react-native-firebase/-/react-native-firebase-5.3.1.tgz#cfd295f562249f6fcf5e3fb2c62894575ece2c7f"
@@ -8506,6 +8501,11 @@ react-native-firebase@^5.1.1:
   dependencies:
     opencollective-postinstall "^2.0.0"
     prop-types "^15.6.2"
+
+react-native-geolocation-service@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-2.0.1.tgz#d8c49fc46c3337c0fa27ecd3c3beb12f228839a0"
+  integrity sha512-Vgi40m8Pt4U3jC6fIeus+ud4lV37LngaDnXMX1ktgEeVG9HpxJfc7p09wqToK2gC2vNfRNOZVRvEO8U4ULJWCg==
 
 react-native-gesture-handler@^1.2.1:
   version "1.2.1"
@@ -8643,10 +8643,6 @@ react-native-parsed-text@^0.0.20:
   dependencies:
     babel-plugin-check-es2015-constants "6.22.0"
     prop-types "^15.5.10"
-
-"react-native-permissions@https://github.com/SportySpots/react-native-permissions.git":
-  version "1.1.1"
-  resolved "https://github.com/SportySpots/react-native-permissions.git#484e0c6d924f56f6ae47dd287f6474ddda305fa3"
 
 react-native-popup-menu@0.15.6:
   version "0.15.6"

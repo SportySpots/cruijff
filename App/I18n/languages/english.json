@@ -689,5 +689,11 @@
 
   "queryCatchErrors": {
     "errorMsg": "Oops, something went wrong"
+  },
+
+  "codePush": {
+    "notificationTitle": "Update available",
+    "notificationBody": "Restart the app to install the update",
+    "updateRestart": "Update available. Press to install."
   }
 }

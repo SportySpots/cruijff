@@ -1,6 +1,5 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import codePush from 'react-native-code-push';
 import PropTypes from 'prop-types';
 import I18n from '../../../I18n';
 import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
@@ -10,28 +9,16 @@ import Divider from '../../../Components/Common/Divider';
 import Text from '../../../Components/Common/Text';
 import LinkOpenURL from '../../../Components/Common/LinkOpenURL';
 import { version as packageJSONVersion } from '../../../../package.json';
+import { codePushPropTypes, UPDATE_STATUS, withCodePush } from '../../../Context/CodePush';
+import codePush from 'react-native-code-push';
+import RaisedButton from '../../../Components/Common/RaisedButton';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class InfoScreen extends React.Component {
   state = {
-    label: '',
-    codePushVersion: '',
-    description: '',
     versionTaps: 0,
-  }
-
-  componentDidMount() {
-    if (codePush) {
-      codePush.getUpdateMetadata().then((metadata) => {
-        this.setState({
-          label: metadata.label,
-          codePushVersion: metadata.appVersion,
-          description: metadata.description,
-        });
-      }).catch(() => null);
-    }
   }
 
   componentWillUnmount() {
@@ -58,16 +45,27 @@ class InfoScreen extends React.Component {
   }
 
   render() {
-    const { label, description, codePushVersion } = this.state;
+    // eslint-disable-next-line react/destructuring-assignment
+    const codePushMetaData = this.props.current;
+    const { updateStatus } = this.props;
 
     return (
       <LogoHeaderBackground>
         <TouchableWithoutFeedback onPress={() => { this.versionPress(); }}>
           <Text size="M" center>
-            {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${label}`}
+            {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${codePushMetaData ? codePushMetaData.label : ''}`}
           </Text>
         </TouchableWithoutFeedback>
-        <Spacer size="XXXL" />
+        <Spacer size="XXL" />
+        { updateStatus === UPDATE_STATUS.RESTART_REQUIRED && (
+          <RaisedButton
+            label={I18n.t('codePush.updateRestart')}
+            variant="warning"
+            iconSet="MaterialIcons"
+            iconName="update"
+            onPress={() => codePush.restartApp()}
+          />
+        )}
         <Divider />
         <Block midHeigh>
           <LinkOpenURL
@@ -102,9 +100,10 @@ class InfoScreen extends React.Component {
 }
 
 InfoScreen.propTypes = {
+  ...codePushPropTypes,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default InfoScreen;
+export default withCodePush(InfoScreen);
