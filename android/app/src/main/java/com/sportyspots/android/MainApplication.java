@@ -71,7 +71,6 @@ public class MainApplication extends Application implements ReactApplication {
           new CookieManagerPackage(),
           new ImagePickerPackage(),
           new ReactNativeConfigPackage(),
-          new RNDeviceInfo(),
           new SvgPackage(),
           new VectorIconsPackage(),
           new RNFusedLocationPackage()

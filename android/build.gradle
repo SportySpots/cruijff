@@ -6,7 +6,7 @@ buildscript {
         minSdkVersion = 19
         compileSdkVersion = 28
         targetSdkVersion = 26
-        supportLibVersion = "27.1.1"
+        supportLibVersion = "28.0.0"
         kotlinVersion = "1.3.20"
     }
     repositories {
@@ -17,7 +17,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:3.3.2"
+        classpath "com.android.tools.build:gradle:3.4.1"
 
         // for firebase support
         classpath "com.google.gms:google-services:4.2.0"
@@ -37,17 +37,17 @@ allprojects {
                 force "com.android.support:support-annotations:26.1.0"
             }
         }
-        mavenLocal()
-        mavenCentral()
+        google()
+        jcenter()
         maven{
             url 'https://maven.google.com'
         }
+        mavenLocal()
+        mavenCentral()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
-        google()
-        jcenter()
     }
 
     // force libs to use recent buildtools
@@ -63,9 +63,4 @@ allprojects {
                 }
         }
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.4'
-    distributionUrl = distributionUrl.replace("bin", "all")
 }
