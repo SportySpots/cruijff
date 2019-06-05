@@ -6,7 +6,7 @@ import codePush from 'react-native-code-push';
 import firebase from 'react-native-firebase';
 import I18n from '../I18n';
 
-const UPDATE_STATUS = {
+export const UPDATE_STATUS = {
   UP_TO_DATE: 'UP_TO_DATE',
   CHECKING: 'CHECKING',
   AVAILABLE: 'AVAILABLE',

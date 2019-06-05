@@ -9,7 +9,9 @@ import Divider from '../../../Components/Common/Divider';
 import Text from '../../../Components/Common/Text';
 import LinkOpenURL from '../../../Components/Common/LinkOpenURL';
 import { version as packageJSONVersion } from '../../../../package.json';
-import { codePushPropTypes, withCodePush } from '../../../Context/CodePush';
+import { codePushPropTypes, UPDATE_STATUS, withCodePush } from '../../../Context/CodePush';
+import codePush from 'react-native-code-push';
+import RaisedButton from '../../../Components/Common/RaisedButton';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -45,6 +47,7 @@ class InfoScreen extends React.Component {
   render() {
     // eslint-disable-next-line react/destructuring-assignment
     const codePushMetaData = this.props.current;
+    const { updateStatus } = this.state;
 
     return (
       <LogoHeaderBackground>
@@ -53,7 +56,16 @@ class InfoScreen extends React.Component {
             {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${codePushMetaData ? codePushMetaData.label : ''}`}
           </Text>
         </TouchableWithoutFeedback>
-        <Spacer size="XXXL" />
+        <Spacer size="XXL" />
+        { (true || updateStatus === UPDATE_STATUS.RESTART_REQUIRED ) && (
+          <RaisedButton
+            label={I18n.t('codePush.updateRestart')}
+            variant="warning"
+            iconSet="MaterialIcons"
+            iconName="update"
+            onPress={() => codePush.restartApp()}
+          />
+        )}
         <Divider />
         <Block midHeigh>
           <LinkOpenURL

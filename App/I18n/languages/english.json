@@ -691,6 +691,7 @@
 
   "codePush": {
     "notificationTitle": "Update available",
-    "notificationBody": "Restart the app to install the update"
+    "notificationBody": "Restart the app to install the update",
+    "updateRestart": "Update available. Press to install."
   }
 }
