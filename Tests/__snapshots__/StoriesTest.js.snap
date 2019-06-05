@@ -33762,7 +33762,6 @@ exports[`Storyshots Common.NothingFound NothingFound 1`] = `
         Array [
           Object {
             "alignItems": "center",
-            "height": "100%",
             "justifyContent": "center",
           },
         ]
@@ -33794,8 +33793,8 @@ exports[`Storyshots Common.NothingFound NothingFound 1`] = `
             "backgroundColor": "rgba(0,0,0,0)",
             "color": "#ccc",
             "fontFamily": "Rajdhani-SemiBold",
-            "fontSize": 32,
-            "lineHeight": 48,
+            "fontSize": 24,
+            "lineHeight": 36,
             "textAlign": "center",
           }
         }
@@ -45609,6 +45608,238 @@ exports[`Storyshots Games.GamesList GamesList no results 1`] = `
 </View>
 `;
 
+exports[`Storyshots Games.NoGamesFound NoGamesFound 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      bgColor="concrete"
+      height={null}
+      midHeight={false}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#F5F5F5",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "height": "auto",
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+          },
+        ]
+      }
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View>
+            <Image
+              style={
+                Object {
+                  "height": 100,
+                  "width": 80,
+                }
+              }
+            />
+            <View
+              pixels={16}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "height": 16,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ccc",
+                "fontFamily": "Rajdhani-SemiBold",
+                "fontSize": 24,
+                "lineHeight": 36,
+                "textAlign": "center",
+              }
+            }
+          >
+            noGamesFound.noResults
+          </Text>
+        </View>
+        <View
+          pixels={56}
+          row={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "height": 56,
+                "width": "auto",
+              },
+            ]
+          }
+        />
+        <View
+          pixels={16}
+          row={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "height": 16,
+                "width": "auto",
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "color": "#ccc",
+              "fontFamily": "Rajdhani-SemiBold",
+              "fontSize": 24,
+              "lineHeight": 36,
+              "textAlign": "center",
+            }
+          }
+        >
+          noGamesFound.organize
+        </Text>
+        <View
+          pixels={24}
+          row={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "height": 24,
+                "width": "auto",
+              },
+            ]
+          }
+        />
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            alignItems="center"
+            bgColor="grass"
+            borderColor="grass"
+            disabled={false}
+            justifyContent="center"
+            size="M"
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#009f36",
+                  "borderColor": "#009f36",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "borderWidth": 1,
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "minWidth": 80,
+                  "width": "100%",
+                },
+                Object {},
+              ]
+            }
+            width="100%"
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#fff",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": 27,
+                  "textAlign": "left",
+                }
+              }
+            >
+              noGamesFound.btnLabel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Games.OpenSpots OpenSpots 1`] = `
 <View
   onLayout={[Function]}
@@ -52949,6 +53180,7 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
                     contentContainerStyle={
                       Object {
                         "flexGrow": 1,
+                        "justifyContent": "center",
                         "paddingVertical": 8,
                       }
                     }
@@ -56018,6 +56250,8 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
         <NothingFound
           iconName="map-marker"
           iconSet="MaterialCommunityIcons"
+          imgSrc={null}
+          size={96}
           text="userSpots.noSpots"
         />
       }
@@ -56058,7 +56292,6 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "height": "100%",
                 "justifyContent": "center",
               },
             ]
@@ -56066,6 +56299,7 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
         >
           <Text
             allowFontScaling={false}
+            onLayout={[Function]}
             style={
               Array [
                 Object {
@@ -56090,8 +56324,8 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
                 "backgroundColor": "rgba(0,0,0,0)",
                 "color": "#ccc",
                 "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 32,
-                "lineHeight": 48,
+                "fontSize": 24,
+                "lineHeight": 36,
                 "textAlign": "center",
               }
             }
@@ -59604,6 +59838,7 @@ exports[`Storyshots Screens.Games GamesListScreen 1`] = `
         contentContainerStyle={
           Object {
             "flexGrow": 1,
+            "justifyContent": "center",
             "paddingVertical": 8,
           }
         }
@@ -61654,6 +61889,7 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
               contentContainerStyle={
                 Object {
                   "flexGrow": 1,
+                  "justifyContent": "center",
                   "paddingVertical": 8,
                 }
               }
@@ -62943,6 +63179,7 @@ exports[`Storyshots Spots.SpotsList SpotsList big card 1`] = `
         contentContainerStyle={
           Object {
             "flexGrow": 1,
+            "justifyContent": "center",
             "paddingVertical": 8,
           }
         }
@@ -63058,6 +63295,7 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
         contentContainerStyle={
           Object {
             "flexGrow": 1,
+            "justifyContent": "center",
             "paddingVertical": 8,
           }
         }

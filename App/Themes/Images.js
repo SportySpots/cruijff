@@ -13,6 +13,7 @@ const images = {
   checkEmail: require('../Images/check-email.png'),
   locationOnboarding: require('../Images/location-onboarding.png'),
   linkExpired: require('../Images/link-expired.png'),
+  noActivitiesIllustration: require('../Images/noactivities-illustration.png'),
 };
 
 export default images;

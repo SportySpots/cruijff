@@ -36,7 +36,6 @@ const buttons = [{
   },
 }, {
   id: 'organize',
-  main: true,
   label: 'navBar.organize',
   route: 'PlanScreen',
   icon: {

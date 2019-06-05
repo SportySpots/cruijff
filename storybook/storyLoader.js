@@ -87,6 +87,7 @@ function loadStories() {
   require('../App/Components/Games/GameListCard/stories');
   require('../App/Components/Games/GameProperties/stories');
   require('../App/Components/Games/GamesList/stories');
+  require('../App/Components/Games/NoGamesFound/stories');
   require('../App/Components/Games/OpenSpots/stories');
   require('../App/Components/Games/Organizer/stories');
   require('../App/Components/Games/PlayersTabs/stories');
@@ -226,6 +227,7 @@ const stories = [
   '../App/Components/Games/GameListCard/stories',
   '../App/Components/Games/GameProperties/stories',
   '../App/Components/Games/GamesList/stories',
+  '../App/Components/Games/NoGamesFound/stories',
   '../App/Components/Games/OpenSpots/stories',
   '../App/Components/Games/Organizer/stories',
   '../App/Components/Games/PlayersTabs/stories',
