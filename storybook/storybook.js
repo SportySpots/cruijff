@@ -1,28 +1,20 @@
 import '../App/prototypes';
 import React from 'react';
-import { AppRegistry, View } from 'react-native';
+import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { MenuProvider } from 'react-native-popup-menu';
 import { ThemeProvider } from 'styled-components/native';
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import { SpotFiltersProvider } from '../App/Context/SpotFilters';
 import { ApolloMockProvider } from '../App/GraphQL/ApolloMockClient';
 import { loadStories } from './storyLoader';
 import scTheme from '../App/Themes/scTheme'; // styled-components theme
-import { SpotFiltersProvider } from '../App/Context/SpotFilters';
-
-const AppNavigation = createSwitchNavigator({
-  SomeScreen: { screen: () => <View /> },
-});
-const AppNav = createAppContainer(AppNavigation);
 
 addDecorator(story => (
   <ApolloMockProvider>
     <ThemeProvider theme={scTheme}>
       <SpotFiltersProvider>
         <MenuProvider>
-          <AppNav>
-            {story()}
-          </AppNav>
+          {story()}
         </MenuProvider>
       </SpotFiltersProvider>
     </ThemeProvider>

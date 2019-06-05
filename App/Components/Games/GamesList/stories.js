@@ -3,6 +3,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import Block from '../../Common/Block';
+// import navigation from './mocks';
 import GamesList from '.';
 
 const Container = () => (
@@ -20,5 +21,10 @@ const Container = () => (
 );
 
 storiesOf('Games.GamesList', module)
-  .add('GamesList', () => <Container />)
-  .add('GamesList no results', () => <GamesList games={[]} />);
+  .add('GamesList', () => <Container />);
+// .add('GamesList no results', () => (
+//   <GamesList
+//     navigation={navigation}
+//     games={[]}
+//   />
+// ));
