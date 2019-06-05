@@ -10,6 +10,7 @@ import Divider from '../../../Components/Common/Divider';
 import Text from '../../../Components/Common/Text';
 import LinkOpenURL from '../../../Components/Common/LinkOpenURL';
 import { version as packageJSONVersion } from '../../../../package.json';
+import { codePushPropTypes, withCodePush } from '../../../Context/CodePush';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -17,8 +18,6 @@ import { version as packageJSONVersion } from '../../../../package.json';
 class InfoScreen extends React.Component {
   state = {
     label: '',
-    codePushVersion: '',
-    description: '',
     versionTaps: 0,
   }
 
@@ -27,8 +26,6 @@ class InfoScreen extends React.Component {
       codePush.getUpdateMetadata().then((metadata) => {
         this.setState({
           label: metadata.label,
-          codePushVersion: metadata.appVersion,
-          description: metadata.description,
         });
       }).catch(() => null);
     }
@@ -58,7 +55,7 @@ class InfoScreen extends React.Component {
   }
 
   render() {
-    const { label, description, codePushVersion } = this.state;
+    const { label } = this.state;
 
     return (
       <LogoHeaderBackground>
@@ -69,6 +66,7 @@ class InfoScreen extends React.Component {
         </TouchableWithoutFeedback>
         <Spacer size="XXXL" />
         <Divider />
+        <Text>{JSON.stringify(this.props.current)}</Text>
         <Block midHeigh>
           <LinkOpenURL
             text={I18n.t('infoScreen.feedback')}
@@ -102,9 +100,10 @@ class InfoScreen extends React.Component {
 }
 
 InfoScreen.propTypes = {
+  ...codePushPropTypes,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default InfoScreen;
+export default withCodePush(InfoScreen);

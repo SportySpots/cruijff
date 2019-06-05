@@ -687,5 +687,10 @@
 
   "queryCatchErrors": {
     "errorMsg": "Huy! Algo salió mal"
+  },
+
+  "codePush": {
+    "notificationTitle": "Actualización disponible",
+    "notificationBody": "Reinicia la aplicación para instalar la actualización"
   }
 }
