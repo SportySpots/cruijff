@@ -69,7 +69,7 @@ const SpotsList = ({
           });
         };
 
-        // Curate games and attach distance
+        // Curate spots and attach distance
         const spots = (
           data
           && data.spots
@@ -80,6 +80,9 @@ const SpotsList = ({
             return Object.assign({}, spot, { distance });
           })
         ) || [];
+
+        // Centers not-found-component in case no spots were found
+        const containerStyles = !spots || spots.length === 0 ? { justifyContent: 'center' } : {};
 
         return (
           <FlatList
@@ -113,8 +116,9 @@ const SpotsList = ({
             onEndReached={loadMore}
             onEndReachedThreshold={0.1}
             contentContainerStyle={{
-              flexGrow: 1, // centers not-found-component
+              flexGrow: 1,
               paddingVertical: 8,
+              ...containerStyles,
             }}
             {...rest}
           />
