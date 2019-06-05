@@ -1,6 +1,5 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import codePush from 'react-native-code-push';
 import PropTypes from 'prop-types';
 import I18n from '../../../I18n';
 import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
@@ -17,19 +16,7 @@ import { codePushPropTypes, withCodePush } from '../../../Context/CodePush';
 //------------------------------------------------------------------------------
 class InfoScreen extends React.Component {
   state = {
-    label: '',
     versionTaps: 0,
-  }
-
-  componentDidMount() {
-    if (codePush) {
-      codePush.getUpdateMetadata().then((metadata) => {
-        console.log('codepush metadata', metadata);
-        this.setState({
-          label: metadata.label,
-        });
-      }).catch(() => null);
-    }
   }
 
   componentWillUnmount() {
@@ -56,18 +43,18 @@ class InfoScreen extends React.Component {
   }
 
   render() {
-    const { label } = this.state;
+    // eslint-disable-next-line react/destructuring-assignment
+    const codePushMetaData = this.props.current;
 
     return (
       <LogoHeaderBackground>
         <TouchableWithoutFeedback onPress={() => { this.versionPress(); }}>
           <Text size="M" center>
-            {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${label}`}
+            {`${I18n.t('infoScreen.appVersion')} ${packageJSONVersion} ${codePushMetaData ? codePushMetaData.label : ''}`}
           </Text>
         </TouchableWithoutFeedback>
         <Spacer size="XXXL" />
         <Divider />
-        <Text>{JSON.stringify(this.props.current)}</Text>
         <Block midHeigh>
           <LinkOpenURL
             text={I18n.t('infoScreen.feedback')}

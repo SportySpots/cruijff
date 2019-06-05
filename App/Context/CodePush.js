@@ -83,7 +83,6 @@ export class CodePushProvider extends React.Component {
   }
 
   async componentDidMount() {
-    setTimeout(() => this.showUpdateNotification(), 1000);
     this.startInterval();
     this.setState({ current: await codePush.getUpdateMetadata() });
   }
