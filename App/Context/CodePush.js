@@ -69,6 +69,7 @@ export class CodePushProvider extends React.Component {
       await newPackage.install(codePush.InstallMode.ON_NEXT_RESTART);
       this.setState({ updateStatus: UPDATE_STATUS.RESTART_REQUIRED });
       this.showUpdateNotification();
+      console.log('CODEPUSH: Update installed. Needs restart.');
     }
     this.setState({ lastChecked: moment.utc() });
   }
@@ -83,6 +84,7 @@ export class CodePushProvider extends React.Component {
   }
 
   async componentDidMount() {
+    this.showUpdateNotification();
     this.startInterval();
     this.setState({ current: await codePush.getUpdateMetadata() });
   }

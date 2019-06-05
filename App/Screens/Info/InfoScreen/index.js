@@ -47,7 +47,7 @@ class InfoScreen extends React.Component {
   render() {
     // eslint-disable-next-line react/destructuring-assignment
     const codePushMetaData = this.props.current;
-    const { updateStatus } = this.state;
+    const { updateStatus } = this.props;
 
     return (
       <LogoHeaderBackground>
