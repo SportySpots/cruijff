@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import I18n from '../../../I18n';
 import Text from '../../Common/Text';
+import Block from '../../Common/Block';
 import Spacer from '../../Common/Spacer';
 import NothingFound from '../../Common/NothingFound';
 import RaisedButton from '../../Common/RaisedButton';
@@ -27,12 +28,13 @@ const NoGamesFound = ({ navigation }) => (
     <Text size="ML" color="link" center>
       {I18n.t('noGamesFound.organize')}
     </Text>
-    <Spacer size="XL" />
-    <RaisedButton
-      variant="primary"
-      label={I18n.t('noGamesFound.btnLabel')}
-      onPress={() => { navigation.navigate('PlanScreen'); }}
-    />
+    <Block>
+      <RaisedButton
+        variant="primary"
+        label={I18n.t('noGamesFound.btnLabel')}
+        onPress={() => { navigation.navigate('PlanScreen'); }}
+      />
+    </Block>
   </View>
 );
 

@@ -161,9 +161,9 @@
   },
 
   "noGamesFound": {
-    "noResults": "Shoot! No activities have been found near you",
-    "organize": "Why not organise one?",
-    "btnLabel": "Organize an activity"
+    "noResults": "Chips! Er zijn geen activiteit bij jou in de buurt gevonden",
+    "organize": "Wellicht zelf iets organiseren?",
+    "btnLabel": "Organiseer een activiteit"
   },
 
   "gameCanceledFlag": {
