@@ -8502,6 +8502,11 @@ react-native-firebase@^5.1.1:
     opencollective-postinstall "^2.0.0"
     prop-types "^15.6.2"
 
+react-native-geolocation-service@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-2.0.1.tgz#d8c49fc46c3337c0fa27ecd3c3beb12f228839a0"
+  integrity sha512-Vgi40m8Pt4U3jC6fIeus+ud4lV37LngaDnXMX1ktgEeVG9HpxJfc7p09wqToK2gC2vNfRNOZVRvEO8U4ULJWCg==
+
 react-native-gesture-handler@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.2.1.tgz#9c48fb1ab13d29cece24bbb77b1e847eebf27a2b"

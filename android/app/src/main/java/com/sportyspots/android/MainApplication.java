@@ -29,6 +29,8 @@ import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPa
 import com.microsoft.codepush.react.CodePush;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.psykar.cookiemanager.CookieManagerPackage;
+import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,10 +53,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReanimatedPackage(),
-            new ReactSliderPackage(),
-            new AsyncStoragePackage(),
-            new NetInfoPackage(),
+          new ReanimatedPackage(),
+          new ReactSliderPackage(),
+          new AsyncStoragePackage(),
+          new NetInfoPackage(),
           new RNGestureHandlerPackage(),
           new RNLocalizePackage(),
           new RNFirebasePackage(),
@@ -71,7 +73,8 @@ public class MainApplication extends Application implements ReactApplication {
           new ReactNativeConfigPackage(),
           new RNDeviceInfo(),
           new SvgPackage(),
-          new VectorIconsPackage()
+          new VectorIconsPackage(),
+          new RNFusedLocationPackage()
       );
     }
 
