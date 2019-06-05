@@ -690,7 +690,7 @@
   },
 
   "codePush": {
-    "notificationTitle": "Update available",
-    "notificationBody": "Restart the app to install the update"
+    "notificationTitle": "Actualización disponible",
+    "notificationBody": "Reinicia la aplicación para instalar la actualización"
   }
 }
