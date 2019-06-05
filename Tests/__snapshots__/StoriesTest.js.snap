@@ -33762,7 +33762,6 @@ exports[`Storyshots Common.NothingFound NothingFound 1`] = `
         Array [
           Object {
             "alignItems": "center",
-            "height": "100%",
             "justifyContent": "center",
           },
         ]
@@ -33794,8 +33793,8 @@ exports[`Storyshots Common.NothingFound NothingFound 1`] = `
             "backgroundColor": "rgba(0,0,0,0)",
             "color": "#ccc",
             "fontFamily": "Rajdhani-SemiBold",
-            "fontSize": 32,
-            "lineHeight": 48,
+            "fontSize": 24,
+            "lineHeight": 36,
             "textAlign": "center",
           }
         }
@@ -45469,7 +45468,7 @@ exports[`Storyshots Games.GamesList GamesList 1`] = `
 </View>
 `;
 
-exports[`Storyshots Games.GamesList GamesList no results 1`] = `
+exports[`Storyshots Games.NoGamesFound NoGamesFound 1`] = `
 <View
   onLayout={[Function]}
   style={
@@ -45490,47 +45489,25 @@ exports[`Storyshots Games.GamesList GamesList no results 1`] = `
       ]
     }
   >
-    <RCTScrollView
-      ItemSeparatorComponent={[Function]}
-      ListEmptyComponent={
-        <NothingFound
-          iconName="calendar-plus"
-          iconSet="MaterialCommunityIcons"
-          text="gamesList.noResults"
-        />
+    <View
+      bgColor="concrete"
+      height={null}
+      midHeight={false}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#F5F5F5",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "height": "auto",
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+          },
+        ]
       }
-      contentContainerStyle={
-        Object {
-          "flexGrow": 1,
-          "paddingVertical": 8,
-        }
-      }
-      data={Array []}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReachedThreshold={0.1}
-      onLayout={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      refreshing={false}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      showsVerticalScrollIndicator={false}
-      stickyHeaderIndices={Array []}
-      testID="gamesFlatList"
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
     >
       <View>
         <View
@@ -45538,49 +45515,168 @@ exports[`Storyshots Games.GamesList GamesList no results 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "height": "100%",
                 "justifyContent": "center",
               },
             ]
           }
         >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
+          <View>
+            <Image
+              style={
                 Object {
-                  "color": "#ccc",
-                  "fontSize": 96,
-                },
-                undefined,
-                Object {
-                  "fontFamily": "Material Design Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
+                  "height": 100,
+                  "width": 80,
+                }
+              }
+            />
+            <View
+              pixels={16}
+              row={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "height": 16,
+                    "width": "auto",
+                  },
+                ]
+              }
+            />
+          </View>
           <Text
             style={
               Object {
                 "backgroundColor": "rgba(0,0,0,0)",
                 "color": "#ccc",
                 "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 32,
-                "lineHeight": 48,
+                "fontSize": 24,
+                "lineHeight": 36,
                 "textAlign": "center",
               }
             }
           >
-            gamesList.noResults
+            noGamesFound.noResults
           </Text>
         </View>
+        <View
+          pixels={56}
+          row={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "height": 56,
+                "width": "auto",
+              },
+            ]
+          }
+        />
+        <View
+          pixels={16}
+          row={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "height": 16,
+                "width": "auto",
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "color": "#ccc",
+              "fontFamily": "Rajdhani-SemiBold",
+              "fontSize": 24,
+              "lineHeight": 36,
+              "textAlign": "center",
+            }
+          }
+        >
+          noGamesFound.organize
+        </Text>
+        <View
+          bgColor="transparent"
+          height={null}
+          midHeight={false}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "height": "auto",
+                "paddingBottom": 16,
+                "paddingLeft": 16,
+                "paddingRight": 16,
+                "paddingTop": 16,
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              alignItems="center"
+              bgColor="grass"
+              borderColor="grass"
+              disabled={false}
+              justifyContent="center"
+              size="M"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#009f36",
+                    "borderColor": "#009f36",
+                    "borderRadius": 8,
+                    "borderStyle": "solid",
+                    "borderWidth": 1,
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "height": 48,
+                    "justifyContent": "center",
+                    "minWidth": 80,
+                    "width": "100%",
+                  },
+                  Object {},
+                ]
+              }
+              width="100%"
+            >
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#fff",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": 27,
+                    "textAlign": "left",
+                  }
+                }
+              >
+                noGamesFound.btnLabel
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
-    </RCTScrollView>
+    </View>
   </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
@@ -52949,6 +53045,7 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
                     contentContainerStyle={
                       Object {
                         "flexGrow": 1,
+                        "justifyContent": "center",
                         "paddingVertical": 8,
                       }
                     }
@@ -56018,6 +56115,8 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
         <NothingFound
           iconName="map-marker"
           iconSet="MaterialCommunityIcons"
+          imgSrc={null}
+          size={96}
           text="userSpots.noSpots"
         />
       }
@@ -56058,7 +56157,6 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "height": "100%",
                 "justifyContent": "center",
               },
             ]
@@ -56066,6 +56164,7 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
         >
           <Text
             allowFontScaling={false}
+            onLayout={[Function]}
             style={
               Array [
                 Object {
@@ -56090,8 +56189,8 @@ exports[`Storyshots Profile.UserSpots UserSpots no results 1`] = `
                 "backgroundColor": "rgba(0,0,0,0)",
                 "color": "#ccc",
                 "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 32,
-                "lineHeight": 48,
+                "fontSize": 24,
+                "lineHeight": 36,
                 "textAlign": "center",
               }
             }
@@ -59604,6 +59703,7 @@ exports[`Storyshots Screens.Games GamesListScreen 1`] = `
         contentContainerStyle={
           Object {
             "flexGrow": 1,
+            "justifyContent": "center",
             "paddingVertical": 8,
           }
         }
@@ -60391,13 +60491,13 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
             infoScreen.appVersion 1.3.3 
           </Text>
           <View
-            pixels={56}
+            pixels={32}
             row={false}
             style={
               Array [
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
-                  "height": 56,
+                  "height": 32,
                   "width": "auto",
                 },
               ]
@@ -61654,6 +61754,7 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
               contentContainerStyle={
                 Object {
                   "flexGrow": 1,
+                  "justifyContent": "center",
                   "paddingVertical": 8,
                 }
               }
@@ -62943,6 +63044,7 @@ exports[`Storyshots Spots.SpotsList SpotsList big card 1`] = `
         contentContainerStyle={
           Object {
             "flexGrow": 1,
+            "justifyContent": "center",
             "paddingVertical": 8,
           }
         }
@@ -63058,6 +63160,7 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
         contentContainerStyle={
           Object {
             "flexGrow": 1,
+            "justifyContent": "center",
             "paddingVertical": 8,
           }
         }

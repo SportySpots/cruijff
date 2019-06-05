@@ -160,8 +160,10 @@
     }
   },
 
-  "gamesList": {
-    "noResults": "No activities found..."
+  "noGamesFound": {
+    "noResults": "Shoot! No activities have been found near you",
+    "organize": "Why not organise one?",
+    "btnLabel": "Organize an activity"
   },
 
   "gameCanceledFlag": {

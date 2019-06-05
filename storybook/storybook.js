@@ -4,10 +4,10 @@ import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { MenuProvider } from 'react-native-popup-menu';
 import { ThemeProvider } from 'styled-components/native';
+import { SpotFiltersProvider } from '../App/Context/SpotFilters';
 import { ApolloMockProvider } from '../App/GraphQL/ApolloMockClient';
 import { loadStories } from './storyLoader';
 import scTheme from '../App/Themes/scTheme'; // styled-components theme
-import { SpotFiltersProvider } from '../App/Context/SpotFilters';
 
 addDecorator(story => (
   <ApolloMockProvider>
