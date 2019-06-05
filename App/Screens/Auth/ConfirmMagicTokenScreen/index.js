@@ -59,7 +59,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
     }
 
     const { magicToken = null } = navigation.state.params;
-    console.log('handling magic token', magicToken);
+
     if (!magicToken) {
       this.handleExpiredToken();
       return;
@@ -67,7 +67,6 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
 
     try {
       const res = await SeedorfAPI.confirmMagicLoginLink(magicToken);
-      console.log('CONFIRM MAGIC TOKEN RESPONSE', res);
 
       if (res && res.problem) {
         this.handleExpiredToken();

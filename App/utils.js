@@ -108,7 +108,6 @@ export const decodeJWTToken = (token) => {
   if (!token) {
     return null;
   }
-  console.log('decode token', token);
   return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
 };
 

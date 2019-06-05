@@ -40,7 +40,6 @@ export const UserContext = React.createContext(defaultValue);
 const me = async () => {
   try {
     const token = await AsyncStorage.getItem('TOKEN');
-    console.log('TOKEN', token);
     if (!token) {
       return null;
     }

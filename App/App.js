@@ -104,7 +104,6 @@ class App extends Component {
     });
 
     IncomingLinks.on(Events.MAGIC_LINK_LOGIN, (magicToken) => {
-      console.log('MAGIC_LOGIN_LINK_EVENT', magicToken);
       this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken });
     });
 
