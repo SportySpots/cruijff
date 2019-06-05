@@ -57,7 +57,7 @@ class InfoScreen extends React.Component {
           </Text>
         </TouchableWithoutFeedback>
         <Spacer size="XXL" />
-        { (true || updateStatus === UPDATE_STATUS.RESTART_REQUIRED ) && (
+        { updateStatus === UPDATE_STATUS.RESTART_REQUIRED && (
           <RaisedButton
             label={I18n.t('codePush.updateRestart')}
             variant="warning"
