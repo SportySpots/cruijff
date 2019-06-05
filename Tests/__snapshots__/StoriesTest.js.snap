@@ -45599,75 +45599,80 @@ exports[`Storyshots Games.NoGamesFound NoGamesFound 1`] = `
           noGamesFound.organize
         </Text>
         <View
-          pixels={24}
-          row={false}
+          bgColor="transparent"
+          height={null}
+          midHeight={false}
           style={
             Array [
               Object {
                 "backgroundColor": "rgba(0,0,0,0)",
-                "height": 24,
-                "width": "auto",
+                "height": "auto",
+                "paddingBottom": 16,
+                "paddingLeft": 16,
+                "paddingRight": 16,
+                "paddingTop": 16,
               },
             ]
           }
-        />
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
         >
           <View
-            alignItems="center"
-            bgColor="grass"
-            borderColor="grass"
-            disabled={false}
-            justifyContent="center"
-            size="M"
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#009f36",
-                  "borderColor": "#009f36",
-                  "borderRadius": 8,
-                  "borderStyle": "solid",
-                  "borderWidth": 1,
-                  "display": "flex",
-                  "flexDirection": "row",
-                  "height": 48,
-                  "justifyContent": "center",
-                  "minWidth": 80,
-                  "width": "100%",
-                },
-                Object {},
-              ]
-            }
-            width="100%"
-          >
-            <Text
-              style={
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#fff",
-                  "fontFamily": "Rajdhani-SemiBold",
-                  "fontSize": 18,
-                  "lineHeight": 27,
-                  "textAlign": "left",
-                }
+              Object {
+                "opacity": 1,
               }
+            }
+          >
+            <View
+              alignItems="center"
+              bgColor="grass"
+              borderColor="grass"
+              disabled={false}
+              justifyContent="center"
+              size="M"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#009f36",
+                    "borderColor": "#009f36",
+                    "borderRadius": 8,
+                    "borderStyle": "solid",
+                    "borderWidth": 1,
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "height": 48,
+                    "justifyContent": "center",
+                    "minWidth": 80,
+                    "width": "100%",
+                  },
+                  Object {},
+                ]
+              }
+              width="100%"
             >
-              noGamesFound.btnLabel
-            </Text>
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#fff",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": 27,
+                    "textAlign": "left",
+                  }
+                }
+              >
+                noGamesFound.btnLabel
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -60486,13 +60491,13 @@ exports[`Storyshots Screens.Info InfoScreen 1`] = `
             infoScreen.appVersion 1.3.3 
           </Text>
           <View
-            pixels={56}
+            pixels={32}
             row={false}
             style={
               Array [
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
-                  "height": 56,
+                  "height": 32,
                   "width": "auto",
                 },
               ]
