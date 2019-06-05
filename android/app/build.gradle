@@ -163,7 +163,6 @@ dependencies {
     implementation project(':react-native-code-push')
     implementation project(':react-native-config')
     implementation project(':react-native-cookies')
-    implementation project(':react-native-device-info')
     implementation project(':react-native-firebase')
     implementation project(':react-native-image-picker')
     implementation project(':react-native-svg')
