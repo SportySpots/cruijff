@@ -33,8 +33,6 @@ export class CodePushProvider extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   showUpdateNotification() {
-    console.log(firebase);
-
     const localNotification = new firebase.notifications.Notification({
       sound: 'default',
       show_in_foreground: true,
@@ -84,6 +82,7 @@ export class CodePushProvider extends React.Component {
   }
 
   async componentDidMount() {
+    this.checkForUpdates();
     this.startInterval();
     this.setState({ current: await codePush.getUpdateMetadata() });
   }
