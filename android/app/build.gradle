@@ -71,7 +71,10 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+    entryFile: "index.js",
+    bundleAssetName: "index.android.bundle",
+    bundleInAlpha: true,
+    bundleInBeta: true
 ]
 
 apply plugin: "com.android.application"
