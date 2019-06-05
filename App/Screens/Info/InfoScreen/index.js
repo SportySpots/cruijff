@@ -24,6 +24,7 @@ class InfoScreen extends React.Component {
   componentDidMount() {
     if (codePush) {
       codePush.getUpdateMetadata().then((metadata) => {
+        console.log('codepush metadata', metadata);
         this.setState({
           label: metadata.label,
         });
