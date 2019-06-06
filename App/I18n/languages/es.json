@@ -160,6 +160,10 @@
     }
   },
 
+  "gamesList": {
+    "noResults": "No se encontraron actividades..."
+  },
+
   "noGamesFound": {
     "noResults": "Shoot! No hemos encontrado actividades cerca de ti",
     "organize": "¿Por qué no organizas una?",

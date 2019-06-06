@@ -3,17 +3,23 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { addGlobalRef } from '../../../globalRefs';
+import I18n from '../../../I18n';
 import gameFragment from '../../../GraphQL/Games/Fragments/game';
 import Spacer from '../../Common/Spacer';
+import NothingFound from '../../Common/NothingFound';
 import GameListCard from '../GameListCard';
-import NoGamesFound from '../NoGamesFound';
 
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const IMG_HEIGHT = 100;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const GamesList = ({
   games,
   onCardPress,
+  nothingFoundComp: NothingFoundComp,
   refreshing,
   ...rest
 }) => {
@@ -37,7 +43,7 @@ const GamesList = ({
           <GameListCard game={game} />
         </TouchableOpacity>
       )}
-      ListEmptyComponent={!refreshing && <NoGamesFound />}
+      ListEmptyComponent={!refreshing && <NothingFoundComp />}
       ItemSeparatorComponent={() => <Spacer size="ML" />}
       onEndReachedThreshold={0.1}
       contentContainerStyle={{
@@ -54,12 +60,20 @@ const GamesList = ({
 GamesList.propTypes = {
   games: PropTypes.arrayOf(propType(gameFragment)),
   onCardPress: PropTypes.func,
+  nothingFoundComp: PropTypes.func,
   refreshing: PropTypes.bool,
 };
 
 GamesList.defaultProps = {
   games: [],
   onCardPress: () => {},
+  nothingFoundComp: () => (
+    <NothingFound
+      imgSrc="noActivitiesIllustration"
+      style={{ height: IMG_HEIGHT, width: parseInt(0.8 * IMG_HEIGHT, 10) }}
+      text={I18n.t('gamesList.noResults')}
+    />
+  ),
   refreshing: false,
 };
 

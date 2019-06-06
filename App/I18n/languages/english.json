@@ -160,6 +160,10 @@
     }
   },
 
+  "gamesList": {
+    "noResults": "No activities found..."
+  },
+
   "noGamesFound": {
     "noResults": "Shoot! No activities have been found near you",
     "organize": "Why not organise one?",
@@ -375,7 +379,7 @@
     },
     "fields": {
       "sport": {
-        "prefix": "I want to play",
+        "prefix": "I plan",
         "suffix": "",
         "label": "",
         "placeholder": "",

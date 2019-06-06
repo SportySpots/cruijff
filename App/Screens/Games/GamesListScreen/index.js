@@ -6,6 +6,7 @@ import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
+import NoGamesFound from '../../../Components/Games/NoGamesFound';
 import curatedGames from './utils';
 
 //------------------------------------------------------------------------------
@@ -70,6 +71,7 @@ class GamesListScreen extends React.Component {
               <GamesList
                 games={(data && data.games && curatedGames(data.games)) || []}
                 onCardPress={this.handleGamePress}
+                nothingFoundComp={NoGamesFound}
                 // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
