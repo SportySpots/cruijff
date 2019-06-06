@@ -202,7 +202,7 @@ class SignupEmailForm extends React.PureComponent {
               disabled={disabled}
               keyboardType="email-address"
               onChangeText={(value) => {
-                this.handleChange({ fieldName: 'email', value: value.toLowerCase() });
+                this.handleChange({ fieldName: 'email', value });
               }}
             />
           </Block>
