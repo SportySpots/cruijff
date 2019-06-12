@@ -205,7 +205,7 @@ class PlanGameForm extends React.Component {
 
   handleScroll = (evt) => {
     Keyboard.dismiss();
-    console.log('handle scroll');
+
     const nextSlide = Math.round(evt.nativeEvent.contentOffset.x / WINDOW_WIDTH);
     this.setState({ curSlide: nextSlide });
   }
