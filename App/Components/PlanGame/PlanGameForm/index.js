@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard, View } from 'react-native';
+import { Keyboard, FlatList, Dimensions } from 'react-native';
 import firebase from 'react-native-firebase';
-import Swiper from 'react-native-swiper';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
 import styled from 'styled-components/native';
@@ -31,18 +30,21 @@ import TitleDescriptionSlide, {
 const SLIDES = [
   {
     id: 'sportDateTimeSlide',
+    order: 0,
     Comp: SportDateTimeSlide,
     section: SportDateTimeSlide.title,
     requiredFields: SportDateTimeSlide.requiredFields || [],
   },
   {
     id: 'spotSlide',
+    order: 1,
     Comp: SpotSlide,
     section: SpotSlide.title,
     requiredFields: SpotSlide.requiredFields || [],
   },
   {
     id: 'titleDescriptionSlide',
+    order: 2,
     Comp: TitleDescriptionSlide,
     section: TitleDescriptionSlide.title,
     requiredFields: TitleDescriptionSlide.requiredFields || [],
@@ -62,6 +64,8 @@ const INIT_ERRORS = {
   ...cloneDeep(SPOT_INIT_ERRORS),
   ...cloneDeep(TITLE_DESCRIPTION_INIT_ERRORS),
 };
+
+const { width: WINDOW_WIDTH } = Dimensions.get('window');
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -131,7 +135,34 @@ class PlanGameForm extends React.Component {
     };
   }
 
+  get nSlides() {
+    let counter = SLIDES.length;
+
+    SLIDES.forEach((s, index) => {
+      // Get required fields for the current slide
+      const { requiredFields } = SLIDES[index];
+      let pass = true;
+
+      // Disable next btn (return 'true') if at least on of the required fields isn't set
+      if (requiredFields) {
+        for (let i = 0; i < requiredFields.length; i += 1) {
+          const fieldName = requiredFields[i];
+          if (!this.state[fieldName]) { // eslint-disable-line
+            pass = false;
+          }
+        }
+      }
+
+      if (!pass) {
+        counter -= 1;
+      }
+    });
+
+    return counter;
+  }
+
   get disableNext() {
+  // disableNext = (index) => {
     const { curSlide } = this.state;
 
     // Get required fields for the current slide
@@ -172,23 +203,30 @@ class PlanGameForm extends React.Component {
     }
   }
 
+  handleScroll = (evt) => {
+    Keyboard.dismiss();
+    console.log('handle scroll');
+    const nextSlide = Math.round(evt.nativeEvent.contentOffset.x / WINDOW_WIDTH);
+    this.setState({ curSlide: nextSlide });
+  }
+
   handleBack = () => {
     Keyboard.dismiss();
 
-    // Decrease current slider index and slide back one position
-    this.setState(
-      prevState => ({ curSlide: prevState.curSlide === 0 ? 0 : prevState.curSlide - 1 }),
-      () => {
-        // refs are null when doing shallow tests
-        if (this.swiper) {
-          this.swiper.scrollBy(-1);
-        }
-      },
-    );
+    const { curSlide } = this.state;
+
+    // If it's NOT the first slide, slide backwards one position
+    if (curSlide !== 0) {
+      // refs are null when doing shallow tests
+      if (this.swiper) {
+        this.swiper.scrollToIndex({ index: curSlide - 1 });
+      }
+    }
   }
 
   handleNext = () => {
     Keyboard.dismiss();
+    console.log('handle next');
 
     const { curSlide } = this.state;
 
@@ -206,17 +244,12 @@ class PlanGameForm extends React.Component {
       return;
     }
 
-    // If it's NOT the last slide, increment slide counter and slide forward one position
+    // If it's NOT the last slide, slide forward one position
     if (curSlide !== SLIDES.length - 1) {
-      this.setState(
-        prevState => ({ curSlide: prevState.curSlide + 1 }),
-        () => {
-          // refs are null when doing shallow tests
-          if (this.swiper) {
-            this.swiper.scrollBy(1);
-          }
-        },
-      );
+      // refs are null when doing shallow tests
+      if (this.swiper) {
+        this.swiper.scrollToIndex({ index: curSlide + 1 });
+      }
       return;
     }
 
@@ -245,37 +278,42 @@ class PlanGameForm extends React.Component {
     const { disabled, onLeave } = this.props;
     const { curSlide, ...rest } = this.state;
 
+    // Load slides dinamically so that we can prevent the user to scroll right
+    // when the next button is disabled
+    const FILTERED_SLIDES = cloneDeep(SLIDES).slice(0, this.nSlides);
+
     return (
       <Relative>
         {disabled && (
           <AbsoluteCenteredActivityIndicator secondary />
         )}
-        <Swiper
+        <FlatList
           ref={(swiper) => { this.swiper = swiper; }}
-          scrollEnabled={false}
-          loop={false}
-          showsPagination={false}
-        >
-          {SLIDES.map(({ id, Comp, section }, index) => (
-            <FlexOne key={id}>
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onScroll={this.handleScroll}
+          data={FILTERED_SLIDES}
+          extraData={FILTERED_SLIDES.length}
+          keyExtractor={item => item.id}
+          renderItem={({ item: { id, Comp, section } }) => (
+            <FlexOne key={id} style={{ width: WINDOW_WIDTH }}>
               <ClosableLayout
                 theme="white"
                 title={I18n.t(section)}
                 onClose={onLeave}
               >
-                {index === curSlide ? (
-                  <Comp
-                    onChange={this.handleChange}
-                    // Pass down all state values: sport, date, time, etc.
-                    {...rest}
-                  />
-                ) : <View />}
+                <Comp
+                  onChange={this.handleChange}
+                  // Pass down all state values: sport, date, time, etc.
+                  {...rest}
+                />
               </ClosableLayout>
             </FlexOne>
-          ))}
-        </Swiper>
+          )}
+        />
         <Footer
-          numPages={SLIDES.length + 1} // also consider share screen
+          numPages={SLIDES.length}
           currentPage={curSlide}
           onBack={this.handleBack}
           onNext={this.handleNext}
