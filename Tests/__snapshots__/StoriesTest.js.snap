@@ -53876,263 +53876,907 @@ exports[`Storyshots Onboarding.OnboardingForm OnboardingForm 1`] = `
         ]
       }
     >
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "flex": 1,
-              "position": "relative",
-            },
-            undefined,
-          ]
-        }
+      <RCTScrollView
+        horizontal={true}
+        onScroll={[Function]}
+        pagingEnabled={true}
+        showsHorizontalScrollIndicator={false}
       >
-        <RCTScrollView
-          automaticallyAdjustContentInsets={false}
-          autoplay={false}
-          autoplayDirection={true}
-          autoplayTimeout={2.5}
-          bounces={false}
-          contentContainerStyle={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          contentOffset={
-            Object {
-              "x": 0,
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
             }
-          }
-          disableNextButton={false}
-          horizontal={true}
-          index={0}
-          loadMinimal={false}
-          loadMinimalSize={1}
-          loop={false}
-          onIndexChanged={[Function]}
-          onMomentumScrollEnd={[Function]}
-          onScrollBeginDrag={[Function]}
-          onScrollEndDrag={[Function]}
-          pagingEnabled={true}
-          removeClippedSubviews={true}
-          scrollEnabled={false}
-          scrollsToTop={false}
-          showsButtons={false}
-          showsHorizontalScrollIndicator={false}
-          showsPagination={false}
-          showsVerticalScrollIndicator={false}
-        >
-          <View>
+          >
             <View
               style={
                 Array [
                   Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
+                    "backgroundColor": "#005537",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
                   },
                 ]
               }
             >
               <View
+                pixels={32}
+                row={false}
                 style={
                   Array [
                     Object {
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 32,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={56}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 56,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": "auto",
+                      "marginRight": "auto",
+                      "marginTop": 0,
+                      "maxWidth": 280,
+                      "width": "100%",
                     },
                   ]
                 }
               >
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": 48,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.welcome.title
+                </Text>
                 <View
+                  pixels={24}
+                  row={false}
                   style={
                     Array [
                       Object {
-                        "backgroundColor": "#005537",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "height": 24,
+                        "width": "auto",
                       },
                     ]
                   }
+                />
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
                 >
+                  onboardingScreen.welcome.text
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#005537",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={32}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 32,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={56}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 56,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": "auto",
+                      "marginRight": "auto",
+                      "marginTop": 0,
+                      "maxWidth": 280,
+                      "width": "100%",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": 48,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.joinGame.title
+                </Text>
+                <View
+                  pixels={24}
+                  row={false}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "height": 24,
+                        "width": "auto",
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.joinGame.text
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#005537",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={32}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 32,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={56}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 56,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": "auto",
+                      "marginRight": "auto",
+                      "marginTop": 0,
+                      "maxWidth": 280,
+                      "width": "100%",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": 48,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.planGame.title
+                </Text>
+                <View
+                  pixels={24}
+                  row={false}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "height": 24,
+                        "width": "auto",
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.planGame.text
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#005537",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={32}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 32,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={56}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 56,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  locationSlide.title
+                </Text>
+              </View>
+              <View
+                pixels={16}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 16,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <RCTScrollView>
+                <View>
                   <View
-                    pixels={32}
-                    row={false}
+                    bgColor="transparent"
+                    height={null}
+                    midHeight={false}
                     style={
                       Array [
                         Object {
                           "backgroundColor": "rgba(0,0,0,0)",
-                          "height": 32,
-                          "width": "auto",
+                          "height": "auto",
+                          "paddingBottom": 16,
+                          "paddingLeft": 16,
+                          "paddingRight": 16,
+                          "paddingTop": 16,
                         },
-                      ]
-                    }
-                  />
-                  <View
-                    pixels={56}
-                    row={false}
-                    style={
-                      Array [
                         Object {
-                          "backgroundColor": "rgba(0,0,0,0)",
-                          "height": 56,
-                          "width": "auto",
-                        },
-                      ]
-                    }
-                  />
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "marginBottom": 0,
-                          "marginLeft": "auto",
-                          "marginRight": "auto",
-                          "marginTop": 0,
-                          "maxWidth": 280,
-                          "width": "100%",
+                          "flex": 1,
                         },
                       ]
                     }
                   >
-                    <Text
-                      style={
+                    <RCTScrollView
+                      ItemSeparatorComponent={[Function]}
+                      contentContainerStyle={
                         Object {
-                          "backgroundColor": "rgba(0,0,0,0)",
-                          "color": "#fff",
-                          "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 32,
-                          "lineHeight": 48,
-                          "textAlign": "center",
+                          "flex": 1,
                         }
                       }
-                    >
-                      onboardingScreen.welcome.title
-                    </Text>
-                    <View
-                      pixels={24}
-                      row={false}
-                      style={
+                      data={
                         Array [
                           Object {
-                            "backgroundColor": "rgba(0,0,0,0)",
-                            "height": 24,
-                            "width": "auto",
+                            "city": "Amsterdam",
+                            "coords": Object {
+                              "latitude": 52.3547321,
+                              "longitude": 4.8284118,
+                            },
+                            "country": "Netherlands",
+                            "id": "amsterdam",
+                          },
+                          Object {
+                            "city": "Enschede",
+                            "coords": Object {
+                              "latitude": 52.2233632,
+                              "longitude": 6.7983365,
+                            },
+                            "country": "Netherlands",
+                            "id": "enschede",
+                          },
+                          Object {
+                            "city": "Rotterdam",
+                            "coords": Object {
+                              "latitude": 51.9280572,
+                              "longitude": 4.420195,
+                            },
+                            "country": "Netherlands",
+                            "id": "rotterdam",
+                          },
+                          Object {
+                            "city": "Barcelona",
+                            "coords": Object {
+                              "latitude": 41.3948975,
+                              "longitude": 2.0785562,
+                            },
+                            "country": "Spain",
+                            "id": "barcelona",
+                          },
+                          Object {
+                            "city": "Buenos Aires",
+                            "coords": Object {
+                              "latitude": -34.6156624,
+                              "longitude": -58.50351,
+                            },
+                            "country": "Argentina",
+                            "id": "buenosAires",
                           },
                         ]
                       }
-                    />
-                    <Text
-                      style={
-                        Object {
-                          "backgroundColor": "rgba(0,0,0,0)",
-                          "color": "#fff",
-                          "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 18,
-                          "lineHeight": 27,
-                          "textAlign": "center",
-                        }
-                      }
+                      disableVirtualization={false}
+                      getItem={[Function]}
+                      getItemCount={[Function]}
+                      horizontal={false}
+                      initialNumToRender={10}
+                      keyExtractor={[Function]}
+                      maxToRenderPerBatch={10}
+                      numColumns={1}
+                      onContentSizeChange={[Function]}
+                      onEndReachedThreshold={2}
+                      onLayout={[Function]}
+                      onMomentumScrollEnd={[Function]}
+                      onScroll={[Function]}
+                      onScrollBeginDrag={[Function]}
+                      onScrollEndDrag={[Function]}
+                      removeClippedSubviews={false}
+                      renderItem={[Function]}
+                      scrollEventThrottle={50}
+                      stickyHeaderIndices={Array []}
+                      updateCellsBatchingPeriod={50}
+                      viewabilityConfigCallbackPairs={Array []}
+                      windowSize={21}
                     >
-                      onboardingScreen.welcome.text
-                    </Text>
+                      <View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Amsterdam
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            pixels={24}
+                            row={false}
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "rgba(0,0,0,0)",
+                                  "height": 24,
+                                  "width": "auto",
+                                },
+                              ]
+                            }
+                          />
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Enschede
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            pixels={24}
+                            row={false}
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "rgba(0,0,0,0)",
+                                  "height": 24,
+                                  "width": "auto",
+                                },
+                              ]
+                            }
+                          />
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Rotterdam
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            pixels={24}
+                            row={false}
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "rgba(0,0,0,0)",
+                                  "height": 24,
+                                  "width": "auto",
+                                },
+                              ]
+                            }
+                          />
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Barcelona
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            pixels={24}
+                            row={false}
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "rgba(0,0,0,0)",
+                                  "height": 24,
+                                  "width": "auto",
+                                },
+                              ]
+                            }
+                          />
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Buenos Aires
+                              </Text>
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+                    </RCTScrollView>
                   </View>
                 </View>
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
-                    },
-                  ]
-                }
-              >
-                <View />
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
-                    },
-                  ]
-                }
-              >
-                <View />
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
-                    },
-                  ]
-                }
-              >
-                <View />
-              </View>
+              </RCTScrollView>
             </View>
           </View>
-        </RCTScrollView>
-      </View>
+        </View>
+      </RCTScrollView>
       <View
         style={
           Array [
@@ -58291,21 +58935,39 @@ exports[`Storyshots Screens SplashScreen 1`] = `
             ]
           }
         >
-          <Text
+          <View
+            bgColor="transparent"
+            height={null}
+            midHeight={false}
             style={
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#fff",
-                "fontFamily": "Rajdhani-SemiBold",
-                "fontSize": 30,
-                "lineHeight": 48,
-                "textAlign": "center",
-              }
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "height": "auto",
+                  "paddingBottom": 16,
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                  "paddingTop": 16,
+                },
+              ]
             }
-            testID="splashText"
           >
-            splashScreen.title
-          </Text>
+            <Text
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#fff",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 30,
+                  "lineHeight": 48,
+                  "textAlign": "center",
+                }
+              }
+              testID="splashText"
+            >
+              splashScreen.title
+            </Text>
+          </View>
           <View
             style={
               Array [
@@ -60871,263 +61533,907 @@ exports[`Storyshots Screens.Plan.OnboardingScreen OnboardingScreen 1`] = `
         ]
       }
     >
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "flex": 1,
-              "position": "relative",
-            },
-            undefined,
-          ]
-        }
+      <RCTScrollView
+        horizontal={true}
+        onScroll={[Function]}
+        pagingEnabled={true}
+        showsHorizontalScrollIndicator={false}
       >
-        <RCTScrollView
-          automaticallyAdjustContentInsets={false}
-          autoplay={false}
-          autoplayDirection={true}
-          autoplayTimeout={2.5}
-          bounces={false}
-          contentContainerStyle={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          contentOffset={
-            Object {
-              "x": 0,
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
             }
-          }
-          disableNextButton={false}
-          horizontal={true}
-          index={0}
-          loadMinimal={false}
-          loadMinimalSize={1}
-          loop={false}
-          onIndexChanged={[Function]}
-          onMomentumScrollEnd={[Function]}
-          onScrollBeginDrag={[Function]}
-          onScrollEndDrag={[Function]}
-          pagingEnabled={true}
-          removeClippedSubviews={true}
-          scrollEnabled={false}
-          scrollsToTop={false}
-          showsButtons={false}
-          showsHorizontalScrollIndicator={false}
-          showsPagination={false}
-          showsVerticalScrollIndicator={false}
-        >
-          <View>
+          >
             <View
               style={
                 Array [
                   Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
+                    "backgroundColor": "#005537",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
                   },
                 ]
               }
             >
               <View
+                pixels={32}
+                row={false}
                 style={
                   Array [
                     Object {
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 32,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={56}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 56,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": "auto",
+                      "marginRight": "auto",
+                      "marginTop": 0,
+                      "maxWidth": 280,
+                      "width": "100%",
                     },
                   ]
                 }
               >
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": 48,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.welcome.title
+                </Text>
                 <View
+                  pixels={24}
+                  row={false}
                   style={
                     Array [
                       Object {
-                        "backgroundColor": "#005537",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "height": 24,
+                        "width": "auto",
                       },
                     ]
                   }
+                />
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
                 >
+                  onboardingScreen.welcome.text
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#005537",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={32}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 32,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={56}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 56,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": "auto",
+                      "marginRight": "auto",
+                      "marginTop": 0,
+                      "maxWidth": 280,
+                      "width": "100%",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": 48,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.joinGame.title
+                </Text>
+                <View
+                  pixels={24}
+                  row={false}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "height": 24,
+                        "width": "auto",
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.joinGame.text
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#005537",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={32}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 32,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={56}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 56,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 0,
+                      "marginLeft": "auto",
+                      "marginRight": "auto",
+                      "marginTop": 0,
+                      "maxWidth": 280,
+                      "width": "100%",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 32,
+                      "lineHeight": 48,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.planGame.title
+                </Text>
+                <View
+                  pixels={24}
+                  row={false}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "height": 24,
+                        "width": "auto",
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  onboardingScreen.planGame.text
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#005537",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                pixels={32}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 32,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View
+                pixels={56}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 56,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#fff",
+                      "fontFamily": "Rajdhani-SemiBold",
+                      "fontSize": 18,
+                      "lineHeight": 27,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  locationSlide.title
+                </Text>
+              </View>
+              <View
+                pixels={16}
+                row={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "height": 16,
+                      "width": "auto",
+                    },
+                  ]
+                }
+              />
+              <RCTScrollView>
+                <View>
                   <View
-                    pixels={32}
-                    row={false}
+                    bgColor="transparent"
+                    height={null}
+                    midHeight={false}
                     style={
                       Array [
                         Object {
                           "backgroundColor": "rgba(0,0,0,0)",
-                          "height": 32,
-                          "width": "auto",
+                          "height": "auto",
+                          "paddingBottom": 16,
+                          "paddingLeft": 16,
+                          "paddingRight": 16,
+                          "paddingTop": 16,
                         },
-                      ]
-                    }
-                  />
-                  <View
-                    pixels={56}
-                    row={false}
-                    style={
-                      Array [
                         Object {
-                          "backgroundColor": "rgba(0,0,0,0)",
-                          "height": 56,
-                          "width": "auto",
-                        },
-                      ]
-                    }
-                  />
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "marginBottom": 0,
-                          "marginLeft": "auto",
-                          "marginRight": "auto",
-                          "marginTop": 0,
-                          "maxWidth": 280,
-                          "width": "100%",
+                          "flex": 1,
                         },
                       ]
                     }
                   >
-                    <Text
-                      style={
+                    <RCTScrollView
+                      ItemSeparatorComponent={[Function]}
+                      contentContainerStyle={
                         Object {
-                          "backgroundColor": "rgba(0,0,0,0)",
-                          "color": "#fff",
-                          "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 32,
-                          "lineHeight": 48,
-                          "textAlign": "center",
+                          "flex": 1,
                         }
                       }
-                    >
-                      onboardingScreen.welcome.title
-                    </Text>
-                    <View
-                      pixels={24}
-                      row={false}
-                      style={
+                      data={
                         Array [
                           Object {
-                            "backgroundColor": "rgba(0,0,0,0)",
-                            "height": 24,
-                            "width": "auto",
+                            "city": "Amsterdam",
+                            "coords": Object {
+                              "latitude": 52.3547321,
+                              "longitude": 4.8284118,
+                            },
+                            "country": "Netherlands",
+                            "id": "amsterdam",
+                          },
+                          Object {
+                            "city": "Enschede",
+                            "coords": Object {
+                              "latitude": 52.2233632,
+                              "longitude": 6.7983365,
+                            },
+                            "country": "Netherlands",
+                            "id": "enschede",
+                          },
+                          Object {
+                            "city": "Rotterdam",
+                            "coords": Object {
+                              "latitude": 51.9280572,
+                              "longitude": 4.420195,
+                            },
+                            "country": "Netherlands",
+                            "id": "rotterdam",
+                          },
+                          Object {
+                            "city": "Barcelona",
+                            "coords": Object {
+                              "latitude": 41.3948975,
+                              "longitude": 2.0785562,
+                            },
+                            "country": "Spain",
+                            "id": "barcelona",
+                          },
+                          Object {
+                            "city": "Buenos Aires",
+                            "coords": Object {
+                              "latitude": -34.6156624,
+                              "longitude": -58.50351,
+                            },
+                            "country": "Argentina",
+                            "id": "buenosAires",
                           },
                         ]
                       }
-                    />
-                    <Text
-                      style={
-                        Object {
-                          "backgroundColor": "rgba(0,0,0,0)",
-                          "color": "#fff",
-                          "fontFamily": "Rajdhani-SemiBold",
-                          "fontSize": 18,
-                          "lineHeight": 27,
-                          "textAlign": "center",
-                        }
-                      }
+                      disableVirtualization={false}
+                      getItem={[Function]}
+                      getItemCount={[Function]}
+                      horizontal={false}
+                      initialNumToRender={10}
+                      keyExtractor={[Function]}
+                      maxToRenderPerBatch={10}
+                      numColumns={1}
+                      onContentSizeChange={[Function]}
+                      onEndReachedThreshold={2}
+                      onLayout={[Function]}
+                      onMomentumScrollEnd={[Function]}
+                      onScroll={[Function]}
+                      onScrollBeginDrag={[Function]}
+                      onScrollEndDrag={[Function]}
+                      removeClippedSubviews={false}
+                      renderItem={[Function]}
+                      scrollEventThrottle={50}
+                      stickyHeaderIndices={Array []}
+                      updateCellsBatchingPeriod={50}
+                      viewabilityConfigCallbackPairs={Array []}
+                      windowSize={21}
                     >
-                      onboardingScreen.welcome.text
-                    </Text>
+                      <View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Amsterdam
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            pixels={24}
+                            row={false}
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "rgba(0,0,0,0)",
+                                  "height": 24,
+                                  "width": "auto",
+                                },
+                              ]
+                            }
+                          />
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Enschede
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            pixels={24}
+                            row={false}
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "rgba(0,0,0,0)",
+                                  "height": 24,
+                                  "width": "auto",
+                                },
+                              ]
+                            }
+                          />
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Rotterdam
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            pixels={24}
+                            row={false}
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "rgba(0,0,0,0)",
+                                  "height": 24,
+                                  "width": "auto",
+                                },
+                              ]
+                            }
+                          />
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Barcelona
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            pixels={24}
+                            row={false}
+                            style={
+                              Array [
+                                Object {
+                                  "backgroundColor": "rgba(0,0,0,0)",
+                                  "height": 24,
+                                  "width": "auto",
+                                },
+                              ]
+                            }
+                          />
+                        </View>
+                        <View
+                          onLayout={[Function]}
+                          style={null}
+                        >
+                          <View
+                            accessible={true}
+                            isTVSelectable={true}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "opacity": 1,
+                              }
+                            }
+                          >
+                            <View
+                              alignItems="center"
+                              bgColor="transparent"
+                              borderColor="white"
+                              disabled={false}
+                              justifyContent="center"
+                              size="M"
+                              style={
+                                Array [
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "borderColor": "#fff",
+                                    "borderRadius": 8,
+                                    "borderStyle": "solid",
+                                    "borderWidth": 1,
+                                    "display": "flex",
+                                    "flexDirection": "row",
+                                    "height": 48,
+                                    "justifyContent": "center",
+                                    "minWidth": 80,
+                                    "width": "100%",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                              width="100%"
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "backgroundColor": "rgba(0,0,0,0)",
+                                    "color": "#fff",
+                                    "fontFamily": "Rajdhani-SemiBold",
+                                    "fontSize": 18,
+                                    "lineHeight": 27,
+                                    "textAlign": "left",
+                                  }
+                                }
+                              >
+                                Buenos Aires
+                              </Text>
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+                    </RCTScrollView>
                   </View>
                 </View>
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
-                    },
-                  ]
-                }
-              >
-                <View />
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
-                    },
-                  ]
-                }
-              >
-                <View />
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
-                    },
-                  ]
-                }
-              >
-                <View />
-              </View>
+              </RCTScrollView>
             </View>
           </View>
-        </RCTScrollView>
-      </View>
+        </View>
+      </RCTScrollView>
       <View
         style={
           Array [

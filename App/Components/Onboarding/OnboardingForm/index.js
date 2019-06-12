@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard, View } from 'react-native';
+import { Keyboard, ScrollView, Dimensions } from 'react-native';
 import firebase from 'react-native-firebase';
-import Swiper from 'react-native-swiper';
 import styled from 'styled-components/native';
 import cloneDeep from 'lodash/cloneDeep';
 import pick from 'lodash/pick';
@@ -57,6 +56,8 @@ const SLIDES = [
 const INIT_STATE = {
   ...cloneDeep(LOCATION_INIT_STATE),
 };
+
+const { width: WINDOW_WIDTH } = Dimensions.get('window');
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -80,8 +81,9 @@ class OnboardingForm extends React.Component {
     // console.log('INIT STATE', this.state);
   }
 
-  handleChange = ({ fieldName, value }) => {
-    this.setState({ [fieldName]: value });
+  handleScroll = (evt) => {
+    const nextSlide = Math.round(evt.nativeEvent.contentOffset.x / WINDOW_WIDTH);
+    this.setState({ curSlide: nextSlide });
   }
 
   get disableNext() {
@@ -117,12 +119,9 @@ class OnboardingForm extends React.Component {
 
     firebase.analytics().logEvent(`onboarding_footer_next_btn_press_idx_${curSlide}`);
 
-    // If it's NOT the last slide, increment slide counter and slide forward one position
+    // If it's NOT the last slide, slide forward one position
     if (curSlide !== SLIDES.length - 1) {
-      this.setState(
-        prevState => ({ curSlide: prevState.curSlide + 1 }),
-        () => { this.swiper.scrollBy(1); },
-      );
+      this.swiper.scrollTo({ x: (curSlide + 1) * WINDOW_WIDTH });
       return;
     }
 
@@ -147,30 +146,33 @@ class OnboardingForm extends React.Component {
     onSuccessHook(pick(this.state, Object.keys(INIT_STATE)));
   }
 
+  handleChange = ({ fieldName, value }) => {
+    this.setState({ [fieldName]: value });
+  }
+
   render() {
     const { disabled } = this.props;
     const { curSlide, ...rest } = this.state;
 
     return (
       <FlexOne>
-        <Swiper
+        <ScrollView
           ref={(swiper) => { this.swiper = swiper; }}
-          scrollEnabled={false}
-          loop={false}
-          showsPagination={false}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onScroll={this.handleScroll}
         >
-          {SLIDES.map(({ id, Comp }, index) => (
-            <FlexOne key={id}>
-              {index === curSlide ? (
-                <Comp
-                  onChange={this.handleChange}
-                  // Pass down all state values: location, sports, etc.
-                  {...rest}
-                />
-              ) : <View />}
+          {SLIDES.map(({ id, Comp }) => (
+            <FlexOne key={id} style={{ width: WINDOW_WIDTH }}>
+              <Comp
+                onChange={this.handleChange}
+                // Pass down all state values: location, sports, etc.
+                {...rest}
+              />
             </FlexOne>
           ))}
-        </Swiper>
+        </ScrollView>
         <Footer
           numPages={SLIDES.length}
           currentPage={curSlide}
