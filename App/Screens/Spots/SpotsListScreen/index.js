@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import { compose } from 'react-apollo';
+
 import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
 import SpotsList from '../../../Components/Spots/SpotsList';
 import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
+import { withLocation } from '../../../Context/Location';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -26,6 +29,11 @@ class SpotsListScreen extends React.Component {
   handleCardPress = (spot) => {
     const { navigation } = this.props;
     navigation.navigate('SpotDetailsScreen', { uuid: spot.uuid });
+  }
+
+  componentWillMount() {
+    const { locationUpdate } = this.props;
+    locationUpdate();
   }
 
   render() {
@@ -69,7 +77,14 @@ SpotsListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  locationUpdate: PropTypes.func.isRequired,
   ...spotFiltersPropTypes,
 };
 
-export default withSpotFilters(SpotsListScreen);
+
+const enhance = compose(
+  withSpotFilters,
+  withLocation,
+);
+
+export default enhance(SpotsListScreen);

@@ -57,7 +57,7 @@ class OnboardingScreen extends React.Component {
   }
 
   render() {
-    const { refetchLocation, navigation } = this.props;
+    const { locationSetCity, navigation } = this.props;
 
     return (
       <FormProps>
@@ -77,8 +77,7 @@ class OnboardingScreen extends React.Component {
             // Store location data into local storage.
             onSuccessHook={({ location }) => {
               handleSuccess(async () => {
-                await AsyncStorage.setItem('userLocation', JSON.stringify(location));
-                await refetchLocation();
+                await locationSetCity(location);
                 navigation.navigate('MainNav');
               });
             }}
@@ -94,7 +93,7 @@ OnboardingScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  refetchLocation: locationPropTypes.refetchLocation.isRequired,
+  locationSetCity: locationPropTypes.locationSetCity.isRequired,
 };
 
 export default withLocation(OnboardingScreen);

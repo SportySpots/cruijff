@@ -16,18 +16,18 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetailsScreen = ({ user, location }) => (
+const ProfileDetailsScreen = ({ user, locationCity }) => (
   <Container testID="ProfileDetailsScreen">
     <ProfileDetails
       user={user}
-      location={location}
+      locationCity={locationCity}
     />
   </Container>
 );
 
 ProfileDetailsScreen.propTypes = {
   user: userPropTypes.user.isRequired,
-  location: locationPropTypes.location.isRequired,
+  locationCity: locationPropTypes.locationCity.isRequired,
 };
 
 const enhance = compose(

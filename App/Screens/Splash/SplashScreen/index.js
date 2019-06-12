@@ -5,7 +5,6 @@ import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
 import { withLocation, locationPropTypes } from '../../../Context/Location';
 import I18n from '../../../I18n';
-import Colors from '../../../Themes/Colors';
 import FieldBackground from '../../../Backgrounds/FieldBackground';
 import Block from '../../../Components/Common/Block';
 import Row from '../../../Components/Common/Row';
@@ -30,7 +29,7 @@ class SplashScreen extends React.Component {
   }
 
   render() {
-    const { navigation, user, location } = this.props;
+    const { navigation, user, locationCity } = this.props;
 
     return (
       <FieldBackground>
@@ -51,7 +50,7 @@ class SplashScreen extends React.Component {
             label={I18n.t('splashScreen.btnLabel')}
             accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
-              navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
+              navigation.navigate(locationCity ? 'MainNav' : 'OnboardingScreen');
             }}
           />
           <Spacer size="XL" />
@@ -76,7 +75,7 @@ class SplashScreen extends React.Component {
 
 SplashScreen.propTypes = {
   user: userPropTypes.user,
-  location: locationPropTypes.location,
+  locationCity: locationPropTypes.locationCity,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -84,7 +83,7 @@ SplashScreen.propTypes = {
 
 SplashScreen.defaultProps = {
   user: null,
-  location: null,
+  locationCity: null,
 };
 
 const enhance = compose(

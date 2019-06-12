@@ -24,17 +24,17 @@ export const MAX_CHARS = 120;
 
 let INIT_STATE;
 
-const getInitState = ({ name, profile }, location) => ({
+const getInitState = ({ name, profile }, locationCity) => ({
   name: name || '',
   birthYear: (profile && profile.year_of_birth && profile.year_of_birth.toString()) || '',
   avatar: (profile && profile.avatar && profile.avatar.toString()) || '',
-  location,
+  locationCity,
 });
 
 const INIT_ERRORS = {
   name: [],
   // birthYear: [],
-  location: [],
+  locationCity: [],
 };
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -43,8 +43,8 @@ class EditProfileForm extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    const { user, location } = this.props;
-    INIT_STATE = getInitState(user, location);
+    const { user, locationCity } = this.props;
+    INIT_STATE = getInitState(user, locationCity);
 
     // Initialize state based on current user data
     this.state = {
@@ -150,7 +150,7 @@ class EditProfileForm extends React.PureComponent {
   }
 
   render() {
-    const { user, location, disabled } = this.props;
+    const { user, locationCity, disabled } = this.props;
     const { name, /* birthYear, */ errors } = this.state;
 
     // Apply translation and concatenate field errors (string)
@@ -185,12 +185,12 @@ class EditProfileForm extends React.PureComponent {
             <LocationPickerField
               testID="editProfileFieldLocation"
               label={I18n.t('editProfileForm.fields.location.label')}
-              value={location}
+              value={locationCity}
               size="ML"
               disabled={disabled}
               fullWidth
               onChange={(value) => {
-                this.handleChange({ fieldName: 'location', value });
+                this.handleChange({ fieldName: 'locationCity', value });
               }}
             />
           </Block>
@@ -225,7 +225,7 @@ class EditProfileForm extends React.PureComponent {
 
 EditProfileForm.propTypes = {
   user: propType(userDetailsFragment).isRequired,
-  location: locationPropTypes.location.isRequired,
+  locationCity: locationPropTypes.locationCity.isRequired,
   disabled: PropTypes.bool,
   errors: PropTypes.object, // eslint-disable-line
   onBeforeHook: PropTypes.func,

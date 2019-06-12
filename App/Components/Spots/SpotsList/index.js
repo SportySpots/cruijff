@@ -21,15 +21,16 @@ import { makeNumGenerator } from '../../../utils';
 const SpotsList = ({
   cardComponent,
   sportsIds,
-  location,
+  locationCoords,
+  locationLoading,
   maxDistance,
   selectedSpot,
   onCardPress,
   ...rest
 }) => {
-  if (!location || !location.coords) { return null; }
+  if (!locationCoords) { return null; }
 
-  const { coords } = location;
+  const coords = locationCoords;
   const Card = cardComponent === 'SpotListCard' ? SpotListCard : SpotListCardSmall;
 
   // Set query variables
@@ -112,7 +113,7 @@ const SpotsList = ({
             ItemSeparatorComponent={() => <Spacer size="ML" />}
             showsVerticalScrollIndicator={false}
             onRefresh={refetch}
-            refreshing={loading}
+            refreshing={loading || locationLoading}
             onEndReached={loadMore}
             onEndReachedThreshold={0.1}
             contentContainerStyle={{
@@ -131,7 +132,8 @@ const SpotsList = ({
 SpotsList.propTypes = {
   cardComponent: PropTypes.oneOf(['SpotListCard', 'SpotListCardSmall']).isRequired,
   sportsIds: PropTypes.arrayOf(PropTypes.string),
-  location: locationPropTypes.location,
+  locationCoords: locationPropTypes.locationCoords,
+  locationLoading: locationPropTypes.locationLoading,
   maxDistance: PropTypes.number, // km
   selectedSpot: propType(spotFragment),
   onCardPress: PropTypes.func,
@@ -140,7 +142,8 @@ SpotsList.propTypes = {
 
 SpotsList.defaultProps = {
   sportsIds: [],
-  location: null,
+  locationCoords: null,
+  locationLoading: false,
   maxDistance: 50,
   selectedSpot: null,
   onCardPress: () => {},
