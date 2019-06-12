@@ -5,6 +5,7 @@
 	};
 	objectVersion = 50;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -1018,7 +1019,6 @@
 				E8DF0D4CBEF1457A9DA09121 /* libReact.a */,
 				42A5C79E86D344DEAFCA4291 /* libReactNativeConfig.a */,
 				F7A899C896CE4378AB8300CB /* libRNCookieManagerIOS.a */,
-				D516A61CC6DE480EAB9ED13C /* libRNDeviceInfo.a */,
 				39A7D7CFF81C466383C6B624 /* libRNVectorIcons.a */,
 				0E6A979EFD734ECDB90698F5 /* libyoga.a */,
 				B6C0BC26BC48404CACDE542D /* libRNFirebase.a */,
@@ -1633,13 +1633,6 @@
 			fileType = archive.ar;
 			path = "libRNVectorIcons-tvOS.a";
 			remoteRef = C56DE1C321934E0A00E5CCFA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C578F57C217B822900AE2FA0 /* libRNDeviceInfo-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNDeviceInfo-tvOS.a";
-			remoteRef = C578F57B217B822900AE2FA0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C592D3D0229ED1D400A5738D /* libRNCSlider.a */ = {

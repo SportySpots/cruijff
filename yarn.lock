@@ -1667,12 +1667,12 @@ apollo-utilities@1.2.1, apollo-utilities@^1.0.1, apollo-utilities@^1.2.1:
     ts-invariant "^0.2.1"
     tslib "^1.9.3"
 
-appcenter-analytics@1.13.0:
-  version "1.13.0"
-  resolved "https://registry.npmjs.org/appcenter-analytics/-/appcenter-analytics-1.13.0.tgz#c9ffd6cb103c418425ab6967086a4d085069e4cd"
-  integrity sha512-FTfNXiT/CnXGHqCcqPmP97zmXVq0o+zvTIlpJjFeIJB2N6Cufk3RYohJATjJ40Hc2x1DoBxJ59K3vu4vAtViIA==
+appcenter-analytics@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/appcenter-analytics/-/appcenter-analytics-2.0.0.tgz#77be7c08aae2102ceb45087b38e872b44f5af223"
+  integrity sha512-KC5DMBIug8HxA9IQYqNYGMVbGqZzTXI4vNfPhECr1AWahNG+BHRKbwGgmcYDeNUpAvk641o4VdGDLYZEBn4CkA==
   dependencies:
-    appcenter "1.13.0"
+    appcenter "2.0.0"
 
 appcenter-cli@1.1.15:
   version "1.1.15"
@@ -1723,32 +1723,31 @@ appcenter-cli@1.1.15:
     xmldom "^0.1.27"
     yazl "^2.4.3"
 
-appcenter-crashes@1.13.0:
-  version "1.13.0"
-  resolved "https://registry.npmjs.org/appcenter-crashes/-/appcenter-crashes-1.13.0.tgz#c9a5257f71e9c8055494322d4b514e28715debfc"
-  integrity sha512-HlKPbFUgHgWtHjhpZjAKOJnOdLWTzCXKKQ1dWPGlB6M/QA+ssL5gKap1cymPBBwvaL1FwOvWlKW0egVRn6cBTQ==
+appcenter-crashes@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/appcenter-crashes/-/appcenter-crashes-2.0.0.tgz#fed86774e90c5a0d6ac93c3d3130009e1d81f2d2"
+  integrity sha512-D9H05u/BUtJvu98j75L0Oj0vDmc/TPkipz8ZIqUkaq7ZLJfDTJVYl2M4ObCTGOVG6QxcNnNNZK4ZLnHBMMUu2g==
   dependencies:
-    appcenter "1.13.0"
+    appcenter "2.0.0"
 
-appcenter-link-scripts@1.13.0:
-  version "1.13.0"
-  resolved "https://registry.npmjs.org/appcenter-link-scripts/-/appcenter-link-scripts-1.13.0.tgz#5ddd2143df97c055d1d04d97cd59facec367f368"
-  integrity sha512-+09PdeTzPPJyaVAblF8q/p9xhw9IlzN66vWvU/8F71rnxXuNKswuztl7OxTHJevVXCASmpeZNWlekVrXeEyxvg==
+appcenter-link-scripts@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/appcenter-link-scripts/-/appcenter-link-scripts-2.0.0.tgz#7fcdf59359655a0950bba1281a9ad804745999df"
+  integrity sha512-c2ozK6aPn3mZa/sNBAW9Ha1+uj1FQTGZCq4SGCRulX+VPXBXhV/DmRXAzC9047h7qFPCRgjuKlTVBnaYOqyQQg==
   dependencies:
     debug "^2.2.0"
     glob "^5.0.15"
-    inquirer "6.2.0"
     mkdirp "^0.5.1"
     plist "^3.0.1"
     which "^1.2.11"
     xcode "^2.0.0"
 
-appcenter@1.13.0:
-  version "1.13.0"
-  resolved "https://registry.npmjs.org/appcenter/-/appcenter-1.13.0.tgz#b4bfc38bcdb9d69f20086ad69198d8993d6edb94"
-  integrity sha512-YHWrLPlA7ZBH5Tz8vN6Eux0wjdA8nNRfwGL7IANjx0yv7OvIMftn9SC0/g2CWdVV752dL6a8Rt/rWXN8yeOfdQ==
+appcenter@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/appcenter/-/appcenter-2.0.0.tgz#df24d914b05b3e0f41e5662f18d3740af032cd4d"
+  integrity sha512-nytXWAP+rpd2tbvSndlYkHvH3shL7BxSJs70gs0ZzTJ52Zqge+8xtS7BNEMvfea5YDRwV5H6YjqjTu/EPiaFZg==
   dependencies:
-    appcenter-link-scripts "1.13.0"
+    appcenter-link-scripts "2.0.0"
 
 aproba@^1.0.3:
   version "1.2.0"
@@ -3854,7 +3853,7 @@ external-editor@^2.0.4, external-editor@^2.1.0:
     iconv-lite "^0.4.17"
     tmp "^0.0.33"
 
-external-editor@^3.0.0, external-editor@^3.0.3:
+external-editor@^3.0.3:
   version "3.0.3"
   resolved "https://registry.npmjs.org/external-editor/-/external-editor-3.0.3.tgz#5866db29a97826dbe4bf3afd24070ead9ea43a27"
   integrity sha512-bn71H9+qWoOQKyZDo25mOMVpSmXROAsTJVVVYzrrtol3d4y+AsKjf4Iwl2Q+IuT0kFSQ1qo166UuIwqYq7mGnA==
@@ -4937,25 +4936,6 @@ inquirer@1.1.2:
     rx "^4.1.0"
     string-width "^1.0.1"
     strip-ansi "^3.0.0"
-    through "^2.3.6"
-
-inquirer@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.npmjs.org/inquirer/-/inquirer-6.2.0.tgz#51adcd776f661369dc1e894859c2560a224abdd8"
-  integrity sha512-QIEQG4YyQ2UYZGDC4srMZ7BjHOmNk1lR2JQj5UknBapklm6WHA+VVH7N+sUdX3A7NeCfGF8o4X1S3Ao7nAcIeg==
-  dependencies:
-    ansi-escapes "^3.0.0"
-    chalk "^2.0.0"
-    cli-cursor "^2.1.0"
-    cli-width "^2.0.0"
-    external-editor "^3.0.0"
-    figures "^2.0.0"
-    lodash "^4.17.10"
-    mute-stream "0.0.7"
-    run-async "^2.2.0"
-    rxjs "^6.1.0"
-    string-width "^2.1.0"
-    strip-ansi "^4.0.0"
     through "^2.3.6"
 
 inquirer@^3.0.6:
@@ -9378,7 +9358,7 @@ rxjs@^5.5.12, rxjs@^5.5.2:
   dependencies:
     symbol-observable "1.0.1"
 
-rxjs@^6.1.0, rxjs@^6.3.3, rxjs@^6.4.0:
+rxjs@^6.3.3, rxjs@^6.4.0:
   version "6.5.1"
   resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.5.1.tgz#f7a005a9386361921b8524f38f54cbf80e5d08f4"
   integrity sha512-y0j31WJc83wPu31vS1VlAFW5JGrnGC+j+TtGAa1fRQphy48+fDYiDmX8tjGloToEsMkxnouOg/1IzXGKkJnZMg==
