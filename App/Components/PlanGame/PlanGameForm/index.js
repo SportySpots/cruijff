@@ -220,6 +220,9 @@ class PlanGameForm extends React.Component {
       // refs are null when doing shallow tests
       if (this.swiper) {
         this.swiper.scrollToIndex({ index: curSlide - 1 });
+      } else {
+        // else clause is only for tests
+        this.setState(prevState => ({ curSlide: prevState.curSlide - 1 }));
       }
     }
   }
@@ -249,7 +252,11 @@ class PlanGameForm extends React.Component {
       // refs are null when doing shallow tests
       if (this.swiper) {
         this.swiper.scrollToIndex({ index: curSlide + 1 });
+      } else {
+        // else clause is only for tests
+        this.setState(prevState => ({ curSlide: prevState.curSlide + 1 }));
       }
+
       return;
     }
 

@@ -102,6 +102,12 @@ sdk.dir = /home/<YOUR_USERNAME>/Android/Sdk
 
 Create a .env file from .env.example placing it in the root of the project
 
+### Decrypt google.json
+
+```
+git-crypt unlock
+```
+
 ### Genymotion devices
 
 When creating a new device make sure to choose a device with android version >= 8.1
