@@ -19,20 +19,20 @@ const StyledRow = styled(Row)`
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const buttons = [{
-  id: 'spots',
-  label: 'navBar.spots',
-  route: 'SpotSearchTab',
-  icon: {
-    set: 'MaterialCommunityIcons',
-    name: 'near-me',
-  },
-}, {
   id: 'activities',
   label: 'navBar.activities',
   route: 'GameSearchTab',
   icon: {
     set: 'MaterialCommunityIcons',
     name: 'account-group',
+  },
+}, {
+  id: 'spots',
+  label: 'navBar.spots',
+  route: 'SpotSearchTab',
+  icon: {
+    set: 'MaterialCommunityIcons',
+    name: 'near-me',
   },
 }, {
   id: 'organize',

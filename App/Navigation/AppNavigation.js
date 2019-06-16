@@ -26,7 +26,7 @@ const MainTabsNav = createBottomTabNavigator({
   tabBarPosition: 'bottom',
   animationEnabled: false,
   swipeEnabled: false,
-  initialRouteName: 'SpotSearchTab',
+  initialRouteName: 'GameSearchTab',
 });
 
 const MainNav = createStackNavigator({

@@ -32370,77 +32370,6 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
               },
             ]
           }
-          testID="navbarButton_spots"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexBasis": 0,
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "center",
-                },
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "rgba(0,0,0,0.34)",
-                    "fontSize": 24,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "Material Design Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              style={
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "rgba(0,0,0,0.34)",
-                  "fontFamily": "Rajdhani-Regular",
-                  "fontSize": 12,
-                  "lineHeight": 18,
-                  "textAlign": "left",
-                }
-              }
-            >
-              navBar.spots
-            </Text>
-          </View>
-        </View>
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "flexShrink": 1,
-              },
-            ]
-          }
           testID="navbarButton_activities"
         >
           <View
@@ -32490,6 +32419,77 @@ exports[`Storyshots Common.NavBar NavBar 1`] = `
               }
             >
               navBar.activities
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+            ]
+          }
+          testID="navbarButton_spots"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(0,0,0,0.34)",
+                    "fontSize": 24,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Material Design Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "rgba(0,0,0,0.34)",
+                  "fontFamily": "Rajdhani-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 18,
+                  "textAlign": "left",
+                }
+              }
+            >
+              navBar.spots
             </Text>
           </View>
         </View>
