@@ -476,10 +476,7 @@
     "invite": "Es tiempo de invitar algunas personas",
     "shareVia": "Comparte tu actividad via",
     "remember": "Asegúrate de mantener a tus asistentes actualizados sobre las novedades de tu actividad.",
-    "footer": {
-      "nextBtnLabel": "Ir a actividad",
-      "backBtnLabel": ""
-    }
+    "nextBtnLabel": "Ir a actividad"
   },
 
   "inviteOnly": {

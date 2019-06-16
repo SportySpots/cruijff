@@ -8,7 +8,9 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
-import Footer from '../../Common/DarkFooter';
+import Block from '../../Common/Block';
+import RaisedButton from '../../Common/RaisedButton';
+// import Footer from '../../Common/DarkFooter';
 import ClosableLayout from '../../Layouts/ClosableLayout';
 import ShareGameButton from '../../Games/ShareGameButton';
 // import InviteOnly from '../InviteOnly';
@@ -99,15 +101,25 @@ class ShareGameForm extends React.PureComponent {
             isPublic={isPublic}
             onPress={(value) => { this.handleChange({ fieldName: 'isPublic', value }); }}
           /> */}
+          <Spacer size="XL" />
+          <Block>
+            <RaisedButton
+              testID="shareNextButton"
+              variant="default"
+              label={I18n.t('shareGameScreen.nextBtnLabel')}
+              disabled={disabled}
+              onPress={this.handleNext}
+            />
+          </Block>
         </ClosableLayout>
-        <Footer
+        {/* <Footer
           numPages={4}
           currentPage={3}
           onNext={this.handleNext}
           disableNext={disabled}
           showBack={false}
           buttonNextText={I18n.t('shareGameScreen.footer.nextBtnLabel')}
-        />
+        /> */}
       </FlexOne>
     );
   }
