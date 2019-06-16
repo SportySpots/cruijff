@@ -88,10 +88,12 @@ class NavBar extends React.Component {
 
   handlePress = (btn) => {
     const { navigation } = this.props;
+
+    firebase.analytics().logEvent(`navbar_btn_press_${btn.route}`);
+    // Go back to the begining of the stack
+    navigation.popToTop();
+
     if (this.curRoute !== btn.route) {
-      firebase.analytics().logEvent(`navbar_btn_press_${btn.route}`);
-      // Go back to the begining of the stack
-      navigation.popToTop();
       // Jump to the requested route.
       navigation.navigate({ routeName: btn.route });
     }
