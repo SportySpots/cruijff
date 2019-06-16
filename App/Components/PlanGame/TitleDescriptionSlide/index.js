@@ -61,7 +61,7 @@ class TitleDescriptionSlide extends React.PureComponent {
           value={description}
           error={descriptionErrors}
           multiline
-          autoFocus
+          // autoFocus
           characterRestriction={DESCRIPTION_MAX_CHARS}
           onChangeText={(value) => { onChange({ fieldName: 'description', value }); }}
           theme="white"

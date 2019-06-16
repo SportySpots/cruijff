@@ -1,21 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Swiper from 'react-native-swiper';
-import { Image } from 'react-native';
+import { Image, ScrollView, Dimensions } from 'react-native';
+
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const { width: WINDOW_WIDTH } = Dimensions.get('window');
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ImageSwiper = ({ images }) => (
-  <Swiper style={{ flex: 1 }}>
+  <ScrollView
+    horizontal
+    pagingEnabled
+    showsHorizontalScrollIndicator={false}
+  >
     {images.map(src => (
       <Image
         key={src}
         style={{ flex: 1 }}
         source={{ uri: src }}
+        width={WINDOW_WIDTH}
       />
     ))}
-  </Swiper>
+  </ScrollView>
 );
 
 ImageSwiper.propTypes = {

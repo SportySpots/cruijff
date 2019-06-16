@@ -111,7 +111,6 @@ class OnboardingForm extends React.Component {
     return curSlide < SLIDES.length - 1 ? 'onboardingScreen.nextBtnLabel' : 'onboardingScreen.lastBtnLabel';
   }
 
-
   handleNext = async () => {
     Keyboard.dismiss();
 
@@ -121,7 +120,10 @@ class OnboardingForm extends React.Component {
 
     // If it's NOT the last slide, slide forward one position
     if (curSlide !== SLIDES.length - 1) {
-      this.swiper.scrollTo({ x: (curSlide + 1) * WINDOW_WIDTH });
+      // refs are null when doing shallow tests
+      if (this.swiper) {
+        this.swiper.scrollTo({ x: (curSlide + 1) * WINDOW_WIDTH });
+      }
       return;
     }
 
