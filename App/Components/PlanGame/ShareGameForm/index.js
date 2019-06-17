@@ -10,7 +10,7 @@ import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
 import Footer from '../../Common/DarkFooter';
 import ClosableLayout from '../../Layouts/ClosableLayout';
-import ShareGameButton from '../../Games/ShareGameButton';
+import ShareGameButtons from '../../Games/ShareGameButtons';
 // import InviteOnly from '../InviteOnly';
 
 //------------------------------------------------------------------------------
@@ -64,7 +64,6 @@ class ShareGameForm extends React.PureComponent {
   render() {
     const { game, disabled } = this.props;
     // const { isPublic } = this.state;
-    const childProps = { shareLink: game.share_link };
 
     return (
       <FlexOne>
@@ -83,13 +82,7 @@ class ShareGameForm extends React.PureComponent {
             {I18n.t('shareGameScreen.shareVia')}
           </Text>
           <Spacer size="XXL" />
-          <Row alignItems="center" justifyContent="space-between">
-            <ShareGameButton variant="whatsapp" {...childProps} />
-            <ShareGameButton variant="facebook" {...childProps} />
-            <ShareGameButton variant="email" {...childProps} />
-            <ShareGameButton variant="native" {...childProps} />
-            <Spacer row size="XL" />
-          </Row>
+          <ShareGameButtons shareLink={game.share_link} />
           <Spacer size="XXL" />
           <Spacer size="L" />
           <Text color="white" semibold>

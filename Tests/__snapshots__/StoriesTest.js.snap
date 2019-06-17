@@ -45814,6 +45814,54 @@ exports[`Storyshots Games.ShareGameButton ShareGameButton default 1`] = `
 </View>
 `;
 
+exports[`Storyshots Games.ShareGameButtons ShareGameButtons white theme 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Layouts.ClosableLayout ClosableLayout black theme 1`] = `
 <View
   onLayout={[Function]}

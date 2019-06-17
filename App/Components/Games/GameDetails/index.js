@@ -6,8 +6,6 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import Block from '../../Common/Block';
-import Row from '../../Common/Row';
-import Spacer from '../../Common/Spacer';
 import Text from '../../Common/Text';
 import AlertMsg from '../../Common/AlertMsg';
 import ChatWithGroup from '../../Chat/ChatWithGroup';
@@ -17,7 +15,7 @@ import DescriptionReadMore from '../DescriptionReadMore';
 import ClickableAttendees from '../ClickableAttendees';
 import OpenSpots from '../OpenSpots';
 import RSVP from '../RSVP';
-import ShareGameButton from '../ShareGameButton';
+import ShareGameButtons from '../ShareGameButtons';
 import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
@@ -49,8 +47,6 @@ const GameDetails = ({
   const attendees = getAttendees(game.attendees);
   const isCanceled = game.status === 'CANCELED';
   const isFull = game.capacity && game.capacity > 0 && game.capacity === attendees.length;
-
-  const childProps = { shareLink: game.share_link };
 
   return [
     <SpotImages
@@ -122,13 +118,7 @@ const GameDetails = ({
     ),
     <Block key="share">
       <Label>{I18n.t('gameDetails.share')}</Label>
-      <Row alignItems="center" justifyContent="space-between">
-        <ShareGameButton variant="whatsapp" {...childProps} />
-        <ShareGameButton variant="facebook" {...childProps} />
-        <ShareGameButton variant="email" {...childProps} />
-        <ShareGameButton variant="native" {...childProps} />
-        <Spacer row size="XL" />
-      </Row>
+      <ShareGameButtons shareLink={game.share_link} />
     </Block>,
   ];
 };
