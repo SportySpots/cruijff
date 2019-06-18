@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import Row from '../../Common/Row';
-import Spacer from '../../Common/Spacer';
 import ShareGameButton from '../ShareGameButton';
 
 //------------------------------------------------------------------------------
@@ -25,7 +24,6 @@ const ShareGameButtons = ({ shareLink }) => {
         <ShareGameButton variant="facebook" {...childProps} />
         <ShareGameButton variant="email" {...childProps} />
         <ShareGameButton variant="native" {...childProps} />
-        <Spacer row size="XL" />
       </Row>
     </MaxWidth>
   );
