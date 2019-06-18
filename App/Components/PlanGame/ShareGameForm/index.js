@@ -8,11 +8,9 @@ import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import Row from '../../Common/Row';
 import Text from '../../Common/Text';
 import Spacer from '../../Common/Spacer';
-import Block from '../../Common/Block';
-import RaisedButton from '../../Common/RaisedButton';
-// import Footer from '../../Common/DarkFooter';
+import Footer from '../../Common/DarkFooter';
 import ClosableLayout from '../../Layouts/ClosableLayout';
-import ShareGameButton from '../../Games/ShareGameButton';
+import ShareGameButtons from '../../Games/ShareGameButtons';
 // import InviteOnly from '../InviteOnly';
 
 //------------------------------------------------------------------------------
@@ -66,7 +64,6 @@ class ShareGameForm extends React.PureComponent {
   render() {
     const { game, disabled } = this.props;
     // const { isPublic } = this.state;
-    const childProps = { shareLink: game.share_link };
 
     return (
       <FlexOne>
@@ -85,13 +82,7 @@ class ShareGameForm extends React.PureComponent {
             {I18n.t('shareGameScreen.shareVia')}
           </Text>
           <Spacer size="XXL" />
-          <Row alignItems="center" justifyContent="space-between">
-            <ShareGameButton variant="whatsapp" {...childProps} />
-            <ShareGameButton variant="facebook" {...childProps} />
-            <ShareGameButton variant="email" {...childProps} />
-            <ShareGameButton variant="native" {...childProps} />
-            <Spacer row size="XL" />
-          </Row>
+          <ShareGameButtons shareLink={game.share_link} />
           <Spacer size="XXL" />
           <Spacer size="L" />
           <Text color="white" semibold>
@@ -101,25 +92,15 @@ class ShareGameForm extends React.PureComponent {
             isPublic={isPublic}
             onPress={(value) => { this.handleChange({ fieldName: 'isPublic', value }); }}
           /> */}
-          <Spacer size="XL" />
-          <Block>
-            <RaisedButton
-              testID="shareNextButton"
-              variant="default"
-              label={I18n.t('shareGameScreen.nextBtnLabel')}
-              disabled={disabled}
-              onPress={this.handleNext}
-            />
-          </Block>
         </ClosableLayout>
-        {/* <Footer
-          numPages={4}
-          currentPage={3}
+        <Footer
+          numPages={0}
+          currentPage={0}
           onNext={this.handleNext}
           disableNext={disabled}
           showBack={false}
-          buttonNextText={I18n.t('shareGameScreen.footer.nextBtnLabel')}
-        /> */}
+          buttonNextText={I18n.t('shareGameScreen.nextBtnLabel')}
+        />
       </FlexOne>
     );
   }
