@@ -73,7 +73,7 @@ const GameListCard = ({ game }) => {
 
   const isCanceled = status === 'CANCELED';
   const attendees = getAttendees(game.attendees);
-  const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
+  const formattedStartTime = moment.utc(startTime).local().format('dddd, D MMMM, HH:mm').toTitleCase();
   const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S') * (!!attendees && attendees.length > 0);
 
   return (
