@@ -3087,10 +3087,10 @@ exports[`Storyshots Chat.ChatComposer ChatComposer 1`] = `
               "shadowColor": "#000",
               "shadowOffset": Object {
                 "height": 1,
-                "width": 1,
+                "width": 0,
               },
-              "shadowOpacity": 0.5,
-              "shadowRadius": 5,
+              "shadowOpacity": 0.25,
+              "shadowRadius": 2.25,
             },
             Object {
               "height": 33,
@@ -6963,10 +6963,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -7031,10 +7031,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -7099,10 +7099,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -7195,10 +7195,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -7263,10 +7263,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -7331,10 +7331,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -7427,10 +7427,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -7495,10 +7495,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -7563,10 +7563,10 @@ exports[`Storyshots Common.CapacityPicker CapacityPicker 1`] = `
                   "shadowColor": "#000",
                   "shadowOffset": Object {
                     "height": 1,
-                    "width": 1,
+                    "width": 0,
                   },
-                  "shadowOpacity": 0.5,
-                  "shadowRadius": 5,
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 2.25,
                 },
               ]
             }
@@ -34198,10 +34198,10 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost 1`] = `
               "shadowColor": "#000",
               "shadowOffset": Object {
                 "height": 1,
-                "width": 1,
+                "width": 0,
               },
-              "shadowOpacity": 0.5,
-              "shadowRadius": 5,
+              "shadowOpacity": 0.25,
+              "shadowRadius": 2.25,
             },
           ]
         }
@@ -34301,10 +34301,10 @@ exports[`Storyshots Common.RaisedButton RaisedButton ghost disabled 1`] = `
               "shadowColor": "#000",
               "shadowOffset": Object {
                 "height": 1,
-                "width": 1,
+                "width": 0,
               },
-              "shadowOpacity": 0.5,
-              "shadowRadius": 5,
+              "shadowOpacity": 0.25,
+              "shadowRadius": 2.25,
             },
           ]
         }
@@ -47069,10 +47069,10 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "shadowColor": "#000",
                                 "shadowOffset": Object {
                                   "height": 1,
-                                  "width": 1,
+                                  "width": 0,
                                 },
-                                "shadowOpacity": 0.5,
-                                "shadowRadius": 5,
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 2.25,
                               },
                             ]
                           }
@@ -47137,10 +47137,10 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "shadowColor": "#000",
                                 "shadowOffset": Object {
                                   "height": 1,
-                                  "width": 1,
+                                  "width": 0,
                                 },
-                                "shadowOpacity": 0.5,
-                                "shadowRadius": 5,
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 2.25,
                               },
                             ]
                           }
@@ -47233,10 +47233,10 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "shadowColor": "#000",
                                 "shadowOffset": Object {
                                   "height": 1,
-                                  "width": 1,
+                                  "width": 0,
                                 },
-                                "shadowOpacity": 0.5,
-                                "shadowRadius": 5,
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 2.25,
                               },
                             ]
                           }
@@ -47301,10 +47301,10 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "shadowColor": "#000",
                                 "shadowOffset": Object {
                                   "height": 1,
-                                  "width": 1,
+                                  "width": 0,
                                 },
-                                "shadowOpacity": 0.5,
-                                "shadowRadius": 5,
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 2.25,
                               },
                             ]
                           }
@@ -47369,10 +47369,10 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "shadowColor": "#000",
                                 "shadowOffset": Object {
                                   "height": 1,
-                                  "width": 1,
+                                  "width": 0,
                                 },
-                                "shadowOpacity": 0.5,
-                                "shadowRadius": 5,
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 2.25,
                               },
                             ]
                           }
@@ -47465,10 +47465,10 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "shadowColor": "#000",
                                 "shadowOffset": Object {
                                   "height": 1,
-                                  "width": 1,
+                                  "width": 0,
                                 },
-                                "shadowOpacity": 0.5,
-                                "shadowRadius": 5,
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 2.25,
                               },
                             ]
                           }
@@ -47533,10 +47533,10 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "shadowColor": "#000",
                                 "shadowOffset": Object {
                                   "height": 1,
-                                  "width": 1,
+                                  "width": 0,
                                 },
-                                "shadowOpacity": 0.5,
-                                "shadowRadius": 5,
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 2.25,
                               },
                             ]
                           }
@@ -47601,10 +47601,10 @@ exports[`Storyshots Modals.CapacityPickerModal CapacityPickerModal 1`] = `
                                 "shadowColor": "#000",
                                 "shadowOffset": Object {
                                   "height": 1,
-                                  "width": 1,
+                                  "width": 0,
                                 },
-                                "shadowOpacity": 0.5,
-                                "shadowRadius": 5,
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 2.25,
                               },
                             ]
                           }
