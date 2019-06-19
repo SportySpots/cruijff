@@ -61,18 +61,6 @@ jest.mock('react-native-tab-view', () => ({
   out: jest.fn(),
 }));
 
-jest.mock('react-native-reanimated', () => ({
-  Value: jest.fn(),
-  event: jest.fn(),
-  add: jest.fn(),
-  eq: jest.fn(),
-  set: jest.fn(),
-  cond: jest.fn(),
-  interpolate: jest.fn(),
-  // View,
-  Extrapolate: { CLAMP: jest.fn() },
-}));
-
 // Mock react-native-cookies
 // REF: https://github.com/joeferraro/react-native-cookies/issues/16
 // REF: https://github.com/joeferraro/react-native-cookies/issues/34
