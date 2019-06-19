@@ -11,7 +11,7 @@ class Container extends React.PureComponent {
   handleChange = (location) => {
     this.setState(
       { value: location },
-      () => { console.log(this.state); },
+      // () => { console.log(this.state); },
     );
   }
 

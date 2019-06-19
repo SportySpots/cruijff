@@ -8,14 +8,14 @@ import getInputPalette from '../../../Themes/Palettes';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const TextField = ({
+const TextField = React.forwardRef(({
   theme,
   size,
   label,
   style,
   disabled,
   ...rest
-}) => {
+}, ref) => {
   const {
     fontColor,
     baseColor,
@@ -27,6 +27,7 @@ const TextField = ({
 
   return (
     <TextFieldMUI
+      ref={ref}
       label={label}
       labelFontSize={Fonts.M.fontSize}
       labelTextStyle={{ fontFamily: Fonts.M.fontFamily }}
@@ -51,7 +52,7 @@ const TextField = ({
       {...rest}
     />
   );
-};
+});
 
 TextField.propTypes = {
   theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),

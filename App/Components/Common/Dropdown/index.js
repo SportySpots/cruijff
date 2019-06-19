@@ -10,7 +10,7 @@ import getInputPalette from '../../../Themes/Palettes';
 //------------------------------------------------------------------------------
 // We extend Dropdown component so that is can receive an array of
 // { label, value } pairs instead of only { value }
-const Dropdown = ({
+const Dropdown = React.forwardRef(({
   theme,
   size,
   data,
@@ -19,7 +19,7 @@ const Dropdown = ({
   style,
   disabled,
   ...rest
-}) => {
+}, ref) => {
   const {
     fontColor,
     baseColor,
@@ -31,6 +31,7 @@ const Dropdown = ({
 
   return (
     <DropdownMUI
+      ref={ref}
       data={data.map(item => ({ value: item.label }))}
       onChangeText={(value) => {
         onChangeText(data.find(d => (d.label === value)));
@@ -64,7 +65,7 @@ const Dropdown = ({
       {...rest}
     />
   );
-};
+});
 
 Dropdown.propTypes = {
   theme: PropTypes.oneOf(['white', 'black', 'transparent', 'mix']),
