@@ -19,20 +19,20 @@ const StyledRow = styled(Row)`
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const buttons = [{
-  id: 'spots',
-  label: 'navBar.spots',
-  route: 'SpotSearchTab',
-  icon: {
-    set: 'MaterialCommunityIcons',
-    name: 'near-me',
-  },
-}, {
   id: 'activities',
   label: 'navBar.activities',
   route: 'GameSearchTab',
   icon: {
     set: 'MaterialCommunityIcons',
     name: 'account-group',
+  },
+}, {
+  id: 'spots',
+  label: 'navBar.spots',
+  route: 'SpotSearchTab',
+  icon: {
+    set: 'MaterialCommunityIcons',
+    name: 'near-me',
   },
 }, {
   id: 'organize',
@@ -88,10 +88,12 @@ class NavBar extends React.Component {
 
   handlePress = (btn) => {
     const { navigation } = this.props;
+
+    firebase.analytics().logEvent(`navbar_btn_press_${btn.route}`);
+    // Go back to the begining of the stack
+    navigation.popToTop();
+
     if (this.curRoute !== btn.route) {
-      firebase.analytics().logEvent(`navbar_btn_press_${btn.route}`);
-      // Go back to the begining of the stack
-      navigation.popToTop();
       // Jump to the requested route.
       navigation.navigate({ routeName: btn.route });
     }

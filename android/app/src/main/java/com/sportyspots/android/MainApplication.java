@@ -31,7 +31,6 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import com.psykar.cookiemanager.CookieManagerPackage;
 import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 
-
 import java.util.Arrays;
 import java.util.List;
 

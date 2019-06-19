@@ -45,15 +45,17 @@ class SplashScreen extends React.Component {
 
     return (
       <FieldBackground>
-        <Text
-          testID="splashText"
-          size="L"
-          color="white"
-          center
-          style={{ fontSize: 30 }}
-        >
-          {I18n.t('splashScreen.title')}
-        </Text>
+        <Block>
+          <Text
+            testID="splashText"
+            size="L"
+            color="white"
+            center
+            style={{ fontSize: 30 }}
+          >
+            {I18n.t('splashScreen.title')}
+          </Text>
+        </Block>
         <FlexOne />
         <Block>
           <RaisedButton

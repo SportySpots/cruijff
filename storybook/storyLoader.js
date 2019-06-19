@@ -63,7 +63,6 @@ function loadStories() {
   require('../App/Components/Common/Rating/stories');
   require('../App/Components/Common/RoundButton/stories');
   require('../App/Components/Common/Row/stories');
-  require('../App/Components/Common/ScreenSlider/stories');
   require('../App/Components/Common/Slider/stories');
   require('../App/Components/Common/SliderWithText/stories');
   require('../App/Components/Common/Spacer/stories');
@@ -92,6 +91,7 @@ function loadStories() {
   require('../App/Components/Games/Organizer/stories');
   require('../App/Components/Games/PlayersTabs/stories');
   require('../App/Components/Games/ShareGameButton/stories');
+  require('../App/Components/Games/ShareGameButtons/stories');
   require('../App/Components/Layouts/ClosableLayout/stories');
   require('../App/Components/Layouts/FixedBottomLayout/stories');
   require('../App/Components/Layouts/FixedTopLayout/stories');
@@ -203,7 +203,6 @@ const stories = [
   '../App/Components/Common/Rating/stories',
   '../App/Components/Common/RoundButton/stories',
   '../App/Components/Common/Row/stories',
-  '../App/Components/Common/ScreenSlider/stories',
   '../App/Components/Common/Slider/stories',
   '../App/Components/Common/SliderWithText/stories',
   '../App/Components/Common/Spacer/stories',
@@ -232,6 +231,7 @@ const stories = [
   '../App/Components/Games/Organizer/stories',
   '../App/Components/Games/PlayersTabs/stories',
   '../App/Components/Games/ShareGameButton/stories',
+  '../App/Components/Games/ShareGameButtons/stories',
   '../App/Components/Layouts/ClosableLayout/stories',
   '../App/Components/Layouts/FixedBottomLayout/stories',
   '../App/Components/Layouts/FixedTopLayout/stories',
