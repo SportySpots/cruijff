@@ -13,12 +13,15 @@ import styled, { ThemeProvider } from 'styled-components/native';
 import config from './config';
 import client from './GraphQL/ApolloClient';
 import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
+import {
+  NavigationActions,
+  NavigationContainerComponent
+} from 'react-navigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
 import { UserProvider } from './Context/User';
 import { SpotFiltersProvider } from './Context/SpotFilters';
 import { Events, getInitialEvent, IncomingLinks } from './Services/IncomingLinks';
-import globalRefs, { addGlobalRef } from './globalRefs';
 
 import scTheme from './Themes/scTheme'; // styled-components theme
 import { logNavigationState } from './utils';
@@ -37,16 +40,15 @@ const AppRootView = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class App extends Component {
-  constructor() {
-    super();
-    Crashes.setEnabled(true).then(() => {});
-  }
+class App extends Component<{}, {}> {
+  private notificationOpenedListener: () => any;
+  private notificationDisplayedListener: () => any;
+  private notificationListener: () => any;
+  private router = React.createRef<NavigationContainerComponent>();
 
-  componentDidMount() {
-    // signals codepush that the app is ready. If this is not called, CodePush rolls back
-    // the last update.
-    codePush.notifyAppReady();
+  constructor() {
+    super({});
+    Crashes.setEnabled(true).then(() => {});
 
     // create android notification channel to display notifications while app in foreground
     const channel = new firebase.notifications.Android
@@ -102,13 +104,29 @@ class App extends Component {
     firebase.links().onLink((url) => {
       console.log('LINKING: App received link: ', url);
     });
+  }
 
+  componentDidMount() {
+    // signals codepush that the app is ready. If this is not called, CodePush rolls back
+    // the last update.
+    codePush.notifyAppReady();
+    const router = this.router.current;
     IncomingLinks.on(Events.MAGIC_LINK_LOGIN, (magicToken) => {
-      this.router._navigation.navigate('ConfirmMagicTokenScreen', { magicToken });
+      if (router) {
+        router.dispatch(NavigationActions.navigate({
+          routeName: 'ConfirmMagicTokenScreen',
+          params: { magicToken },
+        }));
+      }
     });
 
     IncomingLinks.on(Events.GAME_OPENED, (uuid) => {
-      this.router._navigation.navigate('GameDetailsScreen', { uuid });
+      if (router) {
+        router.dispatch(NavigationActions.navigate({
+          routeName: 'GameDetailsScreen',
+          params: { uuid },
+        }));
+      }
     });
 
     getInitialEvent().then((event) => {
@@ -137,8 +155,6 @@ class App extends Component {
     console.log('render App');
     return (
       <ApolloProvider
-        id="apollo"
-        ref={addGlobalRef('apolloProvider')}
         // client={config.useFixtures ? mockClient : client} // TODO
         client={client}
       >
@@ -152,10 +168,7 @@ class App extends Component {
                       <StatusBar barStyle="light-content" />
                       {/* <ConnectionCheck /> */}
                       <AppNavigation
-                        ref={(ref) => {
-                          this.router = ref;
-                          globalRefs.rootNavigator = ref;
-                        }}
+                        ref={this.router}
                         // See: https://reactnavigation.org/docs/en/screen-tracking.html
                         onNavigationStateChange={(prevState, currState) => {
                           if (config.logRoute) logNavigationState();
