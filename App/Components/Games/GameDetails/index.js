@@ -90,21 +90,27 @@ const GameDetails = ({
         />
       </Block>,
     ],
-    hasCapacity && [
-      <Block key="open-spots">
-        <Label>{I18n.t('gameDetails.openSpots')}</Label>
-        <OpenSpots game={game} />
-        {isFull && (
-          <Text size="M" regular>
-            {I18n.t('gameDetails.fullMsg')}
-          </Text>
-        )}
-      </Block>,
-    ],
+    // hasCapacity && [
+    //   <Block key="open-spots">
+    //     <Label>{I18n.t('gameDetails.openSpots')}</Label>
+    //     <OpenSpots game={game} />
+    //     {isFull && (
+    //       <Text size="M" regular>
+    //         {I18n.t('gameDetails.fullMsg')}
+    //       </Text>
+    //     )}
+    //   </Block>,
+    // ],
     (!isCanceled && (!isFull || (isFull && userStatus === 'ATTENDING'))) && (
       <Block key="rsvp">
         <Label>
           {I18n.t(!userStatus ? 'gameDetails.join' : 'gameDetails.edit')}
+          <Text>
+            {' '}
+            {game.capacity - game.attendees.length}
+            {' '}
+            spots left
+          </Text>
         </Label>
         <RSVP
           gameUUID={game.uuid}
