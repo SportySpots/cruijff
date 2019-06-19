@@ -27,8 +27,8 @@ class GamesListScreen extends React.Component {
   }
 
   render() {
-    const { location } = this.props;
-    const { coords } = location;
+    const { locationCoords } = this.props;
+    const coords = locationCoords;
 
     const maxDistance = 20; // km // TODO: read from context
 
@@ -90,7 +90,7 @@ GamesListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  location: locationPropTypes.location.isRequired,
+  locationCoords: locationPropTypes.locationCoords.isRequired,
 };
 
 export default withLocation(GamesListScreen);

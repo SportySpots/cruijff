@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
-import geolib from 'geolib';
 import I18n from '../../../I18n';
 import { withLocation, locationPropTypes } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
@@ -12,7 +11,7 @@ import NothingFound from '../../Common/NothingFound';
 import Spacer from '../../Common/Spacer';
 import SpotListCard from '../SpotListCard';
 import SpotListCardSmall from '../SpotListCardSmall';
-import { curatedSpots, getSpotLocation, rounded } from './utils';
+import { curatedSpots } from './utils';
 import { makeNumGenerator } from '../../../utils';
 
 //------------------------------------------------------------------------------
@@ -21,15 +20,17 @@ import { makeNumGenerator } from '../../../utils';
 const SpotsList = ({
   cardComponent,
   sportsIds,
-  location,
+  locationCoords,
+  locationLoading,
+  locationCoordsFallback,
   maxDistance,
   selectedSpot,
   onCardPress,
   ...rest
 }) => {
-  if (!location || !location.coords) { return null; }
+  if (!locationCoords) { return null; }
 
-  const { coords } = location;
+  const coords = locationCoords;
   const Card = cardComponent === 'SpotListCard' ? SpotListCard : SpotListCardSmall;
 
   // Set query variables
@@ -69,17 +70,8 @@ const SpotsList = ({
           });
         };
 
-        // Curate spots and attach distance
-        const spots = (
-          data
-          && data.spots
-          && curatedSpots(data.spots).map((spot) => {
-            if (!coords || !spot.address) { return spot; }
-            const latLng = getSpotLocation(spot);
-            const distance = rounded(geolib.getDistance(coords, latLng) / 1000);
-            return Object.assign({}, spot, { distance });
-          })
-        ) || [];
+        // Curate spots (only with unique UUID)
+        const spots = data ? curatedSpots(data.spots) : [];
 
         // Centers not-found-component in case no spots were found
         const containerStyles = !spots || spots.length === 0 ? { justifyContent: 'center' } : {};
@@ -112,7 +104,7 @@ const SpotsList = ({
             ItemSeparatorComponent={() => <Spacer size="ML" />}
             showsVerticalScrollIndicator={false}
             onRefresh={refetch}
-            refreshing={loading}
+            refreshing={loading || locationLoading}
             onEndReached={loadMore}
             onEndReachedThreshold={0.1}
             contentContainerStyle={{
@@ -131,7 +123,9 @@ const SpotsList = ({
 SpotsList.propTypes = {
   cardComponent: PropTypes.oneOf(['SpotListCard', 'SpotListCardSmall']).isRequired,
   sportsIds: PropTypes.arrayOf(PropTypes.string),
-  location: locationPropTypes.location,
+  locationCoords: locationPropTypes.locationCoords,
+  locationCoordsFallback: locationPropTypes.locationCoordsFallback,
+  locationLoading: locationPropTypes.locationLoading,
   maxDistance: PropTypes.number, // km
   selectedSpot: propType(spotFragment),
   onCardPress: PropTypes.func,
@@ -140,7 +134,9 @@ SpotsList.propTypes = {
 
 SpotsList.defaultProps = {
   sportsIds: [],
-  location: null,
+  locationCoords: null,
+  locationLoading: false,
+  locationCoordsFallback: true,
   maxDistance: 50,
   selectedSpot: null,
   onCardPress: () => {},

@@ -22,8 +22,8 @@ const Container = styled.View`
 const ProfileEditScreen = ({
   user,
   refetchUser,
-  location,
-  refetchLocation,
+  locationCity,
+  locationSetCity,
   navigation,
 }) => (
   <FormProps>
@@ -42,7 +42,6 @@ const ProfileEditScreen = ({
           // Extend formProps.handleSuccess' default functionality
           handleSuccess(async () => {
             await refetchUser();
-            await refetchLocation();
             navigation.goBack(null);
           });
         }}
@@ -51,14 +50,17 @@ const ProfileEditScreen = ({
           <Container>
             <EditProfileForm
               user={user}
-              location={location}
+              location={locationCity}
               disabled={disabled}
               errors={errors}
               onBeforeHook={handleBefore}
               onClientCancelHook={handleClientCancel}
               onClientErrorHook={handleClientError}
               // Call api to store data into DB
-              onSuccessHook={updateProfile}
+              onSuccessHook={({ locationCity: newCity, ...profileFields }) => {
+                locationSetCity(newCity);
+                return updateProfile(profileFields);
+              }}
             />
           </Container>
         )}
@@ -70,8 +72,8 @@ const ProfileEditScreen = ({
 ProfileEditScreen.propTypes = {
   user: userPropTypes.user.isRequired,
   refetchUser: userPropTypes.refetchUser.isRequired,
-  location: locationPropTypes.location.isRequired,
-  refetchLocation: locationPropTypes.refetchLocation.isRequired,
+  locationCity: locationPropTypes.locationCity.isRequired,
+  locationSetCity: locationPropTypes.locationSetCity.isRequired,
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,

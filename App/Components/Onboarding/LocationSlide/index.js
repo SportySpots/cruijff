@@ -39,8 +39,8 @@ class LocationSlide extends React.PureComponent {
               renderItem={({ item }) => (
                 <RaisedButton
                   label={item.city}
-                  variant={location && location.id && location.id === item.id ? 'default' : 'transparent'}
-                  onPress={() => { onChange({ fieldName: 'location', value: item }); }}
+                  variant={location === item.id ? 'default' : 'transparent'}
+                  onPress={() => { onChange({ fieldName: 'location', value: item.id }); }}
                 />
               )}
               ItemSeparatorComponent={() => (<Spacer size="XL" />)}
@@ -56,15 +56,7 @@ class LocationSlide extends React.PureComponent {
 LocationSlide.requiredFields = ['location'];
 
 LocationSlide.propTypes = {
-  location: PropTypes.shape({
-    id: PropTypes.string,
-    city: PropTypes.string,
-    country: PropTypes.string,
-    coords: PropTypes.shape({
-      latitude: PropTypes.number,
-      longitude: PropTypes.number,
-    }),
-  }),
+  location: PropTypes.string,
   onChange: PropTypes.func,
 };
 

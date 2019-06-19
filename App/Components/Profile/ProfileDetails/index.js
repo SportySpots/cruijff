@@ -21,7 +21,7 @@ import Avatar from '../../Common/Avatar';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetails = ({ user, location }) => [
+const ProfileDetails = ({ user, locationCity }) => [
   <Block key="top">
     <Row justifyContent="center">
       <Avatar user={user} size="L" />
@@ -31,9 +31,9 @@ const ProfileDetails = ({ user, location }) => [
       {user.name}
     </Text>
     <Spacer size="S" />
-    {!!location && (
+    {!!locationCity && (
       <Text size="M" color="gray" center>
-        {`${location.city || ''}, ${I18n.t(location.country || '')}`}
+        {locationCity}
       </Text>
     )}
   </Block>,
@@ -46,7 +46,7 @@ const ProfileDetails = ({ user, location }) => [
 
 ProfileDetails.propTypes = {
   user: userPropTypes.user.isRequired,
-  location: locationPropTypes.location.isRequired,
+  locationCity: locationPropTypes.locationCity.isRequired,
 };
 
 export default ProfileDetails;

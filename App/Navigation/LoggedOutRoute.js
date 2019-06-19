@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../Context/User';
-import { withLocation, locationPropTypes } from '../Context/Location';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 
 //------------------------------------------------------------------------------
@@ -24,16 +23,16 @@ class LoggedOutRoute extends React.PureComponent {
   }
 
   componentWillMount() {
-    const { location, onLoggedIn, ...rest } = this.props;
+    const { onLoggedIn, ...rest } = this.props;
     if (this.isLoggedIn(rest)) {
-      onLoggedIn({ location });
+      onLoggedIn();
     }
   }
 
   componentWillUpdate(nextProps) {
-    const { location, onLoggedIn, ...rest } = nextProps;
+    const { onLoggedIn, ...rest } = nextProps;
     if (this.isLoggedIn(rest)) {
-      onLoggedIn({ location });
+      onLoggedIn();
     }
   }
 
@@ -41,15 +40,13 @@ class LoggedOutRoute extends React.PureComponent {
     const {
       loadingUser,
       user,
-      loadingLocation,
-      location,
       component: Component,
       onLoggedIn,
       ...rest
     } = this.props;
 
     // Wait until user is ready
-    if (loadingUser || loadingLocation) {
+    if (loadingUser) {
       return <CenteredActivityIndicator />;
     }
 
@@ -66,21 +63,17 @@ class LoggedOutRoute extends React.PureComponent {
 LoggedOutRoute.propTypes = {
   loadingUser: userPropTypes.loadingUser.isRequired,
   user: userPropTypes.user,
-  loadingLocation: locationPropTypes.loadingLocation.isRequired,
-  location: locationPropTypes.location,
   component: PropTypes.func.isRequired,
   onLoggedIn: PropTypes.func,
 };
 
 LoggedOutRoute.defaultProps = {
   user: null,
-  location: null,
   onLoggedIn: () => {},
 };
 
 const enhance = compose(
   withUser,
-  withLocation,
 );
 
 export default enhance(LoggedOutRoute);

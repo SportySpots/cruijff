@@ -52918,14 +52918,16 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
                         "paddingVertical": 8,
                       }
                     }
-                    data={Array []}
                     disableVirtualization={false}
                     getItem={[Function]}
                     getItemCount={[Function]}
                     horizontal={false}
                     initialNumToRender={10}
                     keyExtractor={[Function]}
-                    loadingLocation={false}
+                    locationCity="Amsterdam"
+                    locationRequestPermission={[Function]}
+                    locationSetCity={[Function]}
+                    locationUpdate={[Function]}
                     maxToRenderPerBatch={10}
                     numColumns={1}
                     onContentSizeChange={[Function]}
@@ -52937,7 +52939,6 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
                     onScroll={[Function]}
                     onScrollBeginDrag={[Function]}
                     onScrollEndDrag={[Function]}
-                    refetchLocation={[Function]}
                     refreshControl={
                       <RefreshControlMock
                         onRefresh={[Function]}
@@ -62933,14 +62934,16 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
                   "paddingVertical": 8,
                 }
               }
-              data={Array []}
               disableVirtualization={false}
               getItem={[Function]}
               getItemCount={[Function]}
               horizontal={false}
               initialNumToRender={10}
               keyExtractor={[Function]}
-              loadingLocation={false}
+              locationCity="Amsterdam"
+              locationRequestPermission={[Function]}
+              locationSetCity={[Function]}
+              locationUpdate={[Function]}
               maxToRenderPerBatch={10}
               numColumns={1}
               onContentSizeChange={[Function]}
@@ -62952,7 +62955,6 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
               onScroll={[Function]}
               onScrollBeginDrag={[Function]}
               onScrollEndDrag={[Function]}
-              refetchLocation={[Function]}
               refreshControl={
                 <RefreshControlMock
                   onRefresh={[Function]}
@@ -63676,14 +63678,16 @@ exports[`Storyshots Spots.SpotsList SpotsList big card 1`] = `
             "paddingVertical": 8,
           }
         }
-        data={Array []}
         disableVirtualization={false}
         getItem={[Function]}
         getItemCount={[Function]}
         horizontal={false}
         initialNumToRender={10}
         keyExtractor={[Function]}
-        loadingLocation={false}
+        locationCity="Amsterdam"
+        locationRequestPermission={[Function]}
+        locationSetCity={[Function]}
+        locationUpdate={[Function]}
         maxToRenderPerBatch={10}
         numColumns={1}
         onContentSizeChange={[Function]}
@@ -63695,7 +63699,6 @@ exports[`Storyshots Spots.SpotsList SpotsList big card 1`] = `
         onScroll={[Function]}
         onScrollBeginDrag={[Function]}
         onScrollEndDrag={[Function]}
-        refetchLocation={[Function]}
         refreshControl={
           <RefreshControlMock
             onRefresh={[Function]}
@@ -63792,14 +63795,16 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
             "paddingVertical": 8,
           }
         }
-        data={Array []}
         disableVirtualization={false}
         getItem={[Function]}
         getItemCount={[Function]}
         horizontal={false}
         initialNumToRender={10}
         keyExtractor={[Function]}
-        loadingLocation={false}
+        locationCity="Amsterdam"
+        locationRequestPermission={[Function]}
+        locationSetCity={[Function]}
+        locationUpdate={[Function]}
         maxToRenderPerBatch={10}
         numColumns={1}
         onContentSizeChange={[Function]}
@@ -63811,7 +63816,6 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
         onScroll={[Function]}
         onScrollBeginDrag={[Function]}
         onScrollEndDrag={[Function]}
-        refetchLocation={[Function]}
         refreshControl={
           <RefreshControlMock
             onRefresh={[Function]}
