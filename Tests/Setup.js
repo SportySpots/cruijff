@@ -136,3 +136,5 @@ const localStorageMock = {
   clear: jest.fn(),
 };
 global.localStorage = localStorageMock;
+
+jest.mock('react-native-geolocation-service', () => ({}));

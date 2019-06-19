@@ -204,7 +204,7 @@ export const locationPropTypes = {
   locationCoords: PropTypes.shape({
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
   locationCoordsFallback: PropTypes.bool,
   locationUpdate: PropTypes.func,
   locationSetCity: PropTypes.func,

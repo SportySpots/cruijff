@@ -33,7 +33,7 @@ const LocationPickerField = ({ value, onChange, ...rest }) => {
 };
 
 LocationPickerField.propTypes = {
-  value: locationPropTypes.location,
+  value: locationPropTypes.locationCity,
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };
