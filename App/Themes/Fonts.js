@@ -1,3 +1,9 @@
+import { Dimensions } from 'react-native';
+
+const { width: WINDOW_WIDTH } = Dimensions.get('window');
+
+const isSmallPhone = WINDOW_WIDTH <= 320;
+
 export const FontFamilies = {
   regular: 'Rajdhani-Regular',
   semibold: 'Rajdhani-SemiBold',
@@ -7,33 +13,33 @@ export const FontFamilies = {
 const Fonts = {
   XL: {
     fontFamily: FontFamilies.semibold,
-    fontSize: 40,
+    fontSize: isSmallPhone ? 32 : 40,
   },
   L: {
     fontFamily: FontFamilies.semibold,
-    fontSize: 32,
+    fontSize: isSmallPhone ? 24 : 32,
   },
   ML: {
     fontFamily: FontFamilies.semibold,
-    fontSize: 24,
+    fontSize: isSmallPhone ? 18 : 24,
   },
   M: {
     fontFamily: FontFamilies.semibold,
-    fontSize: 18,
+    fontSize: isSmallPhone ? 16 : 18,
   },
   SM: {
     fontFamily: FontFamilies.regular,
-    fontSize: 16,
+    fontSize: isSmallPhone ? 14 : 16,
   },
   // TODO: rename to S
   SSM: {
     fontFamily: FontFamilies.regular,
-    fontSize: 14,
+    fontSize: isSmallPhone ? 12 : 14,
   },
   // TODO: rename to XS
   S: {
     fontFamily: FontFamilies.regular,
-    fontSize: 12,
+    fontSize: isSmallPhone ? 10 : 12,
   },
 };
 
