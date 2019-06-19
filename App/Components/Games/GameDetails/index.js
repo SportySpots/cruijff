@@ -109,7 +109,7 @@ const GameDetails = ({
             {' '}
             {game.capacity - game.attendees.length}
             {' '}
-            spots left
+            {I18n.t('gameDetails.spotsLeft')}
           </Text>
         </Label>
         <RSVP

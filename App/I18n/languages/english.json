@@ -190,7 +190,8 @@
     "fullMsg": "No open spots available",
     "join": "Are you joining?",
     "edit": "Edit presence",
-    "share": "Share with friends"
+    "share": "Share with friends",
+    "spotsLeft": "spots left"
   },
 
   "descriptionReadMore": {
