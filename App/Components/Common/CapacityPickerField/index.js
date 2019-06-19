@@ -14,6 +14,7 @@ const CapacityPickerField = ({ value, onChange, ...rest }) => (
         key="input-field"
         comp="TextField"
         value={value ? value.toString() : ''}
+        focusable={false}
         onPress={openModal}
         {...rest}
       />,

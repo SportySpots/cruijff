@@ -33,8 +33,10 @@ class InputField extends React.PureComponent {
   }
 
   handlePress = () => {
-    const { onPress } = this.props;
-    this.field.focus();
+    const { onPress, focusable } = this.props;
+    if (focusable) {
+      this.field.focus();
+    }
     onPress();
   }
 
@@ -164,6 +166,7 @@ InputField.propTypes = {
   fullWidth: PropTypes.bool,
   minWidth: PropTypes.number,
   testID: PropTypes.string,
+  focusable: PropTypes.bool,
   // Plus all props from TextField and Dropdown comps
 };
 
@@ -179,6 +182,7 @@ InputField.defaultProps = {
   fullWidth: false,
   minWidth: null,
   testID: '',
+  focusable: true,
 };
 
 export default InputField;

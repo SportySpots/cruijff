@@ -21,6 +21,7 @@ const DatePickerField = ({
         key="input-field"
         comp="TextField"
         value={value ? value.clone().local().format(dateFormat).toTitleCase() : I18n.t('datePickerField.defaultValue')}
+        focusable={false}
         onPress={openModal}
         {...rest}
       />,
