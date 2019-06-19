@@ -21,7 +21,7 @@ const Container = styled.View`
   height: ${SIZE}px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${BORDER_RADIUS};
-  shadow-offset: 1px 1px;
+  shadow-offset: 0px 1px;
   shadow-color: ${({ theme }) => theme.colors.shade};
   shadow-opacity: 0.8;
   elevation: 2;
