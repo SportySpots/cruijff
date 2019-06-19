@@ -3050,7 +3050,58 @@ exports[`Storyshots Chat.ChatComposer ChatComposer 1`] = `
           },
         ]
       }
-    />
+    >
+      <TextInput
+        accessibilityLabel="placeholder"
+        accessible={true}
+        autoFocus={false}
+        enablesReturnKeyAutomatically={true}
+        keyboardAppearance="default"
+        multiline={true}
+        onChange={[Function]}
+        onChangeText={[Function]}
+        onContentSizeChange={[Function]}
+        placeholder="placeholder"
+        placeholderTextColor="#b2b2b2"
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+              "lineHeight": 16,
+              "marginBottom": 5,
+              "marginLeft": 10,
+              "marginTop": 6,
+            },
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "#e6e6e6",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "elevation": 1.5,
+              "fontFamily": "Rajdhani-SemiBold",
+              "fontSize": 18,
+              "lineHeight": 27,
+              "marginLeft": 0,
+              "padding": 8,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 1,
+                "width": 1,
+              },
+              "shadowOpacity": 0.5,
+              "shadowRadius": 5,
+            },
+            Object {
+              "height": 33,
+            },
+          ]
+        }
+        testID="placeholder"
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
   </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
@@ -7912,7 +7963,48 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField 1`] = `
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                />
+              </View>
             </View>
             <View
               style={
@@ -8202,7 +8294,46 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField fullWidth siz
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 24,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                />
+              </View>
             </View>
             <View
               style={
@@ -8502,7 +8633,48 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField white theme 1
                       "flexDirection": "row",
                     }
                   }
-                />
+                >
+                  <TextInput
+                    autoCapitalize="sentences"
+                    autoFocus={false}
+                    disableFullscreenUI={true}
+                    editable={true}
+                    error=""
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onChangeText={[Function]}
+                    onContentSizeChange={[Function]}
+                    onFocus={[Function]}
+                    selectionColor="#fff"
+                    style={
+                      Array [
+                        Object {
+                          "flex": 1,
+                          "margin": 0,
+                          "padding": 0,
+                          "top": 2,
+                        },
+                        Object {
+                          "color": "rgba(0, 0, 0, .87)",
+                          "fontSize": 16,
+                          "height": 24,
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "fontWeight": "normal",
+                          "marginTop": 8,
+                          "paddingHorizontal": 8,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </View>
               </View>
               <View
                 style={
@@ -8828,7 +9000,48 @@ exports[`Storyshots Common.CapacityPickerField CapacityPickerField with ERROR 1`
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error="I'm the error"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                />
+              </View>
             </View>
             <View
               style={
@@ -9489,7 +9702,48 @@ exports[`Storyshots Common.DatePickerField DatePickerField 1`] = `
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="datePickerField.defaultValue"
+                />
+              </View>
             </View>
             <View
               style={
@@ -9779,7 +10033,46 @@ exports[`Storyshots Common.DatePickerField DatePickerField fullWidth size ML dat
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 24,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="datePickerField.defaultValue"
+                />
+              </View>
             </View>
             <View
               style={
@@ -10079,7 +10372,48 @@ exports[`Storyshots Common.DatePickerField DatePickerField white theme 1`] = `
                       "flexDirection": "row",
                     }
                   }
-                />
+                >
+                  <TextInput
+                    autoCapitalize="sentences"
+                    autoFocus={false}
+                    disableFullscreenUI={true}
+                    editable={true}
+                    error=""
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onChangeText={[Function]}
+                    onContentSizeChange={[Function]}
+                    onFocus={[Function]}
+                    selectionColor="#fff"
+                    style={
+                      Array [
+                        Object {
+                          "flex": 1,
+                          "margin": 0,
+                          "padding": 0,
+                          "top": 2,
+                        },
+                        Object {
+                          "color": "rgba(0, 0, 0, .87)",
+                          "fontSize": 16,
+                          "height": 24,
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "fontWeight": "normal",
+                          "marginTop": 8,
+                          "paddingHorizontal": 8,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                    underlineColorAndroid="transparent"
+                    value="datePickerField.defaultValue"
+                  />
+                </View>
               </View>
               <View
                 style={
@@ -10802,6 +11136,81 @@ exports[`Storyshots Common.Dropdown Dropdown 1`] = `
                   }
                 }
               >
+                <TextInput
+                  absoluteRTLLayout={false}
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  data={
+                    Array [
+                      Object {
+                        "value": "Banana",
+                      },
+                      Object {
+                        "value": "Mango",
+                      },
+                      Object {
+                        "value": "Pear",
+                      },
+                    ]
+                  }
+                  disableFullscreenUI={true}
+                  dropdownMargins={
+                    Object {
+                      "max": 16,
+                      "min": 8,
+                    }
+                  }
+                  dropdownOffset={
+                    Object {
+                      "left": 16,
+                      "top": 0,
+                    }
+                  }
+                  dropdownPosition={-8}
+                  editable={false}
+                  error=""
+                  itemColor="rgba(0, 0, 0, .54)"
+                  itemCount={8}
+                  itemPadding={8}
+                  labelExtractor={[Function]}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  propsExtractor={[Function]}
+                  renderAccessory={[Function]}
+                  rippleDuration={400}
+                  selectionColor="#009f36"
+                  shadeOpacity={0.12}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  useNativeDriver={false}
+                  value=""
+                  valueExtractor={[Function]}
+                />
                 <View
                   style={
                     Object {
@@ -11471,6 +11880,81 @@ exports[`Storyshots Common.Dropdown Dropdown with error 1`] = `
                   }
                 }
               >
+                <TextInput
+                  absoluteRTLLayout={false}
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  data={
+                    Array [
+                      Object {
+                        "value": "Banana",
+                      },
+                      Object {
+                        "value": "Mango",
+                      },
+                      Object {
+                        "value": "Pear",
+                      },
+                    ]
+                  }
+                  disableFullscreenUI={true}
+                  dropdownMargins={
+                    Object {
+                      "max": 16,
+                      "min": 8,
+                    }
+                  }
+                  dropdownOffset={
+                    Object {
+                      "left": 16,
+                      "top": 0,
+                    }
+                  }
+                  dropdownPosition={-8}
+                  editable={false}
+                  error="Some error msg"
+                  itemColor="rgba(0, 0, 0, .54)"
+                  itemCount={8}
+                  itemPadding={8}
+                  labelExtractor={[Function]}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  propsExtractor={[Function]}
+                  renderAccessory={[Function]}
+                  rippleDuration={400}
+                  selectionColor="#009f36"
+                  shadeOpacity={0.12}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  useNativeDriver={false}
+                  value=""
+                  valueExtractor={[Function]}
+                />
                 <View
                   style={
                     Object {
@@ -12140,6 +12624,81 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme 1`] = `
                   }
                 }
               >
+                <TextInput
+                  absoluteRTLLayout={false}
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  data={
+                    Array [
+                      Object {
+                        "value": "Banana",
+                      },
+                      Object {
+                        "value": "Mango",
+                      },
+                      Object {
+                        "value": "Pear",
+                      },
+                    ]
+                  }
+                  disableFullscreenUI={true}
+                  dropdownMargins={
+                    Object {
+                      "max": 16,
+                      "min": 8,
+                    }
+                  }
+                  dropdownOffset={
+                    Object {
+                      "left": 16,
+                      "top": 0,
+                    }
+                  }
+                  dropdownPosition={-8}
+                  editable={false}
+                  error=""
+                  itemColor="rgba(0, 0, 0, .54)"
+                  itemCount={8}
+                  itemPadding={8}
+                  labelExtractor={[Function]}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  propsExtractor={[Function]}
+                  renderAccessory={[Function]}
+                  rippleDuration={400}
+                  selectionColor="#fff"
+                  shadeOpacity={0.12}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  useNativeDriver={false}
+                  value=""
+                  valueExtractor={[Function]}
+                />
                 <View
                   style={
                     Object {
@@ -12809,6 +13368,81 @@ exports[`Storyshots Common.Dropdown Dropdown with white theme size ML 1`] = `
                   }
                 }
               >
+                <TextInput
+                  absoluteRTLLayout={false}
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  data={
+                    Array [
+                      Object {
+                        "value": "Banana",
+                      },
+                      Object {
+                        "value": "Mango",
+                      },
+                      Object {
+                        "value": "Pear",
+                      },
+                    ]
+                  }
+                  disableFullscreenUI={true}
+                  dropdownMargins={
+                    Object {
+                      "max": 16,
+                      "min": 8,
+                    }
+                  }
+                  dropdownOffset={
+                    Object {
+                      "left": 16,
+                      "top": 0,
+                    }
+                  }
+                  dropdownPosition={-8}
+                  editable={false}
+                  error=""
+                  itemColor="rgba(0, 0, 0, .54)"
+                  itemCount={8}
+                  itemPadding={8}
+                  labelExtractor={[Function]}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  propsExtractor={[Function]}
+                  renderAccessory={[Function]}
+                  rippleDuration={400}
+                  selectionColor="#fff"
+                  shadeOpacity={0.12}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 24,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  useNativeDriver={false}
+                  value=""
+                  valueExtractor={[Function]}
+                />
                 <View
                   style={
                     Object {
@@ -13542,6 +14176,104 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField 1`] = `
                         }
                       }
                     >
+                      <TextInput
+                        absoluteRTLLayout={false}
+                        autoCapitalize="sentences"
+                        autoFocus={false}
+                        data={
+                          Array [
+                            Object {
+                              "value": "15 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "30 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "45 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "60 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "75 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "90 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "2 durationPickerField.hours",
+                            },
+                            Object {
+                              "value": "2,5 durationPickerField.hours",
+                            },
+                            Object {
+                              "value": "3 durationPickerField.hours",
+                            },
+                            Object {
+                              "value": "4 durationPickerField.hours",
+                            },
+                          ]
+                        }
+                        disableFullscreenUI={true}
+                        dropdownMargins={
+                          Object {
+                            "max": 16,
+                            "min": 8,
+                          }
+                        }
+                        dropdownOffset={
+                          Object {
+                            "left": 16,
+                            "top": 0,
+                          }
+                        }
+                        dropdownPosition={-8}
+                        editable={false}
+                        error=""
+                        itemColor="rgba(0, 0, 0, .54)"
+                        itemCount={8}
+                        itemPadding={8}
+                        labelExtractor={[Function]}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onChangeText={[Function]}
+                        onContentSizeChange={[Function]}
+                        onFocus={[Function]}
+                        propsExtractor={[Function]}
+                        renderAccessory={[Function]}
+                        rippleDuration={400}
+                        selectionColor="#009f36"
+                        shadeOpacity={0.12}
+                        style={
+                          Array [
+                            Object {
+                              "flex": 1,
+                              "margin": 0,
+                              "padding": 0,
+                              "top": 2,
+                            },
+                            Object {
+                              "color": "rgba(0, 0, 0, .87)",
+                              "fontSize": 16,
+                              "height": 24,
+                              "textAlign": "left",
+                            },
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "Rajdhani-SemiBold",
+                              "fontSize": 18,
+                              "fontWeight": "normal",
+                              "marginTop": 8,
+                              "paddingHorizontal": 8,
+                              "textAlign": "center",
+                            },
+                          ]
+                        }
+                        underlineColorAndroid="transparent"
+                        useNativeDriver={false}
+                        value=""
+                        valueExtractor={[Function]}
+                      />
                       <View
                         style={
                           Object {
@@ -15020,6 +15752,102 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField fullWidth siz
                         }
                       }
                     >
+                      <TextInput
+                        absoluteRTLLayout={false}
+                        autoCapitalize="sentences"
+                        autoFocus={false}
+                        data={
+                          Array [
+                            Object {
+                              "value": "15 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "30 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "45 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "60 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "75 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "90 durationPickerField.minutes",
+                            },
+                            Object {
+                              "value": "2 durationPickerField.hours",
+                            },
+                            Object {
+                              "value": "2,5 durationPickerField.hours",
+                            },
+                            Object {
+                              "value": "3 durationPickerField.hours",
+                            },
+                            Object {
+                              "value": "4 durationPickerField.hours",
+                            },
+                          ]
+                        }
+                        disableFullscreenUI={true}
+                        dropdownMargins={
+                          Object {
+                            "max": 16,
+                            "min": 8,
+                          }
+                        }
+                        dropdownOffset={
+                          Object {
+                            "left": 16,
+                            "top": 0,
+                          }
+                        }
+                        dropdownPosition={-8}
+                        editable={false}
+                        error=""
+                        itemColor="rgba(0, 0, 0, .54)"
+                        itemCount={8}
+                        itemPadding={8}
+                        labelExtractor={[Function]}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onChangeText={[Function]}
+                        onContentSizeChange={[Function]}
+                        onFocus={[Function]}
+                        propsExtractor={[Function]}
+                        renderAccessory={[Function]}
+                        rippleDuration={400}
+                        selectionColor="#009f36"
+                        shadeOpacity={0.12}
+                        style={
+                          Array [
+                            Object {
+                              "flex": 1,
+                              "margin": 0,
+                              "padding": 0,
+                              "top": 2,
+                            },
+                            Object {
+                              "color": "rgba(0, 0, 0, .87)",
+                              "fontSize": 16,
+                              "height": 24,
+                              "textAlign": "left",
+                            },
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "Rajdhani-SemiBold",
+                              "fontSize": 24,
+                              "fontWeight": "normal",
+                              "marginTop": 8,
+                            },
+                          ]
+                        }
+                        underlineColorAndroid="transparent"
+                        useNativeDriver={false}
+                        value=""
+                        valueExtractor={[Function]}
+                      />
                       <View
                         style={
                           Object {
@@ -16508,6 +17336,104 @@ exports[`Storyshots Common.DurationPickerField DurationPickerField white theme 1
                           }
                         }
                       >
+                        <TextInput
+                          absoluteRTLLayout={false}
+                          autoCapitalize="sentences"
+                          autoFocus={false}
+                          data={
+                            Array [
+                              Object {
+                                "value": "15 durationPickerField.minutes",
+                              },
+                              Object {
+                                "value": "30 durationPickerField.minutes",
+                              },
+                              Object {
+                                "value": "45 durationPickerField.minutes",
+                              },
+                              Object {
+                                "value": "60 durationPickerField.minutes",
+                              },
+                              Object {
+                                "value": "75 durationPickerField.minutes",
+                              },
+                              Object {
+                                "value": "90 durationPickerField.minutes",
+                              },
+                              Object {
+                                "value": "2 durationPickerField.hours",
+                              },
+                              Object {
+                                "value": "2,5 durationPickerField.hours",
+                              },
+                              Object {
+                                "value": "3 durationPickerField.hours",
+                              },
+                              Object {
+                                "value": "4 durationPickerField.hours",
+                              },
+                            ]
+                          }
+                          disableFullscreenUI={true}
+                          dropdownMargins={
+                            Object {
+                              "max": 16,
+                              "min": 8,
+                            }
+                          }
+                          dropdownOffset={
+                            Object {
+                              "left": 16,
+                              "top": 0,
+                            }
+                          }
+                          dropdownPosition={-8}
+                          editable={false}
+                          error=""
+                          itemColor="rgba(0, 0, 0, .54)"
+                          itemCount={8}
+                          itemPadding={8}
+                          labelExtractor={[Function]}
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onChangeText={[Function]}
+                          onContentSizeChange={[Function]}
+                          onFocus={[Function]}
+                          propsExtractor={[Function]}
+                          renderAccessory={[Function]}
+                          rippleDuration={400}
+                          selectionColor="#fff"
+                          shadeOpacity={0.12}
+                          style={
+                            Array [
+                              Object {
+                                "flex": 1,
+                                "margin": 0,
+                                "padding": 0,
+                                "top": 2,
+                              },
+                              Object {
+                                "color": "rgba(0, 0, 0, .87)",
+                                "fontSize": 16,
+                                "height": 24,
+                                "textAlign": "left",
+                              },
+                              Object {
+                                "color": "#fff",
+                                "fontFamily": "Rajdhani-SemiBold",
+                                "fontSize": 18,
+                                "fontWeight": "normal",
+                                "marginTop": 8,
+                                "paddingHorizontal": 8,
+                                "textAlign": "center",
+                              },
+                            ]
+                          }
+                          underlineColorAndroid="transparent"
+                          useNativeDriver={false}
+                          value=""
+                          valueExtractor={[Function]}
+                        />
                         <View
                           style={
                             Object {
@@ -18230,6 +19156,83 @@ exports[`Storyshots Common.InputField InputField Dropdown comp 1`] = `
                       }
                     }
                   >
+                    <TextInput
+                      absoluteRTLLayout={false}
+                      autoCapitalize="sentences"
+                      autoFocus={false}
+                      data={
+                        Array [
+                          Object {
+                            "value": "Banana",
+                          },
+                          Object {
+                            "value": "Mango",
+                          },
+                          Object {
+                            "value": "Pear",
+                          },
+                        ]
+                      }
+                      disableFullscreenUI={true}
+                      dropdownMargins={
+                        Object {
+                          "max": 16,
+                          "min": 8,
+                        }
+                      }
+                      dropdownOffset={
+                        Object {
+                          "left": 16,
+                          "top": 0,
+                        }
+                      }
+                      dropdownPosition={-8}
+                      editable={false}
+                      error=""
+                      itemColor="rgba(0, 0, 0, .54)"
+                      itemCount={8}
+                      itemPadding={8}
+                      labelExtractor={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onChangeText={[Function]}
+                      onContentSizeChange={[Function]}
+                      onFocus={[Function]}
+                      propsExtractor={[Function]}
+                      renderAccessory={[Function]}
+                      rippleDuration={400}
+                      selectionColor="#009f36"
+                      shadeOpacity={0.12}
+                      style={
+                        Array [
+                          Object {
+                            "flex": 1,
+                            "margin": 0,
+                            "padding": 0,
+                            "top": 2,
+                          },
+                          Object {
+                            "color": "rgba(0, 0, 0, .87)",
+                            "fontSize": 16,
+                            "height": 24,
+                            "textAlign": "left",
+                          },
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "Rajdhani-SemiBold",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                            "marginTop": 8,
+                            "paddingHorizontal": 8,
+                            "textAlign": "center",
+                          },
+                        ]
+                      }
+                      underlineColorAndroid="transparent"
+                      useNativeDriver={false}
+                      value=""
+                      valueExtractor={[Function]}
+                    />
                     <View
                       style={
                         Object {
@@ -19047,6 +20050,83 @@ exports[`Storyshots Common.InputField InputField Dropdown comp DISABLED 1`] = `
                       }
                     }
                   >
+                    <TextInput
+                      absoluteRTLLayout={false}
+                      autoCapitalize="sentences"
+                      autoFocus={false}
+                      data={
+                        Array [
+                          Object {
+                            "value": "Banana",
+                          },
+                          Object {
+                            "value": "Mango",
+                          },
+                          Object {
+                            "value": "Pear",
+                          },
+                        ]
+                      }
+                      disableFullscreenUI={true}
+                      dropdownMargins={
+                        Object {
+                          "max": 16,
+                          "min": 8,
+                        }
+                      }
+                      dropdownOffset={
+                        Object {
+                          "left": 16,
+                          "top": 0,
+                        }
+                      }
+                      dropdownPosition={-8}
+                      editable={false}
+                      error=""
+                      itemColor="rgba(0, 0, 0, .54)"
+                      itemCount={8}
+                      itemPadding={8}
+                      labelExtractor={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onChangeText={[Function]}
+                      onContentSizeChange={[Function]}
+                      onFocus={[Function]}
+                      propsExtractor={[Function]}
+                      renderAccessory={[Function]}
+                      rippleDuration={400}
+                      selectionColor="#009f36"
+                      shadeOpacity={0.12}
+                      style={
+                        Array [
+                          Object {
+                            "flex": 1,
+                            "margin": 0,
+                            "padding": 0,
+                            "top": 2,
+                          },
+                          Object {
+                            "color": "#000",
+                            "fontSize": 16,
+                            "height": 24,
+                            "textAlign": "left",
+                          },
+                          Object {
+                            "color": "#777",
+                            "fontFamily": "Rajdhani-SemiBold",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                            "marginTop": 8,
+                            "paddingHorizontal": 8,
+                            "textAlign": "center",
+                          },
+                        ]
+                      }
+                      underlineColorAndroid="transparent"
+                      useNativeDriver={false}
+                      value=""
+                      valueExtractor={[Function]}
+                    />
                     <View
                       style={
                         Object {
@@ -19823,6 +20903,81 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth 1`] = `
                       }
                     }
                   >
+                    <TextInput
+                      absoluteRTLLayout={false}
+                      autoCapitalize="sentences"
+                      autoFocus={false}
+                      data={
+                        Array [
+                          Object {
+                            "value": "Banana",
+                          },
+                          Object {
+                            "value": "Mango",
+                          },
+                          Object {
+                            "value": "Pear",
+                          },
+                        ]
+                      }
+                      disableFullscreenUI={true}
+                      dropdownMargins={
+                        Object {
+                          "max": 16,
+                          "min": 8,
+                        }
+                      }
+                      dropdownOffset={
+                        Object {
+                          "left": 16,
+                          "top": 0,
+                        }
+                      }
+                      dropdownPosition={-8}
+                      editable={false}
+                      error=""
+                      itemColor="rgba(0, 0, 0, .54)"
+                      itemCount={8}
+                      itemPadding={8}
+                      labelExtractor={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onChangeText={[Function]}
+                      onContentSizeChange={[Function]}
+                      onFocus={[Function]}
+                      propsExtractor={[Function]}
+                      renderAccessory={[Function]}
+                      rippleDuration={400}
+                      selectionColor="#009f36"
+                      shadeOpacity={0.12}
+                      style={
+                        Array [
+                          Object {
+                            "flex": 1,
+                            "margin": 0,
+                            "padding": 0,
+                            "top": 2,
+                          },
+                          Object {
+                            "color": "rgba(0, 0, 0, .87)",
+                            "fontSize": 16,
+                            "height": 24,
+                            "textAlign": "left",
+                          },
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "Rajdhani-SemiBold",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                            "marginTop": 8,
+                          },
+                        ]
+                      }
+                      underlineColorAndroid="transparent"
+                      useNativeDriver={false}
+                      value=""
+                      valueExtractor={[Function]}
+                    />
                     <View
                       style={
                         Object {
@@ -20563,6 +21718,81 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth DISABLE
                       }
                     }
                   >
+                    <TextInput
+                      absoluteRTLLayout={false}
+                      autoCapitalize="sentences"
+                      autoFocus={false}
+                      data={
+                        Array [
+                          Object {
+                            "value": "Banana",
+                          },
+                          Object {
+                            "value": "Mango",
+                          },
+                          Object {
+                            "value": "Pear",
+                          },
+                        ]
+                      }
+                      disableFullscreenUI={true}
+                      dropdownMargins={
+                        Object {
+                          "max": 16,
+                          "min": 8,
+                        }
+                      }
+                      dropdownOffset={
+                        Object {
+                          "left": 16,
+                          "top": 0,
+                        }
+                      }
+                      dropdownPosition={-8}
+                      editable={false}
+                      error=""
+                      itemColor="rgba(0, 0, 0, .54)"
+                      itemCount={8}
+                      itemPadding={8}
+                      labelExtractor={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onChangeText={[Function]}
+                      onContentSizeChange={[Function]}
+                      onFocus={[Function]}
+                      propsExtractor={[Function]}
+                      renderAccessory={[Function]}
+                      rippleDuration={400}
+                      selectionColor="#009f36"
+                      shadeOpacity={0.12}
+                      style={
+                        Array [
+                          Object {
+                            "flex": 1,
+                            "margin": 0,
+                            "padding": 0,
+                            "top": 2,
+                          },
+                          Object {
+                            "color": "#000",
+                            "fontSize": 16,
+                            "height": 24,
+                            "textAlign": "left",
+                          },
+                          Object {
+                            "color": "#777",
+                            "fontFamily": "Rajdhani-SemiBold",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                            "marginTop": 8,
+                          },
+                        ]
+                      }
+                      underlineColorAndroid="transparent"
+                      useNativeDriver={false}
+                      value=""
+                      valueExtractor={[Function]}
+                    />
                     <View
                       style={
                         Object {
@@ -21297,6 +22527,81 @@ exports[`Storyshots Common.InputField InputField Dropdown comp fullWidth with ER
                       }
                     }
                   >
+                    <TextInput
+                      absoluteRTLLayout={false}
+                      autoCapitalize="sentences"
+                      autoFocus={false}
+                      data={
+                        Array [
+                          Object {
+                            "value": "Banana",
+                          },
+                          Object {
+                            "value": "Mango",
+                          },
+                          Object {
+                            "value": "Pear",
+                          },
+                        ]
+                      }
+                      disableFullscreenUI={true}
+                      dropdownMargins={
+                        Object {
+                          "max": 16,
+                          "min": 8,
+                        }
+                      }
+                      dropdownOffset={
+                        Object {
+                          "left": 16,
+                          "top": 0,
+                        }
+                      }
+                      dropdownPosition={-8}
+                      editable={false}
+                      error="I'm the error"
+                      itemColor="rgba(0, 0, 0, .54)"
+                      itemCount={8}
+                      itemPadding={8}
+                      labelExtractor={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onChangeText={[Function]}
+                      onContentSizeChange={[Function]}
+                      onFocus={[Function]}
+                      propsExtractor={[Function]}
+                      renderAccessory={[Function]}
+                      rippleDuration={400}
+                      selectionColor="#009f36"
+                      shadeOpacity={0.12}
+                      style={
+                        Array [
+                          Object {
+                            "flex": 1,
+                            "margin": 0,
+                            "padding": 0,
+                            "top": 2,
+                          },
+                          Object {
+                            "color": "rgba(0, 0, 0, .87)",
+                            "fontSize": 16,
+                            "height": 24,
+                            "textAlign": "left",
+                          },
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "Rajdhani-SemiBold",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                            "marginTop": 8,
+                          },
+                        ]
+                      }
+                      underlineColorAndroid="transparent"
+                      useNativeDriver={false}
+                      value=""
+                      valueExtractor={[Function]}
+                    />
                     <View
                       style={
                         Object {
@@ -22066,6 +23371,83 @@ exports[`Storyshots Common.InputField InputField Dropdown comp with ERROR 1`] = 
                       }
                     }
                   >
+                    <TextInput
+                      absoluteRTLLayout={false}
+                      autoCapitalize="sentences"
+                      autoFocus={false}
+                      data={
+                        Array [
+                          Object {
+                            "value": "Banana",
+                          },
+                          Object {
+                            "value": "Mango",
+                          },
+                          Object {
+                            "value": "Pear",
+                          },
+                        ]
+                      }
+                      disableFullscreenUI={true}
+                      dropdownMargins={
+                        Object {
+                          "max": 16,
+                          "min": 8,
+                        }
+                      }
+                      dropdownOffset={
+                        Object {
+                          "left": 16,
+                          "top": 0,
+                        }
+                      }
+                      dropdownPosition={-8}
+                      editable={false}
+                      error="I'm the error"
+                      itemColor="rgba(0, 0, 0, .54)"
+                      itemCount={8}
+                      itemPadding={8}
+                      labelExtractor={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onChangeText={[Function]}
+                      onContentSizeChange={[Function]}
+                      onFocus={[Function]}
+                      propsExtractor={[Function]}
+                      renderAccessory={[Function]}
+                      rippleDuration={400}
+                      selectionColor="#009f36"
+                      shadeOpacity={0.12}
+                      style={
+                        Array [
+                          Object {
+                            "flex": 1,
+                            "margin": 0,
+                            "padding": 0,
+                            "top": 2,
+                          },
+                          Object {
+                            "color": "rgba(0, 0, 0, .87)",
+                            "fontSize": 16,
+                            "height": 24,
+                            "textAlign": "left",
+                          },
+                          Object {
+                            "color": "#000",
+                            "fontFamily": "Rajdhani-SemiBold",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                            "marginTop": 8,
+                            "paddingHorizontal": 8,
+                            "textAlign": "center",
+                          },
+                        ]
+                      }
+                      underlineColorAndroid="transparent"
+                      useNativeDriver={false}
+                      value=""
+                      valueExtractor={[Function]}
+                    />
                     <View
                       style={
                         Object {
@@ -22855,7 +24237,48 @@ exports[`Storyshots Common.InputField InputField TextField comp 1`] = `
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="I'm the value"
+                />
+              </View>
             </View>
             <View
               style={
@@ -23186,7 +24609,48 @@ exports[`Storyshots Common.InputField InputField TextField comp DISABLED 1`] = `
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={false}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#777",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="I'm the value"
+                />
+              </View>
             </View>
             <View
               style={
@@ -23476,7 +24940,46 @@ exports[`Storyshots Common.InputField InputField TextField comp fullWidth 1`] = 
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="I'm the value"
+                />
+              </View>
             </View>
             <View
               style={
@@ -23730,7 +25233,46 @@ exports[`Storyshots Common.InputField InputField TextField comp fullWidth DISABL
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={false}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#777",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="I'm the value"
+                />
+              </View>
             </View>
             <View
               style={
@@ -23978,7 +25520,46 @@ exports[`Storyshots Common.InputField InputField TextField comp fullWidth with E
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error="I'm the error"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="I'm the value"
+                />
+              </View>
             </View>
             <View
               style={
@@ -24261,7 +25842,48 @@ exports[`Storyshots Common.InputField InputField TextField comp with ERROR 1`] =
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error="I'm the error"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="I'm the value"
+                />
+              </View>
             </View>
             <View
               style={
@@ -24586,7 +26208,48 @@ exports[`Storyshots Common.InputField InputField size ML 1`] = `
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 24,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="I'm the value"
+                />
+              </View>
             </View>
             <View
               style={
@@ -24911,7 +26574,48 @@ exports[`Storyshots Common.InputField InputField size S 1`] = `
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-Regular",
+                        "fontSize": 12,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="I'm the value"
+                />
+              </View>
             </View>
             <View
               style={
@@ -25253,7 +26957,48 @@ exports[`Storyshots Common.InputField InputField white theme 1`] = `
                       "flexDirection": "row",
                     }
                   }
-                />
+                >
+                  <TextInput
+                    autoCapitalize="sentences"
+                    autoFocus={false}
+                    disableFullscreenUI={true}
+                    editable={true}
+                    error=""
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onChangeText={[Function]}
+                    onContentSizeChange={[Function]}
+                    onFocus={[Function]}
+                    selectionColor="#fff"
+                    style={
+                      Array [
+                        Object {
+                          "flex": 1,
+                          "margin": 0,
+                          "padding": 0,
+                          "top": 2,
+                        },
+                        Object {
+                          "color": "rgba(0, 0, 0, .87)",
+                          "fontSize": 16,
+                          "height": 24,
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "fontWeight": "normal",
+                          "marginTop": 8,
+                          "paddingHorizontal": 8,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                    underlineColorAndroid="transparent"
+                    value="I'm the value"
+                  />
+                </View>
               </View>
               <View
                 style={
@@ -25596,7 +27341,48 @@ exports[`Storyshots Common.InputField InputField white theme with ERROR 1`] = `
                       "flexDirection": "row",
                     }
                   }
-                />
+                >
+                  <TextInput
+                    autoCapitalize="sentences"
+                    autoFocus={false}
+                    disableFullscreenUI={true}
+                    editable={true}
+                    error="I'm the error"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onChangeText={[Function]}
+                    onContentSizeChange={[Function]}
+                    onFocus={[Function]}
+                    selectionColor="#fff"
+                    style={
+                      Array [
+                        Object {
+                          "flex": 1,
+                          "margin": 0,
+                          "padding": 0,
+                          "top": 2,
+                        },
+                        Object {
+                          "color": "rgba(0, 0, 0, .87)",
+                          "fontSize": 16,
+                          "height": 24,
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "fontWeight": "normal",
+                          "marginTop": 8,
+                          "paddingHorizontal": 8,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                    underlineColorAndroid="transparent"
+                    value="I'm the value"
+                  />
+                </View>
               </View>
               <View
                 style={
@@ -26683,6 +28469,89 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField 1`] = `
                         }
                       }
                     >
+                      <TextInput
+                        absoluteRTLLayout={false}
+                        autoCapitalize="sentences"
+                        autoFocus={false}
+                        data={
+                          Array [
+                            Object {
+                              "value": "Amsterdam",
+                            },
+                            Object {
+                              "value": "Enschede",
+                            },
+                            Object {
+                              "value": "Rotterdam",
+                            },
+                            Object {
+                              "value": "Barcelona",
+                            },
+                            Object {
+                              "value": "Buenos Aires",
+                            },
+                          ]
+                        }
+                        disableFullscreenUI={true}
+                        dropdownMargins={
+                          Object {
+                            "max": 16,
+                            "min": 8,
+                          }
+                        }
+                        dropdownOffset={
+                          Object {
+                            "left": 16,
+                            "top": 0,
+                          }
+                        }
+                        dropdownPosition={-5}
+                        editable={false}
+                        error=""
+                        itemColor="rgba(0, 0, 0, .54)"
+                        itemCount={5}
+                        itemPadding={8}
+                        labelExtractor={[Function]}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onChangeText={[Function]}
+                        onContentSizeChange={[Function]}
+                        onFocus={[Function]}
+                        propsExtractor={[Function]}
+                        renderAccessory={[Function]}
+                        rippleDuration={400}
+                        selectionColor="#009f36"
+                        shadeOpacity={0.12}
+                        style={
+                          Array [
+                            Object {
+                              "flex": 1,
+                              "margin": 0,
+                              "padding": 0,
+                              "top": 2,
+                            },
+                            Object {
+                              "color": "rgba(0, 0, 0, .87)",
+                              "fontSize": 16,
+                              "height": 24,
+                              "textAlign": "left",
+                            },
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "Rajdhani-SemiBold",
+                              "fontSize": 18,
+                              "fontWeight": "normal",
+                              "marginTop": 8,
+                              "paddingHorizontal": 8,
+                              "textAlign": "center",
+                            },
+                          ]
+                        }
+                        underlineColorAndroid="transparent"
+                        useNativeDriver={false}
+                        value=""
+                        valueExtractor={[Function]}
+                      />
                       <View
                         style={
                           Object {
@@ -27661,6 +29530,87 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField fullWidth siz
                         }
                       }
                     >
+                      <TextInput
+                        absoluteRTLLayout={false}
+                        autoCapitalize="sentences"
+                        autoFocus={false}
+                        data={
+                          Array [
+                            Object {
+                              "value": "Amsterdam",
+                            },
+                            Object {
+                              "value": "Enschede",
+                            },
+                            Object {
+                              "value": "Rotterdam",
+                            },
+                            Object {
+                              "value": "Barcelona",
+                            },
+                            Object {
+                              "value": "Buenos Aires",
+                            },
+                          ]
+                        }
+                        disableFullscreenUI={true}
+                        dropdownMargins={
+                          Object {
+                            "max": 16,
+                            "min": 8,
+                          }
+                        }
+                        dropdownOffset={
+                          Object {
+                            "left": 16,
+                            "top": 0,
+                          }
+                        }
+                        dropdownPosition={-5}
+                        editable={false}
+                        error=""
+                        itemColor="rgba(0, 0, 0, .54)"
+                        itemCount={5}
+                        itemPadding={8}
+                        labelExtractor={[Function]}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onChangeText={[Function]}
+                        onContentSizeChange={[Function]}
+                        onFocus={[Function]}
+                        propsExtractor={[Function]}
+                        renderAccessory={[Function]}
+                        rippleDuration={400}
+                        selectionColor="#009f36"
+                        shadeOpacity={0.12}
+                        style={
+                          Array [
+                            Object {
+                              "flex": 1,
+                              "margin": 0,
+                              "padding": 0,
+                              "top": 2,
+                            },
+                            Object {
+                              "color": "rgba(0, 0, 0, .87)",
+                              "fontSize": 16,
+                              "height": 24,
+                              "textAlign": "left",
+                            },
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "Rajdhani-SemiBold",
+                              "fontSize": 24,
+                              "fontWeight": "normal",
+                              "marginTop": 8,
+                            },
+                          ]
+                        }
+                        underlineColorAndroid="transparent"
+                        useNativeDriver={false}
+                        value=""
+                        valueExtractor={[Function]}
+                      />
                       <View
                         style={
                           Object {
@@ -28649,6 +30599,89 @@ exports[`Storyshots Common.LocationPickerField LocationPickerField white theme 1
                           }
                         }
                       >
+                        <TextInput
+                          absoluteRTLLayout={false}
+                          autoCapitalize="sentences"
+                          autoFocus={false}
+                          data={
+                            Array [
+                              Object {
+                                "value": "Amsterdam",
+                              },
+                              Object {
+                                "value": "Enschede",
+                              },
+                              Object {
+                                "value": "Rotterdam",
+                              },
+                              Object {
+                                "value": "Barcelona",
+                              },
+                              Object {
+                                "value": "Buenos Aires",
+                              },
+                            ]
+                          }
+                          disableFullscreenUI={true}
+                          dropdownMargins={
+                            Object {
+                              "max": 16,
+                              "min": 8,
+                            }
+                          }
+                          dropdownOffset={
+                            Object {
+                              "left": 16,
+                              "top": 0,
+                            }
+                          }
+                          dropdownPosition={-5}
+                          editable={false}
+                          error=""
+                          itemColor="rgba(0, 0, 0, .54)"
+                          itemCount={5}
+                          itemPadding={8}
+                          labelExtractor={[Function]}
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onChangeText={[Function]}
+                          onContentSizeChange={[Function]}
+                          onFocus={[Function]}
+                          propsExtractor={[Function]}
+                          renderAccessory={[Function]}
+                          rippleDuration={400}
+                          selectionColor="#fff"
+                          shadeOpacity={0.12}
+                          style={
+                            Array [
+                              Object {
+                                "flex": 1,
+                                "margin": 0,
+                                "padding": 0,
+                                "top": 2,
+                              },
+                              Object {
+                                "color": "rgba(0, 0, 0, .87)",
+                                "fontSize": 16,
+                                "height": 24,
+                                "textAlign": "left",
+                              },
+                              Object {
+                                "color": "#fff",
+                                "fontFamily": "Rajdhani-SemiBold",
+                                "fontSize": 18,
+                                "fontWeight": "normal",
+                                "marginTop": 8,
+                                "paddingHorizontal": 8,
+                                "textAlign": "center",
+                              },
+                            ]
+                          }
+                          underlineColorAndroid="transparent"
+                          useNativeDriver={false}
+                          value=""
+                          valueExtractor={[Function]}
+                        />
                         <View
                           style={
                             Object {
@@ -36724,7 +38757,48 @@ exports[`Storyshots Common.SportPickerField SportPickerField 1`] = `
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                        "paddingHorizontal": 8,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="sportPickerField.defaultValue"
+                />
+              </View>
             </View>
             <View
               style={
@@ -37131,7 +39205,46 @@ exports[`Storyshots Common.SportPickerField SportPickerField fullWidth size ML 1
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  selectionColor="#009f36"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 24,
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 24,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  underlineColorAndroid="transparent"
+                  value="sportPickerField.defaultValue"
+                />
+              </View>
             </View>
             <View
               style={
@@ -37548,7 +39661,48 @@ exports[`Storyshots Common.SportPickerField SportPickerField white theme 1`] = `
                       "flexDirection": "row",
                     }
                   }
-                />
+                >
+                  <TextInput
+                    autoCapitalize="sentences"
+                    autoFocus={false}
+                    disableFullscreenUI={true}
+                    editable={true}
+                    error=""
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onChangeText={[Function]}
+                    onContentSizeChange={[Function]}
+                    onFocus={[Function]}
+                    selectionColor="#fff"
+                    style={
+                      Array [
+                        Object {
+                          "flex": 1,
+                          "margin": 0,
+                          "padding": 0,
+                          "top": 2,
+                        },
+                        Object {
+                          "color": "rgba(0, 0, 0, .87)",
+                          "fontSize": 16,
+                          "height": 24,
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 18,
+                          "fontWeight": "normal",
+                          "marginTop": 8,
+                          "paddingHorizontal": 8,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                    underlineColorAndroid="transparent"
+                    value="sportPickerField.defaultValue"
+                  />
+                </View>
               </View>
               <View
                 style={
@@ -38665,7 +40819,45 @@ exports[`Storyshots Common.TextField TextField 1`] = `
                 "flexDirection": "row",
               }
             }
-          />
+          >
+            <TextInput
+              autoCapitalize="sentences"
+              autoFocus={false}
+              disableFullscreenUI={true}
+              editable={true}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onContentSizeChange={[Function]}
+              onFocus={[Function]}
+              selectionColor="#009f36"
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "margin": 0,
+                    "padding": 0,
+                    "top": 2,
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, .87)",
+                    "fontSize": 16,
+                    "height": 24,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "fontWeight": "normal",
+                    "marginTop": 8,
+                  },
+                ]
+              }
+              underlineColorAndroid="transparent"
+              value=""
+            />
+          </View>
         </View>
         <View
           style={
@@ -38869,7 +41061,45 @@ exports[`Storyshots Common.TextField TextField disabled 1`] = `
                 "flexDirection": "row",
               }
             }
-          />
+          >
+            <TextInput
+              autoCapitalize="sentences"
+              autoFocus={false}
+              disableFullscreenUI={true}
+              editable={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onContentSizeChange={[Function]}
+              onFocus={[Function]}
+              selectionColor="#009f36"
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "margin": 0,
+                    "padding": 0,
+                    "top": 2,
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontSize": 16,
+                    "height": 24,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#777",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "fontWeight": "normal",
+                    "marginTop": 8,
+                  },
+                ]
+              }
+              underlineColorAndroid="transparent"
+              value="I'm the value"
+            />
+          </View>
         </View>
         <View
           style={
@@ -39055,7 +41285,45 @@ exports[`Storyshots Common.TextField TextField with MIX theme 1`] = `
                 "flexDirection": "row",
               }
             }
-          />
+          >
+            <TextInput
+              autoCapitalize="sentences"
+              autoFocus={false}
+              disableFullscreenUI={true}
+              editable={true}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onContentSizeChange={[Function]}
+              onFocus={[Function]}
+              selectionColor="#fff"
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "margin": 0,
+                    "padding": 0,
+                    "top": 2,
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, .87)",
+                    "fontSize": 16,
+                    "height": 24,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "fontWeight": "normal",
+                    "marginTop": 8,
+                  },
+                ]
+              }
+              underlineColorAndroid="transparent"
+              value="I'm the value"
+            />
+          </View>
         </View>
         <View
           style={
@@ -39269,7 +41537,45 @@ exports[`Storyshots Common.TextField TextField with WHITE theme 1`] = `
                 "flexDirection": "row",
               }
             }
-          />
+          >
+            <TextInput
+              autoCapitalize="sentences"
+              autoFocus={false}
+              disableFullscreenUI={true}
+              editable={true}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onContentSizeChange={[Function]}
+              onFocus={[Function]}
+              selectionColor="#fff"
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "margin": 0,
+                    "padding": 0,
+                    "top": 2,
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, .87)",
+                    "fontSize": 16,
+                    "height": 24,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#fff",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "fontWeight": "normal",
+                    "marginTop": 8,
+                  },
+                ]
+              }
+              underlineColorAndroid="transparent"
+              value="I'm the value"
+            />
+          </View>
         </View>
         <View
           style={
@@ -39483,7 +41789,46 @@ exports[`Storyshots Common.TextField TextField with WHITE theme with ERROR 1`] =
                 "flexDirection": "row",
               }
             }
-          />
+          >
+            <TextInput
+              autoCapitalize="sentences"
+              autoFocus={false}
+              disableFullscreenUI={true}
+              editable={true}
+              error="I'm the error"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onContentSizeChange={[Function]}
+              onFocus={[Function]}
+              selectionColor="#fff"
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "margin": 0,
+                    "padding": 0,
+                    "top": 2,
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, .87)",
+                    "fontSize": 16,
+                    "height": 24,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#fff",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "fontWeight": "normal",
+                    "marginTop": 8,
+                  },
+                ]
+              }
+              underlineColorAndroid="transparent"
+              value="I'm the value"
+            />
+          </View>
         </View>
         <View
           style={
@@ -39699,7 +42044,45 @@ exports[`Storyshots Common.TextField TextField with characterRestriction = 20 1`
                 "flexDirection": "row",
               }
             }
-          />
+          >
+            <TextInput
+              autoCapitalize="sentences"
+              autoFocus={false}
+              disableFullscreenUI={true}
+              editable={true}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onContentSizeChange={[Function]}
+              onFocus={[Function]}
+              selectionColor="#009f36"
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "margin": 0,
+                    "padding": 0,
+                    "top": 2,
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, .87)",
+                    "fontSize": 16,
+                    "height": 24,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "fontWeight": "normal",
+                    "marginTop": 8,
+                  },
+                ]
+              }
+              underlineColorAndroid="transparent"
+              value="I'm the value"
+            />
+          </View>
         </View>
         <View
           style={
@@ -39913,7 +42296,46 @@ exports[`Storyshots Common.TextField TextField with error 1`] = `
                 "flexDirection": "row",
               }
             }
-          />
+          >
+            <TextInput
+              autoCapitalize="sentences"
+              autoFocus={false}
+              disableFullscreenUI={true}
+              editable={true}
+              error="Some error msg"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onContentSizeChange={[Function]}
+              onFocus={[Function]}
+              selectionColor="#009f36"
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "margin": 0,
+                    "padding": 0,
+                    "top": 2,
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, .87)",
+                    "fontSize": 16,
+                    "height": 24,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 18,
+                    "fontWeight": "normal",
+                    "marginTop": 8,
+                  },
+                ]
+              }
+              underlineColorAndroid="transparent"
+              value="I'm the value"
+            />
+          </View>
         </View>
         <View
           style={
@@ -40101,7 +42523,45 @@ exports[`Storyshots Common.TextField TextField with white theme size ML 1`] = `
                 "flexDirection": "row",
               }
             }
-          />
+          >
+            <TextInput
+              autoCapitalize="sentences"
+              autoFocus={false}
+              disableFullscreenUI={true}
+              editable={true}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onContentSizeChange={[Function]}
+              onFocus={[Function]}
+              selectionColor="#fff"
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "margin": 0,
+                    "padding": 0,
+                    "top": 2,
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, .87)",
+                    "fontSize": 16,
+                    "height": 24,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#fff",
+                    "fontFamily": "Rajdhani-SemiBold",
+                    "fontSize": 24,
+                    "fontWeight": "normal",
+                    "marginTop": 8,
+                  },
+                ]
+              }
+              underlineColorAndroid="transparent"
+              value="I'm the value"
+            />
+          </View>
         </View>
         <View
           style={
@@ -53350,7 +55810,50 @@ exports[`Storyshots PlanGame.TitleDescriptionSlide TitleDescriptionSlide white t
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  multiline={true}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="titleDescriptionSlide.fields.title.placeholder"
+                  selectionColor="#fff"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 48,
+                        "textAlign": "left",
+                        "top": -1,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 24,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  testID="title"
+                  underlineColorAndroid="transparent"
+                  value="I'm the title"
+                />
+              </View>
             </View>
             <View
               style={
@@ -53507,7 +56010,50 @@ exports[`Storyshots PlanGame.TitleDescriptionSlide TitleDescriptionSlide white t
                     "flexDirection": "row",
                   }
                 }
-              />
+              >
+                <TextInput
+                  autoCapitalize="sentences"
+                  autoFocus={false}
+                  disableFullscreenUI={true}
+                  editable={true}
+                  error=""
+                  multiline={true}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onContentSizeChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="titleDescriptionSlide.fields.description.placeholder"
+                  selectionColor="#fff"
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                        "margin": 0,
+                        "padding": 0,
+                        "top": 2,
+                      },
+                      Object {
+                        "color": "rgba(0, 0, 0, .87)",
+                        "fontSize": 16,
+                        "height": 48,
+                        "textAlign": "left",
+                        "top": -1,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Rajdhani-SemiBold",
+                        "fontSize": 18,
+                        "fontWeight": "normal",
+                        "marginTop": 8,
+                      },
+                    ]
+                  }
+                  testID="description"
+                  underlineColorAndroid="transparent"
+                  value="Some random description"
+                />
+              </View>
             </View>
             <View
               style={
@@ -54633,7 +57179,49 @@ exports[`Storyshots Screen.Auth LoginScreen 1`] = `
                       "flexDirection": "row",
                     }
                   }
-                />
+                >
+                  <TextInput
+                    autoCapitalize="sentences"
+                    autoFocus={false}
+                    disableFullscreenUI={true}
+                    editable={true}
+                    error=""
+                    keyboardType="email-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onChangeText={[Function]}
+                    onContentSizeChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="loginEmailForm.fields.email.placeholder"
+                    selectionColor="#009f36"
+                    style={
+                      Array [
+                        Object {
+                          "flex": 1,
+                          "margin": 0,
+                          "padding": 0,
+                          "top": 2,
+                        },
+                        Object {
+                          "color": "rgba(0, 0, 0, .87)",
+                          "fontSize": 16,
+                          "height": 24,
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#000",
+                          "fontFamily": "Rajdhani-SemiBold",
+                          "fontSize": 24,
+                          "fontWeight": "normal",
+                          "marginTop": 8,
+                        },
+                      ]
+                    }
+                    testID="loginInputEmail"
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </View>
               </View>
               <View
                 style={

@@ -8,16 +8,6 @@ import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import SpotSlide from '.';
 
 describe('SpotSlide', () => {
-  let spots;
-
-  beforeAll(async () => {
-    const res = await mockClient.query({
-      query: GET_SPOTS,
-      variables: { limit: 1 },
-    });
-    spots = res.data.spots; // eslint-disable-line prefer-destructuring
-  });
-
   it('renders without crashing', () => {
     const rendered = renderer.create(
       <ApolloMockProvider>
@@ -29,7 +19,13 @@ describe('SpotSlide', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('calls onChange when spot field is changed', () => {
+  it('calls onChange when spot field is changed', async () => {
+    const res = await mockClient.query({
+      query: GET_SPOTS,
+      variables: { limit: 1 },
+    });
+    const spots = res.data.spots; // eslint-disable-line prefer-destructuring
+
     const handleChange = jest.fn();
     const wrapper = shallow(<SpotSlide onChange={handleChange} />);
 
