@@ -130,11 +130,11 @@ jest.mock('../App/Components/Spots/SpotsList/utils.js', () => ({
 
 jest.mock('@react-native-community/async-storage', () => mockAsyncStorage);
 
+jest.mock('react-native-geolocation-service', () => ({}));
+
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
   clear: jest.fn(),
 };
 global.localStorage = localStorageMock;
-
-jest.mock('react-native-geolocation-service', () => ({}));
