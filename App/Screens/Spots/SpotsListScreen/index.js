@@ -64,7 +64,7 @@ class SpotsListScreen extends React.Component {
               maxDistance={maxDistance} // km
               onCardPress={this.handleCardPress}
               // FlatList props
-              onScroll={this.handleScroll}
+              // onScroll={this.handleScroll}
             />
           </Inner>
         </BottomLayout>

@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 import AsyncStorage from '@react-native-community/async-storage';
 import { PermissionsAndroid, Platform } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
+import geolib from 'geolib';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
 //------------------------------------------------------------------------------
+// if position is more than MAX_CITY_DISTANCE meters from any city, use the position
+// of the picked city instead of (GPS) coordinates.
+const MAX_CITY_DISTANCE = 10000;
+
 export const CITIES = [
   {
     id: 'amsterdam',
@@ -56,6 +61,23 @@ export const CITIES = [
   },
 ];
 
+const getClosestCity = (coords) => {
+  const distances = CITIES.map(city => geolib.getDistance(city.coords, coords));
+  const minIndex = distances.indexOf(Math.min(...distances));
+  return CITIES[minIndex];
+};
+
+const cityStick = (coords, fallbackCityID) => {
+  const closestCity = getClosestCity(coords);
+  const distanceToClosestCityInMeters = geolib.getDistance(coords, closestCity.coords);
+  if (distanceToClosestCityInMeters < MAX_CITY_DISTANCE) {
+    return coords;
+  }
+  // else stick to closest city
+  const city = CITIES.find(c => c.id === fallbackCityID) || CITIES[0];
+  return city.coords;
+};
+
 // Default is Amsterdam center
 const DEFAULT_LOCATION = CITIES[0];
 
@@ -70,6 +92,7 @@ const defaultValue = {
   locationRequestPermission: () => null,
   locationUpdate: () => null,
   locationSetCity: () => null,
+  locationCoordsFallback: true,
 };
 
 const LocationContext = React.createContext(defaultValue);
@@ -79,6 +102,7 @@ export class LocationProvider extends React.Component {
     loading: defaultValue.locationLoading,
     coords: defaultValue.locationCoords,
     city: defaultValue.locationCity,
+    coordsFallback: defaultValue.locationCoordsFallback,
   }
 
   requestPermission = async () => {
@@ -96,7 +120,10 @@ export class LocationProvider extends React.Component {
         (position) => {
           console.log('got position', position);
           const { latitude, longitude } = position.coords;
-          this.setState({ loading: false, coords: { latitude, longitude } });
+          const coords = { latitude, longitude };
+          const { city } = this.state;
+          const stickedCoords = cityStick(coords, city);
+          this.setState({ loading: false, coords: stickedCoords, coordsFallback: coords !== stickedCoords });
         },
         (error) => {
           /*
@@ -112,10 +139,10 @@ export class LocationProvider extends React.Component {
           console.log(error.code, error.message);
           this.setState({ loading: false });
         },
-        { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
       );
     } else {
-      console.log('no location permission...');
+      console.log('no location permission... asking for permission');
       this.requestPermission();
     }
   }
@@ -127,23 +154,27 @@ export class LocationProvider extends React.Component {
 
   async componentWillMount() {
     try {
-      this.setState({ city: await AsyncStorage.getItem('userCity') });
+      const city = await AsyncStorage.getItem('userCity');
+      if (!city) {
+        throw new Error(`city value: ${city}`);
+      }
+      this.setState({ city, coords: CITIES.find(c => c.id === city).coords });
     } catch (exc) {
-      console.log('User location is not set', exc);
+      console.log('User city is not set', exc);
     }
     await this.updateLocation();
   }
 
   render() {
-    const { loading, city, coords } = this.state;
+    const { loading, city, coords, coordsFallback } = this.state;
     const { children } = this.props;
-
     return (
       <LocationContext.Provider
         value={{
           locationLoading: loading,
           locationCity: city,
           locationCoords: coords,
+          locationCoordsFallback: coordsFallback,
           locationUpdate: this.updateLocation,
           locationSetCity: this.setCity,
           locationRequestPermission: this.requestPermission,
@@ -174,6 +205,7 @@ export const locationPropTypes = {
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,
   }).isRequired,
+  locationCoordsFallback: PropTypes.bool,
   locationUpdate: PropTypes.func,
   locationSetCity: PropTypes.func,
 };
