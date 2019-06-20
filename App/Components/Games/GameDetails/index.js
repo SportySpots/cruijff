@@ -13,10 +13,10 @@ import GameProperties from '../GameProperties';
 import Organizer from '../Organizer';
 import DescriptionReadMore from '../DescriptionReadMore';
 import ClickableAttendees from '../ClickableAttendees';
-import OpenSpots from '../OpenSpots';
 import RSVP from '../RSVP';
 import ShareGameButtons from '../ShareGameButtons';
 import { getAttendees } from '../utils';
+import Row from '../../Common/Row';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -103,15 +103,21 @@ const GameDetails = ({
     // ],
     (!isCanceled && (!isFull || (isFull && userStatus === 'ATTENDING'))) && (
       <Block key="rsvp">
-        <Label>
-          {I18n.t(!userStatus ? 'gameDetails.join' : 'gameDetails.edit')}
-          <Text>
+        <Row>
+          <Label>
+            {I18n.t(!userStatus ? 'gameDetails.join' : 'gameDetails.edit')}
+          </Label>
+          {hasCapacity
+          && (
+          <Text size="M" color="actionYellow">
             {' '}
-            {game.capacity - game.attendees.length}
+            { game.capacity - game.attendees.length}
             {' '}
             {I18n.t('gameDetails.spotsLeft')}
           </Text>
-        </Label>
+          )
+          }
+        </Row>
         <RSVP
           gameUUID={game.uuid}
           user={user}
