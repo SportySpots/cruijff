@@ -8,7 +8,7 @@ import pick from 'lodash/pick';
 // import moment from 'moment';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
-import { locationPropTypes } from '../../../Context/Location';
+import { locationPropTypes, withLocation } from '../../../Context/Location';
 import userDetailsFragment from '../../../GraphQL/Users/Fragments/userDetails';
 import { TopLayout, BottomLayout } from '../../Layouts/FixedBottomLayout';
 import Block from '../../Common/Block';
@@ -199,7 +199,7 @@ class EditProfileForm extends React.PureComponent {
               testID="editProfileFieldBirthYear"
               label={I18n.t('editProfileForm.fields.birthYear.label')}
               value={birthYear}
-              error={birthYearErrors}
+              error={birthYearErrors}renders custom
               placeholder="YYYY"
               size="ML"
               keyboardType="numeric"
@@ -243,4 +243,6 @@ EditProfileForm.defaultProps = {
   onSuccessHook: () => {},
 };
 
-export default EditProfileForm;
+export const RawEditProfileForm = EditProfileForm;
+
+export default withLocation(EditProfileForm);

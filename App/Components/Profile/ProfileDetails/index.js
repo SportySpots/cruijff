@@ -2,7 +2,7 @@ import React from 'react';
 // import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import { userPropTypes } from '../../../Context/User';
-import { locationPropTypes } from '../../../Context/Location';
+import { locationPropTypes, CITIES } from '../../../Context/Location';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -33,7 +33,7 @@ const ProfileDetails = ({ user, locationCity }) => [
     <Spacer size="S" />
     {!!locationCity && (
       <Text size="M" color="gray" center>
-        {locationCity}
+        {CITIES.find(city => city.id === locationCity).city}
       </Text>
     )}
   </Block>,

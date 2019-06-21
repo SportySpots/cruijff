@@ -88,7 +88,7 @@ const DEFAULT_LOCATION = CITIES[0];
 const defaultValue = {
   locationLoading: true, // set initial value to true to avoid flickering
   locationCoords: DEFAULT_LOCATION.coords,
-  locationCity: DEFAULT_LOCATION.city,
+  locationCity: DEFAULT_LOCATION.id,
   locationRequestPermission: () => null,
   locationUpdate: () => null,
   locationSetCity: () => null,
@@ -113,42 +113,50 @@ export class LocationProvider extends React.Component {
   }
 
   updateLocation = async () => {
-    const hasPermissionOrIOS = (Platform.OS === 'ios') || await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
-    if (hasPermissionOrIOS) {
-      this.setState({ loading: true });
-      Geolocation.getCurrentPosition(
-        (position) => {
-          console.log('got position', position);
-          const { latitude, longitude } = position.coords;
-          const coords = { latitude, longitude };
-          const { city } = this.state;
-          const stickedCoords = cityStick(coords, city);
-          this.setState({ loading: false, coords: stickedCoords, coordsFallback: coords !== stickedCoords });
-        },
-        (error) => {
-          /*
-           * Error Codes
-           * Name	                      Code	Description
-           * PERMISSION_DENIED	        1	    Location permission is not granted
-           * POSITION_UNAVAILABLE	      2	    Unable to determine position (not used yet)
-           * TIMEOUT	                  3	    Location request timed out
-           * PLAY_SERVICE_NOT_AVAILABLE	4	    Google play service is not installed or has an older version
-           * SETTINGS_NOT_SATISFIED	    5	    Location service is not enabled or location mode is not appropriate for the current request
-           * INTERNAL_ERROR	            -1	  Library crashed for some reason or the getCurrentActivity() returned null
-           */
-          console.log(error.code, error.message);
-          this.setState({ loading: false });
-        },
-        { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
-      );
-    } else {
-      console.log('no location permission... asking for permission');
-      this.requestPermission();
-    }
+    const { city } = this.state;
+    this.setState({
+      loading: false,
+      coords: CITIES.find(c => c.id === city).coords,
+      coordsFallback: false,
+    });
+
+    // const hasPermissionOrIOS = (Platform.OS === 'ios') || await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+    // if (hasPermissionOrIOS) {
+    //   this.setState({ loading: true });
+    //   Geolocation.getCurrentPosition(
+    //     (position) => {
+    //       console.log('got position', position);
+    //       const { latitude, longitude } = position.coords;
+    //       const coords = { latitude, longitude };
+    //       const { city } = this.state;
+    //       const stickedCoords = cityStick(coords, city);
+    //       this.setState({ loading: false, coords: stickedCoords, coordsFallback: coords !== stickedCoords });
+    //     },
+    //     (error) => {
+    //       /*
+    //        * Error Codes
+    //        * Name	                      Code	Description
+    //        * PERMISSION_DENIED	        1	    Location permission is not granted
+    //        * POSITION_UNAVAILABLE	      2	    Unable to determine position (not used yet)
+    //        * TIMEOUT	                  3	    Location request timed out
+    //        * PLAY_SERVICE_NOT_AVAILABLE	4	    Google play service is not installed or has an older version
+    //        * SETTINGS_NOT_SATISFIED	    5	    Location service is not enabled or location mode is not appropriate for the current request
+    //        * INTERNAL_ERROR	            -1	  Library crashed for some reason or the getCurrentActivity() returned null
+    //        */
+    //       console.log(error.code, error.message);
+    //       this.setState({ loading: false });
+    //     },
+    //     { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
+    //   );
+    // } else {
+    //   console.log('no location permission... asking for permission');
+    //   this.requestPermission();
+    // }
   }
 
   setCity = async (city) => {
-    this.setState({ city });
+    console.log('setting city to', city);
+    this.setState({ city }, this.updateLocation);
     return AsyncStorage.setItem('userCity', city);
   }
 
@@ -158,7 +166,15 @@ export class LocationProvider extends React.Component {
       if (!city) {
         throw new Error(`city value: ${city}`);
       }
-      this.setState({ city, coords: CITIES.find(c => c.id === city).coords });
+      if (typeof city !== 'string' || !CITIES.find(c => c.id === city)) {
+        console.log('userCity is weird, resetting it.');
+        await AsyncStorage.removeItem('userCity');
+      } else {
+        this.setState({
+          city,
+          coords: CITIES.find(c => c.id === city).coords,
+        });
+      }
     } catch (exc) {
       console.log('User city is not set', exc);
     }

@@ -24,24 +24,12 @@ const FlexOne = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class SplashScreen extends React.Component {
-  state = {
-    citySelected: false,
-  }
-
   componentDidMount() {
     globalRefs.SplashScreen = this;
   }
 
-  async componentWillMount() {
-    const city = await AsyncStorage.getItem('userCity');
-    if (city) {
-      this.setState({ citySelected: true });
-    }
-  }
-
   render() {
     const { navigation, user } = this.props;
-    const { citySelected } = this.state;
 
     return (
       <FieldBackground>
@@ -64,7 +52,9 @@ class SplashScreen extends React.Component {
             label={I18n.t('splashScreen.btnLabel')}
             accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
-              navigation.navigate(citySelected ? 'MainNav' : 'OnboardingScreen');
+              AsyncStorage.getItem('userCity').then((city) => {
+                navigation.navigate(city ? 'MainNav' : 'OnboardingScreen');
+              });
             }}
           />
           <Spacer size="XL" />

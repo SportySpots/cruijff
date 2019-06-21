@@ -5,25 +5,18 @@ import { CITIES, locationPropTypes } from '../../../Context/Location';
 import InputField from '../InputField';
 
 //------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-// TODO: apply i18n
-const data = CITIES.map(({ id, city }) => ({ label: city, value: id }));
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const LocationPickerField = ({ value, onChange, ...rest }) => {
-  const item = value ? data.find(d => (d.value === value.id)) : null;
   const nCities = CITIES.length;
 
   return (
     <InputField
       comp="Dropdown"
-      value={item ? item.label : ''}
-      data={data}
+      value={value ? CITIES.find(city => city.id === value).city : ''}
+      data={CITIES.map(({ id, city }) => ({ label: city, value: id }))}
       onChangeText={(d) => {
-        const location = CITIES.find(c => (c.id === d.value));
-        onChange(location);
+        onChange(d.value);
       }}
       dropdownPosition={-nCities}
       itemCount={nCities}

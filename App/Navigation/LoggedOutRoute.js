@@ -16,10 +16,9 @@ class LoggedOutRoute extends React.PureComponent {
     const {
       loadingUser,
       user,
-      loadingLocation,
     } = props;
 
-    return !loadingUser && !loadingLocation && user && user.uuid;
+    return !loadingUser && user && user.uuid;
   }
 
   componentWillMount() {

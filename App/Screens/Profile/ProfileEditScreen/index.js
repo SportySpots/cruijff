@@ -50,7 +50,6 @@ const ProfileEditScreen = ({
           <Container>
             <EditProfileForm
               user={user}
-              location={locationCity}
               disabled={disabled}
               errors={errors}
               onBeforeHook={handleBefore}

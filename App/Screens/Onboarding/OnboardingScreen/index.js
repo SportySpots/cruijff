@@ -6,7 +6,6 @@ import {
   Platform,
   BackHandler,
 } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../../../I18n';
 import { withLocation, locationPropTypes } from '../../../Context/Location';
 import FormProps from '../../../RenderProps/form-props';

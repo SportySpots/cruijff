@@ -8,7 +8,7 @@ import I18n from '../../../I18n';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
 import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import scTheme from '../../../Themes/scTheme'; // styled-components theme
-import EditProfileForm, { MAX_CHARS } from '.';
+import { RawEditProfileForm as EditProfileForm, MAX_CHARS } from '.';
 import { CITIES } from '../../../Context/Location';
 
 const validName = 'John Doe';
