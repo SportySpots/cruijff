@@ -56,6 +56,9 @@ class App extends Component {
 
     firebase.messaging().hasPermission().then((result) => {
       console.log('has notification permission', result);
+      if (!result) {
+        firebase.messaging().requestPermission();
+      }
     });
 
     // notification opened with app in foreground/background
