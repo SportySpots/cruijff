@@ -11,17 +11,16 @@ import Spacer from '../../Common/Spacer';
 import RaisedButton from '../../Common/RaisedButton';
 
 //------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-export const INIT_STATE = {
-  location: null,
-};
-//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class LocationSlide extends React.PureComponent {
+  completed() {
+    return !!this.state.location;
+  }
+
   render() {
-    const { location, onChange, locationSetCity } = this.props;
+    const { locationSetCity, onChange } = this.props;
+    const { location } = this.state;
 
     return (
       <ImageBackground image={Images.locationOnboarding}>
@@ -41,8 +40,8 @@ class LocationSlide extends React.PureComponent {
                   label={item.city}
                   variant={location === item.id ? 'default' : 'transparent'}
                   onPress={() => {
+                    this.setState({ location: item.id }, onChange);
                     locationSetCity(item.id);
-                    onChange({ fieldName: 'location', value: item.id });
                   }}
                 />
               )}
@@ -59,15 +58,13 @@ class LocationSlide extends React.PureComponent {
 LocationSlide.requiredFields = ['location'];
 
 LocationSlide.propTypes = {
-  location: PropTypes.string,
   locationSetCity: locationPropTypes.locationSetCity,
   onChange: PropTypes.func,
 };
 
 LocationSlide.defaultProps = {
-  location: null,
   locationSetCity: () => null,
-  onChange: () => {},
+  onChange: () => null,
 };
 
 export default withLocation(LocationSlide);

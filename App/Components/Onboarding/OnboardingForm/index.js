@@ -3,14 +3,11 @@ import PropTypes from 'prop-types';
 import { Keyboard, ScrollView, Dimensions } from 'react-native';
 import firebase from 'react-native-firebase';
 import styled from 'styled-components/native';
-import cloneDeep from 'lodash/cloneDeep';
-import pick from 'lodash/pick';
 import I18n from '../../../I18n';
-import { addGlobalRef } from '../../../globalRefs';
 import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../Common/DarkFooter';
-import LocationSlide, { INIT_STATE as LOCATION_INIT_STATE } from '../LocationSlide';
+import LocationSlide from '../LocationSlide';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -49,13 +46,8 @@ const SLIDES = [
   {
     id: 'locationSlide',
     Comp: LocationSlide,
-    requiredFields: LocationSlide.requiredFields,
   },
 ];
-
-const INIT_STATE = {
-  ...cloneDeep(LOCATION_INIT_STATE),
-};
 
 const { width: WINDOW_WIDTH } = Dimensions.get('window');
 //------------------------------------------------------------------------------
@@ -68,17 +60,13 @@ const FlexOne = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 class OnboardingForm extends React.Component {
+  state = {
+    curSlide: 0,
+  }
+
   constructor(props) {
     super(props);
-
-    addGlobalRef('OnBoardingScreen')(this);
-
-    this.state = {
-      curSlide: 0,
-      ...cloneDeep(INIT_STATE),
-    };
-
-    // console.log('INIT STATE', this.state);
+    this.compRefs = [];
   }
 
   handleScroll = (evt) => {
@@ -86,23 +74,12 @@ class OnboardingForm extends React.Component {
     this.setState({ curSlide: nextSlide });
   }
 
-  get disableNext() {
-    const { curSlide } = this.state;
-
+  disableNext() {
     // Get required fields for the current slide
-    const { requiredFields } = SLIDES[curSlide];
-
-    // Disable next btn (return 'true') if at least on of the required fields isn't set
-    if (requiredFields) {
-      for (let i = 0; i < requiredFields.length; i += 1) {
-        const fieldName = requiredFields[i];
-        if (!this.state[fieldName]) { // eslint-disable-line
-          return true;
-        }
-      }
+    const currentComp = this.compRefs[this.state.curSlide];
+    if (currentComp) {
+      return (currentComp.completed && !currentComp.completed());
     }
-
-    // Enable btn otherwise (all required fields are set)
     return false;
   }
 
@@ -127,25 +104,9 @@ class OnboardingForm extends React.Component {
       return;
     }
 
-    // Otherwise, gather input field values and pass event up to parent component
-    const {
-      onBeforeHook,
-      onClientCancelHook,
-      // onClientErrorHook,
-      onSuccessHook,
-    } = this.props;
-
-    // Run before logic if provided and return on error. onBeforeHook will set the 'disabled'
-    // value to 'true' so that the user cannot re-submit the form
-    try {
-      onBeforeHook();
-    } catch (exc) {
-      onClientCancelHook();
-      return; // return silently
-    }
-
-    // Pass event up to parent component
-    onSuccessHook(pick(this.state, Object.keys(INIT_STATE)));
+    // last slide, so done
+    const { onSuccessHook } = this.props;
+    onSuccessHook();
   }
 
   handleChange = ({ fieldName, value }) => {
@@ -153,8 +114,7 @@ class OnboardingForm extends React.Component {
   }
 
   render() {
-    const { disabled } = this.props;
-    const { curSlide, ...rest } = this.state;
+    const { curSlide } = this.state;
 
     return (
       <FlexOne>
@@ -165,12 +125,11 @@ class OnboardingForm extends React.Component {
           showsHorizontalScrollIndicator={false}
           onScroll={this.handleScroll}
         >
-          {SLIDES.map(({ id, Comp }) => (
+          {SLIDES.map(({ id, Comp }, idx) => (
             <FlexOne key={id} style={{ width: WINDOW_WIDTH }}>
               <Comp
-                onChange={this.handleChange}
-                // Pass down all state values: location, sports, etc.
-                {...rest}
+                ref={typeof Comp === 'object' ? (ref) => { this.compRefs[idx] = ref; } : undefined}
+                onChange={() => this.forceUpdate()}
               />
             </FlexOne>
           ))}
@@ -179,7 +138,7 @@ class OnboardingForm extends React.Component {
           numPages={SLIDES.length}
           currentPage={curSlide}
           onNext={this.handleNext}
-          disableNext={this.disableNext || disabled}
+          disableNext={this.disableNext()}
           buttonNextText={I18n.t(this.buttonNextText)}
           showBack={false}
         />
@@ -189,72 +148,11 @@ class OnboardingForm extends React.Component {
 }
 
 OnboardingForm.propTypes = {
-  disabled: PropTypes.bool,
-  onBeforeHook: PropTypes.func,
-  onClientCancelHook: PropTypes.func,
   onSuccessHook: PropTypes.func,
 };
 
 OnboardingForm.defaultProps = {
-  disabled: false,
-  onBeforeHook: () => {},
-  onClientCancelHook: () => {},
   onSuccessHook: () => {},
 };
 
 export default OnboardingForm;
-
-/*
-import React from 'react';
-import PropTypes from 'prop-types';
-import I18n from '../../../I18n';
-import Images from '../../../Themes/Images';
-import ScreenSlider from '../../../Components/Common/ScreenSlider';
-import OnboardingSlide from '../../../Components/Onboarding/OnboardingSlide';
-import globalRefs from '../../../globalRefs';
-
-const data = [
-  {
-    title: I18n.t('onboardingScreen.hiSporter.title'),
-    text: I18n.t('onboardingScreen.hiSporter.text'),
-    image: Images.illustrationWizard1,
-  },
-  {
-    title: I18n.t('onboardingScreen.joinGame.title'),
-    text: I18n.t('onboardingScreen.joinGame.text'),
-    image: Images.illustrationWizard2,
-  },
-  {
-    title: I18n.t('onboardingScreen.planGame.title'),
-    text: I18n.t('onboardingScreen.planGame.text'),
-    image: Images.illustrationWizard3,
-  },
-];
-
-class OnboardingScreen extends React.Component {
-  componentDidMount() {
-    globalRefs.OnBoardingScreen = this;
-    // super.componentDidMount();
-  }
-
-  render() {
-    const { onSuccessHook } = this.props;
-    return (
-      <ScreenSlider
-        data={data}
-        style={{ flex: 1 }}
-        renderItem={({ item }) => <OnboardingSlide {...item} />}
-        footerText={(item, index) => I18n.t(index < data.length - 1 ? 'OnboardingScreen.nextBtnLabel' : 'OnboardingScreen.lastBtnLabel')}
-        onDone={onSuccessHook}
-      />
-    );
-  }
-}
-
-OnboardingScreen.propTypes = {
-  onSuccessHook: PropTypes.func.isRequired,
-};
-
-export default OnboardingScreen;
-
-*/

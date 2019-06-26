@@ -7,10 +7,7 @@ import {
   BackHandler,
 } from 'react-native';
 import I18n from '../../../I18n';
-import { withLocation, locationPropTypes } from '../../../Context/Location';
-import FormProps from '../../../RenderProps/form-props';
 import OnboardingForm from '../../../Components/Onboarding/OnboardingForm';
-import { addGlobalRef } from '../../../globalRefs';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -21,7 +18,6 @@ class OnboardingScreen extends React.Component {
     if (Platform.OS === 'android') {
       BackHandler.addEventListener('hardwareBackPress', this.handleLeave);
     }
-    addGlobalRef('OnboardingScreen')(this);
   }
 
   componentWillUnmount() {
@@ -56,33 +52,14 @@ class OnboardingScreen extends React.Component {
   }
 
   render() {
-    const { locationSetCity, navigation } = this.props;
+    const { navigation } = this.props;
 
     return (
-      <FormProps>
-        {({
-          disabled,
-          handleBefore,
-          handleClientCancel,
-          handleClientError,
-          // handleServerError,
-          handleSuccess,
-        }) => (
-          <OnboardingForm
-            disabled={disabled}
-            onBeforeHook={handleBefore}
-            onClientCancelHook={handleClientCancel}
-            onClientErrorHook={handleClientError}
-            // Store location data into local storage.
-            onSuccessHook={({ location }) => {
-              handleSuccess(async () => {
-                await locationSetCity(location);
-                navigation.navigate('MainNav');
-              });
-            }}
-          />
-        )}
-      </FormProps>
+      <OnboardingForm
+        onSuccessHook={async () => {
+          navigation.navigate('MainNav');
+        }}
+      />
     );
   }
 }
@@ -92,7 +69,6 @@ OnboardingScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  locationSetCity: locationPropTypes.locationSetCity.isRequired,
 };
 
-export default withLocation(OnboardingScreen);
+export default OnboardingScreen;

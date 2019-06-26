@@ -161,6 +161,7 @@ export class LocationProvider extends React.Component {
   }
 
   async componentWillMount() {
+    await AsyncStorage.removeItem('userCity');
     try {
       const city = await AsyncStorage.getItem('userCity');
       if (!city) {
@@ -208,11 +209,11 @@ LocationProvider.propTypes = {
 
 export const LocationConsumer = LocationContext.Consumer;
 
-export const withLocation = Component => props => (
+export const withLocation = Component => React.forwardRef((props, ref) => (
   <LocationConsumer>
-    {locationProps => <Component {...props} {...locationProps} />}
+    {locationProps => <Component ref={ref} {...props} {...locationProps} />}
   </LocationConsumer>
-);
+));
 
 export const locationPropTypes = {
   locationLoading: PropTypes.bool,
