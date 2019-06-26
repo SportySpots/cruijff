@@ -2,21 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import I18n from '../../../I18n';
+import Fonts from '../../../Themes/Fonts';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import Block from '../../Common/Block';
 import Text from '../../Common/Text';
+import Spacer from '../../Common/Spacer';
 import AlertMsg from '../../Common/AlertMsg';
 import ChatWithGroup from '../../Chat/ChatWithGroup';
 import GameProperties from '../GameProperties';
 import Organizer from '../Organizer';
 import DescriptionReadMore from '../DescriptionReadMore';
 import ClickableAttendees from '../ClickableAttendees';
-import OpenSpots from '../OpenSpots';
 import RSVP from '../RSVP';
 import ShareGameButtons from '../ShareGameButtons';
 import { getAttendees } from '../utils';
+import Row from '../../Common/Row';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -32,6 +34,8 @@ const Label = props => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: introduce constants file with USER_STATUSES = { ATTENDING: 'ATTENDING', ... }
+// Same for GAME_STATUSES
 const GameDetails = ({
   game,
   user,
@@ -90,22 +94,30 @@ const GameDetails = ({
         />
       </Block>,
     ],
-    hasCapacity && [
-      <Block key="open-spots">
-        <Label>{I18n.t('gameDetails.openSpots')}</Label>
-        <OpenSpots game={game} />
-        {isFull && (
-          <Text size="M" regular>
-            {I18n.t('gameDetails.fullMsg')}
-          </Text>
-        )}
-      </Block>,
-    ],
+    // hasCapacity && [
+    //   <Block key="open-spots">
+    //     <Label>{I18n.t('gameDetails.openSpots')}</Label>
+    //     <OpenSpots game={game} />
+    //     {isFull && (
+    //       <Text size="M" regular>
+    //         {I18n.t('gameDetails.fullMsg')}
+    //       </Text>
+    //     )}
+    //   </Block>,
+    // ],
     (!isCanceled && (!isFull || (isFull && userStatus === 'ATTENDING'))) && (
       <Block key="rsvp">
-        <Label>
-          {I18n.t(!userStatus ? 'gameDetails.join' : 'gameDetails.edit')}
-        </Label>
+        <Row alignItems="flex-start">
+          <Label>
+            {I18n.t(!userStatus ? 'gameDetails.join' : 'gameDetails.edit')}
+          </Label>
+          <Spacer row size="M" />
+          {hasCapacity && (!userStatus || userStatus !== 'ATTENDING') && (
+            <Text size="SM" style={{ lineHeight: 1.5 * Fonts.M.fontSize }}>
+              {I18n.t('gameDetails.spotsLeft', { count: game.capacity - game.attendees.length })}
+            </Text>
+          )}
+        </Row>
         <RSVP
           gameUUID={game.uuid}
           user={user}

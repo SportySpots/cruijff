@@ -190,7 +190,12 @@
     "fullMsg": "No hay plazas disponibles",
     "join": "Te apuntas?",
     "edit": "Editar presencia",
-    "share": "Compartir con amigos"
+    "share": "Compartir con amigos",
+    "spotsLeft": {
+      "one": "1 plaza disponible",
+      "other": "{{count}} plazas disponibles",
+      "zero": "0 plazas disponibles"
+    }
   },
 
   "descriptionReadMore": {

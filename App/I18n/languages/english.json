@@ -188,9 +188,14 @@
     "attending": "Attending",
     "openSpots": "Open spots",
     "fullMsg": "No open spots available",
-    "join": "Do you join?",
+    "join": "Are you joining?",
     "edit": "Edit presence",
-    "share": "Share with friends"
+    "share": "Share with friends",
+    "spotsLeft": {
+      "one": "1 spot left",
+      "other": "{{count}} spots left",
+      "zero": "0 spots left"
+    }
   },
 
   "descriptionReadMore": {
