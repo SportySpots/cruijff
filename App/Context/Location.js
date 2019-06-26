@@ -161,7 +161,6 @@ export class LocationProvider extends React.Component {
   }
 
   async componentWillMount() {
-    await AsyncStorage.removeItem('userCity');
     try {
       const city = await AsyncStorage.getItem('userCity');
       if (!city) {

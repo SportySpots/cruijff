@@ -14,6 +14,10 @@ import RaisedButton from '../../Common/RaisedButton';
 // COMPONENT:
 //------------------------------------------------------------------------------
 class LocationSlide extends React.PureComponent {
+  state = {
+    location: null,
+  }
+
   completed() {
     return !!this.state.location;
   }
