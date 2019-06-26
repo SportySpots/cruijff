@@ -10,6 +10,7 @@
 #import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
 #import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
 #import <AppCenterReactNative/AppCenterReactNative.h>
+#import <UserNotifications/UserNotifications.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -28,7 +29,7 @@
 {
   NSURL *jsCodeLocation;
 
-  [AppCenterReactNative register];  // Initialize AppCenter 
+  [AppCenterReactNative register];  // Initialize AppCenter
 
   [AppCenterReactNativeCrashes register];  // Initialize AppCenter crashes
 
@@ -38,9 +39,33 @@
 
   [FIROptions defaultOptions].deepLinkURLScheme = @"com.sportyspots.ios";
   [FIRApp configure];
-  
+
   [RNFirebaseNotifications configure];
-  
+
+  // Additional setup for push notifications
+  // https://github.com/invertase/react-native-firebase/issues/1203
+  if ([UNUserNotificationCenter class] != nil) {
+    // iOS 10 or later
+    // For iOS 10 display notification (sent via APNS)
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
+    UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+    [FIRMessaging messaging].delegate = self;
+    [[UNUserNotificationCenter currentNotificationCenter]
+     requestAuthorizationWithOptions:authOptions
+     completionHandler:^(BOOL granted, NSError * _Nullable error) {
+       if (error) { NSLog(@"%@", error); }
+     }];
+  } else {
+    // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
+    UIUserNotificationType allNotificationTypes =
+    (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+    UIUserNotificationSettings *settings =
+    [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+  }
+  [application registerForRemoteNotifications];
+
     #ifdef DEBUG
         jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
     #else

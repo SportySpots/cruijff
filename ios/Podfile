@@ -10,9 +10,9 @@ target 'SportySpots' do
 
   # Pods for SportySpots
   pod 'Firebase/Core', '~> 5.20.1'
-  pod 'GoogleAppMeasurement', '~> 5.8.0'
   pod 'Firebase/Messaging', '~> 5.20.1'
   pod 'Firebase/DynamicLinks', '~> 5.20.1'
+  pod 'GoogleAppMeasurement', '~> 5.8.0'
 
   platform :ios, '9.0'
 
