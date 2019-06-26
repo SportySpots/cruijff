@@ -17,6 +17,7 @@ const SportPickerField = ({ value, onChange, ...rest }) => (
         key="input-field"
         comp="TextField"
         value={(value && (I18n.t(value.name) || I18n.t(value.category))) || I18n.t('sportPickerField.defaultValue')}
+        focusable={false}
         onPress={openModal}
         {...rest}
       />,

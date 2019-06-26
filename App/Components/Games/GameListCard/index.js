@@ -31,7 +31,7 @@ const HEADER_HEIGHT = 58;
 const Outer = styled.View`
   height: ${({ height }) => height}px;
   border-radius: 8px;
-  shadow-offset: 1px 1px;
+  shadow-offset: 0px 1px;
   shadow-color: ${({ theme }) => theme.colors.shade};
   shadow-opacity: 0.8;
   elevation: 2;
@@ -73,7 +73,7 @@ const GameListCard = ({ game }) => {
 
   const isCanceled = status === 'CANCELED';
   const attendees = getAttendees(game.attendees);
-  const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
+  const formattedStartTime = moment.utc(startTime).local().format('dddd, D MMMM, HH:mm').toTitleCase();
   const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S') * (!!attendees && attendees.length > 0);
 
   return (

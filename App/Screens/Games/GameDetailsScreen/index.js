@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
-import { Query } from 'react-apollo';
+import { Query, compose } from 'react-apollo';
 import styled from 'styled-components/native';
+import moment from 'moment';
 import { withUser, userPropTypes } from '../../../Context/User';
+import { locationPropTypes, withLocation } from '../../../Context/Location';
 import I18n from '../../../I18n';
 import client from '../../../GraphQL/ApolloClient';
 import { addGlobalRef } from '../../../globalRefs';
@@ -62,7 +64,18 @@ class GameDetailsScreen extends React.PureComponent {
   }
 
   render() {
-    const { user } = this.props;
+    const { user, locationCoords: coords } = this.props;
+
+    // Variables for refetching GET_GAMES_LIST query
+    const maxDistance = 20; // km // TODO: read from context
+
+    const variables = {
+      offset: 0,
+      limit: 10,
+      ordering: 'start_time',
+      start_time__gte: moment().startOf('day').toISOString(),
+      distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
+    };
 
     return (
       <Query
@@ -107,6 +120,7 @@ class GameDetailsScreen extends React.PureComponent {
                   refetch();
                   await client.query({
                     query: GET_GAMES_LIST,
+                    variables,
                     fetchPolicy: 'network-only',
                   });
                 }}
@@ -128,10 +142,16 @@ GameDetailsScreen.propTypes = {
     }).isRequired,
   }).isRequired,
   user: userPropTypes.user,
+  locationCoords: locationPropTypes.locationCoords.isRequired,
 };
 
 GameDetailsScreen.defaultProps = {
   user: null,
 };
 
-export default withUser(GameDetailsScreen);
+const enhance = compose(
+  withUser,
+  withLocation,
+);
+
+export default enhance(GameDetailsScreen);

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../../../Context/User';
-import { withLocation, locationPropTypes } from '../../../Context/Location';
 import I18n from '../../../I18n';
 import FieldBackground from '../../../Backgrounds/FieldBackground';
 import Block from '../../../Components/Common/Block';
@@ -29,7 +29,7 @@ class SplashScreen extends React.Component {
   }
 
   render() {
-    const { navigation, user, location } = this.props;
+    const { navigation, user } = this.props;
 
     return (
       <FieldBackground>
@@ -52,7 +52,9 @@ class SplashScreen extends React.Component {
             label={I18n.t('splashScreen.btnLabel')}
             accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
-              navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
+              AsyncStorage.getItem('userCity').then((city) => {
+                navigation.navigate(city ? 'MainNav' : 'OnboardingScreen');
+              });
             }}
           />
           <Spacer size="XL" />
@@ -77,7 +79,6 @@ class SplashScreen extends React.Component {
 
 SplashScreen.propTypes = {
   user: userPropTypes.user,
-  location: locationPropTypes.location,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -85,12 +86,10 @@ SplashScreen.propTypes = {
 
 SplashScreen.defaultProps = {
   user: null,
-  location: null,
 };
 
 const enhance = compose(
   withUser,
-  withLocation,
 );
 
 export default enhance(SplashScreen);

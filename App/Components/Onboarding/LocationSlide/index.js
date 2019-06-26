@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { View, FlatList, ScrollView } from 'react-native';
 import I18n from '../../../I18n';
-import { CITIES } from '../../../Context/Location';
+import { CITIES, withLocation, locationPropTypes } from '../../../Context/Location';
 import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Text from '../../Common/Text';
@@ -21,7 +21,7 @@ export const INIT_STATE = {
 //------------------------------------------------------------------------------
 class LocationSlide extends React.PureComponent {
   render() {
-    const { location, onChange } = this.props;
+    const { location, onChange, locationSetCity } = this.props;
 
     return (
       <ImageBackground image={Images.locationOnboarding}>
@@ -39,8 +39,11 @@ class LocationSlide extends React.PureComponent {
               renderItem={({ item }) => (
                 <RaisedButton
                   label={item.city}
-                  variant={location && location.id && location.id === item.id ? 'default' : 'transparent'}
-                  onPress={() => { onChange({ fieldName: 'location', value: item }); }}
+                  variant={location === item.id ? 'default' : 'transparent'}
+                  onPress={() => {
+                    locationSetCity(item.id);
+                    onChange({ fieldName: 'location', value: item.id });
+                  }}
                 />
               )}
               ItemSeparatorComponent={() => (<Spacer size="XL" />)}
@@ -56,21 +59,15 @@ class LocationSlide extends React.PureComponent {
 LocationSlide.requiredFields = ['location'];
 
 LocationSlide.propTypes = {
-  location: PropTypes.shape({
-    id: PropTypes.string,
-    city: PropTypes.string,
-    country: PropTypes.string,
-    coords: PropTypes.shape({
-      latitude: PropTypes.number,
-      longitude: PropTypes.number,
-    }),
-  }),
+  location: PropTypes.string,
+  locationSetCity: locationPropTypes.locationSetCity,
   onChange: PropTypes.func,
 };
 
 LocationSlide.defaultProps = {
   location: null,
+  locationSetCity: () => null,
   onChange: () => {},
 };
 
-export default LocationSlide;
+export default withLocation(LocationSlide);

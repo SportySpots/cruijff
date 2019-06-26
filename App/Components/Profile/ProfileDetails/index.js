@@ -2,7 +2,7 @@ import React from 'react';
 // import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import { userPropTypes } from '../../../Context/User';
-import { locationPropTypes } from '../../../Context/Location';
+import { locationPropTypes, CITIES } from '../../../Context/Location';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -21,7 +21,7 @@ import Avatar from '../../Common/Avatar';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetails = ({ user, location }) => [
+const ProfileDetails = ({ user, locationCity }) => [
   <Block key="top">
     <Row justifyContent="center">
       <Avatar user={user} size="L" />
@@ -31,9 +31,9 @@ const ProfileDetails = ({ user, location }) => [
       {user.name}
     </Text>
     <Spacer size="S" />
-    {!!location && (
+    {!!locationCity && (
       <Text size="M" color="gray" center>
-        {`${location.city || ''}, ${I18n.t(location.country || '')}`}
+        {CITIES.find(city => city.id === locationCity).city}
       </Text>
     )}
   </Block>,
@@ -46,7 +46,7 @@ const ProfileDetails = ({ user, location }) => [
 
 ProfileDetails.propTypes = {
   user: userPropTypes.user.isRequired,
-  location: locationPropTypes.location.isRequired,
+  locationCity: locationPropTypes.locationCity.isRequired,
 };
 
 export default ProfileDetails;

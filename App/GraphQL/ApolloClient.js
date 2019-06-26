@@ -15,7 +15,7 @@ const authMiddleware = setContext(async (req, { headers }) => {
   const token = await AsyncStorage.getItem('TOKEN');
   // Set auth header for the REST API
   SeedorfAPI.setToken(token);
-  console.log('SET CONTEXT');
+  console.log('SET GRAPHQL CONTEXT');
   // Return the headers to the context so httpLink can read them
   return {
     headers: {

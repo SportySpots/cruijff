@@ -19,7 +19,6 @@ class EditProfileApiCall extends React.PureComponent {
       userProfileUUID,
       name,
       avatar,
-      location,
     } = inputFields;
 
     // Make sure birthYear is numeric
@@ -57,14 +56,6 @@ class EditProfileApiCall extends React.PureComponent {
         onEditError(exc);
         return;
       }
-    }
-
-    try {
-      // Set user location
-      await AsyncStorage.setItem('userLocation', JSON.stringify(location));
-    } catch (exc) {
-      onEditError(exc);
-      return;
     }
 
     // Pass event up to parent component

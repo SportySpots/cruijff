@@ -15,7 +15,7 @@ storiesOf('Profile.EditProfileForm', module)
         loading || error ? null : (
           <EditProfileForm
             user={data.user}
-            location={CITIES[0]}
+            locationCity={CITIES[0].id}
           />
         ))
       }

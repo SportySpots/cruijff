@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { View } from 'react-native';
 import styled from 'styled-components';
+import geolib from 'geolib';
+
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
+import { locationPropTypes, withLocation } from '../../../Context/Location';
 import I18n from '../../../I18n';
 // import Rating from '../../Common/Rating';
 import Text from '../../Common/Text';
@@ -27,21 +30,37 @@ const FlexNone = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+
+const rounded = number => (Math.round(number * 10) / 10);
+
 const SpotHeader = ({
   spot,
   gray,
   withDistance,
   withGames,
+  locationCoords,
+  locationCoordsFallback,
 }) => {
   const {
     name,
     sports,
-    distance,
     games: rawGames,
   } = spot;
 
   // Filter passed games
   const games = (rawGames && curatedGames(rawGames)) || [];
+
+  const showDistance = withDistance
+    && !locationCoordsFallback
+    && spot.address
+    && spot.address.lat
+    && spot.address.lng;
+
+  let distance;
+  if (showDistance) {
+    const spotCoords = { latitude: spot.address.lat, longitude: spot.address.lng };
+    distance = geolib.getDistance(locationCoords, spotCoords);
+  }
 
   return (
     <View>
@@ -78,12 +97,12 @@ const SpotHeader = ({
         <Spacer row size="L" />
         <FlexNone>
           <Row justifyContent="flex-end">
-            {withDistance && !!distance && (
+            {showDistance && (
               <Text
                 size="SM"
                 color={gray ? 'gray' : 'black'}
               >
-                {`${distance} KM`}
+                {`${rounded(distance / 1000)} KM`}
               </Text>
             )}
             {withGames && !!games && games.length > 0 && [
@@ -104,6 +123,8 @@ const SpotHeader = ({
 };
 
 SpotHeader.propTypes = {
+  locationCoords: locationPropTypes.locationCoords,
+  locationCoordsFallback: locationPropTypes.locationCoordsFallback,
   spot: propType(spotFragment).isRequired,
   gray: PropTypes.bool,
   withDistance: PropTypes.bool,
@@ -111,9 +132,11 @@ SpotHeader.propTypes = {
 };
 
 SpotHeader.defaultProps = {
+  locationCoords: null,
+  locationCoordsFallback: true,
   gray: false,
   withDistance: false,
   withGames: false,
 };
 
-export default SpotHeader;
+export default withLocation(SpotHeader);

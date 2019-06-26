@@ -16,7 +16,7 @@ import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndi
 const LoggedInRoute = ({
   loadingUser,
   user,
-  loadingLocation,
+  locationLoading,
   component: Component,
   overlay: Overlay,
   ...rest
@@ -24,7 +24,7 @@ const LoggedInRoute = ({
   const childProps = { ...rest };
 
   // Wait until user is ready
-  if (loadingUser || loadingLocation) {
+  if (loadingUser) {
     return <CenteredActivityIndicator />;
   }
 
@@ -40,7 +40,6 @@ const LoggedInRoute = ({
 LoggedInRoute.propTypes = {
   loadingUser: userPropTypes.loadingUser.isRequired,
   user: userPropTypes.user,
-  loadingLocation: locationPropTypes.loadingLocation.isRequired,
   component: PropTypes.func.isRequired,
   overlay: PropTypes.func,
 };
@@ -52,7 +51,6 @@ LoggedInRoute.defaultProps = {
 
 const enhance = compose(
   withUser,
-  withLocation,
 );
 
 export default enhance(LoggedInRoute);

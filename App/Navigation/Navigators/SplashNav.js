@@ -1,5 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
+import AsyncStorage from '@react-native-community/async-storage';
+
 import SplashScreen from '../../Screens/Splash/SplashScreen';
 import LoggedOutRoute from '../LoggedOutRoute';
 import AuthScreens from './AuthScreens';
@@ -7,10 +9,12 @@ import AuthScreens from './AuthScreens';
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
-const handleLoggedIn = (navigation, location) => {
+const handleLoggedIn = (navigation) => {
   // In case the user is logged in when trying to access the SplashScreen,
   // redirect him to MainNav unless onboarding isn't completed yet.
-  navigation.navigate(location ? 'MainNav' : 'OnboardingScreen');
+  AsyncStorage.getItem('userCity').then((city) => {
+    navigation.navigate(city ? 'MainNav' : 'OnboardingScreen');
+  });
 };
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -22,7 +26,7 @@ const SplashNav = createStackNavigator({
       <LoggedOutRoute
         navigation={navigation}
         component={SplashScreen}
-        onLoggedIn={({ location }) => { handleLoggedIn(navigation, location); }}
+        onLoggedIn={() => { handleLoggedIn(navigation); }}
       />
     ),
     navigationOptions: { header: null },

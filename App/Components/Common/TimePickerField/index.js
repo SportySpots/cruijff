@@ -17,6 +17,7 @@ const TimePickerField = ({ value, onChange, ...rest }) => (
         key="input-field"
         comp="TextField"
         value={value ? value.clone().local().format('HH:mm') : I18n.t('timePickerField.defaultValue')}
+        focusable={false}
         onPress={openModal}
         {...rest}
       />,

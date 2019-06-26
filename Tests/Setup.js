@@ -6,6 +6,7 @@ import { NativeModules as RNNativeModules, Image } from 'react-native';
 import mockAsyncStorage from '@react-native-community/async-storage/jest/async-storage-mock';
 import '../storybook/setup_faker';
 import PropTypes from 'prop-types';
+import { LocationProvider } from '../App/Context/Location';
 
 global.fetch = fetch;
 
@@ -117,6 +118,8 @@ jest.mock('../App/Components/Spots/SpotsList/utils.js', () => ({
 }));
 
 jest.mock('@react-native-community/async-storage', () => mockAsyncStorage);
+
+jest.mock('react-native-geolocation-service', () => ({}));
 
 const localStorageMock = {
   getItem: jest.fn(),
