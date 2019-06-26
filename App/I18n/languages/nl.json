@@ -191,7 +191,11 @@
     "join": "Doe je mee?",
     "edit": "Wijzigen aanwezigheid",
     "share": "Delen",
-    "spotsLeft": "plekken over"
+    "spotsLeft": {
+      "one": "1 plek over",
+      "other": "{{count}} plekken over",
+      "zero": "0 plekken over"
+    }
   },
 
   "descriptionReadMore": {

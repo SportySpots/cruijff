@@ -12,7 +12,7 @@ storiesOf('Games.ShareGameButton', module)
     >
       {({ loading, error, data }) => (
         loading || error ? null : (
-          <ShareGameButton variant="facebook" gameUUID={data.game.uuid} />
+          <ShareGameButton variant="facebook" shareLink={data.game.share_link} />
         ))
       }
     </Query>

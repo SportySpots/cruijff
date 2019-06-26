@@ -45766,6 +45766,211 @@ exports[`Storyshots Games.PlayersTabs PlayersTabs 1`] = `
 </View>
 `;
 
+exports[`Storyshots Games.RSVPButtons RSVPButtons 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        alignItems="stretch"
+        justifyContent="flex-start"
+        style={
+          Array [
+            Object {
+              "alignItems": "stretch",
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "flex": 1,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            alignItems="center"
+            bgColor="grass"
+            borderColor="grass"
+            disabled={false}
+            justifyContent="center"
+            size="M"
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#009f36",
+                  "borderColor": "#009f36",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "borderWidth": 1,
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "minWidth": 80,
+                  "width": "100%",
+                },
+                Object {},
+              ]
+            }
+            width="100%"
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#fff",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": 27,
+                  "textAlign": "left",
+                }
+              }
+            >
+              rsvpButtons.attendingBtnLabel
+            </Text>
+          </View>
+        </View>
+        <View
+          pixels={16}
+          row={true}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "height": "auto",
+                "width": 16,
+              },
+            ]
+          }
+        />
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "flex": 1,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            alignItems="center"
+            bgColor="negative"
+            borderColor="negative"
+            disabled={false}
+            justifyContent="center"
+            size="M"
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#E0301E",
+                  "borderColor": "#E0301E",
+                  "borderRadius": 8,
+                  "borderStyle": "solid",
+                  "borderWidth": 1,
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "minWidth": 80,
+                  "width": "100%",
+                },
+                Object {},
+              ]
+            }
+            width="100%"
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#fff",
+                  "fontFamily": "Rajdhani-SemiBold",
+                  "fontSize": 18,
+                  "lineHeight": 27,
+                  "textAlign": "left",
+                }
+              }
+            >
+              rsvpButtons.unattendingBtnLabel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`Storyshots Games.ShareGameButton ShareGameButton default 1`] = `
 <View
   onLayout={[Function]}

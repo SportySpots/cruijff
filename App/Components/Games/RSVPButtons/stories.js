@@ -5,9 +5,7 @@ import RSVPButtons from '.';
 
 storiesOf('Games.RSVPButtons', module)
   .add('RSVPButtons', () => (
-
     <View style={{ flex: 1 }}>
-      <RSVPButtons />
+      <RSVPButtons gameUUID="455" />
     </View>
-
   ));

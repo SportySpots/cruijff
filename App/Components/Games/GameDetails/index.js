@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import I18n from '../../../I18n';
+import Fonts from '../../../Themes/Fonts';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import SpotImages from '../../Spots/SpotImages';
 import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import Block from '../../Common/Block';
 import Text from '../../Common/Text';
+import Spacer from '../../Common/Spacer';
 import AlertMsg from '../../Common/AlertMsg';
 import ChatWithGroup from '../../Chat/ChatWithGroup';
 import GameProperties from '../GameProperties';
@@ -32,6 +34,8 @@ const Label = props => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+// TODO: introduce constants file with USER_STATUSES = { ATTENDING: 'ATTENDING', ... }
+// Same for GAME_STATUSES
 const GameDetails = ({
   game,
   user,
@@ -103,20 +107,16 @@ const GameDetails = ({
     // ],
     (!isCanceled && (!isFull || (isFull && userStatus === 'ATTENDING'))) && (
       <Block key="rsvp">
-        <Row>
+        <Row alignItems="flex-start">
           <Label>
             {I18n.t(!userStatus ? 'gameDetails.join' : 'gameDetails.edit')}
           </Label>
-          {hasCapacity
-          && (
-          <Text size="M" color="actionYellow">
-            {' '}
-            { game.capacity - game.attendees.length}
-            {' '}
-            {I18n.t('gameDetails.spotsLeft')}
-          </Text>
-          )
-          }
+          <Spacer row size="M" />
+          {hasCapacity && (!userStatus || userStatus !== 'ATTENDING') && (
+            <Text size="SM" style={{ lineHeight: 1.5 * Fonts.M.fontSize }}>
+              {I18n.t('gameDetails.spotsLeft', { count: game.capacity - game.attendees.length })}
+            </Text>
+          )}
         </Row>
         <RSVP
           gameUUID={game.uuid}
