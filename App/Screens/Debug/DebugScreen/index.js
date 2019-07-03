@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, View } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Colors from '../../../Themes/Colors';
 import Block from '../../../Components/Common/Block';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import { log } from '../../../config';
+import SwitchWithText from '../../../Components/Common/SwitchWithText';
+import { withCodePush } from '../../../Context/CodePush';
 
 const safeStringify = (obj) => {
   try {
@@ -19,7 +22,7 @@ const safeStringify = (obj) => {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DebugScreen = ({ navigation }) => (
+const DebugScreen = ({ navigation, allowDevUpdates, setAllowDevUpdates }) => (
   <ScrollView
     contentContainerStyle={{
       backgroundColor: Colors.white,
@@ -30,6 +33,17 @@ const DebugScreen = ({ navigation }) => (
         variant="default"
         label="Back"
         onPress={() => { navigation.navigate('MainNav'); }}
+      />
+      <RaisedButton
+        variant="default"
+        label="Clear local storage"
+        onPress={() => { AsyncStorage.clear(); }}
+      />
+      <SwitchWithText
+        value={allowDevUpdates}
+        description="Allow dev updates"
+        label="Dev updates"
+        onChange={() => setAllowDevUpdates(!allowDevUpdates)}
       />
       <Spacer size="M" />
       {log.map((item, idx) => {
@@ -58,4 +72,4 @@ DebugScreen.propTypes = {
   }).isRequired,
 };
 
-export default DebugScreen;
+export default withCodePush(DebugScreen);

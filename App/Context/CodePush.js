@@ -5,6 +5,7 @@ import moment from 'moment';
 import codePush from 'react-native-code-push';
 import firebase from 'react-native-firebase';
 import I18n from '../I18n';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export const UPDATE_STATUS = {
   UP_TO_DATE: 'UP_TO_DATE',
@@ -22,6 +23,7 @@ const defaultValue = {
   downloadProgress: 1,
   current: null, // metadata of current codePush installed version
   lastChecked: moment.utc(),
+  allowDevUpdates: false,
 };
 
 export const CodePushContext = React.createContext(defaultValue);
@@ -59,6 +61,7 @@ export class CodePushProvider extends React.Component {
     } else {
       // stop checking for updates while downloading
       this.stopInterval();
+      console.log('codepush found update:', remotePackage);
       this.setState({ updateStatus: UPDATE_STATUS.DOWNLOADING });
       const newPackage = await remotePackage.download((progress) => {
         this.setState({ downloadProgress: progress.receivedBytes / progress.totalBytes });
@@ -81,10 +84,23 @@ export class CodePushProvider extends React.Component {
     this.interval = null;
   }
 
+  setAllowDevUpdates = (enabled = false) => {
+    this.setState({ allowDevUpdates: enabled });
+    if (enabled) {
+      AsyncStorage.setItem('AsyncStorageAllowDevUpdates', 'true');
+    } else {
+      AsyncStorage.removeItem('AsyncStorageAllowDevUpdates');
+    }
+  }
+
   async componentDidMount() {
     this.checkForUpdates();
     this.startInterval();
     this.setState({ current: await codePush.getUpdateMetadata() });
+    const as = await AsyncStorage.getItem('AsyncStorageAllowDevUpdates');
+    if (as) {
+      this.setState({ allowDevUpdates: true });
+    }
   }
 
   componentWillUnmount() {
@@ -96,7 +112,10 @@ export class CodePushProvider extends React.Component {
 
     return (
       <CodePushContext.Provider
-        value={this.state}
+        value={{
+          ...this.state,
+          setAllowDevUpdates: this.setAllowDevUpdates,
+        }}
       >
         {children}
       </CodePushContext.Provider>
@@ -121,4 +140,5 @@ export const codePushPropTypes = {
   downloadProgress: PropTypes.number,
   lastChecked: PropTypes.instanceOf(moment),
   current: PropTypes.any,
+  allowDevUpdates: PropTypes.any,
 };
