@@ -85,12 +85,16 @@ CityPicker.propTypes = {
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
-  }).isRequired,
+  }),
   onChange: PropTypes.func,
   setCity: PropTypes.func,
 };
 
 CityPicker.defaultProps = {
+  navigation: {
+    goBack: () => null,
+    navigate: () => null,
+  },
   onChange: () => null,
   setCity: () => null,
 };

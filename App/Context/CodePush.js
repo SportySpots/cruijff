@@ -53,24 +53,26 @@ export class CodePushProvider extends React.Component {
   }
 
   async checkForUpdates() {
-    console.log('CODEPUSH: checking for updates');
+    console.log('codepush: checking for updates');
     this.setState({ updateStatus: UPDATE_STATUS.CHECKING });
     const remotePackage = await codePush.checkForUpdate();
     if (!remotePackage) {
+      console.log('codepush: no remote package');
       this.setState({ updateStatus: UPDATE_STATUS.UP_TO_DATE });
     } else {
       // stop checking for updates while downloading
       this.stopInterval();
-      console.log('codepush found update:', remotePackage);
+      console.log('codepush: found update:', remotePackage);
       if (remotePackage.description && (
         remotePackage.description.includes('devUpdate')
           || remotePackage.description.includes('devupdate')
       ) && !this.state.allowDevUpdates) {
-        console.log('skipping dev update');
+        console.log('codepush: skipping dev update');
         this.setState({
           updateStatus: UPDATE_STATUS.UP_TO_DATE,
         });
       } else {
+        console.log('codepush: starting download');
         this.setState({ updateStatus: UPDATE_STATUS.DOWNLOADING });
         const newPackage = await remotePackage.download((progress) => {
           this.setState({ downloadProgress: progress.receivedBytes / progress.totalBytes });
@@ -80,7 +82,7 @@ export class CodePushProvider extends React.Component {
         await newPackage.install(codePush.InstallMode.ON_NEXT_RESTART);
         this.setState({ updateStatus: UPDATE_STATUS.RESTART_REQUIRED });
         this.showUpdateNotification();
-        console.log('CODEPUSH: Update installed. Needs restart.');
+        console.log('codepush: Update installed. Needs restart.');
       }
     }
     this.setState({ lastChecked: moment.utc() });

@@ -145,7 +145,7 @@ export const withSpotFilters = Component => props => (
 );
 
 export const spotFiltersPropTypes = {
-  city: PropTypes.string.isRequired,
+  city: PropTypes.string,
   maxDistance: PropTypes.number.isRequired,
   allSports: PropTypes.bool.isRequired,
   selectedSportIds: PropTypes.arrayOf(PropTypes.string).isRequired,
