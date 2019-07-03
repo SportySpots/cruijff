@@ -14,6 +14,7 @@ import {
 } from './Navigators';
 import NavBar from '../Components/Common/NavBar';
 import OnboardingScreen from '../Screens/Onboarding/OnboardingScreen';
+import CityPicker from '../Components/Onboarding/CityPicker';
 import DebugScreen from '../Screens/Debug/DebugScreen';
 
 const MainTabsNav = createBottomTabNavigator({
@@ -36,9 +37,16 @@ const MainNav = createStackNavigator({
   initialRouteName: 'MainTabs',
 });
 
+const OnboardingNavigator = createSwitchNavigator({
+  Swiper: { screen: OnboardingScreen },
+  CityPicker: { screen: CityPicker },
+}, {
+  initialRouteName: 'Swiper',
+});
+
 const AppNavigation = createSwitchNavigator({
   SplashScreen: { screen: SplashNav },
-  OnboardingScreen: { screen: OnboardingScreen },
+  OnboardingScreen: { screen: OnboardingNavigator },
   MainNav: { screen: MainNav },
   DebugNav: { screen: DebugScreen },
 }, {

@@ -680,6 +680,10 @@
       "title": "Organiza una actividad",
       "text": "Planea tu deporte favorito en el lugar perfecto con tus amigos y otros deportistas."
     },
+    "shareLocation": {
+      "title": "Share your location",
+      "text": "We're asking to make use of your location so we can give you an overview of the sportyspots near you."
+    },
     "nextBtnLabel": "continuar",
     "lastBtnLabel": "comenzar"
   },

@@ -680,6 +680,10 @@
       "title": "Plan a game",
       "text": "Plan your favorite sport in the perfect place with your friends or other sporters."
     },
+    "shareLocation": {
+      "title": "Share your location",
+      "text": "We're asking to make use of your location so we can give you an overview of the sportyspots near you."
+    },
     "nextBtnLabel": "continue",
     "lastBtnLabel": "let's go"
   },

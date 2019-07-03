@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard, ScrollView, Dimensions } from 'react-native';
+import { Keyboard, ScrollView, Dimensions, Platform, PermissionsAndroid } from 'react-native';
 import firebase from 'react-native-firebase';
 import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../Common/DarkFooter';
-import LocationSlide from '../LocationSlide';
+import Geolocation from 'react-native-geolocation-service';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -44,8 +44,14 @@ const SLIDES = [
     ),
   },
   {
-    id: 'locationSlide',
-    Comp: LocationSlide,
+    id: 'shareLocationSlide',
+    Comp: () => (
+      <ImageBackground
+        title={I18n.t('onboardingScreen.shareLocation.title')}
+        text={I18n.t('onboardingScreen.shareLocation.text')}
+        image={Images.illustrationShareLocation}
+      />
+    ),
   },
 ];
 
@@ -69,9 +75,37 @@ class OnboardingForm extends React.Component {
     this.compRefs = [];
   }
 
+  handleNoLocationPermissionOrError = () => {
+
+  }
+
+  getLocation = () => {
+    Geolocation.getCurrentPosition(() => {}, this.handleNoLocationPermissionOrError);
+  }
+
+  handleLastSlide = () => {
+    this.hasHandledLastSlide = true;
+    setTimeout(() => {
+      if (Platform.OS === 'android') {
+        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.fineLocation).then((result) => {
+          if (result === PermissionsAndroid.RESULTS.GRANTED) {
+            this.getLocation();
+          } else {
+            this.handleNoLocationPermissionOrError();
+          }
+        }).catch(this.handleNoLocationPermissionOrError)
+      } else {
+        this.getLocation();
+      }
+    }, 1000);
+  }
+
   handleScroll = (evt) => {
     const nextSlide = Math.round(evt.nativeEvent.contentOffset.x / WINDOW_WIDTH);
     this.setState({ curSlide: nextSlide });
+    if (nextSlide === SLIDES.length - 1 && !this.hasHandledLastSlide) {
+      this.handleLastSlide();
+    }
   }
 
   disableNext() {
