@@ -71,8 +71,9 @@ export class CodePushProvider extends React.Component {
         this.setState({
           updateStatus: UPDATE_STATUS.UP_TO_DATE,
         });
+        this.startInterval();
       } else {
-        console.log('codepush: starting download');
+        console.log('codepush: starting download.');
         this.setState({ updateStatus: UPDATE_STATUS.DOWNLOADING });
         const newPackage = await remotePackage.download((progress) => {
           this.setState({ downloadProgress: progress.receivedBytes / progress.totalBytes });
