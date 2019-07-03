@@ -13,6 +13,7 @@ import Text from '../../Common/Text';
 import SliderWithText from '../../Common/SliderWithText';
 import SwitchWithText from '../../Common/SwitchWithText';
 import RaisedButton from '../../Common/RaisedButton';
+import LocationPickerField from '../../Common/LocationPickerField';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -20,8 +21,8 @@ import RaisedButton from '../../Common/RaisedButton';
 class SpotsFilterForm extends React.PureComponent {
   constructor(props) {
     super(props);
-    const { maxDistance, allSports, selectedSportIds } = props;
-    this.state = { maxDistance, allSports, selectedSportIds };
+    const { maxDistance, allSports, selectedSportIds, city } = props;
+    this.state = { maxDistance, allSports, selectedSportIds, city };
   }
 
   handleDistanceChange = (maxDistance) => {
@@ -49,6 +50,10 @@ class SpotsFilterForm extends React.PureComponent {
     });
   }
 
+  handleCityChange = (city) => {
+    this.setState({ city });
+  }
+
   handleSubmit = () => {
     const { onBeforeHook, onClientCancelHook, onSuccessHook } = this.props;
 
@@ -62,19 +67,32 @@ class SpotsFilterForm extends React.PureComponent {
     }
 
     // Get field values
-    const { maxDistance, allSports, selectedSportIds } = this.state;
+    const { maxDistance, allSports, selectedSportIds, city } = this.state;
 
     // Pass event up to parent component. onSuccessHook 'disabled'
     // value back to 'false' so that the user can re-submit the form
-    onSuccessHook({ maxDistance, allSports, selectedSportIds });
+    onSuccessHook({ maxDistance, allSports, selectedSportIds, city });
   }
 
   render() {
     const { sports, disabled } = this.props;
-    const { maxDistance, allSports, selectedSportIds } = this.state;
+    const { maxDistance, allSports, selectedSportIds, city } = this.state;
 
     return [
       <TopLayout key="top">
+        <Block>
+          <Row>
+            <Text size="M">
+              { I18n.t('spotsFilterScreen.city.label') }
+            </Text>
+          </Row>
+          <Row>
+            <LocationPickerField
+              value={city}
+              onChange={this.handleCityChange}
+            />
+          </Row>
+        </Block>
         <Block>
           <SliderWithText
             minimumValue={0}
@@ -136,6 +154,7 @@ class SpotsFilterForm extends React.PureComponent {
 }
 
 SpotsFilterForm.propTypes = {
+  city: PropTypes.string.isRequired,
   sports: PropTypes.arrayOf(propType(sportFragment)).isRequired,
   maxDistance: PropTypes.number.isRequired,
   allSports: PropTypes.bool.isRequired,

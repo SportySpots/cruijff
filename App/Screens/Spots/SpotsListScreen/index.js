@@ -7,7 +7,8 @@ import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilt
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
 import SpotsList from '../../../Components/Spots/SpotsList';
 import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
-import { withLocation } from '../../../Context/Location';
+import { locationPropTypes, withLocation } from '../../../Context/Location';
+import { mergeCoords } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -37,8 +38,7 @@ class SpotsListScreen extends React.Component {
   }
 
   render() {
-    const { maxDistance, allSports, selectedSportIds } = this.props;
-
+    const { maxDistance, allSports, selectedSportIds, city, locationEnabled, locationCoords } = this.props;
     return (
       <FlexOne testID="SpotsListScreen">
         {(!allSports || maxDistance < 20) && (
@@ -62,6 +62,7 @@ class SpotsListScreen extends React.Component {
               cardComponent="SpotListCard"
               sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
               maxDistance={maxDistance} // km
+              coords={mergeCoords(locationCoords, locationEnabled, city)}
               onCardPress={this.handleCardPress}
               // FlatList props
               // onScroll={this.handleScroll}
@@ -77,7 +78,7 @@ SpotsListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  locationUpdate: PropTypes.func.isRequired,
+  ...locationPropTypes,
   ...spotFiltersPropTypes,
 };
 

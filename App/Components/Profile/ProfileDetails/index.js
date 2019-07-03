@@ -2,7 +2,6 @@ import React from 'react';
 // import styled from 'styled-components/native';
 import I18n from '../../../I18n';
 import { userPropTypes } from '../../../Context/User';
-import { locationPropTypes, CITIES } from '../../../Context/Location';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
@@ -21,7 +20,7 @@ import Avatar from '../../Common/Avatar';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetails = ({ user, locationCity }) => [
+const ProfileDetails = ({ user }) => [
   <Block key="top">
     <Row justifyContent="center">
       <Avatar user={user} size="L" />
@@ -31,11 +30,6 @@ const ProfileDetails = ({ user, locationCity }) => [
       {user.name}
     </Text>
     <Spacer size="S" />
-    {!!locationCity && (
-      <Text size="M" color="gray" center>
-        {CITIES.find(city => city.id === locationCity).city}
-      </Text>
-    )}
   </Block>,
   /* <Spacer key="spacer" size="M" />,
   <Divider key="divider" />,
@@ -46,7 +40,6 @@ const ProfileDetails = ({ user, locationCity }) => [
 
 ProfileDetails.propTypes = {
   user: userPropTypes.user.isRequired,
-  locationCity: locationPropTypes.locationCity.isRequired,
 };
 
 export default ProfileDetails;

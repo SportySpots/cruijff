@@ -127,6 +127,9 @@
         "description": "Filter op type sport"
       }
     },
+    "city": {
+      "label": "City"
+    },
     "btnLabel": "Bekijk spots"
   },
 

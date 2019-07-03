@@ -13,6 +13,7 @@ import SpotsFilterForm from '../../../Components/Spots/SpotsFilterForm';
 //------------------------------------------------------------------------------
 const SpotsFilterScreen = ({
   navigation,
+  city,
   maxDistance,
   allSports,
   selectedSportIds,
@@ -45,6 +46,7 @@ const SpotsFilterScreen = ({
             >
               {({ filterSpots }) => (
                 <SpotsFilterForm
+                  city={city}
                   sports={data.sports}
                   maxDistance={maxDistance}
                   allSports={allSports}

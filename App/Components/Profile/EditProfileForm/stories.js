@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Query } from 'react-apollo';
 import GET_USER_DETAILS from '../../../GraphQL/Users/Queries/GET_USER_DETAILS';
-import { CITIES } from '../../../Context/Location';
 import EditProfileForm from '.';
 
 storiesOf('Profile.EditProfileForm', module)
@@ -15,8 +14,7 @@ storiesOf('Profile.EditProfileForm', module)
         loading || error ? null : (
           <EditProfileForm
             user={data.user}
-            locationCity={CITIES[0].id}
-          />
+s          />
         ))
       }
     </Query>

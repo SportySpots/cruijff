@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../Context/User';
-import { withLocation, locationPropTypes } from '../Context/Location';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 
 //------------------------------------------------------------------------------
@@ -16,7 +15,6 @@ import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndi
 const LoggedInRoute = ({
   loadingUser,
   user,
-  locationLoading,
   component: Component,
   overlay: Overlay,
   ...rest

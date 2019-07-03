@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import I18n from '../../../I18n';
-import { CITIES, locationPropTypes } from '../../../Context/Location';
+import { CITIES } from '../../../Context/SpotFilters';
 import InputField from '../InputField';
 
 //------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ const LocationPickerField = ({ value, onChange, ...rest }) => {
 };
 
 LocationPickerField.propTypes = {
-  value: locationPropTypes.locationCity,
+  value: PropTypes.string,
   onChange: PropTypes.func,
   // Plus all InputField props (theme, size)
 };

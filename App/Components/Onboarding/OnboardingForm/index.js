@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard, ScrollView, Dimensions, Platform, PermissionsAndroid } from 'react-native';
+import { Keyboard, ScrollView, Dimensions } from 'react-native';
 import firebase from 'react-native-firebase';
 import styled from 'styled-components/native';
+import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../Common/DarkFooter';
-import Geolocation from 'react-native-geolocation-service';
+import { withLocation } from '../../../Context/Location';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -75,27 +76,15 @@ class OnboardingForm extends React.Component {
     this.compRefs = [];
   }
 
-  handleNoLocationPermissionOrError = () => {
-
-  }
-
-  getLocation = () => {
-    Geolocation.getCurrentPosition(() => {}, this.handleNoLocationPermissionOrError);
-  }
-
   handleLastSlide = () => {
     this.hasHandledLastSlide = true;
-    setTimeout(() => {
-      if (Platform.OS === 'android') {
-        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.fineLocation).then((result) => {
-          if (result === PermissionsAndroid.RESULTS.GRANTED) {
-            this.getLocation();
-          } else {
-            this.handleNoLocationPermissionOrError();
-          }
-        }).catch(this.handleNoLocationPermissionOrError)
+    setTimeout(async () => {
+      const result = await this.props.locationEnable();
+      if (result) {
+        AsyncStorage.setItem('OnboardingCompleted', 'true');
+        this.props.navigation.navigate('MainNav');
       } else {
-        this.getLocation();
+        this.props.navigation.navigate('CityPicker');
       }
     }, 1000);
   }
@@ -110,6 +99,7 @@ class OnboardingForm extends React.Component {
 
   disableNext() {
     // Get required fields for the current slide
+    if (this.state.curSlide === SLIDES.length - 1) { return true; }
     const currentComp = this.compRefs[this.state.curSlide];
     if (currentComp) {
       return (currentComp.completed && !currentComp.completed());
@@ -135,12 +125,7 @@ class OnboardingForm extends React.Component {
       if (this.swiper) {
         this.swiper.scrollTo({ x: (curSlide + 1) * WINDOW_WIDTH });
       }
-      return;
     }
-
-    // last slide, so done
-    const { onSuccessHook } = this.props;
-    onSuccessHook();
   }
 
   handleChange = ({ fieldName, value }) => {
@@ -182,11 +167,15 @@ class OnboardingForm extends React.Component {
 }
 
 OnboardingForm.propTypes = {
-  onSuccessHook: PropTypes.func,
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+  locationEnable: PropTypes.func,
 };
 
 OnboardingForm.defaultProps = {
-  onSuccessHook: () => {},
+  locationEnable: () => {},
 };
 
-export default OnboardingForm;
+export default withLocation(OnboardingForm);

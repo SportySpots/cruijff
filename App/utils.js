@@ -3,6 +3,7 @@ import isString from 'lodash/isString';
 import castArray from 'lodash/castArray';
 import { Buffer } from 'buffer';
 import globalRefs from './globalRefs';
+import { CITIES } from './Context/SpotFilters';
 
 /* eslint-disable no-param-reassign */
 export const addModelState = (reactComponentInstance, modalName, isOpen = false) => {
@@ -111,3 +112,13 @@ export const decodeJWTToken = (token) => {
   return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
 };
 
+export const mergeCoords = (locationCoords, locationEnabled, city) => {
+  if (locationEnabled) {
+    return locationCoords;
+  }
+  const cityObj = CITIES.find(c => c.id === city);
+  if (cityObj) {
+    return cityObj.coords;
+  }
+  return CITIES[0].coords;
+};

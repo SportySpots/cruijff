@@ -9,6 +9,8 @@ import GameDetailsScreens from './GameDetailsScreens';
 import SpotsFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
 import AuthScreens from './AuthScreens';
 import { headerTitleStyle } from './style';
+import { View } from 'react-native';
+import { withLocation } from '../../Context/Location';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -21,6 +23,19 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+const GPSButton = withLocation(({ locationEnable, locationDisable, locationEnabled }) => (
+  <HeaderBtn
+    iconName={locationEnabled ? 'location-on' : 'location-off'}
+    onPress={() => {
+      if (locationEnabled) {
+        locationDisable();
+      } else {
+        locationEnable();
+      }
+    }}
+  />
+));
+
 const SpotSearchNav = createStackNavigator({
   ...AuthScreens,
   ...GameDetailsScreens,
@@ -52,10 +67,14 @@ const SpotSearchNav = createStackNavigator({
       headerTitle: I18n.t('spotsListScreen.navigation.title'),
       headerTitleStyle,
       headerRight: (
-        <HeaderBtn
-          iconName="filter-list"
-          onPress={() => { navigation.navigate('SpotsFilterScreen'); }}
-        />
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <GPSButton />
+          <HeaderBtn
+            iconName="filter-list"
+            onPress={() => { navigation.navigate('SpotsFilterScreen'); }}
+          />
+        </View>
+
       ),
     }),
   },

@@ -22,8 +22,6 @@ const Container = styled.View`
 const ProfileEditScreen = ({
   user,
   refetchUser,
-  locationCity,
-  locationSetCity,
   navigation,
 }) => (
   <FormProps>
@@ -56,10 +54,7 @@ const ProfileEditScreen = ({
               onClientCancelHook={handleClientCancel}
               onClientErrorHook={handleClientError}
               // Call api to store data into DB
-              onSuccessHook={({ locationCity: newCity, ...profileFields }) => {
-                locationSetCity(newCity);
-                return updateProfile(profileFields);
-              }}
+              onSuccessHook={updateProfile}
             />
           </Container>
         )}
@@ -71,8 +66,6 @@ const ProfileEditScreen = ({
 ProfileEditScreen.propTypes = {
   user: userPropTypes.user.isRequired,
   refetchUser: userPropTypes.refetchUser.isRequired,
-  locationCity: locationPropTypes.locationCity.isRequired,
-  locationSetCity: locationPropTypes.locationSetCity.isRequired,
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
@@ -80,7 +73,6 @@ ProfileEditScreen.propTypes = {
 
 const enhance = compose(
   withUser,
-  withLocation,
 );
 
 export default enhance(ProfileEditScreen);

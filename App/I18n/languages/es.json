@@ -127,6 +127,9 @@
         "description": "Filtrar por tipo de deporte"
       }
     },
+    "city": {
+      "label": "City"
+    },
     "btnLabel": "Ver spots"
   },
 

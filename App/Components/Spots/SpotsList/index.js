@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import I18n from '../../../I18n';
-import { withLocation, locationPropTypes } from '../../../Context/Location';
+import { locationPropTypes } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
@@ -20,17 +20,12 @@ import { makeNumGenerator } from '../../../utils';
 const SpotsList = ({
   cardComponent,
   sportsIds,
-  locationCoords,
-  locationLoading,
-  locationCoordsFallback,
+  coords,
   maxDistance,
   selectedSpot,
   onCardPress,
   ...rest
 }) => {
-  if (!locationCoords) { return null; }
-
-  const coords = locationCoords;
   const Card = cardComponent === 'SpotListCard' ? SpotListCard : SpotListCardSmall;
 
   // Set query variables
@@ -104,7 +99,7 @@ const SpotsList = ({
             ItemSeparatorComponent={() => <Spacer size="ML" />}
             showsVerticalScrollIndicator={false}
             onRefresh={refetch}
-            refreshing={loading || locationLoading}
+            refreshing={loading}
             onEndReached={loadMore}
             onEndReachedThreshold={0.1}
             contentContainerStyle={{
@@ -123,9 +118,7 @@ const SpotsList = ({
 SpotsList.propTypes = {
   cardComponent: PropTypes.oneOf(['SpotListCard', 'SpotListCardSmall']).isRequired,
   sportsIds: PropTypes.arrayOf(PropTypes.string),
-  locationCoords: locationPropTypes.locationCoords,
-  locationCoordsFallback: locationPropTypes.locationCoordsFallback,
-  locationLoading: locationPropTypes.locationLoading,
+  coords: locationPropTypes.locationCoords,
   maxDistance: PropTypes.number, // km
   selectedSpot: propType(spotFragment),
   onCardPress: PropTypes.func,
@@ -134,12 +127,13 @@ SpotsList.propTypes = {
 
 SpotsList.defaultProps = {
   sportsIds: [],
-  locationCoords: null,
-  locationLoading: false,
-  locationCoordsFallback: true,
+  coords: {
+    latitude: 0,
+    longitude: 0,
+  },
   maxDistance: 50,
   selectedSpot: null,
   onCardPress: () => {},
 };
 
-export default withLocation(SpotsList);
+export default SpotsList;

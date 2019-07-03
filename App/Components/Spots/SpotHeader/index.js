@@ -14,6 +14,8 @@ import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import DotSpacer from '../../Common/DotSpacer';
 import curatedGames from './utils';
+import { compose } from 'react-apollo';
+import { withSpotFilters } from '../../../Context/SpotFilters';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -39,7 +41,7 @@ const SpotHeader = ({
   withDistance,
   withGames,
   locationCoords,
-  locationCoordsFallback,
+  locationEnabled,
 }) => {
   const {
     name,
@@ -51,7 +53,7 @@ const SpotHeader = ({
   const games = (rawGames && curatedGames(rawGames)) || [];
 
   const showDistance = withDistance
-    && !locationCoordsFallback
+    && locationEnabled
     && spot.address
     && spot.address.lat
     && spot.address.lng;
@@ -124,7 +126,7 @@ const SpotHeader = ({
 
 SpotHeader.propTypes = {
   locationCoords: locationPropTypes.locationCoords,
-  locationCoordsFallback: locationPropTypes.locationCoordsFallback,
+  locationEnabled: locationPropTypes.locationEnabled,
   spot: propType(spotFragment).isRequired,
   gray: PropTypes.bool,
   withDistance: PropTypes.bool,
@@ -133,10 +135,14 @@ SpotHeader.propTypes = {
 
 SpotHeader.defaultProps = {
   locationCoords: null,
-  locationCoordsFallback: true,
+  locationEnabled: false,
   gray: false,
   withDistance: false,
   withGames: false,
 };
 
-export default withLocation(SpotHeader);
+const enhance = compose(
+  withLocation,
+);
+
+export default enhance(SpotHeader);

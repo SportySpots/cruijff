@@ -52,8 +52,8 @@ class SplashScreen extends React.Component {
             label={I18n.t('splashScreen.btnLabel')}
             accessibilityLabel={I18n.t('splashScreen.btnLabel')}
             onPress={() => {
-              AsyncStorage.getItem('userCity').then((city) => {
-                navigation.navigate(city ? 'MainNav' : 'OnboardingScreen');
+              AsyncStorage.getItem('OnboardingCompleted').then((completed) => {
+                navigation.navigate(completed ? 'MainNav' : 'OnboardingScreen');
               });
             }}
           />

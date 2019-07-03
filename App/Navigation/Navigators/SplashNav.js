@@ -12,8 +12,8 @@ import AuthScreens from './AuthScreens';
 const handleLoggedIn = (navigation) => {
   // In case the user is logged in when trying to access the SplashScreen,
   // redirect him to MainNav unless onboarding isn't completed yet.
-  AsyncStorage.getItem('userCity').then((city) => {
-    navigation.navigate(city ? 'MainNav' : 'OnboardingScreen');
+  AsyncStorage.getItem('OnboardingCompleted').then((completed) => {
+    navigation.navigate(completed ? 'MainNav' : 'OnboardingScreen');
   });
 };
 //------------------------------------------------------------------------------

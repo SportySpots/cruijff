@@ -52,13 +52,9 @@ class OnboardingScreen extends React.Component {
   }
 
   render() {
-    const { navigation } = this.props;
-
     return (
       <OnboardingForm
-        onSuccessHook={async () => {
-          navigation.navigate('MainNav');
-        }}
+        navigation={this.props.navigation}
       />
     );
   }
