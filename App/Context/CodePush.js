@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import codePush from 'react-native-code-push';
 import firebase from 'react-native-firebase';
-import I18n from '../I18n';
 import AsyncStorage from '@react-native-community/async-storage';
+import I18n from '../I18n';
 
 export const UPDATE_STATUS = {
   UP_TO_DATE: 'UP_TO_DATE',
@@ -62,15 +62,26 @@ export class CodePushProvider extends React.Component {
       // stop checking for updates while downloading
       this.stopInterval();
       console.log('codepush found update:', remotePackage);
-      this.setState({ updateStatus: UPDATE_STATUS.DOWNLOADING });
-      const newPackage = await remotePackage.download((progress) => {
-        this.setState({ downloadProgress: progress.receivedBytes / progress.totalBytes });
-      });
-      this.setState({ downloadProgress: 1 });
-      await newPackage.install(codePush.InstallMode.ON_NEXT_RESTART);
-      this.setState({ updateStatus: UPDATE_STATUS.RESTART_REQUIRED });
-      this.showUpdateNotification();
-      console.log('CODEPUSH: Update installed. Needs restart.');
+      if (remotePackage.description && (
+        remotePackage.description.includes('devUpdate')
+          || remotePackage.description.includes('devupdate')
+      ) && !this.state.allowDevUpdates) {
+        console.log('skipping dev update');
+        this.setState({
+          updateStatus: UPDATE_STATUS.UP_TO_DATE,
+        });
+      } else {
+        this.setState({ updateStatus: UPDATE_STATUS.DOWNLOADING });
+        const newPackage = await remotePackage.download((progress) => {
+          this.setState({ downloadProgress: progress.receivedBytes / progress.totalBytes });
+        });
+        this.setState({ downloadProgress: 1 });
+        console.log('codepush: download complete');
+        await newPackage.install(codePush.InstallMode.ON_NEXT_RESTART);
+        this.setState({ updateStatus: UPDATE_STATUS.RESTART_REQUIRED });
+        this.showUpdateNotification();
+        console.log('CODEPUSH: Update installed. Needs restart.');
+      }
     }
     this.setState({ lastChecked: moment.utc() });
   }
