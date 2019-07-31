@@ -26,7 +26,6 @@ const Circle = styled.View`
 const StyledImage = styled.Image`
   width: ${setSize}px;
   height: ${setSize}px;
-  border-radius: ${setSize}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
