@@ -4599,7 +4599,6 @@ exports[`Storyshots Common.Avatar Avatar no props size S 1`] = `
         style={
           Array [
             Object {
-              "borderRadius": 40,
               "height": 40,
               "width": 40,
             },
