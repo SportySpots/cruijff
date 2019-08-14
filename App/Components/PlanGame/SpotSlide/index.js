@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import cloneDeep from 'lodash/cloneDeep';
 import styled from 'styled-components';
+import { compose } from 'react-apollo';
 import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Spacer from '../../Common/Spacer';
 import SpotsList from '../../Spots/SpotsList';
+import { locationPropTypes, withLocation } from '../../../Context/Location';
+import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
+import { mergeCoords } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -28,7 +32,9 @@ const FlexOne = styled.View`
 // TODO: probably move maxDistance to SpotsList and get said value from context
 class SpotSlide extends React.PureComponent {
   render() {
-    const { sport, spot, onChange } = this.props;
+    const {
+      sport, spot, onChange, city, locationEnabled, locationCoords,
+    } = this.props;
 
     return (
       <FlexOne>
@@ -38,6 +44,7 @@ class SpotSlide extends React.PureComponent {
           cardComponent="SpotListCardSmall"
           sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
           // maxDistance={maxDistance} // km
+          coords={mergeCoords(locationCoords, locationEnabled, city)}
           selectedSpot={spot}
           onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
         />
@@ -54,6 +61,8 @@ SpotSlide.propTypes = {
   sport: propType(sportFragment),
   spot: propType(spotFragment),
   onChange: PropTypes.func,
+  ...locationPropTypes,
+  ...spotFiltersPropTypes,
 };
 
 SpotSlide.defaultProps = {
@@ -62,4 +71,10 @@ SpotSlide.defaultProps = {
   onChange: () => {},
 };
 
-export default SpotSlide;
+
+const enhance = compose(
+  withSpotFilters,
+  withLocation,
+);
+
+export default enhance(SpotSlide);

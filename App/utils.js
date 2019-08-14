@@ -112,11 +112,11 @@ export const decodeJWTToken = (token) => {
   return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
 };
 
-export const mergeCoords = (locationCoords, locationEnabled, city) => {
+export const mergeCoords = (locationCoords, locationEnabled, cityID) => {
   if (locationEnabled) {
     return locationCoords;
   }
-  const cityObj = CITIES.find(c => c.id === city);
+  const cityObj = CITIES.find(c => c.id === cityID);
   if (cityObj) {
     return cityObj.coords;
   }
