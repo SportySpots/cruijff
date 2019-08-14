@@ -12,10 +12,10 @@
     "yarn": ">=1.0.0"
   },
   "scripts": {
-    "android:build": "cd android && ./gradlew assembleRelease",
+    "android:build": "cd android && ./gradlew bundleRelease",
     "android:clean": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
     "android:devices": "$ANDROID_HOME/platform-tools/adb devices",
-    "android:install": "cd android && ./gradlew assembleRelease && ./gradlew installDebug",
+    "android:install": "cd android && ./gradlew bundleRelease && ./gradlew installDebug",
     "android:logcat": "$ANDROID_HOME/platform-tools/adb logcat *:S ReactNative:V ReactNativeJS:V",
     "android:logcatDeviceLogs": "$ANDROID_HOME/platform-tools/adb logcat --pid=`adb shell pidof -s com.sportyspots.android`",
     "android:reset": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf android/app/build && rm -rf node_modules/ && yarn cache clean && yarn install",
