@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import codePush from 'react-native-code-push';
 import firebase from 'react-native-firebase';
-import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../I18n';
 
 export const UPDATE_STATUS = {
@@ -23,7 +22,6 @@ const defaultValue = {
   downloadProgress: 1,
   current: null, // metadata of current codePush installed version
   lastChecked: moment.utc(),
-  allowDevUpdates: false,
 };
 
 export const CodePushContext = React.createContext(defaultValue);
@@ -63,28 +61,16 @@ export class CodePushProvider extends React.Component {
       // stop checking for updates while downloading
       this.stopInterval();
       console.log('codepush: found update:', remotePackage);
-      if (remotePackage.description && (
-        remotePackage.description.includes('devUpdate')
-          || remotePackage.description.includes('devupdate')
-      ) && !this.state.allowDevUpdates) {
-        console.log('codepush: skipping dev update');
-        this.setState({
-          updateStatus: UPDATE_STATUS.UP_TO_DATE,
-        });
-        this.startInterval();
-      } else {
-        console.log('codepush: starting download.');
-        this.setState({ updateStatus: UPDATE_STATUS.DOWNLOADING });
-        const newPackage = await remotePackage.download((progress) => {
-          this.setState({ downloadProgress: progress.receivedBytes / progress.totalBytes });
-        });
-        this.setState({ downloadProgress: 1 });
-        console.log('codepush: download complete');
-        await newPackage.install(codePush.InstallMode.ON_NEXT_RESTART);
-        this.setState({ updateStatus: UPDATE_STATUS.RESTART_REQUIRED });
-        this.showUpdateNotification();
-        console.log('codepush: Update installed. Needs restart.');
-      }
+      this.setState({ updateStatus: UPDATE_STATUS.DOWNLOADING });
+      const newPackage = await remotePackage.download((progress) => {
+        this.setState({ downloadProgress: progress.receivedBytes / progress.totalBytes });
+      });
+      this.setState({ downloadProgress: 1 });
+      console.log('codepush: download complete');
+      await newPackage.install(codePush.InstallMode.ON_NEXT_RESTART);
+      this.setState({ updateStatus: UPDATE_STATUS.RESTART_REQUIRED });
+      this.showUpdateNotification();
+      console.log('codepush: Update installed. Needs restart.');
     }
     this.setState({ lastChecked: moment.utc() });
   }
@@ -98,23 +84,10 @@ export class CodePushProvider extends React.Component {
     this.interval = null;
   }
 
-  setAllowDevUpdates = (enabled = false) => {
-    this.setState({ allowDevUpdates: enabled });
-    if (enabled) {
-      AsyncStorage.setItem('AsyncStorageAllowDevUpdates', 'true');
-    } else {
-      AsyncStorage.removeItem('AsyncStorageAllowDevUpdates');
-    }
-  }
-
   async componentDidMount() {
     this.checkForUpdates();
     this.startInterval();
     this.setState({ current: await codePush.getUpdateMetadata() });
-    const as = await AsyncStorage.getItem('AsyncStorageAllowDevUpdates');
-    if (as) {
-      this.setState({ allowDevUpdates: true });
-    }
   }
 
   componentWillUnmount() {
@@ -128,7 +101,6 @@ export class CodePushProvider extends React.Component {
       <CodePushContext.Provider
         value={{
           ...this.state,
-          setAllowDevUpdates: this.setAllowDevUpdates,
         }}
       >
         {children}
@@ -154,5 +126,4 @@ export const codePushPropTypes = {
   downloadProgress: PropTypes.number,
   lastChecked: PropTypes.instanceOf(moment),
   current: PropTypes.any,
-  allowDevUpdates: PropTypes.any,
 };

@@ -8,7 +8,6 @@ import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import { log } from '../../../config';
-import SwitchWithText from '../../../Components/Common/SwitchWithText';
 import { withCodePush } from '../../../Context/CodePush';
 
 const safeStringify = (obj) => {
@@ -22,7 +21,7 @@ const safeStringify = (obj) => {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const DebugScreen = ({ navigation, allowDevUpdates, setAllowDevUpdates }) => (
+const DebugScreen = ({ navigation }) => (
   <ScrollView
     contentContainerStyle={{
       backgroundColor: Colors.white,
@@ -38,12 +37,6 @@ const DebugScreen = ({ navigation, allowDevUpdates, setAllowDevUpdates }) => (
         variant="default"
         label="Clear local storage"
         onPress={() => { AsyncStorage.clear(); }}
-      />
-      <SwitchWithText
-        value={allowDevUpdates}
-        description="Allow dev updates"
-        label="Dev updates"
-        onChange={() => setAllowDevUpdates(!allowDevUpdates)}
       />
       <Spacer size="M" />
       {log.map((item, idx) => {
