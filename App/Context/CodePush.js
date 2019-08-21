@@ -15,7 +15,7 @@ export const UPDATE_STATUS = {
 };
 
 // check every CHECK_FREQUENCY seconds for updates
-const CHECK_FREQUENCY = 30;
+const CHECK_FREQUENCY = 3600 * 6;
 
 const defaultValue = {
   updateStatus: UPDATE_STATUS.UP_TO_DATE,
