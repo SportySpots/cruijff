@@ -287,7 +287,7 @@ class PlanGameForm extends React.Component {
 
     // Load slides dinamically so that we can prevent the user to scroll right
     // when the next button is disabled
-    const FILTERED_SLIDES = cloneDeep(SLIDES).slice(0, this.nSlides);
+    const FILTERED_SLIDES = cloneDeep(SLIDES);
 
     return (
       <Relative>
@@ -301,6 +301,7 @@ class PlanGameForm extends React.Component {
           showsHorizontalScrollIndicator={false}
           onScroll={this.handleScroll}
           data={FILTERED_SLIDES}
+          scrollEnabled={false}
           extraData={FILTERED_SLIDES.length}
           keyExtractor={item => item.id}
           renderItem={({ item: { id, Comp, section } }) => (
