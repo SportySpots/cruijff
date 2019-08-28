@@ -52938,54 +52938,7 @@ exports[`Storyshots Modals.SpotPickerModal SpotPickerModal 1`] = `
                       },
                     ]
                   }
-                >
-                  <RCTScrollView
-                    ItemSeparatorComponent={[Function]}
-                    ListEmptyComponent={false}
-                    contentContainerStyle={
-                      Object {
-                        "flexGrow": 1,
-                        "justifyContent": "center",
-                        "paddingVertical": 8,
-                      }
-                    }
-                    disableVirtualization={false}
-                    getItem={[Function]}
-                    getItemCount={[Function]}
-                    horizontal={false}
-                    initialNumToRender={10}
-                    keyExtractor={[Function]}
-                    maxToRenderPerBatch={10}
-                    numColumns={1}
-                    onContentSizeChange={[Function]}
-                    onEndReached={[Function]}
-                    onEndReachedThreshold={0.1}
-                    onLayout={[Function]}
-                    onMomentumScrollEnd={[Function]}
-                    onRefresh={[Function]}
-                    onScroll={[Function]}
-                    onScrollBeginDrag={[Function]}
-                    onScrollEndDrag={[Function]}
-                    refreshControl={
-                      <RefreshControlMock
-                        onRefresh={[Function]}
-                        refreshing={true}
-                      />
-                    }
-                    refreshing={true}
-                    removeClippedSubviews={false}
-                    renderItem={[Function]}
-                    scrollEventThrottle={50}
-                    showsVerticalScrollIndicator={false}
-                    stickyHeaderIndices={Array []}
-                    updateCellsBatchingPeriod={50}
-                    viewabilityConfigCallbackPairs={Array []}
-                    windowSize={21}
-                  >
-                    <RCTRefreshControl />
-                    <View />
-                  </RCTScrollView>
-                </View>
+                />
               </View>
             </View>
           </View>
@@ -60083,74 +60036,7 @@ exports[`Storyshots Screens.Games GamesListScreen 1`] = `
         undefined,
       ]
     }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#F5F5F5",
-            "flexBasis": 0,
-            "flexGrow": 1,
-            "flexShrink": 1,
-            "paddingBottom": 0,
-            "paddingLeft": 8,
-            "paddingRight": 8,
-            "paddingTop": 0,
-          },
-        ]
-      }
-      testID="GameListScreen"
-    >
-      <RCTScrollView
-        ItemSeparatorComponent={[Function]}
-        ListEmptyComponent={false}
-        contentContainerStyle={
-          Object {
-            "flexGrow": 1,
-            "justifyContent": "center",
-            "paddingVertical": 8,
-          }
-        }
-        data={Array []}
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0.1}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onRefresh={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        refreshControl={
-          <RefreshControlMock
-            onRefresh={[Function]}
-            refreshing={true}
-          />
-        }
-        refreshing={true}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        testID="gamesFlatList"
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <RCTRefreshControl />
-        <View />
-      </RCTScrollView>
-    </View>
-  </View>
+  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     pointerEvents="box-none"
@@ -62343,54 +62229,7 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
                 },
               ]
             }
-          >
-            <RCTScrollView
-              ItemSeparatorComponent={[Function]}
-              ListEmptyComponent={false}
-              contentContainerStyle={
-                Object {
-                  "flexGrow": 1,
-                  "justifyContent": "center",
-                  "paddingVertical": 8,
-                }
-              }
-              disableVirtualization={false}
-              getItem={[Function]}
-              getItemCount={[Function]}
-              horizontal={false}
-              initialNumToRender={10}
-              keyExtractor={[Function]}
-              maxToRenderPerBatch={10}
-              numColumns={1}
-              onContentSizeChange={[Function]}
-              onEndReached={[Function]}
-              onEndReachedThreshold={0.1}
-              onLayout={[Function]}
-              onMomentumScrollEnd={[Function]}
-              onRefresh={[Function]}
-              onScroll={[Function]}
-              onScrollBeginDrag={[Function]}
-              onScrollEndDrag={[Function]}
-              refreshControl={
-                <RefreshControlMock
-                  onRefresh={[Function]}
-                  refreshing={true}
-                />
-              }
-              refreshing={true}
-              removeClippedSubviews={false}
-              renderItem={[Function]}
-              scrollEventThrottle={50}
-              showsVerticalScrollIndicator={false}
-              stickyHeaderIndices={Array []}
-              updateCellsBatchingPeriod={50}
-              viewabilityConfigCallbackPairs={Array []}
-              windowSize={21}
-            >
-              <RCTRefreshControl />
-              <View />
-            </RCTScrollView>
-          </View>
+          />
         </View>
       </RCTScrollView>
     </View>
@@ -63083,54 +62922,7 @@ exports[`Storyshots Spots.SpotsList SpotsList big card 1`] = `
           },
         ]
       }
-    >
-      <RCTScrollView
-        ItemSeparatorComponent={[Function]}
-        ListEmptyComponent={false}
-        contentContainerStyle={
-          Object {
-            "flexGrow": 1,
-            "justifyContent": "center",
-            "paddingVertical": 8,
-          }
-        }
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0.1}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onRefresh={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        refreshControl={
-          <RefreshControlMock
-            onRefresh={[Function]}
-            refreshing={true}
-          />
-        }
-        refreshing={true}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <RCTRefreshControl />
-        <View />
-      </RCTScrollView>
-    </View>
+    />
   </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
@@ -63196,54 +62988,7 @@ exports[`Storyshots Spots.SpotsList SpotsList small card 1`] = `
           },
         ]
       }
-    >
-      <RCTScrollView
-        ItemSeparatorComponent={[Function]}
-        ListEmptyComponent={false}
-        contentContainerStyle={
-          Object {
-            "flexGrow": 1,
-            "justifyContent": "center",
-            "paddingVertical": 8,
-          }
-        }
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0.1}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onRefresh={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        refreshControl={
-          <RefreshControlMock
-            onRefresh={[Function]}
-            refreshing={true}
-          />
-        }
-        refreshing={true}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <RCTRefreshControl />
-        <View />
-      </RCTScrollView>
-    </View>
+    />
   </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
