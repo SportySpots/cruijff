@@ -8,6 +8,8 @@ import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
 import NoGamesFound from '../../../Components/Games/NoGamesFound';
 import curatedGames from './utils';
+import { WebView } from 'react-native';
+import { bundle } from '../../../../WebView/Map/dist/index.json';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -38,6 +40,12 @@ class GamesListScreen extends React.Component {
       start_time__gte: moment().startOf('day').toISOString(),
       distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
     };
+
+    return (
+      <WebView
+        source={{html: bundle}}
+      />
+    );
 
     return (
       <QueryCatchErrors

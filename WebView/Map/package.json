@@ -1,0 +1,27 @@
+{
+  "name": "Map",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url . && node pack.js"
+  },
+  "dependencies": {
+    "leaflet": "^1.5.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-leaflet": "^2.4.0"
+  },
+  "devDependencies": {
+    "posthtml": "^0.11.5",
+    "parcel": "^1.12.3",
+    "parcel-plugin-inliner": "^1.0.10",
+    "cssnano": "^4.1.10",
+    "typescript": "^3.5.3",
+    "@types/leaflet": "^1.5.1",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-leaflet": "^2.4.0"
+  }
+}
