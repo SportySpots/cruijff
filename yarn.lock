@@ -5165,7 +5165,7 @@ interpret@1.2.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
   integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
 
-invariant@^2.1.0, invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.1.0, invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -8881,6 +8881,14 @@ react-native-video@^3.2.1:
   dependencies:
     keymirror "0.1.1"
     prop-types "^15.5.10"
+
+react-native-webview@5.8.2:
+  version "5.8.2"
+  resolved "https://registry.npmjs.org/react-native-webview/-/react-native-webview-5.8.2.tgz#dcc9c802f145183cfc828944350bd43f968aa72c"
+  integrity sha512-WvB5vH3xaxwXbk0RFGDIkM+MEeMfrfkhXdgYW1qj/xUuioeH5lduCpR+sID8+OR35zx+pBuamQ9jSlRGuREJrw==
+  dependencies:
+    escape-string-regexp "1.0.5"
+    invariant "2.2.4"
 
 react-native@0.59.5:
   version "0.59.5"

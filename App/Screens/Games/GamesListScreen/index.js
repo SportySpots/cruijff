@@ -8,7 +8,7 @@ import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
 import NoGamesFound from '../../../Components/Games/NoGamesFound';
 import curatedGames from './utils';
-import { WebView } from 'react-native';
+import { WebView } from 'react-native-webview';
 import { bundle } from '../../../../WebView/Map/dist/index.json';
 
 //------------------------------------------------------------------------------
@@ -44,6 +44,9 @@ class GamesListScreen extends React.Component {
     return (
       <WebView
         source={{html: bundle}}
+        onMessage={e => console.log(e.nativeEvent.data)}
+        injectedJavaScript={`window.ReactNativeWebView.postMessage("Hello!")`}
+        // injectedJavaScript={`window.postMessage('test')`}
       />
     );
 
