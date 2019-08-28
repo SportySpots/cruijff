@@ -100,7 +100,7 @@ const SpotsList = ({
             showsVerticalScrollIndicator={false}
             onRefresh={refetch}
             refreshing={loading}
-            onEndReached={loadMore}
+            onEndReached={spots.length > 3 ? loadMore : () => null}
             onEndReachedThreshold={0.1}
             contentContainerStyle={{
               flexGrow: 1,

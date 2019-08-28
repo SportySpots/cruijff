@@ -74,7 +74,7 @@ class GamesListScreen extends React.Component {
                 // FlatList props
                 onRefresh={refetch}
                 refreshing={loading}
-                onEndReached={loadMore}
+                onEndReached={data.games.length > 3 ? loadMore : () => null}
                 onEndReachedThreshold={0.1}
               />
             </Container>
