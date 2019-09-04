@@ -4,6 +4,8 @@ import castArray from 'lodash/castArray';
 import { Buffer } from 'buffer';
 import globalRefs from './globalRefs';
 import { CITIES } from './Context/SpotFilters';
+import React from 'react';
+import { nest } from "recompose";
 
 /* eslint-disable no-param-reassign */
 export const addModelState = (reactComponentInstance, modalName, isOpen = false) => {
@@ -122,3 +124,12 @@ export const mergeCoords = (locationCoords, locationEnabled, cityID) => {
   }
   return CITIES[0].coords;
 };
+
+export function nestPairs(this: any, ...componentPropPairs: Array<[React.ComponentType, any]>) {
+  return nest.apply(
+    this,
+    componentPropPairs.map(([ComponentClass, props]): React.FunctionComponent<
+      any
+      > => ({ children }) => React.createElement<any>(ComponentClass, { ...props, children }))
+  );
+}
