@@ -1,6 +1,10 @@
 import React from 'react';
 import { WebView } from 'react-native-webview';
 import bundle from './WebView/bundle.json';
+import { compose } from 'react-apollo';
+import { withSpotFilters } from '../../../Context/SpotFilters';
+import { withLocation } from '../../../Context/Location';
+import { mergeCoords } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -10,12 +14,20 @@ import bundle from './WebView/bundle.json';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const WebViewMap = () => {
+const WebViewMap = ({ locationCoords, locationEnabled, city }) => {
   const ref = React.createRef();
 
   const setPos = () => {
-    ref.current.injectJavaScript(`window.mapView.addMarker({lat: 52.370216, lng: 4.895168 }, '1')`);
+    const mergedCoords = mergeCoords(locationCoords, locationEnabled, city);
+    const shortCoords = {
+      lat: mergedCoords.latitude,
+      lng: mergedCoords.longitude,
+    };
+    // ref.current.injectJavaScript(`window.mapView.addMarker({lat: 52.370216, lng: 4.895168 }, '1')`);
+    ref.current.injectJavaScript(`window.mapView.map.panTo(${JSON.stringify(shortCoords)})`);
   };
+
+  React.useEffect(setPos, [locationCoords, locationEnabled, city]);
 
   return (
     <WebView
@@ -32,4 +44,9 @@ const WebViewMap = () => {
   );
 };
 
-export default WebViewMap;
+const enhance = compose(
+  withSpotFilters,
+  withLocation,
+);
+
+export default enhance(WebViewMap);

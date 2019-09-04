@@ -28,8 +28,6 @@ class GamesListScreen extends React.Component {
   }
 
   render() {
-    return <WebViewMap />;
-
     const { locationCoords: coords } = this.props;
 
     const maxDistance = 20; // km // TODO: read from context

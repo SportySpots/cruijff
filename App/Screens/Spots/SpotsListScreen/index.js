@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { compose } from 'react-apollo';
 
+import VisibilityButton
+  from '@storybook/react-native/dist/preview/components/OnDeviceUI/navigation/visibility-button';
 import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
 import SpotsList from '../../../Components/Spots/SpotsList';
 import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
 import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { mergeCoords } from '../../../utils';
+import RaisedButton from '../../../Components/Common/RaisedButton';
+import NavBarButton from '../../../Components/Common/NavBarButton';
+import { openGoogleMapsLocation } from '../../../Components/Spots/utils';
+import RoundButton from '../../../Components/Common/RoundButton';
+import WebViewMap from '../../../Components/Spots/WebViewMap';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -27,10 +34,15 @@ const Inner = styled.View`
 // TODO: replace Container with Layout comp
 // TODO: probably move maxDistance to SpotsList and get said value from context
 class SpotsListScreen extends React.Component {
+  state = {
+    showMap: false,
+  };
+
   handleCardPress = (spot) => {
     const { navigation } = this.props;
     navigation.navigate('SpotDetailsScreen', { uuid: spot.uuid });
   }
+
 
   componentWillMount() {
     const { locationUpdate } = this.props;
@@ -38,7 +50,9 @@ class SpotsListScreen extends React.Component {
   }
 
   render() {
-    const { maxDistance, allSports, selectedSportIds, city, locationEnabled, locationCoords } = this.props;
+    const {
+      maxDistance, allSports, selectedSportIds, city, locationEnabled, locationCoords,
+    } = this.props;
     return (
       <FlexOne testID="SpotsListScreen">
         {(!allSports || maxDistance < 20) && (
@@ -57,16 +71,30 @@ class SpotsListScreen extends React.Component {
             display: 'flex',
           }}
         >
+          <RoundButton
+            status={this.state.showMap ? 'default' : 'dark'}
+            iconSet="MaterialCommunityIcons"
+            iconName="google-maps"
+            onPress={() => {
+              this.setState({ showMap: !this.state.showMap });
+            }}
+          />
           <Inner>
-            <SpotsList
-              cardComponent="SpotListCard"
-              sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
-              maxDistance={maxDistance} // km
-              coords={mergeCoords(locationCoords, locationEnabled, city)}
-              onCardPress={this.handleCardPress}
-              // FlatList props
-              // onScroll={this.handleScroll}
-            />
+            { this.state.showMap
+              ? <WebViewMap />
+              : (
+                <SpotsList
+                  cardComponent="SpotListCard"
+                  sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
+                  maxDistance={maxDistance} // km
+                  coords={mergeCoords(locationCoords, locationEnabled, city)}
+                  onCardPress={this.handleCardPress}
+                  // FlatList props
+                  // onScroll={this.handleScroll}
+                />
+              )
+            }
+
           </Inner>
         </BottomLayout>
       </FlexOne>
