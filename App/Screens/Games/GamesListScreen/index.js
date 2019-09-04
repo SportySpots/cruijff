@@ -8,8 +8,7 @@ import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
 import NoGamesFound from '../../../Components/Games/NoGamesFound';
 import curatedGames from './utils';
-import { WebView } from 'react-native-webview';
-import { bundle } from '../../../../WebView/Map/dist/index.json';
+import WebViewMap from '../../../Components/Spots/WebViewMap';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -29,6 +28,8 @@ class GamesListScreen extends React.Component {
   }
 
   render() {
+    return <WebViewMap />;
+
     const { locationCoords: coords } = this.props;
 
     const maxDistance = 20; // km // TODO: read from context
@@ -40,15 +41,6 @@ class GamesListScreen extends React.Component {
       start_time__gte: moment().startOf('day').toISOString(),
       distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
     };
-
-    return (
-      <WebView
-        source={{html: bundle}}
-        onMessage={e => console.log(e.nativeEvent.data)}
-        injectedJavaScript={`window.ReactNativeWebView.postMessage("Hello!")`}
-        // injectedJavaScript={`window.postMessage('test')`}
-      />
-    );
 
     return (
       <QueryCatchErrors
