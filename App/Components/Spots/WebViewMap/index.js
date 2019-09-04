@@ -82,9 +82,5 @@ const WebViewMap = () => {
   );
 };
 
-const enhance = compose(
-  withSpotFilters,
-  withLocation,
-);
 
-export default enhance(WebViewMap);
+export default WebViewMap;
