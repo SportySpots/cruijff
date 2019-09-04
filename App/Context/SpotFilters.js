@@ -61,7 +61,7 @@ const DEFAULT_FILTERS = {
 export const ASYNC_STORAGE_KEY = 'SpotFilterProviderState';
 
 
-const SpotFiltersContext = React.createContext();
+export const SpotFiltersContext = React.createContext();
 
 export class SpotFiltersProvider extends React.Component {
   state = DEFAULT_FILTERS;

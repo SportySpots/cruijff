@@ -28,7 +28,7 @@ const defaultValue = {
   locationDisable: () => null,
 };
 
-const LocationContext = React.createContext(defaultValue);
+export const LocationContext = React.createContext(defaultValue);
 
 const getCurrentPositionPromise = settings => new Promise((resolve, reject) => {
   Geolocation.getCurrentPosition(resolve, reject, settings);
