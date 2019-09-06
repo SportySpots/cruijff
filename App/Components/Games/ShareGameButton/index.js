@@ -47,7 +47,7 @@ class ShareGameButton extends React.PureComponent {
 
     let url = shareLink;
     if (variant === 'facebook') url = `https://www.facebook.com/sharer/sharer.php?u=${shareLink}&t=${title}`;
-    else if (variant === 'whatsapp') url = `https://wa.me/?text=${message}`;
+    else if (variant === 'whatsapp') url = `https://api.whatsapp.com/send?phone=&source=&data=&text=${message}`;
     else if (variant === 'email') url = `mailto:?subject=${title}&body=${message}`;
 
     try {
