@@ -61,8 +61,6 @@ class IDMarker extends Marker {
   }
 }
 
-const markers: IDMarker[] = [];
-
 class MapView {
   map: Map;
   tileLayer: TileLayer;
@@ -82,11 +80,9 @@ class MapView {
       }
     });
     newMarker.addTo(this.markersLayerGroup);
-    markers.push(newMarker);
   }
 
   clearMarkers() {
-    while (markers.length > 0) { markers.pop(); }
     this.markersLayerGroup.clearLayers();
   }
 
