@@ -2,7 +2,11 @@
   "compilerOptions": {
     "strict": true,
     "noImplicitAny": true,
-    "noEmit": true
+    "noEmit": true,
+    "lib": ["dom", "es2015"],
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
   "include": [
     "src/**/*"
@@ -10,6 +14,7 @@
   "exclude": [
     "node_modules",
     "dist",
-    "src_old"
+    "src_old",
+    "../../../../../node_modules"
   ]
 }

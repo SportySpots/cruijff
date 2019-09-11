@@ -1,5 +1,15 @@
 import './test.css';
-import { LatLngExpression, Icon, Point, Map, TileLayer, FeatureGroup, Layer, Marker } from 'leaflet';
+import {
+  LatLngExpression,
+  Icon,
+  Point,
+  Map,
+  TileLayer,
+  FeatureGroup,
+  Layer,
+  Marker,
+  LayerGroup
+} from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 type PostMessage = (message: any) => void;
@@ -21,9 +31,15 @@ const postMessage = (message: any) => {
   }
 }
 
-const icon = new Icon({
+const defaultIcon = new Icon({
   // iconUrl: 'https://image.flaticon.com/icons/png/512/37/37134.png',
   iconUrl: 'https://rawcdn.githack.com/google/material-design-icons/224895a86501195e7a7ff3dde18e39f00b8e3d5a/communication/svg/production/ic_location_on_48px.svg',
+  iconSize: new Point(50,50),
+});
+
+const selectedIcon = new Icon({
+  iconUrl: 'https://image.flaticon.com/icons/png/512/37/37134.png',
+  // iconUrl: 'https://rawcdn.githack.com/google/material-design-icons/224895a86501195e7a7ff3dde18e39f00b8e3d5a/communication/svg/production/ic_location_on_48px.svg',
   iconSize: new Point(50,50),
 });
 
@@ -38,28 +54,40 @@ class IDMarker extends Marker {
   id: string;
   constructor(coords: ICoords, id: string) {
     const options = {
-      icon: icon,
+      icon: defaultIcon,
     }
     super([coords.lat, coords.lng], options);
     this.id = id;
   }
 }
 
+const markers: IDMarker[] = [];
+
 class MapView {
   map: Map;
   tileLayer: TileLayer;
-  markers: FeatureGroup;
+  markersLayerGroup: LayerGroup;
 
   addMarker(coords: ICoords, id: string) {
-    new IDMarker(coords, id)
-      .on('click', e => {
+    const newMarker = new IDMarker(coords, id);
+    newMarker.on('click', (e) => {
+      const target: IDMarker = e.target;
+      try {
+        this.markersLayerGroup.eachLayer((marker: any) => marker.setIcon(defaultIcon));
+        target.setIcon(selectedIcon);
+        this.map.panTo(target.getLatLng());
         postMessage({type: 'markerClick', id: e.target.id});
-      })
-      .addTo(this.markers);
+      } catch(e) {
+        console.log(e);
+      }
+    });
+    newMarker.addTo(this.markersLayerGroup);
+    markers.push(newMarker);
   }
 
   clearMarkers() {
-    this.markers.clearLayers();
+    while (markers.length > 0) { markers.pop(); }
+    this.markersLayerGroup.clearLayers();
   }
 
   constructor() {
@@ -76,10 +104,8 @@ class MapView {
       maxZoom: 18,
     })
       .addTo(this.map);
-    this.markers = new FeatureGroup().addTo(this.map);
+    this.markersLayerGroup = new FeatureGroup().addTo(this.map);
   }
 }
 
 window.mapView = new MapView();
-
-

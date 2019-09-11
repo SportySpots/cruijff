@@ -5,9 +5,17 @@
     "tslint-react"
   ],
   "jsRules": {
-    "jsx-wrap-multiline": false
+    "jsx-wrap-multiline": false,
+    "comment-format": false,
+    "quotemark": [true, "single", "jsx-double"],
+    "ordered-imports": false,
+    "object-literal-sort-keys": false
   },
   "rules": {
-    "jsx-wrap-multiline": false
+    "jsx-wrap-multiline": false,
+    "comment-format": false,
+    "quotemark": [true, "single", "jsx-double"],
+    "ordered-imports": false,
+    "object-literal-sort-keys": false
   }
 }
