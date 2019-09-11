@@ -11,6 +11,8 @@ import AuthScreens from './AuthScreens';
 import { headerTitleStyle } from './style';
 import { View } from 'react-native';
 import { withLocation } from '../../Context/Location';
+import RoundButton from '../../Components/Common/RoundButton';
+import RaisedButton from '../../Components/Common/RaisedButton';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -63,12 +65,21 @@ const SpotSearchNav = createStackNavigator({
   },
   SpotsListScreen: {
     screen: SpotsListScreen,
+    params: {
+      mode: 'list'
+    },
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('spotsListScreen.navigation.title'),
       headerTitleStyle,
       headerRight: (
         <View style={{flex: 1, flexDirection: 'row'}}>
           <GPSButton />
+          <HeaderBtn
+            iconName={navigation.getParam('mode') === 'list'  ? 'view-day' : 'map'}
+            onPress={
+              () => navigation.setParams({ mode: navigation.getParam('mode') === 'list' ? 'map' : 'list' })
+            }
+          />
           <HeaderBtn
             iconName="filter-list"
             onPress={() => { navigation.navigate('SpotsFilterScreen'); }}

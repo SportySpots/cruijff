@@ -34,15 +34,10 @@ const Inner = styled.View`
 // TODO: replace Container with Layout comp
 // TODO: probably move maxDistance to SpotsList and get said value from context
 class SpotsListScreen extends React.Component {
-  state = {
-    showMap: false,
-  };
-
   handleCardPress = (spot) => {
     const { navigation } = this.props;
     navigation.navigate('SpotDetailsScreen', { uuid: spot.uuid });
   }
-
 
   componentWillMount() {
     const { locationUpdate } = this.props;
@@ -53,6 +48,7 @@ class SpotsListScreen extends React.Component {
     const {
       maxDistance, allSports, selectedSportIds, city, locationEnabled, locationCoords,
     } = this.props;
+    const mode = this.props.navigation.getParam('mode');
     return (
       <FlexOne testID="SpotsListScreen">
         {(!allSports || maxDistance < 20) && (
@@ -71,16 +67,8 @@ class SpotsListScreen extends React.Component {
             display: 'flex',
           }}
         >
-          <RoundButton
-            status={this.state.showMap ? 'default' : 'dark'}
-            iconSet="MaterialCommunityIcons"
-            iconName="google-maps"
-            onPress={() => {
-              this.setState({ showMap: !this.state.showMap });
-            }}
-          />
           <Inner>
-            { this.state.showMap
+            { mode === 'map'
               ? <WebViewMap />
               : (
                 <SpotsList
