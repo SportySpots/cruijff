@@ -33,7 +33,7 @@ export function makeNumGenerator() {
 }
 
 const convertS3ToImgix = ({ image, height, width }) => (
-  image.replace('https://s3.amazonaws.com/sportyspots-prd', 'http://sportyspots.imgix.net')
+  image.replace('https://s3.amazonaws.com/sportyspots-prd', 'https://sportyspots.imgix.net')
     .concat('?auto=compress')
     // .concat(height ? `&h=${height}` : '')
     .concat(width ? `&w=${width}` : '')
