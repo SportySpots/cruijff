@@ -12,7 +12,7 @@ export const userToInitials = (user) => {
 
 export const convertS3ToImgix = ({ image, height, width }) => (
   image.startsWith('https://sportyspots-prd.s3.amazonaws.com')
-    ? image.replace('https://sportyspots-prd.s3.amazonaws.com', 'http://sportyspots.imgix.net')
+    ? image.replace('https://sportyspots-prd.s3.amazonaws.com', 'https://sportyspots.imgix.net')
       .concat('?auto=compress')
       // .concat(height ? `&h=${height}` : '')
       .concat(width ? `&w=${width}` : '')
