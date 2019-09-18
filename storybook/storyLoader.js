@@ -94,7 +94,6 @@ function loadStories() {
   require('../App/Components/Layouts/ClosableLayout/stories');
   require('../App/Components/Layouts/FixedBottomLayout/stories');
   require('../App/Components/Layouts/FixedTopLayout/stories');
-  require('../App/Components/Onboarding/CityPicker/stories');
   require('../App/Components/Onboarding/OnboardingForm/stories');
   require('../App/Components/PlanGame/InviteOnly/stories');
   require('../App/Components/PlanGame/PlanGameForm/stories');
