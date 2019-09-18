@@ -80,7 +80,7 @@ const SpotSearchNav = createStackNavigator({
         <View style={{flex: 1, flexDirection: 'row'}}>
           <GPSButton />
           <HeaderBtn
-            iconName={navigation.getParam('mode') === 'list'  ? 'view-day' : 'map'}
+            iconName={navigation.getParam('mode') === 'list'  ? 'map' : 'view-day'}
             onPress={
               () => navigation.setParams({ mode: navigation.getParam('mode') === 'list' ? 'map' : 'list' })
             }
