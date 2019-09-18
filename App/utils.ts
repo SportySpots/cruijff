@@ -3,7 +3,6 @@ import isString from 'lodash/isString';
 import castArray from 'lodash/castArray';
 import { Buffer } from 'buffer';
 import globalRefs from './globalRefs';
-import { CITIES } from './Context/SpotFilters';
 import React from 'react';
 import { nest } from "recompose";
 

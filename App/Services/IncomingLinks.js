@@ -8,10 +8,13 @@ export const Events = {
   GAME_OPENED: 'GAME_OPENED',
 };
 
-export const IncomingLinks = new EventEmitter();
-IncomingLinks.emitEvent = (event) => {
-  IncomingLinks.emit(event.type, ...event.args);
-};
+class CustomEmitter extends EventEmitter {
+  emitEvent = (event) => {
+    this.event(event.type, ...event.args);
+  }
+}
+
+export const IncomingLinks = new CustomEmitter();
 
 const urlParsers = [];
 
