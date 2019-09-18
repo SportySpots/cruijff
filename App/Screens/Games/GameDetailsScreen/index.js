@@ -64,7 +64,7 @@ class GameDetailsScreen extends React.PureComponent {
   }
 
   render() {
-    const { user, locationCoords: coords } = this.props;
+    const { user, locationMapCoords: coords } = this.props;
 
     // Variables for refetching GET_GAMES_LIST query
     const maxDistance = 20; // km // TODO: read from context
@@ -142,7 +142,6 @@ GameDetailsScreen.propTypes = {
     }).isRequired,
   }).isRequired,
   user: userPropTypes.user,
-  locationCoords: locationPropTypes.locationCoords.isRequired,
 };
 
 GameDetailsScreen.defaultProps = {

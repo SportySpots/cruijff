@@ -9,13 +9,16 @@
     "comment-format": false,
     "quotemark": [true, "single", "jsx-double"],
     "ordered-imports": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "no-console": false
   },
   "rules": {
     "jsx-wrap-multiline": false,
     "comment-format": false,
     "quotemark": [true, "single", "jsx-double"],
     "ordered-imports": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "no-console": false,
+    "member-access": false
   }
 }

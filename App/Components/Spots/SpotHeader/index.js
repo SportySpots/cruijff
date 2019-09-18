@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import geolib from 'geolib';
 
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
-import { locationPropTypes, withLocation } from '../../../Context/Location';
+import { withLocation } from '../../../Context/Location';
 import I18n from '../../../I18n';
 // import Rating from '../../Common/Rating';
 import Text from '../../Common/Text';
@@ -40,7 +40,7 @@ const SpotHeader = ({
   gray,
   withDistance,
   withGames,
-  locationCoords,
+  locationGPSCoords,
   locationEnabled,
 }) => {
   const {
@@ -61,7 +61,7 @@ const SpotHeader = ({
   let distance;
   if (showDistance) {
     const spotCoords = { latitude: spot.address.lat, longitude: spot.address.lng };
-    distance = geolib.getDistance(locationCoords, spotCoords);
+    distance = geolib.getDistance(locationGPSCoords, spotCoords);
   }
 
   return (
@@ -125,8 +125,6 @@ const SpotHeader = ({
 };
 
 SpotHeader.propTypes = {
-  locationCoords: locationPropTypes.locationCoords,
-  locationEnabled: locationPropTypes.locationEnabled,
   spot: propType(spotFragment).isRequired,
   gray: PropTypes.bool,
   withDistance: PropTypes.bool,
@@ -134,8 +132,6 @@ SpotHeader.propTypes = {
 };
 
 SpotHeader.defaultProps = {
-  locationCoords: null,
-  locationEnabled: false,
   gray: false,
   withDistance: false,
   withGames: false,

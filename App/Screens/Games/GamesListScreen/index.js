@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import styled from 'styled-components/native';
-import { locationPropTypes, withLocation } from '../../../Context/Location';
+import { withLocation } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
 import NoGamesFound from '../../../Components/Games/NoGamesFound';
 import curatedGames from './utils';
-import WebViewMap from '../../../Components/Spots/WebViewMap';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -28,7 +27,7 @@ class GamesListScreen extends React.Component {
   }
 
   render() {
-    const { locationCoords: coords } = this.props;
+    const { locationMapCoords: coords } = this.props;
 
     const maxDistance = 20; // km // TODO: read from context
 
@@ -90,7 +89,6 @@ GamesListScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  locationCoords: locationPropTypes.locationCoords.isRequired,
 };
 
 export default withLocation(GamesListScreen);

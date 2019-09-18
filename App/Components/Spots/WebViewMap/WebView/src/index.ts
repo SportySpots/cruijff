@@ -68,7 +68,7 @@ class MapView {
 
   constructor() {
     this.map = new Map('leaflet-root', {
-      minZoom: 10,
+      minZoom: 5,
       maxZoom: 18,
     }).setView([52.370216, 4.895168], 13)
       .on('moveend', (e) => {

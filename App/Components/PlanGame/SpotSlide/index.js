@@ -10,7 +10,6 @@ import Spacer from '../../Common/Spacer';
 import SpotsList from '../../Spots/SpotsList';
 import { locationPropTypes, withLocation } from '../../../Context/Location';
 import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
-import { mergeCoords } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -33,7 +32,7 @@ const FlexOne = styled.View`
 class SpotSlide extends React.PureComponent {
   render() {
     const {
-      sport, spot, onChange, locationCoords,
+      sport, spot, onChange, locationMapCoords,
     } = this.props;
 
     return (
@@ -44,7 +43,7 @@ class SpotSlide extends React.PureComponent {
           cardComponent="SpotListCardSmall"
           sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
           // maxDistance={maxDistance} // km
-          coords={locationCoords}
+          coords={locationMapCoords}
           selectedSpot={spot}
           onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
         />

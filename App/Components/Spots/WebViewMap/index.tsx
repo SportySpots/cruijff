@@ -44,7 +44,7 @@ interface IMovedMessage extends IMessage {
 const WebViewMap = () => {
   const ref = React.createRef<WebView>();
 
-  const { locationCoords, locationEnabled } = React.useContext(LocationContext);
+  const { locationMapCoords, locationSetMapCoords, locationGPSCoords, locationEnabled } = React.useContext(LocationContext);
   const { maxDistance, allSports, selectedSportIds, setMaxDistance } = React.useContext(SpotFiltersContext);
   const navigation = React.useContext(NavigationContext);
 
@@ -60,14 +60,18 @@ const WebViewMap = () => {
     if (message.type === 'markerClick') {
       setCurrentSpotUUID(message.id);
     } else if (isMovedMessage(message) && message.maxDistance) {
+      locationSetMapCoords({
+        latitude: message.center.lat,
+        longitude: message.center.lng,
+      });
       setMaxDistance({maxDistance: Math.round(message.maxDistance / 1000) });
     }
   };
 
   const getShortCoords: () => IShortCoords = () => {
     return {
-      lat: locationCoords.latitude,
-      lng: locationCoords.longitude,
+      lat: locationMapCoords.latitude,
+      lng: locationMapCoords.longitude,
     };
   };
 
@@ -112,8 +116,8 @@ const WebViewMap = () => {
     spotsQuery.refetch(getSpotsQueryVariables());
   };
 
-  React.useEffect(setCurrentPosition, [locationCoords, locationEnabled]);
-  React.useEffect(requerySpots, [locationCoords, locationEnabled, maxDistance]);
+  // React.useEffect(setCurrentPosition, [locationCoords, locationEnabled]);
+  React.useEffect(requerySpots, [locationEnabled, maxDistance]);
 
   const getSpotQueryVariables = () => {
     return {

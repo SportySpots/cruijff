@@ -38,7 +38,7 @@ class SpotsListScreen extends React.Component {
 
   render() {
     const {
-      maxDistance, allSports, selectedSportIds, locationEnabled, locationCoords,
+      maxDistance, allSports, selectedSportIds, locationEnabled, locationMapCoords,
     } = this.props;
     const mode = this.props.navigation.getParam('mode');
     return (
@@ -67,7 +67,7 @@ class SpotsListScreen extends React.Component {
                   cardComponent="SpotListCard"
                   sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
                   maxDistance={maxDistance} // km
-                  coords={locationCoords}
+                  coords={locationMapCoords}
                   onCardPress={this.handleCardPress}
                   // FlatList props
                   // onScroll={this.handleScroll}
