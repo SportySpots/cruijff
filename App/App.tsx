@@ -185,7 +185,7 @@ class App extends Component<{}, {}> {
                         {/* <ConnectionCheck /> */}
                         <AppNavigation
                           ref={(ref) => {
-                            this.router = ref;
+                            this.router = ref as any;
                           }}
                           // See: https://reactnavigation.org/docs/en/screen-tracking.html
                           onNavigationStateChange={(prevState, currState) => {
