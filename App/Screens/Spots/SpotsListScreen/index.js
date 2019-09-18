@@ -2,19 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { compose } from 'react-apollo';
-
-import VisibilityButton
-  from '@storybook/react-native/dist/preview/components/OnDeviceUI/navigation/visibility-button';
 import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
 import SpotsList from '../../../Components/Spots/SpotsList';
 import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
 import { locationPropTypes, withLocation } from '../../../Context/Location';
-import { mergeCoords } from '../../../utils';
-import RaisedButton from '../../../Components/Common/RaisedButton';
-import NavBarButton from '../../../Components/Common/NavBarButton';
-import { openGoogleMapsLocation } from '../../../Components/Spots/utils';
-import RoundButton from '../../../Components/Common/RoundButton';
 import WebViewMap from '../../../Components/Spots/WebViewMap';
 
 //------------------------------------------------------------------------------
@@ -46,7 +38,7 @@ class SpotsListScreen extends React.Component {
 
   render() {
     const {
-      maxDistance, allSports, selectedSportIds, city, locationEnabled, locationCoords,
+      maxDistance, allSports, selectedSportIds, locationEnabled, locationCoords,
     } = this.props;
     const mode = this.props.navigation.getParam('mode');
     return (
@@ -75,7 +67,7 @@ class SpotsListScreen extends React.Component {
                   cardComponent="SpotListCard"
                   sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
                   maxDistance={maxDistance} // km
-                  coords={mergeCoords(locationCoords, locationEnabled, city)}
+                  coords={locationCoords}
                   onCardPress={this.handleCardPress}
                   // FlatList props
                   // onScroll={this.handleScroll}

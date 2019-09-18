@@ -33,7 +33,7 @@ const FlexOne = styled.View`
 class SpotSlide extends React.PureComponent {
   render() {
     const {
-      sport, spot, onChange, city, locationEnabled, locationCoords,
+      sport, spot, onChange, locationCoords,
     } = this.props;
 
     return (
@@ -44,7 +44,7 @@ class SpotSlide extends React.PureComponent {
           cardComponent="SpotListCardSmall"
           sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
           // maxDistance={maxDistance} // km
-          coords={mergeCoords(locationCoords, locationEnabled, city)}
+          coords={locationCoords}
           selectedSpot={spot}
           onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
         />

@@ -3,7 +3,6 @@ import { WebView } from 'react-native-webview';
 import bundle from './WebView/bundle.json';
 import { SpotFiltersContext } from '../../../Context/SpotFilters';
 import { LocationContext } from '../../../Context/Location';
-import { mergeCoords } from '../../../utils';
 import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
@@ -46,7 +45,7 @@ const WebViewMap = () => {
   const ref = React.createRef<WebView>();
 
   const { locationCoords, locationEnabled } = React.useContext(LocationContext);
-  const { city, maxDistance, allSports, selectedSportIds, setMaxDistance } = React.useContext(SpotFiltersContext);
+  const { maxDistance, allSports, selectedSportIds, setMaxDistance } = React.useContext(SpotFiltersContext);
   const navigation = React.useContext(NavigationContext);
 
   const [ currentSpotUUID, setCurrentSpotUUID ] = React.useState<string>();
@@ -65,14 +64,10 @@ const WebViewMap = () => {
     }
   };
 
-  /**
-   * Merges coords (based on GPS / city settings)
-   */
   const getShortCoords: () => IShortCoords = () => {
-    const mergedCoords = mergeCoords(locationCoords, locationEnabled, city);
     return {
-      lat: mergedCoords.latitude,
-      lng: mergedCoords.longitude,
+      lat: locationCoords.latitude,
+      lng: locationCoords.longitude,
     };
   };
 
@@ -117,8 +112,8 @@ const WebViewMap = () => {
     spotsQuery.refetch(getSpotsQueryVariables());
   };
 
-  React.useEffect(setCurrentPosition, [locationCoords, locationEnabled, city]);
-  React.useEffect(requerySpots, [locationCoords, locationEnabled, city, maxDistance]);
+  React.useEffect(setCurrentPosition, [locationCoords, locationEnabled]);
+  React.useEffect(requerySpots, [locationCoords, locationEnabled, maxDistance]);
 
   const getSpotQueryVariables = () => {
     return {

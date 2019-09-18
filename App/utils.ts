@@ -114,17 +114,6 @@ export const decodeJWTToken = (token) => {
   return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
 };
 
-export const mergeCoords = (locationCoords, locationEnabled, cityID) => {
-  if (locationEnabled) {
-    return locationCoords;
-  }
-  const cityObj = CITIES.find(c => c.id === cityID);
-  if (cityObj) {
-    return cityObj.coords;
-  }
-  return CITIES[0].coords;
-};
-
 export function nestPairs(this: any, ...componentPropPairs: Array<[React.ComponentType, any]>) {
   return nest.apply(
     this,

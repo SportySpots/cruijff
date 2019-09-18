@@ -25,18 +25,23 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GPSButton = withLocation(({ locationEnable, locationDisable, locationEnabled }) => (
-  <HeaderBtn
-    iconName={locationEnabled ? 'location-on' : 'location-off'}
-    onPress={() => {
-      if (locationEnabled) {
-        locationDisable();
-      } else {
-        locationEnable();
-      }
-    }}
-  />
-));
+const GPSButton = withLocation(({ locationEnable, locationDisable, locationEnabled }) => {
+  if (locationEnabled) {
+    return null;
+  }
+  return (
+    <HeaderBtn
+      iconName={locationEnabled ? 'location-on' : 'location-off'}
+      onPress={() => {
+        if (locationEnabled) {
+          locationDisable();
+        } else {
+          locationEnable();
+        }
+      }}
+    />
+  );
+});
 
 const SpotSearchNav = createStackNavigator({
   ...AuthScreens,
