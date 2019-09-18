@@ -33,14 +33,14 @@ const postMessage = (message: any) => {
 
 const defaultIcon = new Icon({
   // iconUrl: 'https://image.flaticon.com/icons/png/512/37/37134.png',
-  iconUrl: 'https://rawcdn.githack.com/google/material-design-icons/224895a86501195e7a7ff3dde18e39f00b8e3d5a/communication/svg/production/ic_location_on_48px.svg',
-  iconSize: new Point(50, 50),
+  iconUrl: 'https://rawcdn.githack.com/SportySpots/cruijff/4a3b1a0fe4c7c856c001bd0bd6ccf0a5eee36895/App/Components/Spots/WebViewMap/marker.svg',
+  iconSize: new Point(20, 20),
 });
 
 const selectedIcon = new Icon({
-  iconUrl: 'https://image.flaticon.com/icons/png/512/37/37134.png',
+  iconUrl: 'https://rawcdn.githack.com/SportySpots/cruijff/4a3b1a0fe4c7c856c001bd0bd6ccf0a5eee36895/App/Components/Spots/WebViewMap/marker.svg',
   // iconUrl: 'https://rawcdn.githack.com/google/material-design-icons/224895a86501195e7a7ff3dde18e39f00b8e3d5a/communication/svg/production/ic_location_on_48px.svg',
-  iconSize: new Point(50, 50),
+  iconSize: new Point(30, 30),
 });
 
 const tilemapURL = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
