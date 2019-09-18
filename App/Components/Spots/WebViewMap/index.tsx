@@ -35,6 +35,7 @@ interface IMovedMessage extends IMessage {
   center: IShortCoords;
   nw: IShortCoords;
   se: IShortCoords;
+  zoom: number;
   maxDistance: number;
 }
 
@@ -44,7 +45,15 @@ interface IMovedMessage extends IMessage {
 const WebViewMap = () => {
   const ref = React.createRef<WebView>();
 
-  const { locationMapCoords, locationSetMapCoords, locationGPSCoords, locationEnabled } = React.useContext(LocationContext);
+  const {
+    locationMapCoords,
+    locationSetMapCoords,
+    locationGPSCoords,
+    locationEnabled,
+    locationMapZoom,
+    locationSetMapZoom,
+  } = React.useContext(LocationContext);
+
   const { maxDistance, allSports, selectedSportIds, setMaxDistance } = React.useContext(SpotFiltersContext);
   const navigation = React.useContext(NavigationContext);
 
@@ -64,6 +73,7 @@ const WebViewMap = () => {
         latitude: message.center.lat,
         longitude: message.center.lng,
       });
+      locationSetMapZoom(message.zoom);
       setMaxDistance({maxDistance: Math.round(message.maxDistance / 1000) });
     }
   };
@@ -108,7 +118,7 @@ const WebViewMap = () => {
   // pans the map to current position based on getShortCoords
   const setCurrentPosition = () => {
     if (ref.current) {
-      ref.current.injectJavaScript(`window.mapView.map.panTo(${JSON.stringify(getShortCoords())})`);
+      ref.current.injectJavaScript(`window.mapView.map.flyTo(${JSON.stringify(getShortCoords())},${locationMapZoom}, {animate: false})`);
     }
   };
 

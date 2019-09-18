@@ -20,6 +20,7 @@ interface IState {
   locationEnabled: boolean;
   locationGPSCoords: ICoords;
   locationMapCoords: ICoords;
+  locationMapZoom: number;
 }
 
 interface IProps extends IState {
@@ -28,6 +29,7 @@ interface IProps extends IState {
   locationEnable: () => Promise<boolean>;
   locationDisable: () => void;
   locationSetMapCoords: (coords: ICoords) => void;
+  locationSetMapZoom: (zoom: number) => void;
 }
 
 // The defaultValue argument is ONLY used when a component does not have a matching
@@ -50,6 +52,8 @@ const defaultValue: IProps = {
   locationEnable: async () => false,
   locationDisable: () => null,
   locationSetMapCoords: (coords: ICoords) => null,
+  locationMapZoom: 10,
+  locationSetMapZoom: (zoom: number) => null,
 };
 
 export const LocationContext = React.createContext(defaultValue);
@@ -66,9 +70,11 @@ export class LocationProvider extends React.Component<{children: any}, IState> {
     locationEnabled: defaultValue.locationEnabled,
     locationGPSCoords: defaultValue.locationGPSCoords, // gps coordinates
     locationMapCoords: defaultValue.locationMapCoords, // coordinates from map panning
+    locationMapZoom: defaultValue.locationMapZoom,
   };
 
   componentDidUpdate() {
+    console.log('saving to async storage');
     AsyncStorage.setItem(ASYNC_STORAGE_KEY, JSON.stringify(this.state));
   }
 
@@ -145,6 +151,11 @@ export class LocationProvider extends React.Component<{children: any}, IState> {
       locationMapCoords: coords,
     });
   }
+  setMapZoom = (zoom: number) => {
+    this.setState({
+      locationMapZoom: zoom,
+    });
+  }
 
   async componentWillMount() {
     const as = await AsyncStorage.getItem(ASYNC_STORAGE_KEY);
@@ -164,6 +175,7 @@ export class LocationProvider extends React.Component<{children: any}, IState> {
       locationDisable: this.disable,
       locationRequestPermission: this.requestPermission,
       locationSetMapCoords: this.setMapCoords,
+      locationSetMapZoom: this.setMapZoom,
     };
 
     return (
