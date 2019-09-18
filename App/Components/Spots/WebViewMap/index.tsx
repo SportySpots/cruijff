@@ -74,7 +74,8 @@ const WebViewMap = () => {
         longitude: message.center.lng,
       });
       locationSetMapZoom(message.zoom);
-      setMaxDistance({maxDistance: Math.round(message.maxDistance / 1000) });
+      const distanceInKM = Math.round(message.maxDistance / 100) / 10; // rounded to 1 decimal
+      setMaxDistance({maxDistance: distanceInKM });
     }
   };
 
@@ -91,7 +92,7 @@ const WebViewMap = () => {
   const getSpotsQueryVariables = () => {
     const coords = getShortCoords();
     return {
-      sports__ids: [], // empty array will return all spots todo: hook up
+      sports__ids: selectedSportIds, // empty array will return all spots
       distance: `${parseInt('' + 1000 * maxDistance, 10)}:${coords.lat}:${coords.lng}`,
       offset: 0,
       limit: 500,
