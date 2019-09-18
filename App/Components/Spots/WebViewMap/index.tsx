@@ -18,6 +18,27 @@ const FlexOne = styled.View`
   flex: 1;
 `;
 
+interface IShortCoords {
+  lat: number;
+  lng: number;
+}
+
+interface IMessage {
+  type: string;
+}
+
+function isMovedMessage(message: IMessage): message is IMovedMessage {
+  return message.type === 'moved';
+}
+
+interface IMovedMessage extends IMessage {
+  type: 'moved';
+  center: IShortCoords;
+  nw: IShortCoords;
+  se: IShortCoords;
+  maxDistance: number;
+}
+
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -25,10 +46,12 @@ const WebViewMap = () => {
   const ref = React.createRef<WebView>();
 
   const { locationCoords, locationEnabled } = React.useContext(LocationContext);
-  const { city, maxDistance, allSports, selectedSportIds } = React.useContext(SpotFiltersContext);
+  const { city, maxDistance, allSports, selectedSportIds, setMaxDistance } = React.useContext(SpotFiltersContext);
   const navigation = React.useContext(NavigationContext);
 
   const [ currentSpotUUID, setCurrentSpotUUID ] = React.useState<string>();
+
+  // const curre
 
   /**
    * Handles messages coming in from the WebView
@@ -37,13 +60,15 @@ const WebViewMap = () => {
     const message = JSON.parse(e.nativeEvent.data);
     if (message.type === 'markerClick') {
       setCurrentSpotUUID(message.id);
+    } else if (isMovedMessage(message) && message.maxDistance) {
+      setMaxDistance({maxDistance: Math.round(message.maxDistance / 1000) });
     }
   };
 
   /**
    * Merges coords (based on GPS / city settings)
    */
-  const getShortCoords = () => {
+  const getShortCoords: () => IShortCoords = () => {
     const mergedCoords = mergeCoords(locationCoords, locationEnabled, city);
     return {
       lat: mergedCoords.latitude,
