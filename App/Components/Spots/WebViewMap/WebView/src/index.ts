@@ -8,7 +8,7 @@ import {
   FeatureGroup,
   Layer,
   Marker,
-  LayerGroup,
+  LayerGroup, latLng,
 } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -105,6 +105,10 @@ class MapView {
       }
     });
     newMarker.addTo(this.markersLayerGroup);
+  }
+
+  public addMarkers(markers: Array<{lat: number, lng: number, id: string}>) {
+    markers.forEach((marker) => this.addMarker({lat: marker.lat, lng: marker.lng}, marker.id));
   }
 
   public clearMarkers() {

@@ -6,7 +6,7 @@ import { LocationContext } from '../../../Context/Location';
 import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
-import { TouchableOpacity, View } from 'react-native';
+import {Animated, TouchableOpacity, View} from 'react-native';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import SpotListCardSmall from '../SpotListCardSmall';
 import { NavigationContext } from 'react-navigation';
@@ -104,22 +104,41 @@ const WebViewMap = () => {
     variables: getSpotsQueryVariables(),
   });
 
+  const injectCode = (code) => {
+    // NOTE: Fix for bug in IOS
+    // REF: https://github.com/react-native-community/react-native-webview/issues/341#issuecomment-466639820
+    return `
+      setTimeout(() => {
+        ${code}
+      }, 100);
+    `;
+  };
+
   // When spotsQuery.data changes, clear all markers and add new ones..
   React.useEffect(() => {
     if (spotsQuery.data && spotsQuery.data.spots && ref.current) {
-      ref.current.injectJavaScript(`window.mapView.clearMarkers()`);
+      let clearMarkerCode = injectCode('window.mapView.clearMarkers();');
+      ref.current.injectJavaScript(clearMarkerCode);
+      let markers: Array<{lat: number, lng: number, id: string}> = [];
       spotsQuery.data.spots.forEach((spot) => {
-        if (ref.current) {
-          ref.current.injectJavaScript(`window.mapView.addMarker(${JSON.stringify(spot.address)}, '${spot.uuid}')`);
-        }
+        markers.push({
+          lat: spot.address.lat,
+          lng: spot.address.lng,
+          id: spot.uuid
+        })
       });
+      if (ref.current) {
+        let addMarkerCode = injectCode(`window.mapView.addMarkers(${JSON.stringify(markers)});`);
+        ref.current.injectJavaScript(addMarkerCode);
+      }
     }
   }, [spotsQuery.data]);
 
   // pans the map to current position based on getShortCoords
   const setCurrentPosition = () => {
     if (ref.current) {
-      ref.current.injectJavaScript(`window.mapView.map.flyTo(${JSON.stringify(getShortCoords())},${locationMapZoom}, {animate: false})`);
+      let panToCode = injectCode(`window.mapView.map.flyTo(${JSON.stringify(getShortCoords())},${locationMapZoom}, {animate: false})`);
+      ref.current.injectJavaScript(panToCode);
     }
   };
 
