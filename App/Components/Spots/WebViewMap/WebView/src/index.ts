@@ -107,10 +107,6 @@ class MapView {
     newMarker.addTo(this.markersLayerGroup);
   }
 
-  public addMarkers(markers: Array<{lat: number, lng: number, id: string}>) {
-    markers.forEach((marker) => this.addMarker({lat: marker.lat, lng: marker.lng}, marker.id));
-  }
-
   public clearMarkers() {
     this.markersLayerGroup.clearLayers();
   }

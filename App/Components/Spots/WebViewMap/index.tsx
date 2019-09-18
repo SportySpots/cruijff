@@ -110,7 +110,7 @@ const WebViewMap = () => {
     return `
       setTimeout(() => {
         ${code}
-      }, 100);
+      }, 0);
     `;
   };
 
@@ -119,18 +119,13 @@ const WebViewMap = () => {
     if (spotsQuery.data && spotsQuery.data.spots && ref.current) {
       let clearMarkerCode = injectCode('window.mapView.clearMarkers();');
       ref.current.injectJavaScript(clearMarkerCode);
-      let markers: Array<{lat: number, lng: number, id: string}> = [];
       spotsQuery.data.spots.forEach((spot) => {
-        markers.push({
-          lat: spot.address.lat,
-          lng: spot.address.lng,
-          id: spot.uuid
-        })
+        if (ref.current) {
+          let addMarkerCode = injectCode(`window.mapView.addMarker(${JSON.stringify(spot.address)}, '${spot.uuid}');`);
+          ref.current.injectJavaScript(addMarkerCode);
+        }
       });
-      if (ref.current) {
-        let addMarkerCode = injectCode(`window.mapView.addMarkers(${JSON.stringify(markers)});`);
-        ref.current.injectJavaScript(addMarkerCode);
-      }
+
     }
   }, [spotsQuery.data]);
 
@@ -175,13 +170,13 @@ const WebViewMap = () => {
         onError={console.warn}
         onLoadEnd={setCurrentPosition}
       />
-      <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, paddingBottom: 10, justifyContent: 'flex-end', alignItems: 'center'}}>
-        { spotQuery.data && spotQuery.data.spot && (
-          <TouchableOpacity onPress={handleCardPress} style={{width: '100%'}}>
-            <SpotListCardSmall spot={spotQuery.data.spot} />
-          </TouchableOpacity>
-        )}
-      </View>
+      {/*<View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, paddingBottom: 10, justifyContent: 'flex-end', alignItems: 'center'}}>*/}
+      {/*  { spotQuery.data && spotQuery.data.spot && (*/}
+      {/*    <TouchableOpacity onPress={handleCardPress} style={{width: '100%'}}>*/}
+      {/*      <SpotListCardSmall spot={spotQuery.data.spot} />*/}
+      {/*    </TouchableOpacity>*/}
+      {/*  )}*/}
+      {/*</View>*/}
     </FlexOne>
 
   );
