@@ -119,11 +119,9 @@ class App extends Component<{}, {}> {
                           <StatusBar barStyle="light-content" />
                           {/* <ConnectionCheck /> */}
                           <AppNavigation
-                            ref={(ref) => {
-                              this.router = ref as any;
-                            }}
+                            ref={this.router}
                             // See: https://reactnavigation.org/docs/en/screen-tracking.html
-                            onNavigationStateChange={(prevState, currState) => {
+                            onNavigationStateChange={(prevState, currState): void => {
                               if (config.logRoute) {
                                 logNavigationState();
                               }
