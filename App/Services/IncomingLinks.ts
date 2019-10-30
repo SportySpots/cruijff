@@ -1,31 +1,41 @@
 import EventEmitter from 'events';
 import firebase from 'react-native-firebase';
 
-export const Events = {
-  SOCIAL_LOGIN_NOT_REGISTERED: 'SOCIAL_LOGIN_NOT_REGISTERED',
-  LOGIN_TOKEN: 'LOGIN_TOKEN',
-  MAGIC_LINK_LOGIN: 'MAGIC_LINK_LOGIN',
-  GAME_OPENED: 'GAME_OPENED',
-};
+export enum Events {
+  SOCIAL_LOGIN_NOT_REGISTERED = 'SOCIAL_LOGIN_NOT_REGISTERED',
+  LOGIN_TOKEN = 'LOGIN_TOKEN',
+  MAGIC_LINK_LOGIN = 'MAGIC_LINK_LOGIN',
+  GAME_OPENED = 'GAME_OPENED',
+}
+
+export interface IEvent {
+  type: keyof typeof Events;
+  args: any[];
+}
 
 class CustomEmitter extends EventEmitter {
-  emitEvent = (event) => {
-    this.event(event.type, ...event.args);
+  emitEvent = (event: IEvent) => {
+    this.emit(event.type, ...event.args);
   }
 }
 
 export const IncomingLinks = new CustomEmitter();
 
-const urlParsers = [];
+type IURLParser = (url: string) => IEvent | null;
+
+const urlParsers: IURLParser[] = [];
 
 // Social login parser
-urlParsers.push(url => (url.search('social_login_not_registered') !== -1
-  ? {
-    type: Events.SOCIAL_LOGIN_NOT_REGISTERED,
-    args: [],
+urlParsers.push((url) => {
+  if (url.search('social_login_not_registered') !== -1) {
+    return {
+      type: Events.SOCIAL_LOGIN_NOT_REGISTERED,
+      args: [],
+    };
+  } else {
+    return null;
   }
-  : null
-));
+});
 
 // Magic link login parser
 urlParsers.push((url) => {
