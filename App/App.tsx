@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-// import './polyfills';
 import React, { Component } from 'react';
 import Crashes from 'appcenter-crashes';
 
@@ -16,7 +15,7 @@ import client from './GraphQL/ApolloClient';
 import AppNavigation, { getActiveRouteName } from './Navigation/AppNavigation';
 import {
   NavigationActions,
-  NavigationContainerComponent
+  NavigationContainerComponent,
 } from 'react-navigation';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import { LocationProvider } from './Context/Location';
@@ -27,7 +26,7 @@ import { Events, getInitialEvent, IncomingLinks } from './Services/IncomingLinks
 import scTheme from './Themes/scTheme'; // styled-components theme
 import { logNavigationState } from './utils';
 import { CodePushProvider } from './Context/CodePush';
-import { nest } from 'recompose';
+import { NotificationsProvider } from './Context/Notifications';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -40,77 +39,28 @@ const AppRootView = styled.View`
   margin-top: ${ifIphoneX() ? 30 : 0}px;
 `;
 
-
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class App extends Component<{}, {}> {
-  private notificationOpenedListener: () => any;
-  private notificationDisplayedListener: () => any;
-  private notificationListener: () => any;
   private router = React.createRef<NavigationContainerComponent>();
 
   constructor() {
     super({});
-    Crashes.setEnabled(true).then(() => {});
+    Crashes.setEnabled(true).then(() => null);
 
-    // create android notification channel to display notifications while app in foreground
-    const channel = new firebase.notifications.Android
-      .Channel('notifications', 'Notification Channel', firebase.notifications.Android.Importance.Max)
-      .setDescription('Notifications');
-    firebase.notifications().android.createChannel(channel);
-
-    firebase.messaging().hasPermission().then((result) => {
-      console.log('has notification permission', result);
-      if (!result) {
-        firebase.messaging().requestPermission();
-      }
-    });
-
-    // notification opened with app in foreground/background
-    this.notificationOpenedListener = firebase.notifications().onNotificationOpened(
-      (notificationOpen) => {
-        console.log('notificationOpened', notificationOpen);
-      },
-    );
-
-    this.notificationDisplayedListener = firebase.notifications().onNotificationDisplayed(
-      (notification) => {
-        console.log('notificationDisplayed', notification);
-      },
-    );
-
-    // notification received while app in foreground
-    this.notificationListener = firebase.notifications().onNotification((notification) => {
-      console.log('notificationReceived', notification);
-      // display the notification in system tray. Does not happen by default if app in foreground
-      notification.android.setChannelId('notifications');
-      notification.android.setSmallIcon('@drawable/notification_icon');
-      notification.android.setColor('#00ff00');
-
-      firebase.notifications().displayNotification(notification);
-    });
-
-    firebase.notifications().getInitialNotification().then((notification) => {
-      if (notification) {
-        // app was opened while closed by clicking a notification
-        console.log('initialNotification', notification);
-      }
-    });
-
-
-    firebase.links().getInitialLink()
-      .then((url) => {
-        if (url) {
-          console.log('LINKING: App opened from', url);
-        } else {
-          console.log('LINKING: App not opened through url');
-        }
-      });
-
-    firebase.links().onLink((url) => {
-      console.log('LINKING: App received link: ', url);
-    });
+    // firebase.links().getInitialLink()
+    //   .then((url) => {
+    //     if (url) {
+    //       console.log('LINKING: App opened from', url);
+    //     } else {
+    //       console.log('LINKING: App not opened through url');
+    //     }
+    //   });
+    //
+    // firebase.links().onLink((url) => {
+    //   console.log('LINKING: App received link: ', url);
+    // });
   }
 
   componentDidMount() {
@@ -148,26 +98,11 @@ class App extends Component<{}, {}> {
 
   componentWillUnmount() {
     // Linking.removeEventListener('url', this.appWokeUp);
-    IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, () => {});
-    IncomingLinks.removeListener(Events.GAME_OPENED, () => {});
+    // IncomingLinks.removeListener(Events.MAGIC_LINK_LOGIN, () => {});
+    // IncomingLinks.removeListener(Events.GAME_OPENED, () => {});
   }
 
-  // NOTE: https://github.com/Microsoft/react-native-code-push/issues/516#issuecomment-275688344
-  // To remove warning caused by required listener
-  // update: removed this, seems only necessary if using codePush.sync()
-  // eslint-disable-next-line
-  // codePushDownloadDidProgress(progress) {}
-
   render() {
-    const Providers = [
-      [ ApolloProvider, { client } ],
-      [ CodePushProvider ],
-      [ UserProvider ]
-    ];
-
-
-
-    console.log('render App');
     return (
       <ApolloProvider
         // client={config.useFixtures ? mockClient : client} // TODO
@@ -177,30 +112,34 @@ class App extends Component<{}, {}> {
           <CodePushProvider>
             <ThemeProvider theme={scTheme}>
               <UserProvider>
-                <SpotFiltersProvider>
-                  <LocationProvider>
-                    <MenuProvider>
-                      <AppRootView>
-                        <StatusBar barStyle="light-content" />
-                        {/* <ConnectionCheck /> */}
-                        <AppNavigation
-                          ref={(ref) => {
-                            this.router = ref as any;
-                          }}
-                          // See: https://reactnavigation.org/docs/en/screen-tracking.html
-                          onNavigationStateChange={(prevState, currState) => {
-                            if (config.logRoute) logNavigationState();
-                            const currScreen = getActiveRouteName(currState);
-                            const prevScreen = getActiveRouteName(prevState);
-                            if (prevScreen !== currScreen) {
-                              firebase.analytics().setCurrentScreen(currScreen);
-                            }
-                          }}
-                        />
-                      </AppRootView>
-                    </MenuProvider>
-                  </LocationProvider>
-                </SpotFiltersProvider>
+                <NotificationsProvider>
+                  <SpotFiltersProvider>
+                    <LocationProvider>
+                      <MenuProvider>
+                        <AppRootView>
+                          <StatusBar barStyle="light-content" />
+                          {/* <ConnectionCheck /> */}
+                          <AppNavigation
+                            ref={(ref) => {
+                              this.router = ref as any;
+                            }}
+                            // See: https://reactnavigation.org/docs/en/screen-tracking.html
+                            onNavigationStateChange={(prevState, currState) => {
+                              if (config.logRoute) {
+                                logNavigationState();
+                              }
+                              const currScreen = getActiveRouteName(currState);
+                              const prevScreen = getActiveRouteName(prevState);
+                              if (prevScreen !== currScreen) {
+                                firebase.analytics().setCurrentScreen(currScreen);
+                              }
+                            }}
+                          />
+                        </AppRootView>
+                      </MenuProvider>
+                    </LocationProvider>
+                  </SpotFiltersProvider>
+                </NotificationsProvider>
               </UserProvider>
             </ThemeProvider>
           </CodePushProvider>
