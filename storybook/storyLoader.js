@@ -41,7 +41,6 @@ function loadStories() {
   require('../App/Components/Common/InputField/stories');
   require('../App/Components/Common/LinkNavigate/stories');
   require('../App/Components/Common/LinkOpenURL/stories');
-  require('../App/Components/Common/LocationPickerField/stories');
   require('../App/Components/Common/Logo/stories');
   require('../App/Components/Common/Menu/stories');
   require('../App/Components/Common/Modals/CancelConfirmModal/stories');
@@ -95,7 +94,6 @@ function loadStories() {
   require('../App/Components/Layouts/ClosableLayout/stories');
   require('../App/Components/Layouts/FixedBottomLayout/stories');
   require('../App/Components/Layouts/FixedTopLayout/stories');
-  require('../App/Components/Onboarding/CityPicker/stories');
   require('../App/Components/Onboarding/OnboardingForm/stories');
   require('../App/Components/PlanGame/InviteOnly/stories');
   require('../App/Components/PlanGame/PlanGameForm/stories');
@@ -181,7 +179,6 @@ const stories = [
   '../App/Components/Common/InputField/stories',
   '../App/Components/Common/LinkNavigate/stories',
   '../App/Components/Common/LinkOpenURL/stories',
-  '../App/Components/Common/LocationPickerField/stories',
   '../App/Components/Common/Logo/stories',
   '../App/Components/Common/Menu/stories',
   '../App/Components/Common/Modals/CancelConfirmModal/stories',

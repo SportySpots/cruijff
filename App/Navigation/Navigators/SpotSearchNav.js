@@ -11,6 +11,8 @@ import AuthScreens from './AuthScreens';
 import { headerTitleStyle } from './style';
 import { View } from 'react-native';
 import { withLocation } from '../../Context/Location';
+import RoundButton from '../../Components/Common/RoundButton';
+import RaisedButton from '../../Components/Common/RaisedButton';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -23,18 +25,23 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GPSButton = withLocation(({ locationEnable, locationDisable, locationEnabled }) => (
-  <HeaderBtn
-    iconName={locationEnabled ? 'location-on' : 'location-off'}
-    onPress={() => {
-      if (locationEnabled) {
-        locationDisable();
-      } else {
-        locationEnable();
-      }
-    }}
-  />
-));
+const GPSButton = withLocation(({ locationEnable, locationDisable, locationEnabled }) => {
+  if (locationEnabled) {
+    return null;
+  }
+  return (
+    <HeaderBtn
+      iconName={locationEnabled ? 'location-on' : 'location-off'}
+      onPress={() => {
+        if (locationEnabled) {
+          locationDisable();
+        } else {
+          locationEnable();
+        }
+      }}
+    />
+  );
+});
 
 const SpotSearchNav = createStackNavigator({
   ...AuthScreens,
@@ -63,12 +70,21 @@ const SpotSearchNav = createStackNavigator({
   },
   SpotsListScreen: {
     screen: SpotsListScreen,
+    params: {
+      mode: 'list'
+    },
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('spotsListScreen.navigation.title'),
       headerTitleStyle,
       headerRight: (
         <View style={{flex: 1, flexDirection: 'row'}}>
           <GPSButton />
+          <HeaderBtn
+            iconName={navigation.getParam('mode') === 'list'  ? 'map' : 'view-day'}
+            onPress={
+              () => navigation.setParams({ mode: navigation.getParam('mode') === 'list' ? 'map' : 'list' })
+            }
+          />
           <HeaderBtn
             iconName="filter-list"
             onPress={() => { navigation.navigate('SpotsFilterScreen'); }}

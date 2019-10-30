@@ -118,7 +118,6 @@ const SpotsList = ({
 SpotsList.propTypes = {
   cardComponent: PropTypes.oneOf(['SpotListCard', 'SpotListCardSmall']).isRequired,
   sportsIds: PropTypes.arrayOf(PropTypes.string),
-  coords: locationPropTypes.locationCoords,
   maxDistance: PropTypes.number, // km
   selectedSpot: propType(spotFragment),
   onCardPress: PropTypes.func,

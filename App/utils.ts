@@ -3,7 +3,8 @@ import isString from 'lodash/isString';
 import castArray from 'lodash/castArray';
 import { Buffer } from 'buffer';
 import globalRefs from './globalRefs';
-import { CITIES } from './Context/SpotFilters';
+import React from 'react';
+import { nest } from "recompose";
 
 /* eslint-disable no-param-reassign */
 export const addModelState = (reactComponentInstance, modalName, isOpen = false) => {
@@ -112,13 +113,22 @@ export const decodeJWTToken = (token) => {
   return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
 };
 
-export const mergeCoords = (locationCoords, locationEnabled, cityID) => {
-  if (locationEnabled) {
-    return locationCoords;
+// export function nestPairs(this: any, ...componentPropPairs: Array<[React.ComponentType, any]>) {
+//   return nest.apply(
+//     this,
+//     componentPropPairs.map(([ComponentClass, props]): React.FunctionComponent<
+//       any
+//       > => ({ children }) => React.createElement<any>(ComponentClass, { ...props, children }))
+//   );
+// }
+
+export const toTitleCase = (str: string): string => {
+  if (!isString(str)) {
+    return '';
   }
-  const cityObj = CITIES.find(c => c.id === cityID);
-  if (cityObj) {
-    return cityObj.coords;
-  }
-  return CITIES[0].coords;
+
+  return str.toLowerCase()
+    .split(' ')
+    .map((s) => (s.charAt(0).toUpperCase() + s.substring(1)))
+    .join(' ');
 };

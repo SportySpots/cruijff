@@ -84,7 +84,8 @@ class OnboardingForm extends React.Component {
         AsyncStorage.setItem('OnboardingCompleted', 'true');
         this.props.navigation.navigate('MainNav');
       } else {
-        this.props.navigation.navigate('CityPicker');
+        // this.props.navigation.navigate('CityPicker');
+        this.props.navigation.navigate('MainNav');
       }
     }, 1000);
   }

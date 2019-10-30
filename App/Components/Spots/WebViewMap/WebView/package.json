@@ -1,0 +1,25 @@
+{
+  "name": "cruijff-webview-map",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "prebuild": "yarn typecheck && rm -rf dist",
+    "build": "parcel build src/index.html --public-url .",
+    "postbuild": "node stringify.js dist/index.html > bundle.json",
+    "typecheck": "tsc --project .",
+    "watch": ""
+  },
+  "dependencies": {
+    "leaflet": "^1.5.1"
+  },
+  "devDependencies": {
+    "posthtml": "^0.11.5",
+    "parcel": "^1.12.3",
+    "parcel-plugin-inliner": "^1.0.10",
+    "cssnano": "^4.1.10",
+    "typescript": "^3.5.3",
+    "@types/leaflet": "^1.5.1"
+  }
+}

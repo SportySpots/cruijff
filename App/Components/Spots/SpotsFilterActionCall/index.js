@@ -11,17 +11,15 @@ class SpotsFilterActionCall extends React.PureComponent {
       setMaxDistance,
       setAllSports,
       setSports,
-      setCity,
       onFilterSuccess,
       // onFilterError,
     } = this.props;
 
-    const { maxDistance, allSports, selectedSportIds, city } = inputFields;
+    const { maxDistance, allSports, selectedSportIds } = inputFields;
 
     setMaxDistance({ maxDistance });
     setAllSports({ allSports });
     setSports({ selectedSportIds });
-    setCity(city);
 
     // Pass event up to parent component
     onFilterSuccess();

@@ -5,6 +5,7 @@ import I18n from '../../../I18n';
 import ModalProps from '../../../RenderProps/modal-props';
 import InputField from '../InputField';
 import DatePickerModal from '../Modals/DatePickerModal';
+import { toTitleCase } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -20,7 +21,7 @@ const DatePickerField = ({
       <InputField
         key="input-field"
         comp="TextField"
-        value={value ? value.clone().local().format(dateFormat).toTitleCase() : I18n.t('datePickerField.defaultValue')}
+        value={value ? toTitleCase(value.clone().local().format(dateFormat)) : I18n.t('datePickerField.defaultValue')}
         focusable={false}
         onPress={openModal}
         {...rest}
