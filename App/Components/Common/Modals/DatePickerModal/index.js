@@ -7,6 +7,7 @@ import Row from '../../Row';
 import Block from '../../Block';
 import Calendar from '../../Calendar';
 import CancelConfirmModal from '../CancelConfirmModal';
+import { toTitleCase } from '../../../../utils';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -34,12 +35,11 @@ class DatePickerModal extends React.PureComponent {
         </Text>
         {value && (
           <Text size="M" color="primaryGreen">
-            {value.clone()
+            {toTitleCase(value.clone()
               .local()
               .format('ddd, MMM D')
               .replace(/\./g, '')
-              .toTitleCase()
-            }
+            )}
           </Text>
         )}
       </Row>

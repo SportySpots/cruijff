@@ -113,11 +113,22 @@ export const decodeJWTToken = (token) => {
   return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
 };
 
-export function nestPairs(this: any, ...componentPropPairs: Array<[React.ComponentType, any]>) {
-  return nest.apply(
-    this,
-    componentPropPairs.map(([ComponentClass, props]): React.FunctionComponent<
-      any
-      > => ({ children }) => React.createElement<any>(ComponentClass, { ...props, children }))
-  );
-}
+// export function nestPairs(this: any, ...componentPropPairs: Array<[React.ComponentType, any]>) {
+//   return nest.apply(
+//     this,
+//     componentPropPairs.map(([ComponentClass, props]): React.FunctionComponent<
+//       any
+//       > => ({ children }) => React.createElement<any>(ComponentClass, { ...props, children }))
+//   );
+// }
+
+export const toTitleCase = (str: string): string => {
+  if (!isString(str)) {
+    return '';
+  }
+
+  return str.toLowerCase()
+    .split(' ')
+    .map((s) => (s.charAt(0).toUpperCase() + s.substring(1)))
+    .join(' ');
+};

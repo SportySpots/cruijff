@@ -3,6 +3,7 @@ import I18n from 'i18n-js';
 import * as RNLocalize from 'react-native-localize';
 import moment from 'moment';
 import { LocaleConfig } from 'react-native-calendars';
+import { toTitleCase } from '../utils';
 
 // Set locale based on user/phone settings
 I18n.locale = (
@@ -185,7 +186,7 @@ const calendarLocaleConfig = (locale) => {
   } = momentLocale._config; // eslint-disable-line no-underscore-dangle
 
   return {
-    monthNames: momentLocale.months().map(m => (m.toTitleCase && m.toTitleCase()) || m),
+    monthNames: momentLocale.months().map(m => toTitleCase(m) || m),
     monthNamesShort: monthsShort,
     dayNames: weekdays,
     dayNamesShort: weekdaysMin || weekdaysShort,

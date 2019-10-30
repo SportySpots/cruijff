@@ -17,6 +17,7 @@ import Organizer from '../Organizer';
 import Attendees from '../Attendees';
 import GameCanceledFlag from '../GameCanceledFlag';
 import { getAttendees } from '../utils';
+import { toTitleCase } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -73,7 +74,7 @@ const GameListCard = ({ game }) => {
 
   const isCanceled = status === 'CANCELED';
   const attendees = getAttendees(game.attendees);
-  const formattedStartTime = moment.utc(startTime).local().format('dddd, D MMMM, HH:mm').toTitleCase();
+  const formattedStartTime = toTitleCase(moment.utc(startTime).local().format('dddd, D MMMM, HH:mm'));
   const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S') * (!!attendees && attendees.length > 0);
 
   return (

@@ -9,6 +9,7 @@ import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import Icon from '../../Common/Icon';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
+import { toTitleCase } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -55,7 +56,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         />
         <Spacer row size="L" />
         <Label>
-          {startTime ? moment.utc(startTime).format('dddd, D MMMM').toTitleCase() : '?'}
+          {startTime ? toTitleCase(moment.utc(startTime).format('dddd, D MMMM')) : '?'}
         </Label>
       </Row>
       <Spacer size="M" />

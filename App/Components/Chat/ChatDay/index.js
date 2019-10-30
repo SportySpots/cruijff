@@ -8,6 +8,7 @@ import Spacer from '../../Common/Spacer';
 import Divider from '../../Common/Divider';
 import Text from '../../Common/Text';
 import isSameDay from './utils';
+import { toTitleCase } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -32,10 +33,10 @@ const ChatDay = ({
           <StyledDivider />
           <Spacer row size="L" />
           <Text color="shade">
-            {moment(currentMessage.createdAt)
+            {toTitleCase(moment(currentMessage.createdAt)
               .locale(locale)
               .format('dddd')
-              .toTitleCase()}
+            )}
           </Text>
           <Spacer row size="L" />
           <StyledDivider />

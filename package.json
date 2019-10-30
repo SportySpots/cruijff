@@ -134,6 +134,7 @@
     "apollo-link-schema": "^1.1.1",
     "appcenter-cli": "2.1.1",
     "babel-jest": "^24.8.0",
+    "babel-plugin-module-resolver": "^3.2.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "faker": "^4.1.0",

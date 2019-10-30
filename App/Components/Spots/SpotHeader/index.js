@@ -16,6 +16,7 @@ import DotSpacer from '../../Common/DotSpacer';
 import curatedGames from './utils';
 import { compose } from 'react-apollo';
 import { withSpotFilters } from '../../../Context/SpotFilters';
+import { toTitleCase } from '../../../utils';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -114,7 +115,7 @@ const SpotHeader = ({
                 size="SM"
                 color={gray ? 'gray' : 'actionYellow'}
               >
-                {`${games.length} ${I18n.t('spotHeader.activities', { count: games.length }).toTitleCase()}`}
+                {`${games.length} ${toTitleCase(I18n.t('spotHeader.activities', { count: games.length }))}`}
               </Text>,
             ]}
           </Row>
