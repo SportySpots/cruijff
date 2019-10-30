@@ -44,8 +44,8 @@ const AppRootView = styled.View`
 class App extends Component<{}, {}> {
   private router = React.createRef<NavigationContainerComponent>();
 
-  constructor() {
-    super({});
+  constructor(props) {
+    super(props);
     Crashes.setEnabled(true).then(() => null);
 
     // firebase.links().getInitialLink()

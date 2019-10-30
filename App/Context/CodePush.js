@@ -76,12 +76,14 @@ export class CodePushProvider extends React.Component {
   }
 
   startInterval() {
-    this.interval = setInterval(this.checkForUpdates.bind(this), CHECK_FREQUENCY * 1000);
+    // this.interval = setInterval(this.checkForUpdates.bind(this), CHECK_FREQUENCY * 1000);
   }
 
   stopInterval() {
-    clearInterval(this.interval);
-    this.interval = null;
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.interval = null;
+    }
   }
 
   async componentDidMount() {

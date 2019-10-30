@@ -3,8 +3,6 @@ import isString from 'lodash/isString';
 import castArray from 'lodash/castArray';
 import { Buffer } from 'buffer';
 import globalRefs from './globalRefs';
-import React from 'react';
-import { nest } from "recompose";
 
 /* eslint-disable no-param-reassign */
 export const addModelState = (reactComponentInstance, modalName, isOpen = false) => {
@@ -33,7 +31,8 @@ export function makeNumGenerator() {
   };
 }
 
-const convertS3ToImgix = ({ image, height, width }) => (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const convertS3ToImgix = ({ image, height, width }) => (
   image.replace('https://s3.amazonaws.com/sportyspots-prd', 'https://sportyspots.imgix.net')
     .concat('?auto=compress')
     // .concat(height ? `&h=${height}` : '')
