@@ -3,6 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+      <!-- https://medium.com/@Krizzu/how-to-change-background-color-of-rootview-in-react-native-3279417c34bb -->
+      <item name="android:windowBackground">@color/background</item>
     </style>
 
 </resources>

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { compose } from 'react-apollo';
 import { withUser, userPropTypes } from '../Context/User';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
+import FieldBackground from '../Backgrounds/FieldBackground';
+import Text from '../Components/Common/Text';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -46,7 +48,11 @@ class LoggedOutRoute extends React.PureComponent {
 
     // Wait until user is ready
     if (loadingUser) {
-      return <CenteredActivityIndicator />;
+      return (
+        <FieldBackground>
+          <CenteredActivityIndicator secondary={true} />
+        </FieldBackground>
+      );
     }
 
     // In case user IS logged in, render overlay component
