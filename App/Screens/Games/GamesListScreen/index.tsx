@@ -58,12 +58,14 @@ const GamesListScreen = () => {
     });
   };
 
-  const gameCreatedListener = useRef(() => { requery(); });
+  const gameCreatedListener = useRef(() => {
+    requery();
+  });
 
   useEffect(() => {
     gameEventEmitter.addListener(GameEvents.GAME_CREATED, gameCreatedListener.current);
     return function cleanup() {
-      gameEventEmitter.removeListener(GameEvents.GAME_CREATED, gameCreatedListener.current)
+      gameEventEmitter.removeListener(GameEvents.GAME_CREATED, gameCreatedListener.current);
     };
   }, []);
 

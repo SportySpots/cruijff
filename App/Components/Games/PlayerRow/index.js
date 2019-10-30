@@ -23,7 +23,7 @@ const PlayerRow = ({ player }) => {
         <View>
           <Text size="M">{user.name}</Text>
           <Text size="SM" color="gray">
-            {`${I18n.t(player.status === 'ATTENDING' ? 'playerRow.signedUpOn' : 'playerRow.signedOutOn')} ${moment.utc(createdAt).local().format('D MMMM HH:mm')}`}
+            {`${I18n.t(player.status === 'ATTENDING' ? 'playerRow.signedUpOn' : 'playerRow.signedOutOn')} ${moment.utc(createdAt).local().format('D MMM HH:mm')}`}
           </Text>
         </View>
       </Row>

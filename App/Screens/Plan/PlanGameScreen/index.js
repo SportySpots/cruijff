@@ -97,7 +97,10 @@ class PlanGameScreen extends React.Component {
                 onPlanSuccess={({ gameUUID }) => {
                   // Automatically add organizer (current logged in user) to the list of players
                   updateStatus({ gameUUID, userRSVP: null, status: 'ATTENDING' });
-                  gameEventEmitter.emitEvent(GameEvents.GAME_CREATED, { uuid: gameUUID });
+                  gameEventEmitter.emitEvent({
+                    type: GameEvents.GAME_CREATED,
+                    args: [{ uuid: gameUUID }]
+                  });
                 }}
               >
                 {({ createGame }) => (

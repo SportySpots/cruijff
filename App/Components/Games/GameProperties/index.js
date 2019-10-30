@@ -56,7 +56,7 @@ const GameProperties = ({ game, onSpotPress }) => {
         />
         <Spacer row size="L" />
         <Label>
-          {startTime ? toTitleCase(moment.utc(startTime).format('dddd, D MMMM')) : '?'}
+          {startTime ? toTitleCase(moment.utc(startTime).format('dddd, D MMM')) : '?'}
         </Label>
       </Row>
       <Spacer size="M" />

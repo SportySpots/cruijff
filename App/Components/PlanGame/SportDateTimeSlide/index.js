@@ -70,7 +70,7 @@ class SportDateTimeSlide extends React.PureComponent {
           error={dateErrors}
           size="ML"
           theme="mix"
-          dateFormat="dddd D MMMM"
+          dateFormat="dddd D MMM"
           onChange={(value) => { onChange({ fieldName: 'date', value }); }}
         />
         <Spacer size="S" />
