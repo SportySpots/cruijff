@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createStackNavigator } from 'react-navigation';
 import I18n from '../../I18n';
 import StackBackHeader from '../StackBackHeader';
@@ -10,9 +10,7 @@ import SpotsFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
 import AuthScreens from './AuthScreens';
 import { headerTitleStyle } from './style';
 import { View } from 'react-native';
-import { withLocation } from '../../Context/Location';
-import RoundButton from '../../Components/Common/RoundButton';
-import RaisedButton from '../../Components/Common/RaisedButton';
+import { LocationContext, withLocation } from '../../Context/Location';
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -25,7 +23,8 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GPSButton = withLocation(({ locationEnable, locationDisable, locationEnabled }) => {
+const GPSButton = () => {
+  const { locationEnable, locationDisable, locationEnabled } = useContext(LocationContext);
   if (locationEnabled) {
     return null;
   }
@@ -41,7 +40,7 @@ const GPSButton = withLocation(({ locationEnable, locationDisable, locationEnabl
       }}
     />
   );
-});
+};
 
 const SpotSearchNav = createStackNavigator({
   ...AuthScreens,
@@ -71,7 +70,7 @@ const SpotSearchNav = createStackNavigator({
   SpotsListScreen: {
     screen: SpotsListScreen,
     params: {
-      mode: 'list'
+      mode: 'map' // todo: set back to 'list'
     },
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('spotsListScreen.navigation.title'),

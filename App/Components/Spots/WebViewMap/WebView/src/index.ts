@@ -50,6 +50,11 @@ interface ICoords {
   lng: number;
 }
 
+interface IMarkerData {
+  coords: ICoords;
+  uuid: string;
+}
+
 class IDMarker extends Marker {
   public id: string;
   constructor(coords: ICoords, id: string) {
@@ -91,19 +96,42 @@ class MapView {
     postMessage({type: 'moved', center, nw, se, maxDistance, zoom: this.map.getZoom()});
   }
 
-  public addMarker(coords: ICoords, id: string) {
-    const newMarker = new IDMarker(coords, id);
-    newMarker.on('click', (e) => {
-      const target: IDMarker = e.target;
-      try {
-        this.markersLayerGroup.eachLayer((marker: any) => marker.setIcon(defaultIcon));
-        target.setIcon(selectedIcon);
-        this.map.panTo(target.getLatLng());
-        postMessage({type: 'markerClick', id: e.target.id});
-      } catch (e) {
-        console.log(e);
+  public onMarkerClick(marker: IDMarker) {
+    try {
+      this.markersLayerGroup.eachLayer((marker: any) => marker.setIcon(defaultIcon));
+      marker.setIcon(selectedIcon);
+      this.map.panTo(marker.getLatLng());
+      postMessage({type: 'markerClick', id: marker.id});
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  public setMarkers(newMarkers: IMarkerData[]) {
+    const newIDS = newMarkers.map(marker => marker.uuid);
+    const currentMarkers = this.markersLayerGroup.getLayers() as IDMarker[];
+    const currentMarkerIDS = currentMarkers.map(marker => marker.id);
+
+    // remove markers not in the new set
+    currentMarkers.forEach(marker => {
+      if (newIDS.indexOf(marker.id) === -1) {
+        this.markersLayerGroup.removeLayer(marker);
       }
     });
+
+    // add new markers
+    newMarkers.forEach(marker => {
+      if (currentMarkerIDS.indexOf(marker.uuid) === -1) {
+        this.addMarker(marker.coords, marker.uuid);
+      }
+    });
+
+    // this.markersLayerGroup.eachLayer((marker: any) => marker.setIcon(defaultIcon));
+  }
+
+  public addMarker(coords: ICoords, id: string) {
+    const newMarker = new IDMarker(coords, id);
+    newMarker.on('click', (e) => { this.onMarkerClick(e.target); });
     newMarker.addTo(this.markersLayerGroup);
   }
 

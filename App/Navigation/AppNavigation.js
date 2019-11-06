@@ -26,7 +26,8 @@ const MainTabsNav = createBottomTabNavigator({
   tabBarPosition: 'bottom',
   animationEnabled: false,
   swipeEnabled: false,
-  initialRouteName: 'GameSearchTab',
+  // initialRouteName: 'GameSearchTab', todo: reset
+  initialRouteName: 'SpotSearchTab',
 });
 
 const MainNav = createStackNavigator({
@@ -50,7 +51,8 @@ const AppNavigation = createSwitchNavigator({
 }, {
   // Default config for all screens
   headerMode: 'none',
-  initialRouteName: 'SplashScreen',
+  // initialRouteName: 'SplashScreen', //todo: reset
+  initialRouteName: 'MainNav',
   tabBarComponent: () => null,
 });
 

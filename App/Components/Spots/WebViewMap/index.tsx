@@ -17,24 +17,24 @@ const FlexOne = styled.View`
   flex: 1;
 `;
 
-interface IShortCoords {
+interface ShortCoords {
   lat: number;
   lng: number;
 }
 
-interface IMessage {
+interface Message {
   type: string;
 }
 
-function isMovedMessage(message: IMessage): message is IMovedMessage {
+function isMovedMessage(message: Message): message is MovedMessage {
   return message.type === 'moved';
 }
 
-interface IMovedMessage extends IMessage {
+interface MovedMessage extends Message {
   type: 'moved';
-  center: IShortCoords;
-  nw: IShortCoords;
-  se: IShortCoords;
+  center: ShortCoords;
+  nw: ShortCoords;
+  se: ShortCoords;
   zoom: number;
   maxDistance: number;
 }
@@ -59,8 +59,6 @@ const WebViewMap = () => {
 
   const [ currentSpotUUID, setCurrentSpotUUID ] = React.useState<string>();
 
-  // const curre
-
   /**
    * Handles messages coming in from the WebView
    */
@@ -79,7 +77,7 @@ const WebViewMap = () => {
     }
   };
 
-  const getShortCoords: () => IShortCoords = () => {
+  const getShortCoords: () => ShortCoords = () => {
     return {
       lat: locationMapCoords.latitude,
       lng: locationMapCoords.longitude,
@@ -117,15 +115,9 @@ const WebViewMap = () => {
   // When spotsQuery.data changes, clear all markers and add new ones..
   React.useEffect(() => {
     if (spotsQuery.data && spotsQuery.data.spots && ref.current) {
-      let clearMarkerCode = injectCode('window.mapView.clearMarkers();');
-      ref.current.injectJavaScript(clearMarkerCode);
-      spotsQuery.data.spots.forEach((spot) => {
-        if (ref.current) {
-          let addMarkerCode = injectCode(`window.mapView.addMarker(${JSON.stringify(spot.address)}, '${spot.uuid}');`);
-          ref.current.injectJavaScript(addMarkerCode);
-        }
-      });
-
+      const spots = spotsQuery.data.spots;
+      const injectParam = JSON.stringify(spots.map(({ address, uuid }) => ({ coords: address, uuid })));
+      ref.current.injectJavaScript(injectCode(`window.mapView.setMarkers(${injectParam})`));
     }
   }, [spotsQuery.data]);
 

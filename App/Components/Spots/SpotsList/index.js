@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { propType } from 'graphql-anywhere';
 import I18n from '../../../I18n';
-import { locationPropTypes } from '../../../Context/Location';
 import { QueryCatchErrors } from '../../../GraphQL/QueryCatchErrors';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
