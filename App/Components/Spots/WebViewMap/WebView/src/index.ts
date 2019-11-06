@@ -100,7 +100,7 @@ class MapView {
     try {
       this.markersLayerGroup.eachLayer((marker: any) => marker.setIcon(defaultIcon));
       marker.setIcon(selectedIcon);
-      this.map.panTo(marker.getLatLng());
+      // this.map.panTo(marker.getLatLng());
       postMessage({type: 'markerClick', id: marker.id});
     } catch (e) {
       console.log(e);

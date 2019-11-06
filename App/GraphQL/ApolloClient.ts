@@ -38,7 +38,7 @@ export const addErrorHandlers = link => ApolloLink.from([
   link,
 ]);
 
-export const cache = new InMemoryCache({ dataIdFromObject: object => object.uuid || null });
+export const cache = new InMemoryCache({ dataIdFromObject: object => (object as any).uuid || null });
 
 const client = new ApolloClient({
   link: addErrorHandlers(authMiddleware.concat(httpLink)),

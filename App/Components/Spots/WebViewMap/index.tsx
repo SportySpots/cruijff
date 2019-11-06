@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { WebView } from 'react-native-webview';
 import bundle from './WebView/bundle.json';
-import { SpotFiltersContext } from '../../../Context/SpotFilters';
-import { LocationContext } from '../../../Context/Location';
+import { SpotFiltersContext } from 'App/Context/SpotFilters';
+import { LocationContext } from 'App/Context/Location';
 import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
-import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
-import {Animated, TouchableOpacity, View} from 'react-native';
-import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
+import GET_SPOTS from 'App/GraphQL/Spots/Queries/GET_SPOTS';
+import {TouchableOpacity, View, LayoutRectangle } from 'react-native';
+import GET_SPOT_DETAILS from 'App/GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import SpotListCardSmall from '../SpotListCardSmall';
 import { NavigationContext } from 'react-navigation';
+
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -44,6 +45,7 @@ interface MovedMessage extends Message {
 //------------------------------------------------------------------------------
 const WebViewMap = () => {
   const ref = React.createRef<WebView>();
+  const [layout, setLayout] = useState<LayoutRectangle>();
 
   const {
     locationMapCoords,
@@ -64,6 +66,7 @@ const WebViewMap = () => {
    */
   const handleMessage = (e) => {
     const message = JSON.parse(e.nativeEvent.data);
+    console.log(message);
     if (message.type === 'markerClick') {
       setCurrentSpotUUID(message.id);
     } else if (isMovedMessage(message) && message.maxDistance) {
@@ -90,6 +93,7 @@ const WebViewMap = () => {
   const getSpotsQueryVariables = () => {
     const coords = getShortCoords();
     return {
+      // eslint-disable-next-line @typescript-eslint/camelcase
       sports__ids: selectedSportIds, // empty array will return all spots
       distance: `${parseInt('' + 1000 * maxDistance, 10)}:${coords.lat}:${coords.lng}`,
       offset: 0,
@@ -124,7 +128,7 @@ const WebViewMap = () => {
   // pans the map to current position based on getShortCoords
   const setCurrentPosition = () => {
     if (ref.current) {
-      let panToCode = injectCode(`window.mapView.map.flyTo(${JSON.stringify(getShortCoords())},${locationMapZoom}, {animate: false})`);
+      const panToCode = injectCode(`window.mapView.map.flyTo(${JSON.stringify(getShortCoords())},${locationMapZoom}, {animate: false})`);
       ref.current.injectJavaScript(panToCode);
     }
   };
@@ -142,11 +146,11 @@ const WebViewMap = () => {
     };
   };
 
+  const spotQuery = useQuery(GET_SPOT_DETAILS, { variables: { uuid: currentSpotUUID }});
   const requerySpot = () => {
     spotQuery.refetch(getSpotQueryVariables());
   };
 
-  const spotQuery = useQuery(GET_SPOT_DETAILS, { variables: { uuid: currentSpotUUID }});
   React.useEffect(requerySpot, [currentSpotUUID]);
 
   const handleCardPress = () => {
@@ -156,19 +160,21 @@ const WebViewMap = () => {
   return (
     <FlexOne>
       <WebView
+        onLayout={e => setLayout(e.nativeEvent.layout)}
         ref={ref}
         source={{ html: bundle }}
         onMessage={handleMessage}
         onError={console.warn}
         onLoadEnd={setCurrentPosition}
       />
-      {/*<View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, paddingBottom: 10, justifyContent: 'flex-end', alignItems: 'center'}}>*/}
-      {/*  { spotQuery.data && spotQuery.data.spot && (*/}
-      {/*    <TouchableOpacity onPress={handleCardPress} style={{width: '100%'}}>*/}
-      {/*      <SpotListCardSmall spot={spotQuery.data.spot} />*/}
-      {/*    </TouchableOpacity>*/}
-      {/*  )}*/}
-      {/*</View>*/}
+      { layout && spotQuery.data && spotQuery.data.spot && (
+        <View style={{position: 'absolute', height: 90, width: layout.width, left: 0, bottom: 0, paddingBottom: 10, justifyContent: 'flex-end', alignItems: 'center'}}>
+          <TouchableOpacity onPress={handleCardPress} style={{width: '100%'}}>
+            <SpotListCardSmall spot={spotQuery.data.spot} />
+          </TouchableOpacity>
+        </View>
+      )}
+
     </FlexOne>
 
   );

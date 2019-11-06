@@ -35,15 +35,14 @@ if (__DEV__) {
   // If ReactNative's yellow box warnings are too much, it is possible to turn
   // it off, but the healthier approach is to fix the warnings.  =)
   // console.disableYellowBox = false;
+} else {
+  const bootTime = new Date();
+  const oldConsoleLog = console.log;
+  console.log = (...args) => {
+    oldConsoleLog(...args);
+    log.push({ logTime: (new Date() - bootTime) / 1000, ...args });
+  };
 }
-
-const bootTime = new Date();
-const oldConsoleLog = console.log;
-console.log = (...args) => {
-  oldConsoleLog(...args);
-  log.push({ logTime: (new Date() - bootTime) / 1000, ...args });
-};
-
 
 if (Config.ENVIRONMENT === 'TOM') {
   /* Fast overrides for Tom :) */
