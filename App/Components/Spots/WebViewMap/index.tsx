@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { WebView } from 'react-native-webview';
 import bundle from './WebView/bundle.json';
 import { SpotFiltersContext } from 'App/Context/SpotFilters';
-import { LocationContext } from 'App/Context/Location';
+import { LocationContext, ICoords } from 'App/Context/Location';
 import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
 import GET_SPOTS from 'App/GraphQL/Spots/Queries/GET_SPOTS';
@@ -10,6 +10,7 @@ import {TouchableOpacity, View, LayoutRectangle } from 'react-native';
 import GET_SPOT_DETAILS from 'App/GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import SpotListCardSmall from '../SpotListCardSmall';
 import { NavigationContext } from 'react-navigation';
+import RoundButton from "App/Components/Common/RoundButton";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -80,18 +81,16 @@ const WebViewMap = () => {
     }
   };
 
-  const getShortCoords: () => ShortCoords = () => {
-    return {
-      lat: locationMapCoords.latitude,
-      lng: locationMapCoords.longitude,
-    };
-  };
+  const shortCoords = (longCoords: ICoords) => ({
+    lat: longCoords.latitude,
+    lng: longCoords.longitude,
+  }) as ShortCoords;
 
   /**
    * Variables for GET_SPOTS query
    */
   const getSpotsQueryVariables = () => {
-    const coords = getShortCoords();
+    const coords = shortCoords(locationMapCoords);
     return {
       // eslint-disable-next-line @typescript-eslint/camelcase
       sports__ids: selectedSportIds, // empty array will return all spots
@@ -125,13 +124,13 @@ const WebViewMap = () => {
     }
   }, [spotsQuery.data]);
 
-  // pans the map to current position based on getShortCoords
-  const setCurrentPosition = () => {
+
+  const panMap = (coords: ICoords, zoom=locationMapZoom, animate=false,) => {
     if (ref.current) {
-      const panToCode = injectCode(`window.mapView.map.flyTo(${JSON.stringify(getShortCoords())},${locationMapZoom}, {animate: false})`);
-      ref.current.injectJavaScript(panToCode);
+      const code = `window.mapView.map.flyTo(${JSON.stringify(shortCoords(coords))}, ${zoom}, {animate: ${animate?'true':'false'}})`;
+      ref.current.injectJavaScript(injectCode(code));
     }
-  };
+  }
 
   const requerySpots = () => {
     spotsQuery.refetch(getSpotsQueryVariables());
@@ -165,15 +164,26 @@ const WebViewMap = () => {
         source={{ html: bundle }}
         onMessage={handleMessage}
         onError={console.warn}
-        onLoadEnd={setCurrentPosition}
+        onLoadEnd={() => panMap(locationMapCoords)}
       />
       { layout && spotQuery.data && spotQuery.data.spot && (
-        <View style={{position: 'absolute', height: 90, width: layout.width, left: 0, bottom: 0, paddingBottom: 10, justifyContent: 'flex-end', alignItems: 'center'}}>
+        <View style={{position: 'absolute', height: 90, width: layout.width, left: 0, bottom: 10}}>
           <TouchableOpacity onPress={handleCardPress} style={{width: '100%'}}>
             <SpotListCardSmall spot={spotQuery.data.spot} />
           </TouchableOpacity>
         </View>
       )}
+      <View style={{position: 'absolute', height:30, width: 30, top:10, right: 10}}>
+        <RoundButton
+          iconSet="MaterialIcons"
+          iconName="my-location"
+          status="primary"
+          disabled={false}
+          onPress={() => panMap(locationGPSCoords, 12, true)}
+          reverse={false}
+          size="S"
+        />
+      </View>
 
     </FlexOne>
 

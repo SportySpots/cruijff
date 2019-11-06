@@ -10,7 +10,7 @@ import Geolocation from 'react-native-geolocation-service';
 
 export const ASYNC_STORAGE_KEY = 'LocationProviderState';
 
-interface ICoords {
+export interface ICoords {
   latitude: number;
   longitude: number;
 }
