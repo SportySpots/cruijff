@@ -20,6 +20,10 @@ const Inner = styled.View`
   padding: 0 8px;
   flex: 1;
 `;
+const Bottom = styled.View`
+  flex: 1;
+  background-color: ${({ theme }) => theme.colors.concrete};
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -53,12 +57,7 @@ class SpotsListScreen extends React.Component {
             />
           </TopLayout>
         )}
-        <BottomLayout
-          contentContainerStyle={{
-            flex: 1,
-            display: 'flex',
-          }}
-        >
+        <Bottom>
           <Inner>
             { mode === 'map'
               ? <WebViewMap />
@@ -76,7 +75,7 @@ class SpotsListScreen extends React.Component {
             }
 
           </Inner>
-        </BottomLayout>
+        </Bottom>
       </FlexOne>
     );
   }
