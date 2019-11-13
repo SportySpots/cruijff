@@ -73,6 +73,7 @@ export class LocationProvider extends React.Component<{children: any}, IState> {
     locationGPSCoords: defaultValue.locationGPSCoords, // gps coordinates
     locationMapCoords: defaultValue.locationMapCoords, // coordinates from map panning
     locationMapZoom: defaultValue.locationMapZoom,
+    locationHeading: defaultValue.locationHeading,
   };
 
   componentDidUpdate() {
