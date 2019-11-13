@@ -13,7 +13,7 @@ import RSVPApiCall from '../../../Components/Games/RSVPApiCall';
 import PlanGameApiCall from '../../../Components/PlanGame/PlanGameApiCall';
 import PlanGameForm from '../../../Components/PlanGame/PlanGameForm';
 import { addGlobalRef } from '../../../globalRefs';
-import { gameEventEmitter, GameEvents } from '../../../Services/GameEvents';
+import {GameCreatedEvent} from "App/Services/GameEvents";
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -97,10 +97,7 @@ class PlanGameScreen extends React.Component {
                 onPlanSuccess={({ gameUUID }) => {
                   // Automatically add organizer (current logged in user) to the list of players
                   updateStatus({ gameUUID, userRSVP: null, status: 'ATTENDING' });
-                  gameEventEmitter.emitEvent({
-                    type: GameEvents.GAME_CREATED,
-                    args: [{ uuid: gameUUID }]
-                  });
+                  GameCreatedEvent.emit({ uuid: gameUUID });
                 }}
               >
                 {({ createGame }) => (

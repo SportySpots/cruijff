@@ -11,7 +11,11 @@ import {
   NavigationContainerComponent,
 } from 'react-navigation';
 import { logNavigationState } from './utils';
-import { Events, getInitialEvent, IncomingLinks } from './Services/IncomingLinks';
+import {
+  GameLinkOpenedEvent,
+  MagicLinkLoginEvent,
+  emitInitialLinkEvent
+} from './Services/IncomingLinks';
 
 import { MenuProvider } from 'react-native-popup-menu';
 import { LocationProvider } from './Context/Location';
@@ -67,32 +71,25 @@ class App extends Component<{}, {}> {
     // the last update.
     codePush.notifyAppReady();
     const router = this.router.current;
-    IncomingLinks.on(Events.MAGIC_LINK_LOGIN, (magicToken) => {
+    MagicLinkLoginEvent.on(({token}) => {
       if (router) {
         router.dispatch(NavigationActions.navigate({
           routeName: 'ConfirmMagicTokenScreen',
-          params: { magicToken },
+          params: { magicToken: token },
         }));
       }
-    });
+    })
 
-    IncomingLinks.on(Events.GAME_OPENED, (uuid) => {
+    GameLinkOpenedEvent.on(({ uuid }) => {
       if (router) {
         router.dispatch(NavigationActions.navigate({
           routeName: 'GameDetailsScreen',
           params: { uuid },
         }));
       }
-    });
+    })
 
-    getInitialEvent().then((event) => {
-      if (event
-        && event.type
-        && ([Events.MAGIC_LINK_LOGIN, Events.GAME_OPENED] as string[]).includes(event.type)
-      ) {
-        IncomingLinks.emitEvent(event);
-      }
-    });
+    emitInitialLinkEvent();
   }
 
   componentWillUnmount() {

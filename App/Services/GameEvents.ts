@@ -1,19 +1,4 @@
-import EventEmitter from 'events';
+import { TypedEvent } from "App/Utils/TypedEvent";
 
-export enum GameEvents {
-  GAME_CREATED = 'GAME_CREATED',
-  GAME_UPDATED = 'GAME_UPDATED',
-}
-
-export interface IEvent {
-  type: keyof typeof GameEvents;
-  args: any[];
-}
-
-class GameEventEmitter extends EventEmitter {
-  emitEvent = (event: IEvent) => {
-    this.emit(event.type, ...event.args);
-  }
-}
-
-export const gameEventEmitter = new GameEventEmitter();
+export const GameCreatedEvent = new TypedEvent<{uuid: string}>();
+export const GameUpdatedEvent = new TypedEvent<{uuid: string}>();

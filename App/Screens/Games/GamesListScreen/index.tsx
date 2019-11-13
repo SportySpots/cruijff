@@ -8,8 +8,8 @@ import NoGamesFound from '../../../Components/Games/NoGamesFound';
 import curatedGames from './utils';
 import { NavigationContext } from 'react-navigation';
 import { useQuery } from '@apollo/react-hooks';
-import { gameEventEmitter, GameEvents } from '../../../Services/GameEvents';
 import { QueryResult } from 'react-apollo';
+import { GameCreatedEvent } from "App/Services/GameEvents";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -58,15 +58,9 @@ const GamesListScreen = () => {
     });
   };
 
-  const gameCreatedListener = useRef(() => {
-    requery();
-  });
-
   useEffect(() => {
-    gameEventEmitter.addListener(GameEvents.GAME_CREATED, gameCreatedListener.current);
-    return function cleanup() {
-      gameEventEmitter.removeListener(GameEvents.GAME_CREATED, gameCreatedListener.current);
-    };
+    const handle = GameCreatedEvent.on(requery);
+    return handle.dispose;
   }, []);
 
   return (
