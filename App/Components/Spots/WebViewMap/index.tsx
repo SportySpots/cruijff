@@ -24,21 +24,29 @@ interface ShortCoords {
   lng: number;
 }
 
-interface Message {
-  type: string;
+enum MessageTypes {
+  MOVED='moved',
+  MARKER_CLICKED='markerClick',
 }
 
-function isMovedMessage(message: Message): message is MovedMessage {
-  return message.type === 'moved';
-}
-
-interface MovedMessage extends Message {
-  type: 'moved';
+interface MovedMessage {
+  type: MessageTypes.MOVED;
   center: ShortCoords;
   nw: ShortCoords;
   se: ShortCoords;
   zoom: number;
   maxDistance: number;
+}
+function isMovedMessage(message): message is MovedMessage {
+  return message.type === MessageTypes.MOVED;
+}
+
+interface MarkerClickedMessage {
+  type: MessageTypes.MARKER_CLICKED;
+  id: string;
+}
+function isMarkerClickedMessage(message): message is MarkerClickedMessage {
+  return message.type === MessageTypes.MARKER_CLICKED;
 }
 
 //------------------------------------------------------------------------------
@@ -67,8 +75,7 @@ const WebViewMap = () => {
    */
   const handleMessage = (e) => {
     const message = JSON.parse(e.nativeEvent.data);
-    console.log(message);
-    if (message.type === 'markerClick') {
+    if (isMarkerClickedMessage(message)) {
       setCurrentSpotUUID(message.id);
     } else if (isMovedMessage(message) && message.maxDistance) {
       locationSetMapCoords({
@@ -173,18 +180,19 @@ const WebViewMap = () => {
           </TouchableOpacity>
         </View>
       )}
-      <View style={{position: 'absolute', height:30, width: 30, top:10, right: 10}}>
-        <RoundButton
-          iconSet="MaterialIcons"
-          iconName="my-location"
-          status="primary"
-          disabled={false}
-          onPress={() => panMap(locationGPSCoords, 12, true)}
-          reverse={false}
-          size="S"
-        />
-      </View>
-
+      { locationEnabled && (
+        <View style={{position: 'absolute', height:30, width: 30, top:10, right: 10}}>
+          <RoundButton
+            iconSet="MaterialIcons"
+            iconName="my-location"
+            status="primary"
+            disabled={false}
+            onPress={() => panMap(locationGPSCoords, 12, true)}
+            reverse={false}
+            size="S"
+          />
+        </View>
+      )}
     </FlexOne>
 
   );

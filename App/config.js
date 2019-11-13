@@ -31,7 +31,27 @@ if (settings.testBuild) {
 
 export const log = [];
 
+const enableNetworkRequestInspection = () => {
+  // use this to enable network request inspection in the (chrome) debugger.
+  // NOTE: you'll need to disable CORS checking e.g. by running chrome with `--disable-web-security`.
+
+  // To see all the requests in the chrome Dev tools in the network tab.
+  XMLHttpRequest = GLOBAL.originalXMLHttpRequest ?
+    GLOBAL.originalXMLHttpRequest :
+    GLOBAL.XMLHttpRequest;
+
+  // fetch logger
+  global._fetch = fetch;
+  global.fetch = function (uri, options, ...args) {
+    return global._fetch(uri, options, ...args).then((response) => {
+      console.log('Fetch', { request: { uri, options, ...args }, response });
+      return response;
+    });
+  };
+}
+
 if (__DEV__) {
+  // enableNetworkRequestInspection();
   // If ReactNative's yellow box warnings are too much, it is possible to turn
   // it off, but the healthier approach is to fix the warnings.  =)
   // console.disableYellowBox = false;

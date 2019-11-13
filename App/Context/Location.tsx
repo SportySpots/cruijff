@@ -21,6 +21,7 @@ interface IState {
   locationGPSCoords: ICoords;
   locationMapCoords: ICoords;
   locationMapZoom: number;
+  locationHeading: number;
 }
 
 interface IProps extends IState {
@@ -47,6 +48,7 @@ const defaultValue: IProps = {
     latitude: 52.370216,
     longitude: 4.895168,
   },
+  locationHeading: 0,
   locationRequestPermission: async () => false,
   locationUpdate: async () => false,
   locationEnable: async () => false,
@@ -95,12 +97,12 @@ export class LocationProvider extends React.Component<{children: any}, IState> {
 
     try {
       const result = await getCurrentPositionPromise({ enableHighAccuracy: true, timeout: 5000, maximumAge: 10000 });
-      const { latitude, longitude } = result.coords;
+      const { latitude, longitude, heading } = result.coords;
       if (!latitude || !longitude) {
         throw new Error('couldn\'t get coordinates');
       }
       const coords: ICoords = { latitude, longitude };
-      this.setState({ locationLoading: false, locationGPSCoords: coords });
+      this.setState({ locationLoading: false, locationGPSCoords: coords, locationHeading: heading || 0 });
       return true;
     } catch (e) {
       /*
@@ -190,9 +192,12 @@ export class LocationProvider extends React.Component<{children: any}, IState> {
 
 export const LocationConsumer = LocationContext.Consumer;
 
-export const withLocation = <P extends object>(Component: React.ComponentType<IProps & P>) =>
-  React.forwardRef((props: P, ref) => (
+export const withLocation = <P extends object>(Component: React.ComponentType<IProps & P>) => {
+  const Wrapper = (props: P, ref) => (
     <LocationConsumer>
       {(locationProps: IProps) => <Component ref={ref} {...props} {...locationProps} />}
     </LocationConsumer>
-  ));
+  )
+  return React.forwardRef(Wrapper);
+}
+
