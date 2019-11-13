@@ -58199,13 +58199,7 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
       }
       testID="SpotsListScreen"
     >
-      <RCTScrollView
-        contentContainerStyle={
-          Object {
-            "display": "flex",
-            "flex": 1,
-          }
-        }
+      <View
         style={
           Array [
             Object {
@@ -58217,24 +58211,22 @@ exports[`Storyshots Screens.Spots SpotsListScreen 1`] = `
           ]
         }
       >
-        <View>
-          <View
-            style={
-              Array [
-                Object {
-                  "flexBasis": 0,
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "paddingBottom": 0,
-                  "paddingLeft": 8,
-                  "paddingRight": 8,
-                  "paddingTop": 0,
-                },
-              ]
-            }
-          />
-        </View>
-      </RCTScrollView>
+        <View
+          style={
+            Array [
+              Object {
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "paddingBottom": 0,
+                "paddingLeft": 8,
+                "paddingRight": 8,
+                "paddingTop": 0,
+              },
+            ]
+          }
+        />
+      </View>
     </View>
   </View>
   <RCTSafeAreaView
