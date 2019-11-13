@@ -1,4 +1,3 @@
-import '../App/prototypes/string';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import fetch from 'node-fetch';
@@ -6,7 +5,6 @@ import { NativeModules as RNNativeModules, Image } from 'react-native';
 import mockAsyncStorage from '@react-native-community/async-storage/jest/async-storage-mock';
 import '../storybook/setup_faker';
 import PropTypes from 'prop-types';
-import { LocationProvider } from '../App/Context/Location';
 
 global.fetch = fetch;
 

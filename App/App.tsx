@@ -102,7 +102,6 @@ class App extends Component<{}, {}> {
   }
 
   render() {
-    const P
     return (
       <ApolloProvider
         // client={config.useFixtures ? mockClient : client} // TODO

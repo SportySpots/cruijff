@@ -1,24 +1,27 @@
-import '../App/prototypes';
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { MenuProvider } from 'react-native-popup-menu';
 import { ThemeProvider } from 'styled-components/native';
 import { SpotFiltersProvider } from '../App/Context/SpotFilters';
-import { ApolloMockProvider } from '../App/GraphQL/ApolloMockClient';
+import client from '../App/GraphQL/ApolloMockClient';
 import { loadStories } from './storyLoader';
-import scTheme from '../App/Themes/scTheme'; // styled-components theme
+import scTheme from '../App/Themes/scTheme';
+import {ApolloProvider as ApolloHooksProvider} from "@apollo/react-common";
+import {ApolloProvider} from "react-apollo"; // styled-components theme
 
 addDecorator(story => (
-  <ApolloMockProvider>
-    <ThemeProvider theme={scTheme}>
-      <SpotFiltersProvider>
-        <MenuProvider>
-          {story()}
-        </MenuProvider>
-      </SpotFiltersProvider>
-    </ThemeProvider>
-  </ApolloMockProvider>
+  <ApolloProvider client={client}>
+    <ApolloHooksProvider client={client}>
+      <ThemeProvider theme={scTheme}>
+        <SpotFiltersProvider>
+          <MenuProvider>
+            {story()}
+          </MenuProvider>
+        </SpotFiltersProvider>
+      </ThemeProvider>
+    </ApolloHooksProvider>
+  </ApolloProvider>
 ));
 
 // Import stories
