@@ -78,9 +78,6 @@ const GameDetails = ({
         <DescriptionReadMore description={game.description} />
       </Block>,
     ],
-    <Block key="game-chat">
-      <ChatWithGroup onChatPress={onChatPress} />
-    </Block>,
     attendees.length > 0 && [
       <Block key="game-attendees">
         <Label>{I18n.t('gameDetails.attending')}</Label>
