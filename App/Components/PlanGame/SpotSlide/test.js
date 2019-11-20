@@ -6,9 +6,6 @@ import GET_SPOTS from '../../../GraphQL/Spots/Queries/GET_SPOTS';
 import mockClient, { ApolloMockProvider } from '../../../GraphQL/ApolloMockClient';
 import scTheme from '../../../Themes/scTheme'; // styled-components theme
 import SpotSlide from '.';
-import { LocationProvider } from '../../../Context/Location';
-import { SpotFiltersProvider } from '../../../Context/SpotFilters';
-import { UserProvider } from '../../../Context/User';
 
 describe('SpotSlide', () => {
   it('renders without crashing', () => {

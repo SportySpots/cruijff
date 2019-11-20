@@ -14,7 +14,9 @@
   "dependencies": {
     "@types/leaflet.markercluster": "^1.4.0",
     "leaflet": "^1.5.1",
-    "leaflet.markercluster": "^1.4.1"
+    "leaflet.markercluster": "^1.4.1",
+    "mobx": "^5.15.0",
+    "mobx-react": "^6.1.4"
   },
   "devDependencies": {
     "@types/leaflet": "^1.5.1",

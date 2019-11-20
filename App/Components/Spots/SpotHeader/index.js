@@ -15,7 +15,6 @@ import Spacer from '../../Common/Spacer';
 import DotSpacer from '../../Common/DotSpacer';
 import curatedGames from './utils';
 import { compose } from 'react-apollo';
-import { withSpotFilters } from '../../../Context/SpotFilters';
 import { toTitleCase } from '../../../utils';
 
 //------------------------------------------------------------------------------

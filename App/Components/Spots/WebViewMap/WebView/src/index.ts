@@ -7,6 +7,7 @@ import 'leaflet.markercluster';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+import { Coords } from "leaflet";
 type PostMessage = (message: any) => void;
 
 declare global {
@@ -65,7 +66,7 @@ class MapView {
   public map: L.Map;
   public tileLayer: L.TileLayer;
   public markersLayerGroup: L.MarkerClusterGroup;
-
+  public gpsMarker: L.CircleMarker;
   constructor() {
     this.map = new L.Map('leaflet-root', {
       minZoom: 5,
@@ -87,8 +88,12 @@ class MapView {
       animateAddingMarkers: false
     }).addTo(this.map);
 
-    const gpsMarker = new L.CircleMarker([52.370216, 4.895168], { radius: 10 }).addTo(this.map);
+    this.gpsMarker = new L.CircleMarker([52.370216, 4.895168], { radius: 10 }).addTo(this.map);
     // L.circle(e.latlng, radius).addTo(map);
+  }
+
+  public setGPSMarkerPosition(coords: ICoords) {
+    this.gpsMarker.setLatLng([coords.lat, coords.lng]);
   }
 
   public sendMoveMessage() {

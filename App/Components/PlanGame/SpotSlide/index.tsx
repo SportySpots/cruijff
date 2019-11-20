@@ -8,8 +8,7 @@ import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Spacer from '../../Common/Spacer';
 import SpotsList from '../../Spots/SpotsList';
-import { locationPropTypes, withLocation } from '../../../Context/Location';
-import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
+import { withLocation } from '../../../Context/Location';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -60,8 +59,6 @@ SpotSlide.propTypes = {
   sport: propType(sportFragment),
   spot: propType(spotFragment),
   onChange: PropTypes.func,
-  ...locationPropTypes,
-  ...spotFiltersPropTypes,
 };
 
 SpotSlide.defaultProps = {
@@ -72,7 +69,6 @@ SpotSlide.defaultProps = {
 
 
 const enhance = compose(
-  withSpotFilters,
   withLocation,
 );
 

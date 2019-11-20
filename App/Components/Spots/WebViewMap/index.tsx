@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { WebView } from 'react-native-webview';
 import bundle from './WebView/bundle.json';
-import { SpotFiltersContext } from 'App/Context/SpotFilters';
 import { LocationContext, ICoords } from 'App/Context/Location';
 import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
@@ -11,6 +10,8 @@ import GET_SPOT_DETAILS from 'App/GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import SpotListCardSmall from '../SpotListCardSmall';
 import { NavigationContext } from 'react-navigation';
 import RoundButton from "App/Components/Common/RoundButton";
+import { observer } from "mobx-react";
+import filters from "App/Stores/SpotFilters";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -52,8 +53,9 @@ function isMarkerClickedMessage(message): message is MarkerClickedMessage {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+const ref = React.createRef<WebView>();
+
 const WebViewMap = () => {
-  const ref = React.createRef<WebView>();
   const [layout, setLayout] = useState<LayoutRectangle>();
 
   const {
@@ -63,9 +65,9 @@ const WebViewMap = () => {
     locationEnabled,
     locationMapZoom,
     locationSetMapZoom,
+    locationUpdate,
   } = React.useContext(LocationContext);
 
-  const { maxDistance, allSports, selectedSportIds, setMaxDistance } = React.useContext(SpotFiltersContext);
   const navigation = React.useContext(NavigationContext);
 
   const [ currentSpotUUID, setCurrentSpotUUID ] = React.useState<string>();
@@ -84,7 +86,7 @@ const WebViewMap = () => {
       });
       locationSetMapZoom(message.zoom);
       const distanceInKM = Math.round(message.maxDistance / 100) / 10; // rounded to 1 decimal
-      setMaxDistance({maxDistance: distanceInKM });
+      filters.maxDistance = distanceInKM;
     }
   };
 
@@ -100,8 +102,8 @@ const WebViewMap = () => {
     const coords = shortCoords(locationMapCoords);
     return {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      sports__ids: selectedSportIds, // empty array will return all spots
-      distance: `${parseInt('' + 1000 * maxDistance, 10)}:${coords.lat}:${coords.lng}`,
+      sports__ids: filters.selectedSportIds, // empty array will return all spots
+      distance: `${parseInt('' + 1000 * filters.maxDistance, 10)}:${coords.lat}:${coords.lng}`,
       offset: 0,
       limit: 500,
       ordering: 'distance',
@@ -115,11 +117,16 @@ const WebViewMap = () => {
   const injectCode = (code) => {
     // NOTE: Fix for bug in IOS
     // REF: https://github.com/react-native-community/react-native-webview/issues/341#issuecomment-466639820
-    return `
-      setTimeout(() => {
-        ${code}
-      }, 0);
-    `;
+
+    if (ref.current) {
+      const wrappedCode = `
+        setTimeout(() => {
+         ${code}
+        }, 0);
+      `;
+      ref.current.injectJavaScript(wrappedCode);
+    }
+
   };
 
   // When spotsQuery.data changes, clear all markers and add new ones..
@@ -127,7 +134,7 @@ const WebViewMap = () => {
     if (spotsQuery.data && spotsQuery.data.spots && ref.current) {
       const spots = spotsQuery.data.spots;
       const injectParam = JSON.stringify(spots.map(({ address, uuid }) => ({ coords: address, uuid })));
-      ref.current.injectJavaScript(injectCode(`window.mapView.setMarkers(${injectParam})`));
+      injectCode(`window.mapView.setMarkers(${injectParam})`);
     }
   }, [spotsQuery.data]);
 
@@ -135,7 +142,9 @@ const WebViewMap = () => {
   const panMap = (coords: ICoords, zoom=locationMapZoom, animate=false,) => {
     if (ref.current) {
       const code = `window.mapView.map.flyTo(${JSON.stringify(shortCoords(coords))}, ${zoom}, {animate: ${animate?'true':'false'}})`;
-      ref.current.injectJavaScript(injectCode(code));
+      injectCode(code);
+    } else {
+      console.log('no ref.current');
     }
   }
 
@@ -144,7 +153,7 @@ const WebViewMap = () => {
   };
 
   // React.useEffect(setCurrentPosition, [locationCoords, locationEnabled]);
-  React.useEffect(requerySpots, [locationEnabled, maxDistance]);
+  React.useEffect(requerySpots, [locationEnabled, filters.maxDistance]);
 
   const getSpotQueryVariables = () => {
     return {
@@ -162,6 +171,14 @@ const WebViewMap = () => {
   const handleCardPress = () => {
     navigation.navigate('SpotDetailsScreen', { uuid: currentSpotUUID });
   };
+
+  React.useEffect(() => {
+    injectCode(`window.mapView.setGPSMarkerPosition(${JSON.stringify(shortCoords(locationGPSCoords))})`);
+  }, [locationGPSCoords]);
+
+  React.useEffect(() => {
+    locationUpdate();
+  }, []);
 
   return (
     <FlexOne>
@@ -187,7 +204,14 @@ const WebViewMap = () => {
             iconName="my-location"
             status="primary"
             disabled={false}
-            onPress={() => panMap(locationGPSCoords, 12, true)}
+            onPress={async () => {
+              try {
+                await locationUpdate();
+              } catch(e) {
+                console.log(e);
+              }
+              await panMap(locationGPSCoords, 12, true)
+            }}
             reverse={false}
             size="S"
           />
@@ -199,4 +223,4 @@ const WebViewMap = () => {
 };
 
 
-export default WebViewMap;
+export default observer(WebViewMap);

@@ -5,6 +5,7 @@ module.exports = {
   plugins: [
     // ['@babel/plugin-proposal-class-properties', { loose: true }],
     // '@babel/transform-runtime',
+    ["@babel/plugin-proposal-decorators", { legacy: true }],
     ['module-resolver', {
       "extensions": [".js", ".ios.js", ".android.js", "*.jsx", "*.ts", "*.tsx"],
       alias: {

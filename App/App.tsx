@@ -22,7 +22,6 @@ import { LocationProvider } from './Context/Location';
 import { UserProvider } from './Context/User';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
-import { SpotFiltersProvider } from './Context/SpotFilters';
 import { CodePushProvider } from './Context/CodePush';
 import { NotificationsProvider } from './Context/Notifications';
 
@@ -30,6 +29,11 @@ import styled, { ThemeProvider } from 'styled-components/native';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
 import scTheme from './Themes/scTheme'; // styled-components theme
 import { StatusBar } from 'react-native';
+
+import store from './Stores/SpotFilters';
+setTimeout(() => {
+  store.maxDistance = 99;
+}, 1000)
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -109,7 +113,6 @@ class App extends Component<{}, {}> {
             <ThemeProvider theme={scTheme}>
               <UserProvider>
                 <NotificationsProvider>
-                  <SpotFiltersProvider>
                     <LocationProvider>
                       <MenuProvider>
                         <AppRootView>
@@ -132,7 +135,6 @@ class App extends Component<{}, {}> {
                         </AppRootView>
                       </MenuProvider>
                     </LocationProvider>
-                  </SpotFiltersProvider>
                 </NotificationsProvider>
               </UserProvider>
             </ThemeProvider>

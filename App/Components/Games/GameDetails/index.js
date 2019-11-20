@@ -8,7 +8,7 @@ import SpotMapWithLinkFallback from '../../Spots/SpotMapWithLinkFallback';
 import Block from '../../Common/Block';
 import Text from '../../Common/Text';
 import AlertMsg from '../../Common/AlertMsg';
-import ChatWithGroup from '../../Chat/ChatWithGroup';
+// import ChatWithGroup from '../../Chat/ChatWithGroup';
 import GameProperties from '../GameProperties';
 import Organizer from '../Organizer';
 import DescriptionReadMore from '../DescriptionReadMore';

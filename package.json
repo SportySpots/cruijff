@@ -82,6 +82,8 @@
     "i18n-js": "^3.2.1",
     "identity-obj-proxy": "^3.0.0",
     "lodash": "^4.17.11",
+    "mobx": "^5.15.0",
+    "mobx-react": "^6.1.4",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
     "prop-types": "15.7.2",
@@ -121,6 +123,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-decorators": "^7.7.0",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addon-storyshots": "^5.0.11",

@@ -24,7 +24,7 @@ interface IState {
   locationHeading: number;
 }
 
-interface IProps extends IState {
+export interface IProps extends IState {
   locationRequestPermission: () => Promise<boolean>;
   locationUpdate: () => Promise<boolean>;
   locationEnable: () => Promise<boolean>;

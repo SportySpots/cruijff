@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { compose } from 'react-apollo';
-import { spotFiltersPropTypes, withSpotFilters } from '../../../Context/SpotFilters';
 import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
 import SpotsList from '../../../Components/Spots/SpotsList';
 import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
-import { locationPropTypes, withLocation } from '../../../Context/Location';
+import { IProps as LocationProps, withLocation } from '../../../Context/Location';
 import WebViewMap from '../../../Components/Spots/WebViewMap';
-
+import {observer} from "mobx-react";
+import { NavigationInjectedProps } from "react-navigation";
+import filters from 'App/Stores/SpotFilters';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -29,7 +30,8 @@ const Bottom = styled.View`
 //------------------------------------------------------------------------------
 // TODO: replace Container with Layout comp
 // TODO: probably move maxDistance to SpotsList and get said value from context
-class SpotsListScreen extends React.Component {
+@observer
+class SpotsListScreen extends React.Component<NavigationInjectedProps & LocationProps> {
   handleCardPress = (spot) => {
     const { navigation } = this.props;
     navigation.navigate('SpotDetailsScreen', { uuid: spot.uuid });
@@ -42,17 +44,17 @@ class SpotsListScreen extends React.Component {
 
   render() {
     const {
-      maxDistance, allSports, selectedSportIds, locationEnabled, locationMapCoords,
+      locationEnabled, locationMapCoords,
     } = this.props;
     const mode = this.props.navigation.getParam('mode');
     return (
       <FlexOne testID="SpotsListScreen">
-        {(!allSports || maxDistance < 20) && (
+        {(!filters.allSports || filters.maxDistance < 20) && (
           <TopLayout>
             <SpotsFilterFlap
-              maxDistance={maxDistance}
-              allSports={allSports}
-              selectedSportIds={selectedSportIds}
+              maxDistance={filters.maxDistance}
+              allSports={filters.allSports}
+              selectedSportIds={filters.selectedSportIds}
               // onClose={closeFlap}
             />
           </TopLayout>
@@ -64,10 +66,11 @@ class SpotsListScreen extends React.Component {
               : (
                 <SpotsList
                   cardComponent="SpotListCard"
-                  sportsIds={allSports ? [] : selectedSportIds} // empty array will return all spots
-                  maxDistance={maxDistance} // km
+                  sportsIds={filters.allSports ? [] : filters.selectedSportIds} // empty array will return all spots
+                  maxDistance={filters.maxDistance} // km
                   coords={locationMapCoords}
                   onCardPress={this.handleCardPress}
+                  selectedSpot={undefined}
                   // FlatList props
                   // onScroll={this.handleScroll}
                 />
@@ -81,18 +84,4 @@ class SpotsListScreen extends React.Component {
   }
 }
 
-SpotsListScreen.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-  ...locationPropTypes,
-  ...spotFiltersPropTypes,
-};
-
-
-const enhance = compose(
-  withSpotFilters,
-  withLocation,
-);
-
-export default enhance(SpotsListScreen);
+export default withLocation(SpotsListScreen);
