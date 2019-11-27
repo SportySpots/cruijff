@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import styled from 'styled-components/native';
 import Colors from '../../../Themes/Colors';
 import Row from '../Row';
@@ -8,6 +7,7 @@ import Spacer from '../Spacer';
 import Text from '../Text';
 import Icon from '../Icon';
 import { getPalette, getPixelsFromSize } from './utils';
+// import Fonts from "App/Themes/Fonts";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -27,21 +27,51 @@ const StyledRow = styled(Row)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const RaisedButton = ({
-  label,
-  iconSet,
-  iconName,
-  iconSize,
-  variant,
-  size,
-  disabled,
-  width,
-  ...rest
-}) => {
+const defaultProps = {
+  iconSet: '',
+  iconName: '',
+  iconSize: 24,
+  variant: 'default',
+  size: 'M',
+  disabled: false,
+  width: '100%',
+}
+
+interface IRequiredProps {
+  label: string;
+}
+
+type IMergedProps = IRequiredProps & {
+  iconSet: string;
+  iconName: string;
+  iconSize: number;
+  variant: 'default'| 'primary'| 'secondary'| 'info'| 'warning'| 'ghost'| 'facebook'| 'google'| 'transparent';
+  size: string;
+  disabled: boolean;
+  width: string;
+}
+
+type IProps = IRequiredProps & Partial<IMergedProps> & TouchableOpacityProps
+
+const RaisedButton = (props: IProps) => {
+  const mergedProps = {...defaultProps, ...props};
+
+  const {
+    label,
+    iconSet,
+    iconName,
+    iconSize,
+    variant,
+    size,
+    disabled,
+    width,
+    ...rest
+  } = mergedProps;
+
   const palette = getPalette(variant);
   const { fontColor, bgColor, borderColor, withShadow } = palette; // string to be used with Colors[string]
 
-  const Root = disabled ? View : TouchableOpacity;
+  const Root: React.ElementType = disabled ? View : TouchableOpacity;
 
   const style = !withShadow ? {} : {
     elevation: 1.5,
@@ -75,43 +105,13 @@ const RaisedButton = ({
         ]}
         <Text
           size="M"
-          color={disabled ? 'white' : fontColor}
+          color={disabled ? 'white' : fontColor as any}
         >
           {label}
         </Text>
       </StyledRow>
     </Root>
   );
-};
-
-RaisedButton.propTypes = {
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-  iconSet: PropTypes.string,
-  iconName: PropTypes.string,
-  iconSize: PropTypes.number,
-  variant: PropTypes.oneOf([
-    'default', 'primary', 'secondary', 'info', 'warning', 'ghost', 'facebook', 'google', 'transparent',
-  ]),
-  size: PropTypes.oneOf(['M', 'S']),
-  disabled: PropTypes.bool,
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  // Plus all props from native Button
-};
-
-RaisedButton.defaultProps = {
-  iconSet: '',
-  iconName: '',
-  iconSize: 24,
-  variant: 'default',
-  size: 'M',
-  disabled: false,
-  width: '100%',
 };
 
 export default RaisedButton;

@@ -10,7 +10,14 @@ export const FontFamilies = {
   bold: 'Rajdhani-Bold',
 };
 
-const Fonts = {
+type sizes = 'XL'|'L'|'ML'|'M'|'SM'|'SSM'|'S';
+
+export interface IFont {
+  fontFamily: string;
+  fontSize: number;
+}
+
+const Fonts: {[key in sizes]: IFont} = {
   XL: {
     fontFamily: FontFamilies.semibold,
     fontSize: isSmallPhone ? 32 : 40,

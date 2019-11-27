@@ -1,17 +1,14 @@
-import { IObservableArray, observable } from 'mobx';
+import { observable } from 'mobx';
 import { persist } from "./utils";
 
 export const ASYNC_STORAGE_KEY = 'SpotFilterProviderState';
 
 export class SpotFiltersStore {
-  @observable maxDistance: number;
-  @observable allSports: boolean;
-  @observable selectedSportIds: IObservableArray<string>;
-  constructor() {
-    this.maxDistance = 20;
-    this.allSports = true;
-    this.selectedSportIds = [] as any;
-  }
+  @observable maxDistance = 20;
+  @observable allSports = true;
+
+  // just ref, so don't mutate if you want updates (you should replace whole array).
+  @observable.ref selectedSportIds = [] as string[];
 }
 
 const store = new SpotFiltersStore();
