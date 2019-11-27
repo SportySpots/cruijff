@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { WebView } from 'react-native-webview';
 import bundle from './WebView/bundle.json';
-import { LocationContext, ICoords } from 'App/Context/Location';
 import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
 import GET_SPOTS from 'App/GraphQL/Spots/Queries/GET_SPOTS';
@@ -12,7 +11,7 @@ import { NavigationContext } from 'react-navigation';
 import RoundButton from "App/Components/Common/RoundButton";
 import { observer } from "mobx-react";
 import filters from "App/Stores/SpotFilters";
-
+import locationStore, { ICoords } from "App/Stores/Location";
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -58,15 +57,11 @@ const ref = React.createRef<WebView>();
 const WebViewMap = () => {
   const [layout, setLayout] = useState<LayoutRectangle>();
 
-  const {
-    locationMapCoords,
-    locationSetMapCoords,
-    locationGPSCoords,
-    locationEnabled,
-    locationMapZoom,
-    locationSetMapZoom,
-    locationUpdate,
-  } = React.useContext(LocationContext);
+  const locationMapCoords = locationStore.locationMapCoords;
+  const locationGPSCoords = locationStore.locationGPSCoords;
+  const locationEnabled = locationStore.locationEnabled;
+  const locationMapZoom = locationStore.locationMapZoom;
+  const locationUpdate = locationStore.updateLocation;
 
   const navigation = React.useContext(NavigationContext);
 
@@ -80,11 +75,11 @@ const WebViewMap = () => {
     if (isMarkerClickedMessage(message)) {
       setCurrentSpotUUID(message.id);
     } else if (isMovedMessage(message) && message.maxDistance) {
-      locationSetMapCoords({
+      locationStore.locationMapCoords = {
         latitude: message.center.lat,
         longitude: message.center.lng,
-      });
-      locationSetMapZoom(message.zoom);
+      };
+      locationStore.locationMapZoom = message.zoom;
       const distanceInKM = Math.round(message.maxDistance / 100) / 10; // rounded to 1 decimal
       filters.maxDistance = distanceInKM;
     }

@@ -18,7 +18,6 @@ import {
 } from './Services/IncomingLinks';
 
 import { MenuProvider } from 'react-native-popup-menu';
-import { LocationProvider } from './Context/Location';
 import { UserProvider } from './Context/User';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
@@ -113,7 +112,6 @@ class App extends Component<{}, {}> {
             <ThemeProvider theme={scTheme}>
               <UserProvider>
                 <NotificationsProvider>
-                    <LocationProvider>
                       <MenuProvider>
                         <AppRootView>
                           <StatusBar barStyle="light-content" />
@@ -134,7 +132,6 @@ class App extends Component<{}, {}> {
                           />
                         </AppRootView>
                       </MenuProvider>
-                    </LocationProvider>
                 </NotificationsProvider>
               </UserProvider>
             </ThemeProvider>

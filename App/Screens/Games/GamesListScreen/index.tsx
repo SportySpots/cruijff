@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import moment from 'moment';
 import styled from 'styled-components/native';
-import { LocationContext } from '../../../Context/Location';
 import GET_GAMES_LIST from '../../../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GamesList from '../../../Components/Games/GamesList';
 import NoGamesFound from '../../../Components/Games/NoGamesFound';
@@ -10,6 +9,8 @@ import { NavigationContext } from 'react-navigation';
 import { useQuery } from '@apollo/react-hooks';
 import { QueryResult } from 'react-apollo';
 import { GameCreatedEvent } from "App/Services/GameEvents";
+import locationStore from 'App/Stores/Location';
+import { observer } from "mobx-react";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -22,10 +23,8 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-
 const GamesListScreen = () => {
-  const { locationMapCoords } = useContext(LocationContext);
-  const coords = locationMapCoords;
+  const coords = locationStore.locationMapCoords;
   const navigation = useContext(NavigationContext);
 
   const maxDistance = 20;
@@ -40,7 +39,7 @@ const GamesListScreen = () => {
 
   const query: QueryResult = useQuery(GET_GAMES_LIST, { variables: getVariables(), fetchPolicy: 'cache-and-network'});
   const requery = () => { query.data = null; query.refetch(getVariables()); };
-  React.useEffect(requery, [locationMapCoords]);
+  React.useEffect(requery, [coords]);
 
   const { loading, data, refetch, fetchMore } = query;
 
@@ -79,4 +78,4 @@ const GamesListScreen = () => {
   );
 };
 
-export default GamesListScreen;
+export default observer(GamesListScreen);

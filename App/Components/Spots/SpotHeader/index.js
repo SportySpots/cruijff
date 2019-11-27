@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import geolib from 'geolib';
 
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
-import { withLocation } from '../../../Context/Location';
 import I18n from '../../../I18n';
 // import Rating from '../../Common/Rating';
 import Text from '../../Common/Text';
@@ -14,8 +13,9 @@ import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
 import DotSpacer from '../../Common/DotSpacer';
 import curatedGames from './utils';
-import { compose } from 'react-apollo';
 import { toTitleCase } from '../../../utils';
+import locationStore from 'App/Stores/Location';
+import {observer} from "mobx-react";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -40,8 +40,6 @@ const SpotHeader = ({
   gray,
   withDistance,
   withGames,
-  locationGPSCoords,
-  locationEnabled,
 }) => {
   const {
     name,
@@ -53,7 +51,7 @@ const SpotHeader = ({
   const games = (rawGames && curatedGames(rawGames)) || [];
 
   const showDistance = withDistance
-    && locationEnabled
+    && locationStore.locationEnabled
     && spot.address
     && spot.address.lat
     && spot.address.lng;
@@ -61,7 +59,7 @@ const SpotHeader = ({
   let distance;
   if (showDistance) {
     const spotCoords = { latitude: spot.address.lat, longitude: spot.address.lng };
-    distance = geolib.getDistance(locationGPSCoords, spotCoords);
+    distance = geolib.getDistance(locationStore.locationGPSCoords, spotCoords);
   }
 
   return (
@@ -137,8 +135,5 @@ SpotHeader.defaultProps = {
   withGames: false,
 };
 
-const enhance = compose(
-  withLocation,
-);
 
-export default enhance(SpotHeader);
+export default observer(SpotHeader);

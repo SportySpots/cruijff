@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import { compose } from 'react-apollo';
-import { TopLayout, BottomLayout } from '../../../Components/Layouts/FixedTopLayout';
+import { TopLayout } from '../../../Components/Layouts/FixedTopLayout';
 import SpotsList from '../../../Components/Spots/SpotsList';
 import SpotsFilterFlap from '../../../Components/Spots/SpotsFilterFlap';
-import { IProps as LocationProps, withLocation } from '../../../Context/Location';
 import WebViewMap from '../../../Components/Spots/WebViewMap';
 import {observer} from "mobx-react";
 import { NavigationInjectedProps } from "react-navigation";
 import filters from 'App/Stores/SpotFilters';
+import locationStore from 'App/Stores/Location';
+
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -31,21 +30,17 @@ const Bottom = styled.View`
 // TODO: replace Container with Layout comp
 // TODO: probably move maxDistance to SpotsList and get said value from context
 @observer
-class SpotsListScreen extends React.Component<NavigationInjectedProps & LocationProps> {
+class SpotsListScreen extends React.Component<NavigationInjectedProps> {
   handleCardPress = (spot) => {
     const { navigation } = this.props;
     navigation.navigate('SpotDetailsScreen', { uuid: spot.uuid });
   }
 
   componentWillMount() {
-    const { locationUpdate } = this.props;
-    locationUpdate();
+    locationStore.updateLocation();
   }
 
   render() {
-    const {
-      locationEnabled, locationMapCoords,
-    } = this.props;
     const mode = this.props.navigation.getParam('mode');
     return (
       <FlexOne testID="SpotsListScreen">
@@ -68,7 +63,7 @@ class SpotsListScreen extends React.Component<NavigationInjectedProps & Location
                   cardComponent="SpotListCard"
                   sportsIds={filters.allSports ? [] : filters.selectedSportIds} // empty array will return all spots
                   maxDistance={filters.maxDistance} // km
-                  coords={locationMapCoords}
+                  coords={locationStore.locationMapCoords}
                   onCardPress={this.handleCardPress}
                   selectedSpot={undefined}
                   // FlatList props
@@ -84,4 +79,4 @@ class SpotsListScreen extends React.Component<NavigationInjectedProps & Location
   }
 }
 
-export default withLocation(SpotsListScreen);
+export default SpotsListScreen;

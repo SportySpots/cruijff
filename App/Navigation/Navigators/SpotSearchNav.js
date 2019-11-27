@@ -10,7 +10,8 @@ import SpotsFilterScreen from '../../Screens/Spots/SpotsFilterScreen';
 import AuthScreens from './AuthScreens';
 import { headerTitleStyle } from './style';
 import { View } from 'react-native';
-import { LocationContext, withLocation } from '../../Context/Location';
+import locationStore from 'App/Stores/Location';
+import {observer} from "mobx-react";
 
 //------------------------------------------------------------------------------
 // AUX FUNCTIONS:
@@ -23,24 +24,23 @@ const backBtn = navigation => (
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GPSButton = () => {
-  const { locationEnable, locationDisable, locationEnabled } = useContext(LocationContext);
-  if (locationEnabled) {
+const GPSButton = observer(() => {
+  if (locationStore.locationEnabled) {
     return null;
   }
   return (
     <HeaderBtn
-      iconName={locationEnabled ? 'location-on' : 'location-off'}
+      iconName={locationStore.locationEnabled ? 'location-on' : 'location-off'}
       onPress={() => {
-        if (locationEnabled) {
-          locationDisable();
+        if (locationStore.locationEnabled) {
+          locationStore.locationEnabled = false;
         } else {
-          locationEnable();
+          locationStore.enable();
         }
       }}
     />
   );
-};
+});
 
 const SpotSearchNav = createStackNavigator({
   ...AuthScreens,

@@ -8,7 +8,8 @@ import sportFragment from '../../../GraphQL/Sports/Fragments/sport';
 import spotFragment from '../../../GraphQL/Spots/Fragments/spot';
 import Spacer from '../../Common/Spacer';
 import SpotsList from '../../Spots/SpotsList';
-import { withLocation } from '../../../Context/Location';
+import locationStore from 'App/Stores/Location';
+import { observer } from "mobx-react";
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -28,10 +29,11 @@ const FlexOne = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: probably move maxDistance to SpotsList and get said value from context
+@observer
 class SpotSlide extends React.PureComponent {
   render() {
     const {
-      sport, spot, onChange, locationMapCoords,
+      sport, spot, onChange,
     } = this.props;
 
     return (
@@ -42,7 +44,7 @@ class SpotSlide extends React.PureComponent {
           cardComponent="SpotListCardSmall"
           sportsIds={sport && sport.id ? [sport.id] : []} // empty array will return all spots
           // maxDistance={maxDistance} // km
-          coords={locationMapCoords}
+          coords={locationStore.locationMapCoords}
           selectedSpot={spot}
           onCardPress={(value) => { onChange({ fieldName: 'spot', value }); }}
         />
@@ -67,9 +69,4 @@ SpotSlide.defaultProps = {
   onChange: () => {},
 };
 
-
-const enhance = compose(
-  withLocation,
-);
-
-export default enhance(SpotSlide);
+export default SpotSlide;

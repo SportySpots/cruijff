@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
-import { Query, compose } from 'react-apollo';
+import { Query } from 'react-apollo';
 import styled from 'styled-components/native';
 import moment from 'moment';
 import { withUser, userPropTypes } from '../../../Context/User';
-import { locationPropTypes, withLocation } from '../../../Context/Location';
 import I18n from '../../../I18n';
 import client from '../../../GraphQL/ApolloClient';
 import { addGlobalRef } from '../../../globalRefs';
@@ -14,6 +13,8 @@ import GET_GAME_DETAILS from '../../../GraphQL/Games/Queries/GET_GAME_DETAILS';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import NothingFound from '../../../Components/Common/NothingFound';
 import GameDetails from '../../../Components/Games/GameDetails';
+import locationStore from 'App/Stores/Location';
+import {observer} from "mobx-react";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -24,6 +25,7 @@ const Container = styled(ScrollView)`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class GameDetailsScreen extends React.PureComponent {
   get gameUUID() {
     const { navigation } = this.props;
@@ -64,8 +66,8 @@ class GameDetailsScreen extends React.PureComponent {
   }
 
   render() {
-    const { user, locationMapCoords: coords } = this.props;
-
+    const { user } = this.props;
+    const coords = locationStore.locationMapCoords;
     // Variables for refetching GET_GAMES_LIST query
     const maxDistance = 20; // km // TODO: read from context
 
@@ -148,9 +150,4 @@ GameDetailsScreen.defaultProps = {
   user: null,
 };
 
-const enhance = compose(
-  withUser,
-  withLocation,
-);
-
-export default enhance(GameDetailsScreen);
+export default withUser(GameDetailsScreen);

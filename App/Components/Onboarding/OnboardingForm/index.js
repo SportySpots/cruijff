@@ -8,7 +8,8 @@ import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
 import ImageBackground from '../../../Backgrounds/ImageBackground';
 import Footer from '../../Common/DarkFooter';
-import { withLocation } from '../../../Context/Location';
+import locationStore from 'App/Stores/Location';
+import {observer} from "mobx-react";
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -66,6 +67,7 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class OnboardingForm extends React.Component {
   state = {
     curSlide: 0,
@@ -79,7 +81,7 @@ class OnboardingForm extends React.Component {
   handleLastSlide = () => {
     this.hasHandledLastSlide = true;
     setTimeout(async () => {
-      const result = await this.props.locationEnable();
+      const result = await locationStore.enable();
       if (result) {
         AsyncStorage.setItem('OnboardingCompleted', 'true');
         this.props.navigation.navigate('MainNav');
@@ -172,11 +174,6 @@ OnboardingForm.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  locationEnable: PropTypes.func,
 };
 
-OnboardingForm.defaultProps = {
-  locationEnable: () => {},
-};
-
-export default withLocation(OnboardingForm);
+export default OnboardingForm;
