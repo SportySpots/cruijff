@@ -4,7 +4,6 @@ import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndi
 import FieldBackground from '../Backgrounds/FieldBackground';
 import userStore from 'App/Stores/User';
 import {observer} from "mobx-react";
-import Text from "App/Components/Common/Text";
 
 //------------------------------------------------------------------------------
 // COMPONENT:
