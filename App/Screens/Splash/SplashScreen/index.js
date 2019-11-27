@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { compose } from 'react-apollo';
-import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import FieldBackground from '../../../Backgrounds/FieldBackground';
 import Block from '../../../Components/Common/Block';
@@ -13,6 +12,8 @@ import Text from '../../../Components/Common/Text';
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import LinkNavigate from '../../../Components/Common/LinkNavigate';
 import globalRefs from '../../../globalRefs';
+import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -23,13 +24,15 @@ const FlexOne = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class SplashScreen extends React.Component {
   componentDidMount() {
     globalRefs.SplashScreen = this;
   }
 
   render() {
-    const { navigation, user } = this.props;
+    const { navigation } = this.props;
+    const user = userStore.user;
 
     return (
       <FieldBackground>
@@ -78,18 +81,9 @@ class SplashScreen extends React.Component {
 }
 
 SplashScreen.propTypes = {
-  user: userPropTypes.user,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-SplashScreen.defaultProps = {
-  user: null,
-};
-
-const enhance = compose(
-  withUser,
-);
-
-export default enhance(SplashScreen);
+export default SplashScreen;

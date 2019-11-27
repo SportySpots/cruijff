@@ -8,7 +8,6 @@ import client from '../../../GraphQL/ApolloClient';
 import SeedorfAPI from '../../../Services/SeedorfApi';
 import I18n from '../../../I18n';
 import Images from '../../../Themes/Images';
-import { withUser, userPropTypes } from '../../../Context/User';
 import Spacer from '../../../Components/Common/Spacer';
 import Text from '../../../Components/Common/Text';
 import Row from '../../../Components/Common/Row';
@@ -17,7 +16,8 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import RaisedButton from '../../../Components/Common/RaisedButton';
 import LinkNavigate from '../../../Components/Common/LinkNavigate';
 import { decodeJWTToken } from '../../../utils';
-
+import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -41,6 +41,7 @@ const ButtonContainer = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class ConfirmMagicTokenScreen extends React.PureComponent {
   state = {
     status: 'loading',
@@ -51,9 +52,9 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
   }
 
   async componentWillMount() {
-    const { navigation, user, refetchUser } = this.props;
+    const { navigation } = this.props;
 
-    if (user) {
+    if (userStore.user) {
       this.setState({ status: 'loggedIn' });
       return;
     }
@@ -70,6 +71,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
 
       if (res && res.problem) {
         this.handleExpiredToken();
+        console.log(res);
         return;
       }
 
@@ -80,7 +82,7 @@ class ConfirmMagicTokenScreen extends React.PureComponent {
       // this is being handled for us on ApolloClient.setContext
       client.resetStore();
 
-      await refetchUser(); // TODO: remove this after GET_ME is implemented
+      await userStore.fetchUser()
 
       // save the FCM token
       const claims = decodeJWTToken(token);
@@ -152,12 +154,6 @@ ConfirmMagicTokenScreen.propTypes = {
       }),
     }),
   }).isRequired,
-  user: userPropTypes.user,
-  refetchUser: userPropTypes.refetchUser.isRequired,
 };
 
-ConfirmMagicTokenScreen.defaultProps = {
-  user: null,
-};
-
-export default withUser(ConfirmMagicTokenScreen);
+export default ConfirmMagicTokenScreen;

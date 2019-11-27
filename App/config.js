@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
 import Config from 'react-native-config';
-import './I18n/I18n';
+import './I18n/I18n'
 
 
 if (typeof global.self === 'undefined') {
@@ -62,6 +62,8 @@ if (__DEV__) {
     oldConsoleLog(...args);
     log.push({ logTime: (new Date() - bootTime) / 1000, ...args });
   };
+
+
 }
 
 if (Config.ENVIRONMENT === 'TOM') {

@@ -1,14 +1,11 @@
 import React from 'react';
-// import styled from 'styled-components/native';
-import I18n from '../../../I18n';
-import { userPropTypes } from '../../../Context/User';
 import Block from '../../Common/Block';
 import Row from '../../Common/Row';
 import Spacer from '../../Common/Spacer';
-// import Divider from '../../Common/Divider';
 import Text from '../../Common/Text';
 import Avatar from '../../Common/Avatar';
-// import ProfileTabs from '../ProfileTabs';
+import userStore from 'App/Stores/User';
+import {observer} from "mobx-react";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -20,14 +17,14 @@ import Avatar from '../../Common/Avatar';
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetails = ({ user }) => [
+const ProfileDetails = () => [
   <Block key="top">
     <Row justifyContent="center">
-      <Avatar user={user} size="L" />
+      <Avatar user={userStore.user} size="L" />
     </Row>
     <Spacer size="XL" />
     <Text size="L" center>
-      {user.name}
+      {userStore.user.name}
     </Text>
     <Spacer size="S" />
   </Block>,
@@ -38,8 +35,4 @@ const ProfileDetails = ({ user }) => [
   </Bottom>, */
 ];
 
-ProfileDetails.propTypes = {
-  user: userPropTypes.user.isRequired,
-};
-
-export default ProfileDetails;
+export default observer(ProfileDetails);

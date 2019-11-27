@@ -6,7 +6,6 @@ import {
   Platform,
   BackHandler,
 } from 'react-native';
-import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import FormProps from '../../../RenderProps/form-props';
 import RSVPApiCall from '../../../Components/Games/RSVPApiCall';
@@ -14,10 +13,13 @@ import PlanGameApiCall from '../../../Components/PlanGame/PlanGameApiCall';
 import PlanGameForm from '../../../Components/PlanGame/PlanGameForm';
 import { addGlobalRef } from '../../../globalRefs';
 import {GameCreatedEvent} from "App/Services/GameEvents";
+import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class PlanGameScreen extends React.Component {
   // Handle android back button press
   componentDidMount() {
@@ -59,8 +61,8 @@ class PlanGameScreen extends React.Component {
   }
 
   render() {
-    const { navigation, user } = this.props;
-
+    const { navigation } = this.props;
+    const user = userStore.user;
     const username = user && user.name ? user.name.split(' ')[0] : '';
 
     return (
@@ -127,7 +129,6 @@ PlanGameScreen.propTypes = {
     goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  user: userPropTypes.user.isRequired,
 };
 
-export default withUser(PlanGameScreen);
+export default PlanGameScreen;

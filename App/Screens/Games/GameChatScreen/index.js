@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import ErrorHandling from 'error-handling-utils';
 import I18n from '../../../I18n';
-import { withUser, userPropTypes } from '../../../Context/User';
 import FormProps from '../../../RenderProps/form-props';
 import ChatManagerProps from '../../../RenderProps/chat-manager-props';
 import Row from '../../../Components/Common/Row';
@@ -18,6 +17,8 @@ import ChatBubble from '../../../Components/Chat/ChatBubble';
 import ChatInputToolbar from '../../../Components/Chat/ChatInputToolbar';
 import ChatComposer from '../../../Components/Chat/ChatComposer';
 import ChatSend from '../../../Components/Chat/ChatSend';
+import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -30,9 +31,9 @@ const Relative = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameChatScreen = ({ user, navigation }) => {
+const GameChatScreen = ({ navigation }) => {
   const { roomId } = navigation.state.params;
-
+  const user = userStore.user;
   console.log('USER', user);
   console.log('ROOM ID', roomId);
   // console.log('I18N LOCALE', I18n.locale.substr(0, 2));
@@ -120,7 +121,6 @@ const GameChatScreen = ({ user, navigation }) => {
 };
 
 GameChatScreen.propTypes = {
-  user: userPropTypes.user,
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -130,8 +130,5 @@ GameChatScreen.propTypes = {
   }).isRequired,
 };
 
-GameChatScreen.defaultProps = {
-  user: null,
-};
 
-export default withUser(GameChatScreen);
+export default observer(GameChatScreen);

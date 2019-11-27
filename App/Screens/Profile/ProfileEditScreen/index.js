@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import { compose } from 'react-apollo';
-import { withUser, userPropTypes } from '../../../Context/User';
 import FormProps from '../../../RenderProps/form-props';
 import EditProfileApiCall from '../../../Components/Profile/EditProfileApiCall';
 import EditProfileForm from '../../../Components/Profile/EditProfileForm';
 import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -20,8 +19,6 @@ const Container = styled.View`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const ProfileEditScreen = ({
-  user,
-  refetchUser,
   navigation,
 }) => (
   <FormProps>
@@ -39,7 +36,7 @@ const ProfileEditScreen = ({
         onEditSuccess={() => {
           // Extend formProps.handleSuccess' default functionality
           handleSuccess(async () => {
-            await refetchUser();
+            await userStore.fetchUser();
             navigation.goBack(null);
           });
         }}
@@ -47,7 +44,7 @@ const ProfileEditScreen = ({
         {({ updateProfile }) => (
           <Container>
             <EditProfileForm
-              user={user}
+              user={userStore.user}
               disabled={disabled}
               errors={errors}
               onBeforeHook={handleBefore}
@@ -64,15 +61,9 @@ const ProfileEditScreen = ({
 );
 
 ProfileEditScreen.propTypes = {
-  user: userPropTypes.user.isRequired,
-  refetchUser: userPropTypes.refetchUser.isRequired,
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-const enhance = compose(
-  withUser,
-);
-
-export default enhance(ProfileEditScreen);
+export default observer(ProfileEditScreen);

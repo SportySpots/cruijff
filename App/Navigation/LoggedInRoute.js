@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'react-apollo';
-import { withUser, userPropTypes } from '../Context/User';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
+import userStore from 'App/Stores/User';
+import {observer} from "mobx-react";
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -13,8 +13,6 @@ import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndi
  * overlay component on top of the current route.
  */
 const LoggedInRoute = ({
-  loadingUser,
-  user,
   component: Component,
   overlay: Overlay,
   ...rest
@@ -22,12 +20,12 @@ const LoggedInRoute = ({
   const childProps = { ...rest };
 
   // Wait until user is ready
-  if (loadingUser) {
+  if (userStore.loading) {
     return <CenteredActivityIndicator />;
   }
 
   // In case user is NOT logged in, render overlay component
-  if (!user) {
+  if (!userStore.user) {
     return <Overlay {...childProps} />;
   }
 
@@ -36,19 +34,12 @@ const LoggedInRoute = ({
 };
 
 LoggedInRoute.propTypes = {
-  loadingUser: userPropTypes.loadingUser.isRequired,
-  user: userPropTypes.user,
   component: PropTypes.func.isRequired,
   overlay: PropTypes.func,
 };
 
 LoggedInRoute.defaultProps = {
-  user: null,
   overlay: () => {},
 };
 
-const enhance = compose(
-  withUser,
-);
-
-export default enhance(LoggedInRoute);
+export default observer(LoggedInRoute);

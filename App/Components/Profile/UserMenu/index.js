@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AsyncStorage from '@react-native-community/async-storage';
 import client from '../../../GraphQL/ApolloClient';
-import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import Menu from '../../Common/Menu';
-
+import userStore from 'App/Stores/User';
+import {observer} from "mobx-react";
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class UserMenu extends React.PureComponent {
   handleLogout = async () => {
-    const { navigation, refetchUser } = this.props;
-    // Remove token from async storage and reset apollo store
-    await AsyncStorage.removeItem('TOKEN');
+    const { navigation } = this.props;
+    await userStore.logout();
     // OBS: we don't neet set token for ApolloClient or REST here,
     // this is being handled for us on ApolloClient.setContext
     client.resetStore();
-    await refetchUser(); // TODO: remove this after GET_ME is implemented
+    await userStore.fetchUser()
     navigation.navigate('SplashScreen');
   }
 
@@ -27,7 +27,7 @@ class UserMenu extends React.PureComponent {
   }
 
   render() {
-    const { user } = this.props;
+    const user = userStore.user;
 
     if (!user || !user.uuid) {
       return null;
@@ -58,15 +58,9 @@ class UserMenu extends React.PureComponent {
 }
 
 UserMenu.propTypes = {
-  user: userPropTypes.user,
-  refetchUser: userPropTypes.refetchUser.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-UserMenu.defaultProps = {
-  user: null,
-};
-
-export default withUser(UserMenu);
+export default UserMenu;

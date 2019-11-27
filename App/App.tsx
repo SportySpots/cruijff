@@ -18,7 +18,6 @@ import {
 } from './Services/IncomingLinks';
 
 import { MenuProvider } from 'react-native-popup-menu';
-import { UserProvider } from './Context/User';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
 import { CodePushProvider } from './Context/CodePush';
@@ -110,30 +109,28 @@ class App extends Component<{}, {}> {
         <ApolloHooksProvider client={client}>
           <CodePushProvider>
             <ThemeProvider theme={scTheme}>
-              <UserProvider>
-                <NotificationsProvider>
-                      <MenuProvider>
-                        <AppRootView>
-                          <StatusBar barStyle="light-content" />
-                          {/* <ConnectionCheck /> */}
-                          <AppNavigation
-                            ref={this.router}
-                            // See: https://reactnavigation.org/docs/en/screen-tracking.html
-                            onNavigationStateChange={(prevState, currState): void => {
-                              if (config.logRoute) {
-                                logNavigationState();
-                              }
-                              const currScreen = getActiveRouteName(currState);
-                              const prevScreen = getActiveRouteName(prevState);
-                              if (prevScreen !== currScreen) {
-                                firebase.analytics().setCurrentScreen(currScreen);
-                              }
-                            }}
-                          />
-                        </AppRootView>
-                      </MenuProvider>
-                </NotificationsProvider>
-              </UserProvider>
+              <NotificationsProvider>
+                <MenuProvider>
+                  <AppRootView>
+                    <StatusBar barStyle="light-content" />
+                    {/* <ConnectionCheck /> */}
+                    <AppNavigation
+                      ref={this.router}
+                      // See: https://reactnavigation.org/docs/en/screen-tracking.html
+                      onNavigationStateChange={(prevState, currState): void => {
+                        if (config.logRoute) {
+                          logNavigationState();
+                        }
+                        const currScreen = getActiveRouteName(currState);
+                        const prevScreen = getActiveRouteName(prevState);
+                        if (prevScreen !== currScreen) {
+                          firebase.analytics().setCurrentScreen(currScreen);
+                        }
+                      }}
+                    />
+                  </AppRootView>
+                </MenuProvider>
+              </NotificationsProvider>
             </ThemeProvider>
           </CodePushProvider>
         </ApolloHooksProvider>

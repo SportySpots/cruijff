@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import { withUser, userPropTypes } from '../../../Context/User';
 import { addModelState } from '../../../utils';
 import I18n from '../../../I18n';
 import themeImages from '../../../Themes/Images';
@@ -11,10 +10,13 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import CancelGameApiCall from '../../../Components/Games/CancelGameApiCall';
 import CancelGameForm from '../../../Components/Games/CancelGameForm';
 import ImageModal from '../../../Components/Common/Modals/ImageModal';
+import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class CancelGameScreen extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -33,8 +35,9 @@ class CancelGameScreen extends React.PureComponent {
   }
 
   render() {
-    const { user, navigation } = this.props;
+    const { navigation } = this.props;
     const cancelDoneModal = this.modals.cancelDone;
+    const user = userStore.user;
 
     return (
       <FormProps>
@@ -136,7 +139,6 @@ CancelGameScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: userPropTypes.user.isRequired,
 };
 
-export default withUser(CancelGameScreen);
+export default CancelGameScreen;

@@ -4,11 +4,13 @@ import { Query } from 'react-apollo';
 import I18n from '../../../I18n';
 import Menu from '../../Common/Menu';
 import GET_GAME_ORGANIZER from '../../../GraphQL/Games/Queries/GET_GAME_ORGANIZER';
-import { withUser, userPropTypes } from '../../../Context/User';
+import userStore from 'App/Stores/User';
+import {observer} from "mobx-react";
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class AdminMenu extends React.PureComponent {
   get gameUUID() {
     const { navigation } = this.props;
@@ -26,8 +28,7 @@ class AdminMenu extends React.PureComponent {
   }
 
   render() {
-    const { user } = this.props;
-
+    const user = userStore.user;
     const OPTIONS = [
       {
         id: 'edit',
@@ -81,7 +82,6 @@ class AdminMenu extends React.PureComponent {
 }
 
 AdminMenu.propTypes = {
-  user: userPropTypes.user,
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
@@ -95,8 +95,4 @@ AdminMenu.propTypes = {
   }).isRequired,
 };
 
-AdminMenu.defaultProps = {
-  user: null,
-};
-
-export default withUser(AdminMenu);
+export default AdminMenu;

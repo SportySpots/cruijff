@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'react-apollo';
-import { withUser, userPropTypes } from '../Context/User';
 import CenteredActivityIndicator from '../Components/Common/CenteredActivityIndicator';
 import FieldBackground from '../Backgrounds/FieldBackground';
-import Text from '../Components/Common/Text';
+import userStore from 'App/Stores/User';
+import {observer} from "mobx-react";
+import Text from "App/Components/Common/Text";
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -13,41 +13,31 @@ import Text from '../Components/Common/Text';
  * @summary Makes sure that the user that is trying to access the wrapped route
  * is NOT authenticated. In case she is, call onLoggedIn callback.
  */
+@observer
 class LoggedOutRoute extends React.PureComponent {
-  isLoggedIn = (props) => {
-    const {
-      loadingUser,
-      user,
-    } = props;
-
-    return !loadingUser && user && user.uuid;
-  }
+  isLoggedIn = () => !userStore.loading && userStore.user && userStore.user.uuid
 
   componentWillMount() {
-    const { onLoggedIn, ...rest } = this.props;
-    if (this.isLoggedIn(rest)) {
-      onLoggedIn();
+    if (this.isLoggedIn()) {
+      this.props.onLoggedIn();
     }
   }
 
   componentWillUpdate(nextProps) {
-    const { onLoggedIn, ...rest } = nextProps;
-    if (this.isLoggedIn(rest)) {
-      onLoggedIn();
+    if (this.isLoggedIn()) {
+      nextProps.onLoggedIn();
     }
   }
 
   render() {
     const {
-      loadingUser,
-      user,
       component: Component,
       onLoggedIn,
       ...rest
     } = this.props;
 
     // Wait until user is ready
-    if (loadingUser) {
+    if (userStore.loading) {
       return (
         <FieldBackground>
           <CenteredActivityIndicator secondary={true} />
@@ -56,7 +46,7 @@ class LoggedOutRoute extends React.PureComponent {
     }
 
     // In case user IS logged in, render overlay component
-    if (user && user.uuid) {
+    if (userStore.user && userStore.user.uuid) {
       return <CenteredActivityIndicator />;
     }
 
@@ -66,19 +56,12 @@ class LoggedOutRoute extends React.PureComponent {
 }
 
 LoggedOutRoute.propTypes = {
-  loadingUser: userPropTypes.loadingUser.isRequired,
-  user: userPropTypes.user,
   component: PropTypes.func.isRequired,
   onLoggedIn: PropTypes.func,
 };
 
 LoggedOutRoute.defaultProps = {
-  user: null,
   onLoggedIn: () => {},
 };
 
-const enhance = compose(
-  withUser,
-);
-
-export default enhance(LoggedOutRoute);
+export default LoggedOutRoute;

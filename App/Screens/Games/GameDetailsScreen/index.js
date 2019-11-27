@@ -4,7 +4,6 @@ import { ScrollView } from 'react-native';
 import { Query } from 'react-apollo';
 import styled from 'styled-components/native';
 import moment from 'moment';
-import { withUser, userPropTypes } from '../../../Context/User';
 import I18n from '../../../I18n';
 import client from '../../../GraphQL/ApolloClient';
 import { addGlobalRef } from '../../../globalRefs';
@@ -14,6 +13,7 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import NothingFound from '../../../Components/Common/NothingFound';
 import GameDetails from '../../../Components/Games/GameDetails';
 import locationStore from 'App/Stores/Location';
+import userStore from 'App/Stores/User';
 import {observer} from "mobx-react";
 
 //------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ class GameDetailsScreen extends React.PureComponent {
   // Check whether or not the current user is involved in the game in any way
   // (attending or dropped out from the game)
   getUserRSVP = (game) => {
-    const { user } = this.props;
+    const user = userStore.user;
 
     for (const attendee of game.attendees) {
       if (user && attendee.user.uuid === user.uuid) {
@@ -66,7 +66,7 @@ class GameDetailsScreen extends React.PureComponent {
   }
 
   render() {
-    const { user } = this.props;
+    const user = userStore.user;
     const coords = locationStore.locationMapCoords;
     // Variables for refetching GET_GAMES_LIST query
     const maxDistance = 20; // km // TODO: read from context
@@ -143,11 +143,6 @@ GameDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: userPropTypes.user,
 };
 
-GameDetailsScreen.defaultProps = {
-  user: null,
-};
-
-export default withUser(GameDetailsScreen);
+export default GameDetailsScreen;

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Platform, BackHandler } from 'react-native';
 import { Query } from 'react-apollo';
-import { userPropTypes, withUser } from '../../../Context/User';
 import { addModelState } from '../../../utils';
 import I18n from '../../../I18n';
 import themeImages from '../../../Themes/Images';
@@ -12,10 +11,13 @@ import CenteredActivityIndicator from '../../../Components/Common/CenteredActivi
 import EditGameApiCall from '../../../Components/Games/EditGameApiCall';
 import EditGameForm from '../../../Components/Games/EditGameForm';
 import ImageModal from '../../../Components/Common/Modals/ImageModal';
+import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class EditGameScreen extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -51,7 +53,9 @@ class EditGameScreen extends React.PureComponent {
   }
 
   render() {
-    const { user, navigation } = this.props;
+    const { navigation } = this.props;
+    const user = userStore.user;
+
     const editDoneModal = this.modals.editDone;
 
     return (
@@ -154,7 +158,6 @@ EditGameScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: userPropTypes.user.isRequired,
   onLeave: PropTypes.func,
 };
 
@@ -162,4 +165,4 @@ EditGameScreen.defaultProps = {
   onLeave: () => {},
 };
 
-export default withUser(EditGameScreen);
+export default EditGameScreen;

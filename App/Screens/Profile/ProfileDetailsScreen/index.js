@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { compose } from 'react-apollo';
-import { withUser, userPropTypes } from '../../../Context/User';
 import ProfileDetails from '../../../Components/Profile/ProfileDetails';
-
+import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -15,20 +14,12 @@ const Container = styled.View`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const ProfileDetailsScreen = ({ user }) => (
+const ProfileDetailsScreen = () => (
   <Container testID="ProfileDetailsScreen">
     <ProfileDetails
-      user={user}
+      user={userStore.user}
     />
   </Container>
 );
 
-ProfileDetailsScreen.propTypes = {
-  user: userPropTypes.user.isRequired,
-};
-
-const enhance = compose(
-  withUser,
-);
-
-export default enhance(ProfileDetailsScreen);
+export default observer(ProfileDetailsScreen);

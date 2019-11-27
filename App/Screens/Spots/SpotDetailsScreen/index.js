@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
-import { withUser, userPropTypes } from '../../../Context/User';
 import GET_SPOT_DETAILS from '../../../GraphQL/Spots/Queries/GET_SPOT_DETAILS';
 import Text from '../../../Components/Common/Text';
 import CenteredActivityIndicator from '../../../Components/Common/CenteredActivityIndicator';
 import SpotDetails from '../../../Components/Spots/SpotDetails';
+import {observer} from "mobx-react";
+import userStore from 'App/Stores/User';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -19,6 +20,7 @@ const Container = styled(ScrollView)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 // TODO: implement pagination
+@observer
 class SpotDetailsScreen extends React.PureComponent {
   handleGamePress = (game) => {
     const { navigation } = this.props;
@@ -26,8 +28,8 @@ class SpotDetailsScreen extends React.PureComponent {
   }
 
   render() {
-    const { navigation, user } = this.props;
-
+    const { navigation } = this.props;
+    const user = userStore.user;
     return (
       <Query
         query={GET_SPOT_DETAILS}
@@ -62,11 +64,6 @@ SpotDetailsScreen.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  user: userPropTypes.user,
 };
 
-SpotDetailsScreen.defaultProps = {
-  user: null,
-};
-
-export default withUser(SpotDetailsScreen);
+export default SpotDetailsScreen;
