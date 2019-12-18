@@ -30,8 +30,8 @@ const GamesListScreen = () => {
 
   const maxDistance = 20;
 
-  const getVariables = () => ({
-    offset: (data && data.games && data.games.length) || 0,
+  const getVariables = (offsetCurrent=false) => ({
+    offset: (offsetCurrent && data && data.games && data.games.length) || 0,
     limit: 10,
     ordering: 'start_time',
     start_time__gte: moment().startOf('day').toISOString(),
@@ -44,6 +44,8 @@ const GamesListScreen = () => {
 
   const { loading, data, refetch, fetchMore } = query;
 
+  console.log('glc', data, getVariables());
+
   const handleGamePress = (game) => {
     navigation.navigate('GameDetailsScreen', { uuid: game.uuid });
   };
@@ -51,6 +53,7 @@ const GamesListScreen = () => {
   const loadMore = () => {
     // fetch new games, append to current list.
     fetchMore({
+      variables: getVariables(true),
       updateQuery: (prev, { fetchMoreResult }) =>
         fetchMoreResult
           ?  { ...prev, games: { ...prev.games, ...fetchMoreResult.games} }

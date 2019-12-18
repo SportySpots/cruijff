@@ -6,6 +6,8 @@ import { onError } from 'apollo-link-error';
 import { createHttpLink } from 'apollo-link-http';
 import AsyncStorage from '@react-native-community/async-storage';
 import config from '../config';
+import { print } from 'graphql';
+
 import SeedorfAPI from '../Services/SeedorfApi';
 
 const httpLink = createHttpLink({ uri: config.seedorfGraphQLUrl });
@@ -15,7 +17,8 @@ const authMiddleware = setContext(async (req, { headers }) => {
   const token = await AsyncStorage.getItem('TOKEN');
   // Set auth header for the REST API
   SeedorfAPI.setToken(token);
-  console.log('SET GRAPHQL CONTEXT');
+  // console.log('SET GRAPHQL CONTEXT');
+  // console.log(print(req.query));
   // Return the headers to the context so httpLink can read them
   return {
     headers: {
@@ -27,10 +30,11 @@ const authMiddleware = setContext(async (req, { headers }) => {
 });
 
 export const addErrorHandlers = link => ApolloLink.from([
-  onError(({ graphQLErrors, networkError }) => {
+  onError(({ operation, graphQLErrors, networkError }) => {
     if (graphQLErrors) {
       graphQLErrors.forEach(({ message, locations, path }) => {
         console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
+        console.log(print(operation.query));
       });
     }
     if (networkError) console.log(`[Network error]: ${networkError}`);
