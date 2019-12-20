@@ -30,11 +30,8 @@
   NSURL *jsCodeLocation;
 
   [AppCenterReactNative register];  // Initialize AppCenter
-
   [AppCenterReactNativeCrashes register];  // Initialize AppCenter crashes
-
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:false];  // Initialize AppCenter analytics
-
   [AppCenterReactNative register];  // Initialize AppCenter
 
   [FIROptions defaultOptions].deepLinkURLScheme = @"com.sportyspots.ios";
@@ -54,8 +51,8 @@
     [[UNUserNotificationCenter currentNotificationCenter]
      requestAuthorizationWithOptions:authOptions
      completionHandler:^(BOOL granted, NSError * _Nullable error) {
-       if (error) { NSLog(@"%@", error); }
-     }];
+      if (error) { NSLog(@"%@", error); }
+    }];
   } else {
     // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
     UIUserNotificationType allNotificationTypes =
@@ -66,11 +63,11 @@
   }
   [application registerForRemoteNotifications];
 
-    #ifdef DEBUG
-        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-    #else
-        jsCodeLocation = [CodePush bundleURL];
-    #endif
+#ifdef DEBUG
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+#else
+  jsCodeLocation = [CodePush bundleURL];
+#endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"SportySpots"
@@ -86,7 +83,6 @@
   return YES;
 }
 
-
 // https://rnfirebase.io/docs/v5.x.x/links/ios
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
@@ -99,7 +95,6 @@ continueUserActivity:(NSUserActivity *)userActivity
  restorationHandler:(void (^)(NSArray *))restorationHandler {
   return [[RNFirebaseLinks instance] application:application continueUserActivity:userActivity restorationHandler:restorationHandler];
 }
-
 
 // https://rnfirebase.io/docs/v5.x.x/notifications/ios
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
