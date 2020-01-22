@@ -47,8 +47,6 @@ const GamesListScreen = () => {
 
   const {loading, data, refetch, fetchMore} = query;
 
-  console.log('glc', data, getVariables());
-
   const handleGamePress = (game) => {
     navigation.navigate('GameDetailsScreen', {uuid: game.uuid});
   };

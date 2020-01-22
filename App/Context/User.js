@@ -77,7 +77,6 @@ export class UserProvider extends React.Component {
   }
 
   async componentWillMount() {
-    console.log('USER PROVIDER COMP WILL MOUNT');
     await this.queryUser();
     this.setState({ loading: false });
   }

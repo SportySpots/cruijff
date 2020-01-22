@@ -77,7 +77,6 @@ export class LocationProvider extends React.Component<{children: any}, IState> {
   };
 
   componentDidUpdate() {
-    console.log('saving to async storage');
     AsyncStorage.setItem(ASYNC_STORAGE_KEY, JSON.stringify(this.state));
   }
 
