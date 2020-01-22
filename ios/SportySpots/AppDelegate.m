@@ -27,14 +27,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  NSURL *jsCodeLocation;
-
   [AppCenterReactNative register];  // Initialize AppCenter
-
   [AppCenterReactNativeCrashes register];  // Initialize AppCenter crashes
-
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:false];  // Initialize AppCenter analytics
-
   [AppCenterReactNative register];  // Initialize AppCenter
 
   [FIROptions defaultOptions].deepLinkURLScheme = @"com.sportyspots.ios";
@@ -54,8 +49,8 @@
     [[UNUserNotificationCenter currentNotificationCenter]
      requestAuthorizationWithOptions:authOptions
      completionHandler:^(BOOL granted, NSError * _Nullable error) {
-       if (error) { NSLog(@"%@", error); }
-     }];
+      if (error) { NSLog(@"%@", error); }
+    }];
   } else {
     // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
     UIUserNotificationType allNotificationTypes =
@@ -66,16 +61,11 @@
   }
   [application registerForRemoteNotifications];
 
-    #ifdef DEBUG
-        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-    #else
-        jsCodeLocation = [CodePush bundleURL];
-    #endif
+  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
+                                                   moduleName:@"SportySpots"
+                                            initialProperties:nil];
 
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"SportySpots"
-                                               initialProperties:nil
-                                                   launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -86,6 +76,14 @@
   return YES;
 }
 
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
+{
+#if DEBUG
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+#else
+  return [CodePush bundleURL];
+#endif
+}
 
 // https://rnfirebase.io/docs/v5.x.x/links/ios
 - (BOOL)application:(UIApplication *)application
@@ -99,7 +97,6 @@ continueUserActivity:(NSUserActivity *)userActivity
  restorationHandler:(void (^)(NSArray *))restorationHandler {
   return [[RNFirebaseLinks instance] application:application continueUserActivity:userActivity restorationHandler:restorationHandler];
 }
-
 
 // https://rnfirebase.io/docs/v5.x.x/notifications/ios
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
