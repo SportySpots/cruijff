@@ -35,7 +35,7 @@ const SpotsFilterFlap = ({
       }
 
       // console.log('DATA.SPORTS', data.sports);
-      console.log('SELECTED_SPORT_IDS', selectedSportIds);
+      // console.log('SELECTED_SPORT_IDS', selectedSportIds);
       const tags = [{
         index: 'distance',
         value: `< ${maxDistance.toFixed(1).toString().replace('.0', '')}km`,

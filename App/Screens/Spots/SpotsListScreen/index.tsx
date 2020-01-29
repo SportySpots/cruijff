@@ -8,6 +8,7 @@ import {observer} from "mobx-react";
 import { NavigationInjectedProps } from "react-navigation";
 import filters from 'App/Stores/SpotFilters';
 import locationStore from 'App/Stores/Location';
+import { TouchableWithoutFeedback, View } from "react-native";
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -46,12 +47,17 @@ class SpotsListScreen extends React.Component<NavigationInjectedProps> {
       <FlexOne testID="SpotsListScreen">
         {(!filters.allSports || filters.maxDistance < 20) && (
           <TopLayout>
-            <SpotsFilterFlap
-              maxDistance={filters.maxDistance}
-              allSports={filters.allSports}
-              selectedSportIds={filters.selectedSportIds}
-              // onClose={closeFlap}
-            />
+            <TouchableWithoutFeedback
+              onPress={() => { console.log('click'); this.props.navigation.navigate('SpotsFilterScreen'); }}>
+              <View>
+                <SpotsFilterFlap
+                maxDistance={filters.maxDistance}
+                allSports={filters.allSports}
+                selectedSportIds={filters.selectedSportIds}
+                // onClose={closeFlap}
+              />
+              </View>
+            </TouchableWithoutFeedback>
           </TopLayout>
         )}
         <Bottom>
