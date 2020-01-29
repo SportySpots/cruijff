@@ -40,7 +40,7 @@
     "git-hook": "yarn run lint -s && yarn run test -s",
     "graphql:updateSchema": "get-graphql-schema https://api.sportyspots.com/graphql > schema.graphql",
     "graphql:updateSchemaJSON": "get-graphql-schema https://api.sportyspots.com/graphql > schema.graphql.json --json",
-    "lint": "tslint App/**/*.js",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs tslint",
     "precommit": "lint-staged",
     "prestorybook": "rnstl",
