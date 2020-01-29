@@ -46,7 +46,7 @@ export class LogStore {
             if (args.length === 1) {
               this.log(args[0], mapper[consoleLogLevel])
             }
-            if (args.length === 2) {
+            else if (args.length === 2) {
               this.log(args[0], mapper[consoleLogLevel], args[1])
             } else {
               this.log(args[0], mapper[consoleLogLevel], args.slice(1))
