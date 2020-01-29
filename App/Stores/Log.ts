@@ -8,7 +8,7 @@ export enum Level {
   ERROR="ERROR"
 }
 
-interface LogEntry {
+export interface LogEntry {
   level: Level;
   message: string;
   timestamp: number;

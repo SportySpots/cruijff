@@ -60,6 +60,7 @@
     "@react-native-community/async-storage": "^1.4.0",
     "@react-native-community/netinfo": "^2.0.10",
     "@react-native-community/slider": "^1.1.1",
+    "@sentry/react-native": "^1.2.2",
     "@types/recompose": "^0.30.7",
     "apisauce": "^1.0.0",
     "apollo-cache-inmemory": "1.6.3",

@@ -26,6 +26,7 @@ const settings = {
   testBuild: Config.TEST_BUILD === 'YES',
   testHostUrl: Config.TEST_HOST_URL,
   useFixtures: Config.USE_FIXTURES === 'YES', // DISABLED FOR NOW DUE TO BUG
+  sentryDSN: Config.SENTRY_DSN
 };
 
 if (settings.testBuild) {
