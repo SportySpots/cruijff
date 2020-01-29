@@ -5,7 +5,7 @@ import userStore from 'App/Stores/User';
 import locationStore from 'App/Stores/Location';
 import spotFilterStore from 'App/Stores/SpotFilters';
 import codePushStore from 'App/Stores/CodePush';
-import logStore, { Level, LogEntry } from 'App/Stores/Log';
+import logStore, { Level } from 'App/Stores/Log';
 
 import * as Sentry from '@sentry/react-native';
 
@@ -25,7 +25,7 @@ if (config.sentryDSN) {
       [Level.WARN]: Sentry.Severity.Warning,
       [Level.ERROR]: Sentry.Severity.Error,
     }
-    const sentryHandler = (entry: LogEntry) => {
+    const sentryHandler = (entry) => {
       Sentry.captureMessage(entry.message, mapper[entry.level])
     }
     logStore.handlers.push(sentryHandler)
