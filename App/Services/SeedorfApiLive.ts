@@ -246,9 +246,6 @@ const create = () => {
       } else {
         api.deleteHeader('Authorization');
         CookieManager.clearAll()
-          .then((res) => {
-            console.log('CookieManager.clearAll =>', res);
-          });
       }
     },
   };

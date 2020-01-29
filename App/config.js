@@ -13,16 +13,18 @@ if (typeof global.self === 'undefined') {
 Text.allowFontScaling = true;
 
 const settings = {
-  seedorfRestUrl: Config.SEEDORF_REST_URL,
-  seedorfGraphQLUrl: Config.SEEDORF_GRAPHQL_URL,
-  seedorfChatkitUrl: Config.SEEDORF_CHATKIT_URL,
   chatkitInstanceLocator: Config.CHATKIT_INSTANCE_LOCATOR,
-  useFixtures: Config.USE_FIXTURES === 'YES', // DISABLED FOR NOW DUE TO BUG
+  codepushDeploymentAndroidKey: Config.CODEPUSH_DEPLOYMENT_ANDROID_KEY,
+  codepushDeploymentIosKey: Config.CODEPUSH_DEPLOYMENT_IOS_KEY,
   deeplinkHost: Config.DEEPLINK_HOST,
+  logGraphQLQueries: false,
+  logRoute: false,
+  seedorfChatkitUrl: Config.SEEDORF_CHATKIT_URL,
+  seedorfGraphQLUrl: Config.SEEDORF_GRAPHQL_URL,
+  seedorfRestUrl: Config.SEEDORF_REST_URL,
   testBuild: Config.TEST_BUILD === 'YES',
   testHostUrl: Config.TEST_HOST_URL,
-  logRoute: false,
-  logGraphQLQueries: false,
+  useFixtures: Config.USE_FIXTURES === 'YES', // DISABLED FOR NOW DUE TO BUG
 };
 
 if (settings.testBuild) {

@@ -30,6 +30,12 @@ export const urlToEvent = (url) => {
   }
 }
 
-firebase.links().onLink(urlToEvent);
+firebase.links().onLink(url => {
+  console.log('link received: ', url);
+  urlToEvent(url)
+});
 
-export const emitInitialLinkEvent = () => firebase.links().getInitialLink().then(urlToEvent);
+export const emitInitialLinkEvent = () => firebase.links().getInitialLink().then(url => {
+  console.log('initial link: ', url);
+  urlToEvent(url);
+});
