@@ -43,7 +43,14 @@ export class LogStore {
       Object.keys(mapper).forEach(consoleLogLevel => {
         console[consoleLogLevel] = (...args: any[]) => {
           if (args.length > 0 && typeof args[0] === 'string') {
-            this.log(args[0], mapper[consoleLogLevel], args.length > 1 ? args.slice(1) : null)
+            if (args.length === 1) {
+              this.log(args[0], mapper[consoleLogLevel])
+            }
+            if (args.length === 2) {
+              this.log(args[0], mapper[consoleLogLevel], args[1])
+            } else {
+              this.log(args[0], mapper[consoleLogLevel], args.slice(1))
+            }
           } else {
             this.log('', mapper[consoleLogLevel], args)
           }

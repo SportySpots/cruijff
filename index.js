@@ -7,7 +7,7 @@ import codePushStore from 'App/Stores/CodePush';
 import logStore from 'App/Stores/Log';
 
 if (__DEV__) {
-  window.stores = {
+  global.stores = window.stores = {
     user: userStore,
     location: locationStore,
     spotFilters: spotFilterStore,

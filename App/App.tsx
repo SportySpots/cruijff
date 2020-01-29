@@ -46,7 +46,7 @@ const AppRootView = styled.View`
 export const rootRouter = React.createRef<NavigationContainerComponent>();
 if (__DEV__) {
   // @ts-ignore
-  window.router = rootRouter;
+  global.router = window.router = rootRouter;
 }
 //------------------------------------------------------------------------------
 // COMPONENT:
