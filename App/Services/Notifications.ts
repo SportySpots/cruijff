@@ -1,34 +1,15 @@
-import React from 'react';
 import firebase from 'react-native-firebase';
 
-//------------------------------------------------------------------------------
-// CONSTANTS:
-//------------------------------------------------------------------------------
-
-interface IState {
-}
-
-interface IProps extends IState {
-}
-
-// The defaultValue argument is ONLY used when a component does not have a matching
-// Provider above it in the tree. This can be helpful for testing components in isolation
-// without wrapping them. Note: passing undefined as a Provider value does not cause
-// consuming components to use defaultValue.
-const defaultValue: IProps = {
-};
-
-export const NotificationsContext = React.createContext(defaultValue);
-
-export class NotificationsProvider extends React.Component<{children: any}, IState> {
-  state: IState = {
-  };
-
+export class NotificationsManager {
   private notificationOpenedListener: (() => any) | null = null;
   private notificationDisplayedListener: (() => any) | null = null;
   private notificationListener: (() => any) | null = null;
 
-  async componentWillMount() {
+  constructor() {
+    this.init();
+  }
+
+  async init() {
     // create android notification channel to display notifications while app in foreground
     const channel = new firebase.notifications.Android
       .Channel('notifications', 'Notification Channel', firebase.notifications.Android.Importance.Max)
@@ -73,28 +54,4 @@ export class NotificationsProvider extends React.Component<{children: any}, ISta
       }
     });
   }
-
-  render() {
-    const { children } = this.props;
-    const providerValue = {
-      ...this.state,
-    };
-
-    return (
-      <NotificationsContext.Provider
-        value={providerValue}
-      >
-        {children}
-      </NotificationsContext.Provider>
-    );
-  }
 }
-
-export const NotificationsConsumer = NotificationsContext.Consumer;
-
-export const withNotifications = <P extends object>(Component: React.ComponentType<IProps & P>) =>
-  React.forwardRef((props: P, ref) => (
-    <NotificationsConsumer>
-      {(locationProps: IProps) => <Component ref={ref} {...props} {...locationProps} />}
-    </NotificationsConsumer>
-  ));

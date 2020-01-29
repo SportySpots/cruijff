@@ -20,8 +20,6 @@ import {
 import { MenuProvider } from 'react-native-popup-menu';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
-import { CodePushProvider } from './Context/CodePush';
-import { NotificationsProvider } from './Context/Notifications';
 
 import styled, { ThemeProvider } from 'styled-components/native';
 import { getBottomSpace, ifIphoneX } from './iphoneHelpers';
@@ -29,6 +27,7 @@ import scTheme from './Themes/scTheme'; // styled-components theme
 import { StatusBar } from 'react-native';
 
 import store from './Stores/SpotFilters';
+import { NotificationsManager } from "App/Services/Notifications";
 setTimeout(() => {
   store.maxDistance = 99;
 }, 1000)
@@ -44,35 +43,29 @@ const AppRootView = styled.View`
   margin-top: ${ifIphoneX() ? 30 : 0}px;
 `;
 
+export const rootRouter = React.createRef<NavigationContainerComponent>();
+if (__DEV__) {
+  // @ts-ignore
+  window.router = rootRouter;
+}
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 class App extends Component<{}, {}> {
-  private router = React.createRef<NavigationContainerComponent>();
-
   constructor(props) {
     super(props);
     Crashes.setEnabled(true).then(() => null);
-
-    // firebase.links().getInitialLink()
-    //   .then((url) => {
-    //     if (url) {
-    //       console.log('LINKING: App opened from', url);
-    //     } else {
-    //       console.log('LINKING: App not opened through url');
-    //     }
-    //   });
-    //
-    // firebase.links().onLink((url) => {
-    //   console.log('LINKING: App received link: ', url);
-    // });
   }
 
   componentDidMount() {
     // signals codepush that the app is ready. If this is not called, CodePush rolls back
     // the last update.
     codePush.notifyAppReady();
-    const router = this.router.current;
+
+    new NotificationsManager();
+
+    const router = rootRouter.current;
+
     MagicLinkLoginEvent.on(({token}) => {
       if (router) {
         router.dispatch(NavigationActions.navigate({
@@ -107,32 +100,28 @@ class App extends Component<{}, {}> {
         client={client}
       >
         <ApolloHooksProvider client={client}>
-          <CodePushProvider>
-            <ThemeProvider theme={scTheme}>
-              <NotificationsProvider>
-                <MenuProvider>
-                  <AppRootView>
-                    <StatusBar barStyle="light-content" />
-                    {/* <ConnectionCheck /> */}
-                    <AppNavigation
-                      ref={this.router}
-                      // See: https://reactnavigation.org/docs/en/screen-tracking.html
-                      onNavigationStateChange={(prevState, currState): void => {
-                        if (config.logRoute) {
-                          logNavigationState();
-                        }
-                        const currScreen = getActiveRouteName(currState);
-                        const prevScreen = getActiveRouteName(prevState);
-                        if (prevScreen !== currScreen) {
-                          firebase.analytics().setCurrentScreen(currScreen);
-                        }
-                      }}
-                    />
-                  </AppRootView>
-                </MenuProvider>
-              </NotificationsProvider>
-            </ThemeProvider>
-          </CodePushProvider>
+          <ThemeProvider theme={scTheme}>
+            <MenuProvider>
+              <AppRootView>
+                <StatusBar barStyle="light-content" />
+                {/* <ConnectionCheck /> */}
+                <AppNavigation
+                  ref={rootRouter}
+                  // See: https://reactnavigation.org/docs/en/screen-tracking.html
+                  onNavigationStateChange={(prevState, currState): void => {
+                    if (config.logRoute) {
+                      logNavigationState();
+                    }
+                    const currScreen = getActiveRouteName(currState);
+                    const prevScreen = getActiveRouteName(prevState);
+                    if (prevScreen !== currScreen) {
+                      firebase.analytics().setCurrentScreen(currScreen);
+                    }
+                  }}
+                />
+              </AppRootView>
+            </MenuProvider>
+          </ThemeProvider>
         </ApolloHooksProvider>
       </ApolloProvider>
     );

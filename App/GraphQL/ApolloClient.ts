@@ -9,6 +9,7 @@ import config from '../config';
 import { print } from 'graphql';
 
 import SeedorfAPI from '../Services/SeedorfApi';
+import { log } from 'App/Stores/Log';
 
 const httpLink = createHttpLink({ uri: config.seedorfGraphQLUrl });
 
@@ -33,11 +34,12 @@ export const addErrorHandlers = link => ApolloLink.from([
   onError(({ operation, graphQLErrors, networkError }) => {
     if (graphQLErrors) {
       graphQLErrors.forEach(({ message, locations, path }) => {
-        console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
-        console.log(print(operation.query));
+        console.warn(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`, {
+          query: print(operation.query)
+        });
       });
     }
-    if (networkError) console.log(`[Network error]: ${networkError}`);
+    if (networkError) console.warn(`[Network error]:`, networkError);
   }),
   link,
 ]);

@@ -1,21 +1,22 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import PropTypes from 'prop-types';
-import I18n from '../../../I18n';
-import LogoHeaderBackground from '../../../Backgrounds/LogoHeaderBackground';
-import Block from '../../../Components/Common/Block';
-import Spacer from '../../../Components/Common/Spacer';
-import Divider from '../../../Components/Common/Divider';
-import Text from '../../../Components/Common/Text';
-import LinkOpenURL from '../../../Components/Common/LinkOpenURL';
-import { version as packageJSONVersion } from '../../../../package.json';
-import { codePushPropTypes, UPDATE_STATUS, withCodePush } from '../../../Context/CodePush';
+import I18n from 'App/I18n';
+import LogoHeaderBackground from 'App/Backgrounds/LogoHeaderBackground';
+import Block from 'App/Components/Common/Block';
+import Spacer from 'App/Components/Common/Spacer';
+import Divider from 'App/Components/Common/Divider';
+import Text from 'App/Components/Common/Text';
+import LinkOpenURL from 'App/Components/Common/LinkOpenURL';
+import { version as packageJSONVersion } from 'App/../package.json';
 import codePush from 'react-native-code-push';
-import RaisedButton from '../../../Components/Common/RaisedButton';
-
+import RaisedButton from 'App/Components/Common/RaisedButton';
+import {observer} from "mobx-react";
+import codePushStore, { UPDATE_STATUS } from 'App/Stores/CodePush'
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
+@observer
 class InfoScreen extends React.Component {
   state = {
     versionTaps: 0,
@@ -46,8 +47,8 @@ class InfoScreen extends React.Component {
 
   render() {
     // eslint-disable-next-line react/destructuring-assignment
-    const codePushMetaData = this.props.current;
-    const { updateStatus } = this.props;
+    const codePushMetaData = codePushStore.current
+    const updateStatus = codePushStore.updateStatus
 
     return (
       <LogoHeaderBackground>
@@ -100,10 +101,9 @@ class InfoScreen extends React.Component {
 }
 
 InfoScreen.propTypes = {
-  ...codePushPropTypes,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default withCodePush(InfoScreen);
+export default InfoScreen;

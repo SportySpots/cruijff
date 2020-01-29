@@ -1,6 +1,7 @@
 import { Text } from 'react-native';
 import Config from 'react-native-config';
 import './I18n/I18n'
+import { log } from "App/Stores/Log";
 
 
 if (typeof global.self === 'undefined') {
@@ -31,8 +32,6 @@ if (settings.testBuild) {
   console.disableYellowBox = true;
 }
 
-export const log = [];
-
 const enableNetworkRequestInspection = () => {
   // use this to enable network request inspection in the (chrome) debugger.
   // NOTE: you'll need to disable CORS checking e.g. by running chrome with `--disable-web-security`.
@@ -57,15 +56,6 @@ if (__DEV__) {
   // If ReactNative's yellow box warnings are too much, it is possible to turn
   // it off, but the healthier approach is to fix the warnings.  =)
   // console.disableYellowBox = false;
-} else {
-  const bootTime = new Date();
-  const oldConsoleLog = console.log;
-  console.log = (...args) => {
-    oldConsoleLog(...args);
-    log.push({ logTime: (new Date() - bootTime) / 1000, ...args });
-  };
-
-
 }
 
 if (Config.ENVIRONMENT === 'TOM') {
@@ -89,6 +79,6 @@ if (Config.ENVIRONMENT === 'TOM') {
   settings.testBuild = false;
 }
 
-console.log('settings', settings);
+log.info('settings', settings);
 
 export default settings;

@@ -3,12 +3,16 @@ import App from './App/App';
 import userStore from 'App/Stores/User';
 import locationStore from 'App/Stores/Location';
 import spotFilterStore from 'App/Stores/SpotFilters';
+import codePushStore from 'App/Stores/CodePush';
+import logStore from 'App/Stores/Log';
 
 if (__DEV__) {
   window.stores = {
     user: userStore,
     location: locationStore,
     spotFilters: spotFilterStore,
+    codePush: codePushStore,
+    log: logStore,
   }
 }
 // https://github.com/apollographql/apollo-client/issues/3236
