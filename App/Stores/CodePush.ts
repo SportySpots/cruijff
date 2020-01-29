@@ -25,7 +25,7 @@ export class CodePushStore {
 
   async start() {
     this.checkForUpdates()
-    this.startInterval()
+    // this.startInterval()
     this.current = await codePush.getUpdateMetadata()
   }
 

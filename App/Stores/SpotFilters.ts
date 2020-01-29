@@ -1,7 +1,5 @@
 import { observable } from 'mobx';
-import { persist } from "./utils";
-
-export const ASYNC_STORAGE_KEY = 'SpotFilterProviderState';
+// import { persist } from "./utils";
 
 export class SpotFiltersStore {
   @observable maxDistance = 20;
@@ -12,6 +10,7 @@ export class SpotFiltersStore {
 }
 
 const store = new SpotFiltersStore();
-persist(store, ASYNC_STORAGE_KEY);
+// const ASYNC_STORAGE_KEY = 'SpotFilterProviderState';
+// persist(store, ASYNC_STORAGE_KEY);
 
 export default store;
