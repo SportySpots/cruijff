@@ -48,7 +48,7 @@ class SpotsListScreen extends React.Component<NavigationInjectedProps> {
         {(!filters.allSports || filters.maxDistance < 20) && (
           <TopLayout>
             <TouchableWithoutFeedback
-              onPress={() => { console.log('click'); this.props.navigation.navigate('SpotsFilterScreen'); }}>
+              onPress={() => { this.props.navigation.navigate('SpotsFilterScreen'); }}>
               <View>
                 <SpotsFilterFlap
                 maxDistance={filters.maxDistance}

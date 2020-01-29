@@ -70,7 +70,7 @@ const SpotSearchNav = createStackNavigator({
   SpotsListScreen: {
     screen: SpotsListScreen,
     params: {
-      mode: 'map' // todo: set back to 'list'
+      mode: 'list', // 'map'
     },
     navigationOptions: ({ navigation }) => ({
       headerTitle: I18n.t('spotsListScreen.navigation.title'),
