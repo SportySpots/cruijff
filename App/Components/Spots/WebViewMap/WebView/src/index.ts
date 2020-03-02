@@ -39,7 +39,7 @@ const selectedIcon = new L.Icon({
   iconSize: new L.Point(30, 30),
 });
 
-const tilemapURL = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
+const tilemapURL = 'https://maps.sportyspots.com/styles/osm-bright/{z}/{x}/{y}@2x.png';
 
 interface ICoords {
   lat: number;
