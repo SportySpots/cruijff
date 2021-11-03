@@ -119,7 +119,7 @@
     "stacktrace-js": "^2.0.0",
     "styled-components": "^4.2.0",
     "tinycolor2": "^1.4.1",
-    "validator": "^10.8.0",
+    "validator": "^13.7.0",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
