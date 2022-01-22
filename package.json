@@ -155,7 +155,7 @@
     "mocha": "^6.1.4",
     "mockdate": "^2.0.2",
     "mockery": "^2.1.0",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^3.1.1",
     "react-dom": "16.8.6",
     "react-native-cli": "2.0.1",
     "react-native-storybook-loader": "^1.8.0",
