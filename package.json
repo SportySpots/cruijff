@@ -86,7 +86,7 @@
     "mobx": "^5.15.0",
     "mobx-react": "^6.1.4",
     "moment": "^2.22.2",
-    "moment-timezone": "^0.5.21",
+    "moment-timezone": "^0.5.35",
     "prop-types": "15.7.2",
     "querystringify": "2.1.1",
     "ramda": "^0.26.1",
